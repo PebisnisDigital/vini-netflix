@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/vini",
+      "destination": "/vini/index.html"
+    }
+  ]
+}
