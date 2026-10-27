@@ -8,7 +8,7 @@ import { RailButtons } from './Rail';
 
 export default function TopPicks() {
   const rail = useRef<HTMLDivElement>(null);
-  const { pause } = useAutoRail(rail, { speed: 56 });
+  const { pause } = useAutoRail(rail, { speed: 115 });
   return (
     <>
       <SectionHeading kicker="10 Sorotan · perjalanan & karya" title="Pilihan Teh Vini" />

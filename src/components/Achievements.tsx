@@ -19,7 +19,7 @@ function Laurel({ side }: { side: 'l' | 'r' }) {
 export default function Achievements() {
   const momentsRail = useRef<HTMLDivElement>(null);
   const certificateRail = useRef<HTMLDivElement>(null);
-  const { pause } = useAutoRail(momentsRail, { speed: 34 });
+  const { pause } = useAutoRail(momentsRail, { speed: 88 });
   const issuers = Array.from(new Set(certifications.map((c) => c.issuer)));
 
   return (

@@ -15,11 +15,12 @@ type AutoRailOptions = {
  */
 export function useAutoRail(
   rail: RefObject<HTMLDivElement | null>,
-  { speed = 44, pauseMs = 6500 }: AutoRailOptions = {},
+  { speed = 92, pauseMs = 1600 }: AutoRailOptions = {},
 ) {
   const reducedMotion = useReducedMotionPref();
   const pausedUntil = useRef(0);
   const direction = useRef<1 | -1>(1);
+  const pointerActive = useRef(false);
 
   const pause = useCallback((duration = pauseMs) => {
     pausedUntil.current = performance.now() + duration;
@@ -43,11 +44,14 @@ export function useAutoRail(
       const elapsed = previousTime ? Math.min((time - previousTime) / 1000, 0.05) : 0;
       previousTime = time;
 
-      const focused = element.contains(document.activeElement);
-      if (!document.hidden && !focused && time >= pausedUntil.current) {
+      if (!document.hidden && !pointerActive.current && time >= pausedUntil.current) {
         const last = Math.max(0, element.scrollWidth - element.clientWidth);
         if (last > 2) {
-          let next = element.scrollLeft + direction.current * speed * elapsed;
+          // Slow gently near each end so the change of direction feels natural.
+          const room = direction.current > 0 ? last - element.scrollLeft : element.scrollLeft;
+          const easingZone = Math.min(100, last / 3);
+          const easing = 0.45 + 0.55 * Math.min(1, Math.max(0, room / easingZone));
+          let next = element.scrollLeft + direction.current * speed * easing * elapsed;
           if (next >= last) {
             next = last;
             direction.current = -1;
@@ -70,23 +74,38 @@ export function useAutoRail(
         cancelAnimationFrame(animationFrame);
         animationFrame = 0;
       }
-    }, { threshold: 0.15 });
+    }, { threshold: 0 });
     observer.observe(element);
 
-    const userInteracted = () => pause();
-    element.addEventListener('pointerdown', userInteracted, { passive: true });
-    element.addEventListener('touchstart', userInteracted, { passive: true });
-    element.addEventListener('wheel', userInteracted, { passive: true });
-    element.addEventListener('focusin', userInteracted);
+    const pointerDown = () => { pointerActive.current = true; pause(); };
+    const pointerUp = () => {
+      if (!pointerActive.current) return;
+      pointerActive.current = false;
+      pause();
+    };
+    const touchStart = () => pause();
+    const horizontalWheel = (event: WheelEvent) => {
+      // Vertical page scrolling over the cards must not freeze the carousel.
+      if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) pause();
+    };
+    const focusIn = () => pause();
+    element.addEventListener('pointerdown', pointerDown, { passive: true });
+    window.addEventListener('pointerup', pointerUp, { passive: true });
+    window.addEventListener('pointercancel', pointerUp, { passive: true });
+    element.addEventListener('touchstart', touchStart, { passive: true });
+    element.addEventListener('wheel', horizontalWheel, { passive: true });
+    element.addEventListener('focusin', focusIn);
 
     return () => {
       observer.disconnect();
       if (animationFrame) cancelAnimationFrame(animationFrame);
       element.style.scrollSnapType = originalSnap;
-      element.removeEventListener('pointerdown', userInteracted);
-      element.removeEventListener('touchstart', userInteracted);
-      element.removeEventListener('wheel', userInteracted);
-      element.removeEventListener('focusin', userInteracted);
+      element.removeEventListener('pointerdown', pointerDown);
+      window.removeEventListener('pointerup', pointerUp);
+      window.removeEventListener('pointercancel', pointerUp);
+      element.removeEventListener('touchstart', touchStart);
+      element.removeEventListener('wheel', horizontalWheel);
+      element.removeEventListener('focusin', focusIn);
     };
   }, [rail, speed, reducedMotion, pause]);
 

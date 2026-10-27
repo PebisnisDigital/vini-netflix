@@ -17,7 +17,7 @@ export default function ContinueWatching({ order }: { order: SectionId[] }) {
   const fine = useFinePointer();
   const [hovered, setHovered] = useState<number | null>(null);
   const rail = useRef<HTMLDivElement>(null);
-  const { pause } = useAutoRail(rail, { speed: 48 });
+  const { pause } = useAutoRail(rail, { speed: 100 });
 
   return (
     <section aria-labelledby="continue-title" className="relative z-10 -mt-10 pb-10 sm:-mt-16">
