@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState, type PointerEvent } from 'react';
+import { Fragment, useCallback, useRef, useState, type PointerEvent } from 'react';
 import { motion } from 'framer-motion';
 import { profile, projects, type Project } from '../data/portfolio';
 import { useAutoRail } from '../hooks/useAutoRail';
@@ -19,14 +19,15 @@ export default function Originals({ onOpen }: { onOpen: (p: Project) => void }) 
   const [active, setActive] = useState(0);
   const [dragging, setDragging] = useState(false);
   const reduced = useReducedMotionPref();
-  const { pause } = useAutoRail(rail, { travelMs: 2100, holdMs: 500, pauseMs: 1800 });
   const hasWebsite = Boolean(profile.links.website);
   const slideCount = projects.length + (hasWebsite ? 1 : 0);
+  const { pause } = useAutoRail(rail, { itemCount: slideCount, speed: 110, pauseMs: 1800 });
 
   const scrollToSlide = useCallback((index: number, manual = false) => {
     const el = rail.current;
     if (!el) return;
-    const item = el.children[index] as HTMLElement | undefined;
+    // The middle copy is the canonical, keyboard-accessible card set.
+    const item = el.children[index + slideCount] as HTMLElement | undefined;
     if (!item) return;
 
     if (manual) pause();
@@ -53,8 +54,9 @@ export default function Originals({ onOpen }: { onOpen: (p: Project) => void }) 
         nearest = i;
       }
     }
-    currentIndex.current = nearest;
-    setActive(nearest);
+    const normalizedIndex = nearest % slideCount;
+    currentIndex.current = normalizedIndex;
+    setActive(normalizedIndex);
   };
 
   const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
@@ -135,17 +137,22 @@ export default function Originals({ onOpen }: { onOpen: (p: Project) => void }) 
         viewport={{ once: true, margin: '-10% 0px' }}
         transition={{ duration: 0.8, ease: EASE }}
       >
-        {projects.map((project, index) => (
-          <ProjectCard key={project.id} project={project} index={index} onOpen={() => onOpen(project)} />
+        {[0, 1, 2].map((copy) => (
+          <Fragment key={copy}>
+            {projects.map((project, index) => (
+              <ProjectCard key={project.id} project={project} index={index} duplicate={copy !== 1} onOpen={() => onOpen(project)} />
+            ))}
+            {hasWebsite && (
+              <a href={profile.links.website} target="_blank" rel="noreferrer" data-cursor="link"
+                aria-hidden={copy !== 1} tabIndex={copy === 1 ? 0 : -1}
+                className="group flex aspect-[3/4] w-[70vw] shrink-0 snap-start flex-col items-center justify-center gap-4 rounded-2xl border border-dashed border-white/15 text-center transition hover:border-crimson-2/60 sm:w-[44vw] lg:aspect-auto lg:h-[66vh] lg:w-[24vw]">
+                <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/25 text-2xl text-bone transition group-hover:scale-110 group-hover:border-crimson-2 group-hover:text-crimson-2">↗</span>
+                <span className="font-display text-3xl tracking-wide text-bone">Kunjungi Website</span>
+                <span className="text-xs text-mist">{profile.links.website.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
+              </a>
+            )}
+          </Fragment>
         ))}
-        {hasWebsite && (
-          <a href={profile.links.website} target="_blank" rel="noreferrer" data-cursor="link"
-            className="group flex aspect-[3/4] w-[70vw] shrink-0 snap-start flex-col items-center justify-center gap-4 rounded-2xl border border-dashed border-white/15 text-center transition hover:border-crimson-2/60 sm:w-[44vw] lg:aspect-auto lg:h-[66vh] lg:w-[24vw]">
-            <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/25 text-2xl text-bone transition group-hover:scale-110 group-hover:border-crimson-2 group-hover:text-crimson-2">↗</span>
-            <span className="font-display text-3xl tracking-wide text-bone">Kunjungi Website</span>
-            <span className="text-xs text-mist">{profile.links.website.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
-          </a>
-        )}
       </motion.div>
 
       <div className="gutter mt-2 flex items-center justify-between gap-4">

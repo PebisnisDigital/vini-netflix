@@ -2,26 +2,24 @@ import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { topPicks } from '../data/portfolio';
 import { useAutoRail } from '../hooks/useAutoRail';
-import { EASE, SectionHeading } from './fx';
+import { SectionHeading } from './fx';
 import { PosterBackdrop } from './Poster';
 import { RailButtons } from './Rail';
 
 export default function TopPicks() {
   const rail = useRef<HTMLDivElement>(null);
-  const { pause } = useAutoRail(rail, { travelMs: 1750, holdMs: 450 });
+  const { pause } = useAutoRail(rail, { itemCount: topPicks.length, speed: 120 });
   return (
     <>
       <SectionHeading kicker="10 Sorotan · perjalanan & karya" title="Pilihan Teh Vini" />
       <div className="group/rail relative">
         <div ref={rail} className="rail gutter flex snap-x snap-mandatory gap-2 overflow-x-auto py-6">
-          {topPicks.map((pick, i) => (
+          {[0, 1, 2].flatMap((copy) => topPicks.map((pick, i) => (
             <motion.div
-              key={pick.title}
+              key={`${copy}-${pick.title}`}
+              aria-hidden={copy !== 1}
               className="group relative flex h-[260px] shrink-0 snap-start items-end sm:h-[300px]"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '0px -5% 0px 0px' }}
-              transition={{ duration: 0.7, delay: Math.min(i, 5) * 0.06, ease: EASE }}
+              initial={false}
             >
               <span
                 aria-hidden
@@ -43,7 +41,7 @@ export default function TopPicks() {
                 </div>
               </div>
             </motion.div>
-          ))}
+          )))}
         </div>
         <RailButtons rail={rail} onNavigate={pause} />
       </div>

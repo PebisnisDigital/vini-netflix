@@ -19,7 +19,7 @@ function Laurel({ side }: { side: 'l' | 'r' }) {
 export default function Achievements() {
   const momentsRail = useRef<HTMLDivElement>(null);
   const certificateRail = useRef<HTMLDivElement>(null);
-  const { pause } = useAutoRail(momentsRail, { travelMs: 1800, holdMs: 500 });
+  const { pause } = useAutoRail(momentsRail, { itemCount: achievements.length, speed: 96 });
   const issuers = Array.from(new Set(certifications.map((c) => c.issuer)));
 
   return (
@@ -28,14 +28,12 @@ export default function Achievements() {
 
       <div className="group/rail relative">
         <div ref={momentsRail} className="rail gutter flex gap-4 overflow-x-auto py-7 [perspective:1400px]">
-        {achievements.map((a, i) => (
+        {[0, 1, 2].flatMap((copy) => achievements.map((a) => (
           <motion.div
-            key={a.id}
+            key={`${copy}-${a.id}`}
+            aria-hidden={copy !== 1}
             className="w-[82vw] shrink-0 snap-start sm:w-[52vw] md:w-[42vw] lg:w-[32vw] xl:w-[24vw] 2xl:w-[22vw]"
-            initial={{ opacity: 0, y: 50, rotateX: 18 }}
-            whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-            viewport={{ once: true, margin: '-8% 0px' }}
-            transition={{ duration: 0.9, delay: i * 0.08, ease: EASE }}
+            initial={false}
           >
             <Tilt max={8} className="group h-full rounded-2xl">
               <article className="relative flex h-full min-h-[340px] flex-col items-center overflow-hidden rounded-2xl bg-[radial-gradient(120%_80%_at_50%_0%,#2a1f10,#0d0b08_60%,#07070a)] px-5 pb-6 pt-8 text-center ring-1 ring-[#d9b46a]/20 transition duration-500 group-hover:ring-[#d9b46a]/60">
@@ -54,6 +52,7 @@ export default function Achievements() {
                 {a.link && (
                   <a
                     href={a.link}
+                    tabIndex={copy === 1 ? 0 : -1}
                     target="_blank"
                     rel="noreferrer"
                     data-cursor="link"
@@ -65,7 +64,7 @@ export default function Achievements() {
               </article>
             </Tilt>
           </motion.div>
-        ))}
+        )))}
         </div>
         <RailButtons rail={momentsRail} onNavigate={pause} />
       </div>

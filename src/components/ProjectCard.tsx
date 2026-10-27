@@ -1,21 +1,19 @@
 import { motion } from 'framer-motion';
 import type { Project } from '../data/portfolio';
-import { EASE, Tilt } from './fx';
+import { Tilt } from './fx';
 import { ProjectArt } from './Poster';
 
-export default function ProjectCard({ project, index, onOpen }: { project: Project; index: number; onOpen: () => void }) {
+export default function ProjectCard({ project, onOpen, duplicate = false }: { project: Project; index: number; onOpen: () => void; duplicate?: boolean }) {
   return (
     <motion.article
+      aria-hidden={duplicate}
       className="w-[84vw] shrink-0 snap-start sm:w-[62vw] lg:w-[46vw] xl:w-[42vw]"
-      initial={{ opacity: 0, y: 40, filter: 'blur(10px)' }}
-      whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-      viewport={{ once: true, margin: '0px -10% 0px 0px' }}
-      transition={{ duration: 0.9, delay: index * 0.08, ease: EASE }}
+      initial={false}
     >
       <Tilt max={5} className="group rounded-2xl">
         <div
           role="button"
-          tabIndex={0}
+          tabIndex={duplicate ? -1 : 0}
           data-cursor="view"
           onClick={onOpen}
           onKeyDown={(e) => {
@@ -27,7 +25,7 @@ export default function ProjectCard({ project, index, onOpen }: { project: Proje
           aria-label={`Buka ${project.title}`}
           className="focus-ring relative aspect-[4/5] overflow-hidden rounded-2xl ring-1 ring-white/10 transition duration-500 group-hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.8)] group-hover:ring-white/25 sm:aspect-[16/12] lg:aspect-auto lg:h-[66vh]"
         >
-          <motion.div layoutId={`art-${project.id}`} className="absolute inset-0 overflow-hidden rounded-2xl">
+          <motion.div layoutId={duplicate ? undefined : `art-${project.id}`} className="absolute inset-0 overflow-hidden rounded-2xl">
             <div className="absolute inset-0 transition-transform duration-[1.4s] ease-[var(--ease-cine)] group-hover:scale-[1.07]">
               <ProjectArt project={project} />
             </div>
@@ -41,7 +39,7 @@ export default function ProjectCard({ project, index, onOpen }: { project: Proje
 
           <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7 [transform:translateZ(40px)]">
             <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-mist">{project.genre}</p>
-            <motion.h3 layoutId={`title-${project.id}`} className="font-display text-[clamp(2.4rem,5vw,4.6rem)] leading-[0.88] tracking-wide text-bone">
+            <motion.h3 layoutId={duplicate ? undefined : `title-${project.id}`} className="font-display text-[clamp(2.4rem,5vw,4.6rem)] leading-[0.88] tracking-wide text-bone">
               {project.title}
             </motion.h3>
             <p className="mt-3 max-w-md text-sm leading-relaxed text-bone/75 sm:text-[15px]">{project.logline}</p>
@@ -57,6 +55,7 @@ export default function ProjectCard({ project, index, onOpen }: { project: Proje
               {project.github && (
                 <a
                   href={project.github}
+                  tabIndex={duplicate ? -1 : 0}
                   target="_blank"
                   rel="noreferrer"
                   data-cursor="link"

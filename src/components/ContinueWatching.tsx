@@ -17,7 +17,7 @@ export default function ContinueWatching({ order }: { order: SectionId[] }) {
   const fine = useFinePointer();
   const [hovered, setHovered] = useState<number | null>(null);
   const rail = useRef<HTMLDivElement>(null);
-  const { pause } = useAutoRail(rail, { travelMs: 1800, holdMs: 450 });
+  const { pause } = useAutoRail(rail, { itemCount: order.length, speed: 110 });
 
   return (
     <section aria-labelledby="continue-title" className="relative z-10 -mt-10 pb-10 sm:-mt-16">
@@ -27,14 +27,16 @@ export default function ContinueWatching({ order }: { order: SectionId[] }) {
       </div>
       <div className="group/rail relative">
         <div ref={rail} className="rail gutter flex snap-x snap-mandatory gap-3 overflow-x-auto py-8 sm:gap-4" data-cursor={fine ? undefined : 'drag'}>
-          {order.map((id, i) => {
+          {[0, 1, 2].flatMap((copy) => order.map((id, i) => {
             const meta = sectionMeta[id];
             const p = progress[id] ?? 0;
             const shift = fine && hovered !== null && hovered !== i ? (i < hovered ? -14 : 14) : 0;
             return (
               <motion.button
-                key={id}
+                key={`${copy}-${id}`}
                 type="button"
+                aria-hidden={copy !== 1}
+                tabIndex={copy === 1 ? 0 : -1}
                 data-cursor="play"
                 onClick={() => scrollTo(`#${id}`)}
                 onHoverStart={() => setHovered(i)}
@@ -42,9 +44,7 @@ export default function ContinueWatching({ order }: { order: SectionId[] }) {
                 onFocus={() => setHovered(i)}
                 onBlur={() => setHovered(null)}
                 className="group relative aspect-video w-[72vw] shrink-0 snap-start overflow-visible text-left sm:w-[42vw] md:w-[30vw] lg:w-[22vw]"
-                initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }}
-                whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                viewport={{ once: true, margin: '-5% 0px' }}
+                initial={false}
                 animate={{ x: shift, scale: fine && hovered === i ? 1.08 : 1, zIndex: hovered === i ? 10 : 1 }}
                 transition={{ duration: 0.5, ease: EASE, delay: 0 }}
               >
@@ -72,7 +72,7 @@ export default function ContinueWatching({ order }: { order: SectionId[] }) {
                 </div>
               </motion.button>
             );
-          })}
+          }))}
         </div>
         <RailButtons rail={rail} onNavigate={pause} />
       </div>
