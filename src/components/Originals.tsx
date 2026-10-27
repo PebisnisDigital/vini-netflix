@@ -19,7 +19,7 @@ export default function Originals({ onOpen }: { onOpen: (p: Project) => void }) 
   const [active, setActive] = useState(0);
   const [dragging, setDragging] = useState(false);
   const reduced = useReducedMotionPref();
-  const { pause } = useAutoRail(rail, { speed: 100, pauseMs: 1800 });
+  const { pause } = useAutoRail(rail, { travelMs: 2100, holdMs: 500, pauseMs: 1800 });
   const hasWebsite = Boolean(profile.links.website);
   const slideCount = projects.length + (hasWebsite ? 1 : 0);
 
