@@ -4,15 +4,15 @@ import { EASE, SectionHeading, Tilt } from './fx';
 
 export default function About() {
   const facts = [
-    { k: 'Now', v: 'B.Tech, AI & ML', s: `${education[0].school} · ${education[0].score}` },
-    { k: 'Training', v: `${experience[0].role}, ${experience[0].company}`, s: experience[0].period },
-    { k: 'Primary language', v: 'Java', s: 'with Python, C, C++' },
-    { k: 'Based in', v: profile.location, s: 'India' },
+    { k: 'Sekarang', v: 'B.Tech, AI & ML', s: `${education[0].school} · ${education[0].score}` },
+    { k: 'Pelatihan', v: `${experience[0].role}, ${experience[0].company}`, s: experience[0].period },
+    { k: 'Bahasa utama', v: 'Java', s: 'bersama Python, C, C++' },
+    { k: 'Lokasi', v: profile.location, s: 'India' },
   ];
 
   return (
     <>
-      <SectionHeading kicker="The Pilot" title="About Me" />
+      <SectionHeading kicker="Episode Perdana" title="Tentang Saya" />
       <div className="gutter grid items-center gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-16">
         <motion.div
           className="mx-auto w-full max-w-md lg:max-w-none"
@@ -36,7 +36,7 @@ export default function About() {
             <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/90 to-transparent" />
             <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
               <div>
-                <p className="text-[10px] font-bold tracking-[0.3em] text-crimson-2">STARRING</p>
+                <p className="text-[10px] font-bold tracking-[0.3em] text-crimson-2">DIBINTANGI</p>
                 <p className="font-display text-3xl leading-none text-bone">{profile.displayName}</p>
               </div>
               <span className="rounded border border-white/30 px-1.5 text-[10px] font-bold text-bone">S01–S05</span>
@@ -78,7 +78,7 @@ export default function About() {
           </motion.dl>
 
           <div className="mt-8">
-            <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.28em] text-smoke">Interests</p>
+            <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.28em] text-smoke">Minat</p>
             <div className="flex flex-wrap gap-2">
               {profile.interests.map((i) => (
                 <span key={i} className="glass rounded-full px-3 py-1.5 text-xs font-medium text-bone">

@@ -13,13 +13,13 @@ export default function Seasons() {
   return (
     <>
       <SectionHeading
-        kicker={`${seasons.length} Seasons`}
-        title="My Journey"
-        aside={<p className="max-w-xs text-sm text-mist">Every stage of the resume, told as a season — select one to see its episodes.</p>}
+        kicker={`${seasons.length} Musim`}
+        title="Perjalanan Saya"
+        aside={<p className="max-w-xs text-sm text-mist">Setiap tahap perjalanan diceritakan sebagai satu musim — pilih untuk melihat episodenya.</p>}
       />
 
       {/* season selector */}
-      <div className="rail gutter mb-8 flex gap-2 overflow-x-auto" role="tablist" aria-label="Seasons">
+      <div className="rail gutter mb-8 flex gap-2 overflow-x-auto" role="tablist" aria-label="Daftar musim">
         {seasons.map((s, i) => (
           <button
             key={s.number}
@@ -33,7 +33,7 @@ export default function Seasons() {
             className={`relative shrink-0 rounded-full px-4 py-2.5 text-left transition ${i === active ? 'text-ink' : 'text-mist hover:text-bone'}`}
           >
             {i === active && <motion.span layoutId="season-pill" className="absolute inset-0 rounded-full bg-bone" transition={{ duration: 0.5, ease: EASE }} />}
-            <span className="relative block text-[10px] font-bold tracking-[0.24em]">SEASON {String(s.number).padStart(2, '0')}</span>
+            <span className="relative block text-[10px] font-bold tracking-[0.24em]">MUSIM {String(s.number).padStart(2, '0')}</span>
             <span className="relative block whitespace-nowrap text-sm font-semibold">{s.title}</span>
           </button>
         ))}
@@ -53,7 +53,7 @@ export default function Seasons() {
               {season.title}
             </h3>
             <span className="text-sm text-mist">
-              {season.period} · {season.episodes.length} {season.episodes.length === 1 ? 'Episode' : 'Episodes'}
+              {season.period} · {season.episodes.length} Episode
             </span>
           </div>
           <p className="gutter max-w-3xl text-[15px] leading-relaxed text-bone/75">{season.synopsis}</p>

@@ -8,7 +8,7 @@ import { EASE, RevealText } from './fx';
 import { PosterBackdrop } from './Poster';
 import { RailButtons } from './Rail';
 
-const GLYPHS: Record<SectionId, string> = { about: 'S', journey: 'S01', originals: '3', picks: '10', skills: '{ }', moments: '★', story: 'CV' };
+const GLYPHS: Record<SectionId, string> = { about: 'V', journey: 'S01', originals: '3', picks: '10', skills: '{ }', moments: '★', story: 'CV' };
 
 export default function ContinueWatching({ order }: { order: SectionId[] }) {
   const progress = useWatchProgress();
@@ -20,8 +20,8 @@ export default function ContinueWatching({ order }: { order: SectionId[] }) {
   return (
     <section aria-labelledby="continue-title" className="relative z-10 -mt-10 pb-10 sm:-mt-16">
       <div className="gutter mb-4 flex items-end justify-between">
-        <RevealText as="h2" text="Continue Exploring" className="font-sans text-lg font-semibold tracking-tight text-bone sm:text-2xl" />
-        <span className="hidden text-xs text-smoke sm:block">Progress shows what you&apos;ve watched so far</span>
+        <RevealText as="h2" text="Lanjutkan Menjelajah" className="font-sans text-lg font-semibold tracking-tight text-bone sm:text-2xl" />
+        <span className="hidden text-xs text-smoke sm:block">Progres menunjukkan bagian yang sudah ditonton</span>
       </div>
       <div className="group/rail relative">
         <div ref={rail} className="rail gutter flex snap-x snap-mandatory gap-3 overflow-x-auto py-8 sm:gap-4" data-cursor={fine ? undefined : 'drag'}>

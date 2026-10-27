@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { AnimatePresence, motion, useMotionValue, useSpring } from 'framer-motion';
 import { useFinePointer, useReducedMotionPref } from '../hooks/useMedia';
 
-const LABELS: Record<string, string> = { view: 'VIEW', play: '▶', link: '↗', drag: '↔', close: '✕' };
+const LABELS: Record<string, string> = { view: 'LIHAT', play: '▶', link: '↗', drag: '↔', close: '✕' };
 
 /**
  * Minimal cursor: a small dot that grows into a labelled disc over elements with

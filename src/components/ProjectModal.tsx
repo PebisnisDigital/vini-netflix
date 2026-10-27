@@ -60,14 +60,14 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
               type="button"
               onClick={onClose}
               data-cursor="close"
-              aria-label="Close project"
+              aria-label="Tutup proyek"
               className="absolute right-4 top-[max(1rem,env(safe-area-inset-top))] z-10 flex h-11 w-11 items-center justify-center rounded-full bg-black/60 text-lg text-bone backdrop-blur transition hover:bg-black"
             >
               ✕
             </button>
             <div className="absolute inset-x-0 bottom-0 px-5 pb-6 sm:px-10">
               <motion.p className="mb-2 flex items-center gap-2 text-[11px] font-bold tracking-[0.34em] text-bone/80" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
-                <span className="font-display text-xl tracking-normal text-crimson-2">S</span> ORIGINAL
+                <span className="font-display text-xl tracking-normal text-crimson-2">V</span> ORISINAL
               </motion.p>
               <motion.h2
                 id={`title-${project.id}-modal`}
@@ -109,7 +109,7 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
 
             {/* impact */}
             <motion.section variants={block} className="mt-12">
-              <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">Result / Impact</h3>
+              <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">Hasil / Dampak</h3>
               <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl bg-white/10 sm:grid-cols-3 lg:grid-cols-5">
                 {project.metrics.map((m, i) => (
                   <motion.div
@@ -130,7 +130,7 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
 
             <div className="mt-12 grid gap-10 lg:grid-cols-[3fr_2fr]">
               <motion.section variants={block}>
-                <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">My Contribution</h3>
+                <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">Kontribusi Saya</h3>
                 <ul className="space-y-4">
                   {project.build.map((b) => (
                     <li key={b} className="flex gap-3 text-[15px] leading-relaxed text-bone/85">
@@ -142,7 +142,7 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
               </motion.section>
               <div className="space-y-10">
                 <motion.section variants={block}>
-                  <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">Tech Stack</h3>
+                  <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">Teknologi</h3>
                   <div className="flex flex-wrap gap-2">
                     {project.stack.map((t) => (
                       <span key={t} className="glass rounded-full px-3 py-1.5 text-sm font-medium text-bone">
@@ -152,7 +152,7 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
                   </div>
                 </motion.section>
                 <motion.section variants={block}>
-                  <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">Key Features</h3>
+                  <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">Fitur Utama</h3>
                   <ul className="space-y-2.5">
                     {project.features.map((f) => (
                       <li key={f} className="flex items-start gap-3 text-sm text-bone/85">
@@ -167,7 +167,7 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
 
             {/* more like this */}
             <motion.section variants={block} className="mt-14 border-t border-white/10 pt-8">
-              <h3 className="mb-4 font-sans text-lg font-semibold text-bone">More Originals</h3>
+              <h3 className="mb-4 font-sans text-lg font-semibold text-bone">Karya Orisinal Lainnya</h3>
               <div className="grid gap-4 sm:grid-cols-2">
                 {more.map((p) => (
                   <button

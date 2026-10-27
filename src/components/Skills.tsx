@@ -12,11 +12,11 @@ export default function Skills() {
 
   return (
     <>
-      <SectionHeading kicker="Genres" title="My Skill Universe" aside={<p className="max-w-xs text-sm text-mist">Hover or tap a skill to see where it shows up across projects and certifications.</p>} />
+      <SectionHeading kicker="Kategori" title="Dunia Keahlian Saya" aside={<p className="max-w-xs text-sm text-mist">Arahkan kursor atau ketuk keahlian untuk melihat penerapannya dalam proyek dan sertifikasi.</p>} />
 
       <div className="gutter grid gap-8 lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-14">
         {/* genre list */}
-        <div className="rail -mx-[var(--gutter)] flex gap-2 overflow-x-auto px-[var(--gutter)] lg:mx-0 lg:flex-col lg:gap-1 lg:overflow-visible lg:px-0" role="tablist" aria-label="Skill categories">
+        <div className="rail -mx-[var(--gutter)] flex gap-2 overflow-x-auto px-[var(--gutter)] lg:mx-0 lg:flex-col lg:gap-1 lg:overflow-visible lg:px-0" role="tablist" aria-label="Kategori keahlian">
           {skillCategories.map((c, i) => (
             <button
               key={c.id}
@@ -30,7 +30,7 @@ export default function Skills() {
               {i === cat && <motion.span layoutId="skill-bar" className="absolute bottom-2 left-0 top-2 hidden w-[3px] rounded lg:block" style={{ background: hue }} />}
               <span className="relative block font-display text-2xl tracking-wide lg:text-3xl">{c.title}</span>
               <span className="relative hidden text-xs text-smoke lg:block">
-                {c.skills.length} skills · {c.subtitle}
+                {c.skills.length} keahlian · {c.subtitle}
               </span>
             </button>
           ))}

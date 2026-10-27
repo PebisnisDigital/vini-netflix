@@ -90,7 +90,7 @@ export default function PlayIntro({ onClose }: { onClose: () => void }) {
       transition={{ duration: 0.6 }}
       role="dialog"
       aria-modal="true"
-      aria-label="Intro highlight reel"
+      aria-label="Cuplikan pembukaan"
     >
       {/* Zoom into the portrait */}
       <motion.div
@@ -174,7 +174,7 @@ export default function PlayIntro({ onClose }: { onClose: () => void }) {
           )}
           {phase === 'end' && (
             <motion.div key="end" initial={{ opacity: 0, letterSpacing: '0.6em' }} animate={{ opacity: 1, letterSpacing: '0.2em' }} transition={{ duration: 1.2, ease: EASE }}>
-              <p className="font-display text-5xl text-bone sm:text-7xl">NOW STREAMING</p>
+              <p className="font-display text-5xl text-bone sm:text-7xl">SEDANG TAYANG</p>
               <p className="mt-3 text-xs font-semibold tracking-[0.4em] text-mist">{profile.displayName.toUpperCase()}</p>
             </motion.div>
           )}
@@ -184,8 +184,8 @@ export default function PlayIntro({ onClose }: { onClose: () => void }) {
       {/* tap zones (mobile-friendly) */}
       {phase === 'reel' && (
         <>
-          <button type="button" aria-label="Previous highlight" className="absolute inset-y-0 left-0 z-[5] w-1/4" onClick={prev} />
-          <button type="button" aria-label="Next highlight" data-cursor="play" className="absolute inset-y-0 right-0 z-[5] w-1/4" onClick={next} />
+          <button type="button" aria-label="Cuplikan sebelumnya" className="absolute inset-y-0 left-0 z-[5] w-1/4" onClick={prev} />
+          <button type="button" aria-label="Cuplikan berikutnya" data-cursor="play" className="absolute inset-y-0 right-0 z-[5] w-1/4" onClick={next} />
         </>
       )}
 
@@ -196,7 +196,7 @@ export default function PlayIntro({ onClose }: { onClose: () => void }) {
             <button
               type="button"
               onClick={() => setPaused((p) => !p)}
-              aria-label={paused ? 'Resume' : 'Pause'}
+              aria-label={paused ? 'Lanjutkan' : 'Jeda'}
               className="flex h-11 w-11 items-center justify-center rounded-full border border-white/25 text-bone transition hover:bg-white/10"
             >
               {paused ? '▶' : '❚❚'}
@@ -210,7 +210,7 @@ export default function PlayIntro({ onClose }: { onClose: () => void }) {
           data-cursor="close"
           className="rounded-full bg-bone px-5 py-2.5 text-xs font-bold tracking-[0.18em] text-ink transition hover:bg-white"
         >
-          BACK TO BROWSE
+          KEMBALI MENJELAJAH
         </button>
       </div>
     </motion.div>

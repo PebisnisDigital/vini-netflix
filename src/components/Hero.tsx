@@ -37,16 +37,16 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
   const glowX = useTransform(px, [-1, 1], ['-6%', '6%']);
 
   const meta = [
-    education[0].period.split(' – ')[0].split(' ')[1] + ' – Present',
+    education[0].period.split(' – ')[0].split(' ')[1] + ' – Sekarang',
     'B.Tech AI & ML',
-    `${projects.length} Originals`,
-    `${certifications.length} Certifications`,
+    `${projects.length} Karya Orisinal`,
+    `${certifications.length} Sertifikasi`,
   ];
 
   const floating = [
     { text: education[0].score, sub: 'B.Tech AI & ML', pos: 'left-[2%] top-[30%]', depth: 1 },
     { text: `${achievements[0].title}`, sub: achievements[0].org, pos: 'right-[0%] top-[18%]', depth: -1 },
-    { text: 'Java · React · Node.js', sub: 'Primary stack', pos: 'right-[4%] bottom-[24%]', depth: 0.6 },
+    { text: 'Java · React · Node.js', sub: 'Teknologi utama', pos: 'right-[4%] bottom-[24%]', depth: 0.6 },
   ];
 
   return (
@@ -153,13 +153,13 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
               onClick={onPlay}
               className="flex min-h-12 items-center gap-3 rounded-md bg-bone px-6 py-3 text-[15px] font-bold text-ink transition hover:bg-white sm:px-8"
             >
-              <span className="text-lg">▶</span> Play Intro
+              <span className="text-lg">▶</span> Putar Intro
             </button>
           </Magnetic>
           <Magnetic>
             {profileId === 'recruiter' ? (
               <button type="button" onClick={onResume} className="glass flex min-h-12 items-center gap-3 rounded-md px-6 py-3 text-[15px] font-semibold text-bone transition hover:bg-white/15 sm:px-8">
-                <span className="text-lg">⤓</span> View Resume
+                <span className="text-lg">⤓</span> Lihat CV
               </button>
             ) : (
               <button
@@ -167,14 +167,14 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
                 onClick={() => scrollTo('#originals')}
                 className="glass flex min-h-12 items-center gap-3 rounded-md px-6 py-3 text-[15px] font-semibold text-bone transition hover:bg-white/15 sm:px-8"
               >
-                <span className="text-xl leading-none">＋</span> My Work
+                <span className="text-xl leading-none">＋</span> Karya Saya
               </button>
             )}
           </Magnetic>
           <button
             type="button"
             onClick={() => scrollTo('#about')}
-            aria-label="More info"
+            aria-label="Informasi selengkapnya"
             className="flex h-12 w-12 items-center justify-center rounded-full border border-white/30 text-lg text-bone transition hover:border-bone hover:bg-white/10"
           >
             ⓘ

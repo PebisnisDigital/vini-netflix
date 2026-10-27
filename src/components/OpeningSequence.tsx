@@ -6,7 +6,7 @@ import { EASE, Magnetic } from './fx';
 
 /**
  * The signature moment:
- * black → studio card → SUSHMITA → THE SERIES → portrait reveal → role → ▶ PLAY
+ * hitam → kartu studio → TEH VINI → THE SERIES → potret → peran → ▶ PUTAR
  */
 const TIMELINE = [
   { at: 300, beat: 1 }, // studio card
@@ -41,7 +41,7 @@ export default function OpeningSequence({ onDone }: { onDone: () => void }) {
       exit={{ opacity: 0, scale: 1.04, filter: 'blur(12px)' }}
       transition={{ duration: 0.9, ease: EASE }}
       role="dialog"
-      aria-label="Opening titles"
+      aria-label="Pembukaan serial"
     >
       {/* letterbox bars */}
       <motion.div className="absolute inset-x-0 top-0 z-30 h-[7vh] bg-black" initial={{ y: 0 }} animate={{ y: beat >= 6 ? '-100%' : 0 }} transition={{ duration: 1.2, ease: EASE }} />
@@ -138,7 +138,7 @@ export default function OpeningSequence({ onDone }: { onDone: () => void }) {
               tabIndex={beat >= 6 ? 0 : -1}
               className="group flex items-center gap-3 rounded-full bg-bone px-9 py-4 font-sans text-base font-bold tracking-wide text-ink shadow-[0_0_60px_rgba(229,19,43,0.45)] transition hover:bg-white"
             >
-              <span className="text-lg transition-transform group-hover:scale-125">▶</span> PLAY
+              <span className="text-lg transition-transform group-hover:scale-125">▶</span> PUTAR
             </button>
           </Magnetic>
         </motion.div>
@@ -149,7 +149,7 @@ export default function OpeningSequence({ onDone }: { onDone: () => void }) {
         onClick={onDone}
         className="absolute right-4 top-[calc(7vh+12px)] z-40 rounded-full border border-white/20 px-4 py-2 font-sans text-[11px] font-semibold tracking-[0.2em] text-mist transition hover:border-white/60 hover:text-bone"
       >
-        SKIP INTRO
+        LEWATI INTRO
       </button>
     </motion.div>
   );

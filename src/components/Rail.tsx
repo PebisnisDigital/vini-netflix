@@ -32,12 +32,12 @@ export function RailButtons({ rail }: { rail: RefObject<HTMLDivElement | null> }
   return (
     <>
       {canLeft && (
-        <button type="button" aria-label="Scroll left" onClick={() => page(-1)} className={`${base} left-0 from-ink/90 to-transparent`}>
+        <button type="button" aria-label="Geser ke kiri" onClick={() => page(-1)} className={`${base} left-0 from-ink/90 to-transparent`}>
           ‹
         </button>
       )}
       {canRight && (
-        <button type="button" aria-label="Scroll right" onClick={() => page(1)} className={`${base} right-0 from-transparent to-ink/90`}>
+        <button type="button" aria-label="Geser ke kanan" onClick={() => page(1)} className={`${base} right-0 from-transparent to-ink/90`}>
           ›
         </button>
       )}

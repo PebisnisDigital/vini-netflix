@@ -65,11 +65,11 @@ export default function Navbar({ order, profileId, onSwitch }: { order: SectionI
         }`}
       >
         <div className="flex items-center gap-8 lg:gap-10">
-          <button type="button" onClick={() => go('top')} className="text-[22px]" aria-label="Back to top">
+          <button type="button" onClick={() => go('top')} className="text-[22px]" aria-label="Kembali ke atas">
             <SeriesMark />
           </button>
-          <nav className="hidden items-center gap-6 lg:flex" aria-label="Sections">
-            <NavLink label="Home" active={active === 'top'} onClick={() => go('top')} />
+          <nav className="hidden items-center gap-6 lg:flex" aria-label="Bagian halaman">
+            <NavLink label="Beranda" active={active === 'top'} onClick={() => go('top')} />
             {order.map((id) => (
               <NavLink key={id} label={sectionMeta[id].nav} active={active === id} onClick={() => go(id)} />
             ))}
@@ -82,7 +82,7 @@ export default function Navbar({ order, profileId, onSwitch }: { order: SectionI
             onClick={() => go('contact')}
             className="hidden rounded-full border border-white/15 px-4 py-1.5 text-xs font-semibold tracking-[0.14em] text-bone transition hover:border-crimson-2 hover:text-crimson-2 sm:block"
           >
-            LET&apos;S BUILD
+            KOLABORASI YUK
           </button>
           <div className="relative" ref={menuRef}>
             <button
@@ -90,7 +90,7 @@ export default function Navbar({ order, profileId, onSwitch }: { order: SectionI
               onClick={() => setMenu((m) => !m)}
               aria-haspopup="menu"
               aria-expanded={menu}
-              aria-label={`Viewing as ${current.name}. Switch profile`}
+              aria-label={`Sedang menonton sebagai ${current.name}. Ganti profil`}
               className="flex items-center gap-2 rounded-md p-1"
             >
               <ProfileAvatar id={profileId} size="sm" />
@@ -108,7 +108,7 @@ export default function Navbar({ order, profileId, onSwitch }: { order: SectionI
                   transition={{ duration: 0.25, ease: EASE }}
                   className="absolute right-0 top-12 w-60 origin-top-right rounded-xl border border-white/10 bg-ink-2/95 p-2 shadow-2xl backdrop-blur-xl"
                 >
-                  <p className="px-3 pb-2 pt-1 text-[10px] font-semibold tracking-[0.24em] text-smoke">WHO&apos;S WATCHING?</p>
+                  <p className="px-3 pb-2 pt-1 text-[10px] font-semibold tracking-[0.24em] text-smoke">SIAPA YANG MENONTON?</p>
                   {viewerProfiles.map((p) => (
                     <button
                       key={p.id}
@@ -134,7 +134,7 @@ export default function Navbar({ order, profileId, onSwitch }: { order: SectionI
           <button
             type="button"
             className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 lg:hidden"
-            aria-label={mobileNav ? 'Close menu' : 'Open menu'}
+            aria-label={mobileNav ? 'Tutup menu' : 'Buka menu'}
             aria-expanded={mobileNav}
             onClick={() => setMobileNav((v) => !v)}
           >
@@ -147,14 +147,14 @@ export default function Navbar({ order, profileId, onSwitch }: { order: SectionI
       <AnimatePresence>
         {mobileNav && (
           <motion.nav
-            aria-label="Sections"
+            aria-label="Bagian halaman"
             className="gutter border-b border-white/5 bg-ink/95 pb-6 pt-2 backdrop-blur-xl lg:hidden"
             initial={{ clipPath: 'inset(0 0 100% 0)' }}
             animate={{ clipPath: 'inset(0 0 0% 0)' }}
             exit={{ clipPath: 'inset(0 0 100% 0)' }}
             transition={{ duration: 0.45, ease: EASE }}
           >
-            {[{ id: 'top', label: 'Home' }, ...order.map((id) => ({ id, label: sectionMeta[id].nav })), { id: 'contact', label: "Let's Build" }].map((l, i) => (
+            {[{ id: 'top', label: 'Beranda' }, ...order.map((id) => ({ id, label: sectionMeta[id].nav })), { id: 'contact', label: 'Ayo Kolaborasi' }].map((l, i) => (
               <motion.button
                 key={l.id}
                 type="button"

@@ -19,13 +19,13 @@ function Intro() {
   return (
     <div className="flex w-full shrink-0 flex-col justify-center lg:w-[34vw]">
       <p className="mb-3 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.32em] text-crimson-2">
-        <span className="h-px w-8 bg-crimson-2" /> {projects.length} Originals · {projects[0].year}
+        <span className="h-px w-8 bg-crimson-2" /> {projects.length} Karya Orisinal · {projects[0].year}
       </p>
-      <RevealText as="h2" text="ORIGINALS" className="font-display text-[clamp(3.5rem,9vw,8rem)] leading-[0.85] text-bone" />
+      <RevealText as="h2" text="KARYA" className="font-display text-[clamp(3.5rem,9vw,8rem)] leading-[0.85] text-bone" />
       <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-mist">
-        Three productions from the resume — an AI platform, a payment gateway and a multi-tenant SaaS. Open any title for the full story.
+        Tiga proyek dari CV — platform AI, gerbang pembayaran, dan SaaS multi-tenant. Buka salah satu untuk melihat cerita lengkapnya.
       </p>
-      <p className="mt-6 hidden text-xs tracking-[0.24em] text-smoke lg:block">SCROLL TO BROWSE →</p>
+      <p className="mt-6 hidden text-xs tracking-[0.24em] text-smoke lg:block">GULIR UNTUK MENJELAJAH →</p>
     </div>
   );
 }
@@ -40,8 +40,8 @@ function Outro() {
       className="group flex aspect-[3/4] w-[70vw] shrink-0 snap-start flex-col items-center justify-center gap-4 rounded-2xl border border-dashed border-white/15 text-center transition hover:border-crimson-2/60 sm:w-[44vw] lg:aspect-auto lg:h-[66vh] lg:w-[24vw]"
     >
       <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/25 text-2xl text-bone transition group-hover:scale-110 group-hover:border-crimson-2 group-hover:text-crimson-2">↗</span>
-      <span className="font-display text-3xl tracking-wide text-bone">More on GitHub</span>
-      <span className="text-xs text-mist">github.com/Sushmitadasari</span>
+      <span className="font-display text-3xl tracking-wide text-bone">Lihat di GitHub</span>
+      <span className="text-xs text-mist">Jelajahi karya lainnya</span>
     </a>
   );
 }
@@ -86,7 +86,7 @@ function PinnedOriginals({ onOpen }: { onOpen: (p: Project) => void }) {
           <Outro />
         </motion.div>
         <div className="gutter absolute inset-x-0 bottom-8 flex items-center gap-4">
-          <span className="text-[10px] font-bold tracking-[0.3em] text-smoke">ORIGINALS</span>
+          <span className="text-[10px] font-bold tracking-[0.3em] text-smoke">KARYA</span>
           <div className="h-[2px] flex-1 overflow-hidden rounded bg-white/10">
             <motion.div className="h-full origin-left bg-crimson" style={{ scaleX: bar }} />
           </div>

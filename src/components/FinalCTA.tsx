@@ -14,10 +14,10 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
   const opacity = useTransform(scrollYProgress, [0.1, 0.9], [0, 1]);
 
   const ctas = [
-    { label: "Let's Build", href: `mailto:${profile.email}?subject=${encodeURIComponent("Let's build something")}`, primary: true, cursor: 'play' },
+    { label: 'Ayo Kolaborasi', href: `mailto:${profile.email}?subject=${encodeURIComponent('Ayo berkolaborasi')}`, primary: true, cursor: 'play' },
     { label: 'LinkedIn', href: profile.links.linkedin, cursor: 'link' },
     { label: 'GitHub', href: profile.links.github, cursor: 'link' },
-    { label: 'Email', href: `mailto:${profile.email}`, cursor: 'link' },
+    { label: 'Surel', href: `mailto:${profile.email}`, cursor: 'link' },
   ];
 
   return (
@@ -31,13 +31,13 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
       >
-        The Next Episode
+        Episode Berikutnya
       </motion.p>
       <motion.h2
         className="relative font-display leading-[0.85] text-bone"
         style={{ fontSize: 'clamp(3.4rem, 13vw, 12rem)', letterSpacing: spacing, filter: blur, opacity }}
       >
-        TO BE CONTINUED…
+        BERSAMBUNG…
       </motion.h2>
 
       <motion.div
@@ -81,10 +81,10 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
 
       <div className="relative mt-16 flex flex-wrap justify-center gap-6 text-xs font-semibold tracking-[0.24em] text-smoke">
         <button type="button" onClick={() => scrollTo(0, { offset: 0 })} className="hover:text-bone">
-          ↺ WATCH AGAIN
+          ↺ TONTON LAGI
         </button>
         <button type="button" onClick={onReplay} className="hover:text-bone">
-          ▶ REPLAY OPENING
+          ▶ ULANGI PEMBUKAAN
         </button>
       </div>
 
@@ -93,7 +93,7 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
           <SeriesMark />
         </div>
         <p className="text-[11px] leading-relaxed text-smoke">
-          © {new Date().getFullYear()} {profile.displayName}. A personal, streaming-inspired portfolio — not affiliated with any streaming service.
+          © {new Date().getFullYear()} {profile.displayName}. Portofolio personal bergaya layanan streaming — tidak berafiliasi dengan layanan streaming mana pun.
         </p>
       </footer>
     </section>
