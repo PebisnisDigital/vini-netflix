@@ -24,7 +24,7 @@ export default function EpisodeCard({ episode, index }: { episode: Episode; inde
               <span className="rounded bg-black/50 px-2 py-0.5 text-[10px] font-bold tracking-[0.2em] text-bone backdrop-blur">{season}</span>
               <span className="text-[10px] font-bold tracking-[0.2em] text-bone/80">EPISODE {ep.replace('E', '')}</span>
             </div>
-            <h4 className="absolute bottom-4 left-4 right-4 font-display text-3xl leading-none tracking-wide text-bone [transform:translateZ(30px)] sm:text-4xl">{episode.title}</h4>
+            <h4 className="absolute bottom-4 left-4 right-4 font-display text-2xl leading-tight text-bone [transform:translateZ(30px)] sm:text-3xl">{episode.title}</h4>
           </div>
           <div className="flex flex-1 flex-col p-4">
             <div className="mb-2 flex items-center justify-between text-[11px] text-smoke">

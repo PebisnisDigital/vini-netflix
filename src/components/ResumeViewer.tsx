@@ -20,7 +20,7 @@ export default function ResumeSection({ onView }: { onView: () => void }) {
         </motion.div>
 
         <div className="lg:sticky lg:top-28 lg:self-start">
-          <p className="font-serif text-3xl italic leading-tight text-bone">Seluruh episode, dalam satu halaman.</p>
+          <p className="font-sans text-xl font-semibold leading-snug text-bone sm:text-2xl">Seluruh episode, dalam satu halaman.</p>
           <p className="mt-3 text-sm leading-relaxed text-mist">
             Kenali peran, karya, dan bidang yang saya tekuni. Semuanya dirangkum dalam satu halaman, seperti episode perjalanan yang terus berlanjut.
           </p>
@@ -96,7 +96,7 @@ export function ResumeSheet() {
       <header className="mb-8 flex flex-wrap items-end justify-between gap-4 border-b border-white/10 pb-6">
         <div>
           <p className="text-[10px] font-bold tracking-[0.34em] text-smoke">DIBINTANGI</p>
-          <h3 className="mt-1 font-display text-[clamp(1.9rem,4.4vw,3.2rem)] leading-[0.9] tracking-wide text-bone">{profile.fullName}</h3>
+          <h3 className="mt-1 font-display text-[clamp(1.8rem,4vw,3rem)] leading-tight text-bone">{profile.fullName}</h3>
         </div>
         <div className="text-xs leading-relaxed text-mist sm:text-right">
           <p>{profile.location}</p>

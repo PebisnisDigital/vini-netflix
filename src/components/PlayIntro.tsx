@@ -139,7 +139,7 @@ export default function PlayIntro({ onClose }: { onClose: () => void }) {
               <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.5em] text-crimson-2 sm:text-xs">
                 Episode {String(index + 1).padStart(2, '0')} · {slide.kicker}
               </p>
-              <h2 className="font-display leading-[0.88] text-bone" style={{ fontSize: 'clamp(3rem, 10vw, 8.5rem)' }}>
+              <h2 className="font-display leading-[1.08] text-bone" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}>
                 {slide.title}
               </h2>
               <div className="mt-6 space-y-2">

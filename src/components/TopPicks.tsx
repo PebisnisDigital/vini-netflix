@@ -35,7 +35,7 @@ export default function TopPicks() {
                 <div className="absolute inset-0 flex flex-col justify-between p-3.5">
                   <span className="text-[9px] font-bold uppercase tracking-[0.26em] text-bone/70">{pick.label}</span>
                   <div>
-                    <p className="font-display text-[1.75rem] leading-[0.92] tracking-wide text-bone">{pick.title}</p>
+                    <p className="font-display text-[1.65rem] leading-tight text-bone">{pick.title}</p>
                     <p className="mt-1.5 text-[11px] leading-snug text-mist">{pick.detail}</p>
                   </div>
                 </div>

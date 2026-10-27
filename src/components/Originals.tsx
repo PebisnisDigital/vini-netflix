@@ -101,7 +101,7 @@ export default function Originals({ onOpen }: { onOpen: (p: Project) => void }) 
           <p className="mb-3 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.32em] text-crimson-2">
             <span className="h-px w-8 bg-crimson-2" /> {projects.length} Karya Orisinal · {projects[0].year}
           </p>
-          <RevealText as="h2" text="KARYA" className="font-display text-[clamp(3.5rem,9vw,8rem)] leading-[0.85] text-bone" />
+          <RevealText as="h2" text="KARYA" className="font-display text-[clamp(2.8rem,7vw,6rem)] leading-tight text-bone" />
           <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-mist">
             {projects.map((project) => project.title).join(' · ')}. Geser kartunya untuk menjelajahi setiap cerita.
           </p>

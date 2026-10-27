@@ -47,7 +47,7 @@ export default function About() {
 
         <div>
           <motion.p
-            className="font-serif text-[clamp(1.6rem,3.2vw,2.6rem)] italic leading-[1.15] text-bone"
+            className="max-w-3xl font-sans text-[clamp(1.15rem,2.1vw,1.65rem)] font-medium leading-[1.55] tracking-normal text-bone"
             initial={{ opacity: 0, y: 24, filter: 'blur(8px)' }}
             whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             viewport={{ once: true }}

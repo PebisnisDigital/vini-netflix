@@ -24,8 +24,8 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
         Jasa Web Portofolio
       </motion.p>
       <motion.h2
-        className="relative mx-auto max-w-6xl font-display leading-[0.9] tracking-[0.015em] text-bone"
-        style={{ fontSize: 'clamp(2.15rem, 7.5vw, 7.5rem)' }}
+        className="relative mx-auto max-w-6xl font-display leading-[1.14] text-bone"
+        style={{ fontSize: 'clamp(1.85rem, 5.1vw, 5rem)' }}
         initial={{ opacity: 0, y: 35, filter: 'blur(12px)' }}
         whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
         viewport={{ once: true, margin: '-10% 0px' }}

@@ -120,7 +120,7 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
         <motion.div variants={item} className="mb-3 text-lg">
           <SeriesMark />
         </motion.div>
-        <motion.h1 variants={item} className="font-display leading-[0.82] tracking-[0.02em] text-bone" style={{ fontSize: 'clamp(4rem, 12vw, 11rem)' }}>
+        <motion.h1 variants={item} className="font-display leading-[1.05] text-bone" style={{ fontSize: 'clamp(3rem, 7.2vw, 7rem)' }}>
           <span className="shimmer-text">{profile.firstName}</span>
         </motion.h1>
         <motion.p variants={item} className="mt-1 font-sans text-sm font-bold tracking-[0.62em] text-crimson-2 sm:text-base">

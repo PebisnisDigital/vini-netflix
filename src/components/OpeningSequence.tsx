@@ -101,8 +101,8 @@ export default function OpeningSequence({ onDone }: { onDone: () => void }) {
       {/* title */}
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 text-center">
         <motion.h1
-          className="font-display leading-[0.82] text-bone drop-shadow-[0_8px_40px_rgba(0,0,0,0.8)]"
-          style={{ fontSize: 'clamp(4.6rem, 20vw, 15rem)' }}
+          className="font-display leading-[1.05] text-bone drop-shadow-[0_8px_40px_rgba(0,0,0,0.8)]"
+          style={{ fontSize: 'clamp(3.3rem, 9.5vw, 8.5rem)' }}
           initial={{ opacity: 0, scale: 1.3, filter: 'blur(20px)', letterSpacing: '0.5em' }}
           animate={beat >= 2 ? { opacity: 1, scale: 1, filter: 'blur(0px)', letterSpacing: '0.04em', y: beat >= 4 ? '-30vh' : 0 } : {}}
           transition={{ duration: 1.3, ease: EASE }}

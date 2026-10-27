@@ -46,7 +46,7 @@ export default function Achievements() {
                   </div>
                   <Laurel side="r" />
                 </div>
-                <h3 className="relative mt-6 font-display text-[2.1rem] leading-[0.92] tracking-wide text-bone">{a.title}</h3>
+                <h3 className="relative mt-6 font-display text-[1.75rem] leading-tight text-bone">{a.title}</h3>
                 <p className="relative mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#d9b46a]">{a.org}</p>
                 <p className="relative mt-4 text-[13px] leading-relaxed text-bone/70">{a.detail}</p>
                 {a.link && (

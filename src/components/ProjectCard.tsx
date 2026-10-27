@@ -39,7 +39,7 @@ export default function ProjectCard({ project, onOpen, duplicate = false }: { pr
 
           <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7 [transform:translateZ(40px)]">
             <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-mist">{project.genre}</p>
-            <motion.h3 layoutId={duplicate ? undefined : `title-${project.id}`} className="font-display text-[clamp(2.4rem,5vw,4.6rem)] leading-[0.88] tracking-wide text-bone">
+            <motion.h3 layoutId={duplicate ? undefined : `title-${project.id}`} className="font-display break-words text-[clamp(1.6rem,3.6vw,2.7rem)] leading-tight text-bone">
               {project.title}
             </motion.h3>
             <p className="mt-3 max-w-md text-sm leading-relaxed text-bone/75 sm:text-[15px]">{project.logline}</p>
