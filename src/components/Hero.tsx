@@ -145,10 +145,6 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
           {profile.intro}
         </motion.p>
 
-        <motion.p variants={item} className="mt-3 text-[11px] leading-relaxed text-mist/80">
-          Visual demo · Foto model sementara, belum foto Teh Vini.
-        </motion.p>
-
         <motion.div variants={item} className="mt-8 flex flex-wrap items-center gap-3">
           <Magnetic>
             <button

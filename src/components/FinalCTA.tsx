@@ -74,7 +74,6 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
         <p className="text-[11px] leading-relaxed text-smoke">
           © {new Date().getFullYear()} {profile.displayName}. Portofolio personal bergaya layanan streaming — tidak berafiliasi dengan layanan streaming mana pun.
         </p>
-        <p className="mt-1 text-[10px] text-smoke/70">Foto model pada demo ini masih aset sementara.</p>
       </footer>
     </section>
   );

@@ -1,7 +1,7 @@
 /**
  * Portofolio contoh Teh Vini.
  * Hanya berisi informasi yang telah disampaikan Teh Vini dalam percakapan.
- * Foto tetap memakai aset bawaan template untuk sementara; bukan foto Teh Vini.
+ * Foto Teh Vini menggunakan cutout transparan yang diberikan pemilik situs.
  * Jangan tambahkan angka hasil, gelar, sertifikat, atau tautan kontak tanpa konfirmasi.
  */
 
@@ -26,11 +26,11 @@ export const profile = {
     website: 'https://promptional.vercel.app/',
   },
   resumePdf: '',
-  // Aset foto lama sengaja tidak diubah sesuai permintaan pemilik situs.
+  // Aset unik milik Teh Vini, terpisah dari aset foto klien lainnya.
   portrait: {
-    src: '/assets/portrait-720.webp',
-    srcSet: '/assets/portrait-420.webp 420w, /assets/portrait-720.webp 720w, /assets/portrait-1100.webp 1100w',
-    alt: 'Foto model sementara untuk demonstrasi portofolio Teh Vini',
+    src: '/assets/teh-vini-720.webp',
+    srcSet: '/assets/teh-vini-420.webp 420w, /assets/teh-vini-720.webp 720w, /assets/teh-vini-1100.webp 1100w',
+    alt: 'Foto Teh Vini tersenyum dengan hijab hitam dan gestur hati di tangan',
   },
   interests: ['AI untuk kreator', 'Bisnis digital', 'Edukasi pemula', 'Otomasi pemasaran'],
 };
