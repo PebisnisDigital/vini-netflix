@@ -4,6 +4,7 @@ import { sectionMeta, type SectionId } from '../data/portfolio';
 import { useWatchProgress } from '../hooks/sectionProgress';
 import { useSmoothScroll } from '../hooks/smoothScroll';
 import { useFinePointer } from '../hooks/useMedia';
+import { useAutoRail } from '../hooks/useAutoRail';
 import { EASE, RevealText } from './fx';
 import { PosterBackdrop } from './Poster';
 import { RailButtons } from './Rail';
@@ -16,6 +17,7 @@ export default function ContinueWatching({ order }: { order: SectionId[] }) {
   const fine = useFinePointer();
   const [hovered, setHovered] = useState<number | null>(null);
   const rail = useRef<HTMLDivElement>(null);
+  const { pause } = useAutoRail(rail, { speed: 48 });
 
   return (
     <section aria-labelledby="continue-title" className="relative z-10 -mt-10 pb-10 sm:-mt-16">
@@ -72,7 +74,7 @@ export default function ContinueWatching({ order }: { order: SectionId[] }) {
             );
           })}
         </div>
-        <RailButtons rail={rail} />
+        <RailButtons rail={rail} onNavigate={pause} />
       </div>
     </section>
   );

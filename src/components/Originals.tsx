@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useRef, useState, type PointerEvent } from 'react';
+import { useCallback, useRef, useState, type PointerEvent } from 'react';
 import { motion } from 'framer-motion';
 import { profile, projects, type Project } from '../data/portfolio';
+import { useAutoRail } from '../hooks/useAutoRail';
 import { useReducedMotionPref } from '../hooks/useMedia';
 import { EASE, RevealText } from './fx';
 import ProjectCard from './ProjectCard';
@@ -12,17 +13,13 @@ import ProjectCard from './ProjectCard';
  */
 export default function Originals({ onOpen }: { onOpen: (p: Project) => void }) {
   const rail = useRef<HTMLDivElement>(null);
-  const section = useRef<HTMLDivElement>(null);
   const currentIndex = useRef(0);
-  const pauseUntil = useRef(0);
   const pointer = useRef<{ id: number; x: number; left: number; dragged: boolean } | null>(null);
   const blockNextClick = useRef(false);
   const [active, setActive] = useState(0);
-  const [visible, setVisible] = useState(false);
-  const [hovered, setHovered] = useState(false);
-  const [focused, setFocused] = useState(false);
   const [dragging, setDragging] = useState(false);
   const reduced = useReducedMotionPref();
+  const { pause } = useAutoRail(rail, { speed: 48, pauseMs: 9000 });
   const hasWebsite = Boolean(profile.links.website);
   const slideCount = projects.length + (hasWebsite ? 1 : 0);
 
@@ -32,34 +29,16 @@ export default function Originals({ onOpen }: { onOpen: (p: Project) => void }) 
     const item = el.children[index] as HTMLElement | undefined;
     if (!item) return;
 
-    if (manual) pauseUntil.current = Date.now() + 9000;
+    if (manual) pause();
     const gutter = parseFloat(getComputedStyle(el).paddingLeft) || 0;
     const left = el.scrollLeft + item.getBoundingClientRect().left - el.getBoundingClientRect().left - gutter;
     currentIndex.current = index;
     setActive(index);
     el.scrollTo({ left, behavior: reduced ? 'auto' : 'smooth' });
-  }, [reduced]);
+  }, [reduced, pause]);
 
   const changeSlide = (direction: -1 | 1) =>
     scrollToSlide((currentIndex.current + direction + slideCount) % slideCount, true);
-
-  useEffect(() => {
-    const el = section.current;
-    if (!el || !('IntersectionObserver' in window)) return;
-    const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), { threshold: 0.3 });
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  // Autoplay only while visible; pause while reading, interacting or if reduced motion is requested.
-  useEffect(() => {
-    if (!visible || hovered || focused || dragging || reduced) return;
-    const timer = window.setInterval(() => {
-      if (Date.now() >= pauseUntil.current)
-        scrollToSlide((currentIndex.current + 1) % slideCount);
-    }, 5200);
-    return () => window.clearInterval(timer);
-  }, [visible, hovered, focused, dragging, reduced, scrollToSlide, slideCount]);
 
   const syncActive = () => {
     const el = rail.current;
@@ -102,7 +81,7 @@ export default function Originals({ onOpen }: { onOpen: (p: Project) => void }) 
     const start = pointer.current;
     if (!start || start.id !== event.pointerId) return;
     if (start.dragged) {
-      pauseUntil.current = Date.now() + 9000;
+      pause();
       blockNextClick.current = true;
       window.setTimeout(() => { blockNextClick.current = false; }, 150);
       setDragging(false);
@@ -114,7 +93,7 @@ export default function Originals({ onOpen }: { onOpen: (p: Project) => void }) 
   };
 
   return (
-    <div ref={section} className="relative py-8 sm:py-12">
+    <div className="relative py-8 sm:py-12">
       <div className="gutter mb-7 flex flex-wrap items-end justify-between gap-6 sm:mb-9">
         <div>
           <p className="mb-3 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.32em] text-crimson-2">
@@ -151,13 +130,6 @@ export default function Originals({ onOpen }: { onOpen: (p: Project) => void }) 
           event.stopPropagation();
           blockNextClick.current = false;
         }}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        onFocusCapture={() => setFocused(true)}
-        onBlurCapture={(event) => {
-          if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setFocused(false);
-        }}
-        onTouchStart={() => { pauseUntil.current = Date.now() + 9000; }}
         initial={{ opacity: 0, y: 28 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-10% 0px' }}

@@ -1,7 +1,7 @@
 import { useEffect, useState, type RefObject } from 'react';
 
 /** Desktop arrow controls for a horizontal rail. Hidden on touch, where swiping is native. */
-export function RailButtons({ rail }: { rail: RefObject<HTMLDivElement | null> }) {
+export function RailButtons({ rail, onNavigate }: { rail: RefObject<HTMLDivElement | null>; onNavigate?: () => void }) {
   const [canLeft, setCanLeft] = useState(false);
   const [canRight, setCanRight] = useState(true);
 
@@ -23,7 +23,10 @@ export function RailButtons({ rail }: { rail: RefObject<HTMLDivElement | null> }
 
   const page = (dir: 1 | -1) => {
     const el = rail.current;
-    if (el) el.scrollBy({ left: dir * el.clientWidth * 0.8, behavior: 'smooth' });
+    if (el) {
+      onNavigate?.();
+      el.scrollBy({ left: dir * el.clientWidth * 0.8, behavior: 'smooth' });
+    }
   };
 
   const base =

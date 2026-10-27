@@ -1,12 +1,14 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { topPicks } from '../data/portfolio';
+import { useAutoRail } from '../hooks/useAutoRail';
 import { EASE, SectionHeading } from './fx';
 import { PosterBackdrop } from './Poster';
 import { RailButtons } from './Rail';
 
 export default function TopPicks() {
   const rail = useRef<HTMLDivElement>(null);
+  const { pause } = useAutoRail(rail, { speed: 56 });
   return (
     <>
       <SectionHeading kicker="10 Sorotan · perjalanan & karya" title="Pilihan Teh Vini" />
@@ -43,7 +45,7 @@ export default function TopPicks() {
             </motion.div>
           ))}
         </div>
-        <RailButtons rail={rail} />
+        <RailButtons rail={rail} onNavigate={pause} />
       </div>
     </>
   );

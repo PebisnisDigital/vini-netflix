@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { achievements, certifications } from '../data/portfolio';
+import { useAutoRail } from '../hooks/useAutoRail';
 import { EASE, SectionHeading, Tilt } from './fx';
 import { RailButtons } from './Rail';
 
@@ -16,17 +17,21 @@ function Laurel({ side }: { side: 'l' | 'r' }) {
 }
 
 export default function Achievements() {
-  const rail = useRef<HTMLDivElement>(null);
+  const momentsRail = useRef<HTMLDivElement>(null);
+  const certificateRail = useRef<HTMLDivElement>(null);
+  const { pause } = useAutoRail(momentsRail, { speed: 34 });
   const issuers = Array.from(new Set(certifications.map((c) => c.issuer)));
 
   return (
     <>
       <SectionHeading kicker="Jejak Berkarya" title="Momen Penting" />
 
-      <div className="gutter grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 [perspective:1400px]">
+      <div className="group/rail relative">
+        <div ref={momentsRail} className="rail gutter flex gap-4 overflow-x-auto py-7 [perspective:1400px]">
         {achievements.map((a, i) => (
           <motion.div
             key={a.id}
+            className="w-[82vw] shrink-0 snap-start sm:w-[52vw] md:w-[42vw] lg:w-[32vw] xl:w-[24vw] 2xl:w-[22vw]"
             initial={{ opacity: 0, y: 50, rotateX: 18 }}
             whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
             viewport={{ once: true, margin: '-8% 0px' }}
@@ -61,6 +66,8 @@ export default function Achievements() {
             </Tilt>
           </motion.div>
         ))}
+        </div>
+        <RailButtons rail={momentsRail} onNavigate={pause} />
       </div>
 
       {/* Hanya tampilkan sertifikasi jika ada data yang sudah dikonfirmasi. */}
@@ -72,7 +79,7 @@ export default function Achievements() {
           <p className="text-xs text-smoke">{issuers.join(' · ')}</p>
         </div>
         <div className="group/rail relative">
-          <div ref={rail} className="rail gutter flex snap-x gap-3 overflow-x-auto py-5">
+          <div ref={certificateRail} className="rail gutter flex snap-x gap-3 overflow-x-auto py-5">
             {certifications.map((c, i) => (
               <motion.a
                 key={c.name}
@@ -94,7 +101,7 @@ export default function Achievements() {
               </motion.a>
             ))}
           </div>
-          <RailButtons rail={rail} />
+          <RailButtons rail={certificateRail} />
         </div>
       </div>}
     </>
