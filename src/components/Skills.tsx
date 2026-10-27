@@ -12,7 +12,7 @@ export default function Skills() {
 
   return (
     <>
-      <SectionHeading kicker="Kategori" title="Dunia Keahlian Saya" aside={<p className="max-w-xs text-sm text-mist">Arahkan kursor atau ketuk keahlian untuk melihat penerapannya dalam proyek dan sertifikasi.</p>} />
+      <SectionHeading kicker="Kategori" title="Dunia Keahlian Saya" aside={<p className="max-w-xs text-sm text-mist">Arahkan kursor atau ketuk keahlian untuk melihat penerapannya dalam karya dan aktivitas saya.</p>} />
 
       <div className="gutter grid gap-8 lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-14">
         {/* genre list */}

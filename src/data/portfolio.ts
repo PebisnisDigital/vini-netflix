@@ -1,70 +1,79 @@
 /**
- * Central portfolio data — generated from Sushmita's resume (Sushmita_dasari.pdf).
- * Every fact on the site comes from this file. Update it here and the whole site follows.
- * Nothing here should be added unless it appears on the resume.
+ * Portofolio contoh Teh Vini.
+ * Hanya berisi informasi yang telah disampaikan Teh Vini dalam percakapan.
+ * Foto tetap memakai aset bawaan template untuk sementara; bukan foto Teh Vini.
+ * Jangan tambahkan angka hasil, gelar, sertifikat, atau tautan kontak tanpa konfirmasi.
  */
 
 export type Palette = { from: string; via: string; to: string; accent: string };
 
 export const profile = {
   fullName: 'TEH VINI',
-  displayName: 'TEH VINI',
+  displayName: 'Teh Vini',
   firstName: 'TEH VINI',
   seriesTag: 'THE SERIES',
-  /** Fictional studio card shown at the very start of the opening sequence. */
-  originalLabel: 'KARYA ORIGINAL TEH VINI',
-  role: 'Pengembang Full-Stack',
-  tagline: ['Pengembang Full-Stack', 'AI / ML', 'Java'],
+  originalLabel: 'KISAH ORIGINAL TEH VINI',
+  role: 'CEO Cuanify ID • Mentor Digital',
+  tagline: ['Founder Pebisnis.Digital', 'Komunitas BADAI', 'WhatsApp Marketing'],
   intro:
-    'Mahasiswi B.Tech Kecerdasan Buatan & Machine Learning (CGPA 9,10) sekaligus pengembang full-stack yang membangun platform berbasis AI, sistem pembayaran, dan SaaS multi-tenant dengan Java, Python, React, Node.js, serta Docker.',
-  location: 'Surampalem, Andhra Pradesh',
-  email: 'sushmitadasari17@gmail.com',
+    'Saya Vini, seorang ibu rumah tangga dari Bandung yang jatuh cinta pada dunia bisnis digital dan AI. Kini saya mengelola Cuanify ID, membangun Pebisnis.Digital, dan mendampingi para pemula belajar pemasaran WhatsApp serta membuat karya dengan AI. Saya percaya teknologi harus terasa dekat, bahkan bagi orang yang baru mulai.',
+  location: 'Bandung, Jawa Barat',
+  // Kontak pribadi belum disetujui untuk dipublikasikan. Jangan memakai milik pembuat template.
+  email: '',
   links: {
-    linkedin: 'https://www.linkedin.com/in/sushmita-dasari-227a40284/',
-    github: 'https://github.com/Sushmitadasari',
+    linkedin: '',
+    github: '',
+    website: 'https://promptional.vercel.app/',
   },
-  resumePdf: '/assets/Sushmita_Dasari_Resume.pdf',
+  resumePdf: '',
+  // Aset foto lama sengaja tidak diubah sesuai permintaan pemilik situs.
   portrait: {
     src: '/assets/portrait-720.webp',
     srcSet: '/assets/portrait-420.webp 420w, /assets/portrait-720.webp 720w, /assets/portrait-1100.webp 1100w',
-    alt: 'Potret untuk portofolio TEH VINI',
+    alt: 'Foto model sementara untuk demonstrasi portofolio Teh Vini',
   },
-  interests: ['Desain Sistem', 'Komputasi Awan (AWS)', 'Machine Learning'],
+  interests: ['AI untuk kreator', 'Bisnis digital', 'Edukasi pemula', 'Otomasi pemasaran'],
 };
 
-export const education = [
-  {
-    school: 'Aditya Engineering College',
-    place: 'Surampalem',
-    degree: 'Sarjana Teknologi — Kecerdasan Buatan dan Machine Learning',
-    period: 'Oktober 2023 – Sekarang',
-    score: 'CGPA 9.10',
-  },
-  {
-    school: 'Sri Chaitanya Junior College',
-    place: 'Kakinada',
-    degree: 'BIEAP — MPC',
-    period: 'Juni 2021 – Mei 2023',
-    score: 'Nilai 925/1000',
-  },
-];
+export type Education = { school: string; place: string; degree: string; period: string; score: string };
+// Pendidikan formal belum diberikan. Bagian ini disembunyikan, bukan diisi data orang lain.
+export const education: Education[] = [];
 
-export const experience = [
+export type Experience = { company: string; role: string; place: string; period: string; points: string[] };
+export const experience: Experience[] = [
   {
-    company: 'Technical Hub Pvt Ltd',
-    role: 'Peserta Pelatihan',
-    place: 'Surampalem, AP',
-    period: 'Mei 2025 – Juni 2026',
+    company: 'Cuanify ID',
+    role: 'CEO',
+    place: 'Indonesia',
+    period: 'Saat ini',
     points: [
-      'Menyelesaikan satu tahun pelatihan intensif pengembangan full-stack, mencakup frontend, backend, integrasi basis data, dan alur deployment.',
-      'Mengembangkan aplikasi web responsif dan fungsional, mulai dari antarmuka pengguna, logika server, hingga koneksi basis data.',
-      'Meluncurkan dan mengelola aplikasi web dengan kontrol versi, debugging, serta praktik pengembangan dari awal hingga akhir.',
+      'Mengelola rintisan Cuanify ID dan mengembangkan ide produk serta layanan digital.',
+      'Mengeksplorasi AI untuk konten, edukasi, pemasaran, dan kebutuhan pelaku usaha kecil.',
+    ],
+  },
+  {
+    company: 'Pebisnis.Digital',
+    role: 'Founder & Mentor',
+    place: 'Online',
+    period: 'Aktif',
+    points: [
+      'Menyusun materi bisnis digital yang mudah dipahami para pemula.',
+      'Membagikan strategi WhatsApp Marketing dan membawakan kelas belajar melalui WhatsApp.',
+    ],
+  },
+  {
+    company: 'Komunitas BADAI',
+    role: 'Pengelola Komunitas',
+    place: 'Online',
+    period: '2026 – Sekarang',
+    points: [
+      'Mengembangkan komunitas Belajar Apa Aja Dengan AI sebagai ruang praktik dan berbagi inspirasi.',
+      'Menyiapkan materi pembuatan konten dan berbagai eksperimen kreatif menggunakan AI.',
     ],
   },
 ];
 
 export type Metric = { value: string; label: string };
-
 export type Project = {
   id: string;
   title: string;
@@ -75,7 +84,6 @@ export type Project = {
   build: string[];
   features: string[];
   metrics: Metric[];
-  /** Omit when the repository isn't public — the GitHub button is hidden instead of linking to a 404. */
   github?: string;
   palette: Palette;
   motif: 'shield' | 'flow' | 'tenants';
@@ -83,290 +91,218 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    id: 'policyguard-ai',
-    title: 'PolicyGuard AI',
+    id: 'badai',
+    title: 'BADAI',
     year: '2026',
-    genre: 'AI • NLP • LLM',
-    logline: 'Platform analisis kebijakan berbasis AI untuk web, ekstensi peramban, aplikasi seluler, dan desktop.',
-    stack: ['Python', 'NLP', 'LLM', 'REST API'],
+    genre: 'Komunitas • Edukasi AI • Kreator',
+    logline: 'Belajar Apa Aja Dengan AI — komunitas tempat pemula mencoba, berkarya, dan terus belajar bersama.',
+    stack: ['AI Kreatif', 'Materi Praktik', 'Komunitas', 'Kelas Online'],
     build: [
-      'Membangun platform analisis kebijakan berbasis AI di web, ekstensi peramban, seluler, dan desktop. Memproses lebih dari 500 dokumen dengan akurasi 92% dan mengurangi waktu tinjauan manual sebesar 60% pada 8 kategori.',
-      'Merancang tanya jawab berbasis LLM, ekstraksi informasi penting, serta integrasi REST API untuk lebih dari 10 jenis dokumen agar analisis berlangsung secara langsung dan pengambilan keputusan 45% lebih cepat.',
+      'Mengembangkan konsep BADAI sebagai tempat belajar AI yang dekat dengan kebutuhan pemula, kreator, dan UMKM.',
+      'Menyusun pengalaman belajar berupa praktik membuat konten AI, video, karya kreatif, serta inspirasi pemanfaatannya.',
     ],
     features: [
-      'Tanya jawab dokumen kebijakan dengan LLM',
-      'Ekstraksi informasi penting',
-      'Integrasi REST API untuk 10+ jenis dokumen',
-      'Aplikasi web, ekstensi peramban, seluler, dan desktop',
-      'Analisis kebijakan secara langsung',
+      'Materi belajar AI yang berorientasi praktik',
+      'Inspirasi konten visual dan video dengan AI',
+      'Ruang komunitas dan pendampingan belajar',
+      'Paket pembelajaran dengan masa akses tahunan',
     ],
     metrics: [
-      { value: '500+', label: 'dokumen kebijakan diproses' },
-      { value: '92%', label: 'akurasi' },
-      { value: '60%', label: 'pengurangan tinjauan manual' },
-      { value: '45%', label: 'keputusan lebih cepat' },
-      { value: '8', label: 'kategori kebijakan' },
+      { value: '365', label: 'hari masa akses' },
+      { value: 'AI', label: 'fokus pembelajaran' },
+      { value: '2', label: 'pilihan paket belajar' },
     ],
-    // The resume links to https://github.com/Sushmitadasari/PolicyGuard-AI, which is not public yet (404).
-    // Add `github: 'https://github.com/Sushmitadasari/PolicyGuard-AI',` back once the repo is public.
-    palette: { from: '#2a0610', via: '#7a0f24', to: '#0b0710', accent: '#ff3d5a' },
+    palette: { from: '#2a0618', via: '#861f5a', to: '#09050d', accent: '#ff54aa' },
     motif: 'shield',
   },
   {
-    id: 'payment-gateway',
-    title: 'Sistem Gerbang Pembayaran',
+    id: 'promptional',
+    title: 'PROMPTIONAL',
     year: '2026',
-    genre: 'Full-Stack • Fintech • Mikroservis',
-    logline: 'Gerbang pembayaran UPI dan kartu yang dibangun dengan pengelolaan status transaksi yang ketat.',
-    stack: ['Node.js', 'Express', 'PostgreSQL', 'React', 'Docker'],
+    genre: 'Prompt AI • Galeri Kreatif • Telegram',
+    logline: 'Ruang berbagi inspirasi prompt gambar AI, dengan konten gratis dan akses galeri premium.',
+    stack: ['AI Image', 'Prompt Kreatif', 'Telegram', 'Galeri Web'],
     build: [
-      'Membangun gerbang pembayaran UPI dan kartu yang menangani lebih dari 1.000 transaksi dengan uptime 99,8% serta status pembayaran yang terkontrol (diproses → berhasil/gagal).',
-      'Arsitektur mikroservis berbasis Docker memangkas persiapan deployment sebesar 70%; optimasi backend membuat respons API 40% lebih cepat dan kapasitas pemrosesan menjadi tiga kali lipat.',
+      'Merancang pengalaman mendapatkan inspirasi prompt gratis melalui kanal digital dan bot Telegram.',
+      'Mengembangkan konsep galeri member berisi kumpulan prompt untuk dieksplorasi dan dipraktikkan.',
     ],
     features: [
-      'Pembayaran UPI dan kartu',
-      'Pengelolaan status transaksi (diproses → berhasil/gagal)',
-      'Arsitektur mikroservis berbasis Docker',
-      'Optimasi backend untuk trafik tinggi',
+      'Inspirasi prompt visual untuk pengguna gratis',
+      'Bot Telegram sebagai kanal distribusi',
+      'Galeri prompt di website',
+      'Akses premium untuk koleksi prompt',
     ],
     metrics: [
-      { value: '1.000+', label: 'transaksi diproses' },
-      { value: '99,8%', label: 'waktu aktif sistem' },
-      { value: '70%', label: 'pengurangan persiapan deployment' },
-      { value: '40%', label: 'respons API lebih cepat' },
-      { value: '3×', label: 'kapasitas saat trafik tinggi' },
+      { value: 'AI', label: 'fokus karya visual' },
+      { value: 'Gratis', label: 'jalur berbagi inspirasi' },
+      { value: 'Premium', label: 'akses galeri koleksi' },
     ],
-    github: 'https://github.com/Sushmitadasari/Payment-gateway-system-Project',
-    palette: { from: '#1a0d02', via: '#8a4a07', to: '#0a0806', accent: '#ffb547' },
+    palette: { from: '#18101e', via: '#5e245c', to: '#08080d', accent: '#c98bff' },
     motif: 'flow',
   },
   {
-    id: 'multi-tenant-saas',
-    title: 'Platform SaaS Multi-Tenant',
-    year: '2026',
-    genre: 'SaaS • Security • DevOps',
-    logline: 'SaaS multi-tenant dengan basis data bersama, isolasi tenant yang ketat, dan empat tingkat akses JWT/RBAC.',
-    stack: ['Node.js', 'React', 'PostgreSQL', 'Docker Compose'],
+    id: 'pebisnis-digital',
+    title: 'PEBISNIS.DIGITAL',
+    year: 'Aktif',
+    genre: 'Edukasi Bisnis • WhatsApp • Digital Marketing',
+    logline: 'Belajar bisnis digital dengan bahasa yang membumi, materi rutin, dan praktik pemasaran WhatsApp.',
+    stack: ['WhatsApp Marketing', 'KULWA', 'Materi Harian', 'Edukasi Pemula'],
     build: [
-      'Merancang basis data bersama untuk lebih dari 50 tenant aktif dengan isolasi tenant_id dan empat tingkat akses JWT/RBAC. Hasilnya, tidak ada insiden akses ilegal pada lebih dari 200 pengguna.',
-      'Menerapkan deployment satu perintah dengan Docker Compose dan memangkas persiapan lingkungan dari 45 menit menjadi kurang dari 2 menit.',
+      'Membangun ruang belajar bagi ibu rumah tangga, pemula, karyawan, dan pelaku UMKM yang ingin memahami pemasaran digital.',
+      'Membagikan materi terjadwal, strategi komunikasi penjualan, dan pembelajaran berbasis studi kasus.',
     ],
     features: [
-      'Basis data bersama untuk banyak tenant',
-      'Isolasi tenant_id yang ketat',
-      'Empat tingkat akses JWT / RBAC',
-      'Deployment Docker Compose satu perintah',
+      'Materi edukasi bisnis digital harian',
+      'Kelas belajar melalui WhatsApp (KULWA)',
+      'Strategi komunikasi dan tindak lanjut calon pembeli',
+      'Contoh praktik yang relevan untuk pemula dan UMKM',
     ],
     metrics: [
-      { value: '50+', label: 'tenant aktif bersamaan' },
-      { value: '200+', label: 'pengguna' },
-      { value: '0', label: 'insiden akses ilegal' },
-      { value: '45 m → <2 m', label: 'waktu persiapan lingkungan' },
+      { value: 'WA', label: 'kanal belajar utama' },
+      { value: 'KULWA', label: 'format kelas interaktif' },
+      { value: 'UMKM', label: 'salah satu audiens utama' },
     ],
-    github: 'https://github.com/Sushmitadasari/Multi-Tenant-SaaS-Platform',
-    palette: { from: '#04121f', via: '#0f4c6e', to: '#05080d', accent: '#4cc9ff' },
+    palette: { from: '#1b1502', via: '#806c0c', to: '#080808', accent: '#f4c400' },
     motif: 'tenants',
   },
 ];
 
-export type Achievement = {
-  id: string;
-  title: string;
-  org: string;
-  detail: string;
-  laurel: string;
-  link?: string;
-};
-
+export type Achievement = { id: string; title: string; org: string; detail: string; laurel: string; link?: string };
+// Momen karya nyata, bukan penghargaan atau sertifikat yang belum terkonfirmasi.
 export const achievements: Achievement[] = [
   {
-    id: 'algouniversity',
-    title: 'Fellow Teknologi',
-    org: 'AlgoUniversity',
-    detail: 'Terpilih melalui seleksi nasional yang kompetitif untuk pendalaman DSA, optimasi algoritma, dan pemrograman kompetitif.',
-    laurel: 'Seleksi Nasional',
+    id: 'founder', title: 'Membangun Pebisnis.Digital', org: 'Pebisnis.Digital',
+    detail: 'Membuat materi pembelajaran bisnis digital yang terasa dekat bagi pemula dan pelaku usaha.',
+    laurel: 'MERINTIS',
   },
   {
-    id: 'flipkart-grid',
-    title: 'Semifinalis',
-    org: 'Flipkart GRiD 7.0',
-    detail: 'Berkompetisi bersama talenta teknik terkemuka tingkat nasional.',
-    laurel: 'Semifinalis',
-    link: 'https://drive.google.com/file/d/16pXA2hssyJqlYMr27wfi6U4bjKDLvh9f/view?usp=drive_link',
+    id: 'mentor', title: 'Mentor WhatsApp Marketing', org: 'Kelas & Komunitas',
+    detail: 'Berbagi strategi jualan, pengumpulan calon pelanggan, dan praktik komunikasi pemasaran melalui WhatsApp.',
+    laurel: 'BERBAGI ILMU',
   },
   {
-    id: 'branch-topper',
-    title: 'Peringkat Tertinggi AI & ML',
-    org: 'B.Tech AI & ML',
-    detail: 'Meraih SGPA 9,24 pada semester tersebut.',
-    laurel: 'Terbaik di Jurusan',
+    id: 'badai', title: 'Membangun BADAI', org: 'Komunitas BADAI',
+    detail: 'Mengembangkan komunitas belajar AI dengan materi kreatif dan semangat berani mencoba.',
+    laurel: 'KOMUNITAS AI',
   },
   {
-    id: 'competitive-coding',
-    title: '850+ Soal Diselesaikan',
-    org: 'LeetCode • GFG • CodeChef',
-    detail: 'LeetCode: 350+ soal DSA (rating tertinggi 1442). GFG: 300+ soal (rating 1436). CodeChef: 200+ soal.',
-    laurel: 'Pemrograman Kompetitif',
+    id: 'promptional', title: 'Merintis PROMPTIONAL', org: 'PROMPTIONAL',
+    detail: 'Membuat konsep galeri prompt AI dan kanal distribusi inspirasi gratis melalui Telegram.',
+    laurel: 'KARYA DIGITAL',
+    link: 'https://promptional.vercel.app/',
   },
   {
-    id: 'hackerrank',
-    title: 'Lencana 5 Bintang',
-    org: 'HackerRank',
-    detail: 'Memperoleh lencana 5 bintang untuk C, Python, Java, dan SQL.',
-    laurel: 'Empat Bahasa',
+    id: 'product', title: 'Bereksperimen dengan Produk AI', org: 'Cuanify ID',
+    detail: 'Mengembangkan gagasan seperti Karyawan AI, Bikin Web AI, dan alat bantu pemasaran untuk pemula.',
+    laurel: 'TERUS BELAJAR',
   },
 ];
 
 export type Certification = { issuer: string; name: string; link: string };
-
-export const certifications: Certification[] = [
-  { issuer: 'NPTEL', name: 'Database Management System', link: 'https://drive.google.com/file/d/1MqkJHchXeaGD4S8mzPmEGxEYddAsxAjN/view?usp=drive_link' },
-  { issuer: 'NPTEL', name: 'Fundamentals of Artificial Intelligence', link: 'https://drive.google.com/file/d/1GqyUQ-lrE-bHaN457t6fIdssgGG4HMXf/view?usp=drive_link' },
-  { issuer: 'NPTEL', name: 'Deep Learning', link: 'https://drive.google.com/file/d/1PWSRP5SQDPzkoTCF3A24eIJoSpTwgsff/view?usp=sharing' },
-  { issuer: 'AWS', name: 'AWS Certified AI Practitioner', link: 'https://drive.google.com/file/d/1h8e5p0a9T6f5gBaOP2ROfwWHZfkkspGn/view?usp=drive_link' },
-  { issuer: 'AWS', name: 'AWS Academy Graduate – Cloud Foundations', link: 'https://www.credly.com/badges/2d4810f9-3dbe-444d-99b9-61312ea5e7df/public_url' },
-  { issuer: 'MongoDB', name: 'MongoDB Certified Associate Developer', link: 'https://www.credly.com/badges/fd3362bd-743a-4c4d-a68e-b1fdc5d46811/public_url' },
-  { issuer: 'GitHub', name: 'GitHub Foundations', link: 'https://drive.google.com/file/d/1o0fkCAMRWTg1oMwxlqu6t6wnOpBv66Vq/view?usp=sharing' },
-  { issuer: 'Pearson', name: 'IT Specialist – HTML and CSS', link: 'https://www.credly.com/badges/e4a55298-e396-41d8-a032-283aafe9fab7/public_url' },
-  { issuer: 'Oracle', name: 'Java Certified Foundations Associate', link: 'https://drive.google.com/file/d/1g-yyceHtLg_k2RWiOIJqH0MMcGlaH90P/view?usp=sharing' },
-  { issuer: 'Oracle', name: 'Oracle Certified Foundations Associate – Database', link: 'https://drive.google.com/file/d/10-DzabbcH2vHrI6bAohoT8czKRZMa2kV/view?usp=drive_link' },
-  { issuer: 'Cisco', name: 'HTML Essentials', link: 'https://www.credly.com/badges/eb27ca95-3b2a-4948-bef9-0385d1d49055/public_url' },
-  { issuer: 'Cisco', name: 'CSS Essentials', link: 'https://www.credly.com/badges/3b37497f-6a61-4889-af3c-ed337a460a0b/public_url' },
-  { issuer: 'Cisco', name: 'JavaScript Essentials 1', link: 'https://www.credly.com/badges/9cdd4d55-6ecc-463f-b254-811ccdd0539c/public_url' },
-  { issuer: 'Cisco', name: 'JavaScript Essentials 2', link: 'https://www.credly.com/badges/0e1b036e-4318-4c8e-b750-2aca77314442/public_url' },
-  { issuer: 'Cisco', name: 'Python Essentials 1', link: 'https://www.credly.com/badges/0e21e3eb-d8ef-4770-95d7-dcbd6f8696b1/public_url' },
-  { issuer: 'Udemy', name: 'Microsoft Azure Hands-On Training (AZ-900, AZ-104, AZ-305)', link: 'https://drive.google.com/file/d/1KrXClhY0nJ3Acxs7DioNf4Q1rpaMvgPT/view?usp=sharing' },
-];
+// Belum ada daftar sertifikasi resmi Teh Vini yang diberikan.
+export const certifications: Certification[] = [];
 
 export type Skill = { name: string; mono: string; note?: string };
 export type SkillCategory = { id: string; title: string; subtitle: string; skills: Skill[] };
-
 export const skillCategories: SkillCategory[] = [
   {
-    id: 'languages',
-    title: 'Bahasa Pemrograman',
-    subtitle: 'Java sebagai bahasa utama',
+    id: 'marketing', title: 'Pemasaran Digital', subtitle: 'Membangun komunikasi yang menjual',
     skills: [
-      { name: 'Java', mono: 'Jv', note: 'Utama' },
-      { name: 'Python', mono: 'Py' },
-      { name: 'C', mono: 'C' },
-      { name: 'C++', mono: 'C+' },
+      { name: 'WhatsApp Marketing', mono: 'WA', note: 'Fokus' },
+      { name: 'Strategi Penjualan', mono: 'SJ' },
+      { name: 'Akuisisi Leads', mono: 'AL' },
+      { name: 'Follow-up', mono: 'FU' },
     ],
   },
   {
-    id: 'frontend',
-    title: 'Frontend',
-    subtitle: 'Antarmuka dan platform web',
+    id: 'creative', title: 'Konten Kreatif AI', subtitle: 'Mengolah ide menjadi konten',
     skills: [
-      { name: 'React', mono: 'Re' },
-      { name: 'HTML', mono: 'Ht' },
-      { name: 'CSS', mono: 'Cs' },
-      { name: 'JavaScript', mono: 'Js' },
+      { name: 'Prompt Gambar AI', mono: 'PG' },
+      { name: 'AI Influencer', mono: 'AI' },
+      { name: 'Konten Edukasi', mono: 'KE' },
+      { name: 'Video AI', mono: 'VA' },
     ],
   },
   {
-    id: 'backend',
-    title: 'Backend',
-    subtitle: 'Logika di sisi server',
+    id: 'education', title: 'Edukasi & Mentoring', subtitle: 'Belajar bersama para pemula',
     skills: [
-      { name: 'Node.js', mono: 'No' },
-      { name: 'Express.js', mono: 'Ex' },
+      { name: 'KULWA', mono: 'KW' },
+      { name: 'Training Online', mono: 'TR' },
+      { name: 'Materi Harian', mono: 'MH' },
+      { name: 'Kelas Digital', mono: 'KD' },
     ],
   },
   {
-    id: 'infra',
-    title: 'Infrastruktur & Alat',
-    subtitle: 'Deployment dan arsitektur',
+    id: 'product', title: 'Produk Digital', subtitle: 'Dari ide menjadi produk belajar',
     skills: [
-      { name: 'Docker', mono: 'Dk' },
-      { name: 'Docker Compose', mono: 'Dc' },
-      { name: 'REST APIs', mono: 'Ap' },
-      { name: 'Microservices', mono: 'Ms' },
-      { name: 'JWT Auth', mono: 'Jw' },
-      { name: 'Git / GitHub', mono: 'Gt' },
-      { name: 'Postman', mono: 'Pm' },
+      { name: 'Komunitas Membership', mono: 'KM' },
+      { name: 'Galeri Prompt', mono: 'GP' },
+      { name: 'Karyawan AI', mono: 'KA' },
+      { name: 'Produk Edukasi', mono: 'PE' },
     ],
   },
   {
-    id: 'databases',
-    title: 'Basis Data',
-    subtitle: 'Indeks • Normalisasi',
+    id: 'channels', title: 'Kanal Komunitas', subtitle: 'Menjangkau audiens di berbagai kanal',
     skills: [
-      { name: 'PostgreSQL', mono: 'Pg' },
-      { name: 'MongoDB', mono: 'Mg' },
-      { name: 'MySQL', mono: 'My' },
+      { name: 'WhatsApp', mono: 'WA' },
+      { name: 'Telegram', mono: 'TG' },
+      { name: 'Threads', mono: 'TH' },
+      { name: 'Instagram', mono: 'IG' },
     ],
   },
   {
-    id: 'fundamentals',
-    title: 'Dasar Ilmu Komputer',
-    subtitle: 'Fondasi teknis',
+    id: 'systems', title: 'Sistem & Otomasi', subtitle: 'Menyederhanakan aktivitas pemasaran',
     skills: [
-      { name: 'DSA', mono: 'Ds' },
-      { name: 'OS', mono: 'Os' },
-      { name: 'CN', mono: 'Cn' },
-      { name: 'DBMS', mono: 'Db' },
-      { name: 'OOPs', mono: 'Oo' },
-      { name: 'Collections', mono: 'Co' },
-      { name: 'Multithreading', mono: 'Mt' },
+      { name: 'Bot Telegram', mono: 'BT' },
+      { name: 'AUTOKONTAK', mono: 'AK' },
+      { name: 'QRIS Digital', mono: 'QR' },
+      { name: 'Sistem Follow-up', mono: 'SF' },
     ],
   },
   {
-    id: 'interests',
-    title: 'Minat',
-    subtitle: 'Bab berikutnya dalam serial',
+    id: 'interests', title: 'Eksplorasi', subtitle: 'Ide baru selalu punya ruang',
     skills: [
-      { name: 'Desain Sistem', mono: 'Sd' },
-      { name: 'Komputasi Awan (AWS)', mono: 'Aw' },
-      { name: 'Machine Learning', mono: 'Ml' },
+      { name: 'AI untuk UMKM', mono: 'UM' },
+      { name: 'Bikin Web AI', mono: 'WB' },
+      { name: 'Game Edukasi', mono: 'GE' },
+      { name: 'Animasi AI', mono: 'AN' },
     ],
   },
 ];
 
-/**
- * Factual cross-references shown when a skill card is hovered/tapped:
- * where the skill appears in the projects, certifications or achievements on the resume.
- */
 export const skillEvidence: Record<string, string[]> = {
-  Java: ['Oracle Java Certified Foundations Associate', 'HackerRank 5 bintang'],
-  Python: ['PolicyGuard AI', 'Cisco Python Essentials 1', 'HackerRank 5 bintang'],
-  C: ['HackerRank 5 bintang'],
-  React: ['Sistem Gerbang Pembayaran', 'Platform SaaS Multi-Tenant'],
-  HTML: ['Pearson IT Specialist – HTML and CSS', 'Cisco HTML Essentials'],
-  CSS: ['Pearson IT Specialist – HTML and CSS', 'Cisco CSS Essentials'],
-  JavaScript: ['Cisco JavaScript Essentials 1 & 2'],
-  'Node.js': ['Sistem Gerbang Pembayaran', 'Platform SaaS Multi-Tenant'],
-  'Express.js': ['Sistem Gerbang Pembayaran'],
-  Docker: ['Sistem Gerbang Pembayaran'],
-  'Docker Compose': ['Platform SaaS Multi-Tenant'],
-  'REST APIs': ['PolicyGuard AI'],
-  Microservices: ['Sistem Gerbang Pembayaran'],
-  'JWT Auth': ['Platform SaaS Multi-Tenant'],
-  'Git / GitHub': ['GitHub Foundations'],
-  PostgreSQL: ['Sistem Gerbang Pembayaran', 'Platform SaaS Multi-Tenant'],
-  MongoDB: ['MongoDB Certified Associate Developer'],
-  DBMS: ['NPTEL Database Management System', 'Oracle Database Foundations'],
-  DSA: ['AlgoUniversity Fellow Teknologi', '850+ soal diselesaikan'],
-  'Komputasi Awan (AWS)': ['AWS Certified AI Practitioner', 'AWS Academy Cloud Foundations'],
-  'Machine Learning': ['B.Tech AI & ML', 'NPTEL Deep Learning'],
+  'WhatsApp Marketing': ['Mentoring WhatsApp', 'Pebisnis.Digital'],
+  'Strategi Penjualan': ['Kelas Jago Jualan WA', 'Pebisnis.Digital'],
+  'Akuisisi Leads': ['Materi pemasaran WhatsApp'],
+  'Follow-up': ['Strategi WhatsApp Marketing'],
+  'Prompt Gambar AI': ['PROMPTIONAL', 'BADAI'],
+  'AI Influencer': ['Materi BADAI'],
+  'Konten Edukasi': ['BADAI', 'Pebisnis.Digital'],
+  'Video AI': ['Materi BADAI'],
+  KULWA: ['Kelas WhatsApp', 'Pebisnis.Digital'],
+  'Training Online': ['Training Bikin Game Edukasi'],
+  'Materi Harian': ['Pebisnis.Digital'],
+  'Kelas Digital': ['BADAI', 'Jago Jualan WA'],
+  'Komunitas Membership': ['BADAI'],
+  'Galeri Prompt': ['PROMPTIONAL'],
+  'Karyawan AI': ['Produk Karyawan AI'],
+  'Produk Edukasi': ['Bikin Web AI', 'Jago Jualan WA'],
+  WhatsApp: ['Pebisnis.Digital', 'KULWA'],
+  Telegram: ['PROMPTIONAL'],
+  Threads: ['Konten pemasaran'],
+  Instagram: ['Konten kreatif AI'],
+  'Bot Telegram': ['PROMPTIONAL'],
+  AUTOKONTAK: ['Sistem AUTOKONTAK'],
+  'QRIS Digital': ['Produk digital'],
+  'Sistem Follow-up': ['Strategi WhatsApp Marketing'],
+  'AI untuk UMKM': ['BADAI'],
+  'Bikin Web AI': ['Pelatihan Bikin Web AI'],
+  'Game Edukasi': ['Training Bikin Game Edukasi'],
+  'Animasi AI': ['Materi kreatif BADAI'],
 };
 
-export type Episode = {
-  code: string;
-  title: string;
-  description: string;
-  tags: string[];
-  runtime: string;
-  palette: Palette;
-};
-
-export type Season = {
-  number: number;
-  title: string;
-  period: string;
-  synopsis: string;
-  episodes: Episode[];
-};
+export type Episode = { code: string; title: string; description: string; tags: string[]; runtime: string; palette: Palette };
+export type Season = { number: number; title: string; period: string; synopsis: string; episodes: Episode[] };
 
 const crimson: Palette = { from: '#24060b', via: '#6e0d1d', to: '#09070a', accent: '#ff3d5a' };
 const amber: Palette = { from: '#1c1003', via: '#6b3c06', to: '#0a0806', accent: '#ffb547' };
@@ -376,239 +312,88 @@ const jade: Palette = { from: '#03150f', via: '#0d5a40', to: '#050a08', accent: 
 
 export const seasons: Season[] = [
   {
-    number: 1,
-    title: 'Awal Perjalanan',
-    period: '2021 – 2023',
-    synopsis: 'Masa pendidikan di Sri Chaitanya Junior College, Kakinada — Matematika, Fisika, dan Kimia.',
+    number: 1, title: 'Semua Berawal dari Rasa Penasaran', period: 'Bab pertama',
+    synopsis: 'Dari keseharian sebagai ibu rumah tangga hingga menemukan dunia kreatif AI dan bisnis digital.',
     episodes: [
-      {
-        code: 'S01 E01',
-        title: 'Membangun Fondasi',
-        description: 'Menempuh BIEAP, MPC di Sri Chaitanya Junior College, Kakinada, dan lulus dengan nilai 925/1000.',
-        tags: ['MPC', 'BIEAP'],
-        runtime: 'Jun 2021 – Mei 2023',
-        palette: amber,
-      },
+      { code: 'S01 E01', title: 'Ibu Rumah Tangga, Banyak Ide', description: 'Teh Vini berasal dari Bandung dan mulai mengeksplorasi peluang belajar serta berkarya secara digital.', tags: ['Bandung', 'Belajar Digital'], runtime: 'Awal cerita', palette: amber },
+      { code: 'S01 E02', title: 'Jatuh Cinta pada AI', description: 'Kegemaran bereksperimen dengan gambar AI membuka jalan menuju dunia prompt dan konten kreatif.', tags: ['AI Kreatif', 'Prompt'], runtime: 'Titik balik', palette: violet },
     ],
   },
   {
-    number: 2,
-    title: 'Memasuki Dunia AI & ML',
-    period: '2023 – Sekarang',
-    synopsis: 'Menempuh B.Tech bidang Kecerdasan Buatan dan Machine Learning di Aditya Engineering College, Surampalem.',
+    number: 2, title: 'Berbagi Ilmu, Bertumbuh Bersama', period: 'Perjalanan',
+    synopsis: 'Membagikan strategi bisnis digital dan WhatsApp Marketing untuk orang-orang yang ingin mulai belajar.',
     episodes: [
-      {
-        code: 'S02 E01',
-        title: 'Menjadi Insinyur',
-        description: 'Pendidikan Sarjana Teknologi di bidang Kecerdasan Buatan dan Machine Learning — CGPA 9,10.',
-        tags: ['B.Tech', 'AI & ML', 'CGPA 9.10'],
-        runtime: 'Okt 2023 – Sekarang',
-        palette: violet,
-      },
-      {
-        code: 'S02 E02',
-        title: 'Peringkat Teratas',
-        description: 'Meraih peringkat tertinggi di jurusan AI & ML dengan SGPA 9,24 pada semester tersebut.',
-        tags: ['9,24 SGPA', 'Terbaik di Jurusan'],
-        runtime: 'Satu semester',
-        palette: crimson,
-      },
-      {
-        code: 'S02 E03',
-        title: 'Pemecah Masalah',
-        description: 'Menyelesaikan 350+ soal LeetCode (rating puncak 1442), 300+ GFG (1436), 200+ CodeChef, serta meraih lencana 5 bintang HackerRank dalam C, Python, Java, dan SQL.',
-        tags: ['DSA', 'LeetCode', 'GFG', 'CodeChef', 'HackerRank'],
-        runtime: '850+ soal',
-        palette: jade,
-      },
+      { code: 'S02 E01', title: 'Pebisnis.Digital', description: 'Membangun ruang belajar bisnis digital dengan materi yang mudah dipahami pemula.', tags: ['Edukasi', 'Bisnis Digital'], runtime: 'Founder', palette: ocean },
+      { code: 'S02 E02', title: 'Kelas di WhatsApp', description: 'Mengajar melalui KULWA, berbagi studi kasus, dan mendampingi peserta belajar strategi pemasaran.', tags: ['KULWA', 'WhatsApp'], runtime: 'Mentoring', palette: jade },
     ],
   },
   {
-    number: 3,
-    title: 'Belajar Membangun',
-    period: '2025 – 2026',
-    synopsis: 'Satu tahun pelatihan intensif pengembangan full-stack sebagai peserta di Technical Hub Pvt Ltd.',
+    number: 3, title: 'Dari Ide Menjadi Produk', period: 'Eksperimen digital',
+    synopsis: 'Mencoba berbagai format produk digital agar materi belajar lebih dekat dengan kebutuhan pasar.',
     episodes: [
-      {
-        code: 'S03 E01',
-        title: 'Masa Pelatihan',
-        description: 'Pelatihan full-stack intensif meliputi frontend, backend, integrasi basis data, dan proses deployment.',
-        tags: ['FSD', 'Frontend', 'Backend', 'Basis Data'],
-        runtime: 'Mei 2025 – Jun 2026',
-        palette: ocean,
-      },
-      {
-        code: 'S03 E02',
-        title: 'Menjadi Pengembang',
-        description: 'Mengembangkan aplikasi web responsif, mulai dari antarmuka, logika server, sampai koneksi basis data.',
-        tags: ['React', 'Node.js', 'Express.js'],
-        runtime: 'Technical Hub',
-        palette: violet,
-      },
-      {
-        code: 'S03 E03',
-        title: 'Meluncurkan Karya',
-        description: 'Meluncurkan dan mengelola aplikasi web dengan kontrol versi, debugging, serta pengembangan menyeluruh.',
-        tags: ['Git / GitHub', 'Deployment'],
-        runtime: 'Technical Hub',
-        palette: jade,
-      },
+      { code: 'S03 E01', title: 'Karyawan AI', description: 'Mengeksplorasi produk asisten AI untuk membantu berbagai pekerjaan digital.', tags: ['Produk AI', 'Eksperimen'], runtime: 'Produk digital', palette: violet },
+      { code: 'S03 E02', title: 'Bikin Web AI', description: 'Mengembangkan pembelajaran pembuatan website dengan bantuan AI untuk para pemula.', tags: ['Web AI', 'Belajar Praktik'], runtime: 'Pelatihan', palette: amber },
+      { code: 'S03 E03', title: 'AUTOKONTAK', description: 'Mengembangkan ide sistem pendukung pengelolaan kontak dan strategi pemasaran WhatsApp.', tags: ['WhatsApp', 'Otomasi'], runtime: 'Eksperimen', palette: ocean },
     ],
   },
   {
-    number: 4,
-    title: 'Membangun Produk Nyata',
-    period: '2026',
-    synopsis: 'Tiga karya orisinal — platform AI, gerbang pembayaran, dan SaaS multi-tenant — ditambah pengakuan tingkat nasional.',
+    number: 4, title: 'Lahirnya BADAI', period: '2026',
+    synopsis: 'Belajar Apa Aja Dengan AI: ruang untuk bereksperimen, membuat karya, dan tumbuh bersama.',
     episodes: [
-      {
-        code: 'S04 E01',
-        title: 'Perancang Solusi AI',
-        description: 'PolicyGuard AI — tanya jawab berbasis LLM dan ekstraksi informasi dari 500+ dokumen kebijakan dengan akurasi 92%.',
-        tags: ['Python', 'NLP', 'LLM'],
-        runtime: '2026',
-        palette: crimson,
-      },
-      {
-        code: 'S04 E02',
-        title: 'Merancang Arsitektur',
-        description: 'Sistem Gerbang Pembayaran dan Platform SaaS Multi-Tenant — pengelolaan status, mikroservis, isolasi tenant, dan RBAC.',
-        tags: ['Node.js', 'PostgreSQL', 'Docker'],
-        runtime: '2026',
-        palette: amber,
-      },
-      {
-        code: 'S04 E03',
-        title: 'Pengakuan Nasional',
-        description: 'Terpilih sebagai Fellow Teknologi di AlgoUniversity dan mencapai semifinal Flipkart GRiD 7.0.',
-        tags: ['AlgoUniversity', 'Flipkart GRiD 7.0'],
-        runtime: 'Tingkat nasional',
-        palette: ocean,
-      },
+      { code: 'S04 E01', title: 'Belajar Apa Aja Dengan AI', description: 'Mengembangkan konsep komunitas BADAI yang berfokus pada praktik dan eksplorasi AI.', tags: ['BADAI', 'Komunitas'], runtime: '2026', palette: crimson },
+      { code: 'S04 E02', title: 'Karya dari AI', description: 'Menyusun materi video AI, konten visual, influencer AI, dan eksperimen kreatif lainnya.', tags: ['Konten AI', 'Kreator'], runtime: 'Terus berkembang', palette: violet },
     ],
   },
   {
-    number: 5,
-    title: 'Lanjut ke Mana?',
-    period: 'Sedang tayang',
-    synopsis: 'Berbagai minat baru membuka arah cerita berikutnya.',
+    number: 5, title: 'Cerita Belum Selesai', period: 'Sekarang',
+    synopsis: 'PROMPTIONAL, Cuanify ID, dan eksplorasi produk baru menjadi bagian dari bab berikutnya.',
     episodes: [
-      {
-        code: 'S05 E01',
-        title: 'Bab Berikutnya',
-        description: 'Mendalami desain sistem, komputasi awan (AWS), dan Machine Learning.',
-        tags: ['Desain Sistem', 'AWS', 'Machine Learning'],
-        runtime: 'Dalam proses',
-        palette: violet,
-      },
+      { code: 'S05 E01', title: 'PROMPTIONAL', description: 'Membangun galeri prompt AI dengan jalur inspirasi gratis dan akses premium.', tags: ['PROMPTIONAL', 'Telegram'], runtime: '2026', palette: jade },
+      { code: 'S05 E02', title: 'Cuanify ID', description: 'Melanjutkan eksplorasi produk, edukasi, dan peluang bisnis digital dengan pendekatan AI.', tags: ['Cuanify ID', 'Bisnis Digital'], runtime: 'Sekarang', palette: ocean },
     ],
   },
 ];
 
 export type TopPick = { label: string; title: string; detail: string; palette: Palette };
-
 export const topPicks: TopPick[] = [
-  { label: 'Bahasa utama', title: 'Java', detail: 'Bahasa utama dalam CV • Bersertifikat Oracle', palette: amber },
-  { label: 'Karya AI orisinal', title: 'PolicyGuard AI', detail: '500+ dokumen • Akurasi 92%', palette: crimson },
-  { label: 'Panggung terbesar', title: 'Flipkart GRiD 7.0', detail: 'Semifinalis', palette: ocean },
-  { label: 'Seleksi nasional', title: 'AlgoUniversity', detail: 'Fellow Teknologi', palette: violet },
-  { label: 'Prestasi akademik', title: 'Peringkat Jurusan', detail: 'SGPA 9,24 di AI & ML', palette: jade },
-  { label: 'Sertifikasi cloud', title: 'AWS AI Practitioner', detail: 'Sertifikasi AWS', palette: amber },
-  { label: 'Soal diselesaikan', title: '850+', detail: 'LeetCode 350+ • GFG 300+ • CodeChef 200+', palette: crimson },
-  { label: 'Perjalanan belajar', title: '1 Tahun FSD', detail: 'Technical Hub Pvt Ltd', palette: ocean },
-  { label: 'Sertifikasi basis data', title: 'MongoDB', detail: 'Sertifikasi Pengembang Associate', palette: jade },
-  { label: 'Fokus saat ini', title: 'Desain Sistem', detail: 'Bersama AWS & Machine Learning', palette: violet },
+  { label: 'Komunitas AI', title: 'BADAI', detail: 'Belajar Apa Aja Dengan AI', palette: crimson },
+  { label: 'Kreasi prompt', title: 'PROMPTIONAL', detail: 'Inspirasi prompt gratis & premium', palette: violet },
+  { label: 'Ruang belajar', title: 'Pebisnis.Digital', detail: 'Edukasi bisnis digital untuk pemula', palette: amber },
+  { label: 'Keahlian utama', title: 'WhatsApp Marketing', detail: 'Strategi komunikasi penjualan', palette: jade },
+  { label: 'Cara berbagi', title: 'KULWA', detail: 'Kelas belajar melalui WhatsApp', palette: ocean },
+  { label: 'Produk AI', title: 'Karyawan AI', detail: 'Asisten AI untuk aktivitas digital', palette: violet },
+  { label: 'Belajar membuat', title: 'Bikin Web AI', detail: 'Website dengan bantuan AI', palette: amber },
+  { label: 'Alat pemasaran', title: 'AUTOKONTAK', detail: 'Ide pendukung pengelolaan kontak', palette: jade },
+  { label: 'Kelas penjualan', title: 'Jago Jualan WA', detail: 'Belajar strategi jualan lewat WhatsApp', palette: crimson },
+  { label: 'Eksplorasi baru', title: 'Game Edukasi', detail: 'Membuat pengalaman belajar dengan AI', palette: ocean },
 ];
 
-/** Slides for the "▶ Play Intro" cinematic sequence. */
 export type IntroSlide = { kicker: string; title: string; lines: string[]; chips?: string[] };
-
 export const introSlides: IntroSlide[] = [
-  {
-    kicker: 'Pendidikan',
-    title: 'B.Tech · AI & ML',
-    lines: ['Aditya Engineering College, Surampalem', 'Oktober 2023 – Sekarang'],
-    chips: ['CGPA 9.10'],
-  },
-  {
-    kicker: 'Keahlian',
-    title: 'Java yang utama.',
-    lines: ['Python, C, C++ · React, Node.js, Express.js', 'PostgreSQL, MongoDB, MySQL · Docker, REST, JWT'],
-    chips: ['Java', 'Python', 'React', 'Node.js', 'Docker', 'PostgreSQL'],
-  },
-  {
-    kicker: 'Pelatihan',
-    title: 'Perjalanan Belajar',
-    lines: ['Satu tahun pelatihan pengembangan full-stack intensif', 'Peserta · Technical Hub Pvt Ltd · Mei 2025 – Juni 2026', 'Frontend · Backend · Basis Data · Deployment'],
-  },
-  {
-    kicker: 'Proyek',
-    title: 'Tiga Karya Orisinal',
-    lines: ['PolicyGuard AI — 500+ dokumen, akurasi 92%', 'Gerbang Pembayaran — 1.000+ transaksi, uptime 99,8%', 'SaaS Multi-Tenant — 50+ tenant, tanpa akses ilegal'],
-  },
-  {
-    kicker: 'Pencapaian',
-    title: 'Momen Terbaik',
-    lines: ['Fellow Teknologi — AlgoUniversity', 'Semifinalis — Flipkart GRiD 7.0', 'Peringkat Jurusan AI & ML — SGPA 9,24'],
-  },
-  {
-    kicker: 'Tersertifikasi',
-    title: '16 Sertifikasi',
-    lines: ['AWS · MongoDB · Oracle · GitHub · Pearson', 'NPTEL · Cisco · Udemy'],
-  },
-  {
-    kicker: 'Misi saat ini',
-    title: 'Sedang dipelajari',
-    lines: ['Desain Sistem · Komputasi Awan (AWS) · Machine Learning'],
-  },
+  { kicker: 'Kenalan', title: 'Halo, Saya Vini', lines: ['Ibu rumah tangga dari Bandung', 'Belajar, berkarya, dan membangun bisnis digital'], chips: ['Bandung', 'Digital', 'AI'] },
+  { kicker: 'Peran', title: 'Founder & Mentor', lines: ['CEO Cuanify ID', 'Founder Pebisnis.Digital', 'Mentor WhatsApp Marketing'], chips: ['Cuanify ID', 'Pebisnis.Digital'] },
+  { kicker: 'Ruang belajar', title: 'Pebisnis.Digital', lines: ['Belajar bisnis digital dengan bahasa sederhana', 'Kelas dan materi WhatsApp Marketing'], chips: ['WhatsApp', 'KULWA'] },
+  { kicker: 'Komunitas', title: 'BADAI', lines: ['Belajar Apa Aja Dengan AI', 'Mencoba konten visual, video, dan karya kreatif'], chips: ['BADAI', 'AI Kreatif'] },
+  { kicker: 'Galeri kreatif', title: 'PROMPTIONAL', lines: ['Inspirasi prompt gambar AI', 'Dibagikan melalui kanal digital dan Telegram'], chips: ['Prompt', 'Telegram'] },
+  { kicker: 'Eksperimen', title: 'Terus Membuat', lines: ['Karyawan AI · Bikin Web AI · AUTOKONTAK', 'Produk dan materi belajar untuk pemula'], chips: ['Produk Digital', 'AI'] },
+  { kicker: 'Bab berikutnya', title: 'Cerita Berlanjut', lines: ['Lebih banyak ide, lebih banyak karya', 'Belajar dan bertumbuh bersama'], chips: ['Cuanify ID'] },
 ];
 
-export type ProfileId = 'sushmita' | 'recruiter' | 'developer' | 'creative';
+export type ProfileId = 'vini' | 'recruiter' | 'developer' | 'creative';
 export type SectionId = 'about' | 'journey' | 'originals' | 'picks' | 'skills' | 'moments' | 'story';
-
-export const viewerProfiles: {
-  id: ProfileId;
-  name: string;
-  blurb: string;
-  color: string;
-  order: SectionId[];
-}[] = [
-  {
-    id: 'sushmita',
-    name: 'Teh Vini',
-    blurb: 'Seluruh serial sesuai urutan',
-    color: '#e5132b',
-    order: ['about', 'journey', 'originals', 'picks', 'skills', 'moments', 'story'],
-  },
-  {
-    id: 'recruiter',
-    name: 'Rekruter',
-    blurb: 'CV, pencapaian, dan keahlian lebih dulu',
-    color: '#4cc9ff',
-    order: ['story', 'moments', 'skills', 'originals', 'about', 'journey', 'picks'],
-  },
-  {
-    id: 'developer',
-    name: 'Pengembang',
-    blurb: 'Proyek, teknologi, dan GitHub lebih dulu',
-    color: '#46e3a8',
-    order: ['originals', 'skills', 'journey', 'moments', 'about', 'picks', 'story'],
-  },
-  {
-    id: 'creative',
-    name: 'Kreator',
-    blurb: 'Alur cerita dan sorotan lebih dulu',
-    color: '#ffb547',
-    order: ['journey', 'picks', 'originals', 'moments', 'about', 'skills', 'story'],
-  },
+export const viewerProfiles: { id: ProfileId; name: string; blurb: string; color: string; order: SectionId[] }[] = [
+  { id: 'vini', name: 'Teh Vini', blurb: 'Tonton semua ceritanya', color: '#e5132b', order: ['about', 'journey', 'originals', 'picks', 'skills', 'moments', 'story'] },
+  { id: 'recruiter', name: 'Calon Mitra', blurb: 'Kenalan lewat karya dan pengalaman', color: '#4cc9ff', order: ['originals', 'story', 'moments', 'skills', 'about', 'journey', 'picks'] },
+  { id: 'developer', name: 'Penasaran AI', blurb: 'Lihat karya AI dan produk digital', color: '#46e3a8', order: ['originals', 'skills', 'picks', 'journey', 'moments', 'about', 'story'] },
+  { id: 'creative', name: 'Kreator', blurb: 'Mulai dari inspirasi dan ide', color: '#ffb547', order: ['picks', 'journey', 'originals', 'skills', 'about', 'moments', 'story'] },
 ];
 
 export const sectionMeta: Record<SectionId, { nav: string; card: string; meta: string; palette: Palette }> = {
-  about: { nav: 'Tentang', card: 'Tentang Saya', meta: 'Episode Perdana • Pendidikan & pelatihan', palette: violet },
+  about: { nav: 'Tentang', card: 'Kenalan Yuk', meta: 'Episode pembuka • Tentang Teh Vini', palette: violet },
   journey: { nav: 'Perjalanan', card: 'Perjalanan Saya', meta: `${seasons.length} Musim • ${seasons.reduce((n, s) => n + s.episodes.length, 0)} Episode`, palette: amber },
-  originals: { nav: 'Karya', card: 'Proyek Saya', meta: `${projects.length} Karya Orisinal • 2026`, palette: crimson },
-  picks: { nav: 'Pilihan', card: 'Pilihan Teratas', meta: '10 sorotan dari CV', palette: jade },
-  skills: { nav: 'Keahlian', card: 'Keahlian Saya', meta: `${skillCategories.length} Kategori`, palette: ocean },
-  moments: { nav: 'Pencapaian', card: 'Pencapaian Saya', meta: `${achievements.length} Momen • ${certifications.length} Sertifikasi`, palette: crimson },
-  story: { nav: 'CV', card: 'Cerita Lengkap', meta: 'CV • Lihat & unduh', palette: violet },
+  originals: { nav: 'Karya', card: 'Karya & Inisiatif', meta: `${projects.length} Karya Pilihan`, palette: crimson },
+  picks: { nav: 'Pilihan', card: '10 Sorotan', meta: '10 hal yang ingin saya bagikan', palette: jade },
+  skills: { nav: 'Keahlian', card: 'Hal yang Saya Tekuni', meta: `${skillCategories.length} Area Eksplorasi`, palette: ocean },
+  moments: { nav: 'Momen', card: 'Momen Penting', meta: `${achievements.length} Jejak Karya`, palette: crimson },
+  story: { nav: 'Profil', card: 'Cerita Lengkap', meta: 'Profil • Pengalaman • Karya', palette: violet },
 };

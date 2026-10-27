@@ -25,15 +25,17 @@ export default function ResumeModal({ onClose }: { onClose: () => void }) {
       exit={{ opacity: 0 }}
       role="dialog"
       aria-modal="true"
-      aria-label="CV"
+      aria-label="Profil Teh Vini"
     >
       <div className="gutter flex h-16 shrink-0 items-center justify-between gap-3 pt-[env(safe-area-inset-top)]">
         <p className="truncate font-display text-2xl tracking-wide text-bone">Cerita Lengkap</p>
         <div className="flex items-center gap-2">
-          <a href={profile.resumePdf} download="CV_Contoh_Template.pdf" className="rounded-md bg-bone px-4 py-2 text-xs font-bold text-ink">
-            ⤓ Unduh CV
-          </a>
-          <button type="button" onClick={onClose} aria-label="Tutup CV" data-cursor="close" className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-bone hover:bg-white/20">
+          {profile.resumePdf && (
+            <a href={profile.resumePdf} download="Profil_Teh_Vini.pdf" className="rounded-md bg-bone px-4 py-2 text-xs font-bold text-ink">
+              ⤓ Unduh Profil
+            </a>
+          )}
+          <button type="button" onClick={onClose} aria-label="Tutup profil" data-cursor="close" className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-bone hover:bg-white/20">
             ✕
           </button>
         </div>
@@ -44,15 +46,17 @@ export default function ResumeModal({ onClose }: { onClose: () => void }) {
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.6, ease: EASE }}
       >
-        {small ? (
+        {small || !profile.resumePdf ? (
           <div data-lenis-prevent className="h-full overflow-y-auto">
             <ResumeSheet />
-            <a href={profile.resumePdf} target="_blank" rel="noreferrer" className="glass mt-4 flex min-h-12 items-center justify-center rounded-md text-sm font-semibold text-bone">
-              Buka PDF contoh ↗
-            </a>
+            {profile.resumePdf && (
+              <a href={profile.resumePdf} target="_blank" rel="noreferrer" className="glass mt-4 flex min-h-12 items-center justify-center rounded-md text-sm font-semibold text-bone">
+                Buka PDF ↗
+              </a>
+            )}
           </div>
         ) : (
-          <iframe title="CV contoh (PDF)" src={`${profile.resumePdf}#view=FitH`} className="h-full w-full rounded-xl bg-white" />
+          <iframe title="Profil lengkap (PDF)" src={`${profile.resumePdf}#view=FitH`} className="h-full w-full rounded-xl bg-white" />
         )}
       </motion.div>
     </motion.div>

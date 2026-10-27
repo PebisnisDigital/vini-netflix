@@ -14,10 +14,11 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
   const opacity = useTransform(scrollYProgress, [0.1, 0.9], [0, 1]);
 
   const ctas = [
-    { label: 'Ayo Kolaborasi', href: `mailto:${profile.email}?subject=${encodeURIComponent('Ayo berkolaborasi')}`, primary: true, cursor: 'play' },
-    { label: 'LinkedIn', href: profile.links.linkedin, cursor: 'link' },
-    { label: 'GitHub', href: profile.links.github, cursor: 'link' },
-    { label: 'Surel', href: `mailto:${profile.email}`, cursor: 'link' },
+    { label: 'Buka PROMPTIONAL', href: profile.links.website, primary: true, cursor: 'play' },
+    { label: 'Lihat Karya', href: '#originals', cursor: 'link' },
+    ...(profile.email ? [{ label: 'Hubungi Saya', href: `mailto:${profile.email}?subject=${encodeURIComponent('Ayo berkolaborasi')}`, cursor: 'link' }] : []),
+    ...(profile.links.linkedin ? [{ label: 'LinkedIn', href: profile.links.linkedin, cursor: 'link' }] : []),
+    ...(profile.links.github ? [{ label: 'GitHub', href: profile.links.github, cursor: 'link' }] : []),
   ];
 
   return (
@@ -95,6 +96,7 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
         <p className="text-[11px] leading-relaxed text-smoke">
           © {new Date().getFullYear()} {profile.displayName}. Portofolio personal bergaya layanan streaming — tidak berafiliasi dengan layanan streaming mana pun.
         </p>
+        <p className="mt-1 text-[10px] text-smoke/70">Foto model pada demo ini masih aset sementara.</p>
       </footer>
     </section>
   );

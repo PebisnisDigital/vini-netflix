@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion';
-import { education, experience, profile } from '../data/portfolio';
+import { profile } from '../data/portfolio';
 import { EASE, SectionHeading, Tilt } from './fx';
 
 export default function About() {
   const facts = [
-    { k: 'Sekarang', v: 'B.Tech, AI & ML', s: `${education[0].school} · ${education[0].score}` },
-    { k: 'Pelatihan', v: `${experience[0].role}, ${experience[0].company}`, s: experience[0].period },
-    { k: 'Bahasa utama', v: 'Java', s: 'bersama Python, C, C++' },
-    { k: 'Lokasi', v: profile.location, s: 'India' },
+    { k: 'Peran', v: 'CEO Cuanify ID', s: 'Pengembangan bisnis dan produk digital' },
+    { k: 'Komunitas', v: 'BADAI', s: 'Belajar Apa Aja Dengan AI' },
+    { k: 'Fokus', v: 'WhatsApp Marketing', s: 'Mentoring & edukasi pemula' },
+    { k: 'Asal', v: profile.location, s: 'Indonesia' },
   ];
 
   return (

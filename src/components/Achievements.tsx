@@ -21,7 +21,7 @@ export default function Achievements() {
 
   return (
     <>
-      <SectionHeading kicker="Musim Penghargaan" title="Momen Terbaik" />
+      <SectionHeading kicker="Jejak Berkarya" title="Momen Penting" />
 
       <div className="gutter grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 [perspective:1400px]">
         {achievements.map((a, i) => (
@@ -54,7 +54,7 @@ export default function Achievements() {
                     data-cursor="link"
                     className="relative mt-auto inline-flex min-h-10 items-center gap-1 pt-5 text-xs font-semibold tracking-wide text-bone underline decoration-[#d9b46a]/60 underline-offset-4 hover:decoration-[#d9b46a]"
                   >
-                    Lihat sertifikat ↗
+                    Lihat karyanya ↗
                   </a>
                 )}
               </article>
@@ -63,8 +63,8 @@ export default function Achievements() {
         ))}
       </div>
 
-      {/* certifications rail */}
-      <div className="mt-16">
+      {/* Hanya tampilkan sertifikasi jika ada data yang sudah dikonfirmasi. */}
+      {certifications.length > 0 && <div className="mt-16">
         <div className="gutter mb-2 flex flex-wrap items-end justify-between gap-2">
           <h3 className="font-sans text-lg font-semibold text-bone sm:text-2xl">
             Tersertifikasi <span className="text-mist">· {certifications.length} sertifikat</span>
@@ -96,7 +96,7 @@ export default function Achievements() {
           </div>
           <RailButtons rail={rail} />
         </div>
-      </div>
+      </div>}
     </>
   );
 }

@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'framer-motion';
-import { achievements, certifications, education, profile, projects, type ProfileId } from '../data/portfolio';
+import { profile, projects, type ProfileId } from '../data/portfolio';
 import { useFinePointer } from '../hooks/useMedia';
 import { useSmoothScroll } from '../hooks/smoothScroll';
 import { EASE, Magnetic, Particles } from './fx';
@@ -37,16 +37,16 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
   const glowX = useTransform(px, [-1, 1], ['-6%', '6%']);
 
   const meta = [
-    education[0].period.split(' – ')[0].split(' ')[1] + ' – Sekarang',
-    'B.Tech AI & ML',
-    `${projects.length} Karya Orisinal`,
-    `${certifications.length} Sertifikasi`,
+    'Bandung, Indonesia',
+    'CEO Cuanify ID',
+    `${projects.length} Karya Pilihan`,
+    'Mentor WhatsApp Marketing',
   ];
 
   const floating = [
-    { text: education[0].score, sub: 'B.Tech AI & ML', pos: 'left-[2%] top-[30%]', depth: 1 },
-    { text: `${achievements[0].title}`, sub: achievements[0].org, pos: 'right-[0%] top-[18%]', depth: -1 },
-    { text: 'Java · React · Node.js', sub: 'Teknologi utama', pos: 'right-[4%] bottom-[24%]', depth: 0.6 },
+    { text: 'BADAI', sub: 'Belajar Apa Aja Dengan AI', pos: 'left-[2%] top-[30%]', depth: 1 },
+    { text: 'PROMPTIONAL', sub: 'Galeri Prompt AI', pos: 'right-[0%] top-[18%]', depth: -1 },
+    { text: 'WHATSAPP', sub: 'Pemasaran & mentoring', pos: 'right-[4%] bottom-[24%]', depth: 0.6 },
   ];
 
   return (
@@ -128,7 +128,7 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
         </motion.p>
 
         <motion.div variants={item} className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 text-[13px] font-medium text-mist">
-          <span className="rounded border border-white/25 px-1.5 py-px text-[10px] font-bold tracking-wider text-bone">AI·ML</span>
+          <span className="rounded border border-white/25 px-1.5 py-px text-[10px] font-bold tracking-wider text-bone">AI & DIGITAL</span>
           {meta.map((m, i) => (
             <span key={m} className="flex items-center gap-3">
               {i > 0 && <span className="h-1 w-1 rounded-full bg-smoke" />}
@@ -145,6 +145,10 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
           {profile.intro}
         </motion.p>
 
+        <motion.p variants={item} className="mt-3 text-[11px] leading-relaxed text-mist/80">
+          Visual demo · Foto model sementara, belum foto Teh Vini.
+        </motion.p>
+
         <motion.div variants={item} className="mt-8 flex flex-wrap items-center gap-3">
           <Magnetic>
             <button
@@ -159,7 +163,7 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
           <Magnetic>
             {profileId === 'recruiter' ? (
               <button type="button" onClick={onResume} className="glass flex min-h-12 items-center gap-3 rounded-md px-6 py-3 text-[15px] font-semibold text-bone transition hover:bg-white/15 sm:px-8">
-                <span className="text-lg">⤓</span> Lihat CV
+                <span className="text-lg">⤓</span> Lihat Profil
               </button>
             ) : (
               <button

@@ -8,7 +8,7 @@ import { EASE, RevealText } from './fx';
 import { PosterBackdrop } from './Poster';
 import { RailButtons } from './Rail';
 
-const GLYPHS: Record<SectionId, string> = { about: 'V', journey: 'S01', originals: '3', picks: '10', skills: '{ }', moments: '★', story: 'CV' };
+const GLYPHS: Record<SectionId, string> = { about: 'V', journey: 'S01', originals: '3', picks: '10', skills: 'AI', moments: '★', story: 'BIO' };
 
 export default function ContinueWatching({ order }: { order: SectionId[] }) {
   const progress = useWatchProgress();

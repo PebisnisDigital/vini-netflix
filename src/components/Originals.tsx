@@ -23,7 +23,7 @@ function Intro() {
       </p>
       <RevealText as="h2" text="KARYA" className="font-display text-[clamp(3.5rem,9vw,8rem)] leading-[0.85] text-bone" />
       <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-mist">
-        Tiga proyek dari CV — platform AI, gerbang pembayaran, dan SaaS multi-tenant. Buka salah satu untuk melihat cerita lengkapnya.
+        Tiga karya yang dekat dengan perjalanan saya: komunitas BADAI, galeri PROMPTIONAL, dan ruang belajar Pebisnis.Digital. Buka salah satu untuk mengikuti ceritanya.
       </p>
       <p className="mt-6 hidden text-xs tracking-[0.24em] text-smoke lg:block">GULIR UNTUK MENJELAJAH →</p>
     </div>
@@ -33,15 +33,15 @@ function Intro() {
 function Outro() {
   return (
     <a
-      href={profile.links.github}
+      href={profile.links.website}
       target="_blank"
       rel="noreferrer"
       data-cursor="link"
       className="group flex aspect-[3/4] w-[70vw] shrink-0 snap-start flex-col items-center justify-center gap-4 rounded-2xl border border-dashed border-white/15 text-center transition hover:border-crimson-2/60 sm:w-[44vw] lg:aspect-auto lg:h-[66vh] lg:w-[24vw]"
     >
       <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/25 text-2xl text-bone transition group-hover:scale-110 group-hover:border-crimson-2 group-hover:text-crimson-2">↗</span>
-      <span className="font-display text-3xl tracking-wide text-bone">Lihat di GitHub</span>
-      <span className="text-xs text-mist">Jelajahi karya lainnya</span>
+      <span className="font-display text-3xl tracking-wide text-bone">Buka PROMPTIONAL</span>
+      <span className="text-xs text-mist">Jelajahi galeri prompt AI</span>
     </a>
   );
 }
