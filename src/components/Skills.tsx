@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { skillCategories, skillEvidence, type Skill } from '../data/portfolio';
+import type { Skill } from '../data/portfolio';
+import { usePortfolio } from '../data/PortfolioContext';
 import { EASE, SectionHeading } from './fx';
 
 const HUES = ['#ff3d5a', '#4cc9ff', '#46e3a8', '#ffb547', '#b98bff', '#ff8a5c', '#7ee0ff'];
 
 export default function Skills() {
+  const { skillCategories } = usePortfolio();
   const [cat, setCat] = useState(0);
   const category = skillCategories[cat];
   const hue = HUES[cat % HUES.length];
@@ -60,6 +62,7 @@ export default function Skills() {
 }
 
 function SkillCard({ skill, hue }: { skill: Skill; hue: string }) {
+  const { skillEvidence } = usePortfolio();
   const [open, setOpen] = useState(false);
   const evidence = skillEvidence[skill.name];
 

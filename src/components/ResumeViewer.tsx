@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { achievements, certifications, education, experience, profile, projects, skillCategories } from '../data/portfolio';
+import { usePortfolio } from '../data/PortfolioContext';
 import { EASE, Magnetic, SectionHeading } from './fx';
 
 /** THE FULL STORY — a designed resume preview plus view / download actions. */
 export default function ResumeSection({ onView }: { onView: () => void }) {
+  const { profile, projects, experience, skillCategories } = usePortfolio();
   return (
     <>
       <SectionHeading kicker="Di Balik Layar" title="Profil & Perjalanan" />
@@ -39,7 +40,7 @@ export default function ResumeSection({ onView }: { onView: () => void }) {
               <Magnetic className="w-full">
                 <a
                   href={profile.resumePdf}
-                  download="Profil_Teh_Vini.pdf"
+                  download={`Profil_${profile.displayName.replace(/\s+/g, '_')}.pdf`}
                   data-cursor="link"
                   className="glass flex min-h-12 w-full items-center justify-center gap-2 rounded-md px-6 text-[15px] font-semibold text-bone transition hover:bg-white/15"
                 >
@@ -90,6 +91,7 @@ function H({ children }: { children: string }) {
 }
 
 export function ResumeSheet() {
+  const { achievements, certifications, education, experience, profile, projects, skillCategories } = usePortfolio();
   return (
     <article className="relative overflow-hidden rounded-2xl bg-[linear-gradient(180deg,#121218,#0c0c11)] p-6 ring-1 ring-white/10 sm:p-10">
       <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-crimson-2/70 to-transparent" />
@@ -101,7 +103,7 @@ export function ResumeSheet() {
         <div className="text-xs leading-relaxed text-mist sm:text-right">
           <p>{profile.location}</p>
           {profile.email && <a href={`mailto:${profile.email}`} className="block hover:text-bone">{profile.email}</a>}
-          {profile.links.website && <a href={profile.links.website} target="_blank" rel="noreferrer" className="block hover:text-bone">PROMPTIONAL ↗</a>}
+          {profile.links.website && <a href={profile.links.website} target="_blank" rel="noreferrer" className="block hover:text-bone">{profile.websiteLabel || 'Website'} ↗</a>}
           {profile.links.linkedin && <a href={profile.links.linkedin} target="_blank" rel="noreferrer" className="block hover:text-bone">LinkedIn ↗</a>}
           {profile.links.github && <a href={profile.links.github} target="_blank" rel="noreferrer" className="block hover:text-bone">GitHub ↗</a>}
         </div>

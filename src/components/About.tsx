@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
-import { profile } from '../data/portfolio';
+import { usePortfolio } from '../data/PortfolioContext';
 import { EASE, SectionHeading, Tilt } from './fx';
 
 export default function About() {
-  const facts = [
+  const { profile, seasons } = usePortfolio();
+  const facts = profile.aboutFacts || [
     { k: 'Peran', v: 'CEO Cuanify ID', s: 'Pengembangan bisnis dan produk digital' },
     { k: 'Komunitas', v: 'BADAI', s: 'Belajar Apa Aja Dengan AI' },
     { k: 'Fokus', v: 'WhatsApp Marketing', s: 'Mentoring & edukasi pemula' },
@@ -39,7 +40,7 @@ export default function About() {
                 <p className="text-[10px] font-bold tracking-[0.3em] text-crimson-2">DIBINTANGI</p>
                 <p className="font-display text-3xl leading-none text-bone">{profile.displayName}</p>
               </div>
-              <span className="rounded border border-white/30 px-1.5 text-[10px] font-bold text-bone">S01–S05</span>
+              <span className="rounded border border-white/30 px-1.5 text-[10px] font-bold text-bone">S01–S{String(seasons.length).padStart(2, '0')}</span>
             </div>
           </div>
         </Tilt>

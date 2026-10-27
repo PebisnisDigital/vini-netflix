@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { profile } from '../data/portfolio';
+import { usePortfolio } from '../data/PortfolioContext';
 import { useReducedMotionPref } from '../hooks/useMedia';
 import { EASE, Magnetic } from './fx';
 
@@ -18,6 +18,7 @@ const TIMELINE = [
 ];
 
 export default function OpeningSequence({ onDone }: { onDone: () => void }) {
+  const { profile } = usePortfolio();
   const reduced = useReducedMotionPref();
   const [beat, setBeat] = useState(reduced ? 6 : 0);
 

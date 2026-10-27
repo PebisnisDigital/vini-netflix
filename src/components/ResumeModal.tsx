@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { profile } from '../data/portfolio';
+import { usePortfolio } from '../data/PortfolioContext';
 import { useScrollLock } from '../hooks/smoothScroll';
 import { useMedia } from '../hooks/useMedia';
 import { EASE } from './fx';
@@ -8,6 +8,7 @@ import { ResumeSheet } from './ResumeViewer';
 
 /** Full-screen PDF viewer. On phones (where inline PDFs are unreliable) it offers open/download instead. */
 export default function ResumeModal({ onClose }: { onClose: () => void }) {
+  const { profile } = usePortfolio();
   useScrollLock(true);
   const small = useMedia('(max-width: 767px)');
 
@@ -25,13 +26,13 @@ export default function ResumeModal({ onClose }: { onClose: () => void }) {
       exit={{ opacity: 0 }}
       role="dialog"
       aria-modal="true"
-      aria-label="Profil Teh Vini"
+      aria-label={`Profil ${profile.displayName}`}
     >
       <div className="gutter flex h-16 shrink-0 items-center justify-between gap-3 pt-[env(safe-area-inset-top)]">
         <p className="truncate font-display text-2xl tracking-wide text-bone">Cerita Lengkap</p>
         <div className="flex items-center gap-2">
           {profile.resumePdf && (
-            <a href={profile.resumePdf} download="Profil_Teh_Vini.pdf" className="rounded-md bg-bone px-4 py-2 text-xs font-bold text-ink">
+            <a href={profile.resumePdf} download={`Profil_${profile.displayName.replace(/\s+/g, '_')}.pdf`} className="rounded-md bg-bone px-4 py-2 text-xs font-bold text-ink">
               ⤓ Unduh Profil
             </a>
           )}

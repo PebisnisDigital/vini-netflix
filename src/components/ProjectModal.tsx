@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { projects, type Project } from '../data/portfolio';
+import type { Project } from '../data/portfolio';
+import { usePortfolio } from '../data/PortfolioContext';
 import { useScrollLock } from '../hooks/smoothScroll';
 import { EASE, Magnetic } from './fx';
 import { ProjectArt } from './Poster';
@@ -11,6 +12,7 @@ const block = {
 };
 
 export default function ProjectModal({ project, onClose, onSwitch }: { project: Project; onClose: () => void; onSwitch: (p: Project) => void }) {
+  const { projects } = usePortfolio();
   useScrollLock(true);
   const scroller = useRef<HTMLDivElement>(null);
   const closeBtn = useRef<HTMLButtonElement>(null);

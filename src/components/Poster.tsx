@@ -32,6 +32,9 @@ export function ProjectArt({ project, className = '' }: { project: Project; clas
   const a = project.palette.accent;
   return (
     <PosterBackdrop palette={project.palette} className={className}>
+      {project.image ? <img src={project.image} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-80" /> : null}
+      {project.image ? <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" /> : null}
+      {!project.image && <>
       <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 h-full w-full" aria-hidden>
         <defs>
           <radialGradient id={`g-${project.id}`} cx="50%" cy="50%" r="50%">
@@ -89,6 +92,7 @@ export function ProjectArt({ project, className = '' }: { project: Project; clas
           </g>
         )}
       </svg>
+      </>}
     </PosterBackdrop>
   );
 }

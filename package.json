@@ -1,11 +1,13 @@
 {
-  "name": "sushmita-the-series",
+  "name": "web-personal-netflix",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "node scripts/check-clients.mjs && tsc -b && vite build && node scripts/render-client-pages.mjs",
+    "check:clients": "node scripts/check-clients.mjs",
+    "verify": "node --test scripts/test-*.mjs && npm run build",
     "preview": "vite preview",
     "images": "node scripts/build-images.mjs"
   },

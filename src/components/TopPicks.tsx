@@ -1,17 +1,18 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { topPicks } from '../data/portfolio';
+import { usePortfolio } from '../data/PortfolioContext';
 import { useAutoRail } from '../hooks/useAutoRail';
 import { SectionHeading } from './fx';
 import { PosterBackdrop } from './Poster';
 import { RailButtons } from './Rail';
 
 export default function TopPicks() {
+  const { topPicks, profile } = usePortfolio();
   const rail = useRef<HTMLDivElement>(null);
   const { pause } = useAutoRail(rail, { itemCount: topPicks.length, speed: 120 });
   return (
     <>
-      <SectionHeading kicker="10 Sorotan · perjalanan & karya" title="Pilihan Teh Vini" />
+      <SectionHeading kicker={`${topPicks.length} Sorotan · perjalanan & karya`} title={`Pilihan ${profile.displayName}`} />
       <div className="group/rail relative">
         <div ref={rail} className="rail gutter flex snap-x snap-mandatory gap-2 overflow-x-auto py-6">
           {[0, 1, 2].flatMap((copy) => topPicks.map((pick, i) => (

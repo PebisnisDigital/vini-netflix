@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
-import { sectionMeta, viewerProfiles, type ProfileId, type SectionId } from '../data/portfolio';
+import type { ProfileId, SectionId } from '../data/portfolio';
+import { usePortfolio } from '../data/PortfolioContext';
 import { useSmoothScroll } from '../hooks/smoothScroll';
 import { SeriesMark } from './Poster';
 import { ProfileAvatar } from './ProfileSelector';
 import { EASE } from './fx';
 
 export default function Navbar({ order, profileId, onSwitch }: { order: SectionId[]; profileId: ProfileId; onSwitch: (id: ProfileId) => void }) {
+  const { viewerProfiles, sectionMeta } = usePortfolio();
   const { scrollY } = useScroll();
   const [solid, setSolid] = useState(false);
   const [hidden, setHidden] = useState(false);
