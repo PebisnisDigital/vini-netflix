@@ -1,119 +1,194 @@
-import { useLayoutEffect, useRef, useState } from 'react';
-import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'framer-motion';
+import { useCallback, useEffect, useRef, useState, type PointerEvent } from 'react';
+import { motion } from 'framer-motion';
 import { profile, projects, type Project } from '../data/portfolio';
-import { useDesktop, useReducedMotionPref } from '../hooks/useMedia';
+import { useReducedMotionPref } from '../hooks/useMedia';
 import { EASE, RevealText } from './fx';
 import ProjectCard from './ProjectCard';
 
 /**
- * ORIGINALS — on desktop the section pins and scrolls sideways like a title sequence.
- * On touch / small screens / reduced motion it becomes a native swipe rail.
+ * The artwork rail is a real, scrollable carousel on every screen size.
+ * The former desktop-only pinned scroll had no direct drag controls and
+ * could leave the third card cut off when vertical scroll was interrupted.
  */
 export default function Originals({ onOpen }: { onOpen: (p: Project) => void }) {
-  const desktop = useDesktop();
+  const rail = useRef<HTMLDivElement>(null);
+  const section = useRef<HTMLDivElement>(null);
+  const currentIndex = useRef(0);
+  const pauseUntil = useRef(0);
+  const pointer = useRef<{ id: number; x: number; left: number; dragged: boolean } | null>(null);
+  const blockNextClick = useRef(false);
+  const [active, setActive] = useState(0);
+  const [visible, setVisible] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const [dragging, setDragging] = useState(false);
   const reduced = useReducedMotionPref();
-  return desktop && !reduced ? <PinnedOriginals onOpen={onOpen} /> : <RailOriginals onOpen={onOpen} />;
-}
+  const hasWebsite = Boolean(profile.links.website);
+  const slideCount = projects.length + (hasWebsite ? 1 : 0);
 
-function Intro() {
+  const scrollToSlide = useCallback((index: number, manual = false) => {
+    const el = rail.current;
+    if (!el) return;
+    const item = el.children[index] as HTMLElement | undefined;
+    if (!item) return;
+
+    if (manual) pauseUntil.current = Date.now() + 9000;
+    const gutter = parseFloat(getComputedStyle(el).paddingLeft) || 0;
+    const left = el.scrollLeft + item.getBoundingClientRect().left - el.getBoundingClientRect().left - gutter;
+    currentIndex.current = index;
+    setActive(index);
+    el.scrollTo({ left, behavior: reduced ? 'auto' : 'smooth' });
+  }, [reduced]);
+
+  const changeSlide = (direction: -1 | 1) =>
+    scrollToSlide((currentIndex.current + direction + slideCount) % slideCount, true);
+
+  useEffect(() => {
+    const el = section.current;
+    if (!el || !('IntersectionObserver' in window)) return;
+    const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), { threshold: 0.3 });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Autoplay only while visible; pause while reading, interacting or if reduced motion is requested.
+  useEffect(() => {
+    if (!visible || hovered || focused || dragging || reduced) return;
+    const timer = window.setInterval(() => {
+      if (Date.now() >= pauseUntil.current)
+        scrollToSlide((currentIndex.current + 1) % slideCount);
+    }, 5200);
+    return () => window.clearInterval(timer);
+  }, [visible, hovered, focused, dragging, reduced, scrollToSlide, slideCount]);
+
+  const syncActive = () => {
+    const el = rail.current;
+    if (!el || !el.children.length) return;
+    const target = el.getBoundingClientRect().left + (parseFloat(getComputedStyle(el).paddingLeft) || 0);
+    let nearest = 0;
+    let distance = Infinity;
+    for (let i = 0; i < el.children.length; i++) {
+      const x = Math.abs(el.children[i].getBoundingClientRect().left - target);
+      if (x < distance) {
+        distance = x;
+        nearest = i;
+      }
+    }
+    currentIndex.current = nearest;
+    setActive(nearest);
+  };
+
+  const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
+    if (event.pointerType !== 'mouse' || event.button !== 0) return;
+    pointer.current = { id: event.pointerId, x: event.clientX, left: event.currentTarget.scrollLeft, dragged: false };
+  };
+
+  const onPointerMove = (event: PointerEvent<HTMLDivElement>) => {
+    const start = pointer.current;
+    if (!start || event.pointerId !== start.id || !(event.buttons & 1)) return;
+    const delta = event.clientX - start.x;
+    if (!start.dragged && Math.abs(delta) < 7) return;
+
+    if (!start.dragged) {
+      start.dragged = true;
+      setDragging(true);
+      event.currentTarget.setPointerCapture(event.pointerId);
+    }
+    event.preventDefault();
+    event.currentTarget.scrollLeft = start.left - delta;
+  };
+
+  const endPointer = (event: PointerEvent<HTMLDivElement>) => {
+    const start = pointer.current;
+    if (!start || start.id !== event.pointerId) return;
+    if (start.dragged) {
+      pauseUntil.current = Date.now() + 9000;
+      blockNextClick.current = true;
+      window.setTimeout(() => { blockNextClick.current = false; }, 150);
+      setDragging(false);
+      if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+        event.currentTarget.releasePointerCapture(event.pointerId);
+      }
+    }
+    pointer.current = null;
+  };
+
   return (
-    <div className="flex w-full shrink-0 flex-col justify-center lg:w-[34vw]">
-      <p className="mb-3 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.32em] text-crimson-2">
-        <span className="h-px w-8 bg-crimson-2" /> {projects.length} Karya Orisinal · {projects[0].year}
-      </p>
-      <RevealText as="h2" text="KARYA" className="font-display text-[clamp(3.5rem,9vw,8rem)] leading-[0.85] text-bone" />
-      <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-mist">
-        Tiga karya yang dekat dengan perjalanan saya: komunitas BADAI, galeri PROMPTIONAL, dan ruang belajar Pebisnis.Digital. Buka salah satu untuk mengikuti ceritanya.
-      </p>
-      <p className="mt-6 hidden text-xs tracking-[0.24em] text-smoke lg:block">GULIR UNTUK MENJELAJAH →</p>
-    </div>
-  );
-}
+    <div ref={section} className="relative py-8 sm:py-12">
+      <div className="gutter mb-7 flex flex-wrap items-end justify-between gap-6 sm:mb-9">
+        <div>
+          <p className="mb-3 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.32em] text-crimson-2">
+            <span className="h-px w-8 bg-crimson-2" /> {projects.length} Karya Orisinal · {projects[0].year}
+          </p>
+          <RevealText as="h2" text="KARYA" className="font-display text-[clamp(3.5rem,9vw,8rem)] leading-[0.85] text-bone" />
+          <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-mist">
+            {projects.map((project) => project.title).join(' · ')}. Geser kartunya untuk menjelajahi setiap cerita.
+          </p>
+        </div>
 
-function Outro() {
-  return (
-    <a
-      href={profile.links.website}
-      target="_blank"
-      rel="noreferrer"
-      data-cursor="link"
-      className="group flex aspect-[3/4] w-[70vw] shrink-0 snap-start flex-col items-center justify-center gap-4 rounded-2xl border border-dashed border-white/15 text-center transition hover:border-crimson-2/60 sm:w-[44vw] lg:aspect-auto lg:h-[66vh] lg:w-[24vw]"
-    >
-      <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/25 text-2xl text-bone transition group-hover:scale-110 group-hover:border-crimson-2 group-hover:text-crimson-2">↗</span>
-      <span className="font-display text-3xl tracking-wide text-bone">Buka PROMPTIONAL</span>
-      <span className="text-xs text-mist">Jelajahi galeri prompt AI</span>
-    </a>
-  );
-}
-
-function PinnedOriginals({ onOpen }: { onOpen: (p: Project) => void }) {
-  const wrap = useRef<HTMLDivElement>(null);
-  const track = useRef<HTMLDivElement>(null);
-  const [dist, setDist] = useState(0);
-  const distMV = useMotionValue(0);
-
-  useLayoutEffect(() => {
-    const measure = () => {
-      if (!track.current) return;
-      const d = Math.max(0, track.current.scrollWidth - window.innerWidth);
-      setDist(d);
-      distMV.set(d);
-    };
-    measure();
-    const ro = new ResizeObserver(measure);
-    if (track.current) ro.observe(track.current);
-    window.addEventListener('resize', measure);
-    return () => {
-      ro.disconnect();
-      window.removeEventListener('resize', measure);
-    };
-  }, [distMV]);
-
-  const { scrollYProgress } = useScroll({ target: wrap, offset: ['start start', 'end end'] });
-  const raw = useTransform([scrollYProgress, distMV], ([p, d]: number[]) => -p * d);
-  const x = useSpring(raw, { stiffness: 120, damping: 30, mass: 0.4 });
-  const bar = useTransform(scrollYProgress, [0, 1], [0, 1]);
-
-  return (
-    <div ref={wrap} style={{ height: `calc(100vh + ${dist}px)` }} className="relative">
-      <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
-        <div aria-hidden className="absolute inset-0 bg-[radial-gradient(50%_60%_at_70%_50%,rgba(229,19,43,0.10),transparent_70%)]" />
-        <motion.div ref={track} style={{ x }} className="gutter relative flex items-center gap-8 pr-[12vw]" data-cursor="drag">
-          <Intro />
-          {projects.map((p, i) => (
-            <ProjectCard key={p.id} project={p} index={i} onOpen={() => onOpen(p)} />
-          ))}
-          <Outro />
-        </motion.div>
-        <div className="gutter absolute inset-x-0 bottom-8 flex items-center gap-4">
-          <span className="text-[10px] font-bold tracking-[0.3em] text-smoke">KARYA</span>
-          <div className="h-[2px] flex-1 overflow-hidden rounded bg-white/10">
-            <motion.div className="h-full origin-left bg-crimson" style={{ scaleX: bar }} />
-          </div>
+        <div className="flex items-center gap-2" aria-label="Kontrol carousel karya">
+          <button type="button" aria-label="Karya sebelumnya" onClick={() => changeSlide(-1)}
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/25 bg-white/5 text-3xl text-bone transition hover:border-crimson-2 hover:bg-white/15 focus-visible:border-crimson-2">‹</button>
+          <button type="button" aria-label="Karya berikutnya" onClick={() => changeSlide(1)}
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/25 bg-white/5 text-3xl text-bone transition hover:border-crimson-2 hover:bg-white/15 focus-visible:border-crimson-2">›</button>
         </div>
       </div>
-    </div>
-  );
-}
 
-function RailOriginals({ onOpen }: { onOpen: (p: Project) => void }) {
-  return (
-    <div className="py-6">
-      <div className="gutter mb-6">
-        <Intro />
-      </div>
       <motion.div
-        className="rail gutter flex snap-x snap-mandatory gap-4 overflow-x-auto pb-6"
-        initial={{ opacity: 0, x: 60 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.9, ease: EASE }}
+        ref={rail}
+        aria-label="Geser untuk melihat karya Teh Vini"
+        className={`rail gutter relative flex gap-4 overflow-x-auto overscroll-x-contain pb-8 sm:gap-6 ${dragging ? 'cursor-grabbing select-none snap-none' : 'cursor-grab snap-x snap-mandatory'}`}
+        data-cursor="drag"
+        onScroll={syncActive}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={endPointer}
+        onPointerCancel={endPointer}
+        onPointerLeave={() => { if (!pointer.current?.dragged) pointer.current = null; }}
+        onClickCapture={(event) => {
+          if (!blockNextClick.current) return;
+          event.preventDefault();
+          event.stopPropagation();
+          blockNextClick.current = false;
+        }}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        onFocusCapture={() => setFocused(true)}
+        onBlurCapture={(event) => {
+          if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setFocused(false);
+        }}
+        onTouchStart={() => { pauseUntil.current = Date.now() + 9000; }}
+        initial={{ opacity: 0, y: 28 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-10% 0px' }}
+        transition={{ duration: 0.8, ease: EASE }}
       >
-        {projects.map((p, i) => (
-          <ProjectCard key={p.id} project={p} index={i} onOpen={() => onOpen(p)} />
+        {projects.map((project, index) => (
+          <ProjectCard key={project.id} project={project} index={index} onOpen={() => onOpen(project)} />
         ))}
-        <Outro />
+        {hasWebsite && (
+          <a href={profile.links.website} target="_blank" rel="noreferrer" data-cursor="link"
+            className="group flex aspect-[3/4] w-[70vw] shrink-0 snap-start flex-col items-center justify-center gap-4 rounded-2xl border border-dashed border-white/15 text-center transition hover:border-crimson-2/60 sm:w-[44vw] lg:aspect-auto lg:h-[66vh] lg:w-[24vw]">
+            <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/25 text-2xl text-bone transition group-hover:scale-110 group-hover:border-crimson-2 group-hover:text-crimson-2">↗</span>
+            <span className="font-display text-3xl tracking-wide text-bone">Kunjungi Website</span>
+            <span className="text-xs text-mist">{profile.links.website.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
+          </a>
+        )}
       </motion.div>
+
+      <div className="gutter mt-2 flex items-center justify-between gap-4">
+        <div className="flex items-center gap-2" aria-label={`Menampilkan karya ${active + 1} dari ${slideCount}`}>
+          {Array.from({ length: slideCount }, (_, index) => (
+            <button key={index} type="button" aria-label={`Lihat kartu ${index + 1}`}
+              aria-current={active === index ? 'true' : undefined}
+              onClick={() => scrollToSlide(index, true)}
+              className={`h-1.5 rounded-full transition-all duration-300 ${active === index ? 'w-9 bg-crimson-2' : 'w-4 bg-white/25 hover:bg-white/60'}`} />
+          ))}
+        </div>
+        <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-smoke">
+          {String(active + 1).padStart(2, '0')} / {String(slideCount).padStart(2, '0')} · Geser untuk menjelajah
+        </span>
+      </div>
     </div>
   );
 }
