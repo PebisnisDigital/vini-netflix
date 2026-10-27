@@ -50,6 +50,7 @@ export type ClientBrief = {
   email?: string;
   links?: { website?: string; linkedin?: string; github?: string };
   experiences: { company: string; role: string; period: string; description: string }[];
+  education?: { school: string; degree: string; place: string; period: string; score?: string }[];
   projects: { title: string; year: string; description: string; category: string; tags: string[]; website?: string; image?: string }[];
   skills: string[];
   highlights?: { title: string; description: string; category?: string }[];
@@ -87,7 +88,11 @@ export function validateBrief(value: unknown): string[] {
     if (p && !Array.isArray(p.tags)) errors.push(`Karya ${i + 1}: kata kunci harus berupa daftar.`);
   });
   if (!Array.isArray(b.experiences)) errors.push('Daftar pengalaman tidak valid.');
+  if (b.education && !Array.isArray(b.education)) errors.push('Daftar pendidikan tidak valid.');
+  if (Array.isArray(b.education)) b.education.forEach((e, i) => { if (!e.school?.trim() || !e.degree?.trim()) errors.push(`Pendidikan ${i + 1} perlu sekolah dan jurusan/gelar.`); });
   if (!Array.isArray(b.skills)) errors.push('Daftar keahlian tidak valid.');
+  if (b.highlights && !Array.isArray(b.highlights)) errors.push('Daftar pencapaian tidak valid.');
+  if (Array.isArray(b.highlights)) b.highlights.forEach((h, i) => { if (!h.title?.trim() || !h.description?.trim()) errors.push(`Sorotan ${i + 1} perlu judul dan penjelasan.`); });
   if (b.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(b.email)) errors.push('Format email tidak valid.');
   for (const [label, url] of Object.entries(b.links ?? {})) if (url && !validUrl(url)) errors.push(`Link ${label} harus diawali https://.`);
   return errors;
@@ -170,7 +175,7 @@ export function createPortfolioFromBrief(brief: ClientBrief): PortfolioContent {
       ],
       websiteLabel: brief.links?.website ? new URL(brief.links.website).hostname : undefined,
     },
-    projects, experience, education: [], achievements, certifications: [], skillCategories,
+    projects, experience, education: (brief.education ?? []).map((e) => ({ school: e.school, degree: e.degree, place: e.place, period: e.period, score: e.score || '' })), achievements, certifications: [], skillCategories,
     skillEvidence: {}, seasons, topPicks, introSlides, viewerProfiles, sectionMeta,
   };
 }

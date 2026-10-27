@@ -19,9 +19,9 @@ Isi formulir:
 
 1. Nama, URL pendek (slug), profesi, lokasi, deskripsi pribadi, kalimat sorotan, minat.
 2. Foto utama. **Rekomendasi** PNG transparan, foto setengah atau seluruh badan, resolusi memadai. JPG/WebP/AVIF juga diterima; gambar dengan latar belakang mungkin perlu diedit oleh admin.
-3. Pengalaman organisasi/pekerjaan (bisa ditambahkan lebih dari satu).
+3. Pengalaman organisasi/pekerjaan dan pendidikan (keduanya dapat ditambahkan lebih dari satu).
 4. Karya/proyek (minimal satu). Setiap proyek dapat memiliki foto tambahan, deskripsi, kategori, keahlian, dan tautan situs.
-5. Keahlian, email, serta tautan web/LinkedIn/GitHub (opsional).
+5. Keahlian, sorotan/pencapaian, email, serta tautan web/LinkedIn/GitHub (opsional).
 
 Klien memilih **Unduh Data Klien**, kemudian **Unduh Foto Utama** dan foto karya bila ada. Semua berkas dikirim melalui WhatsApp ke Teh Vini. **Formulir tidak mengunggah/menerbitkan data langsung** dan tidak memerlukan database.
 

@@ -3,10 +3,12 @@ import { normalizeSlug, validateBrief, type ClientBrief } from '../data/clientMo
 
 const newProject = () => ({ title: '', year: '2026', description: '', category: 'Portofolio', tags: [] as string[], website: '', image: '' });
 const newExperience = () => ({ company: '', role: '', period: '', description: '' });
+const newEducation = () => ({ school: '', degree: '', place: '', period: '', score: '' });
+const newHighlight = () => ({ title: '', description: '', category: '' });
 const initial: ClientBrief = {
   slug: '', name: '', role: '', location: '', bio: '', tagline: [], interests: [],
   photo: { src: '', alt: '' }, email: '', links: { website: '', linkedin: '', github: '' },
-  projects: [newProject()], experiences: [newExperience()], skills: [], highlights: [],
+  projects: [newProject()], experiences: [newExperience()], education: [], skills: [], highlights: [],
 };
 const splitLines = (value: string) => value.split(/\n|,/).map((s) => s.trim()).filter(Boolean);
 
@@ -47,6 +49,10 @@ export default function ClientIntakeForm() {
     update('projects', brief.projects.map((p, i) => i === index ? { ...p, ...patch } : p));
   const patchExperience = (index: number, patch: Partial<ClientBrief['experiences'][number]>) =>
     update('experiences', brief.experiences.map((p, i) => i === index ? { ...p, ...patch } : p));
+  const patchEducation = (index: number, patch: Partial<NonNullable<ClientBrief['education']>[number]>) =>
+    update('education', (brief.education || []).map((p, i) => i === index ? { ...p, ...patch } : p));
+  const patchHighlight = (index: number, patch: Partial<NonNullable<ClientBrief['highlights']>[number]>) =>
+    update('highlights', (brief.highlights || []).map((p, i) => i === index ? { ...p, ...patch } : p));
 
   const choosePortrait = (file: File | null) => {
     setPortrait(file); setExported(false);
@@ -64,6 +70,8 @@ export default function ClientIntakeForm() {
     ...brief,
     photo: { ...brief.photo, src: portrait ? `/clients/${brief.slug}/foto-utama.${portrait.name.split('.').pop()?.toLowerCase()}` : '' },
     experiences: brief.experiences.filter((e) => e.company || e.role || e.description),
+    education: (brief.education || []).filter((e) => e.school || e.degree),
+    highlights: (brief.highlights || []).filter((h) => h.title || h.description),
     projects: brief.projects.map((p, i) => ({ ...p, image: projectPhotos[i] ? `/clients/${brief.slug}/karya-${i + 1}.${projectPhotos[i].name.split('.').pop()?.toLowerCase()}` : '' })),
   };
   const exportData = () => {
@@ -101,7 +109,16 @@ export default function ClientIntakeForm() {
         <Field label="Periode"><input className={inputClass} value={item.period} placeholder="2022 – Sekarang" onChange={(e) => patchExperience(i, { period: e.target.value })}/></Field>
         <Field label="Penjelasan singkat"><textarea rows={2} className={inputClass} value={item.description} placeholder="Apa yang dikerjakan?" onChange={(e) => patchExperience(i, { description: e.target.value })}/></Field>
         {brief.experiences.length > 1 && <button type="button" className="justify-self-start text-sm text-red-300" onClick={() => update('experiences', brief.experiences.filter((_, j) => i !== j))}>Hapus pengalaman</button>}
-      </div>)}<button type="button" className="rounded-xl border border-white/20 px-4 py-3 text-sm font-semibold hover:bg-white/10" onClick={() => update('experiences', [...brief.experiences, newExperience()])}>+ Tambah pengalaman</button></section>
+      </div>)}<button type="button" className="rounded-xl border border-white/20 px-4 py-3 text-sm font-semibold hover:bg-white/10" onClick={() => update('experiences', [...brief.experiences, newExperience()])}>+ Tambah pengalaman</button>
+      <h3 className="mb-4 mt-10 text-lg font-semibold">Pendidikan (opsional)</h3>
+      {(brief.education || []).map((item, i) => <div className="mb-4 grid gap-4 rounded-xl border border-white/10 bg-white/[0.03] p-4 sm:grid-cols-2" key={i}>
+        <Field label="Sekolah / kampus"><input className={inputClass} value={item.school} onChange={(e) => patchEducation(i, { school: e.target.value })}/></Field>
+        <Field label="Jurusan / gelar"><input className={inputClass} value={item.degree} onChange={(e) => patchEducation(i, { degree: e.target.value })}/></Field>
+        <Field label="Kota"><input className={inputClass} value={item.place} onChange={(e) => patchEducation(i, { place: e.target.value })}/></Field>
+        <Field label="Tahun"><input className={inputClass} value={item.period} onChange={(e) => patchEducation(i, { period: e.target.value })}/></Field>
+        <button type="button" className="justify-self-start text-sm text-red-300" onClick={() => update('education', (brief.education || []).filter((_, j) => j !== i))}>Hapus pendidikan</button>
+      </div>)}
+      <button type="button" className="rounded-xl border border-white/20 px-4 py-3 text-sm font-semibold hover:bg-white/10" onClick={() => update('education', [...(brief.education || []), newEducation()])}>+ Tambah pendidikan</button></section>
 
       <section className={sectionClass}><h2 className="mb-2 text-xl font-bold">04 · Karya / Portofolio *</h2><p className="mb-5 text-sm text-white/65">Minimal 1 karya. Boleh isi produk, jasa, kegiatan, atau pencapaian. Foto tambahan per karya opsional.</p>{brief.projects.map((item, i) => <div className="mb-5 space-y-4 rounded-xl border border-white/10 bg-white/[0.03] p-4" key={i}>
         <p className="font-semibold text-[#ff8096]">Karya {i + 1}</p><div className="grid gap-4 sm:grid-cols-2">
@@ -118,7 +135,13 @@ export default function ClientIntakeForm() {
       <section className={sectionClass}><h2 className="mb-5 text-xl font-bold">05 · Keahlian & Kontak</h2><Field label="Keahlian" note="Satu keahlian per baris"><textarea rows={3} className={inputClass} value={brief.skills.join('\n')} placeholder={'Komunikasi\nDesain Grafis\nPublic Speaking'} onChange={(e) => update('skills', splitLines(e.target.value))}/></Field><div className="mt-5 grid gap-4 sm:grid-cols-2">
         <Field label="Email (opsional)"><input className={inputClass} type="email" value={brief.email || ''} placeholder="nama@email.com" onChange={(e) => update('email', e.target.value)}/></Field>
         {(['website','linkedin','github'] as const).map((k) => <Field key={k} label={`Link ${k} (opsional)`}><input className={inputClass} value={brief.links?.[k] || ''} placeholder="https://..." onChange={(e) => update('links', { ...brief.links, [k]: e.target.value })}/></Field>)}
-      </div></section>
+      </div><h3 className="mb-4 mt-8 text-lg font-semibold">Pencapaian / sorotan (opsional)</h3>
+      {(brief.highlights || []).map((item, i) => <div className="mb-4 space-y-4 rounded-xl border border-white/10 bg-white/[0.03] p-4" key={i}>
+        <Field label="Judul pencapaian"><input className={inputClass} value={item.title} placeholder="Pernah mengadakan kelas 100 peserta" onChange={(e) => patchHighlight(i, { title: e.target.value })}/></Field>
+        <Field label="Penjelasan"><textarea rows={2} className={inputClass} value={item.description} onChange={(e) => patchHighlight(i, { description: e.target.value })}/></Field>
+        <Field label="Kategori"><input className={inputClass} value={item.category} placeholder="Kelas / Penghargaan / Kegiatan" onChange={(e) => patchHighlight(i, { category: e.target.value })}/></Field>
+        <button type="button" className="text-sm text-red-300" onClick={() => update('highlights', (brief.highlights || []).filter((_, j) => j !== i))}>Hapus sorotan</button>
+      </div>)}<button type="button" className="rounded-xl border border-white/20 px-4 py-3 text-sm font-semibold hover:bg-white/10" onClick={() => update('highlights', [...(brief.highlights || []), newHighlight()])}>+ Tambah sorotan</button></section>
 
       <section className={`${sectionClass} border-[#ff6985]/40`}><h2 className="text-xl font-bold">06 · Unduh dan Kirim</h2><p className="mt-2 text-sm leading-relaxed text-white/65">Unduh berkas data (.json) dan seluruh foto, lalu kirim ke WhatsApp Teh Vini. <strong className="text-white">Pengisian formulir ini belum menerbitkan website secara otomatis.</strong> Admin akan mengecek teks, foto, izin pemakaian, URL, dan tampilan sebelum tayang.</p>
         <div className="mt-5 flex flex-wrap gap-3"><button type="button" className="min-h-12 rounded-xl bg-[#e62f50] px-5 py-3 font-bold text-white hover:bg-[#f84a69]" onClick={exportData}>Unduh Data Klien</button>{portrait && <button type="button" className="min-h-12 rounded-xl border border-white/25 px-5 py-3 font-bold hover:bg-white/10" onClick={() => downloadFile(portrait, `foto-utama.${portrait.name.split('.').pop()?.toLowerCase()}`)}>Unduh Foto Utama</button>}</div>

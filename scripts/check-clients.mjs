@@ -34,6 +34,16 @@ for (const file of files) {
   for (const field of ['name', 'role', 'location', 'bio']) checkString(brief[field], field, slug, 3);
   if (!Array.isArray(brief.tagline) || !brief.tagline.some((s) => typeof s === 'string' && s.trim())) errors.push(`${slug}: minimal satu tagline.`);
   for (const field of ['interests','experiences','skills']) if (!Array.isArray(brief[field])) errors.push(`${slug}: ${field} harus berupa daftar.`);
+  if (brief.education && !Array.isArray(brief.education)) errors.push(`${slug}: pendidikan harus berupa daftar.`);
+  for (const [i, edu] of (Array.isArray(brief.education) ? brief.education : []).entries()) {
+    checkString(edu?.school, `pendidikan ${i + 1} sekolah`, slug);
+    checkString(edu?.degree, `pendidikan ${i + 1} gelar/jurusan`, slug);
+  }
+  if (brief.highlights && !Array.isArray(brief.highlights)) errors.push(`${slug}: sorotan harus berupa daftar.`);
+  for (const [i, item] of (Array.isArray(brief.highlights) ? brief.highlights : []).entries()) {
+    checkString(item?.title, `sorotan ${i + 1} judul`, slug);
+    checkString(item?.description, `sorotan ${i + 1} deskripsi`, slug);
+  }
   if (!Array.isArray(brief.projects) || !brief.projects.length) errors.push(`${slug}: minimal satu karya.`);
   else for (const [i, project] of brief.projects.entries()) {
     checkString(project?.title, `karya ${i + 1} judul`, slug);
