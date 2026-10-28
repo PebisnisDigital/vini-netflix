@@ -22,10 +22,16 @@ export type PortfolioContent = {
   introSlides: vini.IntroSlide[];
   viewerProfiles: typeof vini.viewerProfiles;
   sectionMeta: typeof vini.sectionMeta;
+  watchCards?: WatchCard[];
 };
 
 export type ClientTheme = { accent: string; background: string };
+export type WatchCard = { target: vini.SectionId; title: string; subtitle: string; image?: string };
 export const DEFAULT_THEME: ClientTheme = { accent: '#e5132b', background: '#07070a' };
+
+const sushmitaWatchCards: WatchCard[] = sushmita.viewerProfiles[0].order.map((target) => ({
+  target, title: sushmita.sectionMeta[target].card, subtitle: sushmita.sectionMeta[target].meta, image: '',
+}));
 
 /** Data master asli dari repo Sushmita, hanya untuk kanvas contoh Studio. */
 export const sushmitaContent: PortfolioContent = {
@@ -54,6 +60,7 @@ export const sushmitaContent: PortfolioContent = {
   introSlides: sushmita.introSlides,
   viewerProfiles: sushmita.viewerProfiles.map((p) => ({ ...p, id: p.id === 'sushmita' ? 'vini' : p.id })) as typeof vini.viewerProfiles,
   sectionMeta: sushmita.sectionMeta,
+  watchCards: sushmitaWatchCards,
 };
 
 export const viniContent: PortfolioContent = {
@@ -88,6 +95,7 @@ export type ClientBrief = {
   projects: { title: string; year: string; description: string; category: string; tags: string[]; website?: string; image?: string }[];
   skills: string[];
   highlights?: { title: string; description: string; category?: string }[];
+  watchCards?: WatchCard[];
   theme?: ClientTheme;
 };
 
@@ -114,6 +122,7 @@ export function sushmitaExampleBrief(): ClientBrief {
     education: sushmita.education.map((e) => ({ ...e })),
     skills: sushmita.skillCategories.flatMap((group) => group.skills.map((skill) => skill.name)),
     highlights: sushmita.achievements.map((a) => ({ title: a.title, description: a.detail, category: a.org })),
+    watchCards: sushmitaWatchCards.map((card) => ({ ...card })),
   };
 }
 
@@ -175,6 +184,14 @@ export function validateBrief(value: unknown): string[] {
   if (!Array.isArray(b.skills)) errors.push('Daftar keahlian tidak valid.');
   if (b.highlights && !Array.isArray(b.highlights)) errors.push('Daftar pencapaian tidak valid.');
   if (Array.isArray(b.highlights)) b.highlights.forEach((h, i) => { if (!h.title?.trim() || !h.description?.trim()) errors.push(`Sorotan ${i + 1} perlu judul dan penjelasan.`); });
+  if (b.watchCards !== undefined) {
+    if (!Array.isArray(b.watchCards) || b.watchCards.length < 1 || b.watchCards.length > 30) errors.push('Kartu Lanjutkan Menjelajah harus berjumlah 1–30.');
+    else b.watchCards.forEach((card, i) => {
+      if (!card || typeof card.title !== 'string' || !card.title.trim() || typeof card.subtitle !== 'string' || !card.subtitle.trim()) errors.push(`Kartu jelajah ${i + 1} memerlukan judul dan keterangan.`);
+      if (!card || !['about', 'journey', 'originals', 'picks', 'skills', 'moments', 'story'].includes(card.target)) errors.push(`Tujuan kartu jelajah ${i + 1} tidak valid.`);
+      if (card?.image && (typeof card.image !== 'string' || !card.image.startsWith(`/clients/${b.slug}/`) || !/\.(?:png|jpe?g|webp|avif)$/i.test(card.image))) errors.push(`Foto jelajah ${i + 1} harus berada dalam folder klien.`);
+    });
+  }
   if (b.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(b.email)) errors.push('Format email tidak valid.');
   if (b.theme && (!/^#[0-9a-fA-F]{6}$/.test(b.theme.accent) || !/^#[0-9a-fA-F]{6}$/.test(b.theme.background))) errors.push('Warna tema harus menggunakan kode hex 6 digit.');
   for (const [label, url] of Object.entries(b.links ?? {})) if (url && !validUrl(url)) errors.push(`Link ${label} harus diawali https://.`);
@@ -256,6 +273,9 @@ export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: 
     skills: { ...vini.sectionMeta.skills, meta: `${skillCategories.length} Bidang` },
     moments: { ...vini.sectionMeta.moments, meta: `${achievements.length} Sorotan` },
   };
+  const watchCards: WatchCard[] = brief.watchCards ?? vini.viewerProfiles[0].order.map((target) => ({
+    target, title: sectionMeta[target].card, subtitle: sectionMeta[target].meta, image: '',
+  }));
   return {
     profile: {
       fullName: name.toUpperCase(), displayName: name, firstName: name.toUpperCase(), seriesTag: 'THE SERIES',
@@ -275,7 +295,7 @@ export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: 
       theme: brief.theme,
     },
     projects, experience, education: (brief.education ?? []).map((e) => ({ school: e.school, degree: e.degree, place: e.place, period: e.period, score: e.score || '' })), achievements, certifications: [], skillCategories,
-    skillEvidence: {}, seasons, topPicks, introSlides, viewerProfiles, sectionMeta,
+    skillEvidence: {}, seasons, topPicks, introSlides, viewerProfiles, sectionMeta, watchCards,
   };
 }
 

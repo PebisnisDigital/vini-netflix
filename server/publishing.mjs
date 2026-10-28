@@ -3,7 +3,7 @@ import { github, repository } from './auth.mjs';
 
 const reserved = new Set(['vini', 'formulir', 'studio', 'admin', 'api', 'assets', 'demo', 'preview', 'index', 'favicon', 'robots', 'sitemap']);
 const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
-const pathPattern = /^public\/clients\/([a-z0-9]+(?:-[a-z0-9]+)*)\/(foto-utama|karya-[1-9]\d*)\.(png|jpe?g|webp|avif)$/;
+const pathPattern = /^public\/clients\/([a-z0-9]+(?:-[a-z0-9]+)*)\/(foto-utama|karya-[1-9]\d*|jelajah-[1-9]\d*)\.(png|jpe?g|webp|avif)$/;
 const urlValid = (url) => { try { return ['https:', 'http:'].includes(new URL(url).protocol); } catch { return false; } };
 
 export function validatePublishPayload(payload) {
@@ -32,10 +32,18 @@ export function validatePublishPayload(payload) {
     if (project?.image) addImage(project.image, `karya ${index + 1}`);
     if (project?.website && !urlValid(project.website)) errors.push(`Link karya ${index + 1} tidak valid.`);
   }
+  if (brief.watchCards !== undefined) {
+    if (!Array.isArray(brief.watchCards) || brief.watchCards.length < 1 || brief.watchCards.length > 30) errors.push('Kartu jelajah harus berjumlah 1–30.');
+    else for (const [index, item] of brief.watchCards.entries()) {
+      if (typeof item?.title !== 'string' || !item.title.trim() || typeof item?.subtitle !== 'string' || !item.subtitle.trim()) errors.push(`Kartu jelajah ${index + 1} wajib punya judul dan deskripsi.`);
+      if (!['about', 'journey', 'originals', 'picks', 'skills', 'moments', 'story'].includes(item?.target)) errors.push(`Tujuan kartu jelajah ${index + 1} tidak valid.`);
+      if (item?.image) addImage(item.image, `jelajah ${index + 1}`);
+    }
+  }
   if (brief.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(brief.email)) errors.push('Email tidak valid.');
   if (brief.theme && (typeof brief.theme !== 'object' || !/^#[0-9a-f]{6}$/i.test(brief.theme.accent || '') || !/^#[0-9a-f]{6}$/i.test(brief.theme.background || ''))) errors.push('Warna tema harus berupa kode hex yang aman.');
   if (brief.links) for (const link of Object.values(brief.links)) if (link && (typeof link !== 'string' || !urlValid(link))) errors.push('Link profil harus berupa URL HTTP/HTTPS.');
-  if (!Array.isArray(assets) || assets.length > 31) errors.push('Daftar foto unggahan tidak valid.');
+  if (!Array.isArray(assets) || assets.length > 61) errors.push('Daftar foto unggahan tidak valid.');
   else {
     const seen = new Set();
     for (const asset of assets) {
@@ -59,7 +67,7 @@ export async function createClientPullRequest(token, { brief, assets, mode }) {
   if (mode === 'create' && existing.ok) throw new Error(`Alamat /${slug} sudah dipakai. Gunakan mode Edit Klien.`);
   if (mode === 'edit' && !existing.ok) throw new Error(`Alamat /${slug} belum diterbitkan. Gunakan mode Klien Baru.`);
 
-  const photos = [brief.photo.src, ...brief.projects.map((p) => p.image).filter(Boolean)].map((src) => `public${src}`);
+  const photos = [brief.photo.src, ...brief.projects.map((p) => p.image).filter(Boolean), ...(brief.watchCards || []).map((card) => card.image).filter(Boolean)].map((src) => `public${src}`);
   for (const photo of photos) {
     if (assets.some((a) => a.path === photo)) continue;
     const assetResponse = await fetch(`https://api.github.com${repository}/contents/${photo}?ref=main`, { headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json' } });
