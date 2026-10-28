@@ -30,6 +30,15 @@ test('kartu jelajah boleh ditambah tetapi target dan fotonya wajib aman', () => 
   assert.ok(validatePublishPayload({ brief: { ...sample, watchCards: [{ ...watchCards[0], image: '/clients/lain/jelajah-1.webp' }] }, assets: [], mode: 'create' }).length);
 });
 
+test('kartu pilihan bisa diterbitkan dengan foto sendiri dan menolak foto asing', () => {
+  const pickCards = [{ label: 'POPULER', title: 'Foto Pilihan', detail: 'Cerita karya', image: '/clients/satria/pilihan-1.webp', palette: { from: '#111111', via: '#222222', to: '#333333', accent: '#ff2255' } }];
+  const photo = { path: 'public/clients/satria/pilihan-1.webp', sha: 'a'.repeat(40) };
+  assert.deepEqual(validatePublishPayload({ brief: { ...sample, pickCards }, assets: [photo], mode: 'create' }), []);
+  assert.ok(validatePublishPayload({ brief: { ...sample, pickCards: [] }, assets: [], mode: 'create' }).length);
+  assert.ok(validatePublishPayload({ brief: { ...sample, pickCards: [{ ...pickCards[0], image: '/clients/lain/pilihan-1.webp' }] }, assets: [], mode: 'create' }).length);
+  assert.ok(validatePublishPayload({ brief: { ...sample, pickCards: [{ ...pickCards[0], palette: { ...pickCards[0].palette, accent: 'red' } }] }, assets: [], mode: 'create' }).length);
+});
+
 test('OAuth aman: state harus cocok dan sesi hanya boleh admin', () => {
   const original = Object.fromEntries(['GITHUB_CLIENT_ID', 'GITHUB_CLIENT_SECRET', 'GITHUB_SESSION_SECRET', 'GITHUB_ALLOWED_LOGIN', 'GITHUB_CALLBACK_URL'].map((key) => [key, process.env[key]]));
   try {

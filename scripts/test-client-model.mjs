@@ -38,6 +38,16 @@ test('data Satria mengganti seluruh konten tanpa identitas klien lain', async ()
     assert.ok(validateBrief({ ...sample, watchCards: [] }).length > 0);
     assert.ok(validateBrief({ ...sample, watchCards: [{ ...watchCards[0], target: '#bahaya' }] }).length > 0);
     assert.ok(validateBrief({ ...sample, watchCards: [{ ...watchCards[0], image: '/clients/orang-lain/jelajah-1.webp' }] }).length > 0);
+    const pickCards = [{ label: 'TERBARU', title: 'Foto Pilihan', detail: 'Karya pilihan pelanggan', image: '/clients/satria/pilihan-1.webp', palette: { from: '#123456', via: '#234567', to: '#345678', accent: '#abcdef' } }];
+    const withPicks = createPortfolioFromBrief({ ...sample, pickCards, picksHeading: 'Pilihan Satria', picksKicker: 'Cerita pilihan' });
+    assert.equal(withPicks.topPicks.length, 1);
+    assert.equal(withPicks.topPicks[0].image, pickCards[0].image);
+    assert.equal(withPicks.topPicks[0].title, 'Foto Pilihan');
+    assert.equal(withPicks.picksHeading, 'Pilihan Satria');
+    assert.deepEqual(validateBrief({ ...sample, pickCards }), []);
+    assert.ok(validateBrief({ ...sample, pickCards: [] }).length > 0);
+    assert.ok(validateBrief({ ...sample, pickCards: [{ ...pickCards[0], image: '/clients/orang-lain/pilihan-1.webp' }] }).length > 0);
+    assert.ok(validateBrief({ ...sample, pickCards: [{ ...pickCards[0], palette: { ...pickCards[0].palette, accent: 'red' } }] }).length > 0);
     const unfinished = createCanvasPortfolio({ ...sample, slug: '', name: '', role: '', location: '', bio: '', tagline: [], projects: [{ ...sample.projects[0], title: '', description: '' }], photo: { src: '', alt: '' } });
     assert.equal(unfinished.profile.displayName, 'NAMA KLIEN');
     assert.equal(unfinished.projects[0].title, 'KARYA 1');
@@ -55,6 +65,7 @@ test('proyek baru memakai contoh Sushmita yang lengkap tanpa membuatnya siap ter
     assert.equal(canvas.projects.length, 3);
     assert.equal(canvas.seasons.length, 5);
     assert.equal(canvas.topPicks.length, 10);
+    assert.equal(example.pickCards.length, 10);
     assert.equal(canvas.certifications.length, 16);
     assert.equal(canvas.watchCards.length, 7);
     assert.equal(canvas.watchCards[0].title, 'About Me');

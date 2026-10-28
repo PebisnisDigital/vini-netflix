@@ -48,6 +48,10 @@ export default function StudioPreview() {
         const url = URL.createObjectURL(file); urls.push(url);
         if (page.watchCards?.[Number(index)]) page.watchCards[Number(index)].image = url;
       }
+      for (const [index, file] of Object.entries(draft.pickPhotos || {})) {
+        const url = URL.createObjectURL(file); urls.push(url);
+        if (page.topPicks[Number(index)]) page.topPicks[Number(index)].image = url;
+      }
       if (mounted) { setContent(page); setSlug(brief.slug); document.title = `Preview ${brief.name} — PESONAFLIX`; }
     }).catch((e) => { if (mounted) setError(e.message); });
     return () => { mounted = false; urls.forEach((url) => URL.revokeObjectURL(url)); };
