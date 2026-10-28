@@ -18,7 +18,7 @@ type Props = { content: PortfolioContent; children: ReactNode };
 type ChangeMessage =
   | { type: 'PESONAFLIX_VISUAL_TEXT'; field: string; value: string }
   | { type: 'PESONAFLIX_VISUAL_FILE'; index: number | null; file: File; watchIndex?: number; pickIndex?: number; seasonIndex?: number; episodeIndex?: number }
-  | { type: 'PESONAFLIX_VISUAL_ACTION'; action: string; index?: number; seasonIndex?: number }
+  | { type: 'PESONAFLIX_VISUAL_ACTION'; action: string; index?: number; seasonIndex?: number; categoryIndex?: number }
   | { type: 'PESONAFLIX_VISUAL_THEME'; key: 'accent' | 'background'; value: string };
 
 const uiButton = 'rounded-lg border border-white/20 bg-[#18181f] px-3 py-2 text-xs font-semibold text-white transition hover:border-[#ff6983] hover:bg-[#30202a] disabled:opacity-30';
@@ -40,6 +40,9 @@ function fieldValue(content: PortfolioContent, field: string): string {
     'journey:heading': content.journeyHeading || 'Perjalanan Saya',
     'journey:kicker': content.journeyKicker || `${content.seasons.length} Musim`,
     'journey:aside': content.journeyAside || 'Setiap tahap perjalanan diceritakan sebagai satu musim — pilih untuk melihat episodenya.',
+    'skills:heading': content.skillsHeading || 'Dunia Keahlian Saya',
+    'skills:kicker': content.skillsKicker || 'Kategori',
+    'skills:aside': content.skillsAside || 'Arahkan kursor atau ketuk keahlian untuk melihat penerapannya dalam karya dan aktivitas saya.',
   };
   if (field in values) return values[field];
   const parts = field.split(':');
@@ -68,7 +71,14 @@ function fieldValue(content: PortfolioContent, field: string): string {
     const item = achievements[Number(parts[1])];
     return item ? ({ title: item.title, description: item.detail, category: item.org } as Record<string, string>)[parts[2]] || '' : '';
   }
-  if (parts[0] === 'skill') return skillCategories.flatMap((c) => c.skills)[Number(parts[1])]?.name || '';
+  if (parts[0] === 'skill-category') {
+    const group = skillCategories[Number(parts[1])];
+    return group ? ({ title: group.title, subtitle: group.subtitle } as Record<string, string>)[parts[2]] || '' : '';
+  }
+  if (parts[0] === 'skill') {
+    const skill = skillCategories[Number(parts[1])]?.skills[Number(parts[2])];
+    return skill ? ({ name: skill.name, mono: skill.mono, note: skill.note || '', evidence: (skill.evidence || content.skillEvidence[skill.name] || []).join('\n') } as Record<string, string>)[parts[3]] || '' : '';
+  }
   return '';
 }
 
@@ -81,6 +91,8 @@ export default function VisualCanvasTools({ content, children }: Props) {
   const [pickCard, setPickCard] = useState<number | null>(null);
   const [seasonCard, setSeasonCard] = useState<number | null>(null);
   const [episodeCard, setEpisodeCard] = useState<{ season: number; episode: number } | null>(null);
+  const [skillCategory, setSkillCategory] = useState<number | null>(null);
+  const [skillCard, setSkillCard] = useState<{ category: number; skill: number } | null>(null);
   const [showContact, setShowContact] = useState(false);
   const [showCardDetails, setShowCardDetails] = useState(false);
   const [showColors, setShowColors] = useState(false);
@@ -103,7 +115,7 @@ export default function VisualCanvasTools({ content, children }: Props) {
       height: Math.min(190, Math.max(48, rect.height + 12)),
       fontSize: computed.fontSize, fontWeight: computed.fontWeight,
       textAlign: computed.textAlign === 'center' ? 'center' : computed.textAlign === 'right' ? 'right' : 'left',
-      multiline: ['bio', 'interests', 'tagline', 'journey:aside'].includes(field) || field.endsWith(':description') || field.endsWith(':subtitle') || field.endsWith(':detail') || field.endsWith(':synopsis') || field.endsWith(':tags'),
+      multiline: ['bio', 'interests', 'tagline', 'journey:aside', 'skills:aside'].includes(field) || field.endsWith(':description') || field.endsWith(':subtitle') || field.endsWith(':detail') || field.endsWith(':synopsis') || field.endsWith(':tags') || field.endsWith(':evidence'),
     };
     activeBox.current = edit;
     setBox(edit); setValue(edit.value);
@@ -131,6 +143,12 @@ export default function VisualCanvasTools({ content, children }: Props) {
       return;
     }
     const field = editable.dataset.studioEdit || '';
+    if (/^skill-category:\d+$/.test(field)) {
+      setSkillCategory(Number(field.split(':')[1])); setSkillCard(null);
+      setCard(null); setWatchCard(null); setPickCard(null); setSeasonCard(null); setEpisodeCard(null);
+      // Pertahankan fungsi pemilihan kategori pada tab aslinya.
+      return;
+    }
     if (/^season:\d+$/.test(field)) {
       setSeasonCard(Number(field.split(':')[1])); setEpisodeCard(null);
       setCard(null); setWatchCard(null); setPickCard(null);
@@ -138,6 +156,20 @@ export default function VisualCanvasTools({ content, children }: Props) {
       return;
     }
     event.preventDefault(); event.stopPropagation();
+    if (/^skill:\d+:\d+$/.test(field)) {
+      const [, group, skill] = field.split(':').map(Number);
+      setSkillCard({ category: group, skill }); setSkillCategory(null);
+      setCard(null); setWatchCard(null); setPickCard(null); setSeasonCard(null); setEpisodeCard(null); return;
+    }
+    if (field.startsWith('skill-category:')) {
+      setSkillCategory(Number(field.split(':')[1])); setSkillCard(null);
+      setCard(null); setWatchCard(null); setPickCard(null); setSeasonCard(null); setEpisodeCard(null);
+    }
+    if (field.startsWith('skill:')) {
+      const [, group, skill] = field.split(':').map(Number);
+      setSkillCard({ category: group, skill }); setSkillCategory(null);
+      setCard(null); setWatchCard(null); setPickCard(null); setSeasonCard(null); setEpisodeCard(null);
+    }
     if (field.startsWith('season:')) {
       setSeasonCard(Number(field.split(':')[1])); setEpisodeCard(null);
       setCard(null); setWatchCard(null); setPickCard(null);
@@ -172,6 +204,8 @@ export default function VisualCanvasTools({ content, children }: Props) {
   const activePickCard = pickCard === null ? null : content.topPicks[pickCard];
   const activeSeason = seasonCard === null ? null : content.seasons[seasonCard];
   const activeEpisode = episodeCard === null ? null : content.seasons[episodeCard.season]?.episodes[episodeCard.episode];
+  const activeSkillCategory = skillCategory === null ? null : content.skillCategories[skillCategory];
+  const activeSkill = skillCard === null ? null : content.skillCategories[skillCard.category]?.skills[skillCard.skill];
 
   return <>
     <div onClickCapture={handleCanvasClick} className="visual-canvas-root">{children}</div>
@@ -188,6 +222,7 @@ export default function VisualCanvasTools({ content, children }: Props) {
         <button type="button" className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'watch-add' })}>＋ Jelajah</button>
         <button type="button" className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'pick-add' })}>＋ Pilihan</button>
         <button type="button" className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'season-add' })}>＋ Musim</button>
+        <button type="button" className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'skill-category-add' })}>＋ Kategori</button>
         <button type="button" className={`${uiButton} ${showColors ? 'border-[#ff6983]' : ''}`} onClick={() => { setShowColors((v) => !v); setShowContact(false); }}>🎨 Warna</button>
         <button type="button" className={`${uiButton} ${showContact ? 'border-[#ff6983]' : ''}`} onClick={() => { setShowContact((v) => !v); setShowColors(false); }}>✎ Kontak</button>
         <button type="button" className={`${uiButton} ${showRecords ? 'border-[#ff6983]' : ''}`} onClick={() => setShowRecords(true)}>▤ Riwayat</button>
@@ -212,8 +247,37 @@ export default function VisualCanvasTools({ content, children }: Props) {
           {recordTab === 'experience' && <>{content.experience.map((item, i) => <div key={`exp-${i}`} className="space-y-2 rounded-xl border border-white/10 bg-white/[0.035] p-3"><div className="flex justify-between text-sm font-bold"><span>Pengalaman {i + 1}</span><button className="text-xs text-red-300" onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'experience-remove', index: i })}>Hapus</button></div>{([{ key: 'company', label: 'Perusahaan', value: item.company }, { key: 'role', label: 'Jabatan', value: item.role }, { key: 'period', label: 'Periode', value: item.period }, { key: 'description', label: 'Cerita', value: item.points.join('\n') }] as const).map(({ key, label, value: initial }) => <label key={`${i}-${key}-${initial}`} className="block space-y-1 text-xs"><span>{label}</span><input className={uiInput} defaultValue={initial} onBlur={(e) => emit({ type: 'PESONAFLIX_VISUAL_TEXT', field: `experience:${i}:${key}`, value: e.target.value })} onKeyDown={(e) => { if (e.key === 'Enter') e.currentTarget.blur(); }}/></label>)}</div>)}<button className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'experience-add' })}>＋ Tambah Pengalaman</button></>}
           {recordTab === 'education' && <>{content.education.map((item, i) => <div key={`edu-${i}`} className="space-y-2 rounded-xl border border-white/10 bg-white/[0.035] p-3"><div className="flex justify-between text-sm font-bold"><span>Pendidikan {i + 1}</span><button className="text-xs text-red-300" onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'education-remove', index: i })}>Hapus</button></div>{([{ key: 'school', label: 'Sekolah / kampus', value: item.school }, { key: 'degree', label: 'Gelar / jurusan', value: item.degree }, { key: 'place', label: 'Lokasi', value: item.place }, { key: 'period', label: 'Tahun', value: item.period }] as const).map(({ key, label, value: initial }) => <label key={`${i}-${key}-${initial}`} className="block space-y-1 text-xs"><span>{label}</span><input className={uiInput} defaultValue={initial} onBlur={(e) => emit({ type: 'PESONAFLIX_VISUAL_TEXT', field: `education:${i}:${key}`, value: e.target.value })} onKeyDown={(e) => { if (e.key === 'Enter') e.currentTarget.blur(); }}/></label>)}</div>)}<button className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'education-add' })}>＋ Tambah Pendidikan</button></>}
           {recordTab === 'highlights' && <>{content.achievements.map((item, i) => <div key={`achievement-${i}`} className="space-y-2 rounded-xl border border-white/10 bg-white/[0.035] p-3"><div className="flex justify-between text-sm font-bold"><span>Sorotan {i + 1}</span><button className="text-xs text-red-300" onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'highlight-remove', index: i })}>Hapus</button></div>{([{ key: 'title', label: 'Judul', value: item.title }, { key: 'description', label: 'Cerita', value: item.detail }, { key: 'category', label: 'Kategori', value: item.org }] as const).map(({ key, label, value: initial }) => <label key={`${i}-${key}-${initial}`} className="block space-y-1 text-xs"><span>{label}</span><input className={uiInput} defaultValue={initial} onBlur={(e) => emit({ type: 'PESONAFLIX_VISUAL_TEXT', field: `highlight:${i}:${key}`, value: e.target.value })} onKeyDown={(e) => { if (e.key === 'Enter') e.currentTarget.blur(); }}/></label>)}</div>)}<button className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'highlight-add' })}>＋ Tambah Sorotan</button></>}
-          {recordTab === 'skills' && <><div className="grid gap-2 sm:grid-cols-2">{content.skillCategories.flatMap((category) => category.skills).map((skill, i) => <div className="flex items-center gap-2" key={`${i}-${skill.name}`}><input className={uiInput} aria-label={`Keahlian ${i + 1}`} defaultValue={skill.name} onBlur={(e) => emit({ type: 'PESONAFLIX_VISUAL_TEXT', field: `skill:${i}`, value: e.target.value })} onKeyDown={(e) => { if (e.key === 'Enter') e.currentTarget.blur(); }}/><button className="text-sm text-red-300" onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'skill-remove', index: i })}>✕</button></div>)}</div><button className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'skill-add' })}>＋ Tambah Keahlian</button></>}
+          {recordTab === 'skills' && <><p className="text-xs text-white/60">Pilih kategori atau kotak keahlian langsung pada kanvas untuk mengedit nama, simbol, keterangan, posisi, dan jumlah kartunya.</p><button className={uiButton} onClick={() => { setShowRecords(false); emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'skill-category-add' }); }}>＋ Tambah Kategori</button></>}
         </div>
+      </div>
+    </div>}
+    {skillCategory !== null && activeSkillCategory && <div className="pointer-events-none fixed inset-x-2 bottom-4 z-[9989] flex justify-center">
+      <div className="pointer-events-auto max-w-full rounded-2xl border border-[#ff6983]/45 bg-[#151219]/95 p-3 text-white shadow-[0_20px_65px_rgba(0,0,0,.8)] backdrop-blur-xl">
+        <div className="mb-2 flex items-center justify-between gap-4"><span className="max-w-[250px] truncate text-xs font-bold text-[#ff9aaa]">KATEGORI {skillCategory + 1} · {activeSkillCategory.title}</span><button aria-label="Tutup aksi kategori keahlian" onClick={() => setSkillCategory(null)}>✕</button></div>
+        <div className="flex flex-wrap gap-1.5">
+          {(['title', 'subtitle'] as const).map((field) => <button key={field} className={uiButton} onClick={(event) => beginText(`skill-category:${skillCategory}:${field}`, event.currentTarget)}>✎ {field === 'title' ? 'Kategori' : 'Keterangan'}</button>)}
+          <button className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'skill-add', categoryIndex: skillCategory })}>＋ Kotak</button>
+          <button className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'skill-category-add' })}>＋ Kategori</button>
+          <button className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'skill-category-duplicate', index: skillCategory })}>⧉ Salin</button>
+          <button className={uiButton} disabled={skillCategory === 0} onClick={() => { emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'skill-category-up', index: skillCategory }); setSkillCategory(skillCategory - 1); }}>←</button>
+          <button className={uiButton} disabled={skillCategory === content.skillCategories.length - 1} onClick={() => { emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'skill-category-down', index: skillCategory }); setSkillCategory(skillCategory + 1); }}>→</button>
+          <button className={`${uiButton} text-red-300`} disabled={content.skillCategories.length <= 1} onClick={() => { emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'skill-category-remove', index: skillCategory }); setSkillCategory(null); }}>Hapus</button>
+        </div>
+        <p className="mt-2 text-[11px] text-white/50">Klik kategori lain untuk berpindah. Kotak keahlian tetap mengikuti tampilan master.</p>
+      </div>
+    </div>}
+    {skillCard !== null && activeSkill && <div className="pointer-events-none fixed inset-x-2 bottom-4 z-[9989] flex justify-center">
+      <div className="pointer-events-auto max-w-full rounded-2xl border border-[#ff6983]/45 bg-[#151219]/95 p-3 text-white shadow-[0_20px_65px_rgba(0,0,0,.8)] backdrop-blur-xl">
+        <div className="mb-2 flex items-center justify-between gap-4"><span className="max-w-[250px] truncate text-xs font-bold text-[#ff9aaa]">KEAHLIAN {skillCard.category + 1}.{skillCard.skill + 1} · {activeSkill.name}</span><button aria-label="Tutup aksi kartu keahlian" onClick={() => setSkillCard(null)}>✕</button></div>
+        <div className="flex flex-wrap gap-1.5">
+          {(['name', 'mono', 'note', 'evidence'] as const).map((field) => <button key={field} className={uiButton} onClick={(event) => beginText(`skill:${skillCard.category}:${skillCard.skill}:${field}`, event.currentTarget)}>✎ {field === 'name' ? 'Nama' : field === 'mono' ? 'Simbol' : field === 'note' ? 'Label' : 'Poin Detail'}</button>)}
+          <button className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'skill-add', categoryIndex: skillCard.category })}>＋ Kotak</button>
+          <button className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'skill-duplicate', categoryIndex: skillCard.category, index: skillCard.skill })}>⧉ Salin</button>
+          <button className={uiButton} disabled={skillCard.skill === 0} onClick={() => { emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'skill-up', categoryIndex: skillCard.category, index: skillCard.skill }); setSkillCard({ ...skillCard, skill: skillCard.skill - 1 }); }}>←</button>
+          <button className={uiButton} disabled={skillCard.skill === content.skillCategories[skillCard.category].skills.length - 1} onClick={() => { emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'skill-down', categoryIndex: skillCard.category, index: skillCard.skill }); setSkillCard({ ...skillCard, skill: skillCard.skill + 1 }); }}>→</button>
+          <button className={`${uiButton} text-red-300`} disabled={content.skillCategories[skillCard.category].skills.length <= 1} onClick={() => { emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'skill-remove', categoryIndex: skillCard.category, index: skillCard.skill }); setSkillCard(null); }}>Hapus</button>
+        </div>
+        <p className="mt-2 text-[11px] text-white/50">Satu baris untuk setiap poin detail. Hapus isi label untuk menghilangkan badge.</p>
       </div>
     </div>}
     {seasonCard !== null && activeSeason && <div className="pointer-events-none fixed inset-x-2 bottom-4 z-[9989] flex justify-center">
