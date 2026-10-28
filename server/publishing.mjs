@@ -87,7 +87,7 @@ export async function mergeClientPullRequest(token, { number, sha }) {
   const pr = await github(token, `${repository}/pulls/${number}`);
   if (pr.state !== 'open' || pr.base?.ref !== 'main' || !/^cms\/[a-z0-9-]+$/.test(pr.head?.ref || '') || pr.head?.sha !== sha || pr.head?.repo?.full_name !== 'PebisnisDigital/vini-netflix' || !/^PERSONALFLIX_CMS:[a-z0-9-]+/.test(pr.body || '')) throw new Error('PR ini bukan draft CMS yang siap diterbitkan.');
   const checks = await github(token, `${repository}/commits/${sha}/check-runs`);
-  const validation = checks.check_runs?.filter((r) => r.name === 'verify' || r.name === 'Validasi Web Personal Netflix') || [];
+  const validation = checks.check_runs?.filter((r) => r.name === 'verify' || r.name === 'Validasi PESONAFLIX' || r.name === 'Validasi Web Personal Netflix') || [];
   if (!validation.some((r) => r.status === 'completed' && r.conclusion === 'success')) throw new Error('Validasi GitHub Actions belum lulus. Tunggu sampai berhasil.');
   const merged = await github(token, `${repository}/pulls/${number}/merge`, { method: 'PUT', body: JSON.stringify({ sha, merge_method: 'squash', commit_title: `Terbitkan ${pr.title}` }) });
   if (!merged.merged) throw new Error('GitHub belum bisa menerbitkan PR ini.');

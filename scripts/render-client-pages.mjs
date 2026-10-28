@@ -23,7 +23,7 @@ export function renderClientHtml(template, { name, bio, photo }) {
       'property', 'og:title', title,
     ),
     'property', 'og:description', bio,
-  ).replace('</head>', `<meta property="og:image" content="${escapeHtml((process.env.PUBLIC_SITE_ORIGIN || 'https://tehvini.vercel.app') + photo.src)}" /></head>`);
+  ).replace('</head>', `<meta property="og:image" content="${escapeHtml((process.env.PUBLIC_SITE_ORIGIN || 'https://pesonaflix.vercel.app') + photo.src)}" /></head>`);
 }
 
 async function main() {
@@ -39,14 +39,14 @@ async function main() {
     await writeFile(path.join(directory, 'index.html'), renderClientHtml(template, brief));
   }
   const intake = renderClientHtml(template, {
-    name: 'Formulir Klien — Web Personal Netflix',
-    bio: 'Isi data dan unggah foto untuk pembuatan website portofolio personal bergaya Netflix.',
+    name: 'Formulir Klien — PESONAFLIX',
+    bio: 'Isi data dan unggah foto untuk pembuatan website portofolio PESONAFLIX.',
     photo: { src: '/favicon.svg' },
   });
   await mkdir(path.join(dist, 'formulir'), { recursive: true });
   await writeFile(path.join(dist, 'formulir/index.html'), intake);
   const studio = renderClientHtml(template, {
-    name: 'Dashboard Studio — Web Personal Netflix',
+    name: 'Dashboard Studio — PESONAFLIX',
     bio: 'Buat, edit, dan kelola portofolio klien bergaya Netflix.', photo: { src: '/favicon.svg' },
   });
   await mkdir(path.join(dist, 'studio', 'preview'), { recursive: true });

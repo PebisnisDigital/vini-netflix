@@ -56,8 +56,8 @@ export async function createClientPackage(
   const entries: Record<string, Uint8Array> = {
     [`src/data/clients/${brief.slug}.json`]: strToU8(`${JSON.stringify(brief, null, 2)}\n`),
     'PANDUAN.txt': strToU8(
-      `PAKET KLIEN WEB PERSONAL NETFLIX: ${brief.name}\n\n` +
-      `URL target: https://tehvini.vercel.app/${brief.slug}\n\n` +
+      `PAKET KLIEN PESONAFLIX: ${brief.name}\n\n` +
+      `URL target: https://pesonaflix.vercel.app/${brief.slug}\n\n` +
       'Semua berkas dalam ZIP memakai jalur relatif ke akar repo PebisnisDigital/vini-netflix.\n' +
       '1. Minta Codex menambahkan berkas sesuai jalur yang sudah ada di paket ini.\n' +
       '2. Jangan menimpa data atau foto klien lain, terutama /vini.\n' +

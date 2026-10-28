@@ -28,7 +28,7 @@ export default function StudioPreview() {
         const url = URL.createObjectURL(file); urls.push(url);
         if (page.projects[Number(index)]) page.projects[Number(index)].image = url;
       }
-      if (mounted) { setContent(page); setSlug(brief.slug); document.title = `Preview ${brief.name} — PERSONALFLIX`; }
+      if (mounted) { setContent(page); setSlug(brief.slug); document.title = `Preview ${brief.name} — PESONAFLIX`; }
     }).catch((e) => { if (mounted) setError(e.message); });
     return () => { mounted = false; urls.forEach((url) => URL.revokeObjectURL(url)); };
   }, []);

@@ -1,10 +1,10 @@
-# WEB PERSONAL NETFLIX
+# PESONAFLIX — Web Portofolio Personal
 
-Master template portofolio bergaya platform streaming untuk beberapa klien. **Satu repo, satu proyek Vercel, banyak halaman**, semuanya memakai desain yang sama dengan data dan foto terpisah.
+Master template portofolio bergaya platform streaming untuk beberapa klien dengan brand **PESONAFLIX**. **Satu repo, satu proyek Vercel, satu domain `pesonaflix.vercel.app`, banyak halaman**, semuanya memakai desain yang sama dengan data dan foto terpisah.
 
 | Halaman | Fungsi |
 | --- | --- |
-| `/` | LP utama layanan Teh Vini (sementara COMING SOON) |
+| `/` | LP PESONAFLIX (sementara COMING SOON) |
 | `/vini` | Portofolio Teh Vini (contoh & acuan desain) |
 | `/formulir` | Alamat lama, otomatis mengarah ke `/studio?tab=formulir` |
 | `/studio` | CMS editor seperti Blogger: buat/edit konten dan foto, simpan draft, preview |
@@ -12,7 +12,7 @@ Master template portofolio bergaya platform streaming untuk beberapa klien. **Sa
 | `/studio/preview?slug=satria` | Preview portofolio dari draft browser (belum live) |
 | `/<nama-klien>` | Portofolio masing-masing klien yang sudah diterbitkan |
 
-**Baca panduan lengkap:** [SOP Web Personal Netflix](docs/WEB-PERSONAL-NETFLIX.md).
+**Baca panduan lengkap:** [SOP PESONAFLIX](docs/WEB-PERSONAL-NETFLIX.md).
 
 **CMS Studio:** [Alur editorial, GitHub OAuth, dan penerbitan aman](docs/CMS-STUDIO.md).
 
@@ -23,7 +23,9 @@ Master template portofolio bergaya platform streaming untuk beberapa klien. **Sa
 3. Periksa hasil di **Lihat Preview** dan minta persetujuan klien.
 4. Login GitHub hanya ketika hendak menerbitkan. CMS menyiapkan PR, memeriksa validasi, lalu menerbitkan setelah konfirmasi.
 
-Contoh: `src/data/clients/satria.json` dan `public/clients/satria/foto-utama.webp` akan menghasilkan `https://tehvini.vercel.app/satria` setelah diterbitkan.
+Contoh: `src/data/clients/satria.json` dan `public/clients/satria/foto-utama.webp` akan menghasilkan `https://pesonaflix.vercel.app/satria` setelah diterbitkan.
+
+**Catatan migrasi domain:** Draft CMS tersimpan di IndexedDB yang terikat ke asal domain. Draft dari `tehvini.vercel.app` tidak otomatis muncul di `pesonaflix.vercel.app`; domain lama perlu tetap dapat diakses sampai semua draft penting dipindahkan/diterbitkan. Login GitHub memerlukan callback OAuth baru dan perubahan `GITHUB_CALLBACK_URL` di Vercel.
 
 Tidak diperlukan database atau proyek Vercel baru untuk setiap klien. Saat penambahan klien hanya perlu mengubah JSON dan aset foto; komponen desain membaca data secara otomatis. File `src/data/portfolio.ts` dikhususkan untuk Teh Vini dan tidak perlu diubah.
 

@@ -1,8 +1,8 @@
-# PERSONALFLIX Studio — CMS Tanpa Codex
+# PESONAFLIX Studio — CMS Tanpa Codex
 
 ## Alur penggunaan
 
-1. Buka **`https://tehvini.vercel.app/studio`** di browser pribadi Teh Vini. Draft tersimpan **di browser tersebut**, bukan di server. Tidak ada login saat mengetik, mengunggah foto, atau menyimpan draft. Semua halaman memakai domain yang sama.
+1. Buka **`https://pesonaflix.vercel.app/studio`** di browser pribadi Teh Vini. Draft tersimpan **di browser tersebut**, bukan di server. Tidak ada login saat mengetik, mengunggah foto, atau menyimpan draft. Semua halaman memakai domain yang sama.
    - `/` — halaman utama layanan (sementara **COMING SOON**).
    - `/studio` — editor CMS.
    - `/studio?tab=formulir` — formulir lengkap; tombol **Buka di Editor CMS** menyalin semua data dan foto ke draft lokal tanpa mengetik ulang.
@@ -20,14 +20,14 @@
 Belum bisa digunakan tanpa aplikasi OAuth dan environment variables. **Jangan menyalin secret ke chat, file repo, atau JavaScript frontend.**
 
 1. Pada akun GitHub pemilik repo, buka **Settings → Developer settings → OAuth Apps → New OAuth App**.
-2. Isi nama, misalnya `PERSONALFLIX Studio`; **Homepage URL** `https://tehvini.vercel.app`; **Authorization callback URL** `https://tehvini.vercel.app/api/auth/callback` (exact, tanpa wildcard).
+2. Isi nama, misalnya `PESONAFLIX Studio`; **Homepage URL** `https://pesonaflix.vercel.app`; **Authorization callback URL** `https://pesonaflix.vercel.app/api/auth/callback` (exact, tanpa wildcard).
 3. Simpan Client ID dan Client Secret di **Vercel → vini-netflix → Settings → Environment Variables**, scope **Production**. Tambahkan:
 
    - `GITHUB_CLIENT_ID` — ID aplikasi OAuth.
    - `GITHUB_CLIENT_SECRET` — secret OAuth aplikasi.
    - `GITHUB_SESSION_SECRET` — string acak minimal 32 karakter, hanya server; dapat dibuat lokal lewat password manager.
    - `GITHUB_ALLOWED_LOGIN` — `PebisnisDigital` (login GitHub yang diberi izin menerbitkan).
-   - `GITHUB_CALLBACK_URL` — `https://tehvini.vercel.app/api/auth/callback`.
+   - `GITHUB_CALLBACK_URL` — `https://pesonaflix.vercel.app/api/auth/callback`.
 
 4. Redeploy setelah menyimpan variabel. Gunakan akun GitHub `PebisnisDigital` saat proses authorize. Jika repo dipindah menjadi privat, flow ini perlu direvisi ke izin GitHub App yang sesuai.
 5. Untuk pengujian OAuth di alamat preview Vercel yang berbeda domain, perlu aplikasi OAuth terpisah dengan callback khusus preview dan environment scoped preview. **Jangan** memakai wildcard callback atau membocorkan secret production ke preview.
@@ -42,6 +42,7 @@ Belum bisa digunakan tanpa aplikasi OAuth dan environment variables. **Jangan me
 - Saat foto kartu diganti, berkas lama bisa masih berada dalam riwayat Git; jika klien meminta penghapusan total, lakukan prosedur penghapusan riwayat terpisah.
 - Setelah penerbitan, profil, foto, dan tautan yang ada dalam repo/website publik **dapat dilihat siapa saja**. Minta izin tertulis klien terlebih dahulu.
 - Draft browser dapat hilang jika data situs dibersihkan atau pindah perangkat. Simpan backup ZIP melalui `/formulir` untuk arsip penting.
+- **Migrasi domain:** IndexedDB terisolasi per domain. Draft lama di `tehvini.vercel.app` tidak ikut berpindah ke domain PESONAFLIX. Sebelum menghapus atau mengalihkan domain lama, selesaikan/publikasikan draft atau ekspor backup klien dari domain lama.
 
 ## Batasan saat ini
 

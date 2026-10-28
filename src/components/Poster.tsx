@@ -97,14 +97,11 @@ export function ProjectArt({ project, className = '' }: { project: Project; clas
   );
 }
 
-/** Small fictional platform mark used in the nav and on cards. */
+/** PESONAFLIX mark, shared by every client portfolio and the sample page. */
 export function SeriesMark({ className = '' }: { className?: string }) {
   return (
-    <span className={`inline-flex items-center gap-1.5 ${className}`}>
-      <svg viewBox="0 0 24 32" className="h-[1.1em] w-auto" aria-hidden>
-        <path d="M3.5 5 12 27 20.5 5" fill="none" stroke="#e5132b" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-      <span className="font-sans text-[0.62em] font-bold tracking-[0.36em] text-mist">SERIES</span>
+    <span className={`inline-flex items-center whitespace-nowrap font-sans text-[0.76em] font-black tracking-[0.035em] ${className}`} aria-label="PESONAFLIX">
+      <span className="text-mist">PESONA</span><span className="text-[#e5132b]">FLIX</span>
     </span>
   );
 }
