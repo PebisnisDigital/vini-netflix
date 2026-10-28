@@ -6,6 +6,7 @@ export type StudioDraft = {
   portrait: File | null;
   projectPhotos: Record<number, File>;
   watchPhotos?: Record<number, File>;
+  pickPhotos?: Record<number, File>;
   mode: 'create' | 'edit';
   updatedAt: number;
 };
@@ -48,12 +49,13 @@ export const clientBriefBlank = (): ClientBrief => ({
 });
 
 export function preparedBrief(draft: StudioDraft): ClientBrief {
-  const { brief, portrait, projectPhotos, watchPhotos = {} } = draft;
+  const { brief, portrait, projectPhotos, watchPhotos = {}, pickPhotos = {} } = draft;
   const ext = (file: File) => file.name.split('.').pop()?.toLowerCase() || 'webp';
   return {
     ...brief,
     photo: { ...brief.photo, src: portrait ? `/clients/${brief.slug}/foto-utama.${ext(portrait)}` : brief.photo.src },
     projects: brief.projects.map((project, i) => ({ ...project, image: projectPhotos[i] ? `/clients/${brief.slug}/karya-${i + 1}.${ext(projectPhotos[i])}` : project.image || '' })),
     watchCards: brief.watchCards?.map((card, i) => ({ ...card, image: watchPhotos[i] ? `/clients/${brief.slug}/jelajah-${i + 1}.${ext(watchPhotos[i])}` : card.image || '' })),
+    pickCards: brief.pickCards?.map((card, i) => ({ ...card, image: pickPhotos[i] ? `/clients/${brief.slug}/pilihan-${i + 1}.${ext(pickPhotos[i])}` : card.image || '' })),
   };
 }
