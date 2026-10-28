@@ -4,10 +4,11 @@ import { usePortfolio } from '../data/PortfolioContext';
 import { Tilt } from './fx';
 import { ProjectArt } from './Poster';
 
-export default function ProjectCard({ project, onOpen, duplicate = false }: { project: Project; index: number; onOpen: () => void; duplicate?: boolean }) {
+export default function ProjectCard({ project, index, onOpen, duplicate = false }: { project: Project; index: number; onOpen: () => void; duplicate?: boolean }) {
   const { profile } = usePortfolio();
   return (
     <motion.article
+      data-studio-edit={`project:${index}`}
       aria-hidden={duplicate}
       className="w-[84vw] shrink-0 snap-start sm:w-[62vw] lg:w-[46vw] xl:w-[42vw]"
       initial={false}

@@ -8,9 +8,9 @@
    - `/studio?tab=formulir` — formulir lengkap; tombol **Buka di Editor CMS** menyalin semua data dan foto ke draft lokal tanpa mengetik ulang.
    - `/{namaklien}` — portofolio publik, misalnya `/vini` dan `/satria` setelah diterbitkan.
    - `/formulir` — alamat lama yang otomatis mengarahkan ke `/studio?tab=formulir`.
-2. Klik **Buat Klien Baru** atau pilih klien yang sudah tayang. Alternatifnya isi formulir di tab Formulir Klien dan klik **Buka di Editor CMS**. Halaman `/vini` tetap contoh master dan tidak diedit lewat sistem JSON klien.
-3. Ubah profil, headline, perjalanan, pendidikan, keahlian, pencapaian, dan tautan. Setiap karya adalah satu kartu dengan foto sendiri, judul, kategori, cerita, dan tag. Gunakan panah untuk mengurutkan kartu.
-4. Klik **Simpan Draft** dan **Lihat Preview**. Preview mengambil data dan foto yang disimpan di IndexedDB lokal, lalu merender komponen portofolio asli.
+2. Klik **Buat Klien Baru** atau pilih klien yang sudah tayang. **Canvas Netflix** langsung muncul dengan contoh isi dan foto master. Alternatifnya isi tab Formulir Klien lalu klik **Buka di Editor CMS**. Halaman `/vini` tetap contoh master dan tidak diedit lewat sistem JSON klien.
+3. Klik langsung **nama, profesi, lokasi, headline, deskripsi, foto**, atau **kartu karya** di kanvas. Panel kanan menampilkan kolom teks atau unggah foto untuk elemen yang dipilih. Hasilnya langsung terlihat di kanvas yang merender komponen Netflix asli. Tombol **Desktop / HP** memeriksa tampilan responsif; tombol **Warna** mengubah aksen dan latar. Tambahkan, hapus, atau susun ulang kartu tanpa Codex. Bagian **Pengaturan Detail** tetap tersedia untuk pengalaman, pendidikan, keahlian, pencapaian, dan tautan.
+4. Klik **Simpan Draft** dan **Lihat Preview**. Kanvas adalah simulasi langsung yang belum publik; Preview lengkap mengambil data dan foto IndexedDB lokal serta merender website pengunjung sesungguhnya.
 5. Setelah disetujui klien dan siap diterbitkan, klik **Login GitHub & Siapkan Preview**. OAuth GitHub diminta hanya pada tahap ini (sesi sekitar 30 menit).
 6. Server memeriksa akun GitHub, mengunggah foto, dan membuat **branch serta Pull Request**, bukan langsung memodifikasi `main`. Tunggu validasi GitHub Actions dan buka Preview Vercel dari PR.
 7. Setelah **memeriksa HP, desktop, foto, redaksi, dan tautan**, centang pernyataan dan pilih **Terbitkan ke Website Live**. Server hanya merge PR yang dibuat melalui CMS dan hanya bila check `verify` sukses. Vercel membuat deployment produksi dari `main`.
@@ -47,6 +47,7 @@ Belum bisa digunakan tanpa aplikasi OAuth dan environment variables. **Jangan me
 ## Batasan saat ini
 
 - Dashboard tidak dapat memodifikasi konten `/vini` yang masih dikodekan dalam `src/data/portfolio.ts` karena halaman ini adalah contoh/master yang dilindungi.
+- Kanvas dibuka di dalam iframe agar efek Netflix tampil otentik tanpa mengganggu tombol Studio. Saat mengedit di kanvas, klik elemen untuk memilihnya lalu ketik di panel kanan. Animasi masih berjalan; navigasi dari iframe sengaja dicegah sampai masuk Preview lengkap.
 - Editor tidak memiliki sinkronisasi lintas perangkat; draft lokal hanya ada di browser yang sama.
 - CMS menghasilkan satu PR per publikasi. Jika `main` berubah sebelum PR digabungkan, GitHub mungkin meminta penyelesaian konflik terlebih dahulu.
 - Login GitHub belum berfungsi sampai Teh Vini mengatur OAuth App dan variabel Vercel. Tes frontend/preview dapat digunakan sebelumnya.

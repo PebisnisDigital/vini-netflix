@@ -1,4 +1,4 @@
-import { lazy, Suspense, useCallback, useEffect, useState, type ReactNode } from 'react';
+import { lazy, Suspense, useCallback, useEffect, useState, type CSSProperties, type ReactNode } from 'react';
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import type { ProfileId, Project, SectionId } from './data/portfolio';
 import { usePortfolio } from './data/PortfolioContext';
@@ -36,19 +36,30 @@ function readStoredProfile(key: string, viewerProfiles: ReturnType<typeof usePor
   }
 }
 
-export default function App({ slug }: { slug: string }) {
+export default function App({ slug, editorMode = false }: { slug: string; editorMode?: boolean }) {
+  const { profile } = usePortfolio();
+  const theme = profile.theme;
+  const styles = theme ? {
+    '--color-ink': theme.background,
+    '--color-ink-2': theme.background,
+    '--color-crimson': theme.accent,
+    '--color-crimson-2': theme.accent,
+    '--client-accent': theme.accent,
+  } as CSSProperties : undefined;
   return (
-    <SmoothScrollProvider>
-      <Series slug={slug} />
-    </SmoothScrollProvider>
+    <div style={styles} className="min-h-screen bg-ink">
+      <SmoothScrollProvider>
+        <Series slug={slug} editorMode={editorMode} />
+      </SmoothScrollProvider>
+    </div>
   );
 }
 
-function Series({ slug }: { slug: string }) {
+function Series({ slug, editorMode }: { slug: string; editorMode: boolean }) {
   const { viewerProfiles } = usePortfolio();
   const storageKey = `personal-netflix-profile-${slug}`;
   const stored = readStoredProfile(storageKey, viewerProfiles);
-  const [stage, setStage] = useState<Stage>(stored ? 'home' : 'opening');
+  const [stage, setStage] = useState<Stage>(editorMode || stored ? 'home' : 'opening');
   const [profileId, setProfileId] = useState<ProfileId>(stored ?? 'vini');
   const [playing, setPlaying] = useState(false);
   const [project, setProject] = useState<Project | null>(null);
@@ -107,7 +118,7 @@ function Series({ slug }: { slug: string }) {
   return (
     <LayoutGroup>
       <div className="grain" aria-hidden />
-      <CustomCursor />
+      {!editorMode && <CustomCursor />}
 
       <AnimatePresence>
         {stage === 'opening' && <OpeningSequence key="opening" onDone={() => setStage('profiles')} />}

@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState, type ReactNode } from 'react';
-import { normalizeSlug, validateBrief, type ClientBrief } from '../data/clientModel';
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { createCanvasPortfolio, DEFAULT_THEME, normalizeSlug, validateBrief, type ClientBrief } from '../data/clientModel';
 import { clientBriefBlank, deleteDraft, listDrafts, preparedBrief, saveDraft, type StudioDraft } from '../data/studioDraft';
 import { publishedClients } from '../data/studioPublished';
 
@@ -59,6 +59,87 @@ async function apiPost(path: string, body: unknown) {
   const data = await res.json().catch(() => ({}));
   if (!res.ok) throw new Error(data.error || 'Permintaan belum berhasil.');
   return data;
+}
+
+type CanvasProps = {
+  draft: StudioDraft;
+  patch: (changes: Partial<ClientBrief>) => void;
+  changeProject: (index: number, changes: Partial<ClientBrief['projects'][number]>) => void;
+  setPhoto: (index: number | null, file: File | null) => void;
+  reorder: (index: number, direction: number) => void;
+  removeProject: (index: number) => void;
+};
+
+/** Kanvas sebenarnya merender App Netflix yang sama dengan halaman publik, di iframe terisolasi. */
+function CanvasEditor({ draft, patch, changeProject, setPhoto, reorder, removeProject }: CanvasProps) {
+  const frame = useRef<HTMLIFrameElement>(null);
+  const [selected, setSelected] = useState('name');
+  const [device, setDevice] = useState<'desktop' | 'mobile'>('desktop');
+  const [photoUrls, setPhotoUrls] = useState<{ portrait: string; projects: Record<number, string> }>({ portrait: '', projects: {} });
+  const current = preparedBrief(draft);
+  const theme = current.theme ?? DEFAULT_THEME;
+  const selectedProject = selected.startsWith('project:') ? Number(selected.split(':')[1]) : -1;
+
+  useEffect(() => {
+    const urls: string[] = [];
+    const portrait = draft.portrait ? URL.createObjectURL(draft.portrait) : '';
+    if (portrait) urls.push(portrait);
+    const projects: Record<number, string> = {};
+    for (const [index, photo] of Object.entries(draft.projectPhotos)) {
+      projects[Number(index)] = URL.createObjectURL(photo);
+      urls.push(projects[Number(index)]);
+    }
+    setPhotoUrls({ portrait, projects });
+    return () => urls.forEach((url) => URL.revokeObjectURL(url));
+  }, [draft.portrait, draft.projectPhotos]);
+
+  const sendCanvas = useCallback(() => {
+    const content = createCanvasPortfolio(current);
+    if (photoUrls.portrait) { content.profile.portrait.src = photoUrls.portrait; content.profile.portrait.srcSet = ''; }
+    for (const [index, url] of Object.entries(photoUrls.projects)) {
+      if (content.projects[Number(index)]) content.projects[Number(index)].image = url;
+    }
+    frame.current?.contentWindow?.postMessage({ type: 'PESONAFLIX_CANVAS_UPDATE', content }, location.origin);
+  }, [current, photoUrls]);
+
+  useEffect(() => { sendCanvas(); }, [sendCanvas]);
+  useEffect(() => {
+    const listener = (event: MessageEvent) => {
+      if (event.origin !== location.origin || event.source !== frame.current?.contentWindow) return;
+      if (event.data?.type === 'PESONAFLIX_CANVAS_READY') sendCanvas();
+      if (event.data?.type === 'PESONAFLIX_CANVAS_SELECT' && typeof event.data.field === 'string') setSelected(event.data.field);
+    };
+    window.addEventListener('message', listener);
+    return () => window.removeEventListener('message', listener);
+  }, [sendCanvas]);
+
+  const quick = (label: string, id: string) => <button type="button" onClick={() => setSelected(id)} className={`rounded-lg px-3 py-2 text-xs font-bold transition ${selected === id ? 'bg-[#e50931] text-white' : 'bg-white/5 text-white/70 hover:bg-white/10'}`}>{label}</button>;
+  const project = current.projects[selectedProject];
+  return <div className="grid min-w-0 gap-4 xl:grid-cols-[minmax(0,1fr)_290px]">
+    <section className="min-w-0 overflow-hidden rounded-2xl border border-white/15 bg-[#121218]">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 px-4 py-3">
+        <div><p className="text-sm font-extrabold">✦ Canvas Netflix <span className="ml-2 rounded bg-emerald-500/15 px-2 py-1 text-[10px] text-emerald-300">LIVE EDIT</span></p><p className="mt-1 text-xs text-white/45">Klik tulisan, foto, atau kartu untuk mengubahnya.</p></div>
+        <div className="flex gap-1 rounded-lg bg-black/40 p-1"><button type="button" aria-pressed={device === 'desktop'} onClick={() => setDevice('desktop')} className={`rounded-md px-3 py-1.5 text-xs ${device === 'desktop' ? 'bg-white/15' : 'text-white/45'}`}>Desktop</button><button type="button" aria-pressed={device === 'mobile'} onClick={() => setDevice('mobile')} className={`rounded-md px-3 py-1.5 text-xs ${device === 'mobile' ? 'bg-white/15' : 'text-white/45'}`}>HP</button></div>
+      </div>
+      <div className="flex flex-wrap gap-2 border-b border-white/10 p-3">{quick('Teks', 'name')}{quick('Foto Utama', 'portrait')}{quick('Kartu Karya', 'project:0')}{quick('Warna', 'theme')}{quick('Tentang', 'bio')}</div>
+      <div className="flex justify-center overflow-auto bg-[#050506] p-2 sm:p-4">
+        <iframe ref={frame} title="Kanvas portofolio Netflix yang dapat diedit" src="/studio/preview?canvas=1" onLoad={sendCanvas} className="block h-[690px] shrink-0 rounded-lg border border-white/15 bg-[#07070a] shadow-2xl transition-[width] duration-300" style={{ width: device === 'mobile' ? 'min(390px, 100%)' : '100%' }} />
+      </div>
+      <p className="px-4 pb-4 text-xs leading-relaxed text-white/45">Tampilan di atas menggunakan komponen website asli. Scroll di dalam kanvas untuk mengedit bagian bawah. Pengunjung belum melihat perubahan sampai diterbitkan.</p>
+    </section>
+    <aside className="h-fit space-y-4 rounded-2xl border border-[#ff536e]/25 bg-[#14131a] p-4 xl:sticky xl:top-24">
+      <div><p className="text-xs font-bold uppercase tracking-widest text-[#ff7188]">Panel Edit</p><h3 className="mt-1 text-xl font-extrabold">{({ name: 'Nama Klien', role: 'Profesi', location: 'Lokasi', tagline: 'Headline', bio: 'Tentang Saya', portrait: 'Foto Utama', theme: 'Warna Tema' } as Record<string, string>)[selected] || (project ? `Kartu Karya ${selectedProject + 1}` : 'Pilih Elemen')}</h3><p className="mt-2 text-xs text-white/45">Setiap perubahan langsung terlihat di kanvas sebelah.</p></div>
+      {selected === 'name' && <Control label="Nama lengkap / brand"><input className={field} value={draft.brief.name} placeholder="Nama Klien" onChange={(e) => patch({ name: e.target.value, slug: draft.brief.slug || normalizeSlug(e.target.value), photo: { ...draft.brief.photo, alt: `Foto ${e.target.value}` } })}/></Control>}
+      {selected === 'role' && <Control label="Profesi"><input className={field} value={draft.brief.role} placeholder="Profesi Klien" onChange={(e) => patch({ role: e.target.value })}/></Control>}
+      {selected === 'location' && <Control label="Kota / lokasi"><input className={field} value={draft.brief.location} placeholder="Bandung, Indonesia" onChange={(e) => patch({ location: e.target.value })}/></Control>}
+      {selected === 'tagline' && <Control label="Sorotan (satu baris per poin)"><textarea rows={4} className={field} value={draft.brief.tagline.join('\n')} onChange={(e) => patch({ tagline: splitLines(e.target.value) })}/></Control>}
+      {selected === 'bio' && <Control label="Tentang Saya"><textarea rows={7} className={field} value={draft.brief.bio} placeholder="Cerita singkat klien..." onChange={(e) => patch({ bio: e.target.value })}/></Control>}
+      {selected === 'portrait' && <><p className="text-xs text-white/60">Foto transparan lebih cocok untuk efek Netflix. Sampai diganti, kanvas memakai foto master sebagai contoh.</p><Photo title="Foto utama" file={draft.portrait} existing={draft.mode === 'edit' ? draft.brief.photo.src : '/assets/teh-vini-full.webp'} onChange={(file) => setPhoto(null, file)}/></>}
+      {selected === 'theme' && <><Control label="Warna aksen"><input aria-label="Warna aksen" type="color" value={theme.accent} className="h-12 w-full cursor-pointer rounded-lg bg-transparent" onChange={(e) => patch({ theme: { ...theme, accent: e.target.value } })}/></Control><Control label="Warna latar"><input aria-label="Warna latar" type="color" value={theme.background} className="h-12 w-full cursor-pointer rounded-lg bg-transparent" onChange={(e) => patch({ theme: { ...theme, background: e.target.value } })}/></Control><button type="button" className={secondary} onClick={() => patch({ theme: { ...DEFAULT_THEME } })}>Kembalikan warna Netflix</button><p className="text-xs text-white/45">Aksen memengaruhi tulisan, tombol dan beberapa highlight. Struktur tema Netflix tetap dipertahankan.</p></>}
+      {project && <><Control label="Judul kartu"><input className={field} value={project.title} onChange={(e) => changeProject(selectedProject, { title: e.target.value })}/></Control><Control label="Deskripsi"><textarea className={field} rows={4} value={project.description} onChange={(e) => changeProject(selectedProject, { description: e.target.value })}/></Control><Control label="Kategori"><input className={field} value={project.category} onChange={(e) => changeProject(selectedProject, { category: e.target.value })}/></Control><Control label="Tahun"><input className={field} value={project.year} onChange={(e) => changeProject(selectedProject, { year: e.target.value })}/></Control><Photo title={`Foto kartu ${selectedProject + 1}`} file={draft.projectPhotos[selectedProject]} existing={project.image || ''} onChange={(file) => setPhoto(selectedProject, file)}/><div className="flex flex-wrap gap-2"><button type="button" className={secondary} disabled={selectedProject === 0} onClick={() => { reorder(selectedProject, -1); setSelected(`project:${selectedProject - 1}`); }}>↑ Geser</button><button type="button" className={secondary} disabled={selectedProject === current.projects.length - 1} onClick={() => { reorder(selectedProject, 1); setSelected(`project:${selectedProject + 1}`); }}>↓ Geser</button><button type="button" className={`${secondary} text-red-300`} disabled={current.projects.length <= 1} onClick={() => { removeProject(selectedProject); setSelected('project:0'); }}>Hapus</button></div></>}
+      <div className="border-t border-white/10 pt-4"><p className="mb-2 text-xs font-semibold text-white/50">Kartu karya ({current.projects.length})</p><div className="flex flex-wrap gap-2">{current.projects.map((item, index) => <button type="button" key={index} onClick={() => setSelected(`project:${index}`)} className={`rounded-lg px-3 py-2 text-xs ${selected === `project:${index}` ? 'bg-[#e50931]' : 'bg-white/10'}`}>{item.title || `Kartu ${index + 1}`}</button>)}</div><button type="button" className={`${secondary} mt-3 w-full`} onClick={() => { patch({ projects: [...draft.brief.projects, newProject()] }); setSelected(`project:${draft.brief.projects.length}`); }}>＋ Tambah Kartu</button></div>
+    </aside>
+  </div>;
 }
 
 export default function StudioEditor() {
@@ -195,7 +276,7 @@ export default function StudioEditor() {
 
   return <div className="min-h-screen bg-[#09090d] font-sans text-white">
     <header className="sticky top-0 z-40 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 bg-[#0b0b10]/95 px-5 py-4 backdrop-blur-lg sm:px-8"><a href="/" className="font-extrabold tracking-widest">PESONA<span className="text-[#ff4566]">FLIX</span><span className="ml-2 text-xs font-medium tracking-normal text-white/45">STUDIO</span></a><div className="flex flex-wrap items-center gap-2"><span className="rounded-full border border-[#ff6580] bg-[#ff6580]/10 px-3 py-2 text-xs font-bold text-white">Editor CMS</span><a href="/studio?tab=formulir" className={secondary}>Formulir Klien</a><span className="rounded-full border border-white/15 px-3 py-1 text-xs text-white/60">{session.authenticated ? `● ${session.login}` : 'Draft lokal · Tanpa login'}</span><a href="/vini" target="_blank" rel="noreferrer" className={secondary}>Lihat Contoh</a></div></header>
-    <div className="mx-auto grid max-w-[1500px] gap-5 px-4 py-6 lg:grid-cols-[240px_minmax(0,1fr)_260px] lg:px-6">
+    <div className="mx-auto grid max-w-[1720px] gap-5 px-4 py-6 lg:grid-cols-[230px_minmax(0,1fr)] lg:px-6">
       <aside className={`${card} h-fit lg:sticky lg:top-24`}><div className="mb-5"><p className="text-xs font-bold uppercase tracking-[0.18em] text-[#ff6580]">PESONAFLIX Studio</p><h1 className="mt-1 text-2xl font-extrabold">Website Klien</h1><p className="mt-2 text-sm text-white/50">Seperti menulis postingan, tetapi hasilnya portofolio bergaya serial.</p></div>
         <button type="button" onClick={newClient} className="mb-5 w-full rounded-xl bg-[#e50931] px-4 py-3 text-sm font-bold hover:bg-[#fb2951]">＋ Buat Klien Baru</button>
         <input aria-label="Cari klien" className={`${field} mb-3`} value={search} placeholder="Cari nama klien…" onChange={(e) => setSearch(e.target.value)}/>
@@ -207,7 +288,9 @@ export default function StudioEditor() {
 
       <main className="min-w-0 space-y-5">
         {!active ? <section className={`${card} flex min-h-[400px] flex-col items-center justify-center gap-4 text-center`}><span className="text-6xl">✦</span><h2 className="text-3xl font-extrabold">Mulai Karya Baru</h2><p className="max-w-md text-white/55">Masukkan data klien dari WhatsApp, ganti foto dan atur kartu sesuai kebutuhan. Simpan draft kapan saja.</p><button type="button" onClick={newClient} className="rounded-xl bg-[#e50931] px-6 py-3 font-bold">Buat Klien Baru</button></section> : <>
-          <div className="flex flex-wrap items-start justify-between gap-3"><div><p className="text-xs font-bold uppercase tracking-wider text-[#ff6580]">{active.mode === 'create' ? 'Website baru' : 'Edit website terbit'}</p><h2 className="mt-1 text-2xl font-extrabold">{active.brief.name || 'Klien Tanpa Nama'}</h2><p className="mt-1 text-sm text-white/45">/{active.brief.slug || 'nama-klien'} · Data tersimpan hanya di browser ini sampai dipublikasikan.</p></div><button type="button" className={secondary} onClick={saveClick}>Simpan Draft</button></div>
+          <div className="flex flex-wrap items-start justify-between gap-3"><div><p className="text-xs font-bold uppercase tracking-wider text-[#ff6580]">{active.mode === 'create' ? 'Website baru' : 'Edit website terbit'}</p><h2 className="mt-1 text-2xl font-extrabold">{active.brief.name || 'Klien Tanpa Nama'}</h2><p className="mt-1 text-sm text-white/45">/{active.brief.slug || 'nama-klien'} · Data tersimpan hanya di browser ini sampai dipublikasikan.</p></div><div className="flex flex-wrap gap-2"><button type="button" className={secondary} onClick={saveClick}>Simpan Draft</button><button type="button" className={secondary} onClick={() => { void preview(); }}>Preview Lengkap</button></div></div>
+          <CanvasEditor draft={active} patch={patch} changeProject={changeProject} setPhoto={setPhoto} reorder={reorder} removeProject={removeProject} />
+          <details className={`${card} group`}><summary className="cursor-pointer text-base font-extrabold text-white">⚙ Pengaturan Detail <span className="ml-2 text-xs font-normal text-white/45">Pengalaman, pendidikan, keahlian, tautan, dan data tambahan</span></summary><div className="space-y-5 pt-6">
           <section className={card}><h3 className="mb-5 text-xl font-extrabold">01 · Profil & Redaksi</h3><div className="grid gap-4 sm:grid-cols-2">
             <Control label="Nama lengkap / brand *"><input className={field} value={active.brief.name} placeholder="Satria Putra" onChange={(e) => patch({ name: e.target.value, slug: active.brief.slug || normalizeSlug(e.target.value), photo: { ...active.brief.photo, alt: `Foto ${e.target.value}` } })}/></Control>
             <Control label="Alamat halaman *" hint={`pesonaflix.vercel.app/${active.brief.slug || 'nama-klien'}`}><input disabled={active.mode === 'edit'} className={`${field} disabled:opacity-50`} value={active.brief.slug} placeholder="satria" onChange={(e) => patch({ slug: normalizeSlug(e.target.value) })}/></Control>
@@ -232,7 +315,8 @@ export default function StudioEditor() {
             <div className="mt-6 grid gap-3 sm:grid-cols-2"><Control label="Email publik"><input className={field} value={active.brief.email || ''} onChange={(e) => patch({ email: e.target.value })}/></Control>{(['website', 'linkedin', 'github'] as const).map((key) => <Control key={key} label={`Link ${key}`}><input className={field} value={active.brief.links?.[key] || ''} placeholder="https://…" onChange={(e) => patch({ links: { ...active.brief.links, [key]: e.target.value } })}/></Control>)}</div>
           </section>
 
-          <section className={`${card} border-[#ff486b]/40`}><h3 className="text-xl font-extrabold">06 · Simpan, Preview, Terbitkan</h3><p className="mt-2 text-sm leading-relaxed text-white/60">Draft tetap di perangkat Teh Vini. Penerbitan memerlukan login GitHub, membuat Pull Request terlebih dahulu, dan tidak langsung mengubah website live.</p><div className="mt-5 flex flex-wrap gap-2"><button type="button" className={secondary} onClick={saveClick}>Simpan Draft</button><button type="button" className={secondary} onClick={() => { void preview(); }}>Lihat Preview</button><button type="button" disabled={busy} onClick={() => { void publish(); }} className="rounded-xl bg-[#e50931] px-5 py-3 text-sm font-bold hover:bg-[#fa284c] disabled:opacity-50">{busy ? 'Memproses…' : session.authenticated ? 'Siapkan Preview GitHub' : 'Login GitHub & Siapkan Preview'}</button></div>
+          </div></details>
+          <section className={`${card} border-[#ff486b]/40`}><h3 className="text-xl font-extrabold">Simpan, Preview, Terbitkan</h3><p className="mt-2 text-sm leading-relaxed text-white/60">Perubahan di Canvas hanya tersimpan pada perangkat ini. Untuk menerbitkan, login GitHub akan membuat Pull Request, melewati pengujian, lalu perlu persetujuan Teteh sebelum masuk ke website live.</p><div className="mt-5 flex flex-wrap gap-2"><button type="button" className={secondary} onClick={saveClick}>Simpan Draft</button><button type="button" className={secondary} onClick={() => { void preview(); }}>Lihat Preview</button><button type="button" disabled={busy} onClick={() => { void publish(); }} className="rounded-xl bg-[#e50931] px-5 py-3 text-sm font-bold hover:bg-[#fa284c] disabled:opacity-50">{busy ? 'Memproses…' : session.authenticated ? 'Siapkan Preview GitHub' : 'Login GitHub & Siapkan Preview'}</button></div>
             {!session.configured && <p className="mt-3 text-xs text-amber-300">Login GitHub belum dikonfigurasi pada Vercel. Editor dan preview lokal tetap bisa digunakan.</p>}
             {pr && <div className="mt-5 space-y-3 rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-4"><p className="font-semibold text-emerald-300">PR #{pr.number} siap diperiksa</p><a href={pr.url} target="_blank" rel="noreferrer" className="block break-all text-sm underline">Buka Pull Request & Preview Vercel ↗</a><label className="flex items-start gap-2 text-sm"><input type="checkbox" className="mt-1 accent-[#e50931]" checked={approved} onChange={(e) => setApproved(e.target.checked)}/><span>Saya sudah mengecek foto, redaksi, link, dan tampilan HP/desktop di preview.</span></label><button type="button" disabled={!approved || busy} className="rounded-xl bg-emerald-600 px-4 py-3 text-sm font-bold disabled:opacity-40" onClick={() => { void merge(); }}>Terbitkan ke Website Live</button></div>}
             {notice && <p role="status" className="mt-4 rounded-xl bg-white/5 p-3 text-sm leading-relaxed text-white/80">{notice}</p>}
@@ -241,7 +325,7 @@ export default function StudioEditor() {
         </>}
       </main>
 
-      <aside className={`${card} h-fit lg:sticky lg:top-24`}><h3 className="mb-4 text-base font-extrabold">Ringkasan Visual</h3>{active ? <><div className="overflow-hidden rounded-xl bg-gradient-to-br from-[#491327] to-[#120c12] p-4"><p className="text-[10px] font-bold tracking-[0.3em] text-[#ff99aa]">THE SERIES</p><h4 className="mt-3 break-words text-2xl font-black uppercase">{active.brief.name || 'NAMA KLIEN'}</h4><p className="mt-2 text-xs text-white/70">{active.brief.role || 'Profesi klien'}</p></div><p className="mb-2 mt-5 text-xs font-bold uppercase tracking-wider text-white/50">{active.brief.projects.length} Kartu karya</p><div className="space-y-2">{active.brief.projects.slice(0, 5).map((project, i) => <div key={i} className="rounded-lg border border-white/10 bg-white/5 px-3 py-2"><p className="truncate text-sm font-bold">{project.title || `Karya ${i + 1}`}</p><p className="truncate text-xs text-white/45">{project.category}</p></div>)}</div><p className="mt-5 text-xs leading-relaxed text-white/45">Preview lengkap menampilkan animasi dan susunan asli website, bukan sekadar ringkasan di samping.</p></> : <p className="text-sm text-white/50">Pilih klien untuk melihat ringkasan.</p>}
+      <aside className={`${card} ${active ? 'hidden' : ''} h-fit lg:sticky lg:top-24`}><h3 className="mb-4 text-base font-extrabold">Ringkasan Visual</h3>{active ? <><div className="overflow-hidden rounded-xl bg-gradient-to-br from-[#491327] to-[#120c12] p-4"><p className="text-[10px] font-bold tracking-[0.3em] text-[#ff99aa]">THE SERIES</p><h4 className="mt-3 break-words text-2xl font-black uppercase">{active.brief.name || 'NAMA KLIEN'}</h4><p className="mt-2 text-xs text-white/70">{active.brief.role || 'Profesi klien'}</p></div><p className="mb-2 mt-5 text-xs font-bold uppercase tracking-wider text-white/50">{active.brief.projects.length} Kartu karya</p><div className="space-y-2">{active.brief.projects.slice(0, 5).map((project, i) => <div key={i} className="rounded-lg border border-white/10 bg-white/5 px-3 py-2"><p className="truncate text-sm font-bold">{project.title || `Karya ${i + 1}`}</p><p className="truncate text-xs text-white/45">{project.category}</p></div>)}</div><p className="mt-5 text-xs leading-relaxed text-white/45">Preview lengkap menampilkan animasi dan susunan asli website, bukan sekadar ringkasan di samping.</p></> : <p className="text-sm text-white/50">Pilih klien untuk melihat ringkasan.</p>}
         <div className="mt-6 border-t border-white/10 pt-5"><p className="text-xs font-bold uppercase tracking-wider text-white/50">Privasi</p><p className="mt-2 text-xs leading-relaxed text-white/50">Draft dan foto disimpan hanya di browser ini (IndexedDB). Gunakan perangkat pribadi; jangan memakai komputer umum. Saat menerbitkan, foto dan data klien menjadi publik di website.</p></div>
       </aside>
     </div>
