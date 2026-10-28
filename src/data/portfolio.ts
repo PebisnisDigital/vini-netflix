@@ -302,7 +302,7 @@ export const skillEvidence: Record<string, string[]> = {
   'Animasi AI': ['Materi kreatif BADAI'],
 };
 
-export type Episode = { code: string; title: string; description: string; tags: string[]; runtime: string; palette: Palette };
+export type Episode = { code: string; title: string; description: string; tags: string[]; runtime: string; palette: Palette; image?: string };
 export type Season = { number: number; title: string; period: string; synopsis: string; episodes: Episode[] };
 
 const crimson: Palette = { from: '#24060b', via: '#6e0d1d', to: '#09070a', accent: '#ff3d5a' };
