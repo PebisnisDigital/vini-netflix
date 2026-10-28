@@ -22,6 +22,7 @@ test('data Satria mengganti seluruh konten tanpa identitas klien lain', async ()
     assert.equal(page.projects[0].image, '/clients/satria/karya-1.webp');
     assert.equal(page.education[0].school, 'Sekolah Seni');
     assert.equal(page.viewerProfiles[0].name, 'Satria');
+    assert.equal(page.watchCards.length, 7);
     const content = JSON.stringify(page);
     for (const forbidden of ['Teh Vini', 'Cuanify ID', 'BADAI', 'PROMPTIONAL']) assert.equal(content.includes(forbidden), false, `${forbidden} tidak boleh bocor`);
     assert.ok(validateBrief({ ...sample, slug: 'vini' }).length > 0);
@@ -30,6 +31,13 @@ test('data Satria mengganti seluruh konten tanpa identitas klien lain', async ()
     assert.equal(themed.profile.theme.accent, '#14c5b8');
     assert.equal(themed.projects[0].palette.accent, '#14c5b8');
     assert.ok(validateBrief({ ...sample, theme: { accent: 'red', background: '#040f12' } }).length > 0);
+    const watchCards = [{ target: 'moments', title: 'Cerita Saya', subtitle: 'Sorotan perjalanan', image: '/clients/satria/jelajah-1.webp' }];
+    const withWatch = createPortfolioFromBrief({ ...sample, watchCards });
+    assert.deepEqual(withWatch.watchCards, watchCards);
+    assert.deepEqual(validateBrief({ ...sample, watchCards }), []);
+    assert.ok(validateBrief({ ...sample, watchCards: [] }).length > 0);
+    assert.ok(validateBrief({ ...sample, watchCards: [{ ...watchCards[0], target: '#bahaya' }] }).length > 0);
+    assert.ok(validateBrief({ ...sample, watchCards: [{ ...watchCards[0], image: '/clients/orang-lain/jelajah-1.webp' }] }).length > 0);
     const unfinished = createCanvasPortfolio({ ...sample, slug: '', name: '', role: '', location: '', bio: '', tagline: [], projects: [{ ...sample.projects[0], title: '', description: '' }], photo: { src: '', alt: '' } });
     assert.equal(unfinished.profile.displayName, 'NAMA KLIEN');
     assert.equal(unfinished.projects[0].title, 'KARYA 1');
@@ -48,6 +56,8 @@ test('proyek baru memakai contoh Sushmita yang lengkap tanpa membuatnya siap ter
     assert.equal(canvas.seasons.length, 5);
     assert.equal(canvas.topPicks.length, 10);
     assert.equal(canvas.certifications.length, 16);
+    assert.equal(canvas.watchCards.length, 7);
+    assert.equal(canvas.watchCards[0].title, 'About Me');
     assert.equal(example.slug, '');
     assert.equal(example.photo.src, '');
     assert.ok(findUnreplacedSushmitaExamples(example).length >= 4);
