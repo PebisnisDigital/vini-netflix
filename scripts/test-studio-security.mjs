@@ -49,6 +49,14 @@ test('musim dan episode bisa diterbitkan dengan foto per kartu yang aman', () =>
   assert.ok(validatePublishPayload({ brief: { ...sample, seasons: [{ ...seasons[0], episodes: [{ ...episode, image: '/clients/asing/musim-1-episode-1.webp' }] }] }, assets: [], mode: 'create' }).length);
 });
 
+test('kategori dan kartu keahlian baru dapat diterbitkan, data tidak valid ditolak', () => {
+  const skillCategories = [{ id: 'fotografi', title: 'Fotografi', subtitle: 'Komposisi produk', skills: [{ name: 'Foto Produk', mono: 'FP', note: 'Utama', evidence: ['Katalog UMKM', 'Studio'] }] }];
+  assert.deepEqual(validatePublishPayload({ brief: { ...sample, skillCategories, skills: ['Foto Produk'], skillsHeading: 'Keahlian Saya' }, assets: [], mode: 'create' }), []);
+  assert.ok(validatePublishPayload({ brief: { ...sample, skillCategories: [] }, assets: [], mode: 'create' }).length);
+  assert.ok(validatePublishPayload({ brief: { ...sample, skillCategories: [{ ...skillCategories[0], skills: [] }] }, assets: [], mode: 'create' }).length);
+  assert.ok(validatePublishPayload({ brief: { ...sample, skillCategories: [{ ...skillCategories[0], skills: [{ name: 'Foto Produk', mono: 'SIMBOL-TOO-LONG' }] }] }, assets: [], mode: 'create' }).length);
+});
+
 test('OAuth aman: state harus cocok dan sesi hanya boleh admin', () => {
   const original = Object.fromEntries(['GITHUB_CLIENT_ID', 'GITHUB_CLIENT_SECRET', 'GITHUB_SESSION_SECRET', 'GITHUB_ALLOWED_LOGIN', 'GITHUB_CALLBACK_URL'].map((key) => [key, process.env[key]]));
   try {
