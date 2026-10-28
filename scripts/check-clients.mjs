@@ -34,6 +34,28 @@ for (const file of files) {
   for (const field of ['name', 'role', 'location', 'bio']) checkString(brief[field], field, slug, 3);
   if (!Array.isArray(brief.tagline) || !brief.tagline.some((s) => typeof s === 'string' && s.trim())) errors.push(`${slug}: minimal satu tagline.`);
   for (const field of ['interests','experiences','skills']) if (!Array.isArray(brief[field])) errors.push(`${slug}: ${field} harus berupa daftar.`);
+  if (brief.skillCategories !== undefined) {
+    if (!Array.isArray(brief.skillCategories) || brief.skillCategories.length < 1 || brief.skillCategories.length > 12) errors.push(`${slug}: kategori keahlian harus berjumlah 1–12.`);
+    else {
+      const ids = new Set(); let count = 0;
+      for (const [i, group] of brief.skillCategories.entries()) {
+        if (typeof group?.id !== 'string' || !/^[a-z0-9-]{1,60}$/.test(group.id) || ids.has(group.id)) errors.push(`${slug}: ID kategori keahlian ${i + 1} tidak valid.`);
+        ids.add(group?.id);
+        checkString(group?.title, `kategori keahlian ${i + 1} judul`, slug);
+        if (typeof group?.subtitle !== 'string') errors.push(`${slug}: subjudul kategori keahlian ${i + 1} tidak valid.`);
+        if (!Array.isArray(group?.skills) || group.skills.length < 1 || group.skills.length > 40) { errors.push(`${slug}: kategori keahlian ${i + 1} harus punya 1–40 kartu.`); continue; }
+        count += group.skills.length;
+        for (const [j, skill] of group.skills.entries()) {
+          checkString(skill?.name, `keahlian ${i + 1}.${j + 1} nama`, slug);
+          checkString(skill?.mono, `keahlian ${i + 1}.${j + 1} simbol`, slug);
+          if (typeof skill?.mono === 'string' && skill.mono.length > 8) errors.push(`${slug}: simbol keahlian ${i + 1}.${j + 1} terlalu panjang.`);
+          if (skill?.evidence !== undefined && (!Array.isArray(skill.evidence) || skill.evidence.some((point) => typeof point !== 'string'))) errors.push(`${slug}: poin detail keahlian ${i + 1}.${j + 1} tidak valid.`);
+        }
+      }
+      if (count > 100) errors.push(`${slug}: maksimal 100 kartu keahlian.`);
+    }
+  }
+  for (const key of ['skillsHeading','skillsAside','skillsKicker']) if (brief[key] !== undefined) checkString(brief[key], key, slug);
   if (brief.education && !Array.isArray(brief.education)) errors.push(`${slug}: pendidikan harus berupa daftar.`);
   for (const [i, edu] of (Array.isArray(brief.education) ? brief.education : []).entries()) {
     checkString(edu?.school, `pendidikan ${i + 1} sekolah`, slug);
