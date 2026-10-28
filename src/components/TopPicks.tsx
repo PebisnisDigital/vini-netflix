@@ -7,17 +7,18 @@ import { PosterBackdrop } from './Poster';
 import { RailButtons } from './Rail';
 
 export default function TopPicks() {
-  const { topPicks, profile } = usePortfolio();
+  const { topPicks, profile, picksHeading, picksKicker } = usePortfolio();
   const rail = useRef<HTMLDivElement>(null);
   const { pause } = useAutoRail(rail, { itemCount: topPicks.length, speed: 120 });
   return (
     <>
-      <SectionHeading kicker={`${topPicks.length} Sorotan · perjalanan & karya`} title={`Pilihan ${profile.displayName}`} />
+      <SectionHeading kicker={picksKicker || `${topPicks.length} Sorotan · perjalanan & karya`} title={picksHeading || `Pilihan ${profile.displayName}`} kickerEditId="picks:kicker" titleEditId="picks:heading" />
       <div className="group/rail relative">
         <div ref={rail} className="rail gutter flex snap-x snap-mandatory gap-2 overflow-x-auto py-6">
           {[0, 1, 2].flatMap((copy) => topPicks.map((pick, i) => (
             <motion.div
-              key={`${copy}-${pick.title}`}
+              key={`${copy}-${i}-${pick.title}`}
+              data-studio-edit={`pick:${i}`}
               aria-hidden={copy !== 1}
               className="group relative flex h-[260px] shrink-0 snap-start items-end sm:h-[300px]"
               initial={false}
@@ -31,13 +32,13 @@ export default function TopPicks() {
               </span>
               <div className="relative z-10 h-[85%] w-[150px] overflow-hidden rounded-lg shadow-[-12px_0_30px_rgba(0,0,0,0.7)] ring-1 ring-white/10 transition duration-500 group-hover:-translate-y-2 group-hover:ring-white/30 sm:w-[180px]">
                 <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-110">
-                  <PosterBackdrop palette={pick.palette} />
+                  <PosterBackdrop palette={pick.palette}>{pick.image ? <img src={pick.image} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-80" /> : null}</PosterBackdrop>
                 </div>
                 <div className="absolute inset-0 flex flex-col justify-between p-3.5">
-                  <span className="text-[9px] font-bold uppercase tracking-[0.26em] text-bone/70">{pick.label}</span>
+                  <span data-studio-edit={`pick:${i}:label`} className="text-[9px] font-bold uppercase tracking-[0.26em] text-bone/70">{pick.label}</span>
                   <div>
-                    <p className="font-display text-[1.65rem] leading-tight text-bone">{pick.title}</p>
-                    <p className="mt-1.5 text-[11px] leading-snug text-mist">{pick.detail}</p>
+                    <p data-studio-edit={`pick:${i}:title`} className="font-display text-[1.65rem] leading-tight text-bone">{pick.title}</p>
+                    <p data-studio-edit={`pick:${i}:detail`} className="mt-1.5 text-[11px] leading-snug text-mist">{pick.detail}</p>
                   </div>
                 </div>
               </div>
