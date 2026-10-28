@@ -196,7 +196,7 @@ export function createCanvasPortfolio(brief: ClientBrief): PortfolioContent {
     name: brief.name.trim() || 'NAMA KLIEN',
     role: brief.role.trim() || 'PROFESI KLIEN',
     location: brief.location.trim() || 'Kota, Indonesia',
-    bio: brief.bio.trim() || 'Tulis cerita singkat tentang diri dan perjalanan klien. Klik teks ini untuk mengubahnya langsung dari Studio.',
+    bio: brief.bio.trim() || 'Tulis cerita singkat tentang diri dan perjalanan klien. Gunakan Panel Edit untuk mengubahnya di Studio.',
     tagline: brief.tagline.length ? brief.tagline : ['CERITA', 'KARYA', 'PERJALANAN'],
     photo: { ...brief.photo, src: brief.photo.src || '/assets/teh-vini-full.webp', alt: brief.photo.alt || 'Foto utama klien' },
     projects: brief.projects.length ? brief.projects.map((p, i) => ({ ...p, title: p.title || `KARYA ${i + 1}`, description: p.description || 'Ceritakan karya unggulan klien di sini.' })) : [{ title: 'KARYA PERTAMA', description: 'Ceritakan karya unggulan klien di sini.', category: 'Portofolio', year: String(new Date().getFullYear()), tags: [], image: '' }],
