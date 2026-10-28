@@ -9,6 +9,8 @@ type CanvasProps = {
   setPhoto: (index: number | null, file: File | null) => void;
   setWatchPhoto: (index: number, file: File) => void;
   watchAction: (action: 'add' | 'duplicate' | 'up' | 'down' | 'remove', index?: number) => void;
+  setPickPhoto: (index: number, file: File) => void;
+  pickAction: (action: 'add' | 'duplicate' | 'up' | 'down' | 'remove', index?: number) => void;
   reorder: (index: number, direction: number) => void;
   removeProject: (index: number) => void;
   notice: (text: string) => void;
@@ -34,12 +36,12 @@ async function fitImage(file: File): Promise<File> {
 }
 
 /** Editor visual tanpa sidebar: kanvas publik dipakai langsung sebagai tempat penyuntingan. */
-export default function ElementorCanvas({ draft, patch, changeProject, setPhoto, setWatchPhoto, watchAction, reorder, removeProject, notice }: CanvasProps) {
+export default function ElementorCanvas({ draft, patch, changeProject, setPhoto, setWatchPhoto, watchAction, setPickPhoto, pickAction, reorder, removeProject, notice }: CanvasProps) {
   const frame = useRef<HTMLIFrameElement>(null);
-  const latest = useRef({ draft, patch, changeProject, setPhoto, setWatchPhoto, watchAction, reorder, removeProject, notice });
-  latest.current = { draft, patch, changeProject, setPhoto, setWatchPhoto, watchAction, reorder, removeProject, notice };
+  const latest = useRef({ draft, patch, changeProject, setPhoto, setWatchPhoto, watchAction, setPickPhoto, pickAction, reorder, removeProject, notice });
+  latest.current = { draft, patch, changeProject, setPhoto, setWatchPhoto, watchAction, setPickPhoto, pickAction, reorder, removeProject, notice };
   const [device, setDevice] = useState<'desktop' | 'mobile'>('desktop');
-  const [photoUrls, setPhotoUrls] = useState<{ portrait: string; projects: Record<number, string>; watch: Record<number, string> }>({ portrait: '', projects: {}, watch: {} });
+  const [photoUrls, setPhotoUrls] = useState<{ portrait: string; projects: Record<number, string>; watch: Record<number, string>; picks: Record<number, string> }>({ portrait: '', projects: {}, watch: {}, picks: {} });
   const current = preparedBrief(draft);
 
   useEffect(() => {
@@ -56,15 +58,21 @@ export default function ElementorCanvas({ draft, patch, changeProject, setPhoto,
       watch[Number(index)] = URL.createObjectURL(file);
       urls.push(watch[Number(index)]);
     }
-    setPhotoUrls({ portrait, projects, watch });
+    const picks: Record<number, string> = {};
+    for (const [index, file] of Object.entries(draft.pickPhotos || {})) {
+      picks[Number(index)] = URL.createObjectURL(file);
+      urls.push(picks[Number(index)]);
+    }
+    setPhotoUrls({ portrait, projects, watch, picks });
     return () => urls.forEach((url) => URL.revokeObjectURL(url));
-  }, [draft.portrait, draft.projectPhotos, draft.watchPhotos]);
+  }, [draft.portrait, draft.projectPhotos, draft.watchPhotos, draft.pickPhotos]);
 
   const sendCanvas = useCallback(() => {
     const content = structuredClone(createCanvasPortfolio(current));
     if (photoUrls.portrait) { content.profile.portrait.src = photoUrls.portrait; content.profile.portrait.srcSet = ''; }
     for (const [index, url] of Object.entries(photoUrls.projects)) if (content.projects[Number(index)]) content.projects[Number(index)].image = url;
     for (const [index, url] of Object.entries(photoUrls.watch)) if (content.watchCards?.[Number(index)]) content.watchCards[Number(index)].image = url;
+    for (const [index, url] of Object.entries(photoUrls.picks)) if (content.topPicks[Number(index)]) content.topPicks[Number(index)].image = url;
     frame.current?.contentWindow?.postMessage({ type: 'PESONAFLIX_CANVAS_UPDATE', content }, location.origin);
   }, [current, photoUrls]);
 
@@ -76,7 +84,7 @@ export default function ElementorCanvas({ draft, patch, changeProject, setPhoto,
       const data = event.data;
       if (!data || typeof data.type !== 'string') return;
       if (data.type === 'PESONAFLIX_CANVAS_READY') { sendCanvas(); return; }
-      const { draft: state, patch: apply, changeProject: applyProject, setPhoto: photo, setWatchPhoto: watchPhoto, watchAction: updateWatch, reorder: move, removeProject: remove, notice: notify } = latest.current;
+      const { draft: state, patch: apply, changeProject: applyProject, setPhoto: photo, setWatchPhoto: watchPhoto, watchAction: updateWatch, setPickPhoto: pickPhoto, pickAction: updatePick, reorder: move, removeProject: remove, notice: notify } = latest.current;
       if (data.type === 'PESONAFLIX_VISUAL_TEXT' && typeof data.field === 'string' && typeof data.value === 'string' && data.value.length < 15000) {
         const field = data.field;
         const value = data.value;
@@ -97,6 +105,13 @@ export default function ElementorCanvas({ draft, patch, changeProject, setPhoto,
           if (!Number.isInteger(index) || index < 0 || index >= cards.length) return;
           if ((property === 'title' || property === 'subtitle') && value.trim()) apply({ watchCards: cards.map((item, i) => i === index ? { ...item, [property]: value } : item) });
           if (property === 'target' && ['about', 'journey', 'originals', 'picks', 'skills', 'moments', 'story'].includes(value)) apply({ watchCards: cards.map((item, i) => i === index ? { ...item, target: value as typeof item.target } : item) });
+        } else if (field.startsWith('pick:')) {
+          const [, position, property] = field.split(':'); const index = Number(position);
+          const cards = state.brief.pickCards ?? createCanvasPortfolio(preparedBrief(state)).topPicks.map((item) => ({ ...item }));
+          if (!Number.isInteger(index) || index < 0 || index >= cards.length) return;
+          if ((property === 'label' || property === 'title' || property === 'detail') && value.trim()) apply({ pickCards: cards.map((item, i) => i === index ? { ...item, [property]: value } : item) });
+        } else if (field === 'picks:heading' || field === 'picks:kicker') {
+          if (value.trim()) apply({ [field === 'picks:heading' ? 'picksHeading' : 'picksKicker']: value });
         } else if (field.startsWith('highlight:')) {
           const [, position, property] = field.split(':'); const index = Number(position);
           if (!Number.isInteger(index) || index < 0 || index >= (state.brief.highlights?.length || 0)) return;
@@ -117,6 +132,12 @@ export default function ElementorCanvas({ draft, patch, changeProject, setPhoto,
         }
       }
       if (data.type === 'PESONAFLIX_VISUAL_FILE') {
+        if (Number.isInteger(data.pickIndex)) {
+          const cards = state.brief.pickCards ?? createCanvasPortfolio(preparedBrief(state)).topPicks;
+          if (!(data.file instanceof File) || data.pickIndex < 0 || data.pickIndex >= cards.length) return;
+          void fitImage(data.file).then((file) => pickPhoto(data.pickIndex, file)).catch((error) => notify(error.message));
+          return;
+        }
         if (Number.isInteger(data.watchIndex)) {
           const cards = state.brief.watchCards ?? createCanvasPortfolio(preparedBrief(state)).watchCards ?? [];
           if (!(data.file instanceof File) || data.watchIndex < 0 || data.watchIndex >= cards.length) return;
@@ -132,6 +153,11 @@ export default function ElementorCanvas({ draft, patch, changeProject, setPhoto,
       if (data.type === 'PESONAFLIX_VISUAL_ACTION') {
         const index = Number(data.index);
         switch (data.action) {
+          case 'pick-add': updatePick('add'); break;
+          case 'pick-duplicate': updatePick('duplicate', index); break;
+          case 'pick-up': updatePick('up', index); break;
+          case 'pick-down': updatePick('down', index); break;
+          case 'pick-remove': updatePick('remove', index); break;
           case 'watch-add': updateWatch('add'); break;
           case 'watch-duplicate': updateWatch('duplicate', index); break;
           case 'watch-up': updateWatch('up', index); break;
