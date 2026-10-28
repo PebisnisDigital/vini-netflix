@@ -7,9 +7,14 @@ import { RailButtons } from './Rail';
 
 export default function Seasons() {
   const { seasons } = usePortfolio();
-  const [active, setActive] = useState(seasons.length - 2);
-  const season = seasons[active];
+  const [active, setActive] = useState(Math.max(0, seasons.length - 2));
+  // Klien baru bisa memiliki lebih sedikit musim daripada portfolio master.
+  // Clamp indeks saat data canvas diganti agar tidak merender season undefined.
+  const activeIndex = Math.min(Math.max(0, active), Math.max(0, seasons.length - 1));
+  const season = seasons[activeIndex];
   const rail = useRef<HTMLDivElement>(null);
+
+  if (!season) return null;
 
   return (
     <>
@@ -25,15 +30,15 @@ export default function Seasons() {
           <button
             key={s.number}
             role="tab"
-            aria-selected={i === active}
+            aria-selected={i === activeIndex}
             type="button"
             onClick={() => {
               setActive(i);
               rail.current?.scrollTo({ left: 0, behavior: 'smooth' });
             }}
-            className={`relative shrink-0 rounded-full px-4 py-2.5 text-left transition ${i === active ? 'text-ink' : 'text-mist hover:text-bone'}`}
+            className={`relative shrink-0 rounded-full px-4 py-2.5 text-left transition ${i === activeIndex ? 'text-ink' : 'text-mist hover:text-bone'}`}
           >
-            {i === active && <motion.span layoutId="season-pill" className="absolute inset-0 rounded-full bg-bone" transition={{ duration: 0.5, ease: EASE }} />}
+            {i === activeIndex && <motion.span layoutId="season-pill" className="absolute inset-0 rounded-full bg-bone" transition={{ duration: 0.5, ease: EASE }} />}
             <span className="relative block text-[10px] font-bold tracking-[0.24em]">MUSIM {String(s.number).padStart(2, '0')}</span>
             <span className="relative block whitespace-nowrap text-sm font-semibold">{s.title}</span>
           </button>
