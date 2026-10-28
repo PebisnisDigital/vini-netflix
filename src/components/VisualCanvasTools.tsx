@@ -17,7 +17,7 @@ type EditBox = {
 type Props = { content: PortfolioContent; children: ReactNode };
 type ChangeMessage =
   | { type: 'PESONAFLIX_VISUAL_TEXT'; field: string; value: string }
-  | { type: 'PESONAFLIX_VISUAL_FILE'; index: number | null; file: File }
+  | { type: 'PESONAFLIX_VISUAL_FILE'; index: number | null; file: File; watchIndex?: number }
   | { type: 'PESONAFLIX_VISUAL_ACTION'; action: string; index?: number }
   | { type: 'PESONAFLIX_VISUAL_THEME'; key: 'accent' | 'background'; value: string };
 
@@ -43,6 +43,10 @@ function fieldValue(content: PortfolioContent, field: string): string {
     if (!item) return '';
     return ({ title: item.title, description: item.logline, category: item.genre, year: item.year, tags: item.stack.join(', '), website: item.github || '' } as Record<string, string>)[parts[2]] || '';
   }
+  if (parts[0] === 'watch') {
+    const item = content.watchCards?.[Number(parts[1])];
+    return item ? ({ title: item.title, subtitle: item.subtitle } as Record<string, string>)[parts[2]] || '' : '';
+  }
   if (parts[0] === 'highlight') {
     const item = achievements[Number(parts[1])];
     return item ? ({ title: item.title, description: item.detail, category: item.org } as Record<string, string>)[parts[2]] || '' : '';
@@ -56,6 +60,7 @@ export default function VisualCanvasTools({ content, children }: Props) {
   const [box, setBox] = useState<EditBox | null>(null);
   const [value, setValue] = useState('');
   const [card, setCard] = useState<number | null>(null);
+  const [watchCard, setWatchCard] = useState<number | null>(null);
   const [showContact, setShowContact] = useState(false);
   const [showCardDetails, setShowCardDetails] = useState(false);
   const [showColors, setShowColors] = useState(false);
@@ -63,7 +68,7 @@ export default function VisualCanvasTools({ content, children }: Props) {
   const [recordTab, setRecordTab] = useState<'experience' | 'education' | 'highlights' | 'skills'>('experience');
   const fieldRef = useRef<HTMLTextAreaElement>(null);
   const fileRef = useRef<HTMLInputElement>(null);
-  const fileTarget = useRef<number | null>(null);
+  const fileTarget = useRef<{ index: number | null; watchIndex?: number }>({ index: null });
   const activeBox = useRef<EditBox | null>(null);
 
   useEffect(() => { fieldRef.current?.focus(); fieldRef.current?.select(); }, [box?.field]);
@@ -78,7 +83,7 @@ export default function VisualCanvasTools({ content, children }: Props) {
       height: Math.min(190, Math.max(48, rect.height + 12)),
       fontSize: computed.fontSize, fontWeight: computed.fontWeight,
       textAlign: computed.textAlign === 'center' ? 'center' : computed.textAlign === 'right' ? 'right' : 'left',
-      multiline: ['bio', 'interests', 'tagline'].includes(field) || field.endsWith(':description'),
+      multiline: ['bio', 'interests', 'tagline'].includes(field) || field.endsWith(':description') || field.endsWith(':subtitle'),
     };
     activeBox.current = edit;
     setBox(edit); setValue(edit.value);
@@ -92,7 +97,8 @@ export default function VisualCanvasTools({ content, children }: Props) {
     if (commit && editing.value.trim() !== value.trim()) emit({ type: 'PESONAFLIX_VISUAL_TEXT', field: editing.field, value: value.trim() });
   };
 
-  const pickFile = (index: number | null) => { fileTarget.current = index; fileRef.current?.click(); };
+  const pickFile = (index: number | null) => { fileTarget.current = { index }; fileRef.current?.click(); };
+  const pickWatchFile = (index: number) => { fileTarget.current = { index: null, watchIndex: index }; fileRef.current?.click(); };
 
   const handleCanvasClick = (event: MouseEvent<HTMLDivElement>) => {
     const target = event.target as HTMLElement;
@@ -105,21 +111,26 @@ export default function VisualCanvasTools({ content, children }: Props) {
     event.preventDefault(); event.stopPropagation();
     const field = editable.dataset.studioEdit || '';
     if (field === 'portrait') { pickFile(null); return; }
-    if (/^project:\d+$/.test(field)) {
-      setCard(Number(field.split(':')[1])); setShowCardDetails(false); return;
+    if (/^watch:\d+$/.test(field)) {
+      setWatchCard(Number(field.split(':')[1])); setCard(null); return;
     }
-    if (field.startsWith('project:')) setCard(Number(field.split(':')[1]));
+    if (field.startsWith('watch:')) { setWatchCard(Number(field.split(':')[1])); setCard(null); }
+    if (/^project:\d+$/.test(field)) {
+      setCard(Number(field.split(':')[1])); setWatchCard(null); setShowCardDetails(false); return;
+    }
+    if (field.startsWith('project:')) { setCard(Number(field.split(':')[1])); setWatchCard(null); }
     beginText(field, editable);
   };
 
   const color = content.profile.theme || DEFAULT_THEME;
   const activeProject = card === null ? null : content.projects[card];
+  const activeWatchCard = watchCard === null ? null : content.watchCards?.[watchCard];
 
   return <>
     <div onClickCapture={handleCanvasClick} className="visual-canvas-root">{children}</div>
     <input ref={fileRef} className="sr-only" tabIndex={-1} type="file" accept="image/png,image/jpeg,image/webp,image/avif" onChange={(event) => {
       const file = event.currentTarget.files?.[0];
-      if (file) emit({ type: 'PESONAFLIX_VISUAL_FILE', index: fileTarget.current, file });
+      if (file) emit({ type: 'PESONAFLIX_VISUAL_FILE', ...fileTarget.current, file });
       event.currentTarget.value = '';
     }}/>
     <div className="pointer-events-none fixed inset-x-2 top-2 z-[9990] flex justify-center">
@@ -127,6 +138,7 @@ export default function VisualCanvasTools({ content, children }: Props) {
         <span className="hidden px-2 text-[10px] font-extrabold tracking-widest text-[#ff6c87] sm:inline">EDIT VISUAL</span>
         <button type="button" className={uiButton} onClick={() => pickFile(null)}>📷 Foto Utama</button>
         <button type="button" className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'add' })}>＋ Kartu</button>
+        <button type="button" className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'watch-add' })}>＋ Jelajah</button>
         <button type="button" className={`${uiButton} ${showColors ? 'border-[#ff6983]' : ''}`} onClick={() => { setShowColors((v) => !v); setShowContact(false); }}>🎨 Warna</button>
         <button type="button" className={`${uiButton} ${showContact ? 'border-[#ff6983]' : ''}`} onClick={() => { setShowContact((v) => !v); setShowColors(false); }}>✎ Kontak</button>
         <button type="button" className={`${uiButton} ${showRecords ? 'border-[#ff6983]' : ''}`} onClick={() => setShowRecords(true)}>▤ Riwayat</button>
@@ -153,6 +165,23 @@ export default function VisualCanvasTools({ content, children }: Props) {
           {recordTab === 'highlights' && <>{content.achievements.map((item, i) => <div key={`achievement-${i}`} className="space-y-2 rounded-xl border border-white/10 bg-white/[0.035] p-3"><div className="flex justify-between text-sm font-bold"><span>Sorotan {i + 1}</span><button className="text-xs text-red-300" onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'highlight-remove', index: i })}>Hapus</button></div>{([{ key: 'title', label: 'Judul', value: item.title }, { key: 'description', label: 'Cerita', value: item.detail }, { key: 'category', label: 'Kategori', value: item.org }] as const).map(({ key, label, value: initial }) => <label key={`${i}-${key}-${initial}`} className="block space-y-1 text-xs"><span>{label}</span><input className={uiInput} defaultValue={initial} onBlur={(e) => emit({ type: 'PESONAFLIX_VISUAL_TEXT', field: `highlight:${i}:${key}`, value: e.target.value })} onKeyDown={(e) => { if (e.key === 'Enter') e.currentTarget.blur(); }}/></label>)}</div>)}<button className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'highlight-add' })}>＋ Tambah Sorotan</button></>}
           {recordTab === 'skills' && <><div className="grid gap-2 sm:grid-cols-2">{content.skillCategories.flatMap((category) => category.skills).map((skill, i) => <div className="flex items-center gap-2" key={`${i}-${skill.name}`}><input className={uiInput} aria-label={`Keahlian ${i + 1}`} defaultValue={skill.name} onBlur={(e) => emit({ type: 'PESONAFLIX_VISUAL_TEXT', field: `skill:${i}`, value: e.target.value })} onKeyDown={(e) => { if (e.key === 'Enter') e.currentTarget.blur(); }}/><button className="text-sm text-red-300" onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'skill-remove', index: i })}>✕</button></div>)}</div><button className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'skill-add' })}>＋ Tambah Keahlian</button></>}
         </div>
+      </div>
+    </div>}
+    {watchCard !== null && activeWatchCard && <div className="pointer-events-none fixed inset-x-2 bottom-4 z-[9989] flex justify-center">
+      <div className="pointer-events-auto max-w-full rounded-2xl border border-[#ff6983]/45 bg-[#151219]/95 p-3 text-white shadow-[0_20px_65px_rgba(0,0,0,.8)] backdrop-blur-xl">
+        <div className="mb-2 flex items-center justify-between gap-4"><span className="max-w-[230px] truncate text-xs font-bold text-[#ff9aaa]">JELAJAH {watchCard + 1} · {activeWatchCard.title}</span><button type="button" aria-label="Tutup aksi jelajah" onClick={() => setWatchCard(null)}>✕</button></div>
+        <div className="mb-2 flex items-center gap-2"><label htmlFor="watch-target" className="text-xs text-white/60">Menuju bagian</label><select id="watch-target" className={`${uiInput} min-w-0 flex-1`} value={activeWatchCard.target} onChange={(e) => emit({ type: 'PESONAFLIX_VISUAL_TEXT', field: `watch:${watchCard}:target`, value: e.target.value })}>
+          <option value="about">Tentang Saya</option><option value="journey">Perjalanan</option><option value="originals">Karya</option><option value="picks">Pilihan Karya</option><option value="skills">Keahlian</option><option value="moments">Momen Penting</option><option value="story">Cerita Lengkap</option>
+        </select></div>
+        <div className="flex flex-wrap gap-1.5">
+          <button className={uiButton} onClick={() => pickWatchFile(watchCard)}>📷 Foto</button>
+          <button className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'watch-add' })}>＋ Tambah</button>
+          <button className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'watch-duplicate', index: watchCard })}>⧉ Salin</button>
+          <button className={uiButton} disabled={watchCard === 0} onClick={() => { emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'watch-up', index: watchCard }); setWatchCard(watchCard - 1); }}>←</button>
+          <button className={uiButton} disabled={watchCard === (content.watchCards?.length ?? 0) - 1} onClick={() => { emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'watch-down', index: watchCard }); setWatchCard(watchCard + 1); }}>→</button>
+          <button className={`${uiButton} text-red-300`} disabled={(content.watchCards?.length ?? 0) <= 1} onClick={() => { emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'watch-remove', index: watchCard }); setWatchCard(null); }}>Hapus</button>
+        </div>
+        <p className="mt-2 text-[11px] text-white/50">Klik judul atau keterangannya langsung di kartu untuk mengubah teks.</p>
       </div>
     </div>}
     {card !== null && activeProject && <div className="pointer-events-none fixed inset-x-2 bottom-4 z-[9989] flex justify-center">
