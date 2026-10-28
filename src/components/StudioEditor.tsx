@@ -196,11 +196,11 @@ export default function StudioEditor() {
       await persist(); window.location.assign(`/studio/preview?slug=${prepared.slug}`);
     } catch (e) { setNotice((e as Error).message); }
   };
-  const newClient = () => { setActive({ slug: '', brief: sushmitaExampleBrief(), portrait: null, projectPhotos: {}, watchPhotos: {}, pickPhotos: {}, mode: 'create', updatedAt: Date.now() }); setPr(null); setNotice(''); };
+  const newClient = () => { setActive({ slug: '', brief: sushmitaExampleBrief(), portrait: null, projectPhotos: {}, watchPhotos: {}, pickPhotos: {}, episodePhotos: {}, mode: 'create', updatedAt: Date.now() }); setPr(null); setNotice(''); };
   const choose = (draft: StudioDraft) => { setActive(draft); sessionStorage.setItem('personalflix-last-draft', draft.slug); setPr(null); setNotice(''); };
   const usePublished = (brief: ClientBrief) => {
     const existing = drafts.find((d) => d.slug === brief.slug);
-    choose(existing ?? { slug: brief.slug, brief, portrait: null, projectPhotos: {}, watchPhotos: {}, pickPhotos: {}, mode: 'edit', updatedAt: Date.now() });
+    choose(existing ?? { slug: brief.slug, brief, portrait: null, projectPhotos: {}, watchPhotos: {}, pickPhotos: {}, episodePhotos: {}, mode: 'edit', updatedAt: Date.now() });
   };
   const setPhoto = (index: number | null, file: File | null) => {
     setActive((current) => {
@@ -296,6 +296,87 @@ export default function StudioEditor() {
     });
     setNotice(''); setPr(null); setApproved(false);
   };
+  const setEpisodePhoto = (season: number, episode: number, file: File) => {
+    setActive((current) => {
+      if (!current) return current;
+      const seasons = current.brief.seasons ?? createCanvasPortfolio(preparedBrief(current)).seasons;
+      return { ...current, brief: { ...current.brief, seasons }, episodePhotos: { ...current.episodePhotos, [`${season}-${episode}`]: file }, updatedAt: Date.now() };
+    });
+    setNotice(''); setPr(null); setApproved(false);
+  };
+  const seasonAction = (action: 'add' | 'duplicate' | 'up' | 'down' | 'remove', index = -1) => {
+    setActive((current) => {
+      if (!current) return current;
+      const seasons = structuredClone(current.brief.seasons ?? createCanvasPortfolio(preparedBrief(current)).seasons);
+      const photos = { ...(current.episodePhotos || {}) };
+      if (action === 'add') {
+        if (seasons.length >= 10) return current;
+        const number = seasons.length + 1;
+        seasons.push({ number, title: 'Musim Baru', period: 'Tahun / Periode', synopsis: 'Klik teks untuk menuliskan cerita perjalanan.', episodes: [{ code: `S${String(number).padStart(2, '0')} E01`, title: 'Episode Baru', runtime: 'Periode', description: 'Klik untuk mengubah cerita episode.', tags: ['Karya'], palette: { from: '#260815', via: '#792342', to: '#08080d', accent: '#ff547e' } }] });
+      } else if (action === 'duplicate') {
+        if (!seasons[index] || seasons.length >= 10) return current;
+        const target = seasons.length;
+        seasons.push({ ...structuredClone(seasons[index]), number: target + 1, title: `${seasons[index].title} (Salinan)` });
+        for (const [key, file] of Object.entries(photos)) if (key.startsWith(`${index}-`)) photos[`${target}-${key.split('-')[1]}`] = file;
+      } else if (action === 'up' || action === 'down') {
+        const target = index + (action === 'up' ? -1 : 1);
+        if (!seasons[index] || target < 0 || target >= seasons.length) return current;
+        [seasons[index], seasons[target]] = [seasons[target], seasons[index]];
+        const reordered: Record<string, File> = {};
+        for (const [key, file] of Object.entries(photos)) {
+          const [s, e] = key.split('-').map(Number);
+          reordered[`${s === index ? target : s === target ? index : s}-${e}`] = file;
+        }
+        return { ...current, brief: { ...current.brief, seasons }, episodePhotos: reordered, updatedAt: Date.now() };
+      } else if (action === 'remove') {
+        if (!seasons[index] || seasons.length <= 1) return current;
+        seasons.splice(index, 1);
+        const shifted: Record<string, File> = {};
+        for (const [key, file] of Object.entries(photos)) {
+          const [s, e] = key.split('-').map(Number);
+          if (s !== index) shifted[`${s > index ? s - 1 : s}-${e}`] = file;
+        }
+        return { ...current, brief: { ...current.brief, seasons }, episodePhotos: shifted, updatedAt: Date.now() };
+      }
+      return { ...current, brief: { ...current.brief, seasons }, episodePhotos: photos, updatedAt: Date.now() };
+    });
+    setNotice(''); setPr(null); setApproved(false);
+  };
+  const episodeAction = (action: 'add' | 'duplicate' | 'up' | 'down' | 'remove', seasonIndex: number, index = -1) => {
+    setActive((current) => {
+      if (!current) return current;
+      const seasons = structuredClone(current.brief.seasons ?? createCanvasPortfolio(preparedBrief(current)).seasons);
+      const episodes = seasons[seasonIndex]?.episodes;
+      if (!episodes) return current;
+      const photos = { ...(current.episodePhotos || {}) };
+      if (action === 'add') {
+        if (episodes.length >= 15) return current;
+        episodes.push({ code: '', title: 'Episode Baru', runtime: 'Periode', description: 'Klik untuk mengubah cerita episode.', tags: ['Karya'], palette: { from: '#260815', via: '#792342', to: '#08080d', accent: '#ff547e' } });
+      } else if (action === 'duplicate') {
+        if (!episodes[index] || episodes.length >= 15) return current;
+        episodes.push({ ...structuredClone(episodes[index]), title: `${episodes[index].title} (Salinan)` });
+        if (photos[`${seasonIndex}-${index}`]) photos[`${seasonIndex}-${episodes.length - 1}`] = photos[`${seasonIndex}-${index}`];
+      } else if (action === 'up' || action === 'down') {
+        const target = index + (action === 'up' ? -1 : 1);
+        if (!episodes[index] || target < 0 || target >= episodes.length) return current;
+        [episodes[index], episodes[target]] = [episodes[target], episodes[index]];
+        const src = photos[`${seasonIndex}-${index}`]; const dst = photos[`${seasonIndex}-${target}`];
+        if (dst) photos[`${seasonIndex}-${index}`] = dst; else delete photos[`${seasonIndex}-${index}`];
+        if (src) photos[`${seasonIndex}-${target}`] = src; else delete photos[`${seasonIndex}-${target}`];
+      } else if (action === 'remove') {
+        if (!episodes[index] || episodes.length <= 1) return current;
+        episodes.splice(index, 1);
+        const shifted: Record<string, File> = {};
+        for (const [key, file] of Object.entries(photos)) {
+          const [s, e] = key.split('-').map(Number);
+          if (s !== seasonIndex || e !== index) shifted[`${s}-${s === seasonIndex && e > index ? e - 1 : e}`] = file;
+        }
+        return { ...current, brief: { ...current.brief, seasons }, episodePhotos: shifted, updatedAt: Date.now() };
+      }
+      return { ...current, brief: { ...current.brief, seasons }, episodePhotos: photos, updatedAt: Date.now() };
+    });
+    setNotice(''); setPr(null); setApproved(false);
+  };
   const reorder = (index: number, direction: number) => {
     if (!active) return;
     const target = index + direction;
@@ -344,6 +425,11 @@ export default function StudioEditor() {
         const image = publishingBrief.pickCards?.[Number(index)]?.image;
         if (image) files.push({ file, path: `public${image}` });
       }
+      for (const [key, file] of Object.entries(saved.episodePhotos || {})) {
+        const [season, episode] = key.split('-').map(Number);
+        const image = publishingBrief.seasons?.[season]?.episodes[episode]?.image;
+        if (image) files.push({ file, path: `public${image}` });
+      }
       const assets: { path: string; sha: string }[] = [];
       for (const { file, path } of files) {
         const response = await fetch('/api/assets', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': file.type, 'x-personalflix-action': '1', 'x-client-photo-path': path }, body: file });
@@ -365,7 +451,7 @@ export default function StudioEditor() {
       if (result.merged) {
         setNotice(`Berhasil! Vercel sedang menerbitkan https://pesonaflix.vercel.app/${result.slug}`); setPr(null);
         if (active) {
-          const updated = { ...active, brief: preparedBrief(active), portrait: null, projectPhotos: {}, watchPhotos: {}, pickPhotos: {}, mode: 'edit' as const, updatedAt: Date.now() };
+          const updated = { ...active, brief: preparedBrief(active), portrait: null, projectPhotos: {}, watchPhotos: {}, pickPhotos: {}, episodePhotos: {}, mode: 'edit' as const, updatedAt: Date.now() };
           await saveDraft(updated); setActive(updated); await refreshList();
         }
       }
@@ -404,7 +490,7 @@ export default function StudioEditor() {
         {!active ? <section className={`${card} flex min-h-[400px] flex-col items-center justify-center gap-4 text-center`}><span className="text-6xl">✦</span><h2 className="text-3xl font-extrabold">Mulai Karya Baru</h2><p className="max-w-md text-white/55">Masukkan data klien dari WhatsApp, ganti foto dan atur kartu sesuai kebutuhan. Simpan draft kapan saja.</p><button type="button" onClick={newClient} className="rounded-xl bg-[#e50931] px-6 py-3 font-bold">Buat Klien Baru</button></section> : <>
           <div className="flex flex-wrap items-start justify-between gap-3"><div><p className="text-xs font-bold uppercase tracking-wider text-[#ff6580]">{active.mode === 'create' ? 'Website baru' : 'Edit website terbit'}</p><h2 className="mt-1 text-2xl font-extrabold">{active.brief.name || 'Klien Tanpa Nama'}</h2><p className="mt-1 text-sm text-white/45">/{active.brief.slug || 'nama-klien'} · Data tersimpan hanya di browser ini sampai dipublikasikan.</p></div><div className="flex flex-wrap gap-2"><button type="button" className={secondary} onClick={saveClick}>Simpan Draft</button><button type="button" className={secondary} onClick={() => { void preview(); }}>Preview Lengkap</button></div></div>
           {active.mode === 'create' && <p className="rounded-xl border border-amber-400/25 bg-amber-300/10 px-4 py-3 text-sm leading-relaxed text-amber-100">Ini adalah contoh lengkap portofolio Sushmita dari repo master. Klik teks, foto, dan kartu langsung di dalam kanvas untuk menyesuaikannya. Ganti semua identitas dan aset contoh sebelum menerbitkan.</p>}
-          {new URLSearchParams(location.search).has('legacy') ? <CanvasEditor draft={active} patch={patch} changeProject={changeProject} setPhoto={setPhoto} reorder={reorder} removeProject={removeProject} /> : <ElementorCanvas draft={active} patch={patch} changeProject={changeProject} setPhoto={setPhoto} setWatchPhoto={setWatchPhoto} watchAction={watchAction} setPickPhoto={setPickPhoto} pickAction={pickAction} reorder={reorder} removeProject={removeProject} notice={setNotice} />}
+          {new URLSearchParams(location.search).has('legacy') ? <CanvasEditor draft={active} patch={patch} changeProject={changeProject} setPhoto={setPhoto} reorder={reorder} removeProject={removeProject} /> : <ElementorCanvas draft={active} patch={patch} changeProject={changeProject} setPhoto={setPhoto} setWatchPhoto={setWatchPhoto} watchAction={watchAction} setPickPhoto={setPickPhoto} pickAction={pickAction} setEpisodePhoto={setEpisodePhoto} seasonAction={seasonAction} episodeAction={episodeAction} reorder={reorder} removeProject={removeProject} notice={setNotice} />}
           <details className={`${card} group hidden`}><summary className="cursor-pointer text-base font-extrabold text-white">⚙ Pengaturan Detail <span className="ml-2 text-xs font-normal text-white/45">Pengalaman, pendidikan, keahlian, tautan, dan data tambahan</span></summary><div className="space-y-5 pt-6">
           <section className={card}><h3 className="mb-5 text-xl font-extrabold">01 · Profil & Redaksi</h3><div className="grid gap-4 sm:grid-cols-2">
             <Control label="Nama lengkap / brand *"><input className={field} value={active.brief.name} placeholder="Satria Putra" onChange={(e) => patch({ name: e.target.value, slug: active.brief.slug || normalizeSlug(e.target.value), photo: { ...active.brief.photo, alt: `Foto ${e.target.value}` } })}/></Control>
