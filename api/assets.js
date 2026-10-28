@@ -1,7 +1,7 @@
 import { github, json, repository, requirePostSession } from '../server/auth.mjs';
 
 const MAX_BYTES = 2_500_000;
-const validPath = /^public\/clients\/([a-z0-9]+(?:-[a-z0-9]+)*)\/(foto-utama|karya-[1-9]\d*|jelajah-[1-9]\d*)\.(png|jpe?g|webp|avif)$/;
+const validPath = /^public\/clients\/([a-z0-9]+(?:-[a-z0-9]+)*)\/(foto-utama|karya-[1-9]\d*|jelajah-[1-9]\d*|pilihan-[1-9]\d*)\.(png|jpe?g|webp|avif)$/;
 
 export async function POST(request) {
   let access;
