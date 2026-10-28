@@ -184,6 +184,9 @@ export default function VisualCanvasTools({ content, children }: Props) {
         <div className="mb-2 flex items-center justify-between gap-4"><span className="max-w-[230px] truncate text-xs font-bold text-[#ff9aaa]">PILIHAN {pickCard + 1} · {activePickCard.title}</span><button type="button" aria-label="Tutup aksi pilihan" onClick={() => setPickCard(null)}>✕</button></div>
         <div className="flex flex-wrap gap-1.5">
           <button className={uiButton} onClick={() => pickPickFile(pickCard)}>📷 Foto</button>
+          {(['label', 'title', 'detail'] as const).map((field) => <button key={field} className={uiButton} onClick={(event) => beginText(`pick:${pickCard}:${field}`, event.currentTarget)}>
+            ✎ {field === 'label' ? 'Label' : field === 'title' ? 'Judul' : 'Deskripsi'}
+          </button>)}
           <button className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'pick-add' })}>＋ Tambah</button>
           <button className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'pick-duplicate', index: pickCard })}>⧉ Salin</button>
           <button className={uiButton} disabled={pickCard === 0} onClick={() => { emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'pick-up', index: pickCard }); setPickCard(pickCard - 1); }}>←</button>
