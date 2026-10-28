@@ -8,6 +8,15 @@
 4. Pilih **Terbitkan Otomatis**. Backend akan memvalidasi data, mengunggah foto, dan membuat PR khusus CMS.
 5. Jika pengujian `verify` lulus, GitHub Actions job `auto-publish-cms` menggabungkan PR ke `main`. Vercel otomatis menerbitkan website klien di `https://pesonaflix.vercel.app/{namaklien}`.
 
+## Optimasi foto otomatis
+
+- Setiap foto baru dari editor kanvas **dan** editor formulir diubah di browser menjadi WebP, termasuk JPG/PNG yang sejak awal berukuran kecil.
+- Target ukuran (best effort): foto hero **400 KB**, karya **150 KB**, kartu jelajah/pilihan **100 KB**, dan foto episode **150 KB**. Sisi terpanjang diperkecil bila perlu; browser menurunkan kualitas bertahap sebelum mengecilkan resolusi.
+- **Transparansi PNG tetap dipertahankan** saat WebP dibuat. Editor tidak menambahkan latar putih atau memotong komposisi.
+- Bila gambar sulit dikompres sampai target, hasil WebP terkecil yang masih di bawah batas unggah **2,5 MB** dipakai agar foto tidak hilang. Foto asli dibatasi **25 MB**.
+- Kompresi hanya terjadi untuk foto **baru yang dipilih**. Aset yang sebelumnya diterbitkan tidak diubah otomatis.
+- Foto tersimpan di `public/clients/{slug}/` dalam repository GitHub dan ikut disajikan sebagai aset statis Vercel; tidak menggunakan Vercel Blob.
+
 Jika pengujian gagal, website publik lama tetap dipertahankan. Studio menampilkan status selama tab terbuka; jika tab ditutup, GitHub Actions tetap berjalan di belakang layar. Riwayat GitHub dapat digunakan untuk audit/rollback.
 
 ## Aktivasi sekali oleh pemilik akun (wajib sebelum otomatis live)

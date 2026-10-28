@@ -3,6 +3,7 @@ import { createCanvasPortfolio, DEFAULT_THEME, findUnreplacedSushmitaExamples, n
 import { deleteDraft, listDrafts, preparedBrief, saveDraft, type StudioDraft } from '../data/studioDraft';
 import { publishedClients } from '../data/studioPublished';
 import ElementorCanvas from './ElementorCanvas';
+import { optimizeStudioImage, type StudioImageKind } from '../utils/imageOptimizer.mjs';
 
 type Session = { configured: boolean; authenticated: boolean; login: string | null; mode?: 'studio' | 'legacy'; publisherConfigured?: boolean };
 type SubmittedPR = { number: number; url: string; branch: string; sha: string };
@@ -13,7 +14,6 @@ function readPending(slug: string): SubmittedPR | null {
     return Number.isSafeInteger(data?.number) && /^[a-f0-9]{40}$/i.test(data?.sha || '') && typeof data?.url === 'string' ? data : null;
   } catch { return null; }
 }
-const photoMax = 2_500_000;
 const field = 'w-full rounded-xl border border-white/15 bg-[#18181f] px-3.5 py-3 text-base text-white placeholder:text-white/30 outline-none transition focus:border-[#ff5c75] focus:ring-2 focus:ring-[#ff5c75]/10';
 const card = 'rounded-2xl border border-white/10 bg-[#121218] p-5';
 const secondary = 'rounded-xl border border-white/20 bg-white/[0.035] px-4 py-2.5 text-sm font-semibold hover:bg-white/10 disabled:opacity-40';
@@ -31,9 +31,10 @@ function Control({ label, hint, children }: { label: string; hint?: string; chil
   return <label className="block min-w-0 space-y-2"><span className="block text-sm font-semibold text-white/85">{label}</span>{children}{hint && <span className="block text-xs leading-relaxed text-white/45">{hint}</span>}</label>;
 }
 
-function Photo({ file, existing, title, onChange }: { file?: File | null; existing: string; title: string; onChange: (value: File | null) => void }) {
+function Photo({ file, existing, title, kind = 'work', onChange }: { file?: File | null; existing: string; title: string; kind?: StudioImageKind; onChange: (value: File | null) => void }) {
   const [preview, setPreview] = useState('');
   const [error, setError] = useState('');
+  const [processing, setProcessing] = useState(false);
   useEffect(() => {
     if (!file) { setPreview(''); return; }
     const url = URL.createObjectURL(file); setPreview(url);
@@ -42,26 +43,16 @@ function Photo({ file, existing, title, onChange }: { file?: File | null; existi
   const change = async (next?: File) => {
     setError('');
     if (!next) { onChange(null); return; }
-    if (!/^image\/(png|jpeg|webp|avif)$/.test(next.type)) { setError('Pilih PNG, JPG, WebP, atau AVIF.'); return; }
-    if (next.size > photoMax) {
-      try {
-        const bitmap = await createImageBitmap(next);
-        const scale = Math.min(1, 1600 / Math.max(bitmap.width, bitmap.height));
-        const canvas = document.createElement('canvas');
-        canvas.width = Math.round(bitmap.width * scale); canvas.height = Math.round(bitmap.height * scale);
-        canvas.getContext('2d')!.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
-        bitmap.close();
-        const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, 'image/webp', 0.84));
-        if (!blob || blob.size > photoMax) { setError('Foto masih terlalu besar. Kompres hingga maksimal 2,5 MB.'); return; }
-        next = new File([blob], `${next.name.replace(/\.[^.]+$/, '')}.webp`, { type: 'image/webp' });
-      } catch { setError('Foto belum dapat diproses. Coba foto yang lebih kecil.'); return; }
-    }
-    onChange(next);
+    setProcessing(true);
+    try { onChange(await optimizeStudioImage(next, kind)); }
+    catch (cause) { setError((cause as Error).message); }
+    finally { setProcessing(false); }
   };
   return <div className="space-y-2"><div className="relative flex h-44 items-center justify-center overflow-hidden rounded-xl border border-dashed border-white/20 bg-gradient-to-br from-[#301320] via-[#17111b] to-[#08080b]">
     {(preview || existing) ? <img src={preview || existing} alt={title} className="h-full w-full object-contain"/> : <div className="text-center text-white/45"><span className="mb-2 block text-3xl">▧</span><span className="text-xs">Belum ada foto</span></div>}
     {file && <span className="absolute bottom-2 right-2 rounded-md bg-black/70 px-2 py-1 text-[11px]">Foto baru</span>}
-  </div><label className="block cursor-pointer rounded-xl border border-white/20 px-3 py-3 text-center text-sm font-semibold hover:border-[#ff6b82]">{existing || file ? 'Ganti Foto' : 'Tambah Foto'}<input type="file" accept="image/png,image/jpeg,image/webp,image/avif" className="sr-only" onChange={(e) => { void change(e.target.files?.[0]); e.currentTarget.value = ''; }}/></label>
+  </div><label className="block cursor-pointer rounded-xl border border-white/20 px-3 py-3 text-center text-sm font-semibold hover:border-[#ff6b82]">{processing ? 'Mengoptimalkan foto…' : existing || file ? 'Ganti Foto' : 'Tambah Foto'}<input type="file" disabled={processing} accept="image/png,image/jpeg,image/webp,image/avif" className="sr-only" onChange={(e) => { void change(e.target.files?.[0]); e.currentTarget.value = ''; }}/></label>
+    {file && <p className="text-xs text-emerald-300">WebP siap unggah · {Math.ceil(file.size / 1024)} KB</p>}
     {error && <p role="alert" className="text-xs text-red-300">{error}</p>}
     {file && <button type="button" className="text-xs text-white/55 underline" onClick={() => onChange(null)}>Batalkan foto baru</button>}
   </div>;
@@ -154,7 +145,7 @@ function CanvasEditor({ draft, patch, changeProject, setPhoto, reorder, removePr
       {selected === 'location' && <Control label="Kota / lokasi"><input className={field} value={draft.brief.location} placeholder="Bandung, Indonesia" onChange={(e) => patch({ location: e.target.value })}/></Control>}
       {selected === 'tagline' && <Control label="Sorotan (satu baris per poin)"><textarea rows={4} className={field} value={draft.brief.tagline.join('\n')} onChange={(e) => patch({ tagline: splitLines(e.target.value) })}/></Control>}
       {selected === 'bio' && <Control label="Tentang Saya"><textarea rows={7} className={field} value={draft.brief.bio} placeholder="Cerita singkat klien..." onChange={(e) => patch({ bio: e.target.value })}/></Control>}
-      {selected === 'portrait' && <><p className="text-xs text-white/60">Foto transparan lebih cocok untuk efek Netflix. Foto Sushmita hanyalah contoh dan wajib diganti sebelum tayang.</p><Photo title="Foto utama" file={draft.portrait} existing={draft.mode === 'edit' ? draft.brief.photo.src : '/assets/portrait-720.webp'} onChange={(file) => setPhoto(null, file)}/></>}
+      {selected === 'portrait' && <><p className="text-xs text-white/60">Foto transparan lebih cocok untuk efek Netflix. Foto Sushmita hanyalah contoh dan wajib diganti sebelum tayang.</p><Photo kind="hero" title="Foto utama" file={draft.portrait} existing={draft.mode === 'edit' ? draft.brief.photo.src : '/assets/portrait-720.webp'} onChange={(file) => setPhoto(null, file)}/></>}
       {selected === 'theme' && <><Control label="Warna aksen"><input aria-label="Warna aksen" type="color" value={theme.accent} className="h-12 w-full cursor-pointer rounded-lg bg-transparent" onChange={(e) => patch({ theme: { ...theme, accent: e.target.value } })}/></Control><Control label="Warna latar"><input aria-label="Warna latar" type="color" value={theme.background} className="h-12 w-full cursor-pointer rounded-lg bg-transparent" onChange={(e) => patch({ theme: { ...theme, background: e.target.value } })}/></Control><button type="button" className={secondary} onClick={() => patch({ theme: { ...DEFAULT_THEME } })}>Kembalikan warna Netflix</button><p className="text-xs text-white/45">Aksen memengaruhi tulisan, tombol dan beberapa highlight. Struktur tema Netflix tetap dipertahankan.</p></>}
       {project && <><Control label="Judul kartu"><input className={field} value={project.title} onChange={(e) => changeProject(selectedProject, { title: e.target.value })}/></Control><Control label="Deskripsi"><textarea className={field} rows={4} value={project.description} onChange={(e) => changeProject(selectedProject, { description: e.target.value })}/></Control><Control label="Kategori"><input className={field} value={project.category} onChange={(e) => changeProject(selectedProject, { category: e.target.value })}/></Control><Control label="Tahun"><input className={field} value={project.year} onChange={(e) => changeProject(selectedProject, { year: e.target.value })}/></Control><Photo title={`Foto kartu ${selectedProject + 1}`} file={draft.projectPhotos[selectedProject]} existing={project.image || ''} onChange={(file) => setPhoto(selectedProject, file)}/><div className="flex flex-wrap gap-2"><button type="button" className={secondary} disabled={selectedProject === 0} onClick={() => { reorder(selectedProject, -1); setSelected(`project:${selectedProject - 1}`); }}>↑ Geser</button><button type="button" className={secondary} disabled={selectedProject === current.projects.length - 1} onClick={() => { reorder(selectedProject, 1); setSelected(`project:${selectedProject + 1}`); }}>↓ Geser</button><button type="button" className={`${secondary} text-red-300`} disabled={current.projects.length <= 1} onClick={() => { removeProject(selectedProject); setSelected('project:0'); }}>Hapus</button></div></>}
       <div className="border-t border-white/10 pt-4"><p className="mb-2 text-xs font-semibold text-white/50">Kartu karya ({current.projects.length})</p><div className="flex flex-wrap gap-2">{current.projects.map((item, index) => <button type="button" key={index} onClick={() => setSelected(`project:${index}`)} className={`rounded-lg px-3 py-2 text-xs ${selected === `project:${index}` ? 'bg-[#e50931]' : 'bg-white/10'}`}>{item.title || `Kartu ${index + 1}`}</button>)}</div><button type="button" className={`${secondary} mt-3 w-full`} onClick={() => { patch({ projects: [...draft.brief.projects, newProject()] }); setSelected(`project:${draft.brief.projects.length}`); }}>＋ Tambah Kartu</button></div>
@@ -556,7 +547,7 @@ export default function StudioEditor() {
           </div><div className="mt-4"><Control label="Tentang Saya *"><textarea className={field} rows={4} value={active.brief.bio} placeholder="Ceritakan tentang klien…" onChange={(e) => patch({ bio: e.target.value })}/></Control></div>
           <div className="mt-4 grid gap-4 sm:grid-cols-2"><Control label="Headline / Sorotan *" hint="Satu kalimat per baris"><textarea className={field} rows={3} value={active.brief.tagline.join('\n')} onChange={(e) => patch({ tagline: splitLines(e.target.value) })}/></Control><Control label="Minat / Hobi" hint="Satu poin per baris"><textarea className={field} rows={3} value={active.brief.interests.join('\n')} onChange={(e) => patch({ interests: splitLines(e.target.value) })}/></Control></div></section>
 
-          <section className={card}><h3 className="mb-2 text-xl font-extrabold">02 · Foto Utama</h3><p className="mb-4 text-sm text-white/50">Untuk hero, foto badan setengah dengan latar transparan paling cocok. Foto besar otomatis diperkecil saat dipilih.</p><div className="max-w-xs"><Photo title="Foto utama klien" file={active.portrait} existing={active.mode === 'edit' ? active.brief.photo.src : ''} onChange={(file) => setPhoto(null, file)}/></div></section>
+          <section className={card}><h3 className="mb-2 text-xl font-extrabold">02 · Foto Utama</h3><p className="mb-4 text-sm text-white/50">Untuk hero, foto badan setengah dengan latar transparan paling cocok. Foto otomatis dikonversi ke WebP tanpa menambah latar putih.</p><div className="max-w-xs"><Photo kind="hero" title="Foto utama klien" file={active.portrait} existing={active.mode === 'edit' ? active.brief.photo.src : ''} onChange={(file) => setPhoto(null, file)}/></div></section>
 
           <section className={card}><div className="mb-5 flex flex-wrap items-center justify-between gap-3"><div><h3 className="text-xl font-extrabold">03 · Kartu Karya</h3><p className="mt-1 text-sm text-white/50">Satu karya = satu kartu PESONAFLIX. Foto tiap kartu bisa berbeda.</p></div><button type="button" className={secondary} onClick={() => patch({ projects: [...active.brief.projects, newProject()] })}>＋ Tambah Kartu</button></div>
             <div className="space-y-5">{active.brief.projects.map((project, i) => <div key={i} className="rounded-2xl border border-white/10 bg-white/[0.025] p-4"><div className="mb-4 flex items-center justify-between gap-2"><span className="font-bold text-[#ff728a]">Kartu {i + 1}</span><div className="flex gap-1"><button type="button" aria-label={`Geser kartu ${i + 1} ke atas`} disabled={i === 0} className={secondary} onClick={() => reorder(i, -1)}>↑</button><button type="button" aria-label={`Geser kartu ${i + 1} ke bawah`} disabled={i === active.brief.projects.length - 1} className={secondary} onClick={() => reorder(i, 1)}>↓</button><button type="button" disabled={active.brief.projects.length < 2} className={`${secondary} text-red-300`} onClick={() => removeProject(i)}>Hapus</button></div></div>
