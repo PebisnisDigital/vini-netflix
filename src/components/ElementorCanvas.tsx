@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { createCanvasPortfolio, DEFAULT_THEME, normalizeSlug, type ClientBrief } from '../data/clientModel';
 import { preparedBrief, type StudioDraft } from '../data/studioDraft';
+import { optimizeStudioImage, type StudioImageKind } from '../utils/imageOptimizer.mjs';
 
 type CanvasProps = {
   draft: StudioDraft;
@@ -21,22 +22,6 @@ type CanvasProps = {
 
 const splitItems = (value: string) => value.split(/[\n,•]+/).map((v) => v.trim()).filter(Boolean);
 const newProject = (): ClientBrief['projects'][number] => ({ title: '', description: '', category: 'Portofolio', year: String(new Date().getFullYear()), tags: [], website: '', image: '' });
-
-async function fitImage(file: File): Promise<File> {
-  if (!/^image\/(png|jpeg|webp|avif)$/.test(file.type)) throw new Error('Foto harus berupa PNG, JPG, WebP, atau AVIF.');
-  if (file.size <= 2_500_000) return file;
-  const bitmap = await createImageBitmap(file);
-  try {
-    const scale = Math.min(1, 1600 / Math.max(bitmap.width, bitmap.height));
-    const canvas = document.createElement('canvas');
-    canvas.width = Math.round(bitmap.width * scale);
-    canvas.height = Math.round(bitmap.height * scale);
-    canvas.getContext('2d')!.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
-    const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, 'image/webp', 0.82));
-    if (!blob || blob.size > 2_500_000) throw new Error('Foto terlalu besar. Kompres sampai maksimal 2,5 MB.');
-    return new File([blob], `${file.name.replace(/\.[^.]+$/, '')}.webp`, { type: 'image/webp' });
-  } finally { bitmap.close(); }
-}
 
 /** Editor visual tanpa sidebar: kanvas publik dipakai langsung sebagai tempat penyuntingan. */
 export default function ElementorCanvas({ draft, patch, changeProject, setPhoto, setWatchPhoto, watchAction, setPickPhoto, pickAction, setEpisodePhoto, seasonAction, episodeAction, reorder, removeProject, notice }: CanvasProps) {
@@ -177,26 +162,32 @@ export default function ElementorCanvas({ draft, patch, changeProject, setPhoto,
         }
       }
       if (data.type === 'PESONAFLIX_VISUAL_FILE') {
+        const optimizeAndSave = (kind: StudioImageKind, save: (file: File) => void) => {
+          void optimizeStudioImage(data.file, kind).then((file) => {
+            save(file);
+            notify(`Foto dioptimalkan menjadi WebP · ${Math.ceil(file.size / 1024)} KB`);
+          }).catch((error: Error) => notify(error.message));
+        };
         if (Number.isInteger(data.seasonIndex) && Number.isInteger(data.episodeIndex)) {
           const seasons = state.brief.seasons ?? createCanvasPortfolio(preparedBrief(state)).seasons;
           if (!(data.file instanceof File) || data.seasonIndex < 0 || data.episodeIndex < 0 || !seasons[data.seasonIndex]?.episodes[data.episodeIndex]) return;
-          void fitImage(data.file).then((file) => episodePhoto(data.seasonIndex, data.episodeIndex, file)).catch((error) => notify(error.message));
+          optimizeAndSave('episode', (file) => episodePhoto(data.seasonIndex, data.episodeIndex, file));
           return;
         }
         if (Number.isInteger(data.pickIndex)) {
           const cards = state.brief.pickCards ?? createCanvasPortfolio(preparedBrief(state)).topPicks;
           if (!(data.file instanceof File) || data.pickIndex < 0 || data.pickIndex >= cards.length) return;
-          void fitImage(data.file).then((file) => pickPhoto(data.pickIndex, file)).catch((error) => notify(error.message));
+          optimizeAndSave('card', (file) => pickPhoto(data.pickIndex, file));
           return;
         }
         if (Number.isInteger(data.watchIndex)) {
           const cards = state.brief.watchCards ?? createCanvasPortfolio(preparedBrief(state)).watchCards ?? [];
           if (!(data.file instanceof File) || data.watchIndex < 0 || data.watchIndex >= cards.length) return;
-          void fitImage(data.file).then((file) => watchPhoto(data.watchIndex, file)).catch((error) => notify(error.message));
+          optimizeAndSave('card', (file) => watchPhoto(data.watchIndex, file));
           return;
         }
         if (!(data.file instanceof File) || (data.index !== null && (!Number.isInteger(data.index) || data.index < 0 || data.index >= state.brief.projects.length))) return;
-        void fitImage(data.file).then((file) => photo(data.index, file)).catch((error) => notify(error.message));
+        optimizeAndSave(data.index === null ? 'hero' : 'work', (file) => photo(data.index, file));
       }
       if (data.type === 'PESONAFLIX_VISUAL_THEME' && (data.key === 'accent' || data.key === 'background') && /^#[0-9a-fA-F]{6}$/.test(data.value)) {
         apply({ theme: { ...(state.brief.theme || DEFAULT_THEME), [data.key]: data.value } });

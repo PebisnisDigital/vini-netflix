@@ -2,6 +2,7 @@ import { useEffect, useState, type ReactNode } from 'react';
 import { normalizeSlug, validateBrief, type ClientBrief } from '../data/clientModel';
 import { createClientPackage, imagePath } from '../data/clientPackage';
 import { saveDraft } from '../data/studioDraft';
+import { optimizeStudioImage } from '../utils/imageOptimizer.mjs';
 
 const newProject = () => ({ title: '', year: '2026', description: '', category: 'Portofolio', tags: [] as string[], website: '', image: '' });
 const newExperience = () => ({ company: '', role: '', period: '', description: '' });
@@ -38,6 +39,8 @@ export default function ClientIntakeForm() {
   const [exported, setExported] = useState(false);
   const [packing, setPacking] = useState(false);
   const [savingStudio, setSavingStudio] = useState(false);
+  const [optimizingCount, setOptimizingCount] = useState(0);
+  const [photoNotice, setPhotoNotice] = useState('');
 
   useEffect(() => {
     if (!portrait) { setPortraitPreview(''); return; }
@@ -58,15 +61,31 @@ export default function ClientIntakeForm() {
   const patchHighlight = (index: number, patch: Partial<NonNullable<ClientBrief['highlights']>[number]>) =>
     update('highlights', (brief.highlights || []).map((p, i) => i === index ? { ...p, ...patch } : p));
 
-  const choosePortrait = (file: File | null) => {
-    setPortrait(file); setExported(false);
-    update('photo', { src: file ? imagePath(brief.slug, file, 'foto-utama') : '', alt: `Foto ${brief.name}` });
+  const choosePortrait = async (source: File | null) => {
+    if (!source) { setPortrait(null); update('photo', { src: '', alt: `Foto ${brief.name}` }); return; }
+    setOptimizingCount((count) => count + 1);
+    try {
+      const file = await optimizeStudioImage(source, 'hero');
+      setPortrait(file); setExported(false);
+      update('photo', { src: imagePath(brief.slug, file, 'foto-utama'), alt: `Foto ${brief.name}` });
+      setPhotoNotice(`Foto utama dioptimalkan ke WebP · ${Math.ceil(file.size / 1024)} KB`);
+    } catch (error) { setErrors([(error as Error).message]); }
+    finally { setOptimizingCount((count) => count - 1); }
   };
-  const chooseProjectPhoto = (index: number, file: File | null) => {
-    const next = { ...projectPhotos };
-    if (file) next[index] = file; else delete next[index];
-    setProjectPhotos(next);
-    patchProject(index, { image: file ? imagePath(brief.slug, file, `karya-${index + 1}`) : '' });
+  const chooseProjectPhoto = async (index: number, source: File | null) => {
+    if (!source) {
+      setProjectPhotos((previous) => { const next = { ...previous }; delete next[index]; return next; });
+      patchProject(index, { image: '' });
+      return;
+    }
+    setOptimizingCount((count) => count + 1);
+    try {
+      const file = await optimizeStudioImage(source, 'work');
+      setProjectPhotos((previous) => ({ ...previous, [index]: file }));
+      patchProject(index, { image: imagePath(brief.slug, file, `karya-${index + 1}`) });
+      setPhotoNotice(`Foto karya ${index + 1} dioptimalkan ke WebP · ${Math.ceil(file.size / 1024)} KB`);
+    } catch (error) { setErrors([(error as Error).message]); }
+    finally { setOptimizingCount((count) => count - 1); }
   };
   const prepared: ClientBrief = {
     ...brief,
@@ -77,7 +96,7 @@ export default function ClientIntakeForm() {
     projects: brief.projects.map((p, i) => ({ ...p, image: projectPhotos[i] ? imagePath(brief.slug, projectPhotos[i], `karya-${i + 1}`) : '' })),
   };
   const exportData = async () => {
-    if (packing) return;
+    if (packing || optimizingCount > 0) return;
     const invalid = validateBrief(prepared);
     if (!portrait) invalid.push('Pilih foto utama terlebih dahulu.');
     if (invalid.length) { setErrors(invalid); window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
@@ -95,7 +114,7 @@ export default function ClientIntakeForm() {
   };
 
   const openStudio = async () => {
-    if (savingStudio) return;
+    if (savingStudio || optimizingCount > 0) return;
     const invalid = validateBrief(prepared);
     if (!portrait) invalid.push('Pilih foto utama terlebih dahulu.');
     if (invalid.length) { setErrors(invalid); window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
@@ -125,8 +144,10 @@ export default function ClientIntakeForm() {
       <div className="mt-5 grid gap-5 sm:grid-cols-2"><Field label="Sorotan singkat *" note="Pisahkan setiap poin dengan baris baru. Contoh: 10 tahun pengalaman."><textarea rows={3} className={inputClass} value={brief.tagline.join('\n')} placeholder={'Pecinta fotografi\nSpesialis potret'} onChange={(e) => update('tagline', splitLines(e.target.value))} /></Field><Field label="Minat / hobi"><textarea rows={3} className={inputClass} value={brief.interests.join('\n')} placeholder={'Desain\nFotografi\nTraveling'} onChange={(e) => update('interests', splitLines(e.target.value))} /></Field></div></section>
 
       <section className={sectionClass}><h2 className="mb-3 text-xl font-bold">02 · Foto Utama *</h2><p className="mb-5 text-sm leading-relaxed text-white/65">Paling bagus foto resolusi tinggi dengan badan setengah/full, cahaya terang. <strong className="text-white">PNG transparan lebih disarankan</strong> agar menyatu dengan tema Netflix. JPG/WebP berlatar biasa juga bisa, tetapi bisa perlu proses hapus background oleh admin.</p>
-        <input aria-label="Unggah foto utama" className="block w-full cursor-pointer rounded-xl border border-dashed border-white/25 p-4 text-sm" type="file" accept="image/png,image/jpeg,image/webp,image/avif" onChange={(e) => choosePortrait(e.target.files?.[0] || null)} />
+        <input aria-label="Unggah foto utama" className="block w-full cursor-pointer rounded-xl border border-dashed border-white/25 p-4 text-sm" type="file" accept="image/png,image/jpeg,image/webp,image/avif" onChange={(e) => { void choosePortrait(e.target.files?.[0] || null); e.currentTarget.value = ''; }} />
         {portraitPreview && <img src={portraitPreview} alt="Pratinjau foto yang dipilih" className="mt-5 h-44 max-w-full rounded-xl bg-[#26212c] object-contain" />}
+        {optimizingCount > 0 && <p role="status" className="mt-3 text-xs text-amber-300">Sedang mengonversi foto ke WebP…</p>}
+        {photoNotice && <p role="status" className="mt-3 text-xs text-emerald-300">{photoNotice}</p>}
         <p className="mt-3 text-xs text-white/50">Foto tetap berada di perangkat Anda sampai Anda mengirimkannya ke admin.</p>
       </section>
 
@@ -155,7 +176,7 @@ export default function ClientIntakeForm() {
           <Field label="Link karya (opsional)"><input className={inputClass} value={item.website || ''} placeholder="https://..." onChange={(e) => patchProject(i, { website: e.target.value })}/></Field>
         </div><Field label="Cerita karya *"><textarea rows={3} className={inputClass} value={item.description} placeholder="Ceritakan karya ini..." onChange={(e) => patchProject(i, { description: e.target.value })}/></Field>
         <Field label="Kata kunci karya" note="Pisahkan dengan koma"><input className={inputClass} value={item.tags.join(', ')} placeholder="Fotografi, Branding, Desain" onChange={(e) => patchProject(i, { tags: splitLines(e.target.value) })}/></Field>
-        <Field label="Foto karya (opsional)"><input type="file" accept="image/png,image/jpeg,image/webp,image/avif" className="block w-full cursor-pointer rounded-xl border border-dashed border-white/20 p-3 text-sm" onChange={(e) => chooseProjectPhoto(i, e.target.files?.[0] || null)}/></Field>
+        <Field label="Foto karya (opsional)"><input type="file" accept="image/png,image/jpeg,image/webp,image/avif" className="block w-full cursor-pointer rounded-xl border border-dashed border-white/20 p-3 text-sm" onChange={(e) => { void chooseProjectPhoto(i, e.target.files?.[0] || null); e.currentTarget.value = ''; }}/></Field>
         {brief.projects.length > 1 && <button type="button" className="text-sm text-red-300" onClick={() => {update('projects', brief.projects.filter((_, j) => j !== i).map((p) => ({ ...p, image: '' }))); setProjectPhotos({});}}>Hapus karya ini</button>}
       </div>)}<button type="button" className="rounded-xl border border-white/20 px-4 py-3 text-sm font-semibold hover:bg-white/10" onClick={() => update('projects', [...brief.projects, newProject()])}>+ Tambah karya</button></section>
 
@@ -170,8 +191,8 @@ export default function ClientIntakeForm() {
         <button type="button" className="text-sm text-red-300" onClick={() => update('highlights', (brief.highlights || []).filter((_, j) => j !== i))}>Hapus sorotan</button>
       </div>)}<button type="button" className="rounded-xl border border-white/20 px-4 py-3 text-sm font-semibold hover:bg-white/10" onClick={() => update('highlights', [...(brief.highlights || []), newHighlight()])}>+ Tambah sorotan</button></section>
 
-      <section className={`${sectionClass} border-[#ff6985]/40`}><h2 className="text-xl font-bold">06 · Lanjut ke Editor CMS</h2><p className="mt-2 text-sm leading-relaxed text-white/65">Data dan foto disimpan sebagai draft di browser ini, lalu langsung terbuka di editor. Teteh bisa memoles tulisan, menambah kartu, melihat preview, dan login GitHub hanya saat menerbitkan.</p>
-        <div className="mt-5 flex flex-wrap items-center gap-3"><button type="button" disabled={savingStudio} aria-busy={savingStudio} className="min-h-12 rounded-xl bg-[#e62f50] px-5 py-3 font-bold text-white hover:bg-[#f84a69] disabled:cursor-wait disabled:opacity-60" onClick={() => void openStudio()}>{savingStudio ? 'Menyimpan draft…' : 'Buka di Editor CMS'}</button><button type="button" disabled={packing} aria-busy={packing} className="min-h-12 rounded-xl border border-white/20 px-5 py-3 font-bold text-white hover:bg-white/10 disabled:opacity-60" onClick={exportData}>{packing ? 'Menyiapkan ZIP…' : 'Unduh Backup ZIP'}</button></div>
+      <section className={`${sectionClass} border-[#ff6985]/40`}><h2 className="text-xl font-bold">06 · Lanjut ke Editor CMS</h2><p className="mt-2 text-sm leading-relaxed text-white/65">Data dan foto disimpan sebagai draft di browser ini, lalu langsung terbuka di editor. Teteh bisa memoles tulisan, menambah kartu, melihat preview, dan menerbitkan otomatis tanpa login GitHub.</p>
+        <div className="mt-5 flex flex-wrap items-center gap-3"><button type="button" disabled={savingStudio || optimizingCount > 0} aria-busy={savingStudio || optimizingCount > 0} className="min-h-12 rounded-xl bg-[#e62f50] px-5 py-3 font-bold text-white hover:bg-[#f84a69] disabled:cursor-wait disabled:opacity-60" onClick={() => void openStudio()}>{savingStudio ? 'Menyimpan draft…' : 'Buka di Editor CMS'}</button><button type="button" disabled={packing || optimizingCount > 0} aria-busy={packing || optimizingCount > 0} className="min-h-12 rounded-xl border border-white/20 px-5 py-3 font-bold text-white hover:bg-white/10 disabled:cursor-wait disabled:opacity-60" onClick={exportData}>{packing ? 'Menyiapkan ZIP…' : 'Unduh Backup ZIP'}</button></div>
         {exported && <p role="status" className="mt-4 text-sm font-semibold text-green-300">Backup ZIP berhasil disiapkan. Simpan sebagai arsip klien.</p>}
         <p className="mt-4 text-xs leading-relaxed text-white/50">Simpan ZIP di tempat aman karena bisa berisi data kontak dan foto klien. Jangan unggah berkas berisi data sensitif ke repositori publik.</p>
         <a className="mt-5 inline-flex min-h-12 items-center justify-center rounded-xl border border-[#5ac899]/60 px-5 py-3 font-bold text-green-300 hover:bg-green-500/10" href="https://wa.me/6282137523626?text=Halo%20Teh%20Vini%2C%20saya%20mau%20dibuatkan%20web%20PESONAFLIX.%20Saya%20akan%20kirim%20data%20formulir%20dan%20fotonya." target="_blank" rel="noreferrer">WhatsApp Teh Vini ↗</a>
