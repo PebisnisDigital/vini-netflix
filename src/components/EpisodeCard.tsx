@@ -3,10 +3,12 @@ import type { Episode } from '../data/portfolio';
 import { EASE, Tilt } from './fx';
 import { PosterBackdrop } from './Poster';
 
-export default function EpisodeCard({ episode, index }: { episode: Episode; index: number }) {
+export default function EpisodeCard({ episode, index, seasonIndex }: { episode: Episode; index: number; seasonIndex?: number }) {
   const [season, ep] = episode.code.split(' ');
+  const editId = seasonIndex === undefined ? undefined : `episode:${seasonIndex}:${index}`;
   return (
     <motion.article
+      data-studio-edit={editId}
       className="w-[80vw] shrink-0 snap-start sm:w-[52vw] md:w-[38vw] lg:w-[30vw] xl:w-[26vw]"
       initial={{ opacity: 0, y: 30, rotateY: -8 }}
       animate={{ opacity: 1, y: 0, rotateY: 0 }}
@@ -17,6 +19,7 @@ export default function EpisodeCard({ episode, index }: { episode: Episode; inde
           <div className="relative aspect-video overflow-hidden">
             <div className="absolute inset-0 transition-transform duration-[1.2s] ease-[var(--ease-cine)] group-hover:scale-110">
               <PosterBackdrop palette={episode.palette}>
+                {episode.image && <img src={episode.image} loading="lazy" alt="" className="absolute inset-0 h-full w-full object-cover opacity-75" />}
                 <span className="absolute -bottom-6 right-2 font-display text-[7.5rem] leading-none text-white/[0.09]">{ep}</span>
               </PosterBackdrop>
             </div>
@@ -24,17 +27,17 @@ export default function EpisodeCard({ episode, index }: { episode: Episode; inde
               <span className="rounded bg-black/50 px-2 py-0.5 text-[10px] font-bold tracking-[0.2em] text-bone backdrop-blur">{season}</span>
               <span className="text-[10px] font-bold tracking-[0.2em] text-bone/80">EPISODE {ep.replace('E', '')}</span>
             </div>
-            <h4 className="absolute bottom-4 left-4 right-4 font-display text-2xl leading-tight text-bone [transform:translateZ(30px)] sm:text-3xl">{episode.title}</h4>
+            <h4 data-studio-edit={editId && `${editId}:title`} className="absolute bottom-4 left-4 right-4 font-display text-2xl leading-tight text-bone [transform:translateZ(30px)] sm:text-3xl">{episode.title}</h4>
           </div>
           <div className="flex flex-1 flex-col p-4">
             <div className="mb-2 flex items-center justify-between text-[11px] text-smoke">
-              <span className="font-semibold text-mist">{episode.runtime}</span>
+              <span data-studio-edit={editId && `${editId}:runtime`} className="font-semibold text-mist">{episode.runtime}</span>
               <span className="flex h-7 w-7 items-center justify-center rounded-full border border-white/20 text-[10px] text-bone transition group-hover:border-bone group-hover:bg-bone group-hover:text-ink">
                 ▶
               </span>
             </div>
-            <p className="text-sm leading-relaxed text-bone/80">{episode.description}</p>
-            <div className="mt-auto flex flex-wrap gap-1.5 pt-4">
+            <p data-studio-edit={editId && `${editId}:description`} className="text-sm leading-relaxed text-bone/80">{episode.description}</p>
+            <div data-studio-edit={editId && `${editId}:tags`} className="mt-auto flex flex-wrap gap-1.5 pt-4">
               {episode.tags.map((t) => (
                 <span key={t} className="rounded-full bg-white/[0.06] px-2.5 py-1 text-[11px] text-mist">
                   {t}

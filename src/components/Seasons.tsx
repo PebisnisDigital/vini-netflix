@@ -6,7 +6,7 @@ import EpisodeCard from './EpisodeCard';
 import { RailButtons } from './Rail';
 
 export default function Seasons() {
-  const { seasons } = usePortfolio();
+  const { seasons, journeyHeading, journeyAside, journeyKicker } = usePortfolio();
   const [active, setActive] = useState(Math.max(0, seasons.length - 2));
   // Klien baru bisa memiliki lebih sedikit musim daripada portfolio master.
   // Clamp indeks saat data canvas diganti agar tidak merender season undefined.
@@ -19,9 +19,11 @@ export default function Seasons() {
   return (
     <>
       <SectionHeading
-        kicker={`${seasons.length} Musim`}
-        title="Perjalanan Saya"
-        aside={<p className="max-w-xs text-sm text-mist">Setiap tahap perjalanan diceritakan sebagai satu musim — pilih untuk melihat episodenya.</p>}
+        kicker={journeyKicker || `${seasons.length} Musim`}
+        title={journeyHeading || 'Perjalanan Saya'}
+        kickerEditId="journey:kicker"
+        titleEditId="journey:heading"
+        aside={<p data-studio-edit="journey:aside" className="max-w-xs text-sm text-mist">{journeyAside || 'Setiap tahap perjalanan diceritakan sebagai satu musim — pilih untuk melihat episodenya.'}</p>}
       />
 
       {/* season selector */}
@@ -29,6 +31,7 @@ export default function Seasons() {
         {seasons.map((s, i) => (
           <button
             key={s.number}
+            data-studio-edit={`season:${i}`}
             role="tab"
             aria-selected={i === activeIndex}
             type="button"
@@ -56,18 +59,18 @@ export default function Seasons() {
           <div className="gutter mb-2 flex flex-wrap items-baseline gap-x-4 gap-y-1">
             <h3 className="font-display text-3xl leading-tight text-bone sm:text-4xl">
               <span className="text-outline mr-3">S{String(season.number).padStart(2, '0')}</span>
-              {season.title}
+              <span data-studio-edit={`season:${activeIndex}:title`}>{season.title}</span>
             </h3>
             <span className="text-sm text-mist">
-              {season.period} · {season.episodes.length} Episode
+              <span data-studio-edit={`season:${activeIndex}:period`}>{season.period}</span> · {season.episodes.length} Episode
             </span>
           </div>
-          <p className="gutter max-w-3xl text-[15px] leading-relaxed text-bone/75">{season.synopsis}</p>
+          <p data-studio-edit={`season:${activeIndex}:synopsis`} className="gutter max-w-3xl text-[15px] leading-relaxed text-bone/75">{season.synopsis}</p>
 
           <div className="group/rail relative">
             <div ref={rail} className="rail gutter flex snap-x snap-mandatory gap-4 overflow-x-auto py-8 [perspective:1200px]">
               {season.episodes.map((e, i) => (
-                <EpisodeCard key={e.code} episode={e} index={i} />
+                <EpisodeCard key={e.code} episode={e} index={i} seasonIndex={activeIndex} />
               ))}
             </div>
             <RailButtons rail={rail} />

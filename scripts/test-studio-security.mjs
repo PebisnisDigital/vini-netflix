@@ -39,6 +39,16 @@ test('kartu pilihan bisa diterbitkan dengan foto sendiri dan menolak foto asing'
   assert.ok(validatePublishPayload({ brief: { ...sample, pickCards: [{ ...pickCards[0], palette: { ...pickCards[0].palette, accent: 'red' } }] }, assets: [], mode: 'create' }).length);
 });
 
+test('musim dan episode bisa diterbitkan dengan foto per kartu yang aman', () => {
+  const episode = { code: 'S01 E01', title: 'Mulai', runtime: '2026', description: 'Awal perjalanan', tags: ['Karya'], image: '/clients/satria/musim-1-episode-1.webp', palette: { from: '#111111', via: '#222222', to: '#333333', accent: '#ee2255' } };
+  const seasons = [{ number: 1, title: 'Perjalanan', period: '2026', synopsis: 'Kisah karya', episodes: [episode] }];
+  const assets = [{ path: 'public/clients/satria/musim-1-episode-1.webp', sha: 'a'.repeat(40) }];
+  assert.deepEqual(validatePublishPayload({ brief: { ...sample, seasons }, assets, mode: 'create' }), []);
+  assert.ok(validatePublishPayload({ brief: { ...sample, seasons: [] }, assets: [], mode: 'create' }).length);
+  assert.ok(validatePublishPayload({ brief: { ...sample, seasons: [{ ...seasons[0], episodes: [] }] }, assets: [], mode: 'create' }).length);
+  assert.ok(validatePublishPayload({ brief: { ...sample, seasons: [{ ...seasons[0], episodes: [{ ...episode, image: '/clients/asing/musim-1-episode-1.webp' }] }] }, assets: [], mode: 'create' }).length);
+});
+
 test('OAuth aman: state harus cocok dan sesi hanya boleh admin', () => {
   const original = Object.fromEntries(['GITHUB_CLIENT_ID', 'GITHUB_CLIENT_SECRET', 'GITHUB_SESSION_SECRET', 'GITHUB_ALLOWED_LOGIN', 'GITHUB_CALLBACK_URL'].map((key) => [key, process.env[key]]));
   try {

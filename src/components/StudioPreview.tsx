@@ -52,6 +52,11 @@ export default function StudioPreview() {
         const url = URL.createObjectURL(file); urls.push(url);
         if (page.topPicks[Number(index)]) page.topPicks[Number(index)].image = url;
       }
+      for (const [key, file] of Object.entries(draft.episodePhotos || {})) {
+        const [season, episode] = key.split('-').map(Number);
+        const url = URL.createObjectURL(file); urls.push(url);
+        if (page.seasons[season]?.episodes[episode]) page.seasons[season].episodes[episode].image = url;
+      }
       if (mounted) { setContent(page); setSlug(brief.slug); document.title = `Preview ${brief.name} — PESONAFLIX`; }
     }).catch((e) => { if (mounted) setError(e.message); });
     return () => { mounted = false; urls.forEach((url) => URL.revokeObjectURL(url)); };

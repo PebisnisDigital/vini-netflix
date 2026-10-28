@@ -71,6 +71,24 @@ for (const file of files) {
       if (item?.palette && ['from', 'via', 'to', 'accent'].some((key) => !/^#[a-f0-9]{6}$/i.test(item.palette[key] || ''))) errors.push(`${slug}: warna pilihan ${i + 1} tidak valid.`);
     }
   }
+  if (brief.seasons !== undefined) {
+    if (!Array.isArray(brief.seasons) || brief.seasons.length < 1 || brief.seasons.length > 10) errors.push(`${slug}: musim harus berjumlah 1–10.`);
+    else for (const [i, season] of brief.seasons.entries()) {
+      checkString(season?.title, `musim ${i + 1} judul`, slug);
+      checkString(season?.period, `musim ${i + 1} periode`, slug);
+      checkString(season?.synopsis, `musim ${i + 1} ringkasan`, slug);
+      if (!Array.isArray(season?.episodes) || season.episodes.length < 1 || season.episodes.length > 15) errors.push(`${slug}: musim ${i + 1} harus punya 1–15 episode.`);
+      else for (const [j, episode] of season.episodes.entries()) {
+        checkString(episode?.title, `episode ${i + 1}.${j + 1} judul`, slug);
+        checkString(episode?.runtime, `episode ${i + 1}.${j + 1} waktu`, slug);
+        checkString(episode?.description, `episode ${i + 1}.${j + 1} cerita`, slug);
+        if (!Array.isArray(episode?.tags)) errors.push(`${slug}: tag episode ${i + 1}.${j + 1} tidak valid.`);
+        if (episode?.image) await checkImage(episode.image, slug, `foto episode ${i + 1}.${j + 1}`);
+        if (!episode?.palette || ['from', 'via', 'to', 'accent'].some((key) => !/^#[a-f0-9]{6}$/i.test(episode.palette[key] || ''))) errors.push(`${slug}: warna episode ${i + 1}.${j + 1} tidak valid.`);
+      }
+    }
+  }
+  for (const key of ['journeyHeading', 'journeyAside', 'journeyKicker']) if (brief[key] !== undefined) checkString(brief[key], key, slug);
   for (const key of ['picksHeading', 'picksKicker']) if (brief[key] !== undefined) checkString(brief[key], key, slug);
   if (brief.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(brief.email)) errors.push(`${slug}: email tidak valid.`);
   for (const [name, url] of Object.entries(brief.links ?? {})) if (url && !/^https?:\/\//.test(url)) errors.push(`${slug}: link ${name} harus https://.`);

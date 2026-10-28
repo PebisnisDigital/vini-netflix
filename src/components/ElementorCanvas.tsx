@@ -11,6 +11,9 @@ type CanvasProps = {
   watchAction: (action: 'add' | 'duplicate' | 'up' | 'down' | 'remove', index?: number) => void;
   setPickPhoto: (index: number, file: File) => void;
   pickAction: (action: 'add' | 'duplicate' | 'up' | 'down' | 'remove', index?: number) => void;
+  setEpisodePhoto: (season: number, episode: number, file: File) => void;
+  seasonAction: (action: 'add' | 'duplicate' | 'up' | 'down' | 'remove', index?: number) => void;
+  episodeAction: (action: 'add' | 'duplicate' | 'up' | 'down' | 'remove', season: number, index?: number) => void;
   reorder: (index: number, direction: number) => void;
   removeProject: (index: number) => void;
   notice: (text: string) => void;
@@ -36,12 +39,12 @@ async function fitImage(file: File): Promise<File> {
 }
 
 /** Editor visual tanpa sidebar: kanvas publik dipakai langsung sebagai tempat penyuntingan. */
-export default function ElementorCanvas({ draft, patch, changeProject, setPhoto, setWatchPhoto, watchAction, setPickPhoto, pickAction, reorder, removeProject, notice }: CanvasProps) {
+export default function ElementorCanvas({ draft, patch, changeProject, setPhoto, setWatchPhoto, watchAction, setPickPhoto, pickAction, setEpisodePhoto, seasonAction, episodeAction, reorder, removeProject, notice }: CanvasProps) {
   const frame = useRef<HTMLIFrameElement>(null);
-  const latest = useRef({ draft, patch, changeProject, setPhoto, setWatchPhoto, watchAction, setPickPhoto, pickAction, reorder, removeProject, notice });
-  latest.current = { draft, patch, changeProject, setPhoto, setWatchPhoto, watchAction, setPickPhoto, pickAction, reorder, removeProject, notice };
+  const latest = useRef({ draft, patch, changeProject, setPhoto, setWatchPhoto, watchAction, setPickPhoto, pickAction, setEpisodePhoto, seasonAction, episodeAction, reorder, removeProject, notice });
+  latest.current = { draft, patch, changeProject, setPhoto, setWatchPhoto, watchAction, setPickPhoto, pickAction, setEpisodePhoto, seasonAction, episodeAction, reorder, removeProject, notice };
   const [device, setDevice] = useState<'desktop' | 'mobile'>('desktop');
-  const [photoUrls, setPhotoUrls] = useState<{ portrait: string; projects: Record<number, string>; watch: Record<number, string>; picks: Record<number, string> }>({ portrait: '', projects: {}, watch: {}, picks: {} });
+  const [photoUrls, setPhotoUrls] = useState<{ portrait: string; projects: Record<number, string>; watch: Record<number, string>; picks: Record<number, string>; episodes: Record<string, string> }>({ portrait: '', projects: {}, watch: {}, picks: {}, episodes: {} });
   const current = preparedBrief(draft);
 
   useEffect(() => {
@@ -63,9 +66,13 @@ export default function ElementorCanvas({ draft, patch, changeProject, setPhoto,
       picks[Number(index)] = URL.createObjectURL(file);
       urls.push(picks[Number(index)]);
     }
-    setPhotoUrls({ portrait, projects, watch, picks });
+    const episodes: Record<string, string> = {};
+    for (const [key, file] of Object.entries(draft.episodePhotos || {})) {
+      episodes[key] = URL.createObjectURL(file); urls.push(episodes[key]);
+    }
+    setPhotoUrls({ portrait, projects, watch, picks, episodes });
     return () => urls.forEach((url) => URL.revokeObjectURL(url));
-  }, [draft.portrait, draft.projectPhotos, draft.watchPhotos, draft.pickPhotos]);
+  }, [draft.portrait, draft.projectPhotos, draft.watchPhotos, draft.pickPhotos, draft.episodePhotos]);
 
   const sendCanvas = useCallback(() => {
     const content = structuredClone(createCanvasPortfolio(current));
@@ -73,6 +80,10 @@ export default function ElementorCanvas({ draft, patch, changeProject, setPhoto,
     for (const [index, url] of Object.entries(photoUrls.projects)) if (content.projects[Number(index)]) content.projects[Number(index)].image = url;
     for (const [index, url] of Object.entries(photoUrls.watch)) if (content.watchCards?.[Number(index)]) content.watchCards[Number(index)].image = url;
     for (const [index, url] of Object.entries(photoUrls.picks)) if (content.topPicks[Number(index)]) content.topPicks[Number(index)].image = url;
+    for (const [key, url] of Object.entries(photoUrls.episodes)) {
+      const [season, episode] = key.split('-').map(Number);
+      if (content.seasons[season]?.episodes[episode]) content.seasons[season].episodes[episode].image = url;
+    }
     frame.current?.contentWindow?.postMessage({ type: 'PESONAFLIX_CANVAS_UPDATE', content }, location.origin);
   }, [current, photoUrls]);
 
@@ -84,7 +95,7 @@ export default function ElementorCanvas({ draft, patch, changeProject, setPhoto,
       const data = event.data;
       if (!data || typeof data.type !== 'string') return;
       if (data.type === 'PESONAFLIX_CANVAS_READY') { sendCanvas(); return; }
-      const { draft: state, patch: apply, changeProject: applyProject, setPhoto: photo, setWatchPhoto: watchPhoto, watchAction: updateWatch, setPickPhoto: pickPhoto, pickAction: updatePick, reorder: move, removeProject: remove, notice: notify } = latest.current;
+      const { draft: state, patch: apply, changeProject: applyProject, setPhoto: photo, setWatchPhoto: watchPhoto, watchAction: updateWatch, setPickPhoto: pickPhoto, pickAction: updatePick, setEpisodePhoto: episodePhoto, seasonAction: updateSeason, episodeAction: updateEpisode, reorder: move, removeProject: remove, notice: notify } = latest.current;
       if (data.type === 'PESONAFLIX_VISUAL_TEXT' && typeof data.field === 'string' && typeof data.value === 'string' && data.value.length < 15000) {
         const field = data.field;
         const value = data.value;
@@ -112,6 +123,20 @@ export default function ElementorCanvas({ draft, patch, changeProject, setPhoto,
           if ((property === 'label' || property === 'title' || property === 'detail') && value.trim()) apply({ pickCards: cards.map((item, i) => i === index ? { ...item, [property]: value } : item) });
         } else if (field === 'picks:heading' || field === 'picks:kicker') {
           if (value.trim()) apply({ [field === 'picks:heading' ? 'picksHeading' : 'picksKicker']: value });
+        } else if (field.startsWith('journey:')) {
+          const prop = field.split(':')[1];
+          if (value.trim() && (prop === 'heading' || prop === 'aside' || prop === 'kicker')) apply({ [prop === 'heading' ? 'journeyHeading' : prop === 'aside' ? 'journeyAside' : 'journeyKicker']: value });
+        } else if (field.startsWith('season:')) {
+          const [, position, property] = field.split(':'); const index = Number(position);
+          const seasons = state.brief.seasons ?? createCanvasPortfolio(preparedBrief(state)).seasons;
+          if (Number.isInteger(index) && seasons[index] && ['title', 'period', 'synopsis'].includes(property) && value.trim()) apply({ seasons: seasons.map((season, i) => i === index ? { ...season, [property]: value } : season) });
+        } else if (field.startsWith('episode:')) {
+          const [, seasonIndex, episodeIndex, property] = field.split(':'); const s = Number(seasonIndex); const e = Number(episodeIndex);
+          const seasons = state.brief.seasons ?? createCanvasPortfolio(preparedBrief(state)).seasons;
+          if (!Number.isInteger(s) || !Number.isInteger(e) || !seasons[s]?.episodes[e]) return;
+          if (['title', 'description', 'runtime', 'tags'].includes(property) && (property === 'tags' || value.trim())) {
+            apply({ seasons: seasons.map((season, i) => i === s ? { ...season, episodes: season.episodes.map((episode, j) => j === e ? { ...episode, [property]: property === 'tags' ? splitItems(value) : value } : episode) } : season) });
+          }
         } else if (field.startsWith('highlight:')) {
           const [, position, property] = field.split(':'); const index = Number(position);
           if (!Number.isInteger(index) || index < 0 || index >= (state.brief.highlights?.length || 0)) return;
@@ -132,6 +157,12 @@ export default function ElementorCanvas({ draft, patch, changeProject, setPhoto,
         }
       }
       if (data.type === 'PESONAFLIX_VISUAL_FILE') {
+        if (Number.isInteger(data.seasonIndex) && Number.isInteger(data.episodeIndex)) {
+          const seasons = state.brief.seasons ?? createCanvasPortfolio(preparedBrief(state)).seasons;
+          if (!(data.file instanceof File) || data.seasonIndex < 0 || data.episodeIndex < 0 || !seasons[data.seasonIndex]?.episodes[data.episodeIndex]) return;
+          void fitImage(data.file).then((file) => episodePhoto(data.seasonIndex, data.episodeIndex, file)).catch((error) => notify(error.message));
+          return;
+        }
         if (Number.isInteger(data.pickIndex)) {
           const cards = state.brief.pickCards ?? createCanvasPortfolio(preparedBrief(state)).topPicks;
           if (!(data.file instanceof File) || data.pickIndex < 0 || data.pickIndex >= cards.length) return;
@@ -153,6 +184,16 @@ export default function ElementorCanvas({ draft, patch, changeProject, setPhoto,
       if (data.type === 'PESONAFLIX_VISUAL_ACTION') {
         const index = Number(data.index);
         switch (data.action) {
+          case 'season-add': updateSeason('add'); break;
+          case 'season-duplicate': updateSeason('duplicate', index); break;
+          case 'season-up': updateSeason('up', index); break;
+          case 'season-down': updateSeason('down', index); break;
+          case 'season-remove': updateSeason('remove', index); break;
+          case 'episode-add': updateEpisode('add', Number(data.seasonIndex)); break;
+          case 'episode-duplicate': updateEpisode('duplicate', Number(data.seasonIndex), index); break;
+          case 'episode-up': updateEpisode('up', Number(data.seasonIndex), index); break;
+          case 'episode-down': updateEpisode('down', Number(data.seasonIndex), index); break;
+          case 'episode-remove': updateEpisode('remove', Number(data.seasonIndex), index); break;
           case 'pick-add': updatePick('add'); break;
           case 'pick-duplicate': updatePick('duplicate', index); break;
           case 'pick-up': updatePick('up', index); break;

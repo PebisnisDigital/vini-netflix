@@ -48,6 +48,15 @@ test('data Satria mengganti seluruh konten tanpa identitas klien lain', async ()
     assert.ok(validateBrief({ ...sample, pickCards: [] }).length > 0);
     assert.ok(validateBrief({ ...sample, pickCards: [{ ...pickCards[0], image: '/clients/orang-lain/pilihan-1.webp' }] }).length > 0);
     assert.ok(validateBrief({ ...sample, pickCards: [{ ...pickCards[0], palette: { ...pickCards[0].palette, accent: 'red' } }] }).length > 0);
+    const seasons = [{ number: 1, title: 'Perjalanan Foto', period: '2026', synopsis: 'Berkarya di Bandung', episodes: [{ code: 'S01 E01', title: 'Mulai Berkarya', runtime: '2026', description: 'Belajar fotografi', tags: ['Foto'], image: '/clients/satria/musim-1-episode-1.webp', palette: { from: '#111111', via: '#222222', to: '#333333', accent: '#ff2244' } }] }];
+    const withSeasons = createPortfolioFromBrief({ ...sample, seasons, journeyHeading: 'Perjalanan Satria' });
+    assert.equal(withSeasons.seasons.length, 1);
+    assert.equal(withSeasons.seasons[0].episodes[0].image, seasons[0].episodes[0].image);
+    assert.equal(withSeasons.journeyHeading, 'Perjalanan Satria');
+    assert.deepEqual(validateBrief({ ...sample, seasons }), []);
+    assert.ok(validateBrief({ ...sample, seasons: [] }).length);
+    assert.ok(validateBrief({ ...sample, seasons: [{ ...seasons[0], episodes: [] }] }).length);
+    assert.ok(validateBrief({ ...sample, seasons: [{ ...seasons[0], episodes: [{ ...seasons[0].episodes[0], image: '/clients/lain/musim-1-episode-1.webp' }] }] }).length);
     const unfinished = createCanvasPortfolio({ ...sample, slug: '', name: '', role: '', location: '', bio: '', tagline: [], projects: [{ ...sample.projects[0], title: '', description: '' }], photo: { src: '', alt: '' } });
     assert.equal(unfinished.profile.displayName, 'NAMA KLIEN');
     assert.equal(unfinished.projects[0].title, 'KARYA 1');
@@ -64,6 +73,7 @@ test('proyek baru memakai contoh Sushmita yang lengkap tanpa membuatnya siap ter
     assert.equal(canvas.profile.portrait.src, '/assets/portrait-720.webp');
     assert.equal(canvas.projects.length, 3);
     assert.equal(canvas.seasons.length, 5);
+    assert.equal(example.seasons.length, 5);
     assert.equal(canvas.topPicks.length, 10);
     assert.equal(example.pickCards.length, 10);
     assert.equal(canvas.certifications.length, 16);
