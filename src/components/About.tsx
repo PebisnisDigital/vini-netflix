@@ -27,6 +27,7 @@ export default function About() {
             <div className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_30%,#5a0b1b,#14060a_60%,#07070a)]" />
             <div className="absolute inset-0 opacity-50 [background-image:repeating-linear-gradient(90deg,rgba(255,255,255,0.03)_0px,rgba(255,255,255,0.03)_1px,transparent_1px,transparent_28px)]" />
             <img
+              data-studio-edit="portrait"
               src={profile.portrait.src}
               srcSet={profile.portrait.srcSet}
               sizes="(max-width: 1024px) 90vw, 40vw"
@@ -38,7 +39,7 @@ export default function About() {
             <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
               <div>
                 <p className="text-[10px] font-bold tracking-[0.3em] text-crimson-2">DIBINTANGI</p>
-                <p className="font-display text-3xl leading-none text-bone">{profile.displayName}</p>
+                <p data-studio-edit="name" className="font-display text-3xl leading-none text-bone">{profile.displayName}</p>
               </div>
               <span className="rounded border border-white/30 px-1.5 text-[10px] font-bold text-bone">S01–S{String(seasons.length).padStart(2, '0')}</span>
             </div>
@@ -48,6 +49,7 @@ export default function About() {
 
         <div>
           <motion.p
+            data-studio-edit="bio"
             className="max-w-3xl font-sans text-[clamp(1.15rem,2.1vw,1.65rem)] font-medium leading-[1.55] tracking-normal text-bone"
             initial={{ opacity: 0, y: 24, filter: 'blur(8px)' }}
             whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
@@ -56,7 +58,7 @@ export default function About() {
           >
             “{profile.intro}”
           </motion.p>
-          <p className="mt-4 text-sm text-mist">— {profile.fullName}</p>
+          <p data-studio-edit="name" className="mt-4 text-sm text-mist">— {profile.fullName}</p>
 
           <motion.dl
             className="mt-10 grid gap-px overflow-hidden rounded-xl bg-white/10 sm:grid-cols-2"
@@ -72,7 +74,7 @@ export default function About() {
                 variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } } }}
               >
                 <dt className="text-[10px] font-bold uppercase tracking-[0.28em] text-smoke">{f.k}</dt>
-                <dd className="mt-2 text-base font-semibold text-bone">{f.v}</dd>
+                <dd data-studio-edit={f.k === 'Peran' ? 'role' : f.k === 'Asal' ? 'location' : undefined} className="mt-2 text-base font-semibold text-bone">{f.v}</dd>
                 <dd className="mt-0.5 text-xs text-mist">{f.s}</dd>
               </motion.div>
             ))}
