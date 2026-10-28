@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
-import { createCanvasPortfolio, DEFAULT_THEME, normalizeSlug, validateBrief, type ClientBrief } from '../data/clientModel';
-import { clientBriefBlank, deleteDraft, listDrafts, preparedBrief, saveDraft, type StudioDraft } from '../data/studioDraft';
+import { createCanvasPortfolio, DEFAULT_THEME, findUnreplacedSushmitaExamples, normalizeSlug, sushmitaExampleBrief, validateBrief, type ClientBrief } from '../data/clientModel';
+import { deleteDraft, listDrafts, preparedBrief, saveDraft, type StudioDraft } from '../data/studioDraft';
 import { publishedClients } from '../data/studioPublished';
 
 type Session = { configured: boolean; authenticated: boolean; login: string | null };
@@ -129,12 +129,16 @@ function CanvasEditor({ draft, patch, changeProject, setPhoto, reorder, removePr
     </section>
     <aside className="order-1 h-fit space-y-4 rounded-2xl border border-[#ff536e]/25 bg-[#14131a] p-4 xl:sticky xl:top-24">
       <div><p className="text-xs font-bold uppercase tracking-widest text-[#ff7188]">Panel Edit</p><h3 className="mt-1 text-xl font-extrabold">{({ name: 'Nama Klien', role: 'Profesi', location: 'Lokasi', tagline: 'Headline', bio: 'Tentang Saya', portrait: 'Foto Utama', theme: 'Warna Tema' } as Record<string, string>)[selected] || (project ? `Kartu Karya ${selectedProject + 1}` : 'Pilih Elemen')}</h3><p className="mt-2 text-xs text-white/45">Setiap perubahan langsung terlihat di kanvas sebelah.</p></div>
-      {selected === 'name' && <Control label="Nama lengkap / brand"><input className={field} value={draft.brief.name} placeholder="Nama Klien" onChange={(e) => patch({ name: e.target.value, slug: draft.brief.slug || normalizeSlug(e.target.value), photo: { ...draft.brief.photo, alt: `Foto ${e.target.value}` } })}/></Control>}
+      {selected === 'name' && <Control label="Nama lengkap / brand"><input className={field} value={draft.brief.name} placeholder="Nama Klien" onChange={(e) => {
+        const replacingSample = draft.mode === 'create' && draft.brief.name === 'Sushmita Dasari' && e.target.value !== 'Sushmita Dasari';
+        patch({ name: e.target.value, slug: draft.brief.slug || normalizeSlug(e.target.value), photo: { ...draft.brief.photo, alt: `Foto ${e.target.value}` },
+          ...(replacingSample ? { email: '', links: { website: '', linkedin: '', github: '' } } : {}) });
+      }}/></Control>}
       {selected === 'role' && <Control label="Profesi"><input className={field} value={draft.brief.role} placeholder="Profesi Klien" onChange={(e) => patch({ role: e.target.value })}/></Control>}
       {selected === 'location' && <Control label="Kota / lokasi"><input className={field} value={draft.brief.location} placeholder="Bandung, Indonesia" onChange={(e) => patch({ location: e.target.value })}/></Control>}
       {selected === 'tagline' && <Control label="Sorotan (satu baris per poin)"><textarea rows={4} className={field} value={draft.brief.tagline.join('\n')} onChange={(e) => patch({ tagline: splitLines(e.target.value) })}/></Control>}
       {selected === 'bio' && <Control label="Tentang Saya"><textarea rows={7} className={field} value={draft.brief.bio} placeholder="Cerita singkat klien..." onChange={(e) => patch({ bio: e.target.value })}/></Control>}
-      {selected === 'portrait' && <><p className="text-xs text-white/60">Foto transparan lebih cocok untuk efek Netflix. Sampai diganti, kanvas memakai foto master sebagai contoh.</p><Photo title="Foto utama" file={draft.portrait} existing={draft.mode === 'edit' ? draft.brief.photo.src : '/assets/teh-vini-full.webp'} onChange={(file) => setPhoto(null, file)}/></>}
+      {selected === 'portrait' && <><p className="text-xs text-white/60">Foto transparan lebih cocok untuk efek Netflix. Foto Sushmita hanyalah contoh dan wajib diganti sebelum tayang.</p><Photo title="Foto utama" file={draft.portrait} existing={draft.mode === 'edit' ? draft.brief.photo.src : '/assets/portrait-720.webp'} onChange={(file) => setPhoto(null, file)}/></>}
       {selected === 'theme' && <><Control label="Warna aksen"><input aria-label="Warna aksen" type="color" value={theme.accent} className="h-12 w-full cursor-pointer rounded-lg bg-transparent" onChange={(e) => patch({ theme: { ...theme, accent: e.target.value } })}/></Control><Control label="Warna latar"><input aria-label="Warna latar" type="color" value={theme.background} className="h-12 w-full cursor-pointer rounded-lg bg-transparent" onChange={(e) => patch({ theme: { ...theme, background: e.target.value } })}/></Control><button type="button" className={secondary} onClick={() => patch({ theme: { ...DEFAULT_THEME } })}>Kembalikan warna Netflix</button><p className="text-xs text-white/45">Aksen memengaruhi tulisan, tombol dan beberapa highlight. Struktur tema Netflix tetap dipertahankan.</p></>}
       {project && <><Control label="Judul kartu"><input className={field} value={project.title} onChange={(e) => changeProject(selectedProject, { title: e.target.value })}/></Control><Control label="Deskripsi"><textarea className={field} rows={4} value={project.description} onChange={(e) => changeProject(selectedProject, { description: e.target.value })}/></Control><Control label="Kategori"><input className={field} value={project.category} onChange={(e) => changeProject(selectedProject, { category: e.target.value })}/></Control><Control label="Tahun"><input className={field} value={project.year} onChange={(e) => changeProject(selectedProject, { year: e.target.value })}/></Control><Photo title={`Foto kartu ${selectedProject + 1}`} file={draft.projectPhotos[selectedProject]} existing={project.image || ''} onChange={(file) => setPhoto(selectedProject, file)}/><div className="flex flex-wrap gap-2"><button type="button" className={secondary} disabled={selectedProject === 0} onClick={() => { reorder(selectedProject, -1); setSelected(`project:${selectedProject - 1}`); }}>↑ Geser</button><button type="button" className={secondary} disabled={selectedProject === current.projects.length - 1} onClick={() => { reorder(selectedProject, 1); setSelected(`project:${selectedProject + 1}`); }}>↓ Geser</button><button type="button" className={`${secondary} text-red-300`} disabled={current.projects.length <= 1} onClick={() => { removeProject(selectedProject); setSelected('project:0'); }}>Hapus</button></div></>}
       <div className="border-t border-white/10 pt-4"><p className="mb-2 text-xs font-semibold text-white/50">Kartu karya ({current.projects.length})</p><div className="flex flex-wrap gap-2">{current.projects.map((item, index) => <button type="button" key={index} onClick={() => setSelected(`project:${index}`)} className={`rounded-lg px-3 py-2 text-xs ${selected === `project:${index}` ? 'bg-[#e50931]' : 'bg-white/10'}`}>{item.title || `Kartu ${index + 1}`}</button>)}</div><button type="button" className={`${secondary} mt-3 w-full`} onClick={() => { patch({ projects: [...draft.brief.projects, newProject()] }); setSelected(`project:${draft.brief.projects.length}`); }}>＋ Tambah Kartu</button></div>
@@ -191,7 +195,7 @@ export default function StudioEditor() {
       await persist(); window.location.assign(`/studio/preview?slug=${prepared.slug}`);
     } catch (e) { setNotice((e as Error).message); }
   };
-  const newClient = () => { setActive({ slug: '', brief: clientBriefBlank(), portrait: null, projectPhotos: {}, mode: 'create', updatedAt: Date.now() }); setPr(null); setNotice(''); };
+  const newClient = () => { setActive({ slug: '', brief: sushmitaExampleBrief(), portrait: null, projectPhotos: {}, mode: 'create', updatedAt: Date.now() }); setPr(null); setNotice(''); };
   const choose = (draft: StudioDraft) => { setActive(draft); sessionStorage.setItem('personalflix-last-draft', draft.slug); setPr(null); setNotice(''); };
   const usePublished = (brief: ClientBrief) => {
     const existing = drafts.find((d) => d.slug === brief.slug);
@@ -232,6 +236,10 @@ export default function StudioEditor() {
   const publish = async () => {
     if (!active || !prepared || busy) return;
     const errors = validateBrief(prepared);
+    if (active.mode === 'create') {
+      const leftovers = findUnreplacedSushmitaExamples(prepared);
+      if (leftovers.length) errors.push(`Masih ada data Sushmita: ${leftovers.join(', ')}. Ganti dengan data klien sebelum menerbitkan.`);
+    }
     if (active.mode === 'create' && !active.portrait) errors.push('Foto utama diperlukan untuk klien baru.');
     if (errors.length) { setNotice(errors.join(' · ')); return; }
     try {
@@ -289,6 +297,7 @@ export default function StudioEditor() {
       <main className="min-w-0 space-y-5">
         {!active ? <section className={`${card} flex min-h-[400px] flex-col items-center justify-center gap-4 text-center`}><span className="text-6xl">✦</span><h2 className="text-3xl font-extrabold">Mulai Karya Baru</h2><p className="max-w-md text-white/55">Masukkan data klien dari WhatsApp, ganti foto dan atur kartu sesuai kebutuhan. Simpan draft kapan saja.</p><button type="button" onClick={newClient} className="rounded-xl bg-[#e50931] px-6 py-3 font-bold">Buat Klien Baru</button></section> : <>
           <div className="flex flex-wrap items-start justify-between gap-3"><div><p className="text-xs font-bold uppercase tracking-wider text-[#ff6580]">{active.mode === 'create' ? 'Website baru' : 'Edit website terbit'}</p><h2 className="mt-1 text-2xl font-extrabold">{active.brief.name || 'Klien Tanpa Nama'}</h2><p className="mt-1 text-sm text-white/45">/{active.brief.slug || 'nama-klien'} · Data tersimpan hanya di browser ini sampai dipublikasikan.</p></div><div className="flex flex-wrap gap-2"><button type="button" className={secondary} onClick={saveClick}>Simpan Draft</button><button type="button" className={secondary} onClick={() => { void preview(); }}>Preview Lengkap</button></div></div>
+          {active.mode === 'create' && <p className="rounded-xl border border-amber-400/25 bg-amber-300/10 px-4 py-3 text-sm leading-relaxed text-amber-100">Ini adalah contoh lengkap portofolio Sushmita dari repo master. Gunakan panel kiri untuk mengganti semua identitas, cerita, karya, dan foto dengan data klien sebelum menerbitkan.</p>}
           <CanvasEditor draft={active} patch={patch} changeProject={changeProject} setPhoto={setPhoto} reorder={reorder} removeProject={removeProject} />
           <details className={`${card} group`}><summary className="cursor-pointer text-base font-extrabold text-white">⚙ Pengaturan Detail <span className="ml-2 text-xs font-normal text-white/45">Pengalaman, pendidikan, keahlian, tautan, dan data tambahan</span></summary><div className="space-y-5 pt-6">
           <section className={card}><h3 className="mb-5 text-xl font-extrabold">01 · Profil & Redaksi</h3><div className="grid gap-4 sm:grid-cols-2">

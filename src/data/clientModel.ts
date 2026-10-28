@@ -1,4 +1,5 @@
 import * as vini from './portfolio';
+import * as sushmita from './sushmitaOriginal';
 
 /** Satu sumber data untuk setiap halaman portofolio, tanpa teks klien lain. */
 export type PortfolioContent = {
@@ -25,6 +26,27 @@ export type PortfolioContent = {
 
 export type ClientTheme = { accent: string; background: string };
 export const DEFAULT_THEME: ClientTheme = { accent: '#e5132b', background: '#07070a' };
+
+/** Data master asli dari repo Sushmita, hanya untuk kanvas contoh Studio. */
+export const sushmitaContent: PortfolioContent = {
+  profile: {
+    ...sushmita.profile,
+    links: { ...sushmita.profile.links, website: '' },
+    websiteLabel: 'SUSHMITA DASARI',
+  },
+  projects: sushmita.projects,
+  experience: sushmita.experience,
+  education: sushmita.education,
+  achievements: sushmita.achievements,
+  certifications: sushmita.certifications,
+  skillCategories: sushmita.skillCategories,
+  skillEvidence: sushmita.skillEvidence,
+  seasons: sushmita.seasons,
+  topPicks: sushmita.topPicks,
+  introSlides: sushmita.introSlides,
+  viewerProfiles: sushmita.viewerProfiles.map((p) => ({ ...p, id: p.id === 'sushmita' ? 'vini' : p.id })) as typeof vini.viewerProfiles,
+  sectionMeta: sushmita.sectionMeta,
+};
 
 export const viniContent: PortfolioContent = {
   profile: { ...vini.profile, websiteLabel: 'PROMPTIONAL' },
@@ -60,6 +82,53 @@ export type ClientBrief = {
   highlights?: { title: string; description: string; category?: string }[];
   theme?: ClientTheme;
 };
+
+/** Isi awal proyek baru: mengikuti naskah portofolio Sushmita dari repo referensi. */
+export function sushmitaExampleBrief(): ClientBrief {
+  return {
+    slug: '', // URL klien baru harus ditentukan sendiri, tidak boleh mengambil URL Sushmita.
+    name: sushmita.profile.displayName,
+    role: sushmita.profile.role,
+    location: sushmita.profile.location,
+    bio: sushmita.profile.intro,
+    tagline: [...sushmita.profile.tagline],
+    interests: [...sushmita.profile.interests],
+    photo: { src: '', alt: sushmita.profile.portrait.alt },
+    email: sushmita.profile.email,
+    links: { ...sushmita.profile.links, website: '' },
+    projects: sushmita.projects.map((p) => ({
+      title: p.title, year: p.year, description: p.logline, category: p.genre,
+      tags: [...p.stack], website: p.github || '', image: '',
+    })),
+    experiences: sushmita.experience.map((e) => ({
+      company: e.company, role: e.role, period: e.period, description: e.points.join('\n'),
+    })),
+    education: sushmita.education.map((e) => ({ ...e })),
+    skills: sushmita.skillCategories.flatMap((group) => group.skills.map((skill) => skill.name)),
+    highlights: sushmita.achievements.map((a) => ({ title: a.title, description: a.detail, category: a.org })),
+  };
+}
+
+/** Jangan mengizinkan data pribadi atau proyek contoh ikut tayang sebagai milik klien. */
+export function findUnreplacedSushmitaExamples(brief: ClientBrief): string[] {
+  const example = sushmitaExampleBrief();
+  const leftover: string[] = [];
+  if (brief.name.trim().toLowerCase() === example.name.toLowerCase()) leftover.push('nama');
+  if (brief.role.trim() === example.role) leftover.push('profesi');
+  if (brief.location.trim() === example.location) leftover.push('lokasi');
+  if (brief.bio.trim() === example.bio.trim()) leftover.push('cerita diri');
+  if (brief.email?.trim().toLowerCase() === example.email?.toLowerCase()) leftover.push('email');
+  if (brief.links?.linkedin === example.links?.linkedin || brief.links?.github === example.links?.github) leftover.push('tautan profil');
+  if (brief.projects.some((project) => example.projects.some((item) => item.title === project.title))) leftover.push('judul karya');
+  if (brief.projects.some((project) => example.projects.some((item) => item.description === project.description))) leftover.push('deskripsi karya');
+  if (brief.experiences.some((item) => example.experiences.some((sample) => sample.company === item.company))) leftover.push('pengalaman');
+  if (brief.education?.some((item) => example.education?.some((sample) => sample.school === item.school))) leftover.push('pendidikan');
+  if (brief.skills.some((skill) => example.skills.includes(skill))) leftover.push('keahlian');
+  if (brief.highlights?.some((item) => example.highlights?.some((sample) => sample.title === item.title))) leftover.push('pencapaian');
+  if (brief.tagline.some((line) => example.tagline.includes(line))) leftover.push('headline');
+  if (brief.interests.some((interest) => example.interests.includes(interest))) leftover.push('minat');
+  return leftover;
+}
 
 export const RESERVED_SLUGS = new Set(['vini', 'formulir', 'studio', 'admin', 'api', 'assets', 'demo', 'preview', 'index', 'favicon', 'robots', 'sitemap']);
 
@@ -189,6 +258,10 @@ export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: 
 
 /** Fallback khusus kanvas: bentuk portofolio yang sama, tanpa menganggap draft kosong sudah siap dipublikasikan. */
 export function createCanvasPortfolio(brief: ClientBrief): PortfolioContent {
+  // Sebelum disentuh, proyek baru menampilkan seluruh contoh original, termasuk
+  // lima musim, sepuluh sorotan, sertifikasi, animasi, dan foto Sushmita.
+  const example = sushmitaExampleBrief();
+  if (!brief.slug && JSON.stringify(brief) === JSON.stringify(example)) return sushmitaContent;
   const slug = normalizeSlug(brief.slug) || 'contoh';
   const safe: ClientBrief = {
     ...brief,
@@ -198,7 +271,7 @@ export function createCanvasPortfolio(brief: ClientBrief): PortfolioContent {
     location: brief.location.trim() || 'Kota, Indonesia',
     bio: brief.bio.trim() || 'Tulis cerita singkat tentang diri dan perjalanan klien. Gunakan Panel Edit untuk mengubahnya di Studio.',
     tagline: brief.tagline.length ? brief.tagline : ['CERITA', 'KARYA', 'PERJALANAN'],
-    photo: { ...brief.photo, src: brief.photo.src || '/assets/teh-vini-full.webp', alt: brief.photo.alt || 'Foto utama klien' },
+    photo: { ...brief.photo, src: brief.photo.src || '/assets/portrait-720.webp', alt: brief.photo.alt || 'Foto utama klien' },
     projects: brief.projects.length ? brief.projects.map((p, i) => ({ ...p, title: p.title || `KARYA ${i + 1}`, description: p.description || 'Ceritakan karya unggulan klien di sini.' })) : [{ title: 'KARYA PERTAMA', description: 'Ceritakan karya unggulan klien di sini.', category: 'Portofolio', year: String(new Date().getFullYear()), tags: [], image: '' }],
     experiences: brief.experiences || [], skills: brief.skills || [], interests: brief.interests || [],
   };
