@@ -15,6 +15,25 @@ export function validatePublishPayload(payload) {
   if (!['create', 'edit'].includes(mode)) errors.push('Pilih membuat klien baru atau mengedit klien yang sudah tayang.');
   for (const key of ['name', 'role', 'location', 'bio']) if (typeof brief[key] !== 'string' || brief[key].trim().length < 3 || brief[key].length > 4000) errors.push(`${key} wajib diisi dengan benar.`);
   for (const key of ['tagline', 'interests', 'skills', 'experiences']) if (!Array.isArray(brief[key]) || brief[key].length > 100) errors.push(`Daftar ${key} tidak valid.`);
+  if (brief.skillCategories !== undefined) {
+    if (!Array.isArray(brief.skillCategories) || brief.skillCategories.length < 1 || brief.skillCategories.length > 12) errors.push('Kategori keahlian harus berjumlah 1–12.');
+    else {
+      const ids = new Set(); let count = 0;
+      for (const [i, group] of brief.skillCategories.entries()) {
+        if (typeof group?.id !== 'string' || !/^[a-z0-9-]{1,60}$/.test(group.id) || ids.has(group.id)) errors.push(`ID kategori keahlian ${i + 1} tidak valid.`);
+        ids.add(group?.id);
+        if (typeof group?.title !== 'string' || !group.title.trim() || group.title.length > 100 || typeof group?.subtitle !== 'string' || group.subtitle.length > 250) errors.push(`Judul kategori keahlian ${i + 1} tidak valid.`);
+        if (!Array.isArray(group?.skills) || group.skills.length < 1 || group.skills.length > 40) { errors.push(`Jumlah kartu kategori keahlian ${i + 1} tidak valid.`); continue; }
+        count += group.skills.length;
+        for (const [j, skill] of group.skills.entries()) {
+          if (typeof skill?.name !== 'string' || !skill.name.trim() || skill.name.length > 100 || typeof skill?.mono !== 'string' || !skill.mono.trim() || skill.mono.length > 8 || (skill.note !== undefined && (typeof skill.note !== 'string' || skill.note.length > 100))) errors.push(`Kartu keahlian ${i + 1}.${j + 1} tidak valid.`);
+          if (skill?.evidence !== undefined && (!Array.isArray(skill.evidence) || skill.evidence.length > 15 || skill.evidence.some((point) => typeof point !== 'string' || point.length > 250))) errors.push(`Poin keahlian ${i + 1}.${j + 1} tidak valid.`);
+        }
+      }
+      if (count > 100) errors.push('Maksimal 100 kartu keahlian.');
+    }
+  }
+  for (const key of ['skillsHeading', 'skillsAside', 'skillsKicker']) if (brief[key] !== undefined && (typeof brief[key] !== 'string' || !brief[key].trim())) errors.push(`Teks ${key} tidak valid.`);
   if (!Array.isArray(brief.projects) || brief.projects.length < 1 || brief.projects.length > 30) errors.push('Karya harus berjumlah 1–30 kartu.');
   if (!brief.tagline?.some?.((text) => typeof text === 'string' && text.trim())) errors.push('Minimal satu sorotan wajib diisi.');
   const imagePaths = [];
