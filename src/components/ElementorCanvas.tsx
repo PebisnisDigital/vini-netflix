@@ -141,9 +141,29 @@ export default function ElementorCanvas({ draft, patch, changeProject, setPhoto,
           const [, position, property] = field.split(':'); const index = Number(position);
           if (!Number.isInteger(index) || index < 0 || index >= (state.brief.highlights?.length || 0)) return;
           if (property === 'title' || property === 'description' || property === 'category') apply({ highlights: state.brief.highlights!.map((item, i) => i === index ? { ...item, [property]: value } : item) });
+        } else if (field.startsWith('skills:')) {
+          const property = field.split(':')[1];
+          if (value.trim() && (property === 'heading' || property === 'aside' || property === 'kicker')) {
+            apply({ [property === 'heading' ? 'skillsHeading' : property === 'aside' ? 'skillsAside' : 'skillsKicker']: value });
+          }
+        } else if (field.startsWith('skill-category:')) {
+          const [, position, property] = field.split(':'); const index = Number(position);
+          const categories = state.brief.skillCategories ?? createCanvasPortfolio(preparedBrief(state)).skillCategories;
+          if (Number.isInteger(index) && categories[index] && (property === 'title' || property === 'subtitle') && (property === 'subtitle' || value.trim())) {
+            apply({ skillCategories: categories.map((group, i) => i === index ? { ...group, [property]: value } : group) });
+          }
         } else if (field.startsWith('skill:')) {
-          const index = Number(field.split(':')[1]);
-          if (Number.isInteger(index) && index >= 0 && index < state.brief.skills.length) apply({ skills: state.brief.skills.map((item, i) => i === index ? value : item) });
+          const [, groupPosition, skillPosition, property] = field.split(':');
+          const groupIndex = Number(groupPosition); const skillIndex = Number(skillPosition);
+          const categories = state.brief.skillCategories ?? createCanvasPortfolio(preparedBrief(state)).skillCategories;
+          if (!Number.isInteger(groupIndex) || !Number.isInteger(skillIndex) || !categories[groupIndex]?.skills[skillIndex]) return;
+          if (!['name', 'mono', 'note', 'evidence'].includes(property) || ((property === 'name' || property === 'mono') && !value.trim())) return;
+          if (property === 'mono' && value.length > 8) { notify('Simbol kotak maksimal 8 karakter.'); return; }
+          const updated = categories.map((group, i) => i !== groupIndex ? group : { ...group, skills: group.skills.map((skill, j) => j !== skillIndex ? skill : {
+            ...skill,
+            [property]: property === 'evidence' ? value.split(/\r?\n|\s+•\s+/).map((line: string) => line.trim()).filter(Boolean) : value,
+          }) });
+          apply({ skillCategories: updated, skills: updated.flatMap((group) => group.skills.map((skill) => skill.name)) });
         } else if (field.startsWith('experience:')) {
           const [, position, property] = field.split(':'); const index = Number(position);
           if (Number.isInteger(index) && index >= 0 && index < state.brief.experiences.length && (property === 'company' || property === 'role' || property === 'period' || property === 'description')) apply({ experiences: state.brief.experiences.map((item, i) => i === index ? { ...item, [property]: value } : item) });
@@ -183,6 +203,10 @@ export default function ElementorCanvas({ draft, patch, changeProject, setPhoto,
       }
       if (data.type === 'PESONAFLIX_VISUAL_ACTION') {
         const index = Number(data.index);
+        const categoryIndex = Number(data.categoryIndex);
+        const categories = state.brief.skillCategories ?? createCanvasPortfolio(preparedBrief(state)).skillCategories;
+        const totalSkills = categories.reduce((sum, group) => sum + group.skills.length, 0);
+        const saveCategories = (updated: typeof categories) => apply({ skillCategories: updated, skills: updated.flatMap((group) => group.skills.map((skill) => skill.name)) });
         switch (data.action) {
           case 'season-add': updateSeason('add'); break;
           case 'season-duplicate': updateSeason('duplicate', index); break;
@@ -218,8 +242,26 @@ export default function ElementorCanvas({ draft, patch, changeProject, setPhoto,
           case 'education-remove': apply({ education: (state.brief.education || []).filter((_, i) => i !== index) }); break;
           case 'highlight-add': apply({ highlights: [...(state.brief.highlights || []), { title: 'Sorotan Baru', description: 'Tulis kisah pencapaian di sini.', category: 'Perjalanan' }] }); break;
           case 'highlight-remove': apply({ highlights: (state.brief.highlights || []).filter((_, i) => i !== index) }); break;
-          case 'skill-add': apply({ skills: [...state.brief.skills, 'Keahlian Baru'] }); break;
-          case 'skill-remove': apply({ skills: state.brief.skills.filter((_, i) => i !== index) }); break;
+          case 'skill-category-add': if (categories.length < 12 && totalSkills < 100) saveCategories([...categories, { id: `kategori-${Date.now().toString(36)}`, title: 'Kategori Baru', subtitle: 'Bidang yang saya tekuni', skills: [{ name: 'Keahlian Baru', mono: 'KB', evidence: [] }] }]); break;
+          case 'skill-category-duplicate': if (categories[index] && categories.length < 12 && totalSkills + categories[index].skills.length <= 100) saveCategories([...categories.slice(0, index + 1), { ...structuredClone(categories[index]), id: `kategori-${Date.now().toString(36)}`, title: `${categories[index].title} (Salinan)` }, ...categories.slice(index + 1)]); break;
+          case 'skill-category-up': if (index > 0 && index < categories.length) { const items = [...categories]; [items[index - 1], items[index]] = [items[index], items[index - 1]]; saveCategories(items); } break;
+          case 'skill-category-down': if (index >= 0 && index < categories.length - 1) { const items = [...categories]; [items[index], items[index + 1]] = [items[index + 1], items[index]]; saveCategories(items); } break;
+          case 'skill-category-remove': if (categories.length > 1 && categories[index]) saveCategories(categories.filter((_, i) => i !== index)); break;
+          case 'skill-add': {
+            const groupIndex = Number.isInteger(categoryIndex) ? categoryIndex : 0;
+            if (categories[groupIndex] && categories[groupIndex].skills.length < 40 && totalSkills < 100) saveCategories(categories.map((group, i) => i === groupIndex ? { ...group, skills: [...group.skills, { name: 'Keahlian Baru', mono: 'KB', evidence: [] }] } : group));
+            break;
+          }
+          case 'skill-duplicate': if (categories[categoryIndex]?.skills[index] && categories[categoryIndex].skills.length < 40 && totalSkills < 100) saveCategories(categories.map((group, i) => i === categoryIndex ? { ...group, skills: [...group.skills.slice(0, index + 1), { ...structuredClone(group.skills[index]), name: `${group.skills[index].name} (Salinan)` }, ...group.skills.slice(index + 1)] } : group)); break;
+          case 'skill-up': case 'skill-down': {
+            const group = categories[categoryIndex]; const other = data.action === 'skill-up' ? index - 1 : index + 1;
+            if (group && index >= 0 && index < group.skills.length && other >= 0 && other < group.skills.length) {
+              const items = [...group.skills]; [items[index], items[other]] = [items[other], items[index]];
+              saveCategories(categories.map((item, i) => i === categoryIndex ? { ...item, skills: items } : item));
+            }
+            break;
+          }
+          case 'skill-remove': if (categories[categoryIndex]?.skills[index] && categories[categoryIndex].skills.length > 1) saveCategories(categories.map((group, i) => i === categoryIndex ? { ...group, skills: group.skills.filter((_, j) => j !== index) } : group)); break;
           case 'reset-theme': apply({ theme: { ...DEFAULT_THEME } }); break;
         }
       }

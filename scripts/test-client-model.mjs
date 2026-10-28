@@ -57,6 +57,20 @@ test('data Satria mengganti seluruh konten tanpa identitas klien lain', async ()
     assert.ok(validateBrief({ ...sample, seasons: [] }).length);
     assert.ok(validateBrief({ ...sample, seasons: [{ ...seasons[0], episodes: [] }] }).length);
     assert.ok(validateBrief({ ...sample, seasons: [{ ...seasons[0], episodes: [{ ...seasons[0].episodes[0], image: '/clients/lain/musim-1-episode-1.webp' }] }] }).length);
+    const skillCategories = [
+      { id: 'foto', title: 'Fotografi', subtitle: 'Studio dan komposisi', skills: [{ name: 'Foto Produk', mono: 'FP', note: 'Utama', evidence: ['Portofolio UMKM'] }] },
+      { id: 'editing', title: 'Editing', subtitle: 'Sentuhan akhir', skills: [{ name: 'Warna', mono: 'WR' }] },
+    ];
+    const groupedSkills = createPortfolioFromBrief({ ...sample, skillCategories, skills: skillCategories.flatMap((group) => group.skills.map((skill) => skill.name)), skillsHeading: 'Keahlian Satria' });
+    assert.equal(groupedSkills.skillCategories.length, 2);
+    assert.equal(groupedSkills.skillCategories[0].skills[0].note, 'Utama');
+    assert.deepEqual(groupedSkills.skillCategories[0].skills[0].evidence, ['Portofolio UMKM']);
+    assert.equal(groupedSkills.skillsHeading, 'Keahlian Satria');
+    assert.deepEqual(validateBrief({ ...sample, skillCategories }), []);
+    assert.ok(validateBrief({ ...sample, skillCategories: [] }).length);
+    assert.ok(validateBrief({ ...sample, skillCategories: [...skillCategories, { ...skillCategories[0] }] }).length);
+    assert.ok(validateBrief({ ...sample, skillCategories: [{ ...skillCategories[0], skills: [] }] }).length);
+    assert.ok(validateBrief({ ...sample, skillCategories: [{ ...skillCategories[0], skills: [{ name: 'Foto', mono: 'SANGATPANJANG' }] }] }).length);
     const unfinished = createCanvasPortfolio({ ...sample, slug: '', name: '', role: '', location: '', bio: '', tagline: [], projects: [{ ...sample.projects[0], title: '', description: '' }], photo: { src: '', alt: '' } });
     assert.equal(unfinished.profile.displayName, 'NAMA KLIEN');
     assert.equal(unfinished.projects[0].title, 'KARYA 1');
@@ -73,6 +87,10 @@ test('proyek baru memakai contoh Sushmita yang lengkap tanpa membuatnya siap ter
     assert.equal(canvas.profile.portrait.src, '/assets/portrait-720.webp');
     assert.equal(canvas.projects.length, 3);
     assert.equal(canvas.seasons.length, 5);
+    assert.equal(canvas.skillCategories.length, 7);
+    assert.equal(example.skillCategories.length, 7);
+    assert.equal(example.skillCategories[0].title, 'Languages');
+    assert.equal(example.skillCategories[0].skills[0].mono, 'Jv');
     assert.equal(example.seasons.length, 5);
     assert.equal(canvas.topPicks.length, 10);
     assert.equal(example.pickCards.length, 10);
@@ -85,5 +103,9 @@ test('proyek baru memakai contoh Sushmita yang lengkap tanpa membuatnya siap ter
     const adapted = createCanvasPortfolio({ ...example, name: 'Satria', slug: 'satria', email: '', links: {}, photo: { src: '', alt: 'Foto Satria' } });
     assert.equal(adapted.profile.displayName, 'Satria');
     assert.equal(adapted.profile.portrait.src, '/assets/portrait-720.webp');
+    assert.equal(adapted.skillCategories.length, 7, 'Kategori asli tetap ada setelah nama klien diganti');
+    const changed = { ...example, name: 'Satria', skillCategories: example.skillCategories.map((group, i) => i === 0 ? { ...group, title: 'Keterampilan Saya', skills: [{ ...group.skills[0], name: 'Keahlian Baru', mono: 'KB' }] } : group) };
+    assert.equal(createCanvasPortfolio(changed).skillCategories[0].skills[0].name, 'Keahlian Baru');
+    assert.ok(findUnreplacedSushmitaExamples(example).includes('kategori atau kartu keahlian'));
   } finally { await server.close(); }
 });

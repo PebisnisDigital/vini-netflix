@@ -17,6 +17,9 @@ export type PortfolioContent = {
   certifications: vini.Certification[];
   skillCategories: vini.SkillCategory[];
   skillEvidence: Record<string, string[]>;
+  skillsHeading?: string;
+  skillsAside?: string;
+  skillsKicker?: string;
   seasons: vini.Season[];
   topPicks: vini.TopPick[];
   picksHeading?: string;
@@ -100,6 +103,10 @@ export type ClientBrief = {
   education?: { school: string; degree: string; place: string; period: string; score?: string }[];
   projects: { title: string; year: string; description: string; category: string; tags: string[]; website?: string; image?: string }[];
   skills: string[];
+  skillCategories?: vini.SkillCategory[];
+  skillsHeading?: string;
+  skillsAside?: string;
+  skillsKicker?: string;
   highlights?: { title: string; description: string; category?: string }[];
   watchCards?: WatchCard[];
   pickCards?: PickCard[];
@@ -134,6 +141,7 @@ export function sushmitaExampleBrief(): ClientBrief {
     })),
     education: sushmita.education.map((e) => ({ ...e })),
     skills: sushmita.skillCategories.flatMap((group) => group.skills.map((skill) => skill.name)),
+    skillCategories: sushmita.skillCategories.map((group) => ({ ...group, skills: group.skills.map((skill) => ({ ...skill, evidence: [...(sushmita.skillEvidence[skill.name] ?? [])] })) })),
     highlights: sushmita.achievements.map((a) => ({ title: a.title, description: a.detail, category: a.org })),
     watchCards: sushmitaWatchCards.map((card) => ({ ...card })),
     pickCards: sushmita.topPicks.map((card) => ({ label: card.label, title: card.title, detail: card.detail, image: '', palette: { ...card.palette } })),
@@ -156,6 +164,8 @@ export function findUnreplacedSushmitaExamples(brief: ClientBrief): string[] {
   if (brief.experiences.some((item) => example.experiences.some((sample) => sample.company === item.company))) leftover.push('pengalaman');
   if (brief.education?.some((item) => example.education?.some((sample) => sample.school === item.school))) leftover.push('pendidikan');
   if (brief.skills.some((skill) => example.skills.includes(skill))) leftover.push('keahlian');
+  if (brief.skillCategories?.some((category) => example.skillCategories?.some((sample) => sample.title === category.title) || category.skills.some((skill) => example.skills.includes(skill.name)))) leftover.push('kategori atau kartu keahlian');
+  if (brief.skillCategories?.some((category) => category.skills.some((skill) => skill.evidence?.some((item) => Object.values(sushmita.skillEvidence).some((examples) => examples.includes(item)))))) leftover.push('keterangan contoh keahlian');
   if (brief.highlights?.some((item) => example.highlights?.some((sample) => sample.title === item.title))) leftover.push('pencapaian');
   if (brief.pickCards?.some((item) => example.pickCards?.some((sample) => sample.title === item.title))) leftover.push('kartu pilihan');
   if (brief.seasons?.some((season) => season.episodes.some((episode) => example.seasons?.some((sample) => sample.episodes.some((item) => item.title === episode.title))))) leftover.push('episode perjalanan');
@@ -198,7 +208,25 @@ export function validateBrief(value: unknown): string[] {
   if (!Array.isArray(b.experiences)) errors.push('Daftar pengalaman tidak valid.');
   if (b.education && !Array.isArray(b.education)) errors.push('Daftar pendidikan tidak valid.');
   if (Array.isArray(b.education)) b.education.forEach((e, i) => { if (!e.school?.trim() || !e.degree?.trim()) errors.push(`Pendidikan ${i + 1} perlu sekolah dan jurusan/gelar.`); });
-  if (!Array.isArray(b.skills)) errors.push('Daftar keahlian tidak valid.');
+  if (!Array.isArray(b.skills) || b.skills.length > 100) errors.push('Daftar keahlian tidak valid (maksimal 100).');
+  if (b.skillCategories !== undefined) {
+    if (!Array.isArray(b.skillCategories) || b.skillCategories.length < 1 || b.skillCategories.length > 12) errors.push('Kategori keahlian harus berjumlah 1–12.');
+    else {
+      const categoryIds = new Set<string>();
+      if (b.skillCategories.reduce((sum, group) => sum + (Array.isArray(group?.skills) ? group.skills.length : 0), 0) > 100) errors.push('Jumlah total kartu keahlian maksimal 100.');
+      b.skillCategories.forEach((category, i) => {
+        if (!category || typeof category.id !== 'string' || !/^[a-z0-9-]{1,60}$/.test(category.id) || categoryIds.has(category.id)) errors.push(`ID kategori keahlian ${i + 1} tidak valid atau sama.`);
+        categoryIds.add(category?.id);
+        if (!category || typeof category.title !== 'string' || !category.title.trim() || category.title.length > 100 || typeof category.subtitle !== 'string' || category.subtitle.length > 250) errors.push(`Kategori keahlian ${i + 1} membutuhkan judul dan subjudul yang valid.`);
+        if (!Array.isArray(category?.skills) || category.skills.length < 1 || category.skills.length > 40) errors.push(`Kategori keahlian ${i + 1} harus memiliki 1–40 kartu.`);
+        else category.skills.forEach((skill, j) => {
+          if (!skill || typeof skill.name !== 'string' || !skill.name.trim() || skill.name.length > 100 || typeof skill.mono !== 'string' || !skill.mono.trim() || skill.mono.length > 8 || (skill.note !== undefined && (typeof skill.note !== 'string' || skill.note.length > 100))) errors.push(`Kartu keahlian ${i + 1}.${j + 1} tidak valid.`);
+          if (skill?.evidence !== undefined && (!Array.isArray(skill.evidence) || skill.evidence.length > 15 || skill.evidence.some((line) => typeof line !== 'string' || line.length > 250))) errors.push(`Keterangan kartu keahlian ${i + 1}.${j + 1} tidak valid.`);
+        });
+      });
+    }
+  }
+  for (const key of ['skillsHeading', 'skillsAside', 'skillsKicker'] as const) if (b[key] !== undefined && (typeof b[key] !== 'string' || !b[key].trim())) errors.push(`Teks ${key} tidak valid.`);
   if (b.highlights && !Array.isArray(b.highlights)) errors.push('Daftar pencapaian tidak valid.');
   if (Array.isArray(b.highlights)) b.highlights.forEach((h, i) => { if (!h.title?.trim() || !h.description?.trim()) errors.push(`Sorotan ${i + 1} perlu judul dan penjelasan.`); });
   if (b.watchCards !== undefined) {
@@ -265,10 +293,16 @@ export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: 
   const achievements = highlights.length ? highlights : projects.slice(0, 4).map((p) => ({
     id: `karya-${p.id}`, title: p.title, org: p.genre, detail: p.logline, laurel: 'KARYA',
   }));
-  const skillCategories: vini.SkillCategory[] = [{
-    id: 'keahlian', title: 'Keahlian Saya', subtitle: 'Bidang yang saya tekuni',
-    skills: (brief.skills.length ? brief.skills : [brief.role]).map((name) => ({ name, mono: name.slice(0, 2).toUpperCase() })),
-  }];
+  // Pertahankan kelompok dan simbol persis seperti master Sushmita, termasuk
+  // pada draft lama yang hanya menyimpan daftar keahlian datar.
+  const originalNames = sushmita.skillCategories.flatMap((group) => group.skills.map((skill) => skill.name));
+  const isUneditedOldSample = !brief.skillCategories && JSON.stringify(brief.skills) === JSON.stringify(originalNames);
+  const skillCategories: vini.SkillCategory[] = brief.skillCategories?.length
+    ? brief.skillCategories.map((group) => ({ ...group, skills: group.skills.map((skill) => ({ ...skill, evidence: skill.evidence ? [...skill.evidence] : undefined })) }))
+    : isUneditedOldSample
+      ? sushmita.skillCategories.map((group) => ({ ...group, skills: group.skills.map((skill) => ({ ...skill, evidence: [...(sushmita.skillEvidence[skill.name] ?? [])] })) }))
+      : [{ id: 'keahlian', title: 'Keahlian Saya', subtitle: 'Bidang yang saya tekuni', skills: (brief.skills.length ? brief.skills : [brief.role]).map((name) => ({ name, mono: name.slice(0, 2).toUpperCase() })) }];
+  const skillNames = skillCategories.flatMap((category) => category.skills.map((skill) => skill.name));
   const seasonEpisodes = (number: number, records: { title: string; description: string; tags: string[]; runtime: string; palette: vini.Palette }[]): vini.Season['episodes'] =>
     records.map((record, i) => ({ ...record, code: `S${String(number).padStart(2, '0')} E${String(i + 1).padStart(2, '0')}` }));
   const generatedSeasons: vini.Season[] = [
@@ -293,7 +327,7 @@ export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: 
   const highlightsForPicks: vini.TopPick[] = [
     ...projects.map((p) => ({ label: p.genre, title: p.title, detail: p.logline, palette: p.palette })),
     ...achievements.map((a, i) => ({ label: a.org, title: a.title, detail: a.detail, palette: palettes[i % palettes.length] })),
-    ...brief.skills.map((s, i) => ({ label: 'Keahlian', title: s, detail: `Bidang yang ditekuni ${name}`, palette: palettes[i % palettes.length] })),
+    ...skillNames.map((s, i) => ({ label: 'Keahlian', title: s, detail: `Bidang yang ditekuni ${name}`, palette: palettes[i % palettes.length] })),
     ...brief.interests.map((interest, i) => ({ label: 'Minat', title: interest, detail: `Hal yang diminati ${name}`, palette: palettes[(i + 2) % palettes.length] })),
   ];
   const topPicks: vini.TopPick[] = brief.pickCards?.map((card, i) => ({
@@ -331,14 +365,14 @@ export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: 
       aboutFacts: [
         { k: 'Peran', v: brief.role, s: 'Aktivitas utama' },
         { k: 'Karya', v: String(projects.length), s: 'Karya dan inisiatif' },
-        { k: 'Keahlian', v: String(brief.skills.length), s: 'Bidang yang ditekuni' },
+        { k: 'Keahlian', v: String(skillNames.length), s: 'Bidang yang ditekuni' },
         { k: 'Asal', v: brief.location, s: 'Lokasi' },
       ],
       websiteLabel: brief.links?.website && validUrl(brief.links.website) ? new URL(brief.links.website).hostname : undefined,
       theme: brief.theme,
     },
     projects, experience, education: (brief.education ?? []).map((e) => ({ school: e.school, degree: e.degree, place: e.place, period: e.period, score: e.score || '' })), achievements, certifications: [], skillCategories,
-    skillEvidence: {}, seasons, journeyHeading: brief.journeyHeading, journeyAside: brief.journeyAside, journeyKicker: brief.journeyKicker, topPicks, picksHeading: brief.picksHeading, picksKicker: brief.picksKicker, introSlides, viewerProfiles, sectionMeta, watchCards,
+    skillEvidence: {}, skillsHeading: brief.skillsHeading, skillsAside: brief.skillsAside, skillsKicker: brief.skillsKicker, seasons, journeyHeading: brief.journeyHeading, journeyAside: brief.journeyAside, journeyKicker: brief.journeyKicker, topPicks, picksHeading: brief.picksHeading, picksKicker: brief.picksKicker, introSlides, viewerProfiles, sectionMeta, watchCards,
   };
 }
 

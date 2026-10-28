@@ -203,7 +203,7 @@ export type Certification = { issuer: string; name: string; link: string };
 // Belum ada daftar sertifikasi resmi Teh Vini yang diberikan.
 export const certifications: Certification[] = [];
 
-export type Skill = { name: string; mono: string; note?: string };
+export type Skill = { name: string; mono: string; note?: string; evidence?: string[] };
 export type SkillCategory = { id: string; title: string; subtitle: string; skills: Skill[] };
 export const skillCategories: SkillCategory[] = [
   {
