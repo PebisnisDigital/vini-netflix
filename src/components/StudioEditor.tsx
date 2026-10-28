@@ -196,11 +196,11 @@ export default function StudioEditor() {
       await persist(); window.location.assign(`/studio/preview?slug=${prepared.slug}`);
     } catch (e) { setNotice((e as Error).message); }
   };
-  const newClient = () => { setActive({ slug: '', brief: sushmitaExampleBrief(), portrait: null, projectPhotos: {}, mode: 'create', updatedAt: Date.now() }); setPr(null); setNotice(''); };
+  const newClient = () => { setActive({ slug: '', brief: sushmitaExampleBrief(), portrait: null, projectPhotos: {}, watchPhotos: {}, mode: 'create', updatedAt: Date.now() }); setPr(null); setNotice(''); };
   const choose = (draft: StudioDraft) => { setActive(draft); sessionStorage.setItem('personalflix-last-draft', draft.slug); setPr(null); setNotice(''); };
   const usePublished = (brief: ClientBrief) => {
     const existing = drafts.find((d) => d.slug === brief.slug);
-    choose(existing ?? { slug: brief.slug, brief, portrait: null, projectPhotos: {}, mode: 'edit', updatedAt: Date.now() });
+    choose(existing ?? { slug: brief.slug, brief, portrait: null, projectPhotos: {}, watchPhotos: {}, mode: 'edit', updatedAt: Date.now() });
   };
   const setPhoto = (index: number | null, file: File | null) => {
     setActive((current) => {
@@ -213,6 +213,47 @@ export default function StudioEditor() {
       return { ...current, projectPhotos: photos };
     });
     setPr(null);
+  };
+  const setWatchPhoto = (index: number, file: File) => {
+    setActive((current) => {
+      if (!current) return current;
+      const watchCards = current.brief.watchCards ?? createCanvasPortfolio(preparedBrief(current)).watchCards ?? [];
+      return { ...current, brief: { ...current.brief, watchCards }, watchPhotos: { ...current.watchPhotos, [index]: file }, updatedAt: Date.now() };
+    });
+    setPr(null);
+  };
+  const watchAction = (action: 'add' | 'duplicate' | 'up' | 'down' | 'remove', index = -1) => {
+    setActive((current) => {
+      if (!current) return current;
+      const original = current.brief.watchCards ?? createCanvasPortfolio(preparedBrief(current)).watchCards ?? [];
+      const cards = original.map((card) => ({ ...card }));
+      const photos = { ...(current.watchPhotos || {}) };
+      if (action === 'add') {
+        if (cards.length >= 30) return current;
+        cards.push({ target: 'originals', title: 'Kartu Jelajah Baru', subtitle: 'Klik untuk mengubah keterangannya', image: '' });
+      } else if (action === 'duplicate') {
+        if (cards.length >= 30 || !cards[index]) return current;
+        cards.push({ ...cards[index], title: `${cards[index].title} (Salinan)` });
+        if (photos[index]) photos[cards.length - 1] = photos[index];
+      } else if (action === 'up' || action === 'down') {
+        const target = index + (action === 'up' ? -1 : 1);
+        if (!cards[index] || target < 0 || target >= cards.length) return current;
+        [cards[index], cards[target]] = [cards[target], cards[index]];
+        const moved = photos[index];
+        if (photos[target]) photos[index] = photos[target]; else delete photos[index];
+        if (moved) photos[target] = moved; else delete photos[target];
+      } else if (action === 'remove') {
+        if (!cards[index] || cards.length <= 1) return current;
+        cards.splice(index, 1);
+        const shifted: Record<number, File> = {};
+        for (const [key, file] of Object.entries(photos)) {
+          const i = Number(key); if (i !== index) shifted[i > index ? i - 1 : i] = file;
+        }
+        return { ...current, brief: { ...current.brief, watchCards: cards }, watchPhotos: shifted, updatedAt: Date.now() };
+      }
+      return { ...current, brief: { ...current.brief, watchCards: cards }, watchPhotos: photos, updatedAt: Date.now() };
+    });
+    setNotice(''); setPr(null); setApproved(false);
   };
   const reorder = (index: number, direction: number) => {
     if (!active) return;
@@ -254,6 +295,10 @@ export default function StudioEditor() {
       const files: { file: File; path: string }[] = [];
       if (saved.portrait) files.push({ file: saved.portrait, path: `public${publishingBrief.photo.src}` });
       for (const [index, file] of Object.entries(saved.projectPhotos)) files.push({ file, path: `public${publishingBrief.projects[Number(index)].image}` });
+      for (const [index, file] of Object.entries(saved.watchPhotos || {})) {
+        const image = publishingBrief.watchCards?.[Number(index)]?.image;
+        if (image) files.push({ file, path: `public${image}` });
+      }
       const assets: { path: string; sha: string }[] = [];
       for (const { file, path } of files) {
         const response = await fetch('/api/assets', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': file.type, 'x-personalflix-action': '1', 'x-client-photo-path': path }, body: file });
@@ -275,7 +320,7 @@ export default function StudioEditor() {
       if (result.merged) {
         setNotice(`Berhasil! Vercel sedang menerbitkan https://pesonaflix.vercel.app/${result.slug}`); setPr(null);
         if (active) {
-          const updated = { ...active, brief: preparedBrief(active), portrait: null, projectPhotos: {}, mode: 'edit' as const, updatedAt: Date.now() };
+          const updated = { ...active, brief: preparedBrief(active), portrait: null, projectPhotos: {}, watchPhotos: {}, mode: 'edit' as const, updatedAt: Date.now() };
           await saveDraft(updated); setActive(updated); await refreshList();
         }
       }
@@ -314,7 +359,7 @@ export default function StudioEditor() {
         {!active ? <section className={`${card} flex min-h-[400px] flex-col items-center justify-center gap-4 text-center`}><span className="text-6xl">✦</span><h2 className="text-3xl font-extrabold">Mulai Karya Baru</h2><p className="max-w-md text-white/55">Masukkan data klien dari WhatsApp, ganti foto dan atur kartu sesuai kebutuhan. Simpan draft kapan saja.</p><button type="button" onClick={newClient} className="rounded-xl bg-[#e50931] px-6 py-3 font-bold">Buat Klien Baru</button></section> : <>
           <div className="flex flex-wrap items-start justify-between gap-3"><div><p className="text-xs font-bold uppercase tracking-wider text-[#ff6580]">{active.mode === 'create' ? 'Website baru' : 'Edit website terbit'}</p><h2 className="mt-1 text-2xl font-extrabold">{active.brief.name || 'Klien Tanpa Nama'}</h2><p className="mt-1 text-sm text-white/45">/{active.brief.slug || 'nama-klien'} · Data tersimpan hanya di browser ini sampai dipublikasikan.</p></div><div className="flex flex-wrap gap-2"><button type="button" className={secondary} onClick={saveClick}>Simpan Draft</button><button type="button" className={secondary} onClick={() => { void preview(); }}>Preview Lengkap</button></div></div>
           {active.mode === 'create' && <p className="rounded-xl border border-amber-400/25 bg-amber-300/10 px-4 py-3 text-sm leading-relaxed text-amber-100">Ini adalah contoh lengkap portofolio Sushmita dari repo master. Klik teks, foto, dan kartu langsung di dalam kanvas untuk menyesuaikannya. Ganti semua identitas dan aset contoh sebelum menerbitkan.</p>}
-          {new URLSearchParams(location.search).has('legacy') ? <CanvasEditor draft={active} patch={patch} changeProject={changeProject} setPhoto={setPhoto} reorder={reorder} removeProject={removeProject} /> : <ElementorCanvas draft={active} patch={patch} changeProject={changeProject} setPhoto={setPhoto} reorder={reorder} removeProject={removeProject} notice={setNotice} />}
+          {new URLSearchParams(location.search).has('legacy') ? <CanvasEditor draft={active} patch={patch} changeProject={changeProject} setPhoto={setPhoto} reorder={reorder} removeProject={removeProject} /> : <ElementorCanvas draft={active} patch={patch} changeProject={changeProject} setPhoto={setPhoto} setWatchPhoto={setWatchPhoto} watchAction={watchAction} reorder={reorder} removeProject={removeProject} notice={setNotice} />}
           <details className={`${card} group hidden`}><summary className="cursor-pointer text-base font-extrabold text-white">⚙ Pengaturan Detail <span className="ml-2 text-xs font-normal text-white/45">Pengalaman, pendidikan, keahlian, tautan, dan data tambahan</span></summary><div className="space-y-5 pt-6">
           <section className={card}><h3 className="mb-5 text-xl font-extrabold">01 · Profil & Redaksi</h3><div className="grid gap-4 sm:grid-cols-2">
             <Control label="Nama lengkap / brand *"><input className={field} value={active.brief.name} placeholder="Satria Putra" onChange={(e) => patch({ name: e.target.value, slug: active.brief.slug || normalizeSlug(e.target.value), photo: { ...active.brief.photo, alt: `Foto ${e.target.value}` } })}/></Control>
