@@ -7,6 +7,7 @@ export type StudioDraft = {
   projectPhotos: Record<number, File>;
   watchPhotos?: Record<number, File>;
   pickPhotos?: Record<number, File>;
+  episodePhotos?: Record<string, File>;
   mode: 'create' | 'edit';
   updatedAt: number;
 };
@@ -49,7 +50,7 @@ export const clientBriefBlank = (): ClientBrief => ({
 });
 
 export function preparedBrief(draft: StudioDraft): ClientBrief {
-  const { brief, portrait, projectPhotos, watchPhotos = {}, pickPhotos = {} } = draft;
+  const { brief, portrait, projectPhotos, watchPhotos = {}, pickPhotos = {}, episodePhotos = {} } = draft;
   const ext = (file: File) => file.name.split('.').pop()?.toLowerCase() || 'webp';
   return {
     ...brief,
@@ -57,5 +58,6 @@ export function preparedBrief(draft: StudioDraft): ClientBrief {
     projects: brief.projects.map((project, i) => ({ ...project, image: projectPhotos[i] ? `/clients/${brief.slug}/karya-${i + 1}.${ext(projectPhotos[i])}` : project.image || '' })),
     watchCards: brief.watchCards?.map((card, i) => ({ ...card, image: watchPhotos[i] ? `/clients/${brief.slug}/jelajah-${i + 1}.${ext(watchPhotos[i])}` : card.image || '' })),
     pickCards: brief.pickCards?.map((card, i) => ({ ...card, image: pickPhotos[i] ? `/clients/${brief.slug}/pilihan-${i + 1}.${ext(pickPhotos[i])}` : card.image || '' })),
+    seasons: brief.seasons?.map((season, i) => ({ ...season, episodes: season.episodes.map((episode, j) => ({ ...episode, image: episodePhotos[`${i}-${j}`] ? `/clients/${brief.slug}/musim-${i + 1}-episode-${j + 1}.${ext(episodePhotos[`${i}-${j}`])}` : episode.image || '' })) })),
   };
 }
