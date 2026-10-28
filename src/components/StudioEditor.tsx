@@ -285,8 +285,8 @@ export default function StudioEditor() {
 
   return <div className="min-h-screen bg-[#09090d] font-sans text-white">
     <header className="sticky top-0 z-40 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 bg-[#0b0b10]/95 px-5 py-4 backdrop-blur-lg sm:px-8"><a href="/" className="font-extrabold tracking-widest">PESONA<span className="text-[#ff4566]">FLIX</span><span className="ml-2 text-xs font-medium tracking-normal text-white/45">STUDIO</span></a><div className="flex flex-wrap items-center gap-2"><span className="rounded-full border border-[#ff6580] bg-[#ff6580]/10 px-3 py-2 text-xs font-bold text-white">Editor CMS</span><a href="/studio?tab=formulir" className={secondary}>Formulir Klien</a><span className="rounded-full border border-white/15 px-3 py-1 text-xs text-white/60">{session.authenticated ? `● ${session.login}` : 'Draft lokal · Tanpa login'}</span><a href="/vini" target="_blank" rel="noreferrer" className={secondary}>Lihat Contoh</a></div></header>
-    <div className="mx-auto grid max-w-[1720px] gap-5 px-4 py-6 lg:grid-cols-[230px_minmax(0,1fr)] lg:px-6">
-      <aside className={`${card} h-fit lg:sticky lg:top-24`}><div className="mb-5"><p className="text-xs font-bold uppercase tracking-[0.18em] text-[#ff6580]">PESONAFLIX Studio</p><h1 className="mt-1 text-2xl font-extrabold">Website Klien</h1><p className="mt-2 text-sm text-white/50">Seperti menulis postingan, tetapi hasilnya portofolio bergaya serial.</p></div>
+    <div className={`mx-auto grid max-w-[1720px] gap-5 px-4 py-6 lg:px-6 ${active ? 'lg:grid-cols-1' : 'lg:grid-cols-[230px_minmax(0,1fr)]'}`}>
+      <aside className={`${card} ${active ? 'hidden' : ''} h-fit lg:sticky lg:top-24`}><div className="mb-5"><p className="text-xs font-bold uppercase tracking-[0.18em] text-[#ff6580]">PESONAFLIX Studio</p><h1 className="mt-1 text-2xl font-extrabold">Website Klien</h1><p className="mt-2 text-sm text-white/50">Seperti menulis postingan, tetapi hasilnya portofolio bergaya serial.</p></div>
         <button type="button" onClick={newClient} className="mb-5 w-full rounded-xl bg-[#e50931] px-4 py-3 text-sm font-bold hover:bg-[#fb2951]">＋ Buat Klien Baru</button>
         <input aria-label="Cari klien" className={`${field} mb-3`} value={search} placeholder="Cari nama klien…" onChange={(e) => setSearch(e.target.value)}/>
         <p className="mb-2 text-xs font-bold uppercase tracking-wider text-white/40">Draft tersimpan</p>
@@ -296,6 +296,21 @@ export default function StudioEditor() {
       </aside>
 
       <main className="min-w-0 space-y-5">
+        {active && <div className="flex flex-wrap items-center gap-2 border-b border-white/10 pb-3">
+          <button type="button" onClick={newClient} className={secondary}>＋ Website Baru</button>
+          <details className="group relative">
+            <summary className={`${secondary} cursor-pointer list-none`}>▤ Pilih Klien</summary>
+            <div className="absolute left-0 top-full z-30 mt-2 max-h-80 min-w-[250px] space-y-1 overflow-y-auto rounded-xl border border-white/15 bg-[#18161e] p-3 shadow-2xl">
+              <input aria-label="Cari klien" className={`${field} mb-2`} value={search} placeholder="Cari nama klien…" onChange={(e) => setSearch(e.target.value)}/>
+              <p className="px-2 text-[11px] font-bold uppercase tracking-widest text-white/40">Draft tersimpan</p>
+              {drafts.filter((d) => d.brief.name.toLowerCase().includes(search.toLowerCase()) || d.slug.includes(search.toLowerCase())).map((entry) => <button type="button" key={entry.slug} className="block w-full rounded-lg px-2 py-2 text-left text-sm hover:bg-white/10" onClick={(event) => { choose(entry); event.currentTarget.closest('details')?.removeAttribute('open'); }}>{entry.brief.name || entry.slug}<span className="block text-xs text-white/45">/{entry.slug}</span></button>)}
+              <p className="px-2 pt-2 text-[11px] font-bold uppercase tracking-widest text-white/40">Sudah tayang</p>
+              {published.filter((p) => p.name.toLowerCase().includes(search.toLowerCase()) || p.slug.includes(search.toLowerCase())).map((entry) => <button type="button" key={entry.slug} className="block w-full rounded-lg px-2 py-2 text-left text-sm hover:bg-white/10" onClick={(event) => { usePublished(entry); event.currentTarget.closest('details')?.removeAttribute('open'); }}>{entry.name}<span className="block text-xs text-emerald-300/60">/{entry.slug}</span></button>)}
+              {!drafts.length && !published.length && <p className="px-2 py-2 text-xs text-white/40">Belum ada klien tersimpan.</p>}
+            </div>
+          </details>
+          <span className="text-xs text-white/40">Edit langsung di kanvas · Simpan sebelum pindah klien</span>
+        </div>}
         {!active ? <section className={`${card} flex min-h-[400px] flex-col items-center justify-center gap-4 text-center`}><span className="text-6xl">✦</span><h2 className="text-3xl font-extrabold">Mulai Karya Baru</h2><p className="max-w-md text-white/55">Masukkan data klien dari WhatsApp, ganti foto dan atur kartu sesuai kebutuhan. Simpan draft kapan saja.</p><button type="button" onClick={newClient} className="rounded-xl bg-[#e50931] px-6 py-3 font-bold">Buat Klien Baru</button></section> : <>
           <div className="flex flex-wrap items-start justify-between gap-3"><div><p className="text-xs font-bold uppercase tracking-wider text-[#ff6580]">{active.mode === 'create' ? 'Website baru' : 'Edit website terbit'}</p><h2 className="mt-1 text-2xl font-extrabold">{active.brief.name || 'Klien Tanpa Nama'}</h2><p className="mt-1 text-sm text-white/45">/{active.brief.slug || 'nama-klien'} · Data tersimpan hanya di browser ini sampai dipublikasikan.</p></div><div className="flex flex-wrap gap-2"><button type="button" className={secondary} onClick={saveClick}>Simpan Draft</button><button type="button" className={secondary} onClick={() => { void preview(); }}>Preview Lengkap</button></div></div>
           {active.mode === 'create' && <p className="rounded-xl border border-amber-400/25 bg-amber-300/10 px-4 py-3 text-sm leading-relaxed text-amber-100">Ini adalah contoh lengkap portofolio Sushmita dari repo master. Klik teks, foto, dan kartu langsung di dalam kanvas untuk menyesuaikannya. Ganti semua identitas dan aset contoh sebelum menerbitkan.</p>}
