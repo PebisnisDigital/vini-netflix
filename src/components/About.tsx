@@ -80,7 +80,7 @@ export default function About() {
 
           <div className="mt-8">
             <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.28em] text-smoke">Minat</p>
-            <div className="flex flex-wrap gap-2">
+            <div data-studio-edit="interests" className="flex flex-wrap gap-2">
               {profile.interests.map((i) => (
                 <span key={i} className="glass rounded-full px-3 py-1.5 text-xs font-medium text-bone">
                   {i}

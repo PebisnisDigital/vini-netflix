@@ -29,7 +29,7 @@ export default function Achievements() {
 
       <div className="group/rail relative">
         <div ref={momentsRail} className="rail gutter flex gap-4 overflow-x-auto py-7 [perspective:1400px]">
-        {[0, 1, 2].flatMap((copy) => achievements.map((a) => (
+        {[0, 1, 2].flatMap((copy) => achievements.map((a, index) => (
           <motion.div
             key={`${copy}-${a.id}`}
             aria-hidden={copy !== 1}
@@ -47,9 +47,9 @@ export default function Achievements() {
                   </div>
                   <Laurel side="r" />
                 </div>
-                <h3 className="relative mt-6 font-display text-[1.75rem] leading-tight text-bone">{a.title}</h3>
-                <p className="relative mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#d9b46a]">{a.org}</p>
-                <p className="relative mt-4 text-[13px] leading-relaxed text-bone/70">{a.detail}</p>
+                <h3 data-studio-edit={`highlight:${index}:title`} className="relative mt-6 font-display text-[1.75rem] leading-tight text-bone">{a.title}</h3>
+                <p data-studio-edit={`highlight:${index}:category`} className="relative mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#d9b46a]">{a.org}</p>
+                <p data-studio-edit={`highlight:${index}:description`} className="relative mt-4 text-[13px] leading-relaxed text-bone/70">{a.detail}</p>
                 {a.link && (
                   <a
                     href={a.link}

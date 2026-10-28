@@ -49,8 +49,8 @@ export default function Skills() {
                 <span className="font-semibold text-bone">{category.title}</span> — {category.subtitle}
               </motion.p>
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-4">
-                {category.skills.map((s) => (
-                  <SkillCard key={s.name} skill={s} hue={hue} />
+                {category.skills.map((s, i) => (
+                  <SkillCard key={s.name} skill={s} hue={hue} editIndex={skillCategories.slice(0, cat).reduce((total, group) => total + group.skills.length, 0) + i} />
                 ))}
               </div>
             </motion.div>
@@ -61,7 +61,7 @@ export default function Skills() {
   );
 }
 
-function SkillCard({ skill, hue }: { skill: Skill; hue: string }) {
+function SkillCard({ skill, hue, editIndex }: { skill: Skill; hue: string; editIndex: number }) {
   const { skillEvidence } = usePortfolio();
   const [open, setOpen] = useState(false);
   const evidence = skillEvidence[skill.name];
@@ -69,6 +69,7 @@ function SkillCard({ skill, hue }: { skill: Skill; hue: string }) {
   return (
     <motion.button
       type="button"
+      data-studio-edit={`skill:${editIndex}`}
       onHoverStart={() => setOpen(true)}
       onHoverEnd={() => setOpen(false)}
       onClick={() => setOpen((o) => !o)}
