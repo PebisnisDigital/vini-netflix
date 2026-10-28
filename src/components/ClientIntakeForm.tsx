@@ -1,6 +1,7 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { normalizeSlug, validateBrief, type ClientBrief } from '../data/clientModel';
 import { createClientPackage, imagePath } from '../data/clientPackage';
+import { saveDraft } from '../data/studioDraft';
 
 const newProject = () => ({ title: '', year: '2026', description: '', category: 'Portofolio', tags: [] as string[], website: '', image: '' });
 const newExperience = () => ({ company: '', role: '', period: '', description: '' });
@@ -36,6 +37,7 @@ export default function ClientIntakeForm() {
   const [errors, setErrors] = useState<string[]>([]);
   const [exported, setExported] = useState(false);
   const [packing, setPacking] = useState(false);
+  const [savingStudio, setSavingStudio] = useState(false);
 
   useEffect(() => {
     if (!portrait) { setPortraitPreview(''); return; }
@@ -92,10 +94,26 @@ export default function ClientIntakeForm() {
     } finally { setPacking(false); }
   };
 
+  const openStudio = async () => {
+    if (savingStudio) return;
+    const invalid = validateBrief(prepared);
+    if (!portrait) invalid.push('Pilih foto utama terlebih dahulu.');
+    if (invalid.length) { setErrors(invalid); window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+    setSavingStudio(true);
+    try {
+      await saveDraft({ slug: prepared.slug, brief: prepared, portrait, projectPhotos, mode: 'create', updatedAt: Date.now() });
+      sessionStorage.setItem('personalflix-last-draft', prepared.slug);
+      window.location.assign('/studio');
+    } catch {
+      setErrors(['Draft gagal disimpan di browser. Periksa ruang penyimpanan dan coba lagi.']);
+      setSavingStudio(false);
+    }
+  };
+
   return <div className="min-h-screen bg-[#08080b] text-white font-sans">
-    <header className="border-b border-white/10 px-5 py-5 sm:px-10"><a href="/" className="text-base font-extrabold tracking-wide text-white">PERSONAL<span className="text-[#fa526e]">FLIX</span></a><span className="ml-4 text-xs text-white/60">Formulir admin</span><a href="/studio" className="ml-4 rounded-lg border border-[#fa526e]/50 px-3 py-2 text-xs font-bold text-[#ff8da0]">Buka Dashboard CMS →</a></header>
+    <header className="flex flex-wrap items-center gap-3 border-b border-white/10 px-5 py-5 sm:px-10"><a href="/" className="text-base font-extrabold tracking-wide text-white">PERSONAL<span className="text-[#fa526e]">FLIX</span></a><span className="rounded-lg border border-[#fa526e]/50 bg-[#fa526e]/10 px-3 py-2 text-xs font-bold text-white">Formulir Klien</span><a href="/studio" className="rounded-lg border border-white/20 px-3 py-2 text-xs font-bold text-[#ff8da0]">Editor CMS →</a></header>
     <main className="mx-auto max-w-3xl space-y-6 px-4 py-12 sm:px-6">
-      <div className="mb-8 space-y-3"><p className="text-xs font-bold uppercase tracking-[0.25em] text-[#ff6c86]">WEB PERSONAL NETFLIX</p><h1 className="text-3xl font-extrabold leading-tight sm:text-5xl">Data Klien.<br/>Satu Paket Siap Pakai.</h1><p className="max-w-2xl text-base leading-relaxed text-white/65">Formulir ini diisi oleh Teh Vini berdasarkan jawaban dan foto yang klien kirim melalui WhatsApp. Setelah lengkap, cukup unduh satu paket ZIP untuk diproses di Codex. Tidak perlu login.</p></div>
+      <div className="mb-8 space-y-3"><p className="text-xs font-bold uppercase tracking-[0.25em] text-[#ff6c86]">WEB PERSONAL NETFLIX</p><h1 className="text-3xl font-extrabold leading-tight sm:text-5xl">Data Klien.<br/>Siap Masuk Studio.</h1><p className="max-w-2xl text-base leading-relaxed text-white/65">Teh Vini mengisi formulir berdasarkan data dan foto dari WhatsApp. Setelah lengkap, klik <strong className="text-white">Buka di Editor CMS</strong> agar semua isian dan foto langsung menjadi draft—tanpa mengetik ulang, tanpa Codex, dan tanpa login.</p></div>
       {errors.length > 0 && <div role="alert" className="rounded-xl border border-red-500/60 bg-red-500/10 p-5"><p className="mb-2 font-semibold">Masih ada yang perlu dilengkapi:</p><ul className="list-disc space-y-1 pl-5 text-sm">{errors.map((e) => <li key={e}>{e}</li>)}</ul></div>}
 
       <section className={sectionClass}><h2 className="mb-5 text-xl font-bold">01 · Identitas</h2><div className="grid gap-5 sm:grid-cols-2">
@@ -152,9 +170,9 @@ export default function ClientIntakeForm() {
         <button type="button" className="text-sm text-red-300" onClick={() => update('highlights', (brief.highlights || []).filter((_, j) => j !== i))}>Hapus sorotan</button>
       </div>)}<button type="button" className="rounded-xl border border-white/20 px-4 py-3 text-sm font-semibold hover:bg-white/10" onClick={() => update('highlights', [...(brief.highlights || []), newHighlight()])}>+ Tambah sorotan</button></section>
 
-      <section className={`${sectionClass} border-[#ff6985]/40`}><h2 className="text-xl font-bold">06 · Unduh Paket Klien</h2><p className="mt-2 text-sm leading-relaxed text-white/65">Satu berkas ZIP berisi JSON, foto utama, foto karya (jika ada), dan petunjuk proses. <strong className="text-white">Tidak ada data yang otomatis dikirim atau dipublikasikan.</strong> Berkas disiapkan di perangkat ini untuk diberikan ke Codex.</p>
-        <div className="mt-5"><button type="button" disabled={packing} aria-busy={packing} className="min-h-12 rounded-xl bg-[#e62f50] px-5 py-3 font-bold text-white hover:bg-[#f84a69] disabled:cursor-wait disabled:opacity-60" onClick={exportData}>{packing ? 'Menyiapkan ZIP…' : 'Unduh Paket Klien'}</button></div>
-        {exported && <p role="status" className="mt-4 text-sm font-semibold text-green-300">Paket ZIP berhasil disiapkan. Berikan ZIP ke Codex, lalu cek preview sebelum web klien diterbitkan.</p>}
+      <section className={`${sectionClass} border-[#ff6985]/40`}><h2 className="text-xl font-bold">06 · Lanjut ke Editor CMS</h2><p className="mt-2 text-sm leading-relaxed text-white/65">Data dan foto disimpan sebagai draft di browser ini, lalu langsung terbuka di editor. Teteh bisa memoles tulisan, menambah kartu, melihat preview, dan login GitHub hanya saat menerbitkan.</p>
+        <div className="mt-5 flex flex-wrap items-center gap-3"><button type="button" disabled={savingStudio} aria-busy={savingStudio} className="min-h-12 rounded-xl bg-[#e62f50] px-5 py-3 font-bold text-white hover:bg-[#f84a69] disabled:cursor-wait disabled:opacity-60" onClick={() => void openStudio()}>{savingStudio ? 'Menyimpan draft…' : 'Buka di Editor CMS'}</button><button type="button" disabled={packing} aria-busy={packing} className="min-h-12 rounded-xl border border-white/20 px-5 py-3 font-bold text-white hover:bg-white/10 disabled:opacity-60" onClick={exportData}>{packing ? 'Menyiapkan ZIP…' : 'Unduh Backup ZIP'}</button></div>
+        {exported && <p role="status" className="mt-4 text-sm font-semibold text-green-300">Backup ZIP berhasil disiapkan. Simpan sebagai arsip klien.</p>}
         <p className="mt-4 text-xs leading-relaxed text-white/50">Simpan ZIP di tempat aman karena bisa berisi data kontak dan foto klien. Jangan unggah berkas berisi data sensitif ke repositori publik.</p>
         <a className="mt-5 inline-flex min-h-12 items-center justify-center rounded-xl border border-[#5ac899]/60 px-5 py-3 font-bold text-green-300 hover:bg-green-500/10" href="https://wa.me/6282137523626?text=Halo%20Teh%20Vini%2C%20saya%20mau%20dibuatkan%20web%20personal%20ala%20Netflix.%20Saya%20akan%20kirim%20data%20formulir%20dan%20fotonya." target="_blank" rel="noreferrer">WhatsApp Teh Vini ↗</a>
       </section>

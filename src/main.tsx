@@ -9,15 +9,19 @@ import './index.css';
 async function start() {
   const root = createRoot(document.getElementById('root')!);
   if (/^\/formulir\/?$/.test(location.pathname)) {
-    document.title = 'Formulir Klien — Web Personal Netflix';
-    const { default: ClientIntakeForm } = await import('./components/ClientIntakeForm');
-    root.render(<StrictMode><ClientIntakeForm /></StrictMode>);
+    location.replace(`/studio?tab=formulir${location.hash}`);
     return;
   }
   if (/^\/studio\/?$/.test(location.pathname)) {
-    document.title = 'Personalflix Studio — Kelola Website Klien';
-    const { default: StudioEditor } = await import('./components/StudioEditor');
-    root.render(<StrictMode><StudioEditor /></StrictMode>);
+    if (new URLSearchParams(location.search).get('tab') === 'formulir') {
+      document.title = 'Formulir Klien — Personalflix Studio';
+      const { default: ClientIntakeForm } = await import('./components/ClientIntakeForm');
+      root.render(<StrictMode><ClientIntakeForm /></StrictMode>);
+    } else {
+      document.title = 'Personalflix Studio — Kelola Website Klien';
+      const { default: StudioEditor } = await import('./components/StudioEditor');
+      root.render(<StrictMode><StudioEditor /></StrictMode>);
+    }
     return;
   }
   if (/^\/studio\/preview\/?$/.test(location.pathname)) {

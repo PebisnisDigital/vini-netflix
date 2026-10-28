@@ -2,8 +2,13 @@
 
 ## Alur penggunaan
 
-1. Buka `/studio` di browser pribadi Teh Vini. Draft tersimpan **di browser tersebut**, bukan di server. Tidak ada login saat mengetik, mengunggah foto, atau menyimpan draft.
-2. Klik **Buat Klien Baru** atau pilih klien yang sudah tayang. Halaman `/vini` tetap contoh master dan tidak diedit lewat sistem JSON klien.
+1. Buka **`https://tehvini.vercel.app/studio`** di browser pribadi Teh Vini. Draft tersimpan **di browser tersebut**, bukan di server. Tidak ada login saat mengetik, mengunggah foto, atau menyimpan draft. Semua halaman memakai domain yang sama.
+   - `/` — halaman utama layanan (sementara **COMING SOON**).
+   - `/studio` — editor CMS.
+   - `/studio?tab=formulir` — formulir lengkap; tombol **Buka di Editor CMS** menyalin semua data dan foto ke draft lokal tanpa mengetik ulang.
+   - `/{namaklien}` — portofolio publik, misalnya `/vini` dan `/satria` setelah diterbitkan.
+   - `/formulir` — alamat lama yang otomatis mengarahkan ke `/studio?tab=formulir`.
+2. Klik **Buat Klien Baru** atau pilih klien yang sudah tayang. Alternatifnya isi formulir di tab Formulir Klien dan klik **Buka di Editor CMS**. Halaman `/vini` tetap contoh master dan tidak diedit lewat sistem JSON klien.
 3. Ubah profil, headline, perjalanan, pendidikan, keahlian, pencapaian, dan tautan. Setiap karya adalah satu kartu dengan foto sendiri, judul, kategori, cerita, dan tag. Gunakan panah untuk mengurutkan kartu.
 4. Klik **Simpan Draft** dan **Lihat Preview**. Preview mengambil data dan foto yang disimpan di IndexedDB lokal, lalu merender komponen portofolio asli.
 5. Setelah disetujui klien dan siap diterbitkan, klik **Login GitHub & Siapkan Preview**. OAuth GitHub diminta hanya pada tahap ini (sesi sekitar 30 menit).

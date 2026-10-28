@@ -8,12 +8,14 @@ Satu proyek GitHub dan Vercel untuk **satu gaya template** (Netflix). Banyak kli
 | --- | --- |
 | `/` | Landing page utama (saat ini COMING SOON) |
 | `/vini` | Portofolio asli Teh Vini, tetap dipertahankan |
-| `/formulir` | Formulir kerja internal Teh Vini, tidak menyimpan data di server |
+| `/studio` | CMS untuk edit teks, foto, dan kartu (draft lokal) |
+| `/studio?tab=formulir` | Formulir kerja Teh Vini; tombol lanjut memindahkan isi ke draft CMS |
+| `/formulir` | Alamat lama, mengalihkan ke tab formulir di `/studio` |
 | `/satria` | Portofolio Satria, muncul **hanya** setelah data dan foto diterbitkan |
 
 ## 1. Formulir kerja Teh Vini
 
-Klien mengirim jawaban dan foto lewat WhatsApp. **Teh Vini sendiri** membuka `https://tehvini.vercel.app/formulir` dan mengisi data klien. Tidak diperlukan akun/login karena pengisian hanya berlangsung di perangkat pengguna dan tidak ada penyimpanan backend. **Namun alamat formulir tetap publik; siapa pun yang memiliki URL bisa membukanya dan mengunduh ZIP lokal.** Jangan menganggap kerahasiaan URL sebagai autentikasi.
+Klien mengirim jawaban dan foto lewat WhatsApp. **Teh Vini sendiri** membuka `https://tehvini.vercel.app/studio?tab=formulir` dan mengisi data klien. Klik **Buka di Editor CMS** untuk langsung menyimpan data dan foto menjadi draft lokal di `/studio`, lalu lanjut edit, preview, dan terbitkan lewat GitHub. Paket ZIP tetap tersedia sebagai backup opsional. Tidak diperlukan login saat menyusun draft karena pengisian hanya berlangsung di perangkat pengguna dan tidak ada penyimpanan backend. **Namun alamat formulir tetap publik; siapa pun yang memiliki URL bisa membukanya dan mengunduh ZIP lokal.** Jangan menganggap kerahasiaan URL sebagai autentikasi.
 
 Isi formulir:
 
@@ -23,7 +25,7 @@ Isi formulir:
 4. Karya/proyek (minimal satu). Setiap proyek dapat memiliki foto tambahan, deskripsi, kategori, keahlian, dan tautan situs.
 5. Keahlian, sorotan/pencapaian, email, serta tautan web/LinkedIn/GitHub (opsional).
 
-Setelah semua data lengkap, Teh Vini klik **Unduh Paket Klien**. Satu ZIP `paket-klien-satria.zip` berisi:
+Jika butuh arsip cadangan, Teh Vini bisa klik **Unduh Backup ZIP**. Satu ZIP `paket-klien-satria.zip` berisi:
 
 ```text
 PANDUAN.txt
@@ -36,7 +38,14 @@ Nama berkas di dalam paket selalu diselaraskan dengan path pada JSON. Format yan
 
 Foto minimal **1 foto utama**. Idealnya **1 foto utama + 1 foto untuk tiap karya**. Tidak semua foto harus transparan: foto utama lebih bagus transparan; foto karya lazimnya tetap dengan latar aslinya.
 
-## 2. Penerbitan klien baru
+## 2. Penerbitan klien baru (cara utama: Studio CMS)
+
+1. Dari formulir klik **Buka di Editor CMS**, atau langsung buat klien baru di `/studio`.
+2. Simpan draft, klik **Lihat Preview**, lalu minta persetujuan klien.
+3. Saat siap menerbitkan, login GitHub, unggah foto, dan buat PR dari CMS.
+4. Pastikan pemeriksaan GitHub dan preview Vercel lulus sebelum menekan tombol terbitkan.
+
+### Jalur cadangan manual via ZIP (opsional)
 
 Misal Satria:
 

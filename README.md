@@ -4,10 +4,11 @@ Master template portofolio bergaya platform streaming untuk beberapa klien. **Sa
 
 | Halaman | Fungsi |
 | --- | --- |
-| `/` | Landing page utama (COMING SOON) |
+| `/` | LP utama layanan Teh Vini (sementara COMING SOON) |
 | `/vini` | Portofolio Teh Vini (contoh & acuan desain) |
-| `/formulir` | Formulir internal pengemasan data Teh Vini (tanpa login/backend) |
+| `/formulir` | Alamat lama, otomatis mengarah ke `/studio?tab=formulir` |
 | `/studio` | CMS editor seperti Blogger: buat/edit konten dan foto, simpan draft, preview |
+| `/studio?tab=formulir` | Formulir klien, langsung dipindah ke draft CMS tanpa mengetik ulang |
 | `/studio/preview?slug=satria` | Preview portofolio dari draft browser (belum live) |
 | `/<nama-klien>` | Portofolio masing-masing klien yang sudah diterbitkan |
 
@@ -17,10 +18,10 @@ Master template portofolio bergaya platform streaming untuk beberapa klien. **Sa
 
 ## Membuat portofolio klien baru
 
-1. Klien mengirim jawaban dan foto lewat WhatsApp. Teh Vini sendiri memasukkannya di `/formulir`.
-2. Klik **Unduh Paket Klien**, menghasilkan satu ZIP berisi `src/data/clients/<slug>.json`, foto di `public/clients/<slug>/`, dan petunjuk. Berikan ZIP ke Codex untuk dimasukkan ke repo; tidak ada pengiriman/publikasi otomatis.
-3. Jalankan `npm run verify`. Foto yang hilang atau data tidak lengkap menggagalkan build.
-4. Uji lewat branch + preview Vercel. Setelah disetujui, merge ke `main` untuk terbit otomatis.
+1. Klien mengirim jawaban dan foto lewat WhatsApp. Teh Vini bisa mengisinya langsung di `/studio`, atau lewat tab **Formulir Klien**.
+2. Jika memakai formulir, klik **Buka di Editor CMS** agar isi dan foto tersimpan sebagai draft browser. ZIP dapat diunduh untuk backup jika diperlukan.
+3. Periksa hasil di **Lihat Preview** dan minta persetujuan klien.
+4. Login GitHub hanya ketika hendak menerbitkan. CMS menyiapkan PR, memeriksa validasi, lalu menerbitkan setelah konfirmasi.
 
 Contoh: `src/data/clients/satria.json` dan `public/clients/satria/foto-utama.webp` akan menghasilkan `https://tehvini.vercel.app/satria` setelah diterbitkan.
 
