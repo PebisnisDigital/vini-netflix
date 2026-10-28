@@ -6,15 +6,15 @@ Master template portofolio bergaya platform streaming untuk beberapa klien. **Sa
 | --- | --- |
 | `/` | Landing page utama (COMING SOON) |
 | `/vini` | Portofolio Teh Vini (contoh & acuan desain) |
-| `/formulir` | Formulir data dan foto calon klien |
+| `/formulir` | Formulir internal pengemasan data Teh Vini (tanpa login/backend) |
 | `/<nama-klien>` | Portofolio masing-masing klien yang sudah diterbitkan |
 
 **Baca panduan lengkap:** [SOP Web Personal Netflix](docs/WEB-PERSONAL-NETFLIX.md).
 
 ## Membuat portofolio klien baru
 
-1. Klien mengisi formulir dan mengirim hasil JSON serta foto ke admin.
-2. Admin menambahkan `src/data/clients/<slug>.json` dan foto di `public/clients/<slug>/` dengan nama yang sesuai JSON.
+1. Klien mengirim jawaban dan foto lewat WhatsApp. Teh Vini sendiri memasukkannya di `/formulir`.
+2. Klik **Unduh Paket Klien**, menghasilkan satu ZIP berisi `src/data/clients/<slug>.json`, foto di `public/clients/<slug>/`, dan petunjuk. Berikan ZIP ke Codex untuk dimasukkan ke repo; tidak ada pengiriman/publikasi otomatis.
 3. Jalankan `npm run verify`. Foto yang hilang atau data tidak lengkap menggagalkan build.
 4. Uji lewat branch + preview Vercel. Setelah disetujui, merge ke `main` untuk terbit otomatis.
 

@@ -8,12 +8,12 @@ Satu proyek GitHub dan Vercel untuk **satu gaya template** (Netflix). Banyak kli
 | --- | --- |
 | `/` | Landing page utama (saat ini COMING SOON) |
 | `/vini` | Portofolio asli Teh Vini, tetap dipertahankan |
-| `/formulir` | Formulir pengumpulan data calon klien |
+| `/formulir` | Formulir kerja internal Teh Vini, tidak menyimpan data di server |
 | `/satria` | Portofolio Satria, muncul **hanya** setelah data dan foto diterbitkan |
 
-## 1. Formulir calon klien
+## 1. Formulir kerja Teh Vini
 
-Bagikan `https://tehvini.vercel.app/formulir` kepada calon klien.
+Klien mengirim jawaban dan foto lewat WhatsApp. **Teh Vini sendiri** membuka `https://tehvini.vercel.app/formulir` dan mengisi data klien. Tidak diperlukan akun/login karena pengisian hanya berlangsung di perangkat pengguna dan tidak ada penyimpanan backend. **Namun alamat formulir tetap publik; siapa pun yang memiliki URL bisa membukanya dan mengunduh ZIP lokal.** Jangan menganggap kerahasiaan URL sebagai autentikasi.
 
 Isi formulir:
 
@@ -23,7 +23,16 @@ Isi formulir:
 4. Karya/proyek (minimal satu). Setiap proyek dapat memiliki foto tambahan, deskripsi, kategori, keahlian, dan tautan situs.
 5. Keahlian, sorotan/pencapaian, email, serta tautan web/LinkedIn/GitHub (opsional).
 
-Klien memilih **Unduh Data Klien**, kemudian **Unduh Foto Utama** dan foto karya bila ada. Semua berkas dikirim melalui WhatsApp ke Teh Vini. **Formulir tidak mengunggah/menerbitkan data langsung** dan tidak memerlukan database.
+Setelah semua data lengkap, Teh Vini klik **Unduh Paket Klien**. Satu ZIP `paket-klien-satria.zip` berisi:
+
+```text
+PANDUAN.txt
+src/data/clients/satria.json
+public/clients/satria/foto-utama.png
+public/clients/satria/karya-1.webp  (jika foto karya tersedia)
+```
+
+Nama berkas di dalam paket selalu diselaraskan dengan path pada JSON. Format yang didukung: PNG, JPG/JPEG, WebP, AVIF; setiap foto harus terisi dan maksimal 10 MB. Proses berlangsung **di browser**: paket diunduh langsung, bukan dikirim ke server/WhatsApp. Jangan memuat data sensitif, seperti KTP dan nomor rekening, ke paket yang akan dipublikasikan.
 
 Foto minimal **1 foto utama**. Idealnya **1 foto utama + 1 foto untuk tiap karya**. Tidak semua foto harus transparan: foto utama lebih bagus transparan; foto karya lazimnya tetap dengan latar aslinya.
 
@@ -31,9 +40,9 @@ Foto minimal **1 foto utama**. Idealnya **1 foto utama + 1 foto untuk tiap karya
 
 Misal Satria:
 
-1. Simpan berkas JSON klien menjadi `src/data/clients/satria.json`.
-2. Simpan foto utama ke `public/clients/satria/foto-utama.png` (atau sesuai ekstensi yang tertulis dalam JSON).
-3. Simpan foto tiap karya ke `public/clients/satria/karya-1.webp`, dst. **Nama berkas harus sama dengan isi JSON.**
+1. Serahkan `paket-klien-satria.zip` ke Codex pada repo `PebisnisDigital/vini-netflix`. Minta Codex menyalin berkas ZIP ke jalur relatif repo yang sudah tercantum (tanpa menimpa berkas klien lain).
+2. Periksa `src/data/clients/satria.json` dan foto utama di `public/clients/satria/foto-utama.png` (atau ekstensi sesuai JSON).
+3. Periksa foto karya di `public/clients/satria/karya-1.webp`, dst. **Nama berkas sudah otomatis sesuai JSON.**
 4. Jangan mengubah `src/data/portfolio.ts` untuk klien baru: berkas itu khusus halaman Teh Vini. Semua teks, kartu, season, karya, dan tautan klien dihasilkan dari JSON.
 5. Jalankan `npm run verify`. Gagal jika ada data penting/foto hilang, URL tidak valid, atau TypeScript gagal dikompilasi.
 6. Push ke branch baru, buat PR ke `main`, buka preview Vercel dari PR, lalu periksa desktop/HP. Setelah lolos, merge. Vercel otomatis membangun versi produksi dari `main`.
@@ -55,7 +64,7 @@ Halaman statis per klien beserta metadata judul/deskripsi/OG dibuat pada akhir b
 
 ## 4. Perintah untuk Codex saat ada klien baru
 
-> Siapkan klien baru pada repo `PebisnisDigital/vini-netflix` berdasarkan berkas JSON dan foto yang saya lampirkan. Jangan mengubah desain master dan data `/vini`. Simpan JSON di `src/data/clients/<slug>.json` serta semua foto di `public/clients/<slug>/`. Jalankan `npm run verify`. Buat branch dan PR, tampilkan URL preview Vercel agar saya bisa mengecek HP/desktop. Jangan merge ke `main` sebelum saya setujui hasil preview.
+> Siapkan klien baru pada repo `PebisnisDigital/vini-netflix` berdasarkan satu berkas `paket-klien-<slug>.zip` yang saya lampirkan. Semua berkas di dalam ZIP sudah memakai path repo; salin sesuai struktur tersebut tanpa mengubah desain master dan data `/vini`. Pastikan nama slug belum ada dan semua file tidak menimpa klien lain. Jalankan `npm run verify`. Buat branch dan PR, tampilkan URL preview Vercel agar saya bisa mengecek HP/desktop. Jangan merge ke `main` sebelum saya setujui hasil preview.
 
 ## Catatan izin dan kapasitas
 

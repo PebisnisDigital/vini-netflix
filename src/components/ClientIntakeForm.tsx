@@ -1,5 +1,6 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { normalizeSlug, validateBrief, type ClientBrief } from '../data/clientModel';
+import { createClientPackage, imagePath } from '../data/clientPackage';
 
 const newProject = () => ({ title: '', year: '2026', description: '', category: 'Portofolio', tags: [] as string[], website: '', image: '' });
 const newExperience = () => ({ company: '', role: '', period: '', description: '' });
@@ -34,6 +35,7 @@ export default function ClientIntakeForm() {
   const [projectPhotos, setProjectPhotos] = useState<Record<number, File>>({});
   const [errors, setErrors] = useState<string[]>([]);
   const [exported, setExported] = useState(false);
+  const [packing, setPacking] = useState(false);
 
   useEffect(() => {
     if (!portrait) { setPortraitPreview(''); return; }
@@ -56,37 +58,44 @@ export default function ClientIntakeForm() {
 
   const choosePortrait = (file: File | null) => {
     setPortrait(file); setExported(false);
-    const ext = file?.name.split('.').pop()?.toLowerCase() ?? '';
-    update('photo', { src: file && /^(png|jpg|jpeg|webp|avif)$/.test(ext) ? `/clients/${brief.slug}/foto-utama.${ext}` : '', alt: `Foto ${brief.name}` });
+    update('photo', { src: file ? imagePath(brief.slug, file, 'foto-utama') : '', alt: `Foto ${brief.name}` });
   };
   const chooseProjectPhoto = (index: number, file: File | null) => {
     const next = { ...projectPhotos };
     if (file) next[index] = file; else delete next[index];
     setProjectPhotos(next);
-    const ext = file?.name.split('.').pop()?.toLowerCase() ?? '';
-    patchProject(index, { image: file && /^(png|jpg|jpeg|webp|avif)$/.test(ext) ? `/clients/${brief.slug}/karya-${index + 1}.${ext}` : '' });
+    patchProject(index, { image: file ? imagePath(brief.slug, file, `karya-${index + 1}`) : '' });
   };
   const prepared: ClientBrief = {
     ...brief,
-    photo: { ...brief.photo, src: portrait ? `/clients/${brief.slug}/foto-utama.${portrait.name.split('.').pop()?.toLowerCase()}` : '' },
+    photo: { ...brief.photo, src: portrait ? imagePath(brief.slug, portrait, 'foto-utama') : '' },
     experiences: brief.experiences.filter((e) => e.company || e.role || e.description),
     education: (brief.education || []).filter((e) => e.school || e.degree),
     highlights: (brief.highlights || []).filter((h) => h.title || h.description),
-    projects: brief.projects.map((p, i) => ({ ...p, image: projectPhotos[i] ? `/clients/${brief.slug}/karya-${i + 1}.${projectPhotos[i].name.split('.').pop()?.toLowerCase()}` : '' })),
+    projects: brief.projects.map((p, i) => ({ ...p, image: projectPhotos[i] ? imagePath(brief.slug, projectPhotos[i], `karya-${i + 1}`) : '' })),
   };
-  const exportData = () => {
+  const exportData = async () => {
+    if (packing) return;
     const invalid = validateBrief(prepared);
     if (!portrait) invalid.push('Pilih foto utama terlebih dahulu.');
-    if (portrait && !/\.(png|jpe?g|webp|avif)$/i.test(portrait.name)) invalid.push('Jenis foto utama tidak didukung.');
     if (invalid.length) { setErrors(invalid); window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
-    downloadFile(new Blob([JSON.stringify(prepared, null, 2)], { type: 'application/json' }), `${prepared.slug}.json`);
-    setExported(true);
+    setPacking(true);
+    setExported(false);
+    try {
+      const zip = await createClientPackage(prepared, portrait, projectPhotos);
+      downloadFile(new Blob([new Uint8Array(zip)], { type: 'application/zip' }), `paket-klien-${prepared.slug}.zip`);
+      setErrors([]);
+      setExported(true);
+    } catch (error) {
+      setErrors(error instanceof Error ? error.message.split('\n') : ['Paket belum bisa dibuat. Coba lagi.']);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } finally { setPacking(false); }
   };
 
   return <div className="min-h-screen bg-[#08080b] text-white font-sans">
-    <header className="border-b border-white/10 px-5 py-5 sm:px-10"><a href="/" className="text-base font-extrabold tracking-wide text-white">PERSONAL<span className="text-[#fa526e]">FLIX</span></a><span className="ml-4 text-xs text-white/60">Formulir calon klien</span></header>
+    <header className="border-b border-white/10 px-5 py-5 sm:px-10"><a href="/" className="text-base font-extrabold tracking-wide text-white">PERSONAL<span className="text-[#fa526e]">FLIX</span></a><span className="ml-4 text-xs text-white/60">Formulir admin</span></header>
     <main className="mx-auto max-w-3xl space-y-6 px-4 py-12 sm:px-6">
-      <div className="mb-8 space-y-3"><p className="text-xs font-bold uppercase tracking-[0.25em] text-[#ff6c86]">WEB PERSONAL NETFLIX</p><h1 className="text-3xl font-extrabold leading-tight sm:text-5xl">Isi Ceritamu.<br/>Kami Buat Web-nya.</h1><p className="max-w-2xl text-base leading-relaxed text-white/65">Isi data pribadi, pengalaman, karya, dan foto. Setelah selesai, unduh hasil formulir dan kirim ke Teh Vini. Kami akan meninjau dan menayangkan halamanmu setelah diuji.</p></div>
+      <div className="mb-8 space-y-3"><p className="text-xs font-bold uppercase tracking-[0.25em] text-[#ff6c86]">WEB PERSONAL NETFLIX</p><h1 className="text-3xl font-extrabold leading-tight sm:text-5xl">Data Klien.<br/>Satu Paket Siap Pakai.</h1><p className="max-w-2xl text-base leading-relaxed text-white/65">Formulir ini diisi oleh Teh Vini berdasarkan jawaban dan foto yang klien kirim melalui WhatsApp. Setelah lengkap, cukup unduh satu paket ZIP untuk diproses di Codex. Tidak perlu login.</p></div>
       {errors.length > 0 && <div role="alert" className="rounded-xl border border-red-500/60 bg-red-500/10 p-5"><p className="mb-2 font-semibold">Masih ada yang perlu dilengkapi:</p><ul className="list-disc space-y-1 pl-5 text-sm">{errors.map((e) => <li key={e}>{e}</li>)}</ul></div>}
 
       <section className={sectionClass}><h2 className="mb-5 text-xl font-bold">01 · Identitas</h2><div className="grid gap-5 sm:grid-cols-2">
@@ -143,11 +152,11 @@ export default function ClientIntakeForm() {
         <button type="button" className="text-sm text-red-300" onClick={() => update('highlights', (brief.highlights || []).filter((_, j) => j !== i))}>Hapus sorotan</button>
       </div>)}<button type="button" className="rounded-xl border border-white/20 px-4 py-3 text-sm font-semibold hover:bg-white/10" onClick={() => update('highlights', [...(brief.highlights || []), newHighlight()])}>+ Tambah sorotan</button></section>
 
-      <section className={`${sectionClass} border-[#ff6985]/40`}><h2 className="text-xl font-bold">06 · Unduh dan Kirim</h2><p className="mt-2 text-sm leading-relaxed text-white/65">Unduh berkas data (.json) dan seluruh foto, lalu kirim ke WhatsApp Teh Vini. <strong className="text-white">Pengisian formulir ini belum menerbitkan website secara otomatis.</strong> Admin akan mengecek teks, foto, izin pemakaian, URL, dan tampilan sebelum tayang.</p>
-        <div className="mt-5 flex flex-wrap gap-3"><button type="button" className="min-h-12 rounded-xl bg-[#e62f50] px-5 py-3 font-bold text-white hover:bg-[#f84a69]" onClick={exportData}>Unduh Data Klien</button>{portrait && <button type="button" className="min-h-12 rounded-xl border border-white/25 px-5 py-3 font-bold hover:bg-white/10" onClick={() => downloadFile(portrait, `foto-utama.${portrait.name.split('.').pop()?.toLowerCase()}`)}>Unduh Foto Utama</button>}</div>
-        {Object.entries(projectPhotos).map(([index, file]) => <button key={index} type="button" className="mr-3 mt-3 rounded-lg border border-white/15 px-3 py-2 text-xs hover:bg-white/10" onClick={() => downloadFile(file, `karya-${Number(index) + 1}.${file.name.split('.').pop()?.toLowerCase()}`)}>Unduh Foto Karya {Number(index) + 1}</button>)}
-        {exported && <p role="status" className="mt-4 text-sm font-semibold text-green-300">Data berhasil disiapkan. Unduh juga foto, lalu kirim semuanya ke admin.</p>}
-        <a className="mt-5 inline-flex min-h-12 items-center justify-center rounded-xl border border-[#5ac899]/60 px-5 py-3 font-bold text-green-300 hover:bg-green-500/10" href="https://wa.me/6282137523626?text=Halo%20Teh%20Vini%2C%20saya%20mau%20dibuatkan%20web%20personal%20ala%20Netflix.%20Saya%20akan%20kirim%20data%20formulir%20dan%20fotonya." target="_blank" rel="noreferrer">Kirim ke WhatsApp ↗</a>
+      <section className={`${sectionClass} border-[#ff6985]/40`}><h2 className="text-xl font-bold">06 · Unduh Paket Klien</h2><p className="mt-2 text-sm leading-relaxed text-white/65">Satu berkas ZIP berisi JSON, foto utama, foto karya (jika ada), dan petunjuk proses. <strong className="text-white">Tidak ada data yang otomatis dikirim atau dipublikasikan.</strong> Berkas disiapkan di perangkat ini untuk diberikan ke Codex.</p>
+        <div className="mt-5"><button type="button" disabled={packing} aria-busy={packing} className="min-h-12 rounded-xl bg-[#e62f50] px-5 py-3 font-bold text-white hover:bg-[#f84a69] disabled:cursor-wait disabled:opacity-60" onClick={exportData}>{packing ? 'Menyiapkan ZIP…' : 'Unduh Paket Klien'}</button></div>
+        {exported && <p role="status" className="mt-4 text-sm font-semibold text-green-300">Paket ZIP berhasil disiapkan. Berikan ZIP ke Codex, lalu cek preview sebelum web klien diterbitkan.</p>}
+        <p className="mt-4 text-xs leading-relaxed text-white/50">Simpan ZIP di tempat aman karena bisa berisi data kontak dan foto klien. Jangan unggah berkas berisi data sensitif ke repositori publik.</p>
+        <a className="mt-5 inline-flex min-h-12 items-center justify-center rounded-xl border border-[#5ac899]/60 px-5 py-3 font-bold text-green-300 hover:bg-green-500/10" href="https://wa.me/6282137523626?text=Halo%20Teh%20Vini%2C%20saya%20mau%20dibuatkan%20web%20personal%20ala%20Netflix.%20Saya%20akan%20kirim%20data%20formulir%20dan%20fotonya." target="_blank" rel="noreferrer">WhatsApp Teh Vini ↗</a>
       </section>
       <p className="pb-10 text-center text-xs text-white/40">© WEB PERSONAL NETFLIX · Layanan portofolio personal, bukan produk resmi Netflix.</p>
     </main>
