@@ -1,9 +1,9 @@
 {
   "slug": "iis",
-  "name": "Iis Siti Aisyah",
+  "name": "Iis Siti",
   "role": "Guru IPA SMP · Profil Demo Fiktif",
   "location": "Bayongbong, Garut, Jawa Barat",
-  "bio": "PROFIL DEMO FIKTIF — Seluruh biografi, foto, pengalaman, dan pencapaian di halaman ini dibuat sebagai contoh desain PESONAFLIX; bukan profil resmi orang atau sekolah. Dalam cerita contoh ini, Bu Iis adalah guru IPA di SMPN 1 Bayongbong, Garut, yang senang mengajak siswa belajar lewat eksperimen sederhana, proyek lingkungan, dan literasi digital. Baginya, kelas paling berkesan bukan kelas paling sunyi, melainkan kelas tempat anak-anak berani bertanya dan mencoba.",
+  "bio": "Seluruh biografi, foto, pengalaman, dan pencapaian di halaman ini dibuat sebagai contoh desain PESONAFLIX; bukan profil resmi orang atau sekolah. Dalam cerita contoh ini, Bu Iis adalah guru IPA di SMPN 1 Bayongbong, Garut, yang senang mengajak siswa belajar lewat eksperimen sederhana, proyek lingkungan, dan literasi digital. Baginya, kelas paling berkesan bukan kelas paling sunyi, melainkan kelas tempat anak-anak berani bertanya dan mencoba.",
   "tagline": [
     "DEMO FIKTIF • PORTOFOLIO GURU",
     "Mengajar dengan hati, menghidupkan rasa ingin tahu.",
@@ -19,7 +19,7 @@
   ],
   "photo": {
     "src": "/clients/iis/foto-utama.webp",
-    "alt": "Ilustrasi AI seorang guru perempuan berhijab dengan seragam khaki, tokoh fiktif untuk contoh portofolio Iis Siti Aisyah"
+    "alt": "Foto Iis Siti"
   },
   "experiences": [
     {
@@ -61,7 +61,11 @@
       "year": "2024 · Simulasi",
       "description": "Mengajak siswa membuat miniatur turbin angin dan membandingkan bagaimana perubahan arah angin memengaruhi gerak baling-baling. Eksperimen sederhana menjadi awal diskusi energi terbarukan.",
       "category": "Proyek Sains",
-      "tags": ["STEM", "Eksperimen", "Energi Terbarukan"],
+      "tags": [
+        "STEM",
+        "Eksperimen",
+        "Energi Terbarukan"
+      ],
       "image": "/clients/iis/karya-ipa.webp"
     },
     {
@@ -69,7 +73,11 @@
       "year": "2025 · Simulasi",
       "description": "Menyusun ruang baca kelas yang nyaman, mengajak siswa berbagi ulasan buku, dan memperkenalkan cara memilah sumber informasi digital dengan bijak.",
       "category": "Gerakan Literasi",
-      "tags": ["Membaca", "Literasi Digital", "Kolaborasi"],
+      "tags": [
+        "Membaca",
+        "Literasi Digital",
+        "Kolaborasi"
+      ],
       "image": "/clients/iis/karya-literasi.webp"
     },
     {
@@ -77,14 +85,24 @@
       "year": "2023 · Simulasi",
       "description": "Merancang contoh aktivitas pengamatan pertumbuhan tanaman, pencatatan cuaca, dan pengolahan kompos sederhana agar pelajaran ekosistem terasa dekat dengan kehidupan siswa.",
       "category": "Proyek Lingkungan",
-      "tags": ["Ekosistem", "Observasi", "Peduli Lingkungan"]
+      "tags": [
+        "Ekosistem",
+        "Observasi",
+        "Peduli Lingkungan"
+      ],
+      "image": ""
     },
     {
       "title": "Kuis IPA Interaktif",
       "year": "2025 · Simulasi",
       "description": "Membuat bank soal bergambar dan kuis kelompok yang memancing diskusi, bukan sekadar mengejar jawaban tercepat.",
       "category": "Media Pembelajaran",
-      "tags": ["Evaluasi Formatif", "Kuis", "Teknologi Kelas"]
+      "tags": [
+        "Evaluasi Formatif",
+        "Kuis",
+        "Teknologi Kelas"
+      ],
+      "image": ""
     }
   ],
   "skills": [
@@ -105,10 +123,39 @@
       "title": "Menghidupkan Kelas",
       "subtitle": "Belajar aktif, aman, dan penuh rasa ingin tahu",
       "skills": [
-        { "name": "Pembelajaran IPA", "mono": "IPA", "note": "Fokus", "evidence": ["Konsep sains dari contoh sehari-hari", "Diskusi hasil pengamatan"] },
-        { "name": "Project Based Learning", "mono": "PBL", "evidence": ["Proyek turbin angin mini", "Kebun belajar sekolah"] },
-        { "name": "Eksperimen Sains", "mono": "LAB", "evidence": ["Praktikum memakai bahan sederhana", "Lembar observasi siswa"] },
-        { "name": "Asesmen Formatif", "mono": "AF", "evidence": ["Kuis refleksi", "Umpan balik per kelompok"] }
+        {
+          "name": "Pembelajaran IPA",
+          "mono": "IPA",
+          "note": "Fokus",
+          "evidence": [
+            "Konsep sains dari contoh sehari-hari",
+            "Diskusi hasil pengamatan"
+          ]
+        },
+        {
+          "name": "Project Based Learning",
+          "mono": "PBL",
+          "evidence": [
+            "Proyek turbin angin mini",
+            "Kebun belajar sekolah"
+          ]
+        },
+        {
+          "name": "Eksperimen Sains",
+          "mono": "LAB",
+          "evidence": [
+            "Praktikum memakai bahan sederhana",
+            "Lembar observasi siswa"
+          ]
+        },
+        {
+          "name": "Asesmen Formatif",
+          "mono": "AF",
+          "evidence": [
+            "Kuis refleksi",
+            "Umpan balik per kelompok"
+          ]
+        }
       ]
     },
     {
@@ -116,9 +163,30 @@
       "title": "Media & Literasi Digital",
       "subtitle": "Teknologi sebagai alat bantu memahami pelajaran",
       "skills": [
-        { "name": "Literasi Digital", "mono": "LD", "evidence": ["Memilah sumber informasi", "Etika memakai bahan daring"] },
-        { "name": "Media Ajar Interaktif", "mono": "MI", "evidence": ["Kuis visual", "Presentasi pembelajaran"] },
-        { "name": "Desain Lembar Kerja", "mono": "LK", "evidence": ["Panduan praktik", "Rubrik proyek sederhana"] }
+        {
+          "name": "Literasi Digital",
+          "mono": "LD",
+          "evidence": [
+            "Memilah sumber informasi",
+            "Etika memakai bahan daring"
+          ]
+        },
+        {
+          "name": "Media Ajar Interaktif",
+          "mono": "MI",
+          "evidence": [
+            "Kuis visual",
+            "Presentasi pembelajaran"
+          ]
+        },
+        {
+          "name": "Desain Lembar Kerja",
+          "mono": "LK",
+          "evidence": [
+            "Panduan praktik",
+            "Rubrik proyek sederhana"
+          ]
+        }
       ]
     },
     {
@@ -126,10 +194,38 @@
       "title": "Pendampingan & Kolaborasi",
       "subtitle": "Menumbuhkan kepercayaan diri dan kerja sama",
       "skills": [
-        { "name": "Manajemen Kelas", "mono": "MK", "evidence": ["Kesepakatan belajar", "Diskusi kelompok"] },
-        { "name": "Pendampingan Siswa", "mono": "PS", "evidence": ["Refleksi belajar", "Pendekatan sesuai kebutuhan siswa"] },
-        { "name": "Kolaborasi Guru", "mono": "KG", "evidence": ["Berbagi praktik baik", "Diskusi perencanaan proyek"] },
-        { "name": "Komunikasi Orang Tua", "mono": "OT", "evidence": ["Laporan perkembangan", "Komunikasi kegiatan kelas"] }
+        {
+          "name": "Manajemen Kelas",
+          "mono": "MK",
+          "evidence": [
+            "Kesepakatan belajar",
+            "Diskusi kelompok"
+          ]
+        },
+        {
+          "name": "Pendampingan Siswa",
+          "mono": "PS",
+          "evidence": [
+            "Refleksi belajar",
+            "Pendekatan sesuai kebutuhan siswa"
+          ]
+        },
+        {
+          "name": "Kolaborasi Guru",
+          "mono": "KG",
+          "evidence": [
+            "Berbagi praktik baik",
+            "Diskusi perencanaan proyek"
+          ]
+        },
+        {
+          "name": "Komunikasi Orang Tua",
+          "mono": "OT",
+          "evidence": [
+            "Laporan perkembangan",
+            "Komunikasi kegiatan kelas"
+          ]
+        }
       ]
     }
   ],
@@ -159,17 +255,80 @@
     }
   ],
   "watchCards": [
-    { "target": "about", "title": "Kenalan dengan Bu Iis", "subtitle": "Cerita guru yang gemar bereksperimen", "image": "/clients/iis/foto-utama.webp" },
-    { "target": "journey", "title": "Perjalanan Mengajar", "subtitle": "Dari awal hingga ide-ide baru", "image": "/clients/iis/karya-literasi.webp" },
-    { "target": "originals", "title": "Karya untuk Kelas", "subtitle": "Proyek IPA, literasi, dan lingkungan", "image": "/clients/iis/karya-ipa.webp" },
-    { "target": "skills", "title": "Bekal Mengajar", "subtitle": "Kemampuan yang terus diasah", "image": "/clients/iis/karya-literasi.webp" },
-    { "target": "moments", "title": "Momen Berkesan", "subtitle": "Potongan cerita kelas fiktif", "image": "/clients/iis/karya-ipa.webp" },
-    { "target": "picks", "title": "Pilihan Bu Iis", "subtitle": "Yang paling ia sukai dari mengajar", "image": "/clients/iis/karya-literasi.webp" }
+    {
+      "target": "about",
+      "title": "Kenalan dengan Bu Iis",
+      "subtitle": "Cerita guru yang gemar bereksperimen",
+      "image": "/clients/iis/foto-utama.webp"
+    },
+    {
+      "target": "journey",
+      "title": "Perjalanan Mengajar",
+      "subtitle": "Dari awal hingga ide-ide baru",
+      "image": "/clients/iis/karya-literasi.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Karya untuk Kelas",
+      "subtitle": "Proyek IPA, literasi, dan lingkungan",
+      "image": "/clients/iis/karya-ipa.webp"
+    },
+    {
+      "target": "skills",
+      "title": "Bekal Mengajar",
+      "subtitle": "Kemampuan yang terus diasah",
+      "image": "/clients/iis/karya-literasi.webp"
+    },
+    {
+      "target": "moments",
+      "title": "Momen Berkesan",
+      "subtitle": "Potongan cerita kelas fiktif",
+      "image": "/clients/iis/karya-ipa.webp"
+    },
+    {
+      "target": "picks",
+      "title": "Pilihan Bu Iis",
+      "subtitle": "Yang paling ia sukai dari mengajar",
+      "image": "/clients/iis/karya-literasi.webp"
+    }
   ],
   "pickCards": [
-    { "label": "PILIHAN GURU", "title": "Sains yang Bisa Disentuh", "detail": "Siswa membuat, menguji, lalu menyimpulkan sendiri.", "image": "/clients/iis/karya-ipa.webp", "palette": { "from": "#0d2330", "via": "#22617a", "to": "#061015", "accent": "#7edce4" } },
-    { "label": "FAVORIT DI KELAS", "title": "Belajar Lewat Cerita", "detail": "Membaca, berbagi pendapat, dan mendengar teman.", "image": "/clients/iis/karya-literasi.webp", "palette": { "from": "#332411", "via": "#90682e", "to": "#100b06", "accent": "#f9d276" } },
-    { "label": "NILAI YANG DIJAGA", "title": "Berani Mencoba", "detail": "Tidak apa-apa belum bisa, asalkan mau belajar lagi.", "image": "/clients/iis/foto-utama.webp", "palette": { "from": "#10291d", "via": "#317052", "to": "#07140d", "accent": "#8ee2b0" } }
+    {
+      "label": "PILIHAN GURU",
+      "title": "Sains yang Bisa Disentuh",
+      "detail": "Siswa membuat, menguji, lalu menyimpulkan sendiri.",
+      "image": "/clients/iis/karya-ipa.webp",
+      "palette": {
+        "from": "#0d2330",
+        "via": "#22617a",
+        "to": "#061015",
+        "accent": "#7edce4"
+      }
+    },
+    {
+      "label": "FAVORIT DI KELAS",
+      "title": "Belajar Lewat Cerita",
+      "detail": "Membaca, berbagi pendapat, dan mendengar teman.",
+      "image": "/clients/iis/karya-literasi.webp",
+      "palette": {
+        "from": "#332411",
+        "via": "#90682e",
+        "to": "#100b06",
+        "accent": "#f9d276"
+      }
+    },
+    {
+      "label": "NILAI YANG DIJAGA",
+      "title": "Berani Mencoba",
+      "detail": "Tidak apa-apa belum bisa, asalkan mau belajar lagi.",
+      "image": "/clients/iis/foto-utama.webp",
+      "palette": {
+        "from": "#10291d",
+        "via": "#317052",
+        "to": "#07140d",
+        "accent": "#8ee2b0"
+      }
+    }
   ],
   "picksHeading": "Yang Membuat Kelas Berarti",
   "picksKicker": "PILIHAN GURU • CERITA FIKTIF",
@@ -180,8 +339,40 @@
       "period": "2012 — 2018 (simulasi)",
       "synopsis": "Cerita fiktif tentang ketertarikan pada sains, pendidikan, dan dunia anak-anak.",
       "episodes": [
-        { "code": "S01 E01", "title": "Jatuh Hati pada Dunia Sains", "description": "Belajar menjelaskan hal rumit dengan cara sederhana, lalu menemukan kegembiraan saat orang lain ikut paham.", "tags": ["Sains", "Pendidikan"], "runtime": "Awal cerita", "palette": { "from": "#0b2030", "via": "#265c79", "to": "#060d14", "accent": "#8edbf3" }, "image": "/clients/iis/karya-ipa.webp" },
-        { "code": "S01 E02", "title": "Kelas Pertama", "description": "Momen simulasi ketika menyadari bahwa setiap murid mempunyai cara belajar yang berbeda.", "tags": ["Praktik Mengajar", "Refleksi"], "runtime": "Bab awal", "palette": { "from": "#2d1d0e", "via": "#986c2a", "to": "#0e0905", "accent": "#f9d276" } }
+        {
+          "code": "S01 E01",
+          "title": "Jatuh Hati pada Dunia Sains",
+          "description": "Belajar menjelaskan hal rumit dengan cara sederhana, lalu menemukan kegembiraan saat orang lain ikut paham.",
+          "tags": [
+            "Sains",
+            "Pendidikan"
+          ],
+          "runtime": "Awal cerita",
+          "palette": {
+            "from": "#0b2030",
+            "via": "#265c79",
+            "to": "#060d14",
+            "accent": "#8edbf3"
+          },
+          "image": "/clients/iis/karya-ipa.webp"
+        },
+        {
+          "code": "S01 E02",
+          "title": "Kelas Pertama",
+          "description": "Momen simulasi ketika menyadari bahwa setiap murid mempunyai cara belajar yang berbeda.",
+          "tags": [
+            "Praktik Mengajar",
+            "Refleksi"
+          ],
+          "runtime": "Bab awal",
+          "palette": {
+            "from": "#2d1d0e",
+            "via": "#986c2a",
+            "to": "#0e0905",
+            "accent": "#f9d276"
+          },
+          "image": ""
+        }
       ]
     },
     {
@@ -190,8 +381,40 @@
       "period": "2019 — 2022 (simulasi)",
       "synopsis": "Membayangkan hari-hari mengajar IPA di Garut: pertanyaan kecil, percobaan besar, dan kebiasaan belajar bersama.",
       "episodes": [
-        { "code": "S02 E01", "title": "Satu Pertanyaan, Seribu Ide", "description": "Membuka pembelajaran dengan pertanyaan sederhana untuk memancing rasa ingin tahu siswa.", "tags": ["Pembelajaran Aktif", "IPA"], "runtime": "Suasana kelas", "palette": { "from": "#112d23", "via": "#2b7861", "to": "#061410", "accent": "#8ee2b0" }, "image": "/clients/iis/karya-ipa.webp" },
-        { "code": "S02 E02", "title": "Belajar Berani Gagal", "description": "Dalam skenario kelas, percobaan yang belum berhasil menjadi bahan diskusi dan percobaan ulang.", "tags": ["Eksperimen", "Karakter"], "runtime": "Pelajaran hidup", "palette": { "from": "#26192d", "via": "#614178", "to": "#0f0712", "accent": "#dab7f2" } }
+        {
+          "code": "S02 E01",
+          "title": "Satu Pertanyaan, Seribu Ide",
+          "description": "Membuka pembelajaran dengan pertanyaan sederhana untuk memancing rasa ingin tahu siswa.",
+          "tags": [
+            "Pembelajaran Aktif",
+            "IPA"
+          ],
+          "runtime": "Suasana kelas",
+          "palette": {
+            "from": "#112d23",
+            "via": "#2b7861",
+            "to": "#061410",
+            "accent": "#8ee2b0"
+          },
+          "image": "/clients/iis/karya-ipa.webp"
+        },
+        {
+          "code": "S02 E02",
+          "title": "Belajar Berani Gagal",
+          "description": "Dalam skenario kelas, percobaan yang belum berhasil menjadi bahan diskusi dan percobaan ulang.",
+          "tags": [
+            "Eksperimen",
+            "Karakter"
+          ],
+          "runtime": "Pelajaran hidup",
+          "palette": {
+            "from": "#26192d",
+            "via": "#614178",
+            "to": "#0f0712",
+            "accent": "#dab7f2"
+          },
+          "image": ""
+        }
       ]
     },
     {
@@ -200,9 +423,57 @@
       "period": "2023 — 2025 (simulasi)",
       "synopsis": "Bab portofolio contoh tentang kelas IPA mini, pojok baca, dan kerja tim lintas minat.",
       "episodes": [
-        { "code": "S03 E01", "title": "Energi dari Angin", "description": "Siswa bekerja dalam tim membuat miniatur turbin dan membandingkan hasil pengamatan.", "tags": ["STEM", "Turbin Angin"], "runtime": "Proyek IPA", "palette": { "from": "#0b2531", "via": "#1e6682", "to": "#061218", "accent": "#88d9ec" }, "image": "/clients/iis/karya-ipa.webp" },
-        { "code": "S03 E02", "title": "Buku Mengantar ke Mana Saja", "description": "Skenario pojok baca yang menjadikan ulasan buku sebagai bahan percakapan seru antarsiswa.", "tags": ["Literasi", "Kolaborasi"], "runtime": "Proyek literasi", "palette": { "from": "#2d1e0e", "via": "#986b31", "to": "#130d06", "accent": "#f3d48a" }, "image": "/clients/iis/karya-literasi.webp" },
-        { "code": "S03 E03", "title": "Halaman Sekolah Jadi Laboratorium", "description": "Siswa mencatat pertumbuhan tanaman dan menghubungkan pengamatan dengan materi ekosistem.", "tags": ["Lingkungan", "Observasi"], "runtime": "Proyek hijau", "palette": { "from": "#0a2a1c", "via": "#34734a", "to": "#061309", "accent": "#a2df84" } }
+        {
+          "code": "S03 E01",
+          "title": "Energi dari Angin",
+          "description": "Siswa bekerja dalam tim membuat miniatur turbin dan membandingkan hasil pengamatan.",
+          "tags": [
+            "STEM",
+            "Turbin Angin"
+          ],
+          "runtime": "Proyek IPA",
+          "palette": {
+            "from": "#0b2531",
+            "via": "#1e6682",
+            "to": "#061218",
+            "accent": "#88d9ec"
+          },
+          "image": "/clients/iis/karya-ipa.webp"
+        },
+        {
+          "code": "S03 E02",
+          "title": "Buku Mengantar ke Mana Saja",
+          "description": "Skenario pojok baca yang menjadikan ulasan buku sebagai bahan percakapan seru antarsiswa.",
+          "tags": [
+            "Literasi",
+            "Kolaborasi"
+          ],
+          "runtime": "Proyek literasi",
+          "palette": {
+            "from": "#2d1e0e",
+            "via": "#986b31",
+            "to": "#130d06",
+            "accent": "#f3d48a"
+          },
+          "image": "/clients/iis/karya-literasi.webp"
+        },
+        {
+          "code": "S03 E03",
+          "title": "Halaman Sekolah Jadi Laboratorium",
+          "description": "Siswa mencatat pertumbuhan tanaman dan menghubungkan pengamatan dengan materi ekosistem.",
+          "tags": [
+            "Lingkungan",
+            "Observasi"
+          ],
+          "runtime": "Proyek hijau",
+          "palette": {
+            "from": "#0a2a1c",
+            "via": "#34734a",
+            "to": "#061309",
+            "accent": "#a2df84"
+          },
+          "image": ""
+        }
       ]
     }
   ],
@@ -214,4 +485,3 @@
     "background": "#090d0d"
   }
 }
-
