@@ -13,13 +13,14 @@ import { RailButtons } from './Rail';
 const GLYPHS: Record<SectionId, string> = { about: 'V', journey: 'S01', originals: '3', picks: '10', skills: 'AI', moments: '★', story: 'BIO' };
 
 export default function ContinueWatching({ order }: { order: SectionId[] }) {
-  const { sectionMeta } = usePortfolio();
+  const { sectionMeta, watchCards } = usePortfolio();
+  const cards = watchCards ?? order.map((target) => ({ target, title: sectionMeta[target].card, subtitle: sectionMeta[target].meta, image: '' }));
   const progress = useWatchProgress();
   const { scrollTo } = useSmoothScroll();
   const fine = useFinePointer();
   const [hovered, setHovered] = useState<number | null>(null);
   const rail = useRef<HTMLDivElement>(null);
-  const { pause } = useAutoRail(rail, { itemCount: order.length, speed: 110 });
+  const { pause } = useAutoRail(rail, { itemCount: cards.length, speed: 110 });
 
   return (
     <section aria-labelledby="continue-title" className="relative z-10 -mt-10 pb-10 sm:-mt-16">
@@ -29,18 +30,19 @@ export default function ContinueWatching({ order }: { order: SectionId[] }) {
       </div>
       <div className="group/rail relative">
         <div ref={rail} className="rail gutter flex snap-x snap-mandatory gap-3 overflow-x-auto py-8 sm:gap-4" data-cursor={fine ? undefined : 'drag'}>
-          {[0, 1, 2].flatMap((copy) => order.map((id, i) => {
-            const meta = sectionMeta[id];
-            const p = progress[id] ?? 0;
+          {[0, 1, 2].flatMap((copy) => cards.map((item, i) => {
+            const meta = sectionMeta[item.target];
+            const p = progress[item.target] ?? 0;
             const shift = fine && hovered !== null && hovered !== i ? (i < hovered ? -14 : 14) : 0;
             return (
               <motion.button
-                key={`${copy}-${id}`}
+                key={`${copy}-${i}-${item.target}`}
+                data-studio-edit={`watch:${i}`}
                 type="button"
                 aria-hidden={copy !== 1}
                 tabIndex={copy === 1 ? 0 : -1}
                 data-cursor="play"
-                onClick={() => scrollTo(`#${id}`)}
+                onClick={() => scrollTo(`#${item.target}`)}
                 onHoverStart={() => setHovered(i)}
                 onHoverEnd={() => setHovered(null)}
                 onFocus={() => setHovered(i)}
@@ -53,16 +55,17 @@ export default function ContinueWatching({ order }: { order: SectionId[] }) {
                 <div className="relative h-full w-full overflow-hidden rounded-lg ring-1 ring-white/10 transition duration-500 group-hover:shadow-[0_20px_60px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,61,90,0.6)]">
                   <motion.div className="absolute inset-0" animate={{ scale: hovered === i ? 1.12 : 1 }} transition={{ duration: 0.8, ease: EASE }}>
                     <PosterBackdrop palette={meta.palette}>
-                      <span className="absolute -right-2 -top-6 font-display text-[8rem] leading-none text-white/[0.07] sm:text-[9rem]">{GLYPHS[id]}</span>
+                      {item.image ? <img src={item.image} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-80" /> : null}
+                      <span className="absolute -right-2 -top-6 font-display text-[8rem] leading-none text-white/[0.07] sm:text-[9rem]">{GLYPHS[item.target]}</span>
                     </PosterBackdrop>
                   </motion.div>
                   <div className="absolute inset-0 flex flex-col justify-end p-4">
                     <span className="mb-1 text-[10px] font-bold uppercase tracking-[0.3em] text-crimson-2">Episode {String(i + 1).padStart(2, '0')}</span>
-                    <span className="font-display text-2xl leading-none tracking-wide text-bone transition-transform duration-500 group-hover:-translate-y-1 sm:text-3xl">
-                      {meta.card}
+                    <span data-studio-edit={`watch:${i}:title`} className="font-display text-2xl leading-none tracking-wide text-bone transition-transform duration-500 group-hover:-translate-y-1 sm:text-3xl">
+                      {item.title}
                     </span>
-                    <span className="mt-1 text-xs text-mist opacity-100 transition duration-500 lg:translate-y-2 lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100">
-                      {meta.meta}
+                    <span data-studio-edit={`watch:${i}:subtitle`} className="mt-1 text-xs text-mist opacity-100 transition duration-500 lg:translate-y-2 lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100">
+                      {item.subtitle}
                     </span>
                   </div>
                   <span className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full border border-white/40 bg-black/40 text-xs text-bone backdrop-blur transition duration-500 group-hover:scale-110 group-hover:border-bone group-hover:bg-bone group-hover:text-ink">
