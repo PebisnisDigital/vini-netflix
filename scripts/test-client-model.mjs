@@ -35,3 +35,24 @@ test('data Satria mengganti seluruh konten tanpa identitas klien lain', async ()
     assert.equal(unfinished.projects[0].title, 'KARYA 1');
   } finally { await server.close(); }
 });
+
+test('proyek baru memakai contoh Sushmita yang lengkap tanpa membuatnya siap terbit', async () => {
+  const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
+  try {
+    const { createCanvasPortfolio, findUnreplacedSushmitaExamples, sushmitaExampleBrief } = await server.ssrLoadModule('/src/data/clientModel.ts');
+    const example = sushmitaExampleBrief();
+    const canvas = createCanvasPortfolio(example);
+    assert.equal(canvas.profile.displayName, 'Sushmita Dasari');
+    assert.equal(canvas.profile.portrait.src, '/assets/portrait-720.webp');
+    assert.equal(canvas.projects.length, 3);
+    assert.equal(canvas.seasons.length, 5);
+    assert.equal(canvas.topPicks.length, 10);
+    assert.equal(canvas.certifications.length, 16);
+    assert.equal(example.slug, '');
+    assert.equal(example.photo.src, '');
+    assert.ok(findUnreplacedSushmitaExamples(example).length >= 4);
+    const adapted = createCanvasPortfolio({ ...example, name: 'Satria', slug: 'satria', email: '', links: {}, photo: { src: '', alt: 'Foto Satria' } });
+    assert.equal(adapted.profile.displayName, 'Satria');
+    assert.equal(adapted.profile.portrait.src, '/assets/portrait-720.webp');
+  } finally { await server.close(); }
+});

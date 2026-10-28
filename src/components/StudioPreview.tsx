@@ -2,7 +2,7 @@ import { useEffect, useState, type MouseEvent } from 'react';
 import { MotionConfig } from 'framer-motion';
 import App from '../App';
 import { PortfolioProvider } from '../data/PortfolioContext';
-import { createPortfolioFromBrief, validateBrief, viniContent, type PortfolioContent } from '../data/clientModel';
+import { createPortfolioFromBrief, sushmitaContent, validateBrief, type PortfolioContent } from '../data/clientModel';
 import { getDraft, preparedBrief } from '../data/studioDraft';
 
 export default function StudioPreview() {
@@ -13,7 +13,7 @@ export default function StudioPreview() {
 
   useEffect(() => {
     if (canvasMode) {
-      setContent(viniContent);
+      setContent(sushmitaContent);
       setSlug('studio-canvas');
       const receive = (event: MessageEvent) => {
         if (event.origin !== location.origin || event.source !== window.parent || event.data?.type !== 'PESONAFLIX_CANVAS_UPDATE') return;
