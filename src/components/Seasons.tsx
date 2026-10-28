@@ -1,11 +1,12 @@
 import { useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { seasons } from '../data/portfolio';
+import { usePortfolio } from '../data/PortfolioContext';
 import { EASE, SectionHeading } from './fx';
 import EpisodeCard from './EpisodeCard';
 import { RailButtons } from './Rail';
 
 export default function Seasons() {
+  const { seasons } = usePortfolio();
   const [active, setActive] = useState(seasons.length - 2);
   const season = seasons[active];
   const rail = useRef<HTMLDivElement>(null);

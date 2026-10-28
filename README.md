@@ -1,95 +1,45 @@
-# SUSHMITA — THE SERIES
+# WEB PERSONAL NETFLIX
 
-A cinematic, streaming-inspired portfolio for **Sushmita Dasari**: Full-Stack Developer and B.Tech AI & ML student.
-Every section is an episode, every project is an Original, and the whole site plays like a series.
+Master template portofolio bergaya platform streaming untuk beberapa klien. **Satu repo, satu proyek Vercel, banyak halaman**, semuanya memakai desain yang sama dengan data dan foto terpisah.
 
-> A personal portfolio with a fictional streaming-platform look. It is not affiliated with Netflix or any other streaming service and uses none of their logos.
+| Halaman | Fungsi |
+| --- | --- |
+| `/` | LP utama layanan Teh Vini (sementara COMING SOON) |
+| `/vini` | Portofolio Teh Vini (contoh & acuan desain) |
+| `/formulir` | Alamat lama, otomatis mengarah ke `/studio?tab=formulir` |
+| `/studio` | CMS editor seperti Blogger: buat/edit konten dan foto, simpan draft, preview |
+| `/studio?tab=formulir` | Formulir klien, langsung dipindah ke draft CMS tanpa mengetik ulang |
+| `/studio/preview?slug=satria` | Preview portofolio dari draft browser (belum live) |
+| `/<nama-klien>` | Portofolio masing-masing klien yang sudah diterbitkan |
 
-## Run it locally
+**Baca panduan lengkap:** [SOP Web Personal Netflix](docs/WEB-PERSONAL-NETFLIX.md).
 
-Requires **Node.js 18+**.
+**CMS Studio:** [Alur editorial, GitHub OAuth, dan penerbitan aman](docs/CMS-STUDIO.md).
+
+## Membuat portofolio klien baru
+
+1. Klien mengirim jawaban dan foto lewat WhatsApp. Teh Vini bisa mengisinya langsung di `/studio`, atau lewat tab **Formulir Klien**.
+2. Jika memakai formulir, klik **Buka di Editor CMS** agar isi dan foto tersimpan sebagai draft browser. ZIP dapat diunduh untuk backup jika diperlukan.
+3. Periksa hasil di **Lihat Preview** dan minta persetujuan klien.
+4. Login GitHub hanya ketika hendak menerbitkan. CMS menyiapkan PR, memeriksa validasi, lalu menerbitkan setelah konfirmasi.
+
+Contoh: `src/data/clients/satria.json` dan `public/clients/satria/foto-utama.webp` akan menghasilkan `https://tehvini.vercel.app/satria` setelah diterbitkan.
+
+Tidak diperlukan database atau proyek Vercel baru untuk setiap klien. Saat penambahan klien hanya perlu mengubah JSON dan aset foto; komponen desain membaca data secara otomatis. File `src/data/portfolio.ts` dikhususkan untuk Teh Vini dan tidak perlu diubah.
+
+## Pengembangan
+
+Node.js 22 direkomendasikan.
 
 ```bash
-npm install
+npm ci
 npm run dev
-```
-
-Open the URL Vite prints (usually http://localhost:5173).
-
-Production build:
-
-```bash
-npm run build
+npm run verify
 npm run preview
 ```
 
-The static site is written to `dist/` and can be deployed as-is to Vercel, Netlify, GitHub Pages or any static host.
+Proyek menggunakan React, TypeScript, Vite, Tailwind, Framer Motion dan Lenis. Halaman hasil build berada di `dist/`. Metadata sosial untuk setiap klien dipersiapkan saat build.
 
-## Updating the content
+## Keterangan sumber dan legal
 
-**All content lives in one file: [`src/data/portfolio.ts`](src/data/portfolio.ts).** It was generated from the resume, and every component reads from it.
-
-| To change… | Edit |
-| --- | --- |
-| Name, intro, email, LinkedIn, GitHub | `profile` |
-| A project, or a new one | `projects` (add an object; it appears in Originals, the overlay, the resume sheet and the counts) |
-| Achievements / certifications | `achievements`, `certifications` |
-| Skills and their "where it's used" notes | `skillCategories`, `skillEvidence` |
-| Seasons and episodes (My Journey) | `seasons` |
-| Top 10 row | `topPicks` |
-| ▶ Play Intro highlight reel | `introSlides` |
-| Profile order (Recruiter / Developer / Creative) | `viewerProfiles` |
-| Opening studio card text | `profile.originalLabel` |
-
-**Resume:** replace `public/assets/Sushmita_Dasari_Resume.pdf`.
-
-**Photo:** replace `pic1.jpeg` (high-res photo) and `pic.png` (background-removed cutout with the same framing), then run:
-
-```bash
-npm run images
-```
-
-This rebuilds the responsive WebP portraits and the social share image in `public/assets/`.
-
-## What's inside
-
-```
-src/
-  data/portfolio.ts        ← single source of truth (from the resume)
-  App.tsx                  ← stages: opening → profile select → home; overlays
-  components/
-    OpeningSequence        ← black → studio card → SUSHMITA → THE SERIES → portrait → ▶ PLAY
-    ProfileSelector        ← "Who's watching?" (changes section order only)
-    Navbar                 ← hide-on-scroll nav, profile switcher, mobile menu
-    Hero                   ← billboard: parallax portrait, particles, light streaks, floating chips
-    PlayIntro              ← ▶ Play Intro: zoom into portrait → highlight reel (pause, ← →, tap zones)
-    ContinueWatching       ← cards with real "watched" progress bars
-    About                  ← The Pilot
-    Seasons / EpisodeCard  ← My Journey as seasons and episodes
-    Originals / ProjectCard← pinned horizontal sequence on desktop, swipe rail on touch
-    ProjectModal           ← full-screen project overlay with a shared-element transition
-    TopPicks               ← Top 10-style row
-    Skills                 ← skill genres; each card shows where the skill appears
-    Achievements           ← award-poster cards + certification rail (links to credentials)
-    ResumeViewer/ResumeModal ← designed resume sheet, PDF viewer, download
-    FinalCTA               ← TO BE CONTINUED… + contact links
-    CustomCursor, fx.tsx   ← cursor states, magnetic buttons, 3D tilt, text reveals, particles
-  hooks/                   ← Lenis smooth scroll + scroll lock, media queries, watch progress
-scripts/build-images.mjs   ← portrait/share-image pipeline (sharp)
-```
-
-**Stack:** React 18, TypeScript, Vite 6, Tailwind CSS 4, Framer Motion 11, Lenis.
-
-## Accessibility and performance
-
-- `prefers-reduced-motion` is respected: smooth scroll, the custom cursor, tilt, particles, grain and the pinned horizontal scroll turn off, and the opening jumps straight to its final frame.
-- Hover effects only run on devices with a precise pointer. Touch devices get tap interactions and native swipe rails.
-- The custom cursor appears only with a mouse or trackpad.
-- Overlays close with Esc, and the highlight reel supports Space and the ← → keys.
-- Portraits are responsive WebP files (25–90 KB). Overlays are code-split, and particles pause when they're off screen.
-
-## Keyboard shortcuts
-
-- **Opening:** Enter or Esc skips it.
-- **Play Intro:** Space pauses, ← and → change slides, Esc closes.
-- **Project and resume overlays:** Esc closes.
+Desain awal proyek diadaptasi dari **Sushmita — The Series**, portofolio bergaya platform streaming. Website ini adalah karya independen dan **tidak berafiliasi dengan Netflix**. Sebelum menjual layanan berdasarkan template, verifikasi lisensi kode asal dan izin seluruh aset foto/ikon. Untuk penggunaan jasa komersial di Vercel, gunakan paket hosting yang memperbolehkan penggunaan komersial.

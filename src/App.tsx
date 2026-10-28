@@ -1,6 +1,7 @@
 import { lazy, Suspense, useCallback, useEffect, useState, type ReactNode } from 'react';
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
-import { viewerProfiles, type ProfileId, type Project, type SectionId } from './data/portfolio';
+import type { ProfileId, Project, SectionId } from './data/portfolio';
+import { usePortfolio } from './data/PortfolioContext';
 import { SmoothScrollProvider, useSmoothScroll } from './hooks/smoothScroll';
 import CustomCursor from './components/CustomCursor';
 import OpeningSequence from './components/OpeningSequence';
@@ -26,27 +27,27 @@ const ResumeModal = lazy(() => import('./components/ResumeModal'));
 
 type Stage = 'opening' | 'profiles' | 'home';
 
-const STORAGE_KEY = 'vini-series-profile';
-
-function readStoredProfile(): ProfileId | null {
+function readStoredProfile(key: string, viewerProfiles: ReturnType<typeof usePortfolio>['viewerProfiles']): ProfileId | null {
   try {
-    const v = sessionStorage.getItem(STORAGE_KEY);
+    const v = sessionStorage.getItem(key);
     return viewerProfiles.some((p) => p.id === v) ? (v as ProfileId) : null;
   } catch {
     return null;
   }
 }
 
-export default function App() {
+export default function App({ slug }: { slug: string }) {
   return (
     <SmoothScrollProvider>
-      <Series />
+      <Series slug={slug} />
     </SmoothScrollProvider>
   );
 }
 
-function Series() {
-  const stored = readStoredProfile();
+function Series({ slug }: { slug: string }) {
+  const { viewerProfiles } = usePortfolio();
+  const storageKey = `personal-netflix-profile-${slug}`;
+  const stored = readStoredProfile(storageKey, viewerProfiles);
   const [stage, setStage] = useState<Stage>(stored ? 'home' : 'opening');
   const [profileId, setProfileId] = useState<ProfileId>(stored ?? 'vini');
   const [playing, setPlaying] = useState(false);
@@ -67,7 +68,7 @@ function Series() {
     (id: ProfileId) => {
       setProfileId(id);
       try {
-        sessionStorage.setItem(STORAGE_KEY, id);
+        sessionStorage.setItem(storageKey, id);
       } catch {
         /* storage unavailable — profile simply won't persist */
       }
@@ -80,7 +81,7 @@ function Series() {
         scrollTo(0, { offset: 0 });
       }
     },
-    [stage, scrollTo],
+    [stage, scrollTo, storageKey, viewerProfiles],
   );
 
   useEffect(() => {

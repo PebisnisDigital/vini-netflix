@@ -77,6 +77,7 @@ export type Metric = { value: string; label: string };
 export type Project = {
   id: string;
   title: string;
+  image?: string;
   year: string;
   genre: string;
   logline: string;

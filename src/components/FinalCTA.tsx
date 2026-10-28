@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
-import { profile } from '../data/portfolio';
+import { usePortfolio } from '../data/PortfolioContext';
 import { getPortfolioServiceWhatsappUrl, portfolioServiceCTA } from '../data/portfolioServiceCTA';
 import { useSmoothScroll } from '../hooks/smoothScroll';
 import { EASE, Magnetic, Particles } from './fx';
 import { SeriesMark } from './Poster';
 
 export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
+  const { profile } = usePortfolio();
   const { scrollTo } = useSmoothScroll();
   const exampleUrl = typeof window === 'undefined' ? undefined : `${window.location.origin}${window.location.pathname}`;
   const whatsappUrl = getPortfolioServiceWhatsappUrl(exampleUrl);

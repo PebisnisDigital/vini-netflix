@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
 import type { Project } from '../data/portfolio';
+import { usePortfolio } from '../data/PortfolioContext';
 import { Tilt } from './fx';
 import { ProjectArt } from './Poster';
 
 export default function ProjectCard({ project, onOpen, duplicate = false }: { project: Project; index: number; onOpen: () => void; duplicate?: boolean }) {
+  const { profile } = usePortfolio();
   return (
     <motion.article
       aria-hidden={duplicate}
@@ -32,7 +34,7 @@ export default function ProjectCard({ project, onOpen, duplicate = false }: { pr
           </motion.div>
 
           <div className="absolute left-5 top-5 flex items-center gap-2 sm:left-7 sm:top-7">
-            <span className="font-display text-xl leading-none text-crimson-2">V</span>
+            <span className="font-display text-xl leading-none text-crimson-2">{profile.displayName === 'Teh Vini' ? 'V' : profile.displayName.charAt(0).toUpperCase()}</span>
             <span className="text-[10px] font-bold tracking-[0.34em] text-bone/80">ORISINAL</span>
           </div>
           <span className="absolute right-5 top-5 rounded border border-white/30 px-1.5 py-px text-[10px] font-bold text-bone sm:right-7 sm:top-7">{project.year}</span>
@@ -62,7 +64,7 @@ export default function ProjectCard({ project, onOpen, duplicate = false }: { pr
                   onClick={(e) => e.stopPropagation()}
                   className="flex min-h-11 items-center gap-2 rounded-md border border-white/25 bg-black/30 px-4 text-sm font-semibold text-bone backdrop-blur transition hover:border-bone"
                 >
-                  GitHub ↗
+                  Kunjungi ↗
                 </a>
               )}
             </div>

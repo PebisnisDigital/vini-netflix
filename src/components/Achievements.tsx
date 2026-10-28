@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { achievements, certifications } from '../data/portfolio';
+import { usePortfolio } from '../data/PortfolioContext';
 import { useAutoRail } from '../hooks/useAutoRail';
 import { EASE, SectionHeading, Tilt } from './fx';
 import { RailButtons } from './Rail';
@@ -17,6 +17,7 @@ function Laurel({ side }: { side: 'l' | 'r' }) {
 }
 
 export default function Achievements() {
+  const { achievements, certifications } = usePortfolio();
   const momentsRail = useRef<HTMLDivElement>(null);
   const certificateRail = useRef<HTMLDivElement>(null);
   const { pause } = useAutoRail(momentsRail, { itemCount: achievements.length, speed: 96 });

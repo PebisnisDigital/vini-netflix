@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'framer-motion';
-import { profile, projects, type ProfileId } from '../data/portfolio';
+import type { ProfileId } from '../data/portfolio';
+import { usePortfolio } from '../data/PortfolioContext';
 import { useFinePointer } from '../hooks/useMedia';
 import { useSmoothScroll } from '../hooks/smoothScroll';
 import { EASE, Magnetic, Particles } from './fx';
@@ -13,6 +14,7 @@ const item = {
 };
 
 export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => void; onResume: () => void; profileId: ProfileId }) {
+  const { profile, projects } = usePortfolio();
   const ref = useRef<HTMLElement>(null);
   const fine = useFinePointer();
   const { scrollTo } = useSmoothScroll();
@@ -36,18 +38,18 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
   const chipY = useTransform(py, [-1, 1], [12, -12]);
   const glowX = useTransform(px, [-1, 1], ['-6%', '6%']);
 
-  const meta = [
+  const meta = profile.heroMeta || [
     'Bandung, Indonesia',
     'CEO Cuanify ID',
     `${projects.length} Karya Pilihan`,
     'Mentor WhatsApp Marketing',
   ];
 
-  const floating = [
+  const floating = (profile.floating || [
     { text: 'BADAI', sub: 'Belajar Apa Aja Dengan AI', pos: 'left-[2%] top-[30%]', depth: 1 },
     { text: 'PROMPTIONAL', sub: 'Galeri Prompt AI', pos: 'right-[0%] top-[18%]', depth: -1 },
     { text: 'WHATSAPP', sub: 'Pemasaran & mentoring', pos: 'right-[4%] bottom-[24%]', depth: 0.6 },
-  ];
+  ]).map((f, i) => ({ ...f, pos: ['left-[2%] top-[30%]', 'right-[0%] top-[18%]', 'right-[4%] bottom-[24%]'][i % 3], depth: [1, -1, 0.6][i % 3] }));
 
   return (
     <section
@@ -128,7 +130,7 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
         </motion.p>
 
         <motion.div variants={item} className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 text-[13px] font-medium text-mist">
-          <span className="rounded border border-white/25 px-1.5 py-px text-[10px] font-bold tracking-wider text-bone">AI & DIGITAL</span>
+          <span className="rounded border border-white/25 px-1.5 py-px text-[10px] font-bold tracking-wider text-bone">{profile.heroMeta ? 'PORTOFOLIO' : 'AI & DIGITAL'}</span>
           {meta.map((m, i) => (
             <span key={m} className="flex items-center gap-3">
               {i > 0 && <span className="h-1 w-1 rounded-full bg-smoke" />}

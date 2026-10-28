@@ -1,6 +1,7 @@
 import { Fragment, useCallback, useRef, useState, type PointerEvent } from 'react';
 import { motion } from 'framer-motion';
-import { profile, projects, type Project } from '../data/portfolio';
+import type { Project } from '../data/portfolio';
+import { usePortfolio } from '../data/PortfolioContext';
 import { useAutoRail } from '../hooks/useAutoRail';
 import { useReducedMotionPref } from '../hooks/useMedia';
 import { EASE, RevealText } from './fx';
@@ -12,6 +13,7 @@ import ProjectCard from './ProjectCard';
  * could leave the third card cut off when vertical scroll was interrupted.
  */
 export default function Originals({ onOpen }: { onOpen: (p: Project) => void }) {
+  const { profile, projects } = usePortfolio();
   const rail = useRef<HTMLDivElement>(null);
   const currentIndex = useRef(0);
   const pointer = useRef<{ id: number; x: number; left: number; dragged: boolean } | null>(null);
@@ -117,7 +119,7 @@ export default function Originals({ onOpen }: { onOpen: (p: Project) => void }) 
 
       <motion.div
         ref={rail}
-        aria-label="Geser untuk melihat karya Teh Vini"
+        aria-label={`Geser untuk melihat karya ${profile.displayName}`}
         className={`rail gutter relative flex gap-4 overflow-x-auto overscroll-x-contain pb-8 sm:gap-6 ${dragging ? 'cursor-grabbing select-none snap-none' : 'cursor-grab snap-x snap-mandatory'}`}
         data-cursor="drag"
         onScroll={syncActive}
