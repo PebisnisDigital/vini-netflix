@@ -7,9 +7,13 @@ Master template portofolio bergaya platform streaming untuk beberapa klien. **Sa
 | `/` | Landing page utama (COMING SOON) |
 | `/vini` | Portofolio Teh Vini (contoh & acuan desain) |
 | `/formulir` | Formulir internal pengemasan data Teh Vini (tanpa login/backend) |
+| `/studio` | CMS editor seperti Blogger: buat/edit konten dan foto, simpan draft, preview |
+| `/studio/preview?slug=satria` | Preview portofolio dari draft browser (belum live) |
 | `/<nama-klien>` | Portofolio masing-masing klien yang sudah diterbitkan |
 
 **Baca panduan lengkap:** [SOP Web Personal Netflix](docs/WEB-PERSONAL-NETFLIX.md).
+
+**CMS Studio:** [Alur editorial, GitHub OAuth, dan penerbitan aman](docs/CMS-STUDIO.md).
 
 ## Membuat portofolio klien baru
 

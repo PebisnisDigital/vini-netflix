@@ -45,7 +45,14 @@ async function main() {
   });
   await mkdir(path.join(dist, 'formulir'), { recursive: true });
   await writeFile(path.join(dist, 'formulir/index.html'), intake);
-  console.log(`✅ Halaman formulir dan ${files.length} halaman klien disiapkan dengan metadata masing-masing.`);
+  const studio = renderClientHtml(template, {
+    name: 'Dashboard Studio — Web Personal Netflix',
+    bio: 'Buat, edit, dan kelola portofolio klien bergaya Netflix.', photo: { src: '/favicon.svg' },
+  });
+  await mkdir(path.join(dist, 'studio', 'preview'), { recursive: true });
+  await writeFile(path.join(dist, 'studio/index.html'), studio);
+  await writeFile(path.join(dist, 'studio/preview/index.html'), studio);
+  console.log(`✅ Formulir, Studio, Preview Studio, dan ${files.length} halaman klien disiapkan.`);
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) await main();

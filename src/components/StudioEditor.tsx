@@ -1,0 +1,249 @@
+import { useEffect, useMemo, useState, type ReactNode } from 'react';
+import { normalizeSlug, validateBrief, type ClientBrief } from '../data/clientModel';
+import { clientBriefBlank, deleteDraft, listDrafts, preparedBrief, saveDraft, type StudioDraft } from '../data/studioDraft';
+import { publishedClients } from '../data/studioPublished';
+
+type Session = { configured: boolean; authenticated: boolean; login: string | null };
+type SubmittedPR = { number: number; url: string; branch: string; sha: string };
+const photoMax = 2_500_000;
+const field = 'w-full rounded-xl border border-white/15 bg-[#18181f] px-3.5 py-3 text-base text-white placeholder:text-white/30 outline-none transition focus:border-[#ff5c75] focus:ring-2 focus:ring-[#ff5c75]/10';
+const card = 'rounded-2xl border border-white/10 bg-[#121218] p-5';
+const secondary = 'rounded-xl border border-white/20 bg-white/[0.035] px-4 py-2.5 text-sm font-semibold hover:bg-white/10 disabled:opacity-40';
+const initialSession: Session = { configured: false, authenticated: false, login: null };
+
+function Control({ label, hint, children }: { label: string; hint?: string; children: ReactNode }) {
+  return <label className="block min-w-0 space-y-2"><span className="block text-sm font-semibold text-white/85">{label}</span>{children}{hint && <span className="block text-xs leading-relaxed text-white/45">{hint}</span>}</label>;
+}
+
+function Photo({ file, existing, title, onChange }: { file?: File | null; existing: string; title: string; onChange: (value: File | null) => void }) {
+  const [preview, setPreview] = useState('');
+  const [error, setError] = useState('');
+  useEffect(() => {
+    if (!file) { setPreview(''); return; }
+    const url = URL.createObjectURL(file); setPreview(url);
+    return () => URL.revokeObjectURL(url);
+  }, [file]);
+  const change = async (next?: File) => {
+    setError('');
+    if (!next) { onChange(null); return; }
+    if (!/^image\/(png|jpeg|webp|avif)$/.test(next.type)) { setError('Pilih PNG, JPG, WebP, atau AVIF.'); return; }
+    if (next.size > photoMax) {
+      try {
+        const bitmap = await createImageBitmap(next);
+        const scale = Math.min(1, 1600 / Math.max(bitmap.width, bitmap.height));
+        const canvas = document.createElement('canvas');
+        canvas.width = Math.round(bitmap.width * scale); canvas.height = Math.round(bitmap.height * scale);
+        canvas.getContext('2d')!.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+        bitmap.close();
+        const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, 'image/webp', 0.84));
+        if (!blob || blob.size > photoMax) { setError('Foto masih terlalu besar. Kompres hingga maksimal 2,5 MB.'); return; }
+        next = new File([blob], `${next.name.replace(/\.[^.]+$/, '')}.webp`, { type: 'image/webp' });
+      } catch { setError('Foto belum dapat diproses. Coba foto yang lebih kecil.'); return; }
+    }
+    onChange(next);
+  };
+  return <div className="space-y-2"><div className="relative flex h-44 items-center justify-center overflow-hidden rounded-xl border border-dashed border-white/20 bg-gradient-to-br from-[#301320] via-[#17111b] to-[#08080b]">
+    {(preview || existing) ? <img src={preview || existing} alt={title} className="h-full w-full object-contain"/> : <div className="text-center text-white/45"><span className="mb-2 block text-3xl">▧</span><span className="text-xs">Belum ada foto</span></div>}
+    {file && <span className="absolute bottom-2 right-2 rounded-md bg-black/70 px-2 py-1 text-[11px]">Foto baru</span>}
+  </div><label className="block cursor-pointer rounded-xl border border-white/20 px-3 py-3 text-center text-sm font-semibold hover:border-[#ff6b82]">{existing || file ? 'Ganti Foto' : 'Tambah Foto'}<input type="file" accept="image/png,image/jpeg,image/webp,image/avif" className="sr-only" onChange={(e) => { void change(e.target.files?.[0]); e.currentTarget.value = ''; }}/></label>
+    {error && <p role="alert" className="text-xs text-red-300">{error}</p>}
+    {file && <button type="button" className="text-xs text-white/55 underline" onClick={() => onChange(null)}>Batalkan foto baru</button>}
+  </div>;
+}
+
+function splitLines(text: string) { return text.split(/\n|,/).map((s) => s.trim()).filter(Boolean); }
+const newProject = (): ClientBrief['projects'][number] => ({ title: '', year: String(new Date().getFullYear()), description: '', category: 'Portofolio', tags: [], website: '', image: '' });
+
+async function apiPost(path: string, body: unknown) {
+  const res = await fetch(path, { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', 'x-personalflix-action': '1' }, body: JSON.stringify(body) });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Permintaan belum berhasil.');
+  return data;
+}
+
+export default function StudioEditor() {
+  const [drafts, setDrafts] = useState<StudioDraft[]>([]);
+  const [published, setPublished] = useState<ClientBrief[]>([]);
+  const [active, setActive] = useState<StudioDraft | null>(null);
+  const [session, setSession] = useState<Session>(initialSession);
+  const [notice, setNotice] = useState('');
+  const [busy, setBusy] = useState(false);
+  const [pr, setPr] = useState<SubmittedPR | null>(null);
+  const [approved, setApproved] = useState(false);
+  const [search, setSearch] = useState('');
+  const prepared = useMemo(() => active ? preparedBrief(active) : null, [active]);
+
+  useEffect(() => {
+    void Promise.all([listDrafts(), publishedClients(), fetch('/api/auth/status').then((r) => r.json() as Promise<Session>).catch(() => initialSession)]).then(([local, live, auth]) => {
+      setDrafts(local.sort((a, b) => b.updatedAt - a.updatedAt));
+      setPublished(live); setSession(auth);
+      const last = sessionStorage.getItem('personalflix-last-draft');
+      const recent = local.find((d) => d.slug === last);
+      if (recent) setActive(recent);
+    }).catch(() => setNotice('Tidak bisa membuka draft lokal. Coba browser biasa, bukan mode privat.'));
+  }, []);
+
+  const patch = (changes: Partial<ClientBrief>) => {
+    setActive((current) => current ? { ...current, brief: { ...current.brief, ...changes }, updatedAt: Date.now() } : current);
+    setNotice(''); setPr(null); setApproved(false);
+  };
+  const changeProject = (index: number, changes: Partial<ClientBrief['projects'][number]>) => {
+    if (!active) return;
+    patch({ projects: active.brief.projects.map((item, i) => i === index ? { ...item, ...changes } : item) });
+  };
+  const refreshList = async () => setDrafts((await listDrafts()).sort((a, b) => b.updatedAt - a.updatedAt));
+  const persist = async (entry = active) => {
+    if (!entry) throw new Error('Pilih klien terlebih dahulu.');
+    const brief = preparedBrief(entry);
+    if (!brief.slug || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(brief.slug)) throw new Error('Masukkan nama URL yang valid sebelum menyimpan draft.');
+    const saved = { ...entry, slug: brief.slug, updatedAt: Date.now() };
+    await saveDraft(saved); sessionStorage.setItem('personalflix-last-draft', saved.slug);
+    setActive(saved); await refreshList(); return saved;
+  };
+  const saveClick = async () => { try { await persist(); setNotice('Draft tersimpan di browser ini.'); } catch (e) { setNotice((e as Error).message); } };
+  const preview = async () => {
+    try {
+      if (!prepared) return;
+      const errors = validateBrief(prepared);
+      if (!active?.portrait && active?.mode === 'create') errors.push('Foto utama wajib dipilih.');
+      if (errors.length) { setNotice(errors.join(' · ')); return; }
+      await persist(); window.location.assign(`/studio/preview?slug=${prepared.slug}`);
+    } catch (e) { setNotice((e as Error).message); }
+  };
+  const newClient = () => { setActive({ slug: '', brief: clientBriefBlank(), portrait: null, projectPhotos: {}, mode: 'create', updatedAt: Date.now() }); setPr(null); setNotice(''); };
+  const choose = (draft: StudioDraft) => { setActive(draft); sessionStorage.setItem('personalflix-last-draft', draft.slug); setPr(null); setNotice(''); };
+  const usePublished = (brief: ClientBrief) => {
+    const existing = drafts.find((d) => d.slug === brief.slug);
+    choose(existing ?? { slug: brief.slug, brief, portrait: null, projectPhotos: {}, mode: 'edit', updatedAt: Date.now() });
+  };
+  const setPhoto = (index: number | null, file: File | null) => {
+    setActive((current) => {
+      if (!current) return current;
+      if (index === null) {
+        return { ...current, portrait: file };
+      }
+      const photos = { ...current.projectPhotos };
+      if (file) photos[index] = file; else delete photos[index];
+      return { ...current, projectPhotos: photos };
+    });
+    setPr(null);
+  };
+  const reorder = (index: number, direction: number) => {
+    if (!active) return;
+    const target = index + direction;
+    if (target < 0 || target >= active.brief.projects.length) return;
+    const projects = [...active.brief.projects]; [projects[index], projects[target]] = [projects[target], projects[index]];
+    const photos = { ...active.projectPhotos };
+    const tmp = photos[index];
+    if (photos[target]) photos[index] = photos[target]; else delete photos[index];
+    if (tmp) photos[target] = tmp; else delete photos[target];
+    setActive({ ...active, brief: { ...active.brief, projects }, projectPhotos: photos }); setPr(null);
+  };
+  const removeProject = (index: number) => {
+    if (!active || active.brief.projects.length <= 1) return;
+    const projects = active.brief.projects.filter((_, i) => i !== index);
+    const photos: Record<number, File> = {};
+    for (const [key, value] of Object.entries(active.projectPhotos)) {
+      const i = Number(key); if (i !== index) photos[i > index ? i - 1 : i] = value;
+    }
+    setActive({ ...active, brief: { ...active.brief, projects }, projectPhotos: photos }); setPr(null);
+  };
+  const publish = async () => {
+    if (!active || !prepared || busy) return;
+    const errors = validateBrief(prepared);
+    if (active.mode === 'create' && !active.portrait) errors.push('Foto utama diperlukan untuk klien baru.');
+    if (errors.length) { setNotice(errors.join(' · ')); return; }
+    try {
+      setBusy(true); setNotice('Memeriksa dan mengunggah foto ke GitHub…');
+      const saved = await persist();
+      const publishingBrief = preparedBrief(saved);
+      if (!session.authenticated) {
+        if (!session.configured) throw new Error('Login GitHub belum diaktifkan. Atur OAuth pada Vercel terlebih dahulu.');
+        window.location.assign('/api/auth/start'); return;
+      }
+      const files: { file: File; path: string }[] = [];
+      if (saved.portrait) files.push({ file: saved.portrait, path: `public${publishingBrief.photo.src}` });
+      for (const [index, file] of Object.entries(saved.projectPhotos)) files.push({ file, path: `public${publishingBrief.projects[Number(index)].image}` });
+      const assets: { path: string; sha: string }[] = [];
+      for (const { file, path } of files) {
+        const response = await fetch('/api/assets', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': file.type, 'x-personalflix-action': '1', 'x-client-photo-path': path }, body: file });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(data.error || `Gagal mengunggah ${file.name}.`);
+        assets.push({ path: data.path, sha: data.sha });
+      }
+      setNotice('Membuat branch dan Pull Request untuk preview…');
+      const result = await apiPost('/api/publish', { brief: publishingBrief, assets, mode: saved.mode }) as SubmittedPR;
+      setPr(result); setApproved(false); setNotice('Preview GitHub berhasil disiapkan. Periksa tampilan sebelum menerbitkan live.');
+    } catch (error) { setNotice((error as Error).message); }
+    finally { setBusy(false); }
+  };
+  const merge = async () => {
+    if (!pr || !approved || busy) return;
+    try {
+      setBusy(true); setNotice('Memeriksa validasi GitHub sebelum menerbitkan…');
+      const result = await apiPost('/api/publish-merge', { number: pr.number, sha: pr.sha, confirmed: true });
+      if (result.merged) {
+        setNotice(`Berhasil! Vercel sedang menerbitkan https://tehvini.vercel.app/${result.slug}`); setPr(null);
+        if (active) {
+          const updated = { ...active, brief: preparedBrief(active), portrait: null, projectPhotos: {}, mode: 'edit' as const, updatedAt: Date.now() };
+          await saveDraft(updated); setActive(updated); await refreshList();
+        }
+      }
+    } catch (error) { setNotice((error as Error).message); }
+    finally { setBusy(false); }
+  };
+
+  return <div className="min-h-screen bg-[#09090d] font-sans text-white">
+    <header className="sticky top-0 z-40 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 bg-[#0b0b10]/95 px-5 py-4 backdrop-blur-lg sm:px-8"><a href="/" className="font-extrabold tracking-widest">PERSONAL<span className="text-[#ff4566]">FLIX</span><span className="ml-2 text-xs font-medium tracking-normal text-white/45">STUDIO</span></a><div className="flex flex-wrap items-center gap-2"><span className="rounded-full border border-white/15 px-3 py-1 text-xs text-white/60">{session.authenticated ? `● ${session.login}` : 'Draft lokal · Tanpa login'}</span><a href="/vini" target="_blank" rel="noreferrer" className={secondary}>Lihat Contoh</a></div></header>
+    <div className="mx-auto grid max-w-[1500px] gap-5 px-4 py-6 lg:grid-cols-[240px_minmax(0,1fr)_260px] lg:px-6">
+      <aside className={`${card} h-fit lg:sticky lg:top-24`}><div className="mb-5"><p className="text-xs font-bold uppercase tracking-[0.18em] text-[#ff6580]">Dashboard</p><h1 className="mt-1 text-2xl font-extrabold">Website Klien</h1><p className="mt-2 text-sm text-white/50">Seperti menulis postingan, tetapi hasilnya portofolio Netflix.</p></div>
+        <button type="button" onClick={newClient} className="mb-5 w-full rounded-xl bg-[#e50931] px-4 py-3 text-sm font-bold hover:bg-[#fb2951]">＋ Buat Klien Baru</button>
+        <input aria-label="Cari klien" className={`${field} mb-3`} value={search} placeholder="Cari nama klien…" onChange={(e) => setSearch(e.target.value)}/>
+        <p className="mb-2 text-xs font-bold uppercase tracking-wider text-white/40">Draft tersimpan</p>
+        <div className="space-y-1">{drafts.filter((d) => d.brief.name.toLowerCase().includes(search.toLowerCase()) || d.slug.includes(search.toLowerCase())).map((entry) => <button type="button" key={entry.slug} onClick={() => choose(entry)} className={`w-full rounded-lg px-3 py-2.5 text-left text-sm ${active?.slug === entry.slug ? 'bg-[#e50931]/20 text-white' : 'text-white/70 hover:bg-white/5'}`}><span className="block font-semibold">{entry.brief.name || entry.slug}</span><span className="block text-xs text-white/45">/{entry.slug} · Draft lokal</span></button>)}{!drafts.length && <p className="rounded-lg bg-white/[0.03] p-3 text-xs text-white/40">Belum ada draft.</p>}</div>
+        <p className="mb-2 mt-6 text-xs font-bold uppercase tracking-wider text-white/40">Sudah tayang</p>
+        <div className="space-y-1">{published.filter((p) => p.name.toLowerCase().includes(search.toLowerCase()) || p.slug.includes(search.toLowerCase())).map((entry) => <button key={entry.slug} type="button" onClick={() => usePublished(entry)} className="w-full rounded-lg px-3 py-2.5 text-left text-sm hover:bg-white/5"><span className="block font-semibold">{entry.name}</span><span className="block text-xs text-emerald-300/70">/{entry.slug} · Edit website</span></button>)}<p className="px-3 pt-2 text-xs text-white/40">Halaman /vini adalah contoh master dan tetap dilindungi.</p></div>
+      </aside>
+
+      <main className="min-w-0 space-y-5">
+        {!active ? <section className={`${card} flex min-h-[400px] flex-col items-center justify-center gap-4 text-center`}><span className="text-6xl">✦</span><h2 className="text-3xl font-extrabold">Mulai Karya Baru</h2><p className="max-w-md text-white/55">Masukkan data klien dari WhatsApp, ganti foto dan atur kartu sesuai kebutuhan. Simpan draft kapan saja.</p><button type="button" onClick={newClient} className="rounded-xl bg-[#e50931] px-6 py-3 font-bold">Buat Klien Baru</button></section> : <>
+          <div className="flex flex-wrap items-start justify-between gap-3"><div><p className="text-xs font-bold uppercase tracking-wider text-[#ff6580]">{active.mode === 'create' ? 'Website baru' : 'Edit website terbit'}</p><h2 className="mt-1 text-2xl font-extrabold">{active.brief.name || 'Klien Tanpa Nama'}</h2><p className="mt-1 text-sm text-white/45">/{active.brief.slug || 'nama-klien'} · Data tersimpan hanya di browser ini sampai dipublikasikan.</p></div><button type="button" className={secondary} onClick={saveClick}>Simpan Draft</button></div>
+          <section className={card}><h3 className="mb-5 text-xl font-extrabold">01 · Profil & Redaksi</h3><div className="grid gap-4 sm:grid-cols-2">
+            <Control label="Nama lengkap / brand *"><input className={field} value={active.brief.name} placeholder="Satria Putra" onChange={(e) => patch({ name: e.target.value, slug: active.brief.slug || normalizeSlug(e.target.value), photo: { ...active.brief.photo, alt: `Foto ${e.target.value}` } })}/></Control>
+            <Control label="Alamat halaman *" hint={`tehvini.vercel.app/${active.brief.slug || 'nama-klien'}`}><input disabled={active.mode === 'edit'} className={`${field} disabled:opacity-50`} value={active.brief.slug} placeholder="satria" onChange={(e) => patch({ slug: normalizeSlug(e.target.value) })}/></Control>
+            <Control label="Profesi *"><input className={field} value={active.brief.role} placeholder="Fotografer • Digital Creator" onChange={(e) => patch({ role: e.target.value })}/></Control>
+            <Control label="Kota / lokasi *"><input className={field} value={active.brief.location} placeholder="Bandung, Indonesia" onChange={(e) => patch({ location: e.target.value })}/></Control>
+          </div><div className="mt-4"><Control label="Tentang Saya *"><textarea className={field} rows={4} value={active.brief.bio} placeholder="Ceritakan tentang klien…" onChange={(e) => patch({ bio: e.target.value })}/></Control></div>
+          <div className="mt-4 grid gap-4 sm:grid-cols-2"><Control label="Headline / Sorotan *" hint="Satu kalimat per baris"><textarea className={field} rows={3} value={active.brief.tagline.join('\n')} onChange={(e) => patch({ tagline: splitLines(e.target.value) })}/></Control><Control label="Minat / Hobi" hint="Satu poin per baris"><textarea className={field} rows={3} value={active.brief.interests.join('\n')} onChange={(e) => patch({ interests: splitLines(e.target.value) })}/></Control></div></section>
+
+          <section className={card}><h3 className="mb-2 text-xl font-extrabold">02 · Foto Utama</h3><p className="mb-4 text-sm text-white/50">Untuk hero, foto badan setengah dengan latar transparan paling cocok. Foto besar otomatis diperkecil saat dipilih.</p><div className="max-w-xs"><Photo title="Foto utama klien" file={active.portrait} existing={active.mode === 'edit' ? active.brief.photo.src : ''} onChange={(file) => setPhoto(null, file)}/></div></section>
+
+          <section className={card}><div className="mb-5 flex flex-wrap items-center justify-between gap-3"><div><h3 className="text-xl font-extrabold">03 · Kartu Karya</h3><p className="mt-1 text-sm text-white/50">Satu karya = satu kartu Netflix. Foto tiap kartu bisa berbeda.</p></div><button type="button" className={secondary} onClick={() => patch({ projects: [...active.brief.projects, newProject()] })}>＋ Tambah Kartu</button></div>
+            <div className="space-y-5">{active.brief.projects.map((project, i) => <div key={i} className="rounded-2xl border border-white/10 bg-white/[0.025] p-4"><div className="mb-4 flex items-center justify-between gap-2"><span className="font-bold text-[#ff728a]">Kartu {i + 1}</span><div className="flex gap-1"><button type="button" aria-label={`Geser kartu ${i + 1} ke atas`} disabled={i === 0} className={secondary} onClick={() => reorder(i, -1)}>↑</button><button type="button" aria-label={`Geser kartu ${i + 1} ke bawah`} disabled={i === active.brief.projects.length - 1} className={secondary} onClick={() => reorder(i, 1)}>↓</button><button type="button" disabled={active.brief.projects.length < 2} className={`${secondary} text-red-300`} onClick={() => removeProject(i)}>Hapus</button></div></div>
+                <div className="grid gap-4 md:grid-cols-[210px_1fr]"><Photo title={`Foto karya ${i + 1}`} file={active.projectPhotos[i]} existing={active.mode === 'edit' ? project.image || '' : ''} onChange={(file) => setPhoto(i, file)}/><div className="space-y-3"><Control label="Judul kartu *"><input className={field} value={project.title} placeholder="Karya Unggulan" onChange={(e) => changeProject(i, { title: e.target.value })}/></Control><Control label="Deskripsi *"><textarea rows={3} className={field} value={project.description} placeholder="Ceritakan karya…" onChange={(e) => changeProject(i, { description: e.target.value })}/></Control><div className="grid gap-3 sm:grid-cols-2"><Control label="Kategori"><input className={field} value={project.category} onChange={(e) => changeProject(i, { category: e.target.value })}/></Control><Control label="Tahun"><input className={field} value={project.year} onChange={(e) => changeProject(i, { year: e.target.value })}/></Control></div><Control label="Kata kunci (pisah koma)"><input className={field} value={project.tags.join(', ')} onChange={(e) => changeProject(i, { tags: splitLines(e.target.value) })}/></Control><Control label="Link karya (opsional)"><input className={field} placeholder="https://…" value={project.website || ''} onChange={(e) => changeProject(i, { website: e.target.value })}/></Control></div></div>
+              </div>)}</div>
+          </section>
+
+          <section className={card}><h3 className="mb-5 text-xl font-extrabold">04 · Perjalanan & Pendidikan</h3><div className="space-y-4">{active.brief.experiences.map((exp, i) => <div key={i} className="grid gap-3 rounded-xl border border-white/10 p-3 sm:grid-cols-2"><Control label="Perusahaan"><input className={field} value={exp.company} onChange={(e) => patch({ experiences: active.brief.experiences.map((x, j) => i === j ? { ...x, company: e.target.value } : x) })}/></Control><Control label="Jabatan"><input className={field} value={exp.role} onChange={(e) => patch({ experiences: active.brief.experiences.map((x, j) => i === j ? { ...x, role: e.target.value } : x) })}/></Control><Control label="Periode"><input className={field} value={exp.period} onChange={(e) => patch({ experiences: active.brief.experiences.map((x, j) => i === j ? { ...x, period: e.target.value } : x) })}/></Control><Control label="Deskripsi"><input className={field} value={exp.description} onChange={(e) => patch({ experiences: active.brief.experiences.map((x, j) => i === j ? { ...x, description: e.target.value } : x) })}/></Control><button type="button" className="text-left text-xs text-red-300" onClick={() => patch({ experiences: active.brief.experiences.filter((_, j) => j !== i) })}>Hapus</button></div>)}<button type="button" className={secondary} onClick={() => patch({ experiences: [...active.brief.experiences, { company: '', role: '', period: '', description: '' }] })}>＋ Tambah Pengalaman</button></div>
+            <h4 className="mb-4 mt-8 text-base font-bold">Pendidikan</h4><div className="space-y-4">{(active.brief.education || []).map((edu, i) => <div key={i} className="grid gap-3 rounded-xl border border-white/10 p-3 sm:grid-cols-2">{(['school', 'degree', 'place', 'period'] as const).map((key) => <Control key={key} label={({ school: 'Sekolah / Kampus', degree: 'Jurusan / Gelar', place: 'Kota', period: 'Tahun' })[key]}><input className={field} value={edu[key]} onChange={(e) => patch({ education: (active.brief.education || []).map((x, j) => i === j ? { ...x, [key]: e.target.value } : x) })}/></Control>)}<button type="button" className="text-left text-xs text-red-300" onClick={() => patch({ education: (active.brief.education || []).filter((_, j) => j !== i) })}>Hapus</button></div>)}<button type="button" className={secondary} onClick={() => patch({ education: [...(active.brief.education || []), { school: '', degree: '', place: '', period: '', score: '' }] })}>＋ Tambah Pendidikan</button></div></section>
+
+          <section className={card}><h3 className="mb-5 text-xl font-extrabold">05 · Keahlian, Pencapaian & Kontak</h3><Control label="Keahlian" hint="Satu keahlian per baris"><textarea className={field} rows={3} value={active.brief.skills.join('\n')} onChange={(e) => patch({ skills: splitLines(e.target.value) })}/></Control>
+            <h4 className="mb-4 mt-6 font-bold">Pencapaian</h4>{(active.brief.highlights || []).map((highlight, i) => <div key={i} className="mb-3 grid gap-3 rounded-xl border border-white/10 p-3 sm:grid-cols-2">{(['title', 'description', 'category'] as const).map((key) => <Control key={key} label={({ title: 'Judul', description: 'Cerita', category: 'Kategori' })[key]}><input className={field} value={highlight[key] || ''} onChange={(e) => patch({ highlights: (active.brief.highlights || []).map((h, j) => j === i ? { ...h, [key]: e.target.value } : h) })}/></Control>)}<button type="button" className="text-left text-xs text-red-300" onClick={() => patch({ highlights: (active.brief.highlights || []).filter((_, j) => j !== i) })}>Hapus</button></div>)}<button type="button" className={secondary} onClick={() => patch({ highlights: [...(active.brief.highlights || []), { title: '', description: '', category: '' }] })}>＋ Tambah Pencapaian</button>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2"><Control label="Email publik"><input className={field} value={active.brief.email || ''} onChange={(e) => patch({ email: e.target.value })}/></Control>{(['website', 'linkedin', 'github'] as const).map((key) => <Control key={key} label={`Link ${key}`}><input className={field} value={active.brief.links?.[key] || ''} placeholder="https://…" onChange={(e) => patch({ links: { ...active.brief.links, [key]: e.target.value } })}/></Control>)}</div>
+          </section>
+
+          <section className={`${card} border-[#ff486b]/40`}><h3 className="text-xl font-extrabold">06 · Simpan, Preview, Terbitkan</h3><p className="mt-2 text-sm leading-relaxed text-white/60">Draft tetap di perangkat Teh Vini. Penerbitan memerlukan login GitHub, membuat Pull Request terlebih dahulu, dan tidak langsung mengubah website live.</p><div className="mt-5 flex flex-wrap gap-2"><button type="button" className={secondary} onClick={saveClick}>Simpan Draft</button><button type="button" className={secondary} onClick={() => { void preview(); }}>Lihat Preview</button><button type="button" disabled={busy} onClick={() => { void publish(); }} className="rounded-xl bg-[#e50931] px-5 py-3 text-sm font-bold hover:bg-[#fa284c] disabled:opacity-50">{busy ? 'Memproses…' : session.authenticated ? 'Siapkan Preview GitHub' : 'Login GitHub & Siapkan Preview'}</button></div>
+            {!session.configured && <p className="mt-3 text-xs text-amber-300">Login GitHub belum dikonfigurasi pada Vercel. Editor dan preview lokal tetap bisa digunakan.</p>}
+            {pr && <div className="mt-5 space-y-3 rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-4"><p className="font-semibold text-emerald-300">PR #{pr.number} siap diperiksa</p><a href={pr.url} target="_blank" rel="noreferrer" className="block break-all text-sm underline">Buka Pull Request & Preview Vercel ↗</a><label className="flex items-start gap-2 text-sm"><input type="checkbox" className="mt-1 accent-[#e50931]" checked={approved} onChange={(e) => setApproved(e.target.checked)}/><span>Saya sudah mengecek foto, redaksi, link, dan tampilan HP/desktop di preview.</span></label><button type="button" disabled={!approved || busy} className="rounded-xl bg-emerald-600 px-4 py-3 text-sm font-bold disabled:opacity-40" onClick={() => { void merge(); }}>Terbitkan ke Website Live</button></div>}
+            {notice && <p role="status" className="mt-4 rounded-xl bg-white/5 p-3 text-sm leading-relaxed text-white/80">{notice}</p>}
+          </section>
+          <div className="pb-6 text-right"><button type="button" className="text-xs text-red-300/70 underline" onClick={() => { if (active.slug && window.confirm('Hapus draft dari browser ini? Website yang sudah live tidak ikut terhapus.')) { void deleteDraft(active.slug).then(async () => { setActive(null); await refreshList(); }); } }}>Hapus Draft Lokal</button></div>
+        </>}
+      </main>
+
+      <aside className={`${card} h-fit lg:sticky lg:top-24`}><h3 className="mb-4 text-base font-extrabold">Ringkasan Visual</h3>{active ? <><div className="overflow-hidden rounded-xl bg-gradient-to-br from-[#491327] to-[#120c12] p-4"><p className="text-[10px] font-bold tracking-[0.3em] text-[#ff99aa]">THE SERIES</p><h4 className="mt-3 break-words text-2xl font-black uppercase">{active.brief.name || 'NAMA KLIEN'}</h4><p className="mt-2 text-xs text-white/70">{active.brief.role || 'Profesi klien'}</p></div><p className="mb-2 mt-5 text-xs font-bold uppercase tracking-wider text-white/50">{active.brief.projects.length} Kartu karya</p><div className="space-y-2">{active.brief.projects.slice(0, 5).map((project, i) => <div key={i} className="rounded-lg border border-white/10 bg-white/5 px-3 py-2"><p className="truncate text-sm font-bold">{project.title || `Karya ${i + 1}`}</p><p className="truncate text-xs text-white/45">{project.category}</p></div>)}</div><p className="mt-5 text-xs leading-relaxed text-white/45">Preview lengkap menampilkan animasi dan susunan asli website, bukan sekadar ringkasan di samping.</p></> : <p className="text-sm text-white/50">Pilih klien untuk melihat ringkasan.</p>}
+        <div className="mt-6 border-t border-white/10 pt-5"><p className="text-xs font-bold uppercase tracking-wider text-white/50">Privasi</p><p className="mt-2 text-xs leading-relaxed text-white/50">Draft dan foto disimpan hanya di browser ini (IndexedDB). Gunakan perangkat pribadi; jangan memakai komputer umum. Saat menerbitkan, foto dan data klien menjadi publik di website.</p></div>
+      </aside>
+    </div>
+  </div>;
+}

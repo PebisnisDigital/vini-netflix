@@ -14,6 +14,17 @@ async function start() {
     root.render(<StrictMode><ClientIntakeForm /></StrictMode>);
     return;
   }
+  if (/^\/studio\/?$/.test(location.pathname)) {
+    document.title = 'Personalflix Studio — Kelola Website Klien';
+    const { default: StudioEditor } = await import('./components/StudioEditor');
+    root.render(<StrictMode><StudioEditor /></StrictMode>);
+    return;
+  }
+  if (/^\/studio\/preview\/?$/.test(location.pathname)) {
+    const { default: StudioPreview } = await import('./components/StudioPreview');
+    root.render(<StrictMode><StudioPreview /></StrictMode>);
+    return;
+  }
   try {
     const client = await loadClient(location.pathname);
     if (!client) {

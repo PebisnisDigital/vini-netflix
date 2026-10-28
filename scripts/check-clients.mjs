@@ -3,7 +3,7 @@ import path from 'node:path';
 
 const root = process.cwd();
 const folder = path.join(root, 'src/data/clients');
-const reserved = new Set(['vini', 'formulir', 'admin', 'api', 'assets', 'demo', 'preview', 'index', 'favicon', 'robots', 'sitemap']);
+const reserved = new Set(['vini', 'formulir', 'studio', 'admin', 'api', 'assets', 'demo', 'preview', 'index', 'favicon', 'robots', 'sitemap']);
 const errors = [];
 
 function checkString(value, label, slug, min = 1) {

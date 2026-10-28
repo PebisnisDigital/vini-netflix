@@ -1,5 +1,7 @@
 {
   "rewrites": [
+    { "source": "/studio", "destination": "/studio/index.html" },
+    { "source": "/studio/preview", "destination": "/studio/preview/index.html" },
     { "source": "/formulir", "destination": "/formulir/index.html" },
     {
       "source": "/vini",

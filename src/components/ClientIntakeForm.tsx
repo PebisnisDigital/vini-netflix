@@ -93,7 +93,7 @@ export default function ClientIntakeForm() {
   };
 
   return <div className="min-h-screen bg-[#08080b] text-white font-sans">
-    <header className="border-b border-white/10 px-5 py-5 sm:px-10"><a href="/" className="text-base font-extrabold tracking-wide text-white">PERSONAL<span className="text-[#fa526e]">FLIX</span></a><span className="ml-4 text-xs text-white/60">Formulir admin</span></header>
+    <header className="border-b border-white/10 px-5 py-5 sm:px-10"><a href="/" className="text-base font-extrabold tracking-wide text-white">PERSONAL<span className="text-[#fa526e]">FLIX</span></a><span className="ml-4 text-xs text-white/60">Formulir admin</span><a href="/studio" className="ml-4 rounded-lg border border-[#fa526e]/50 px-3 py-2 text-xs font-bold text-[#ff8da0]">Buka Dashboard CMS →</a></header>
     <main className="mx-auto max-w-3xl space-y-6 px-4 py-12 sm:px-6">
       <div className="mb-8 space-y-3"><p className="text-xs font-bold uppercase tracking-[0.25em] text-[#ff6c86]">WEB PERSONAL NETFLIX</p><h1 className="text-3xl font-extrabold leading-tight sm:text-5xl">Data Klien.<br/>Satu Paket Siap Pakai.</h1><p className="max-w-2xl text-base leading-relaxed text-white/65">Formulir ini diisi oleh Teh Vini berdasarkan jawaban dan foto yang klien kirim melalui WhatsApp. Setelah lengkap, cukup unduh satu paket ZIP untuk diproses di Codex. Tidak perlu login.</p></div>
       {errors.length > 0 && <div role="alert" className="rounded-xl border border-red-500/60 bg-red-500/10 p-5"><p className="mb-2 font-semibold">Masih ada yang perlu dilengkapi:</p><ul className="list-disc space-y-1 pl-5 text-sm">{errors.map((e) => <li key={e}>{e}</li>)}</ul></div>}
