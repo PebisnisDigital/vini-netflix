@@ -7,14 +7,17 @@ import { EASE, SectionHeading } from './fx';
 const HUES = ['#ff3d5a', '#4cc9ff', '#46e3a8', '#ffb547', '#b98bff', '#ff8a5c', '#7ee0ff'];
 
 export default function Skills() {
-  const { skillCategories } = usePortfolio();
+  const { skillCategories, skillsHeading, skillsAside, skillsKicker } = usePortfolio();
   const [cat, setCat] = useState(0);
-  const category = skillCategories[cat];
-  const hue = HUES[cat % HUES.length];
+  const activeIndex = Math.min(cat, Math.max(0, skillCategories.length - 1));
+  const category = skillCategories[activeIndex];
+  const hue = HUES[activeIndex % HUES.length];
+
+  if (!category) return null;
 
   return (
     <>
-      <SectionHeading kicker="Kategori" title="Dunia Keahlian Saya" aside={<p className="max-w-xs text-sm text-mist">Arahkan kursor atau ketuk keahlian untuk melihat penerapannya dalam karya dan aktivitas saya.</p>} />
+      <SectionHeading kicker={skillsKicker || 'Kategori'} kickerEditId="skills:kicker" title={skillsHeading || 'Dunia Keahlian Saya'} titleEditId="skills:heading" aside={<p data-studio-edit="skills:aside" className="max-w-xs text-sm text-mist">{skillsAside || 'Arahkan kursor atau ketuk keahlian untuk melihat penerapannya dalam karya dan aktivitas saya.'}</p>} />
 
       <div className="gutter grid gap-8 lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-14">
         {/* genre list */}
@@ -24,12 +27,13 @@ export default function Skills() {
               key={c.id}
               type="button"
               role="tab"
-              aria-selected={i === cat}
+              data-studio-edit={`skill-category:${i}`}
+              aria-selected={i === activeIndex}
               onClick={() => setCat(i)}
-              className={`group relative shrink-0 rounded-lg px-4 py-3 text-left transition lg:px-5 ${i === cat ? 'text-bone' : 'text-smoke hover:text-bone'}`}
+              className={`group relative shrink-0 rounded-lg px-4 py-3 text-left transition lg:px-5 ${i === activeIndex ? 'text-bone' : 'text-smoke hover:text-bone'}`}
             >
-              {i === cat && <motion.span layoutId="skill-tab" className="absolute inset-0 rounded-lg bg-white/[0.07] ring-1 ring-white/10" transition={{ duration: 0.45, ease: EASE }} />}
-              {i === cat && <motion.span layoutId="skill-bar" className="absolute bottom-2 left-0 top-2 hidden w-[3px] rounded lg:block" style={{ background: hue }} />}
+              {i === activeIndex && <motion.span layoutId="skill-tab" className="absolute inset-0 rounded-lg bg-white/[0.07] ring-1 ring-white/10" transition={{ duration: 0.45, ease: EASE }} />}
+              {i === activeIndex && <motion.span layoutId="skill-bar" className="absolute bottom-2 left-0 top-2 hidden w-[3px] rounded lg:block" style={{ background: hue }} />}
               <span className="relative block font-display text-2xl tracking-wide lg:text-3xl">{c.title}</span>
               <span className="relative hidden text-xs text-smoke lg:block">
                 {c.skills.length} keahlian · {c.subtitle}
@@ -46,11 +50,11 @@ export default function Skills() {
                 className="mb-5 text-sm text-mist"
                 variants={{ hidden: { opacity: 0 }, show: { opacity: 1 }, exit: { opacity: 0 } }}
               >
-                <span className="font-semibold text-bone">{category.title}</span> — {category.subtitle}
+                <span data-studio-edit={`skill-category:${activeIndex}:title`} className="font-semibold text-bone">{category.title}</span> — <span data-studio-edit={`skill-category:${activeIndex}:subtitle`}>{category.subtitle}</span>
               </motion.p>
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-4">
                 {category.skills.map((s, i) => (
-                  <SkillCard key={s.name} skill={s} hue={hue} editIndex={skillCategories.slice(0, cat).reduce((total, group) => total + group.skills.length, 0) + i} />
+                  <SkillCard key={`${category.id}-${i}`} skill={s} hue={hue} categoryIndex={activeIndex} skillIndex={i} />
                 ))}
               </div>
             </motion.div>
@@ -61,15 +65,15 @@ export default function Skills() {
   );
 }
 
-function SkillCard({ skill, hue, editIndex }: { skill: Skill; hue: string; editIndex: number }) {
+function SkillCard({ skill, hue, categoryIndex, skillIndex }: { skill: Skill; hue: string; categoryIndex: number; skillIndex: number }) {
   const { skillEvidence } = usePortfolio();
   const [open, setOpen] = useState(false);
-  const evidence = skillEvidence[skill.name];
+  const evidence = skill.evidence ?? skillEvidence[skill.name];
 
   return (
     <motion.button
       type="button"
-      data-studio-edit={`skill:${editIndex}`}
+      data-studio-edit={`skill:${categoryIndex}:${skillIndex}`}
       onHoverStart={() => setOpen(true)}
       onHoverEnd={() => setOpen(false)}
       onClick={() => setOpen((o) => !o)}
@@ -91,12 +95,12 @@ function SkillCard({ skill, hue, editIndex }: { skill: Skill; hue: string; editI
         transition={{ duration: 0.5 }}
         aria-hidden
       >
-        {skill.mono}
+        <span data-studio-edit={`skill:${categoryIndex}:${skillIndex}:mono`}>{skill.mono}</span>
       </motion.span>
       <span className="relative mt-4 flex items-center gap-2 text-[15px] font-semibold text-bone">
-        {skill.name}
+        <span data-studio-edit={`skill:${categoryIndex}:${skillIndex}:name`}>{skill.name}</span>
         {skill.note && (
-          <span className="rounded px-1.5 py-px text-[9px] font-bold uppercase tracking-wider text-ink" style={{ background: hue }}>
+          <span data-studio-edit={`skill:${categoryIndex}:${skillIndex}:note`} className="rounded px-1.5 py-px text-[9px] font-bold uppercase tracking-wider text-ink" style={{ background: hue }}>
             {skill.note}
           </span>
         )}
@@ -110,7 +114,7 @@ function SkillCard({ skill, hue, editIndex }: { skill: Skill; hue: string; editI
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
           >
-            {evidence.join(' · ')}
+            <span data-studio-edit={`skill:${categoryIndex}:${skillIndex}:evidence`}>{evidence.join(' · ')}</span>
           </motion.span>
         )}
       </AnimatePresence>
