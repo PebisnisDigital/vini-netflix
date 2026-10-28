@@ -21,6 +21,9 @@ export type PortfolioContent = {
   topPicks: vini.TopPick[];
   picksHeading?: string;
   picksKicker?: string;
+  journeyHeading?: string;
+  journeyAside?: string;
+  journeyKicker?: string;
   introSlides: vini.IntroSlide[];
   viewerProfiles: typeof vini.viewerProfiles;
   sectionMeta: typeof vini.sectionMeta;
@@ -102,6 +105,10 @@ export type ClientBrief = {
   pickCards?: PickCard[];
   picksHeading?: string;
   picksKicker?: string;
+  seasons?: vini.Season[];
+  journeyHeading?: string;
+  journeyAside?: string;
+  journeyKicker?: string;
   theme?: ClientTheme;
 };
 
@@ -130,6 +137,7 @@ export function sushmitaExampleBrief(): ClientBrief {
     highlights: sushmita.achievements.map((a) => ({ title: a.title, description: a.detail, category: a.org })),
     watchCards: sushmitaWatchCards.map((card) => ({ ...card })),
     pickCards: sushmita.topPicks.map((card) => ({ label: card.label, title: card.title, detail: card.detail, image: '', palette: { ...card.palette } })),
+    seasons: sushmita.seasons.map((season) => ({ ...season, episodes: season.episodes.map((episode) => ({ ...episode, tags: [...episode.tags], palette: { ...episode.palette } })) })),
   };
 }
 
@@ -150,6 +158,7 @@ export function findUnreplacedSushmitaExamples(brief: ClientBrief): string[] {
   if (brief.skills.some((skill) => example.skills.includes(skill))) leftover.push('keahlian');
   if (brief.highlights?.some((item) => example.highlights?.some((sample) => sample.title === item.title))) leftover.push('pencapaian');
   if (brief.pickCards?.some((item) => example.pickCards?.some((sample) => sample.title === item.title))) leftover.push('kartu pilihan');
+  if (brief.seasons?.some((season) => season.episodes.some((episode) => example.seasons?.some((sample) => sample.episodes.some((item) => item.title === episode.title))))) leftover.push('episode perjalanan');
   if (brief.tagline.some((line) => example.tagline.includes(line))) leftover.push('headline');
   if (brief.interests.some((interest) => example.interests.includes(interest))) leftover.push('minat');
   return leftover;
@@ -210,6 +219,19 @@ export function validateBrief(value: unknown): string[] {
   }
   if (b.picksHeading !== undefined && (typeof b.picksHeading !== 'string' || !b.picksHeading.trim())) errors.push('Judul bagian Pilihan wajib diisi.');
   if (b.picksKicker !== undefined && (typeof b.picksKicker !== 'string' || !b.picksKicker.trim())) errors.push('Keterangan bagian Pilihan wajib diisi.');
+  if (b.seasons !== undefined) {
+    if (!Array.isArray(b.seasons) || b.seasons.length < 1 || b.seasons.length > 10) errors.push('Musim harus berjumlah 1–10.');
+    else b.seasons.forEach((season, i) => {
+      if (!season || typeof season.title !== 'string' || !season.title.trim() || typeof season.period !== 'string' || !season.period.trim() || typeof season.synopsis !== 'string' || !season.synopsis.trim()) errors.push(`Musim ${i + 1} wajib memiliki judul, periode, dan ringkasan.`);
+      if (!Array.isArray(season?.episodes) || season.episodes.length < 1 || season.episodes.length > 15) errors.push(`Episode musim ${i + 1} harus berjumlah 1–15.`);
+      else season.episodes.forEach((episode, j) => {
+        if (!episode || !['title', 'description', 'runtime'].every((key) => typeof episode[key as keyof vini.Episode] === 'string' && String(episode[key as keyof vini.Episode]).trim()) || !Array.isArray(episode.tags)) errors.push(`Episode ${i + 1}.${j + 1} wajib memiliki judul, durasi, deskripsi, dan tag yang valid.`);
+        if (episode?.image && (typeof episode.image !== 'string' || !episode.image.startsWith(`/clients/${b.slug}/`) || !/\.(?:png|jpe?g|webp|avif)$/i.test(episode.image))) errors.push(`Foto episode ${i + 1}.${j + 1} harus dalam folder klien.`);
+        if (!episode?.palette || !['from', 'via', 'to', 'accent'].every((key) => /^#[a-f0-9]{6}$/i.test(String(episode.palette[key as keyof vini.Palette] || '')))) errors.push(`Warna episode ${i + 1}.${j + 1} tidak valid.`);
+      });
+    });
+  }
+  for (const key of ['journeyHeading', 'journeyAside', 'journeyKicker'] as const) if (b[key] !== undefined && (typeof b[key] !== 'string' || !b[key].trim())) errors.push(`Teks ${key} tidak valid.`);
   if (b.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(b.email)) errors.push('Format email tidak valid.');
   if (b.theme && (!/^#[0-9a-fA-F]{6}$/.test(b.theme.accent) || !/^#[0-9a-fA-F]{6}$/.test(b.theme.background))) errors.push('Warna tema harus menggunakan kode hex 6 digit.');
   for (const [label, url] of Object.entries(b.links ?? {})) if (url && !validUrl(url)) errors.push(`Link ${label} harus diawali https://.`);
@@ -249,7 +271,7 @@ export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: 
   }];
   const seasonEpisodes = (number: number, records: { title: string; description: string; tags: string[]; runtime: string; palette: vini.Palette }[]): vini.Season['episodes'] =>
     records.map((record, i) => ({ ...record, code: `S${String(number).padStart(2, '0')} E${String(i + 1).padStart(2, '0')}` }));
-  const seasons: vini.Season[] = [
+  const generatedSeasons: vini.Season[] = [
     { number: 1, title: 'Perkenalan', period: 'Cerita Awal', synopsis: brief.bio, episodes: seasonEpisodes(1, [
       { title: `Kenalan dengan ${name}`, description: brief.bio, tags: tags.slice(0, 3), runtime: 'Cerita Saya', palette: palettes[0] },
     ]) },
@@ -267,6 +289,7 @@ export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: 
       { title: 'Cerita Selanjutnya', description: `Terus bertumbuh melalui ${brief.interests.length ? brief.interests.join(', ') : brief.role}.`, tags: brief.interests.slice(0, 3), runtime: 'Berlanjut', palette: palettes[3] },
     ]) },
   ];
+  const seasons: vini.Season[] = (brief.seasons ?? generatedSeasons).map((season, i) => ({ ...season, number: i + 1, episodes: season.episodes.map((episode, j) => ({ ...episode, code: `S${String(i + 1).padStart(2, '0')} E${String(j + 1).padStart(2, '0')}` })) }));
   const highlightsForPicks: vini.TopPick[] = [
     ...projects.map((p) => ({ label: p.genre, title: p.title, detail: p.logline, palette: p.palette })),
     ...achievements.map((a, i) => ({ label: a.org, title: a.title, detail: a.detail, palette: palettes[i % palettes.length] })),
@@ -315,7 +338,7 @@ export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: 
       theme: brief.theme,
     },
     projects, experience, education: (brief.education ?? []).map((e) => ({ school: e.school, degree: e.degree, place: e.place, period: e.period, score: e.score || '' })), achievements, certifications: [], skillCategories,
-    skillEvidence: {}, seasons, topPicks, picksHeading: brief.picksHeading, picksKicker: brief.picksKicker, introSlides, viewerProfiles, sectionMeta, watchCards,
+    skillEvidence: {}, seasons, journeyHeading: brief.journeyHeading, journeyAside: brief.journeyAside, journeyKicker: brief.journeyKicker, topPicks, picksHeading: brief.picksHeading, picksKicker: brief.picksKicker, introSlides, viewerProfiles, sectionMeta, watchCards,
   };
 }
 
