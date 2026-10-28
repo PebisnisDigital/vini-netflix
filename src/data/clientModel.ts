@@ -19,6 +19,8 @@ export type PortfolioContent = {
   skillEvidence: Record<string, string[]>;
   seasons: vini.Season[];
   topPicks: vini.TopPick[];
+  picksHeading?: string;
+  picksKicker?: string;
   introSlides: vini.IntroSlide[];
   viewerProfiles: typeof vini.viewerProfiles;
   sectionMeta: typeof vini.sectionMeta;
@@ -27,6 +29,7 @@ export type PortfolioContent = {
 
 export type ClientTheme = { accent: string; background: string };
 export type WatchCard = { target: vini.SectionId; title: string; subtitle: string; image?: string };
+export type PickCard = { label: string; title: string; detail: string; image?: string; palette?: vini.Palette };
 export const DEFAULT_THEME: ClientTheme = { accent: '#e5132b', background: '#07070a' };
 
 const sushmitaWatchCards: WatchCard[] = sushmita.viewerProfiles[0].order.map((target) => ({
@@ -96,6 +99,9 @@ export type ClientBrief = {
   skills: string[];
   highlights?: { title: string; description: string; category?: string }[];
   watchCards?: WatchCard[];
+  pickCards?: PickCard[];
+  picksHeading?: string;
+  picksKicker?: string;
   theme?: ClientTheme;
 };
 
@@ -123,6 +129,7 @@ export function sushmitaExampleBrief(): ClientBrief {
     skills: sushmita.skillCategories.flatMap((group) => group.skills.map((skill) => skill.name)),
     highlights: sushmita.achievements.map((a) => ({ title: a.title, description: a.detail, category: a.org })),
     watchCards: sushmitaWatchCards.map((card) => ({ ...card })),
+    pickCards: sushmita.topPicks.map((card) => ({ label: card.label, title: card.title, detail: card.detail, image: '', palette: { ...card.palette } })),
   };
 }
 
@@ -142,6 +149,7 @@ export function findUnreplacedSushmitaExamples(brief: ClientBrief): string[] {
   if (brief.education?.some((item) => example.education?.some((sample) => sample.school === item.school))) leftover.push('pendidikan');
   if (brief.skills.some((skill) => example.skills.includes(skill))) leftover.push('keahlian');
   if (brief.highlights?.some((item) => example.highlights?.some((sample) => sample.title === item.title))) leftover.push('pencapaian');
+  if (brief.pickCards?.some((item) => example.pickCards?.some((sample) => sample.title === item.title))) leftover.push('kartu pilihan');
   if (brief.tagline.some((line) => example.tagline.includes(line))) leftover.push('headline');
   if (brief.interests.some((interest) => example.interests.includes(interest))) leftover.push('minat');
   return leftover;
@@ -192,6 +200,16 @@ export function validateBrief(value: unknown): string[] {
       if (card?.image && (typeof card.image !== 'string' || !card.image.startsWith(`/clients/${b.slug}/`) || !/\.(?:png|jpe?g|webp|avif)$/i.test(card.image))) errors.push(`Foto jelajah ${i + 1} harus berada dalam folder klien.`);
     });
   }
+  if (b.pickCards !== undefined) {
+    if (!Array.isArray(b.pickCards) || b.pickCards.length < 1 || b.pickCards.length > 30) errors.push('Kartu Pilihan harus berjumlah 1–30.');
+    else b.pickCards.forEach((card, i) => {
+      if (!card || !['label', 'title', 'detail'].every((key) => typeof card[key as keyof PickCard] === 'string' && String(card[key as keyof PickCard]).trim())) errors.push(`Kartu pilihan ${i + 1} memerlukan label, judul, dan deskripsi.`);
+      if (card?.image && (typeof card.image !== 'string' || !card.image.startsWith(`/clients/${b.slug}/`) || !/\.(?:png|jpe?g|webp|avif)$/i.test(card.image))) errors.push(`Foto pilihan ${i + 1} harus berada dalam folder klien.`);
+      if (card?.palette && !['from', 'via', 'to', 'accent'].every((key) => /^#[0-9a-fA-F]{6}$/.test(String(card.palette?.[key as keyof vini.Palette] ?? '')))) errors.push(`Warna kartu pilihan ${i + 1} tidak valid.`);
+    });
+  }
+  if (b.picksHeading !== undefined && (typeof b.picksHeading !== 'string' || !b.picksHeading.trim())) errors.push('Judul bagian Pilihan wajib diisi.');
+  if (b.picksKicker !== undefined && (typeof b.picksKicker !== 'string' || !b.picksKicker.trim())) errors.push('Keterangan bagian Pilihan wajib diisi.');
   if (b.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(b.email)) errors.push('Format email tidak valid.');
   if (b.theme && (!/^#[0-9a-fA-F]{6}$/.test(b.theme.accent) || !/^#[0-9a-fA-F]{6}$/.test(b.theme.background))) errors.push('Warna tema harus menggunakan kode hex 6 digit.');
   for (const [label, url] of Object.entries(b.links ?? {})) if (url && !validUrl(url)) errors.push(`Link ${label} harus diawali https://.`);
@@ -255,7 +273,9 @@ export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: 
     ...brief.skills.map((s, i) => ({ label: 'Keahlian', title: s, detail: `Bidang yang ditekuni ${name}`, palette: palettes[i % palettes.length] })),
     ...brief.interests.map((interest, i) => ({ label: 'Minat', title: interest, detail: `Hal yang diminati ${name}`, palette: palettes[(i + 2) % palettes.length] })),
   ];
-  const topPicks = highlightsForPicks.slice(0, 10);
+  const topPicks: vini.TopPick[] = brief.pickCards?.map((card, i) => ({
+    label: card.label, title: card.title, detail: card.detail, image: card.image || '', palette: card.palette ?? palettes[i % palettes.length],
+  })) ?? highlightsForPicks.slice(0, 10);
   const introSlides: vini.IntroSlide[] = [
     { kicker: 'Kenalan', title: `Halo, Saya ${name}`, lines: [brief.role, brief.location], chips: tags.slice(0, 3) },
     { kicker: 'Cerita saya', title: 'Perjalanan Saya', lines: [brief.bio], chips: brief.interests.slice(0, 3) },
@@ -295,7 +315,7 @@ export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: 
       theme: brief.theme,
     },
     projects, experience, education: (brief.education ?? []).map((e) => ({ school: e.school, degree: e.degree, place: e.place, period: e.period, score: e.score || '' })), achievements, certifications: [], skillCategories,
-    skillEvidence: {}, seasons, topPicks, introSlides, viewerProfiles, sectionMeta, watchCards,
+    skillEvidence: {}, seasons, topPicks, picksHeading: brief.picksHeading, picksKicker: brief.picksKicker, introSlides, viewerProfiles, sectionMeta, watchCards,
   };
 }
 
