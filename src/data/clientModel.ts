@@ -7,6 +7,7 @@ export type PortfolioContent = {
     floating?: { text: string; sub: string }[];
     aboutFacts?: { k: string; v: string; s: string }[];
     websiteLabel?: string;
+    theme?: ClientTheme;
   };
   projects: vini.Project[];
   experience: vini.Experience[];
@@ -21,6 +22,9 @@ export type PortfolioContent = {
   viewerProfiles: typeof vini.viewerProfiles;
   sectionMeta: typeof vini.sectionMeta;
 };
+
+export type ClientTheme = { accent: string; background: string };
+export const DEFAULT_THEME: ClientTheme = { accent: '#e5132b', background: '#07070a' };
 
 export const viniContent: PortfolioContent = {
   profile: { ...vini.profile, websiteLabel: 'PROMPTIONAL' },
@@ -54,6 +58,7 @@ export type ClientBrief = {
   projects: { title: string; year: string; description: string; category: string; tags: string[]; website?: string; image?: string }[];
   skills: string[];
   highlights?: { title: string; description: string; category?: string }[];
+  theme?: ClientTheme;
 };
 
 export const RESERVED_SLUGS = new Set(['vini', 'formulir', 'studio', 'admin', 'api', 'assets', 'demo', 'preview', 'index', 'favicon', 'robots', 'sitemap']);
@@ -94,6 +99,7 @@ export function validateBrief(value: unknown): string[] {
   if (b.highlights && !Array.isArray(b.highlights)) errors.push('Daftar pencapaian tidak valid.');
   if (Array.isArray(b.highlights)) b.highlights.forEach((h, i) => { if (!h.title?.trim() || !h.description?.trim()) errors.push(`Sorotan ${i + 1} perlu judul dan penjelasan.`); });
   if (b.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(b.email)) errors.push('Format email tidak valid.');
+  if (b.theme && (!/^#[0-9a-fA-F]{6}$/.test(b.theme.accent) || !/^#[0-9a-fA-F]{6}$/.test(b.theme.background))) errors.push('Warna tema harus menggunakan kode hex 6 digit.');
   for (const [label, url] of Object.entries(b.links ?? {})) if (url && !validUrl(url)) errors.push(`Link ${label} harus diawali https://.`);
   return errors;
 }
@@ -105,8 +111,8 @@ const palettes: vini.Palette[] = [
   { from: '#28160b', via: '#76552b', to: '#0b0808', accent: '#ffbd6f' },
 ];
 
-export function createPortfolioFromBrief(brief: ClientBrief): PortfolioContent {
-  const errors = validateBrief(brief);
+export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: boolean } = {}): PortfolioContent {
+  const errors = options.draft ? [] : validateBrief(brief);
   if (errors.length) throw new Error(`Data ${brief.slug || 'klien'} belum siap: ${errors.join(' ')}`);
   const name = brief.name.trim();
   const tags = brief.tagline.filter(Boolean);
@@ -114,7 +120,7 @@ export function createPortfolioFromBrief(brief: ClientBrief): PortfolioContent {
     id: `${i + 1}-${normalizeSlug(p.title)}`, title: p.title, image: p.image, year: p.year || 'Karya', genre: p.category || 'Portofolio',
     logline: p.description, stack: p.tags ?? [], build: [p.description],
     features: (p.tags?.length ? p.tags : [p.category || 'Karya']).filter(Boolean), metrics: [],
-    github: p.website, palette: palettes[i % palettes.length], motif: (['shield', 'flow', 'tenants'] as const)[i % 3],
+    github: p.website, palette: { ...palettes[i % palettes.length], accent: brief.theme?.accent || palettes[i % palettes.length].accent }, motif: (['shield', 'flow', 'tenants'] as const)[i % 3],
   }));
   const experience: vini.Experience[] = brief.experiences.map((e) => ({
     company: e.company, role: e.role, period: e.period, place: brief.location, points: [e.description],
@@ -173,9 +179,28 @@ export function createPortfolioFromBrief(brief: ClientBrief): PortfolioContent {
         { k: 'Keahlian', v: String(brief.skills.length), s: 'Bidang yang ditekuni' },
         { k: 'Asal', v: brief.location, s: 'Lokasi' },
       ],
-      websiteLabel: brief.links?.website ? new URL(brief.links.website).hostname : undefined,
+      websiteLabel: brief.links?.website && validUrl(brief.links.website) ? new URL(brief.links.website).hostname : undefined,
+      theme: brief.theme,
     },
     projects, experience, education: (brief.education ?? []).map((e) => ({ school: e.school, degree: e.degree, place: e.place, period: e.period, score: e.score || '' })), achievements, certifications: [], skillCategories,
     skillEvidence: {}, seasons, topPicks, introSlides, viewerProfiles, sectionMeta,
   };
+}
+
+/** Fallback khusus kanvas: bentuk portofolio yang sama, tanpa menganggap draft kosong sudah siap dipublikasikan. */
+export function createCanvasPortfolio(brief: ClientBrief): PortfolioContent {
+  const slug = normalizeSlug(brief.slug) || 'contoh';
+  const safe: ClientBrief = {
+    ...brief,
+    slug,
+    name: brief.name.trim() || 'NAMA KLIEN',
+    role: brief.role.trim() || 'PROFESI KLIEN',
+    location: brief.location.trim() || 'Kota, Indonesia',
+    bio: brief.bio.trim() || 'Tulis cerita singkat tentang diri dan perjalanan klien. Klik teks ini untuk mengubahnya langsung dari Studio.',
+    tagline: brief.tagline.length ? brief.tagline : ['CERITA', 'KARYA', 'PERJALANAN'],
+    photo: { ...brief.photo, src: brief.photo.src || '/assets/teh-vini-full.webp', alt: brief.photo.alt || 'Foto utama klien' },
+    projects: brief.projects.length ? brief.projects.map((p, i) => ({ ...p, title: p.title || `KARYA ${i + 1}`, description: p.description || 'Ceritakan karya unggulan klien di sini.' })) : [{ title: 'KARYA PERTAMA', description: 'Ceritakan karya unggulan klien di sini.', category: 'Portofolio', year: String(new Date().getFullYear()), tags: [], image: '' }],
+    experiences: brief.experiences || [], skills: brief.skills || [], interests: brief.interests || [],
+  };
+  return createPortfolioFromBrief(safe, { draft: true });
 }

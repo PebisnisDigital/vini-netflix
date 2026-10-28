@@ -5,7 +5,7 @@ import { createServer } from 'vite';
 test('data Satria mengganti seluruh konten tanpa identitas klien lain', async () => {
   const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
   try {
-    const { createPortfolioFromBrief, validateBrief } = await server.ssrLoadModule('/src/data/clientModel.ts');
+    const { createCanvasPortfolio, createPortfolioFromBrief, validateBrief } = await server.ssrLoadModule('/src/data/clientModel.ts');
     const sample = {
       slug: 'satria', name: 'Satria', role: 'Fotografer', location: 'Jakarta',
       bio: 'Fotografer potret dan produk di Jakarta.', tagline: ['Fotografi potret'], interests: ['Foto'],
@@ -26,5 +26,12 @@ test('data Satria mengganti seluruh konten tanpa identitas klien lain', async ()
     for (const forbidden of ['Teh Vini', 'Cuanify ID', 'BADAI', 'PROMPTIONAL']) assert.equal(content.includes(forbidden), false, `${forbidden} tidak boleh bocor`);
     assert.ok(validateBrief({ ...sample, slug: 'vini' }).length > 0);
     assert.ok(validateBrief({ ...sample, projects: [] }).length > 0);
+    const themed = createPortfolioFromBrief({ ...sample, theme: { accent: '#14c5b8', background: '#040f12' } });
+    assert.equal(themed.profile.theme.accent, '#14c5b8');
+    assert.equal(themed.projects[0].palette.accent, '#14c5b8');
+    assert.ok(validateBrief({ ...sample, theme: { accent: 'red', background: '#040f12' } }).length > 0);
+    const unfinished = createCanvasPortfolio({ ...sample, slug: '', name: '', role: '', location: '', bio: '', tagline: [], projects: [{ ...sample.projects[0], title: '', description: '' }], photo: { src: '', alt: '' } });
+    assert.equal(unfinished.profile.displayName, 'NAMA KLIEN');
+    assert.equal(unfinished.projects[0].title, 'KARYA 1');
   } finally { await server.close(); }
 });

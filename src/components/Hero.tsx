@@ -89,6 +89,7 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
           {/* rim light ring */}
           <div aria-hidden className="absolute bottom-[8%] left-1/2 h-[78%] w-[78%] -translate-x-1/2 rounded-full border border-crimson-2/20 shadow-[0_0_120px_rgba(229,19,43,0.35),inset_0_0_80px_rgba(229,19,43,0.18)]" />
           <img
+            data-studio-edit="portrait"
             src={profile.portrait.src}
             srcSet={profile.portrait.srcSet}
             sizes="(max-width: 1024px) 100vw, 54vw"
@@ -122,7 +123,7 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
         <motion.div variants={item} className="mb-3 text-lg">
           <SeriesMark />
         </motion.div>
-        <motion.h1 variants={item} className="font-display leading-[1.05] text-bone" style={{ fontSize: 'clamp(3rem, 7.2vw, 7rem)' }}>
+        <motion.h1 data-studio-edit="name" variants={item} className="font-display leading-[1.05] text-bone" style={{ fontSize: 'clamp(3rem, 7.2vw, 7rem)' }}>
           <span className="shimmer-text">{profile.firstName}</span>
         </motion.h1>
         <motion.p variants={item} className="mt-1 font-sans text-sm font-bold tracking-[0.62em] text-crimson-2 sm:text-base">
@@ -132,18 +133,18 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
         <motion.div variants={item} className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 text-[13px] font-medium text-mist">
           <span className="rounded border border-white/25 px-1.5 py-px text-[10px] font-bold tracking-wider text-bone">{profile.heroMeta ? 'PORTOFOLIO' : 'AI & DIGITAL'}</span>
           {meta.map((m, i) => (
-            <span key={m} className="flex items-center gap-3">
+            <span key={m} data-studio-edit={i === 0 ? 'location' : i === 1 ? 'role' : undefined} className="flex items-center gap-3">
               {i > 0 && <span className="h-1 w-1 rounded-full bg-smoke" />}
               {m}
             </span>
           ))}
         </motion.div>
 
-        <motion.p variants={item} className="mt-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-bone/90 sm:text-xs sm:tracking-[0.34em]">
+        <motion.p data-studio-edit="tagline" variants={item} className="mt-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-bone/90 sm:text-xs sm:tracking-[0.34em]">
           {profile.tagline.join(' • ')}
         </motion.p>
 
-        <motion.p variants={item} className="mt-4 max-w-xl text-[15px] leading-relaxed text-bone/80 sm:text-base">
+        <motion.p data-studio-edit="bio" variants={item} className="mt-4 max-w-xl text-[15px] leading-relaxed text-bone/80 sm:text-base">
           {profile.intro}
         </motion.p>
 

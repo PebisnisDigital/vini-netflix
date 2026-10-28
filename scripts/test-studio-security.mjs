@@ -18,6 +18,11 @@ test('penerbitan menolak slug terlarang dan foto asing', () => {
   assert.ok(validatePublishPayload({ brief: sample, assets: [{ path: '../../secrets', sha: 'a'.repeat(40) }], mode: 'create' }).length);
 });
 
+test('tema klien hanya menerima kode warna hex yang aman', () => {
+  assert.deepEqual(validatePublishPayload({ brief: { ...sample, theme: { accent: '#1188ff', background: '#09090e' } }, assets: [], mode: 'create' }), []);
+  assert.ok(validatePublishPayload({ brief: { ...sample, theme: { accent: 'url(javascript:alert(1))', background: '#09090e' } }, assets: [], mode: 'create' }).some((message) => message.includes('Warna tema')));
+});
+
 test('OAuth aman: state harus cocok dan sesi hanya boleh admin', () => {
   const original = Object.fromEntries(['GITHUB_CLIENT_ID', 'GITHUB_CLIENT_SECRET', 'GITHUB_SESSION_SECRET', 'GITHUB_ALLOWED_LOGIN', 'GITHUB_CALLBACK_URL'].map((key) => [key, process.env[key]]));
   try {

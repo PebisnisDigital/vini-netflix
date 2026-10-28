@@ -33,6 +33,7 @@ export function validatePublishPayload(payload) {
     if (project?.website && !urlValid(project.website)) errors.push(`Link karya ${index + 1} tidak valid.`);
   }
   if (brief.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(brief.email)) errors.push('Email tidak valid.');
+  if (brief.theme && (typeof brief.theme !== 'object' || !/^#[0-9a-f]{6}$/i.test(brief.theme.accent || '') || !/^#[0-9a-f]{6}$/i.test(brief.theme.background || ''))) errors.push('Warna tema harus berupa kode hex yang aman.');
   if (brief.links) for (const link of Object.values(brief.links)) if (link && (typeof link !== 'string' || !urlValid(link))) errors.push('Link profil harus berupa URL HTTP/HTTPS.');
   if (!Array.isArray(assets) || assets.length > 31) errors.push('Daftar foto unggahan tidak valid.');
   else {
