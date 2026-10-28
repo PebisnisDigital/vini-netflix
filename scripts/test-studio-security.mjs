@@ -23,6 +23,13 @@ test('tema klien hanya menerima kode warna hex yang aman', () => {
   assert.ok(validatePublishPayload({ brief: { ...sample, theme: { accent: 'url(javascript:alert(1))', background: '#09090e' } }, assets: [], mode: 'create' }).some((message) => message.includes('Warna tema')));
 });
 
+test('kartu jelajah boleh ditambah tetapi target dan fotonya wajib aman', () => {
+  const watchCards = [{ title: 'Momen', subtitle: 'Cerita terbaik', target: 'moments', image: '/clients/satria/jelajah-1.webp' }];
+  assert.deepEqual(validatePublishPayload({ brief: { ...sample, watchCards }, assets: [{ path: 'public/clients/satria/jelajah-1.webp', sha: 'a'.repeat(40) }], mode: 'create' }), []);
+  assert.ok(validatePublishPayload({ brief: { ...sample, watchCards: [{ ...watchCards[0], target: 'https://jahat.test' }] }, assets: [], mode: 'create' }).length);
+  assert.ok(validatePublishPayload({ brief: { ...sample, watchCards: [{ ...watchCards[0], image: '/clients/lain/jelajah-1.webp' }] }, assets: [], mode: 'create' }).length);
+});
+
 test('OAuth aman: state harus cocok dan sesi hanya boleh admin', () => {
   const original = Object.fromEntries(['GITHUB_CLIENT_ID', 'GITHUB_CLIENT_SECRET', 'GITHUB_SESSION_SECRET', 'GITHUB_ALLOWED_LOGIN', 'GITHUB_CALLBACK_URL'].map((key) => [key, process.env[key]]));
   try {
