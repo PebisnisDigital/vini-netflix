@@ -3,7 +3,9 @@ import { github, repository } from './auth.mjs';
 
 const reserved = new Set(['vini', 'formulir', 'studio', 'admin', 'api', 'assets', 'demo', 'preview', 'index', 'favicon', 'robots', 'sitemap']);
 const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
-const pathPattern = /^public\/clients\/([a-z0-9]+(?:-[a-z0-9]+)*)\/(foto-utama|karya-[1-9]\d*|jelajah-[1-9]\d*|pilihan-[1-9]\d*|musim-[1-9]\d*-episode-[1-9]\d*)\.(png|jpe?g|webp|avif)$/;
+// Terima juga nama file yang sudah diterbitkan manual (contoh karya-ipa.webp).
+// Slug tetap terkunci pada milik klien dan nama file tidak boleh berisi folder.
+const pathPattern = /^public\/clients\/([a-z0-9]+(?:-[a-z0-9]+)*)\/([a-z0-9][a-z0-9._-]{0,80})\.(png|jpe?g|webp|avif)$/i;
 const urlValid = (url) => { try { return ['https:', 'http:'].includes(new URL(url).protocol); } catch { return false; } };
 
 export function validatePublishPayload(payload) {
@@ -142,4 +144,21 @@ export async function mergeClientPullRequest(token, { number, sha }) {
   const merged = await github(token, `${repository}/pulls/${number}/merge`, { method: 'PUT', body: JSON.stringify({ sha, merge_method: 'squash', commit_title: `Terbitkan ${pr.title}` }) });
   if (!merged.merged) throw new Error('GitHub belum bisa menerbitkan PR ini.');
   return { merged: true, slug: pr.body.match(/^PERSONALFLIX_CMS:([a-z0-9-]+)/)?.[1] };
+}
+
+export async function getClientPublicationStatus(token, { number, sha }) {
+  if (!Number.isSafeInteger(number) || number <= 0 || !/^[a-f0-9]{40}$/i.test(sha || '')) throw new Error('Nomor publikasi tidak valid.');
+  const pr = await github(token, `${repository}/pulls/${number}`);
+  const slug = pr.body?.match(/^PERSONALFLIX_CMS:([a-z0-9-]+)/)?.[1];
+  if (!slug || !/^cms\/[a-z0-9-]+$/.test(pr.head?.ref || '') || pr.head?.repo?.full_name !== 'PebisnisDigital/vini-netflix' || pr.base?.ref !== 'main') throw new Error('Publikasi ini bukan berasal dari Studio.');
+  if (pr.head?.sha !== sha) throw new Error('Data publikasi sudah berubah. Muat ulang proyek.');
+  if (pr.merged) return { state: 'merged', slug, url: `https://pesonaflix.vercel.app/${slug}` };
+  if (pr.state !== 'open') return { state: 'failed', slug, message: 'Penerbitan ditutup tanpa dipublikasikan.' };
+  const result = await github(token, `${repository}/commits/${sha}/check-runs`);
+  const checks = result.check_runs || [];
+  const validation = checks.filter((check) => check.name === 'verify');
+  const mergeJob = checks.filter((check) => check.name === 'auto-publish-cms');
+  if (validation.some((check) => check.status === 'completed' && check.conclusion !== 'success')) return { state: 'failed', slug, message: 'Pengujian proyek gagal. Website lama tetap aman.' };
+  if (mergeJob.some((check) => check.status === 'completed' && check.conclusion !== 'success')) return { state: 'failed', slug, message: 'GitHub belum diizinkan menerbitkan. Periksa izin GitHub Actions dan PR.' };
+  return { state: 'pending', slug, message: validation.some((check) => check.conclusion === 'success') ? 'Pengujian lulus. Menunggu penerbitan otomatis…' : 'GitHub sedang memeriksa perubahan…' };
 }

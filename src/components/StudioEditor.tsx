@@ -4,13 +4,28 @@ import { deleteDraft, listDrafts, preparedBrief, saveDraft, type StudioDraft } f
 import { publishedClients } from '../data/studioPublished';
 import ElementorCanvas from './ElementorCanvas';
 
-type Session = { configured: boolean; authenticated: boolean; login: string | null };
+type Session = { configured: boolean; authenticated: boolean; login: string | null; mode?: 'studio' | 'legacy'; publisherConfigured?: boolean };
 type SubmittedPR = { number: number; url: string; branch: string; sha: string };
+const pendingKey = (slug: string) => `pesonaflix-pending-${slug}`;
+function readPending(slug: string): SubmittedPR | null {
+  try {
+    const data = JSON.parse(localStorage.getItem(pendingKey(slug)) || 'null');
+    return Number.isSafeInteger(data?.number) && /^[a-f0-9]{40}$/i.test(data?.sha || '') && typeof data?.url === 'string' ? data : null;
+  } catch { return null; }
+}
 const photoMax = 2_500_000;
 const field = 'w-full rounded-xl border border-white/15 bg-[#18181f] px-3.5 py-3 text-base text-white placeholder:text-white/30 outline-none transition focus:border-[#ff5c75] focus:ring-2 focus:ring-[#ff5c75]/10';
 const card = 'rounded-2xl border border-white/10 bg-[#121218] p-5';
 const secondary = 'rounded-xl border border-white/20 bg-white/[0.035] px-4 py-2.5 text-sm font-semibold hover:bg-white/10 disabled:opacity-40';
-const initialSession: Session = { configured: false, authenticated: false, login: null };
+const initialSession: Session = { configured: false, authenticated: false, login: null, mode: 'legacy' };
+
+async function readPublisherSession(): Promise<Session> {
+  const response = await fetch('/api/studio/status', { credentials: 'same-origin', cache: 'no-store' });
+  if (!response.ok) throw new Error('Status akses tidak tersedia.');
+  const studio = await response.json() as Session;
+  if (studio.mode === 'studio') return { ...studio, login: 'Tim Studio' };
+  return fetch('/api/auth/status').then((result) => result.json() as Promise<Session>);
+}
 
 function Control({ label, hint, children }: { label: string; hint?: string; children: ReactNode }) {
   return <label className="block min-w-0 space-y-2"><span className="block text-sm font-semibold text-white/85">{label}</span>{children}{hint && <span className="block text-xs leading-relaxed text-white/45">{hint}</span>}</label>;
@@ -160,12 +175,12 @@ export default function StudioEditor() {
   const prepared = useMemo(() => active ? preparedBrief(active) : null, [active]);
 
   useEffect(() => {
-    void Promise.all([listDrafts(), publishedClients(), fetch('/api/auth/status').then((r) => r.json() as Promise<Session>).catch(() => initialSession)]).then(([local, live, auth]) => {
+    void Promise.all([listDrafts(), publishedClients(), readPublisherSession().catch(() => initialSession)]).then(([local, live, auth]) => {
       setDrafts(local.sort((a, b) => b.updatedAt - a.updatedAt));
       setPublished(live); setSession(auth);
       const last = sessionStorage.getItem('personalflix-last-draft');
       const recent = local.find((d) => d.slug === last);
-      if (recent) setActive(recent);
+      if (recent) { setActive(recent); setPr(readPending(recent.slug)); }
     }).catch(() => setNotice('Tidak bisa membuka draft lokal. Coba browser biasa, bukan mode privat.'));
   }, []);
 
@@ -197,10 +212,10 @@ export default function StudioEditor() {
     } catch (e) { setNotice((e as Error).message); }
   };
   const newClient = () => { setActive({ slug: '', brief: sushmitaExampleBrief(), portrait: null, projectPhotos: {}, watchPhotos: {}, pickPhotos: {}, episodePhotos: {}, mode: 'create', updatedAt: Date.now() }); setPr(null); setNotice(''); };
-  const choose = (draft: StudioDraft) => { setActive(draft); sessionStorage.setItem('personalflix-last-draft', draft.slug); setPr(null); setNotice(''); };
+  const choose = (draft: StudioDraft) => { setActive(draft); sessionStorage.setItem('personalflix-last-draft', draft.slug); setPr(readPending(draft.slug)); setNotice(''); };
   const usePublished = (brief: ClientBrief) => {
     const existing = drafts.find((d) => d.slug === brief.slug);
-    choose(existing ?? { slug: brief.slug, brief, portrait: null, projectPhotos: {}, watchPhotos: {}, pickPhotos: {}, episodePhotos: {}, mode: 'edit', updatedAt: Date.now() });
+    choose(existing ? { ...existing, mode: 'edit' } : { slug: brief.slug, brief, portrait: null, projectPhotos: {}, watchPhotos: {}, pickPhotos: {}, episodePhotos: {}, mode: 'edit', updatedAt: Date.now() });
   };
   const setPhoto = (index: number | null, file: File | null) => {
     setActive((current) => {
@@ -410,6 +425,7 @@ export default function StudioEditor() {
       setBusy(true); setNotice('Memeriksa dan mengunggah foto ke GitHub…');
       const saved = await persist();
       const publishingBrief = preparedBrief(saved);
+      if (session.mode === 'studio' && !session.publisherConfigured) throw new Error('Penerbitan otomatis belum terhubung. Atur kunci GitHub di Vercel terlebih dahulu.');
       if (!session.authenticated) {
         if (!session.configured) throw new Error('Login GitHub belum diaktifkan. Atur OAuth pada Vercel terlebih dahulu.');
         window.location.assign('/api/auth/start'); return;
@@ -437,9 +453,11 @@ export default function StudioEditor() {
         if (!response.ok) throw new Error(data.error || `Gagal mengunggah ${file.name}.`);
         assets.push({ path: data.path, sha: data.sha });
       }
-      setNotice('Membuat branch dan Pull Request untuk preview…');
+      setNotice(session.mode === 'studio' ? 'Membuat perubahan dan menjalankan pemeriksaan otomatis…' : 'Membuat branch dan Pull Request untuk preview…');
       const result = await apiPost('/api/publish', { brief: publishingBrief, assets, mode: saved.mode }) as SubmittedPR;
-      setPr(result); setApproved(false); setNotice('Preview GitHub berhasil disiapkan. Periksa tampilan sebelum menerbitkan live.');
+      if (session.mode === 'studio') localStorage.setItem(pendingKey(saved.slug), JSON.stringify(result));
+      setPr(result); setApproved(false);
+      setNotice(session.mode === 'studio' ? 'Proses terbit otomatis dimulai. GitHub sedang menjalankan pengujian; halaman ini boleh ditutup.' : 'Preview GitHub berhasil disiapkan. Periksa tampilan sebelum menerbitkan live.');
     } catch (error) { setNotice((error as Error).message); }
     finally { setBusy(false); }
   };
@@ -459,8 +477,46 @@ export default function StudioEditor() {
     finally { setBusy(false); }
   };
 
+  useEffect(() => {
+    if (!pr || session.mode !== 'studio') return;
+    let cancelled = false;
+    let polling = false;
+    const poll = async () => {
+      if (polling || cancelled) return;
+      polling = true;
+      try {
+        const response = await fetch(`/api/publish-status?number=${pr.number}&sha=${encodeURIComponent(pr.sha)}`, { credentials: 'same-origin', cache: 'no-store' });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(result.error || 'Belum bisa mengambil status penerbitan.');
+        if (cancelled) return;
+        if (result.state === 'merged') {
+          localStorage.removeItem(pendingKey(result.slug));
+          setNotice(`Perubahan lolos tes! Vercel sedang memperbarui ${result.url}`);
+          setPr(null);
+          if (active) {
+            const updated = { ...active, brief: preparedBrief(active), portrait: null, projectPhotos: {}, watchPhotos: {}, pickPhotos: {}, episodePhotos: {}, mode: 'edit' as const, updatedAt: Date.now() };
+            await saveDraft(updated); if (!cancelled) { setActive(updated); await refreshList(); }
+          }
+        } else if (result.state === 'failed') {
+          localStorage.removeItem(pendingKey(result.slug));
+          setNotice(`${result.message} Buka PR untuk melihat detailnya: ${pr.url}`);
+          setPr(null);
+        } else setNotice(result.message || 'Publikasi otomatis sedang diproses…');
+      } catch (cause) { if (!cancelled) setNotice((cause as Error).message); }
+      finally { polling = false; }
+    };
+    void poll();
+    const interval = window.setInterval(() => { void poll(); }, 6000);
+    return () => { cancelled = true; window.clearInterval(interval); };
+  }, [pr, session.mode]);
+
+  const logout = async () => {
+    try { await apiPost('/api/studio/logout', {}); window.location.reload(); }
+    catch (cause) { setNotice((cause as Error).message); }
+  };
+
   return <div className="min-h-screen bg-[#09090d] font-sans text-white">
-    <header className="sticky top-0 z-40 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 bg-[#0b0b10]/95 px-5 py-4 backdrop-blur-lg sm:px-8"><a href="/" className="font-extrabold tracking-widest">PESONA<span className="text-[#ff4566]">FLIX</span><span className="ml-2 text-xs font-medium tracking-normal text-white/45">STUDIO</span></a><div className="flex flex-wrap items-center gap-2"><span className="rounded-full border border-[#ff6580] bg-[#ff6580]/10 px-3 py-2 text-xs font-bold text-white">Editor CMS</span><a href="/studio?tab=formulir" className={secondary}>Formulir Klien</a><span className="rounded-full border border-white/15 px-3 py-1 text-xs text-white/60">{session.authenticated ? `● ${session.login}` : 'Draft lokal · Tanpa login'}</span><a href="/vini" target="_blank" rel="noreferrer" className={secondary}>Lihat Contoh</a></div></header>
+    <header className="sticky top-0 z-40 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 bg-[#0b0b10]/95 px-5 py-4 backdrop-blur-lg sm:px-8"><a href="/" className="font-extrabold tracking-widest">PESONA<span className="text-[#ff4566]">FLIX</span><span className="ml-2 text-xs font-medium tracking-normal text-white/45">STUDIO</span></a><div className="flex flex-wrap items-center gap-2"><span className="rounded-full border border-[#ff6580] bg-[#ff6580]/10 px-3 py-2 text-xs font-bold text-white">Editor CMS</span><a href="/studio?tab=formulir" className={secondary}>Formulir Klien</a><span className="rounded-full border border-white/15 px-3 py-1 text-xs text-white/60">{session.authenticated ? `● ${session.login}` : 'Draft lokal · Tanpa login'}</span>{session.mode === 'studio' && <button type="button" className={secondary} onClick={() => { void logout(); }}>Keluar</button>}<a href="/vini" target="_blank" rel="noreferrer" className={secondary}>Lihat Contoh</a></div></header>
     <div className={`mx-auto grid max-w-[1720px] gap-5 px-4 py-6 lg:px-6 ${active ? 'lg:grid-cols-1' : 'lg:grid-cols-[230px_minmax(0,1fr)]'}`}>
       <aside className={`${card} ${active ? 'hidden' : ''} h-fit lg:sticky lg:top-24`}><div className="mb-5"><p className="text-xs font-bold uppercase tracking-[0.18em] text-[#ff6580]">PESONAFLIX Studio</p><h1 className="mt-1 text-2xl font-extrabold">Website Klien</h1><p className="mt-2 text-sm text-white/50">Seperti menulis postingan, tetapi hasilnya portofolio bergaya serial.</p></div>
         <button type="button" onClick={newClient} className="mb-5 w-full rounded-xl bg-[#e50931] px-4 py-3 text-sm font-bold hover:bg-[#fb2951]">＋ Buat Klien Baru</button>
@@ -517,9 +573,10 @@ export default function StudioEditor() {
           </section>
 
           </div></details>
-          <section className={`${card} border-[#ff486b]/40`}><h3 className="text-xl font-extrabold">Simpan, Preview, Terbitkan</h3><p className="mt-2 text-sm leading-relaxed text-white/60">Perubahan di Canvas hanya tersimpan pada perangkat ini. Untuk menerbitkan, login GitHub akan membuat Pull Request, melewati pengujian, lalu perlu persetujuan Teteh sebelum masuk ke website live.</p><div className="mt-5 flex flex-wrap gap-2"><button type="button" className={secondary} onClick={saveClick}>Simpan Draft</button><button type="button" className={secondary} onClick={() => { void preview(); }}>Lihat Preview</button><button type="button" disabled={busy} onClick={() => { void publish(); }} className="rounded-xl bg-[#e50931] px-5 py-3 text-sm font-bold hover:bg-[#fa284c] disabled:opacity-50">{busy ? 'Memproses…' : session.authenticated ? 'Siapkan Preview GitHub' : 'Login GitHub & Siapkan Preview'}</button></div>
-            {!session.configured && <p className="mt-3 text-xs text-amber-300">Login GitHub belum dikonfigurasi pada Vercel. Editor dan preview lokal tetap bisa digunakan.</p>}
-            {pr && <div className="mt-5 space-y-3 rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-4"><p className="font-semibold text-emerald-300">PR #{pr.number} siap diperiksa</p><a href={pr.url} target="_blank" rel="noreferrer" className="block break-all text-sm underline">Buka Pull Request & Preview Vercel ↗</a><label className="flex items-start gap-2 text-sm"><input type="checkbox" className="mt-1 accent-[#e50931]" checked={approved} onChange={(e) => setApproved(e.target.checked)}/><span>Saya sudah mengecek foto, redaksi, link, dan tampilan HP/desktop di preview.</span></label><button type="button" disabled={!approved || busy} className="rounded-xl bg-emerald-600 px-4 py-3 text-sm font-bold disabled:opacity-40" onClick={() => { void merge(); }}>Terbitkan ke Website Live</button></div>}
+          <section className={`${card} border-[#ff486b]/40`}><h3 className="text-xl font-extrabold">Simpan, Preview, Terbitkan</h3><p className="mt-2 text-sm leading-relaxed text-white/60">{session.mode === 'studio' ? 'Simpan Draft tetap lokal. Tombol Terbitkan Otomatis akan mengunggah perubahan secara aman, menjalankan tes, lalu memperbarui website melalui Vercel tanpa login GitHub.' : 'Perubahan di Canvas hanya tersimpan pada perangkat ini. Untuk menerbitkan, login GitHub akan membuat Pull Request, melewati pengujian, lalu perlu persetujuan Teteh sebelum masuk ke website live.'}</p><div className="mt-5 flex flex-wrap gap-2"><button type="button" className={secondary} onClick={saveClick}>Simpan Draft</button><button type="button" className={secondary} onClick={() => { void preview(); }}>Lihat Preview</button><button type="button" disabled={busy || Boolean(pr) || (session.mode === 'studio' && !session.publisherConfigured)} onClick={() => { void publish(); }} className="rounded-xl bg-[#e50931] px-5 py-3 text-sm font-bold hover:bg-[#fa284c] disabled:opacity-50">{busy ? 'Memproses…' : session.mode === 'studio' ? 'Terbitkan Otomatis' : session.authenticated ? 'Siapkan Preview GitHub' : 'Login GitHub & Siapkan Preview'}</button></div>
+            {session.mode === 'studio' && !session.publisherConfigured && <p className="mt-3 text-xs text-amber-300">Akses Studio aktif, tetapi kunci penerbitan GitHub belum disiapkan di Vercel. Draft dan preview tetap bisa digunakan.</p>}
+            {session.mode !== 'studio' && !session.configured && <p className="mt-3 text-xs text-amber-300">Mode otomatis belum diaktifkan pada Vercel. Editor dan preview lokal tetap bisa digunakan.</p>}
+            {pr && <div className="mt-5 space-y-3 rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-4"><p className="font-semibold text-emerald-300">{session.mode === 'studio' ? 'Publikasi sedang diproses otomatis' : `PR #${pr.number} siap diperiksa`}</p><a href={pr.url} target="_blank" rel="noreferrer" className="block break-all text-sm underline">Lihat proses di GitHub ↗</a>{session.mode !== 'studio' && <><label className="flex items-start gap-2 text-sm"><input type="checkbox" className="mt-1 accent-[#e50931]" checked={approved} onChange={(e) => setApproved(e.target.checked)}/><span>Saya sudah mengecek foto, redaksi, link, dan tampilan HP/desktop di preview.</span></label><button type="button" disabled={!approved || busy} className="rounded-xl bg-emerald-600 px-4 py-3 text-sm font-bold disabled:opacity-40" onClick={() => { void merge(); }}>Terbitkan ke Website Live</button></>}</div>}
             {notice && <p role="status" className="mt-4 rounded-xl bg-white/5 p-3 text-sm leading-relaxed text-white/80">{notice}</p>}
           </section>
           <div className="pb-6 text-right"><button type="button" className="text-xs text-red-300/70 underline" onClick={() => { if (active.slug && window.confirm('Hapus draft dari browser ini? Website yang sudah live tidak ikut terhapus.')) { void deleteDraft(active.slug).then(async () => { setActive(null); await refreshList(); }); } }}>Hapus Draft Lokal</button></div>

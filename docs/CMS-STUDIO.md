@@ -1,5 +1,7 @@
 # PESONAFLIX Studio — CMS Tanpa Codex
 
+> **Panduan baru:** [Penerbitan otomatis tanpa login GitHub](STUDIO-AUTO-PUBLISH.md). Alur OAuth di bawah ini hanya fallback saat konfigurasi Studio baru belum diaktifkan.
+
 ## Alur penggunaan
 
 1. Buka **`https://pesonaflix.vercel.app/studio`** di browser pribadi Teh Vini. Draft tersimpan **di browser tersebut**, bukan di server. Tidak ada login saat mengetik, mengunggah foto, atau menyimpan draft. Semua halaman memakai domain yang sama.

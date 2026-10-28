@@ -3,6 +3,8 @@ on:
   pull_request:
   push:
     branches: [main]
+permissions:
+  contents: read
 jobs:
   verify:
     runs-on: ubuntu-latest
@@ -15,3 +17,27 @@ jobs:
       - run: npm ci
       - run: npm run check:clients
       - run: npm run verify
+  auto-publish-cms:
+    name: auto-publish-cms
+    needs: verify
+    if: >-
+      ${{ github.event_name == 'pull_request' &&
+          startsWith(github.head_ref, 'cms/') &&
+          github.event.pull_request.head.repo.full_name == github.repository &&
+          startsWith(github.event.pull_request.body || '', 'PERSONALFLIX_CMS:') }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Terbitkan PR khusus PESONAFLIX CMS setelah semua tes lulus
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          gh api -X PUT "repos/${REPOSITORY}/pulls/${PR_NUMBER}/merge" \
+            -f sha="${PR_SHA}" \
+            -f merge_method=squash \
+            -f commit_title="Terbitkan otomatis PESONAFLIX CMS #${PR_NUMBER}"
