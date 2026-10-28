@@ -1,0 +1,454 @@
+{
+  "slug": "citra",
+  "name": "Citra",
+  "role": "Perawat Komunitas · Portofolio Demo Fiktif",
+  "location": "Bandung, Jawa Barat (data contoh)",
+  "bio": "PROFIL DEMO FIKTIF — Citra adalah tokoh rekaan untuk memperlihatkan tampilan PESONAFLIX bagi profesi perawat. Dalam cerita contoh ini, Citra senang mendampingi pasien dan keluarga, menjelaskan kebiasaan hidup sehat dengan bahasa sederhana, dan merawat dengan empati. Seluruh foto adalah ilustrasi AI; riwayat pendidikan, pengalaman, penghargaan, dan kegiatan di halaman ini merupakan simulasi, bukan bukti kualifikasi atau profil tenaga kesehatan sungguhan.",
+  "tagline": [
+    "DEMO FIKTIF • PORTOFOLIO PERAWAT",
+    "Merawat dengan empati, mendampingi sepenuh hati.",
+    "Karena setiap pasien punya cerita yang layak didengar."
+  ],
+  "interests": [
+    "Keperawatan Komunitas",
+    "Edukasi Kesehatan",
+    "Komunikasi Terapeutik",
+    "Keselamatan Pasien",
+    "Promosi Kesehatan",
+    "Kolaborasi Tim"
+  ],
+  "photo": {
+    "src": "/clients/citra/foto-utama.webp",
+    "alt": "Ilustrasi AI perawat berhijab bernama Citra, tokoh fiktif PESONAFLIX"
+  },
+  "experiences": [
+    {
+      "company": "Klinik Komunitas Sehat Bersama (fiktif)",
+      "role": "Perawat Pelaksana · Simulasi",
+      "period": "2021 — sekarang (simulasi)",
+      "description": "Ilustrasi aktivitas mempersiapkan ruang asesmen, membantu edukasi pasien, dan mendokumentasikan kegiatan keperawatan secara teliti bersama tim."
+    },
+    {
+      "company": "Program Kampung Peduli Sehat (fiktif)",
+      "role": "Fasilitator Edukasi Kesehatan · Simulasi",
+      "period": "2022 — 2024 (simulasi)",
+      "description": "Mengadakan contoh kelas kebersihan tangan, pola hidup bersih, dan komunikasi kesehatan untuk keluarga serta warga."
+    },
+    {
+      "company": "Kegiatan Relawan Kesehatan (fiktif)",
+      "role": "Relawan Pendamping Komunitas · Simulasi",
+      "period": "2019 — 2020 (simulasi)",
+      "description": "Cerita contoh tentang pengalaman belajar mendampingi kegiatan penyuluhan dan layanan kesehatan komunitas."
+    }
+  ],
+  "education": [
+    {
+      "school": "Akademi Keperawatan Contoh (lembaga fiktif)",
+      "degree": "Diploma III Keperawatan · Simulasi",
+      "place": "Jawa Barat (simulasi)",
+      "period": "2016 — 2019 (simulasi)"
+    },
+    {
+      "school": "Lokakarya Edukasi Pasien (simulasi)",
+      "degree": "Pengembangan Komunikasi dan Edukasi Kesehatan",
+      "place": "Daring (simulasi)",
+      "period": "2023 (simulasi)"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Kelas Kebiasaan Hidup Bersih",
+      "year": "2025 · Simulasi",
+      "description": "Contoh kegiatan mengajak keluarga belajar langkah mencuci tangan dan perilaku hidup bersih melalui demonstrasi yang menyenangkan.",
+      "category": "Edukasi Kesehatan",
+      "tags": [
+        "Edukasi",
+        "Komunitas",
+        "Pencegahan"
+      ],
+      "image": "/clients/citra/edukasi-kesehatan.webp"
+    },
+    {
+      "title": "Ruang Asesmen yang Ramah",
+      "year": "2024 · Simulasi",
+      "description": "Ilustrasi persiapan alat ukur tekanan darah, komunikasi yang menenangkan, dan dokumentasi observasi dasar dengan perhatian pada kenyamanan pasien.",
+      "category": "Pelayanan Keperawatan",
+      "tags": [
+        "Asesmen",
+        "Ketelitian",
+        "Empati"
+      ],
+      "image": "/clients/citra/pelayanan-pasien.webp"
+    },
+    {
+      "title": "Cerita Sehat Bersama Keluarga",
+      "year": "2023 · Simulasi",
+      "description": "Contoh kampanye komunikasi sederhana tentang kebiasaan sehat yang mudah dipraktikkan keluarga di rumah.",
+      "category": "Promosi Kesehatan",
+      "tags": [
+        "Keluarga",
+        "Komunikasi",
+        "Kesehatan"
+      ],
+      "image": "/clients/citra/edukasi-kesehatan.webp"
+    },
+    {
+      "title": "Catatan Pelayanan yang Tertib",
+      "year": "2022 · Simulasi",
+      "description": "Mendeskripsikan contoh kebiasaan menyiapkan perlengkapan, mengecek alur kerja, dan melakukan pencatatan kegiatan dengan rapi.",
+      "category": "Profesionalisme",
+      "tags": [
+        "Dokumentasi",
+        "Keselamatan",
+        "Kolaborasi"
+      ],
+      "image": "/clients/citra/pelayanan-pasien.webp"
+    }
+  ],
+  "skills": [
+    "Komunikasi Terapeutik",
+    "Edukasi Kesehatan",
+    "Asesmen Dasar",
+    "Keselamatan Pasien",
+    "Dokumentasi Pelayanan",
+    "Promosi Kesehatan",
+    "Pendampingan Keluarga",
+    "Kolaborasi Tim",
+    "Manajemen Prioritas",
+    "Empati dalam Pelayanan"
+  ],
+  "skillCategories": [
+    {
+      "id": "pelayanan",
+      "title": "Pelayanan yang Teliti",
+      "subtitle": "Perhatian pada prosedur, observasi, dan kenyamanan",
+      "skills": [
+        {
+          "name": "Asesmen Dasar",
+          "mono": "AS",
+          "note": "Simulasi",
+          "evidence": [
+            "Persiapan alat pemeriksaan dasar",
+            "Pencatatan observasi secara terstruktur"
+          ]
+        },
+        {
+          "name": "Keselamatan Pasien",
+          "mono": "KP",
+          "evidence": [
+            "Kebersihan dan kerapian alat",
+            "Mendukung penerapan prosedur aman"
+          ]
+        },
+        {
+          "name": "Dokumentasi Pelayanan",
+          "mono": "DP",
+          "evidence": [
+            "Catatan kegiatan yang jelas",
+            "Koordinasi informasi dengan tim"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "edukasi",
+      "title": "Edukasi yang Membumi",
+      "subtitle": "Informasi kesehatan disampaikan dengan ramah",
+      "skills": [
+        {
+          "name": "Edukasi Kesehatan",
+          "mono": "EK",
+          "evidence": [
+            "Demonstrasi cuci tangan",
+            "Materi sederhana untuk keluarga"
+          ]
+        },
+        {
+          "name": "Promosi Kesehatan",
+          "mono": "PK",
+          "evidence": [
+            "Kampanye kebiasaan sehat",
+            "Cerita dan media visual"
+          ]
+        },
+        {
+          "name": "Pendampingan Keluarga",
+          "mono": "KF",
+          "evidence": [
+            "Mendengar pertanyaan keluarga",
+            "Mengulang pesan dengan bahasa sehari-hari"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kolaborasi",
+      "title": "Bekerja dengan Empati",
+      "subtitle": "Mendengar, bekerja sama, dan terus belajar",
+      "skills": [
+        {
+          "name": "Komunikasi Terapeutik",
+          "mono": "KT",
+          "evidence": [
+            "Menyimak kekhawatiran pasien",
+            "Menjelaskan langkah pelayanan dengan tenang"
+          ]
+        },
+        {
+          "name": "Kolaborasi Tim",
+          "mono": "TIM",
+          "evidence": [
+            "Pembagian tugas saat kegiatan",
+            "Komunikasi lintas peran"
+          ]
+        },
+        {
+          "name": "Manajemen Prioritas",
+          "mono": "MP",
+          "evidence": [
+            "Mengatur kesiapan perlengkapan",
+            "Mencatat kebutuhan tindak lanjut"
+          ]
+        }
+      ]
+    }
+  ],
+  "skillsHeading": "Bekal untuk Merawat",
+  "skillsAside": "Keahlian dalam cerita fiktif Citra. Semua kartu bisa diubah melalui Studio.",
+  "skillsKicker": "KEAHLIAN • DATA SIMULASI",
+  "highlights": [
+    {
+      "title": "Apresiasi Pelayanan Empatik (contoh)",
+      "description": "Contoh kartu penghargaan untuk demonstrasi desain; tidak merepresentasikan penghargaan nyata.",
+      "category": "PENGHARGAAN FIKTIF"
+    },
+    {
+      "title": "Pekan Edukasi Kebiasaan Sehat",
+      "description": "Kegiatan simulasi edukasi masyarakat mengenai kebersihan dan kesehatan keluarga.",
+      "category": "PROGRAM DEMO"
+    },
+    {
+      "title": "Sahabat Keluarga Sehat",
+      "description": "Gagasan program contoh yang menekankan bahasa ramah dan pendampingan warga.",
+      "category": "INISIATIF FIKTIF"
+    },
+    {
+      "title": "Kolaborasi Tim Pelayanan",
+      "description": "Ilustrasi kerja sama menyiapkan aktivitas pelayanan dan informasi kesehatan.",
+      "category": "KOLABORASI DEMO"
+    }
+  ],
+  "watchCards": [
+    {
+      "target": "about",
+      "title": "Kenalan dengan Citra",
+      "subtitle": "Cerita perawat yang peduli",
+      "image": "/clients/citra/foto-utama.webp"
+    },
+    {
+      "target": "journey",
+      "title": "Perjalanan Merawat",
+      "subtitle": "Dari belajar hingga melayani",
+      "image": "/clients/citra/pelayanan-pasien.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Kegiatan Citra",
+      "subtitle": "Edukasi dan pelayanan",
+      "image": "/clients/citra/edukasi-kesehatan.webp"
+    },
+    {
+      "target": "skills",
+      "title": "Bekal Keperawatan",
+      "subtitle": "Keterampilan yang diasah",
+      "image": "/clients/citra/pelayanan-pasien.webp"
+    },
+    {
+      "target": "moments",
+      "title": "Momen Berkesan",
+      "subtitle": "Cerita simulasi di lapangan",
+      "image": "/clients/citra/edukasi-kesehatan.webp"
+    },
+    {
+      "target": "picks",
+      "title": "Pilihan Citra",
+      "subtitle": "Hal yang paling berarti",
+      "image": "/clients/citra/foto-utama.webp"
+    }
+  ],
+  "pickCards": [
+    {
+      "label": "PILIHAN PERAWAT",
+      "title": "Mendengar Sebelum Menjawab",
+      "detail": "Membangun rasa aman dimulai dari perhatian.",
+      "image": "/clients/citra/foto-utama.webp",
+      "palette": {
+        "from": "#0b2831",
+        "via": "#2a687a",
+        "to": "#07131a",
+        "accent": "#7bd7d8"
+      }
+    },
+    {
+      "label": "KEGIATAN FAVORIT",
+      "title": "Belajar Sehat Bersama",
+      "detail": "Langkah kecil yang mudah dilakukan setiap keluarga.",
+      "image": "/clients/citra/edukasi-kesehatan.webp",
+      "palette": {
+        "from": "#193034",
+        "via": "#336d60",
+        "to": "#071810",
+        "accent": "#b7e8bd"
+      }
+    },
+    {
+      "label": "NILAI YANG DIJAGA",
+      "title": "Teliti dengan Sepenuh Hati",
+      "detail": "Kepedulian juga terlihat dari kesiapan yang rapi.",
+      "image": "/clients/citra/pelayanan-pasien.webp",
+      "palette": {
+        "from": "#342b20",
+        "via": "#976741",
+        "to": "#130c08",
+        "accent": "#f6cf93"
+      }
+    }
+  ],
+  "picksHeading": "Hal yang Membuat Pelayanan Berarti",
+  "picksKicker": "PILIHAN CITRA • CERITA FIKTIF",
+  "seasons": [
+    {
+      "number": 1,
+      "title": "Belajar untuk Peduli",
+      "period": "2016 — 2019 (simulasi)",
+      "synopsis": "Bab rekaan tentang awal Citra mempelajari ilmu keperawatan dan pentingnya empati.",
+      "episodes": [
+        {
+          "code": "S01 E01",
+          "title": "Dari Rasa Ingin Membantu",
+          "description": "Dalam cerita fiktif, Citra tertarik mendampingi orang lain ketika membutuhkan dukungan.",
+          "tags": [
+            "Awal Cerita",
+            "Empati"
+          ],
+          "runtime": "Awal perjalanan",
+          "palette": {
+            "from": "#0b2831",
+            "via": "#2a687a",
+            "to": "#07131a",
+            "accent": "#7bd7d8"
+          },
+          "image": "/clients/citra/foto-utama.webp"
+        },
+        {
+          "code": "S01 E02",
+          "title": "Langkah Pertama di Klinik",
+          "description": "Belajar menyiapkan perlengkapan dan memahami komunikasi yang ramah kepada pasien.",
+          "tags": [
+            "Pembelajaran",
+            "Ketelitian"
+          ],
+          "runtime": "Masa belajar",
+          "palette": {
+            "from": "#193034",
+            "via": "#336d60",
+            "to": "#071810",
+            "accent": "#b7e8bd"
+          },
+          "image": "/clients/citra/pelayanan-pasien.webp"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Bersama Pasien dan Keluarga",
+      "period": "2020 — 2022 (simulasi)",
+      "synopsis": "Kisah simulasi tentang kerja tim dan pelayanan dengan perhatian pada manusia.",
+      "episodes": [
+        {
+          "code": "S02 E01",
+          "title": "Sapa yang Menenangkan",
+          "description": "Memperkenalkan diri, mendengar cerita, dan membantu pasien merasa lebih nyaman.",
+          "tags": [
+            "Komunikasi",
+            "Pelayanan"
+          ],
+          "runtime": "Hari pelayanan",
+          "palette": {
+            "from": "#193034",
+            "via": "#336d60",
+            "to": "#071810",
+            "accent": "#b7e8bd"
+          },
+          "image": "/clients/citra/foto-utama.webp"
+        },
+        {
+          "code": "S02 E02",
+          "title": "Ruang yang Siap Menolong",
+          "description": "Menata stasiun pemeriksaan dan mengikuti contoh alur pelayanan yang tertib.",
+          "tags": [
+            "Asesmen",
+            "Persiapan"
+          ],
+          "runtime": "Praktik simulasi",
+          "palette": {
+            "from": "#0b2831",
+            "via": "#2a687a",
+            "to": "#07131a",
+            "accent": "#7bd7d8"
+          },
+          "image": "/clients/citra/pelayanan-pasien.webp"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Berbagi Kebiasaan Baik",
+      "period": "2023 — 2025 (simulasi)",
+      "synopsis": "Contoh cerita tentang edukasi kesehatan dan kerja sama bersama warga.",
+      "episodes": [
+        {
+          "code": "S03 E01",
+          "title": "Tangan Bersih, Hari Cerah",
+          "description": "Kelas komunitas ilustratif untuk memperkenalkan cuci tangan pada anak dan keluarga.",
+          "tags": [
+            "Edukasi",
+            "Komunitas"
+          ],
+          "runtime": "Kelas sehat",
+          "palette": {
+            "from": "#193034",
+            "via": "#336d60",
+            "to": "#071810",
+            "accent": "#b7e8bd"
+          },
+          "image": "/clients/citra/edukasi-kesehatan.webp"
+        },
+        {
+          "code": "S03 E02",
+          "title": "Pelayanan Penuh Perhatian",
+          "description": "Citra dalam cerita contoh terus belajar menyampaikan informasi dengan hangat dan jelas.",
+          "tags": [
+            "Empati",
+            "Pengembangan"
+          ],
+          "runtime": "Cerita pilihan",
+          "palette": {
+            "from": "#342b20",
+            "via": "#976741",
+            "to": "#130c08",
+            "accent": "#f6cf93"
+          },
+          "image": "/clients/citra/pelayanan-pasien.webp"
+        }
+      ]
+    }
+  ],
+  "journeyHeading": "Episode Perjalanan Citra",
+  "journeyAside": "Seluruh perjalanan merupakan ilustrasi dan dapat diganti dengan riwayat klien sesungguhnya.",
+  "journeyKicker": "PERJALANAN • DATA SIMULASI",
+  "theme": {
+    "accent": "#66cfc9",
+    "background": "#080f15"
+  }
+}
