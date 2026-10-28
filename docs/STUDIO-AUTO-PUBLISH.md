@@ -52,7 +52,7 @@ GitHub → repo `vini-netflix` → Settings → Actions → General → Workflow
 - Endpoint tulis menolak permintaan tanpa cookie dan Origin yang sesuai. Foto, slug, link, dan kartu diperiksa di server. `/vini` tetap dilindungi.
 - Percobaan kode dibatasi *best effort* di instance serverless. Untuk perlindungan lintas instance, **aktifkan rate-limiting/WAF Vercel** khusus endpoint `/api/studio/login` sebelum layanan dipakai tim besar.
 - Bila perangkat hilang atau anggota tim keluar, rotasi kode akses dan secret sesi lalu redeploy agar semua sesi lama batal.
-- Job auto-merge dibatasi untuk PR **dari repository sendiri**, branch `cms/`, penanda `PERSONALFLIX_CMS:`, dan setelah semua tes sukses. PR biasa tidak ikut auto-merge.
+- Job auto-merge dibatasi untuk PR **dari repository sendiri**, branch `cms/{slug}-...`, penanda `PERSONALFLIX_CMS:{slug}`, serta hanya perubahan satu JSON klien dan foto dalam folder klien yang sama. Semuanya wajib lulus tes terlebih dahulu. Perubahan kode/workflow tidak bisa ikut auto-merge.
 - Draft belum sinkron antarperangkat. Klien yang sudah terbit bisa dibuka ulang dari Studio; edit bersamaan atas klien yang sama berisiko konflik dan harus ditinjau.
 - Foto, identitas, dan tautan yang diterbitkan ke repo/web publik dapat dilihat orang lain; pastikan persetujuan klien tersedia.
 - Mode OAuth GitHub lama berfungsi sebagai fallback **hanya ketika Studio baru belum dikonfigurasi**.
