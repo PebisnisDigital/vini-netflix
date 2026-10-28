@@ -38,14 +38,14 @@ export default function ProjectCard({ project, index, onOpen, duplicate = false 
             <span className="font-display text-xl leading-none text-crimson-2">{profile.displayName === 'Teh Vini' ? 'V' : profile.displayName.charAt(0).toUpperCase()}</span>
             <span className="text-[10px] font-bold tracking-[0.34em] text-bone/80">ORISINAL</span>
           </div>
-          <span className="absolute right-5 top-5 rounded border border-white/30 px-1.5 py-px text-[10px] font-bold text-bone sm:right-7 sm:top-7">{project.year}</span>
+          <span data-studio-edit={`project:${index}:year`} className="absolute right-5 top-5 rounded border border-white/30 px-1.5 py-px text-[10px] font-bold text-bone sm:right-7 sm:top-7">{project.year}</span>
 
           <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7 [transform:translateZ(40px)]">
-            <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-mist">{project.genre}</p>
-            <motion.h3 layoutId={duplicate ? undefined : `title-${project.id}`} className="font-display break-words text-[clamp(1.6rem,3.6vw,2.7rem)] leading-tight text-bone">
+            <p data-studio-edit={`project:${index}:category`} className="mb-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-mist">{project.genre}</p>
+            <motion.h3 data-studio-edit={`project:${index}:title`} layoutId={duplicate ? undefined : `title-${project.id}`} className="font-display break-words text-[clamp(1.6rem,3.6vw,2.7rem)] leading-tight text-bone">
               {project.title}
             </motion.h3>
-            <p className="mt-3 max-w-md text-sm leading-relaxed text-bone/75 sm:text-[15px]">{project.logline}</p>
+            <p data-studio-edit={`project:${index}:description`} className="mt-3 max-w-md text-sm leading-relaxed text-bone/75 sm:text-[15px]">{project.logline}</p>
             <div className="mt-4 flex flex-wrap gap-1.5">
               {project.stack.map((t) => (
                 <span key={t} className="rounded-full bg-black/35 px-2.5 py-1 text-[11px] font-medium text-bone/90 backdrop-blur">

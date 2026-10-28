@@ -70,15 +70,28 @@ type CanvasProps = {
   removeProject: (index: number) => void;
 };
 
-/** Kanvas sebenarnya merender App Netflix yang sama dengan halaman publik, di iframe terisolasi. */
+async function prepareCanvasPhoto(file: File): Promise<File> {
+  if (!/^image\/(png|jpeg|webp|avif)$/.test(file.type)) throw new Error('Pilih gambar PNG, JPG, WebP, atau AVIF.');
+  if (file.size <= photoMax) return file;
+  const bitmap = await createImageBitmap(file);
+  try {
+    const scale = Math.min(1, 1600 / Math.max(bitmap.width, bitmap.height));
+    const canvas = document.createElement('canvas');
+    canvas.width = Math.round(bitmap.width * scale); canvas.height = Math.round(bitmap.height * scale);
+    canvas.getContext('2d')!.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+    const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, 'image/webp', 0.84));
+    if (!blob || blob.size > photoMax) throw new Error('Foto masih terlalu besar. Coba foto maksimal 2,5 MB.');
+    return new File([blob], `${file.name.replace(/\.[^.]+$/, '')}.webp`, { type: 'image/webp' });
+  } finally { bitmap.close(); }
+}
+
+/** Canvas Netflix asli; semua kontrol redaksi dan media berada di dalam iframe. */
 function CanvasEditor({ draft, patch, changeProject, setPhoto, reorder, removeProject }: CanvasProps) {
   const frame = useRef<HTMLIFrameElement>(null);
-  const [selected, setSelected] = useState('name');
   const [device, setDevice] = useState<'desktop' | 'mobile'>('desktop');
+  const [error, setError] = useState('');
   const [photoUrls, setPhotoUrls] = useState<{ portrait: string; projects: Record<number, string> }>({ portrait: '', projects: {} });
   const current = preparedBrief(draft);
-  const theme = current.theme ?? DEFAULT_THEME;
-  const selectedProject = selected.startsWith('project:') ? Number(selected.split(':')[1]) : -1;
 
   useEffect(() => {
     const urls: string[] = [];
@@ -107,39 +120,58 @@ function CanvasEditor({ draft, patch, changeProject, setPhoto, reorder, removePr
     const listener = (event: MessageEvent) => {
       if (event.origin !== location.origin || event.source !== frame.current?.contentWindow) return;
       if (event.data?.type === 'PESONAFLIX_CANVAS_READY') sendCanvas();
-      if (event.data?.type === 'PESONAFLIX_CANVAS_SELECT' && typeof event.data.field === 'string') setSelected(event.data.field);
+      if (event.data?.type === 'PESONAFLIX_CANVAS_TEXT' && typeof event.data.value === 'string') {
+        const value = event.data.value;
+        switch (event.data.field) {
+          case 'name': {
+            const followingName = draft.mode === 'create' && (!draft.brief.slug || draft.brief.slug === normalizeSlug(draft.brief.name));
+            patch({ name: value, slug: followingName ? normalizeSlug(value) : draft.brief.slug, photo: { ...draft.brief.photo, alt: `Foto ${value}` } });
+            break;
+          }
+          case 'role': patch({ role: value }); break;
+          case 'location': patch({ location: value }); break;
+          case 'bio': patch({ bio: value }); break;
+          case 'tagline': patch({ tagline: splitLines(value) }); break;
+        }
+      }
+      if (event.data?.type === 'PESONAFLIX_CANVAS_THEME' && typeof event.data.color === 'string' && /^#[0-9a-fA-F]{6}$/.test(event.data.color)) {
+        const theme = draft.brief.theme ?? DEFAULT_THEME;
+        if (event.data.field === 'accent') patch({ theme: { ...theme, accent: event.data.color } });
+        if (event.data.field === 'background') patch({ theme: { ...theme, background: event.data.color } });
+      }
+      if (event.data?.type === 'PESONAFLIX_CANVAS_CARD' && Number.isInteger(event.data.index)) {
+        const index = event.data.index;
+        const field = event.data.field;
+        if (index >= 0 && index < draft.brief.projects.length && ['title', 'description', 'category', 'year', 'website'].includes(field) && typeof event.data.value === 'string') {
+          changeProject(index, { [field]: event.data.value });
+        }
+      }
+      if (event.data?.type === 'PESONAFLIX_CANVAS_ADD_CARD') patch({ projects: [...draft.brief.projects, newProject()] });
+      if (event.data?.type === 'PESONAFLIX_CANVAS_MOVE_CARD' && Number.isInteger(event.data.index) && (event.data.direction === -1 || event.data.direction === 1)) reorder(event.data.index, event.data.direction);
+      if (event.data?.type === 'PESONAFLIX_CANVAS_REMOVE_CARD' && Number.isInteger(event.data.index)) removeProject(event.data.index);
+      if (event.data?.type === 'PESONAFLIX_CANVAS_PHOTO' && event.data.file instanceof File) {
+        const index = event.data.index;
+        if (index !== null && (!Number.isInteger(index) || index < 0 || index >= draft.brief.projects.length)) return;
+        void prepareCanvasPhoto(event.data.file as File)
+          .then((photo) => { setError(''); setPhoto(index, photo); })
+          .catch((reason: Error) => setError(reason.message));
+      }
     };
     window.addEventListener('message', listener);
     return () => window.removeEventListener('message', listener);
-  }, [sendCanvas]);
+  }, [sendCanvas, patch, changeProject, reorder, removeProject, setPhoto, draft.brief]);
 
-  const quick = (label: string, id: string) => <button type="button" onClick={() => setSelected(id)} className={`rounded-lg px-3 py-2 text-xs font-bold transition ${selected === id ? 'bg-[#e50931] text-white' : 'bg-white/5 text-white/70 hover:bg-white/10'}`}>{label}</button>;
-  const project = current.projects[selectedProject];
-  return <div className="grid min-w-0 gap-4 xl:grid-cols-[minmax(0,1fr)_290px]">
-    <section className="min-w-0 overflow-hidden rounded-2xl border border-white/15 bg-[#121218]">
+  return <section className="min-w-0 overflow-hidden rounded-2xl border border-white/15 bg-[#121218]">
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 px-4 py-3">
-        <div><p className="text-sm font-extrabold">✦ Canvas Netflix <span className="ml-2 rounded bg-emerald-500/15 px-2 py-1 text-[10px] text-emerald-300">LIVE EDIT</span></p><p className="mt-1 text-xs text-white/45">Klik tulisan, foto, atau kartu untuk mengubahnya.</p></div>
+        <div><p className="text-sm font-extrabold">✦ Canvas Netflix <span className="ml-2 rounded bg-emerald-500/15 px-2 py-1 text-[10px] text-emerald-300">EDIT LANGSUNG</span></p><p className="mt-1 text-xs text-white/55">Klik teks lalu ketik di atas desain. Klik foto untuk mengganti gambar, atau kartu untuk mengubah karya.</p></div>
         <div className="flex gap-1 rounded-lg bg-black/40 p-1"><button type="button" aria-pressed={device === 'desktop'} onClick={() => setDevice('desktop')} className={`rounded-md px-3 py-1.5 text-xs ${device === 'desktop' ? 'bg-white/15' : 'text-white/45'}`}>Desktop</button><button type="button" aria-pressed={device === 'mobile'} onClick={() => setDevice('mobile')} className={`rounded-md px-3 py-1.5 text-xs ${device === 'mobile' ? 'bg-white/15' : 'text-white/45'}`}>HP</button></div>
       </div>
-      <div className="flex flex-wrap gap-2 border-b border-white/10 p-3">{quick('Teks', 'name')}{quick('Foto Utama', 'portrait')}{quick('Kartu Karya', 'project:0')}{quick('Warna', 'theme')}{quick('Tentang', 'bio')}</div>
       <div className="flex justify-center overflow-auto bg-[#050506] p-2 sm:p-4">
-        <iframe ref={frame} title="Kanvas portofolio Netflix yang dapat diedit" src="/studio/preview?canvas=1" onLoad={sendCanvas} className="block h-[690px] shrink-0 rounded-lg border border-white/15 bg-[#07070a] shadow-2xl transition-[width] duration-300" style={{ width: device === 'mobile' ? 'min(390px, 100%)' : '100%' }} />
+        <iframe ref={frame} title="Kanvas portofolio Netflix yang dapat diedit langsung" src="/studio/preview?canvas=1" onLoad={sendCanvas} className="block h-[min(82vh,900px)] min-h-[620px] shrink-0 rounded-lg border border-white/15 bg-[#07070a] shadow-2xl transition-[width] duration-300" style={{ width: device === 'mobile' ? 'min(390px, 100%)' : '100%' }} />
       </div>
-      <p className="px-4 pb-4 text-xs leading-relaxed text-white/45">Tampilan di atas menggunakan komponen website asli. Scroll di dalam kanvas untuk mengedit bagian bawah. Pengunjung belum melihat perubahan sampai diterbitkan.</p>
-    </section>
-    <aside className="h-fit space-y-4 rounded-2xl border border-[#ff536e]/25 bg-[#14131a] p-4 xl:sticky xl:top-24">
-      <div><p className="text-xs font-bold uppercase tracking-widest text-[#ff7188]">Panel Edit</p><h3 className="mt-1 text-xl font-extrabold">{({ name: 'Nama Klien', role: 'Profesi', location: 'Lokasi', tagline: 'Headline', bio: 'Tentang Saya', portrait: 'Foto Utama', theme: 'Warna Tema' } as Record<string, string>)[selected] || (project ? `Kartu Karya ${selectedProject + 1}` : 'Pilih Elemen')}</h3><p className="mt-2 text-xs text-white/45">Setiap perubahan langsung terlihat di kanvas sebelah.</p></div>
-      {selected === 'name' && <Control label="Nama lengkap / brand"><input className={field} value={draft.brief.name} placeholder="Nama Klien" onChange={(e) => patch({ name: e.target.value, slug: draft.brief.slug || normalizeSlug(e.target.value), photo: { ...draft.brief.photo, alt: `Foto ${e.target.value}` } })}/></Control>}
-      {selected === 'role' && <Control label="Profesi"><input className={field} value={draft.brief.role} placeholder="Profesi Klien" onChange={(e) => patch({ role: e.target.value })}/></Control>}
-      {selected === 'location' && <Control label="Kota / lokasi"><input className={field} value={draft.brief.location} placeholder="Bandung, Indonesia" onChange={(e) => patch({ location: e.target.value })}/></Control>}
-      {selected === 'tagline' && <Control label="Sorotan (satu baris per poin)"><textarea rows={4} className={field} value={draft.brief.tagline.join('\n')} onChange={(e) => patch({ tagline: splitLines(e.target.value) })}/></Control>}
-      {selected === 'bio' && <Control label="Tentang Saya"><textarea rows={7} className={field} value={draft.brief.bio} placeholder="Cerita singkat klien..." onChange={(e) => patch({ bio: e.target.value })}/></Control>}
-      {selected === 'portrait' && <><p className="text-xs text-white/60">Foto transparan lebih cocok untuk efek Netflix. Sampai diganti, kanvas memakai foto master sebagai contoh.</p><Photo title="Foto utama" file={draft.portrait} existing={draft.mode === 'edit' ? draft.brief.photo.src : '/assets/teh-vini-full.webp'} onChange={(file) => setPhoto(null, file)}/></>}
-      {selected === 'theme' && <><Control label="Warna aksen"><input aria-label="Warna aksen" type="color" value={theme.accent} className="h-12 w-full cursor-pointer rounded-lg bg-transparent" onChange={(e) => patch({ theme: { ...theme, accent: e.target.value } })}/></Control><Control label="Warna latar"><input aria-label="Warna latar" type="color" value={theme.background} className="h-12 w-full cursor-pointer rounded-lg bg-transparent" onChange={(e) => patch({ theme: { ...theme, background: e.target.value } })}/></Control><button type="button" className={secondary} onClick={() => patch({ theme: { ...DEFAULT_THEME } })}>Kembalikan warna Netflix</button><p className="text-xs text-white/45">Aksen memengaruhi tulisan, tombol dan beberapa highlight. Struktur tema Netflix tetap dipertahankan.</p></>}
-      {project && <><Control label="Judul kartu"><input className={field} value={project.title} onChange={(e) => changeProject(selectedProject, { title: e.target.value })}/></Control><Control label="Deskripsi"><textarea className={field} rows={4} value={project.description} onChange={(e) => changeProject(selectedProject, { description: e.target.value })}/></Control><Control label="Kategori"><input className={field} value={project.category} onChange={(e) => changeProject(selectedProject, { category: e.target.value })}/></Control><Control label="Tahun"><input className={field} value={project.year} onChange={(e) => changeProject(selectedProject, { year: e.target.value })}/></Control><Photo title={`Foto kartu ${selectedProject + 1}`} file={draft.projectPhotos[selectedProject]} existing={project.image || ''} onChange={(file) => setPhoto(selectedProject, file)}/><div className="flex flex-wrap gap-2"><button type="button" className={secondary} disabled={selectedProject === 0} onClick={() => { reorder(selectedProject, -1); setSelected(`project:${selectedProject - 1}`); }}>↑ Geser</button><button type="button" className={secondary} disabled={selectedProject === current.projects.length - 1} onClick={() => { reorder(selectedProject, 1); setSelected(`project:${selectedProject + 1}`); }}>↓ Geser</button><button type="button" className={`${secondary} text-red-300`} disabled={current.projects.length <= 1} onClick={() => { removeProject(selectedProject); setSelected('project:0'); }}>Hapus</button></div></>}
-      <div className="border-t border-white/10 pt-4"><p className="mb-2 text-xs font-semibold text-white/50">Kartu karya ({current.projects.length})</p><div className="flex flex-wrap gap-2">{current.projects.map((item, index) => <button type="button" key={index} onClick={() => setSelected(`project:${index}`)} className={`rounded-lg px-3 py-2 text-xs ${selected === `project:${index}` ? 'bg-[#e50931]' : 'bg-white/10'}`}>{item.title || `Kartu ${index + 1}`}</button>)}</div><button type="button" className={`${secondary} mt-3 w-full`} onClick={() => { patch({ projects: [...draft.brief.projects, newProject()] }); setSelected(`project:${draft.brief.projects.length}`); }}>＋ Tambah Kartu</button></div>
-    </aside>
-  </div>;
+      {error && <p role="alert" className="mx-4 rounded-xl bg-red-500/10 p-3 text-sm text-red-200">{error}</p>}
+      <p className="px-4 pb-4 text-xs leading-relaxed text-white/45">Semua alat edit ada di dalam halaman Netflix. Scroll kanvas untuk melihat bagian lainnya. Perubahan belum dilihat pengunjung sebelum Teteh menerbitkannya.</p>
+    </section>;
 }
 
 export default function StudioEditor() {
@@ -275,7 +307,7 @@ export default function StudioEditor() {
   };
 
   return <div className="min-h-screen bg-[#09090d] font-sans text-white">
-    <header className="sticky top-0 z-40 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 bg-[#0b0b10]/95 px-5 py-4 backdrop-blur-lg sm:px-8"><a href="/" className="font-extrabold tracking-widest">PESONA<span className="text-[#ff4566]">FLIX</span><span className="ml-2 text-xs font-medium tracking-normal text-white/45">STUDIO</span></a><div className="flex flex-wrap items-center gap-2"><span className="rounded-full border border-[#ff6580] bg-[#ff6580]/10 px-3 py-2 text-xs font-bold text-white">Editor CMS</span><a href="/studio?tab=formulir" className={secondary}>Formulir Klien</a><span className="rounded-full border border-white/15 px-3 py-1 text-xs text-white/60">{session.authenticated ? `● ${session.login}` : 'Draft lokal · Tanpa login'}</span><a href="/vini" target="_blank" rel="noreferrer" className={secondary}>Lihat Contoh</a></div></header>
+    <header className="sticky top-0 z-40 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 bg-[#0b0b10]/95 px-5 py-4 backdrop-blur-lg sm:px-8"><a href="/" className="font-extrabold tracking-widest">PESONA<span className="text-[#ff4566]">FLIX</span><span className="ml-2 text-xs font-medium tracking-normal text-white/45">STUDIO</span></a><div className="flex flex-wrap items-center gap-2"><span className="rounded-full border border-[#ff6580] bg-[#ff6580]/10 px-3 py-2 text-xs font-bold text-white">Edit di Kanvas</span><span className="rounded-full border border-white/15 px-3 py-1 text-xs text-white/60">{session.authenticated ? `● ${session.login}` : 'Draft lokal · Tanpa login'}</span><a href="/vini" target="_blank" rel="noreferrer" className={secondary}>Lihat Contoh</a></div></header>
     <div className="mx-auto grid max-w-[1720px] gap-5 px-4 py-6 lg:grid-cols-[230px_minmax(0,1fr)] lg:px-6">
       <aside className={`${card} h-fit lg:sticky lg:top-24`}><div className="mb-5"><p className="text-xs font-bold uppercase tracking-[0.18em] text-[#ff6580]">PESONAFLIX Studio</p><h1 className="mt-1 text-2xl font-extrabold">Website Klien</h1><p className="mt-2 text-sm text-white/50">Seperti menulis postingan, tetapi hasilnya portofolio bergaya serial.</p></div>
         <button type="button" onClick={newClient} className="mb-5 w-full rounded-xl bg-[#e50931] px-4 py-3 text-sm font-bold hover:bg-[#fb2951]">＋ Buat Klien Baru</button>
