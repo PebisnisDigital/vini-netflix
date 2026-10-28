@@ -118,7 +118,7 @@ function CanvasEditor({ draft, patch, changeProject, setPhoto, reorder, removePr
   return <div className="grid min-w-0 gap-4 xl:grid-cols-[310px_minmax(0,1fr)]">
     <section className="order-2 min-w-0 overflow-hidden rounded-2xl border border-white/15 bg-[#121218]">
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 px-4 py-3">
-        <div><p className="text-sm font-extrabold">✦ Canvas Netflix <span className="ml-2 rounded bg-emerald-500/15 px-2 py-1 text-[10px] text-emerald-300">LIVE EDIT</span></p><p className="mt-1 text-xs text-white/45">Klik tulisan, foto, atau kartu untuk mengubahnya.</p></div>
+        <div><p className="text-sm font-extrabold">✦ Canvas Netflix <span className="ml-2 rounded bg-emerald-500/15 px-2 py-1 text-[10px] text-emerald-300">LIVE EDIT</span></p><p className="mt-1 text-xs text-white/45">Ubah isi melalui panel kiri. Perubahan langsung muncul di kanvas.</p></div>
         <div className="flex gap-1 rounded-lg bg-black/40 p-1"><button type="button" aria-pressed={device === 'desktop'} onClick={() => setDevice('desktop')} className={`rounded-md px-3 py-1.5 text-xs ${device === 'desktop' ? 'bg-white/15' : 'text-white/45'}`}>Desktop</button><button type="button" aria-pressed={device === 'mobile'} onClick={() => setDevice('mobile')} className={`rounded-md px-3 py-1.5 text-xs ${device === 'mobile' ? 'bg-white/15' : 'text-white/45'}`}>HP</button></div>
       </div>
       <div className="flex flex-wrap gap-2 border-b border-white/10 p-3">{quick('Teks', 'name')}{quick('Foto Utama', 'portrait')}{quick('Kartu Karya', 'project:0')}{quick('Warna', 'theme')}{quick('Tentang', 'bio')}</div>

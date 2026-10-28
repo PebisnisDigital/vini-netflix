@@ -5,10 +5,8 @@ import { EASE, SectionHeading, Tilt } from './fx';
 export default function About() {
   const { profile, seasons } = usePortfolio();
   const facts = profile.aboutFacts || [
-    { k: 'Peran', v: 'CEO Cuanify ID', s: 'Pengembangan bisnis dan produk digital' },
-    { k: 'Komunitas', v: 'BADAI', s: 'Belajar Apa Aja Dengan AI' },
-    { k: 'Fokus', v: 'WhatsApp Marketing', s: 'Mentoring & edukasi pemula' },
-    { k: 'Asal', v: profile.location, s: 'Indonesia' },
+    { k: 'Peran', v: profile.role, s: 'Aktivitas utama' },
+    { k: 'Asal', v: profile.location, s: 'Lokasi' },
   ];
 
   return (

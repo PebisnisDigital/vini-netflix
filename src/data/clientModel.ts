@@ -33,6 +33,14 @@ export const sushmitaContent: PortfolioContent = {
     ...sushmita.profile,
     links: { ...sushmita.profile.links, website: '' },
     websiteLabel: 'SUSHMITA DASARI',
+    heroMeta: [sushmita.profile.location, sushmita.profile.role, `${sushmita.projects.length} Karya Pilihan`, 'AI & Machine Learning'],
+    floating: sushmita.projects.map((project) => ({ text: project.title, sub: project.genre })),
+    aboutFacts: [
+      { k: 'Peran', v: sushmita.profile.role, s: 'Full-Stack Development' },
+      { k: 'Pendidikan', v: 'B.Tech AI & ML', s: 'Aditya Engineering College' },
+      { k: 'Karya', v: String(sushmita.projects.length), s: 'Proyek unggulan' },
+      { k: 'Asal', v: sushmita.profile.location, s: 'Lokasi' },
+    ],
   },
   projects: sushmita.projects,
   experience: sushmita.experience,
@@ -204,18 +212,33 @@ export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: 
     id: 'keahlian', title: 'Keahlian Saya', subtitle: 'Bidang yang saya tekuni',
     skills: (brief.skills.length ? brief.skills : [brief.role]).map((name) => ({ name, mono: name.slice(0, 2).toUpperCase() })),
   }];
+  const seasonEpisodes = (number: number, records: { title: string; description: string; tags: string[]; runtime: string; palette: vini.Palette }[]): vini.Season['episodes'] =>
+    records.map((record, i) => ({ ...record, code: `S${String(number).padStart(2, '0')} E${String(i + 1).padStart(2, '0')}` }));
   const seasons: vini.Season[] = [
-    { number: 1, title: 'Perkenalan', period: 'Cerita awal', synopsis: brief.bio, episodes: [{
-      code: 'S01 E01', title: `Kenalan dengan ${name}`, description: brief.bio, tags: tags.slice(0, 3), runtime: 'Cerita saya', palette: palettes[0],
-    }] },
-    { number: 2, title: 'Pengalaman & Karya', period: 'Perjalanan', synopsis: `Perjalanan dan karya ${name}.`, episodes: projects.map((p, i) => ({
-      code: `S02 E${String(i + 1).padStart(2, '0')}`, title: p.title, description: p.logline, tags: p.stack.slice(0, 3), runtime: p.year, palette: p.palette,
-    })) },
+    { number: 1, title: 'Perkenalan', period: 'Cerita Awal', synopsis: brief.bio, episodes: seasonEpisodes(1, [
+      { title: `Kenalan dengan ${name}`, description: brief.bio, tags: tags.slice(0, 3), runtime: 'Cerita Saya', palette: palettes[0] },
+    ]) },
+    { number: 2, title: 'Pendidikan', period: 'Masa Belajar', synopsis: `Perjalanan belajar ${name}.`, episodes: seasonEpisodes(2,
+      (brief.education?.length ? brief.education : [{ school: 'Belajar Sepanjang Hayat', degree: brief.role, place: brief.location, period: 'Perjalanan' }]).map((school, i) => ({
+        title: school.degree, description: `${school.school} — ${school.place}`, tags: [school.school, school.degree].filter(Boolean), runtime: school.period, palette: palettes[i % palettes.length],
+      }))) },
+    { number: 3, title: 'Pengalaman', period: 'Perjalanan Karier', synopsis: `Pengalaman dan aktivitas ${name}.`, episodes: seasonEpisodes(3,
+      (experience.length ? experience : [{ company: 'Perjalanan Saya', role: brief.role, place: brief.location, period: 'Kini', points: [brief.bio] }]).map((job, i) => ({
+        title: job.role, description: `${job.company} — ${job.points.join(' ')}`, tags: [job.company, job.role], runtime: job.period, palette: palettes[(i + 1) % palettes.length],
+      }))) },
+    { number: 4, title: 'Karya Pilihan', period: 'Hasil Perjalanan', synopsis: `Karya yang telah dibuat ${name}.`, episodes: seasonEpisodes(4,
+      projects.map((project) => ({ title: project.title, description: project.logline, tags: project.stack.slice(0, 3), runtime: project.year, palette: project.palette }))) },
+    { number: 5, title: 'Langkah Berikutnya', period: 'Sekarang', synopsis: `Bidang yang ingin terus dikembangkan ${name}.`, episodes: seasonEpisodes(5, [
+      { title: 'Cerita Selanjutnya', description: `Terus bertumbuh melalui ${brief.interests.length ? brief.interests.join(', ') : brief.role}.`, tags: brief.interests.slice(0, 3), runtime: 'Berlanjut', palette: palettes[3] },
+    ]) },
   ];
-  const topPicks: vini.TopPick[] = [
+  const highlightsForPicks: vini.TopPick[] = [
     ...projects.map((p) => ({ label: p.genre, title: p.title, detail: p.logline, palette: p.palette })),
+    ...achievements.map((a, i) => ({ label: a.org, title: a.title, detail: a.detail, palette: palettes[i % palettes.length] })),
     ...brief.skills.map((s, i) => ({ label: 'Keahlian', title: s, detail: `Bidang yang ditekuni ${name}`, palette: palettes[i % palettes.length] })),
+    ...brief.interests.map((interest, i) => ({ label: 'Minat', title: interest, detail: `Hal yang diminati ${name}`, palette: palettes[(i + 2) % palettes.length] })),
   ];
+  const topPicks = highlightsForPicks.slice(0, 10);
   const introSlides: vini.IntroSlide[] = [
     { kicker: 'Kenalan', title: `Halo, Saya ${name}`, lines: [brief.role, brief.location], chips: tags.slice(0, 3) },
     { kicker: 'Cerita saya', title: 'Perjalanan Saya', lines: [brief.bio], chips: brief.interests.slice(0, 3) },

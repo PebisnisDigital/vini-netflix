@@ -38,18 +38,10 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
   const chipY = useTransform(py, [-1, 1], [12, -12]);
   const glowX = useTransform(px, [-1, 1], ['-6%', '6%']);
 
-  const meta = profile.heroMeta || [
-    'Bandung, Indonesia',
-    'CEO Cuanify ID',
-    `${projects.length} Karya Pilihan`,
-    'Mentor WhatsApp Marketing',
-  ];
+  const meta = profile.heroMeta || [profile.location, profile.role, `${projects.length} Karya Pilihan`];
 
-  const floating = (profile.floating || [
-    { text: 'BADAI', sub: 'Belajar Apa Aja Dengan AI', pos: 'left-[2%] top-[30%]', depth: 1 },
-    { text: 'PROMPTIONAL', sub: 'Galeri Prompt AI', pos: 'right-[0%] top-[18%]', depth: -1 },
-    { text: 'WHATSAPP', sub: 'Pemasaran & mentoring', pos: 'right-[4%] bottom-[24%]', depth: 0.6 },
-  ]).map((f, i) => ({ ...f, pos: ['left-[2%] top-[30%]', 'right-[0%] top-[18%]', 'right-[4%] bottom-[24%]'][i % 3], depth: [1, -1, 0.6][i % 3] }));
+  const floating = (profile.floating || projects.slice(0, 3).map((project) => ({ text: project.title, sub: project.genre })))
+    .map((f, i) => ({ ...f, pos: ['left-[2%] top-[30%]', 'right-[0%] top-[18%]', 'right-[4%] bottom-[24%]'][i % 3], depth: [1, -1, 0.6][i % 3] }));
 
   return (
     <section
