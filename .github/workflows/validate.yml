@@ -36,7 +36,28 @@ jobs:
           REPOSITORY: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
           PR_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_BRANCH: ${{ github.event.pull_request.head.ref }}
+          PR_BODY: ${{ github.event.pull_request.body }}
         run: |
+          # Jangan auto-merge perubahan kode, konfigurasi, atau klien lain.
+          slug="${PR_BODY#PERSONALFLIX_CMS:}"
+          slug="${slug%%$'\n'*}"
+          [[ "${slug}" =~ ^[a-z0-9]+(-[a-z0-9]+)*$ ]] || exit 1
+          [[ "${PR_BRANCH}" == "cms/${slug}-"* ]] || exit 1
+          client_json_count=0
+          changed_files="$(gh api --paginate "repos/${REPOSITORY}/pulls/${PR_NUMBER}/files" --jq '.[] | [.filename, .status] | @tsv')"
+          while IFS=$'\t' read -r filename status; do
+            [[ "${status}" != 'removed' ]] || exit 1
+            if [[ "${filename}" == "src/data/clients/${slug}.json" ]]; then
+              client_json_count=$((client_json_count + 1))
+            elif [[ "${filename}" =~ ^public/clients/${slug}/[a-zA-Z0-9._-]+\.(png|jpe?g|webp|avif)$ ]]; then
+              :
+            else
+              echo "Ditolak: file di luar folder klien: ${filename}"
+              exit 1
+            fi
+          done <<< "${changed_files}"
+          [[ "${client_json_count}" -eq 1 ]] || { echo 'Satu JSON klien diperlukan.'; exit 1; }
           gh api -X PUT "repos/${REPOSITORY}/pulls/${PR_NUMBER}/merge" \
             -f sha="${PR_SHA}" \
             -f merge_method=squash \

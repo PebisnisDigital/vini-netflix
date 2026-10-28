@@ -107,7 +107,11 @@ test('kode Studio benar menghasilkan cookie terenkripsi 30 hari, kode salah dan 
     assert.equal(requirePostSession(request).session.token, 'contoh-token-github-khusus-testing');
     assert.equal(requirePostSession(new Request('https://pesonaflix.vercel.app/api/publish', { method: 'POST', headers: { origin: 'https://other.test', 'x-personalflix-action': '1', cookie: cookie.split(';')[0] } })).error.status, 403);
     assert.equal(requirePostSession(new Request('https://pesonaflix.vercel.app/api/publish', { method: 'POST', headers: { origin: 'https://pesonaflix.vercel.app', 'x-personalflix-action': '1' } })).error.status, 401);
-    const badCookie = cookie.split(';')[0].replace(/.$/, (last) => last === 'x' ? 'y' : 'x');
+    // Ubah byte autentikasi, bukan karakter terakhir base64url yang bisa berupa padding bit.
+    const [cookieName, cookieValue] = cookie.split(';')[0].split('=');
+    const tamperedBytes = Buffer.from(cookieValue, 'base64url');
+    tamperedBytes[14] ^= 1;
+    const badCookie = `${cookieName}=${tamperedBytes.toString('base64url')}`;
     assert.equal(readStudioSession(new Request('https://pesonaflix.vercel.app/studio', { headers: { cookie: badCookie } })), null);
     const ok = await studioLogin(new Request('https://pesonaflix.vercel.app/api/studio/login', { method: 'POST', headers: { origin: 'https://pesonaflix.vercel.app', 'x-personalflix-action': '1' }, body: JSON.stringify({ code: 'contoh-kode-akses-yang-panjang-untuk-testing' }) }));
     assert.equal(ok.status, 200);
