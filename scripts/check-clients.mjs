@@ -52,6 +52,15 @@ for (const file of files) {
     if (project?.image) await checkImage(project.image, slug, `foto karya ${i + 1}`);
     if (project?.website && !/^https?:\/\//.test(project.website)) errors.push(`${slug}: link karya ${i + 1} harus https://.`);
   }
+  if (brief.watchCards !== undefined) {
+    if (!Array.isArray(brief.watchCards) || brief.watchCards.length < 1 || brief.watchCards.length > 30) errors.push(`${slug}: kartu jelajah harus berjumlah 1–30.`);
+    else for (const [i, item] of brief.watchCards.entries()) {
+      checkString(item?.title, `jelajah ${i + 1} judul`, slug);
+      checkString(item?.subtitle, `jelajah ${i + 1} keterangan`, slug);
+      if (!['about', 'journey', 'originals', 'picks', 'skills', 'moments', 'story'].includes(item?.target)) errors.push(`${slug}: jelajah ${i + 1} menuju bagian yang tidak valid.`);
+      if (item?.image) await checkImage(item.image, slug, `foto jelajah ${i + 1}`);
+    }
+  }
   if (brief.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(brief.email)) errors.push(`${slug}: email tidak valid.`);
   for (const [name, url] of Object.entries(brief.links ?? {})) if (url && !/^https?:\/\//.test(url)) errors.push(`${slug}: link ${name} harus https://.`);
   await checkImage(brief.photo?.src, slug, 'foto utama');
