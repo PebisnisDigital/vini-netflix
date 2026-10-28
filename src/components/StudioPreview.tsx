@@ -1,9 +1,10 @@
-import { useEffect, useState, type MouseEvent } from 'react';
+import { useEffect, useState } from 'react';
 import { MotionConfig } from 'framer-motion';
 import App from '../App';
 import { PortfolioProvider } from '../data/PortfolioContext';
 import { createPortfolioFromBrief, sushmitaContent, validateBrief, type PortfolioContent } from '../data/clientModel';
 import { getDraft, preparedBrief } from '../data/studioDraft';
+import VisualCanvasTools from './VisualCanvasTools';
 
 export default function StudioPreview() {
   const canvasMode = new URLSearchParams(location.search).get('canvas') === '1';
@@ -48,22 +49,11 @@ export default function StudioPreview() {
     return () => { mounted = false; urls.forEach((url) => URL.revokeObjectURL(url)); };
   }, [canvasMode]);
 
-  const editOnCanvas = (event: MouseEvent<HTMLDivElement>) => {
-    if (!canvasMode) return;
-    const element = event.target as HTMLElement;
-    const editable = element.closest<HTMLElement>('[data-studio-edit]');
-    event.preventDefault();
-    event.stopPropagation();
-    if (editable?.dataset.studioEdit) {
-      window.parent.postMessage({ type: 'PESONAFLIX_CANVAS_SELECT', field: editable.dataset.studioEdit }, location.origin);
-    }
-  };
-
   if (error) return <div className="flex min-h-screen flex-col items-center justify-center gap-5 bg-[#09090d] px-5 text-center text-white"><p className="text-xl font-bold">Preview belum tersedia</p><p className="max-w-lg text-white/65">{error}</p><a className="rounded-xl bg-white px-5 py-3 font-bold text-black" href="/studio">Kembali ke Studio</a></div>;
   if (!content) return <div className="flex min-h-screen items-center justify-center bg-[#09090d] text-white">Menyiapkan preview…</div>;
   return <>
     {!canvasMode && <div className="fixed right-4 top-4 z-[9999] flex items-center gap-3 rounded-xl border border-white/15 bg-black/85 px-4 py-2.5 text-sm text-white shadow-xl backdrop-blur"><span className="hidden text-white/60 sm:inline">PREVIEW · Belum Live</span><a className="font-bold text-[#ff6f85] underline" href="/studio">← Kembali Edit</a></div>}
-    {canvasMode && <style>{'[data-studio-edit]{cursor:pointer!important}[data-studio-edit]:hover{outline:2px dashed var(--color-crimson-2);outline-offset:2px}a,button{cursor:pointer!important}'}</style>}
-    <MotionConfig reducedMotion="user"><div onClickCapture={editOnCanvas}><PortfolioProvider data={content}><App slug={slug} editorMode={canvasMode}/></PortfolioProvider></div></MotionConfig>
+    {canvasMode && <style>{'[data-studio-edit]{cursor:text!important}[data-studio-edit]:hover{outline:2px dashed var(--color-crimson-2);outline-offset:2px}[data-studio-edit="portrait"], [data-studio-edit^="project:"]{cursor:pointer!important}'}</style>}
+    <MotionConfig reducedMotion="user"><PortfolioProvider data={content}>{canvasMode ? <VisualCanvasTools content={content}><App slug={slug} editorMode /></VisualCanvasTools> : <App slug={slug} editorMode={false}/>}</PortfolioProvider></MotionConfig>
   </>;
 }
