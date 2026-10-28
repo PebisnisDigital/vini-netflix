@@ -355,7 +355,7 @@ export const seasons: Season[] = [
   },
 ];
 
-export type TopPick = { label: string; title: string; detail: string; palette: Palette };
+export type TopPick = { label: string; title: string; detail: string; palette: Palette; image?: string };
 export const topPicks: TopPick[] = [
   { label: 'Komunitas AI', title: 'BADAI', detail: 'Belajar Apa Aja Dengan AI', palette: crimson },
   { label: 'Kreasi prompt', title: 'PROMPTIONAL', detail: 'Inspirasi prompt gratis & premium', palette: violet },
