@@ -1,8 +1,11 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { validatePublishPayload } from '../server/publishing.mjs';
-import { readSession, setSessionCookie, startState, stateIsValid } from '../server/auth.mjs';
+import { readSession, requirePostSession, setSessionCookie, startState, stateIsValid } from '../server/auth.mjs';
 import { GET as startOAuth } from '../api/auth/start.js';
+import { GET as studioStatus } from '../api/studio/status.js';
+import { POST as studioLogin } from '../api/studio/login.js';
+import { readStudioSession, studioCodeIsValid, studioSessionCookie } from '../server/studio-auth.mjs';
 
 const sample = {
   slug: 'satria', name: 'Satria', role: 'Fotografer', location: 'Bandung',
@@ -78,4 +81,38 @@ test('OAuth tanpa konfigurasi berhenti, tidak menerbitkan atau mengembalikan rah
   delete process.env.GITHUB_CLIENT_ID;
   try { const response = startOAuth(); assert.equal(response.status, 503); assert.doesNotMatch(await response.text(), /token|secret/i); }
   finally { if (old !== undefined) process.env.GITHUB_CLIENT_ID = old; }
+});
+
+test('edit ulang klien Iis menerima foto bernama bebas yang tetap berada dalam folder klien', () => {
+  const changed = { ...sample, slug: 'iis', photo: { src: '/clients/iis/foto-utama.webp', alt: 'Iis' }, projects: [{ ...sample.projects[0], image: '/clients/iis/karya-ipa.webp' }] };
+  assert.deepEqual(validatePublishPayload({ brief: changed, assets: [], mode: 'edit' }), []);
+  assert.ok(validatePublishPayload({ brief: { ...changed, projects: [{ ...changed.projects[0], image: '/clients/asing/karya-ipa.webp' }] }, assets: [], mode: 'edit' }).length);
+  assert.ok(validatePublishPayload({ brief: { ...changed, projects: [{ ...changed.projects[0], image: '/clients/iis/../malware.webp' }] }, assets: [], mode: 'edit' }).length);
+});
+
+test('kode Studio benar menghasilkan cookie terenkripsi 30 hari, kode salah dan manipulasi cookie ditolak', async () => {
+  const keys = ['PESONAFLIX_STUDIO_ACCESS_KEY', 'PESONAFLIX_STUDIO_SESSION_SECRET', 'PESONAFLIX_GITHUB_TOKEN'];
+  const originals = Object.fromEntries(keys.map((key) => [key, process.env[key]]));
+  try {
+    process.env.PESONAFLIX_STUDIO_ACCESS_KEY = 'contoh-kode-akses-yang-panjang-untuk-testing';
+    process.env.PESONAFLIX_STUDIO_SESSION_SECRET = 'contoh-session-secret-studio-yang-panjang-untuk-testing';
+    process.env.PESONAFLIX_GITHUB_TOKEN = 'contoh-token-github-khusus-testing';
+    assert.equal(studioCodeIsValid('salah-besar-sekali'), false);
+    assert.equal(studioCodeIsValid('contoh-kode-akses-yang-panjang-untuk-testing'), true);
+    const cookie = studioSessionCookie();
+    assert.match(cookie, /HttpOnly; SameSite=Strict/);
+    assert.match(cookie, /Max-Age=2592000/);
+    const request = new Request('https://pesonaflix.vercel.app/api/publish', { method: 'POST', headers: { origin: 'https://pesonaflix.vercel.app', 'x-personalflix-action': '1', cookie: cookie.split(';')[0] } });
+    assert.equal(readStudioSession(request)?.kind, 'studio');
+    assert.equal(requirePostSession(request).session.token, 'contoh-token-github-khusus-testing');
+    assert.equal(requirePostSession(new Request('https://pesonaflix.vercel.app/api/publish', { method: 'POST', headers: { origin: 'https://other.test', 'x-personalflix-action': '1', cookie: cookie.split(';')[0] } })).error.status, 403);
+    assert.equal(requirePostSession(new Request('https://pesonaflix.vercel.app/api/publish', { method: 'POST', headers: { origin: 'https://pesonaflix.vercel.app', 'x-personalflix-action': '1' } })).error.status, 401);
+    const badCookie = cookie.split(';')[0].replace(/.$/, (last) => last === 'x' ? 'y' : 'x');
+    assert.equal(readStudioSession(new Request('https://pesonaflix.vercel.app/studio', { headers: { cookie: badCookie } })), null);
+    const ok = await studioLogin(new Request('https://pesonaflix.vercel.app/api/studio/login', { method: 'POST', headers: { origin: 'https://pesonaflix.vercel.app', 'x-personalflix-action': '1' }, body: JSON.stringify({ code: 'contoh-kode-akses-yang-panjang-untuk-testing' }) }));
+    assert.equal(ok.status, 200);
+    assert.ok(ok.headers.get('set-cookie'));
+    const status = studioStatus(new Request('https://pesonaflix.vercel.app/api/studio/status', { headers: { cookie: cookie.split(';')[0] } }));
+    assert.equal((await status.json()).authenticated, true);
+  } finally { for (const [key, value] of Object.entries(originals)) if (value === undefined) delete process.env[key]; else process.env[key] = value; }
 });

@@ -13,20 +13,22 @@ async function start() {
     return;
   }
   if (/^\/studio\/?$/.test(location.pathname)) {
+    const { default: StudioAccessGate } = await import('./components/StudioAccessGate');
     if (new URLSearchParams(location.search).get('tab') === 'formulir') {
       document.title = 'Formulir Klien — PESONAFLIX Studio';
       const { default: ClientIntakeForm } = await import('./components/ClientIntakeForm');
-      root.render(<StrictMode><ClientIntakeForm /></StrictMode>);
+      root.render(<StrictMode><StudioAccessGate><ClientIntakeForm /></StudioAccessGate></StrictMode>);
     } else {
       document.title = 'PESONAFLIX Studio — Kelola Website Klien';
       const { default: StudioEditor } = await import('./components/StudioEditor');
-      root.render(<StrictMode><StudioEditor /></StrictMode>);
+      root.render(<StrictMode><StudioAccessGate><StudioEditor /></StudioAccessGate></StrictMode>);
     }
     return;
   }
   if (/^\/studio\/preview\/?$/.test(location.pathname)) {
+    const { default: StudioAccessGate } = await import('./components/StudioAccessGate');
     const { default: StudioPreview } = await import('./components/StudioPreview');
-    root.render(<StrictMode><StudioPreview /></StrictMode>);
+    root.render(<StrictMode><StudioAccessGate><StudioPreview /></StudioAccessGate></StrictMode>);
     return;
   }
   try {

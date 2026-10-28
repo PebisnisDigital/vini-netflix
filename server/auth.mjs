@@ -1,4 +1,5 @@
 import { createCipheriv, createDecipheriv, createHash, randomBytes, timingSafeEqual } from 'node:crypto';
+import { readStudioSession, studioConfigured, studioPublisherConfigured, verifyStudioAction } from './studio-auth.mjs';
 
 const SESSION_COOKIE = 'personalflix_session';
 const STATE_COOKIE = 'personalflix_oauth_state';
@@ -80,12 +81,28 @@ export function json(data, status = 200, extraHeaders = {}) {
 
 export function requirePostSession(request) {
   if (request.method !== 'POST') return { error: json({ error: 'Metode tidak diizinkan.' }, 405) };
+  if (studioConfigured()) {
+    if (!verifyStudioAction(request)) return { error: json({ error: 'Permintaan tidak valid.' }, 403) };
+    if (!readStudioSession(request)) return { error: json({ error: 'Masukkan kode akses PESONAFLIX Studio.' }, 401) };
+    if (!studioPublisherConfigured()) return { error: json({ error: 'Koneksi penerbitan GitHub belum diaktifkan di Vercel.' }, 503) };
+    return { session: { login: 'PESONAFLIX Studio', token: process.env.PESONAFLIX_GITHUB_TOKEN } };
+  }
   const origin = request.headers.get('origin');
   const expected = siteOrigin();
   if (origin !== expected || request.headers.get('x-personalflix-action') !== '1') return { error: json({ error: 'Permintaan tidak valid.' }, 403) };
   const session = readSession(request);
   if (!session) return { error: json({ error: 'Silakan login GitHub saat menerbitkan.' }, 401) };
   return { session };
+}
+
+export function requireReadSession(request) {
+  if (studioConfigured()) {
+    if (!readStudioSession(request)) return { error: json({ error: 'Akses Studio diperlukan.' }, 401) };
+    if (!studioPublisherConfigured()) return { error: json({ error: 'Koneksi GitHub belum diaktifkan.' }, 503) };
+    return { session: { token: process.env.PESONAFLIX_GITHUB_TOKEN } };
+  }
+  const session = readSession(request);
+  return session ? { session } : { error: json({ error: 'Sesi penerbitan tidak tersedia.' }, 401) };
 }
 
 export async function github(token, path, options = {}) {
