@@ -7,7 +7,7 @@ export const portfolioServiceCTA = {
   headlineLines: ['MAU DIBUATIN', 'WEB SEPERTI INI ?'],
   buttonLabel: 'Mau Dibuatin',
   whatsappNumber: '6282137523626',
-  whatsappMessage: 'Halo Teh Vini, saya mau dibuatin web portofolio ala Netflix seperti contoh ini. Boleh dibantu?',
+  whatsappMessage: 'Halo Teh Vini, saya mau dibuatin web portofolio PESONAFLIX seperti contoh ini. Boleh dibantu?',
 } as const;
 
 export function getPortfolioServiceWhatsappUrl(exampleUrl?: string) {

@@ -1,6 +1,6 @@
-# WEB PERSONAL NETFLIX — SOP Master Template
+# PESONAFLIX — SOP Master Template
 
-Satu proyek GitHub dan Vercel untuk **satu gaya template** (Netflix). Banyak klien memakai source desain yang sama, dengan konten terisolasi per nama URL. Template jenis lain (misalnya futuristik, minimalis) memakai repo/proyek berbeda.
+Satu proyek GitHub dan Vercel untuk **satu gaya template** (portofolio bergaya serial). Banyak klien memakai source desain yang sama, dengan konten terisolasi per nama URL. Domain utama: `pesonaflix.vercel.app`. Template jenis lain (misalnya futuristik, minimalis) memakai repo/proyek berbeda.
 
 ## Alamat halaman
 
@@ -15,7 +15,7 @@ Satu proyek GitHub dan Vercel untuk **satu gaya template** (Netflix). Banyak kli
 
 ## 1. Formulir kerja Teh Vini
 
-Klien mengirim jawaban dan foto lewat WhatsApp. **Teh Vini sendiri** membuka `https://tehvini.vercel.app/studio?tab=formulir` dan mengisi data klien. Klik **Buka di Editor CMS** untuk langsung menyimpan data dan foto menjadi draft lokal di `/studio`, lalu lanjut edit, preview, dan terbitkan lewat GitHub. Paket ZIP tetap tersedia sebagai backup opsional. Tidak diperlukan login saat menyusun draft karena pengisian hanya berlangsung di perangkat pengguna dan tidak ada penyimpanan backend. **Namun alamat formulir tetap publik; siapa pun yang memiliki URL bisa membukanya dan mengunduh ZIP lokal.** Jangan menganggap kerahasiaan URL sebagai autentikasi.
+Klien mengirim jawaban dan foto lewat WhatsApp. **Teh Vini sendiri** membuka `https://pesonaflix.vercel.app/studio?tab=formulir` dan mengisi data klien. Klik **Buka di Editor CMS** untuk langsung menyimpan data dan foto menjadi draft lokal di `/studio`, lalu lanjut edit, preview, dan terbitkan lewat GitHub. Paket ZIP tetap tersedia sebagai backup opsional. Tidak diperlukan login saat menyusun draft karena pengisian hanya berlangsung di perangkat pengguna dan tidak ada penyimpanan backend. **Namun alamat formulir tetap publik; siapa pun yang memiliki URL bisa membukanya dan mengunduh ZIP lokal.** Jangan menganggap kerahasiaan URL sebagai autentikasi.
 
 Isi formulir:
 
@@ -67,6 +67,7 @@ Halaman statis per klien beserta metadata judul/deskripsi/OG dibuat pada akhir b
 - [ ] Foto proyek tajam dan tidak rusak; tidak ada berkas kosong/terlalu besar.
 - [ ] Slider karya, pilihan dan sorotan bergerak otomatis dan tetap dapat digeser secara manual.
 - [ ] Tombol CTA “Mau Dibuatin” menuju WhatsApp Teh Vini.
+- [ ] Seluruh URL publik memakai `pesonaflix.vercel.app`, bukan nama deployment preview.
 - [ ] Semua tautan personal klien terbuka dengan benar.
 - [ ] `npm run verify` sukses dan pemeriksaan otomatis GitHub PR lulus.
 - [ ] **Preview Vercel** sudah dicek sebelum merge ke `main` (jangan langsung push data klien baru ke produksi).

@@ -23,14 +23,14 @@ test('OAuth aman: state harus cocok dan sesi hanya boleh admin', () => {
   try {
     process.env.GITHUB_CLIENT_ID = 'example-client-id'; process.env.GITHUB_CLIENT_SECRET = 'not-a-real-secret';
     process.env.GITHUB_SESSION_SECRET = 'an-example-random-session-secret-long-enough-for-a-test';
-    process.env.GITHUB_ALLOWED_LOGIN = 'PebisnisDigital'; process.env.GITHUB_CALLBACK_URL = 'https://tehvini.vercel.app/api/auth/callback';
+    process.env.GITHUB_ALLOWED_LOGIN = 'PebisnisDigital'; process.env.GITHUB_CALLBACK_URL = 'https://pesonaflix.vercel.app/api/auth/callback';
     const { state, cookie } = startState();
-    const request = new Request('https://tehvini.vercel.app/api/auth/callback', { headers: { cookie: cookie.split(';')[0] } });
+    const request = new Request('https://pesonaflix.vercel.app/api/auth/callback', { headers: { cookie: cookie.split(';')[0] } });
     assert.equal(stateIsValid(request, state), true);
     assert.equal(stateIsValid(request, 'not-matching'), false);
     const authCookie = setSessionCookie({ login: 'PebisnisDigital', token: 'example-token' });
-    assert.equal(readSession(new Request('https://tehvini.vercel.app/studio', { headers: { cookie: authCookie.split(';')[0] } })).login, 'PebisnisDigital');
-    assert.equal(readSession(new Request('https://tehvini.vercel.app/studio', { headers: { cookie: setSessionCookie({ login: 'not-owner', token: 'example' }).split(';')[0] } })), null);
+    assert.equal(readSession(new Request('https://pesonaflix.vercel.app/studio', { headers: { cookie: authCookie.split(';')[0] } })).login, 'PebisnisDigital');
+    assert.equal(readSession(new Request('https://pesonaflix.vercel.app/studio', { headers: { cookie: setSessionCookie({ login: 'not-owner', token: 'example' }).split(';')[0] } })), null);
   } finally { for (const [key, value] of Object.entries(original)) if (value === undefined) delete process.env[key]; else process.env[key] = value; }
 });
 

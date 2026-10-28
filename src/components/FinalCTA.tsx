@@ -49,7 +49,7 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
             target="_blank"
             rel="noopener noreferrer"
             data-cursor="link"
-            aria-label="Chat WhatsApp Teh Vini untuk dibuatkan web portofolio ala Netflix"
+            aria-label="Chat WhatsApp Teh Vini untuk dibuatkan web portofolio PESONAFLIX"
             className="inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-crimson px-9 py-4 text-base font-bold tracking-[0.04em] text-white shadow-[0_0_50px_rgba(229,19,43,0.5)] transition duration-300 hover:scale-[1.04] hover:bg-crimson-2 focus-visible:outline-offset-4 sm:text-lg"
           >
             {portfolioServiceCTA.buttonLabel}

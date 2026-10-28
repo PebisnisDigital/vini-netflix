@@ -14,11 +14,11 @@ async function start() {
   }
   if (/^\/studio\/?$/.test(location.pathname)) {
     if (new URLSearchParams(location.search).get('tab') === 'formulir') {
-      document.title = 'Formulir Klien — Personalflix Studio';
+      document.title = 'Formulir Klien — PESONAFLIX Studio';
       const { default: ClientIntakeForm } = await import('./components/ClientIntakeForm');
       root.render(<StrictMode><ClientIntakeForm /></StrictMode>);
     } else {
-      document.title = 'Personalflix Studio — Kelola Website Klien';
+      document.title = 'PESONAFLIX Studio — Kelola Website Klien';
       const { default: StudioEditor } = await import('./components/StudioEditor');
       root.render(<StrictMode><StudioEditor /></StrictMode>);
     }
@@ -32,7 +32,7 @@ async function start() {
   try {
     const client = await loadClient(location.pathname);
     if (!client) {
-      document.title = 'Halaman Tidak Ditemukan — Web Personal Netflix';
+      document.title = 'Halaman Tidak Ditemukan — PESONAFLIX';
       root.render(<div className="flex min-h-screen flex-col items-center justify-center gap-5 bg-[#07070a] p-6 text-center text-white"><h1 className="text-4xl font-bold">Halaman belum tersedia</h1><p>Portofolio belum diterbitkan atau nama URL keliru.</p><a className="rounded-lg bg-white px-6 py-3 font-bold text-black" href="/">Kembali ke Beranda</a></div>);
       return;
     }
