@@ -56,3 +56,38 @@
 - [ ] Teh Vini approves preview before publishing this landing page to the primary domain
 
 Screenshots were reviewed interactively in the browser session; no screenshot files are committed to this repository.
+
+---
+
+## Klien `/vini2` — Netflix × Chibi (versi 1)
+
+**Final result: passed** (29 Oktober 2026)
+
+### Reference and implementation
+
+- **Source of visual truth:** `/workspace/scratch/0b7a6af7a352/generated_images/exec-1870731f-f63d-433b-95cb-0143dc1489b4.png`; selected first mobile concept by Teh Vini.
+- **Preview checked:** `https://vini-netflix-iccfhf491-jualdigital.vercel.app/vini2`.
+- **Visual check:** browser screenshots inspected at 390 × 844 (mobile) and 1440 × 900 (desktop); mobile shows cinematic Vini chibi, oversized heading, two CTAs, and BADAI/PROMPTIONAL posters within the initial scroll. Desktop uses a two-column cinema composition without hiding the existing portfolio sections.
+- **Refinement:** decreased the gap above the hero posters and increased name emphasis to better match the selected mockup. Source image content was used as original artwork with separate, selectable DOM text and working buttons.
+
+### Functional and regression checks
+
+| Check | Result | Evidence |
+| --- | --- | --- |
+| Route `/vini2` | PASS | Preview title “Teh Vini — THE SERIES”; page loads with chibi hero and sections. |
+| Mobile navigation | PASS | Menu opens, reveals named sections, scrolls to Karya, then closes. |
+| Desktop navigation | PASS | All eight named navigation buttons and collaboration control render. |
+| Hero CTAs | PASS | “Kenalan Yuk” opens the original intro dialog; “Lihat Karya” scrolls to the Karya section. |
+| Chibi project posters | PASS | BADAI poster opens the existing project dialog; PROMPTIONAL is rendered as another accessible project button. |
+| WhatsApp referral | PASS | Final CTA directs to `wa.me/62881022445869` with source URL and `PSN-VINI2` referral code. |
+| Continuous motion | PASS | CSS hero drift/breathing loops without an interactive playback control; `prefers-reduced-motion` disables nonessential movement. |
+| Browser JavaScript errors | PASS | Browser error log returned an empty array. |
+| Verification | PASS | `npm run verify`: TypeScript, client checks and Vite build succeeded; `/vini2/index.html` included. |
+| Deployment | PASS | Vercel preview check for commit `b124355` reported success. |
+
+### Fidelity notes
+
+- **P0/P1/P2 issues:** none observed after the spacing refinement.
+- **Intentional adaptation:** fully readable Indonesian personal-branding copy remains connected to the existing Netflix-style profile, episode rails, and original work, while vivid chibi imagery stays limited to `/vini2`.
+- **Unchanged routes:** existing `/vini`, `/iis`, `/citra`, and Studio are handled by their original variants; no global style changes.
+- **Production verification:** pending merge and post-merge smoke check of the public domain.
