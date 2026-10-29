@@ -26,7 +26,7 @@ export default function StudioTemplateGallery({ selectedTemplateId, identityMode
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#ff7294]">PESONAFLIX STUDIO · TEMPLATE</p>
           <h3 className="mt-2 text-2xl font-black sm:text-3xl">Pilih Gaya Website</h3>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/60">Ada 16 gaya dalam katalog. ORIGINAL, CHIBI 3D, ANIME, CLAY 3D, KOMIK POP, EDITORIAL PREMIUM, DOODLE, dan STORYBOOK siap untuk klien. Gaya lainnya menyusul.</p>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/60">Ada 16 gaya dalam katalog. ORIGINAL, CHIBI 3D, ANIME, CLAY 3D, KOMIK POP, EDITORIAL PREMIUM, DOODLE, STORYBOOK, dan SCRAPBOOK siap untuk klien. Gaya lainnya menyusul.</p>
         </div>
         <div className="rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-right">
           <span className="block text-[11px] font-bold uppercase tracking-wider text-white/45">Gaya klien ini</span>
@@ -101,6 +101,16 @@ export default function StudioTemplateGallery({ selectedTemplateId, identityMode
             <p className="mt-1 text-xs leading-relaxed text-white/85">Lembaran buku cerita, lukisan cat air, tipografi dongeng, dan animasi membalik halaman berjalan otomatis. Section dan motion master ORIGINAL tetap aktif. Lengkapi kisah serta unggah ilustrasi milik klien melalui Editor Website; gambar AI tidak dibuat otomatis.</p>
           </div>
           <button type="button" onClick={onEditWebsite} className="min-h-10 rounded-xl border border-[#f3ddb7] bg-[#f4dfbf] px-5 py-2.5 text-sm font-extrabold text-[#314737] transition hover:bg-[#fff3db]">Buka Editor Website</button>
+        </div>
+      )}
+
+      {selectedTemplateId === 'scrapbook' && (
+        <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border-2 border-dashed border-[#f7d78a]/60 bg-gradient-to-r from-[#31494c] via-[#6b5e60] to-[#a56b76] p-4 sm:p-5">
+          <div className="max-w-2xl">
+            <p className="font-['Caveat'] text-3xl font-bold text-[#ffe69d]">✂ SCRAPBOOK aktif untuk klien ini!</p>
+            <p className="mt-1 text-xs leading-relaxed text-white/85">Kolase polaroid, foto analog, washi tape, memo tempel, dan stiker bergerak otomatis. Section serta animasi master ORIGINAL tetap dipakai. Isi identitas dan unggah foto atau ilustrasi milik klien melalui Editor Website; tidak ada konversi foto AI otomatis.</p>
+          </div>
+          <button type="button" onClick={onEditWebsite} className="min-h-10 rounded-[6px_13px_7px_12px] border-2 border-[#344b51] bg-[#f9dc90] px-5 py-2.5 text-sm font-extrabold text-[#344b51] shadow-[5px_5px_0_#ed9daa] transition hover:-translate-y-1">Buka Editor Website</button>
         </div>
       )}
 

@@ -1,0 +1,49 @@
+{
+  "slug": "vini10",
+  "name": "Teh Vini",
+  "role": "Mentor AI & Kreator Website Personal",
+  "location": "Bandung, Jawa Barat",
+  "whatsapp": "62881022445869",
+  "bio": "Saya Vini, ibu rumah tangga dari Bandung. Dulu saya cuma penasaran mencoba AI. Sekarang saya berbagi kelas praktik, mengelola komunitas belajar, dan membantu orang-orang menampilkan keahlian mereka lewat website personal. Di album ini saya kumpulkan potongan proses dan karya yang saya bangun.",
+  "tagline": ["POTONGAN CERITA, KARYA NYATA", "Mulainya iseng, ternyata bisa jadi sesuatu yang berarti.", "Belajar • Mencoba • Membagikan"],
+  "interests": ["Kreasi AI", "Website Personal", "Personal Branding", "Pemasaran WhatsApp", "Kelas Praktik", "Ide-Ide Kreatif"],
+  "photo": {
+    "src": "/clients/vini10/vini-scrapbook-hero.webp",
+    "alt": "Foto konsep analog buatan AI dari karakter fiksi kreator berhijab memegang jurnal; bukan foto asli Teh Vini"
+  },
+  "experiences": [
+    {"company": "BADAI — Belajar Apa Aja Dengan AI", "role": "Pengelola Komunitas Belajar", "period": "Sekarang", "description": "Menghadirkan ruang belajar AI yang praktis dan mudah diikuti pemula."},
+    {"company": "Pebisnis.Digital", "role": "Penggagas Edukasi Digital", "period": "Sekarang", "description": "Membagikan ide kreatif, pemasaran digital dan pengetahuan bisnis secara sederhana."},
+    {"company": "Training Bikin Game Edukasi", "role": "Mentor Kelas WhatsApp", "period": "2026", "description": "Mengajak peserta merancang dan mencoba game edukasi menggunakan AI secara bertahap."}
+  ],
+  "projects": [
+    {"title": "BADAI: Belajar Bareng", "year": "KOMUNITAS", "description": "Ruang belajar AI untuk pemula. Berangkat dari mencoba, lalu saling berbagi karya dan pengalaman.", "category": "Komunitas & Edukasi", "tags": ["Komunitas", "Belajar AI", "Praktik"], "image": "/clients/vini10/vini-scrapbook-kelas.webp"},
+    {"title": "Website Punya Cerita", "year": "KREASI", "description": "Website personal yang membantu seseorang memperlihatkan keahlian, perjalanan dan karya tanpa terasa seperti CV kaku.", "category": "Website & Personal Branding", "tags": ["Website", "Branding", "Kreatif"], "image": "/clients/vini10/vini-scrapbook-studio.webp"},
+    {"title": "Kelas Game Edukasi", "year": "KELAS", "description": "Kelas praktik melalui WhatsApp untuk mengajak peserta menciptakan game sederhana dengan bantuan AI.", "category": "Edukasi Praktis", "tags": ["Game Edukasi", "AI", "WhatsApp"], "image": "/clients/vini10/vini-scrapbook-kelas.webp"}
+  ],
+  "skills": ["Mentoring AI Pemula", "Pembuatan Website", "Personal Branding", "Pemasaran WhatsApp", "Kreasi Konten Digital", "Menyusun Kelas Praktik"],
+  "skillsHeading": "Bekal di Dalam Tas",
+  "skillsAside": "Keahlian saya bukan muncul sekaligus. Semuanya tumbuh dari mencoba satu hal kecil, lalu terus belajar.",
+  "skillsKicker": "ALAT KREASI SAYA",
+  "highlights": [
+    {"title": "BADAI", "description": "Komunitas yang mengajak pemula berani mencoba AI.", "category": "KOMUNITAS"},
+    {"title": "Kelas Praktik", "description": "Belajar lewat contoh, praktik langsung, dan hasil karya.", "category": "MENTORING"},
+    {"title": "Website Personal", "description": "Menyusun cerita keahlian seseorang menjadi halaman web yang berkesan.", "category": "KREASI"}
+  ],
+  "watchCards": [
+    {"target": "about", "title": "Kenalan Dulu", "subtitle": "Siapa di balik album ini?", "image": "/clients/vini10/vini-scrapbook-hero.webp"},
+    {"target": "originals", "title": "Karya Nyata", "subtitle": "Dari ide ke hasil", "image": "/clients/vini10/vini-scrapbook-studio.webp"},
+    {"target": "journey", "title": "Potongan Perjalanan", "subtitle": "Proses, bukan sulap", "image": "/clients/vini10/vini-scrapbook-kelas.webp"},
+    {"target": "skills", "title": "Isi Kotak Alat", "subtitle": "Keahlian yang dipakai", "image": "/clients/vini10/vini-scrapbook-studio.webp"},
+    {"target": "picks", "title": "Foto Favorit", "subtitle": "Sorotan perjalanan", "image": "/clients/vini10/vini-scrapbook-hero.webp"},
+    {"target": "moments", "title": "Momen Berarti", "subtitle": "Catatan yang tersimpan", "image": "/clients/vini10/vini-scrapbook-kelas.webp"},
+    {"target": "story", "title": "Lembar Terakhir", "subtitle": "Mari saling kenal", "image": "/clients/vini10/vini-scrapbook-studio.webp"}
+  ],
+  "picksHeading": "Potongan Cerita Favorit",
+  "picksKicker": "DI ALBUM SAYA",
+  "journeyHeading": "Jejak di Balik Foto",
+  "journeyKicker": "SETIAP POTONGAN PUNYA CERITA",
+  "journeyAside": "Ada lembar yang rapi, ada juga yang berantakan. Begitulah proses belajar dan berkarya: semuanya layak disimpan karena membuat kita bertumbuh.",
+  "templateId": "scrapbook",
+  "identityMode": "photo"
+}
