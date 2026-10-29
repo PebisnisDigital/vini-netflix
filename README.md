@@ -13,6 +13,7 @@ Master portofolio bergaya platform streaming untuk beberapa klien dengan brand *
 | `/vini6` | Demo gaya Komik Pop dengan panel bergerak otomatis |
 | `/vini7` | Demo gaya Editorial Premium seperti sampul majalah eksklusif, dengan gerak kamera lembut |
 | `/vini8` | Demo gaya Doodle: buku sketsa beranimasi, coretan bergerak, dan ilustrasi karakter ceria |
+| `/vini9` | Demo gaya Storybook: buku cerita cat air, halaman membalik otomatis, dan ilustrasi dongeng lembut |
 | `/formulir` | Alamat lama, otomatis mengarah ke `/studio?tab=formulir` |
 | `/studio` | CMS editor seperti Blogger: buat/edit konten dan foto, simpan draft, preview |
 | `/studio?tab=formulir` | Formulir klien, langsung dipindah ke draft CMS tanpa mengetik ulang |
@@ -23,7 +24,7 @@ Master portofolio bergaya platform streaming untuk beberapa klien dengan brand *
 
 **CMS Studio:** [Alur editorial, GitHub OAuth, dan penerbitan aman](docs/CMS-STUDIO.md).
 
-**Katalog TEMPLATE Studio:** Saat mengedit klien, buka tab **TEMPLATE · 16 Gaya**. ORIGINAL, CHIBI 3D, ANIME, CLAY 3D, KOMIK POP, EDITORIAL PREMIUM, dan DOODLE siap diterapkan ke klien baru. Gaya lain dan mode Avatar AI/FACELESS belum aktif. Untuk gaya ilustrasi, unggah sendiri karakter dan poster klien lewat Editor Website; sistem belum mengubah foto menjadi ilustrasi secara otomatis. Pilihan gaya mengatur tata letak, font, warna latar, dan motion tanpa menyalin identitas/foto dari demo klien lain. Animasi dan section master ORIGINAL tetap aktif pada setiap varian. Foto demo EDITORIAL PREMIUM dan karakter demo DOODLE merupakan representasi AI, bukan foto nyata Teh Vini. Lihat [roadmap template](docs/template-roadmap.md).
+**Katalog TEMPLATE Studio:** Saat mengedit klien, buka tab **TEMPLATE · 16 Gaya**. ORIGINAL, CHIBI 3D, ANIME, CLAY 3D, KOMIK POP, EDITORIAL PREMIUM, DOODLE, dan STORYBOOK siap diterapkan ke klien baru. Gaya lain dan mode Avatar AI/FACELESS belum aktif. Untuk gaya ilustrasi, unggah sendiri karakter dan poster klien lewat Editor Website; sistem belum mengubah foto menjadi ilustrasi secara otomatis. Pilihan gaya mengatur tata letak, font, warna latar, dan motion tanpa menyalin identitas/foto dari demo klien lain. Animasi dan section master ORIGINAL tetap aktif pada setiap varian. Foto demo EDITORIAL PREMIUM, karakter demo DOODLE, dan ilustrasi cat air STORYBOOK merupakan representasi AI, bukan foto nyata Teh Vini. Lihat [roadmap template](docs/template-roadmap.md).
 
 ## Membuat portofolio klien baru
 
