@@ -1,12 +1,14 @@
 # PESONAFLIX — Web Portofolio Personal
 
-Master template portofolio bergaya platform streaming untuk beberapa klien dengan brand **PESONAFLIX**. **Satu repo, satu proyek Vercel, satu domain `pesonaflix.vercel.app`, banyak halaman**, semuanya memakai desain yang sama dengan data dan foto terpisah.
+Master portofolio bergaya platform streaming untuk beberapa klien dengan brand **PESONAFLIX**. **Satu repo, satu proyek Vercel, satu domain `pesonaflix.vercel.app`, banyak halaman**. Data klien dipisahkan dari variasi desainnya.
 
 | Halaman | Fungsi |
 | --- | --- |
 | `/` | LP PESONAFLIX (sementara COMING SOON) |
 | `/vini` | Portofolio Teh Vini (contoh & acuan desain) |
 | `/vini2` | Demo Teh Vini versi Chibi Cinema (desain alternatif bergaya film animasi) |
+| `/vini3` | Demo lain gaya Chibi |
+| `/vini4` | Demo gaya Anime |
 | `/formulir` | Alamat lama, otomatis mengarah ke `/studio?tab=formulir` |
 | `/studio` | CMS editor seperti Blogger: buat/edit konten dan foto, simpan draft, preview |
 | `/studio?tab=formulir` | Formulir klien, langsung dipindah ke draft CMS tanpa mengetik ulang |
@@ -16,6 +18,8 @@ Master template portofolio bergaya platform streaming untuk beberapa klien denga
 **Baca panduan lengkap:** [SOP PESONAFLIX](docs/WEB-PERSONAL-NETFLIX.md).
 
 **CMS Studio:** [Alur editorial, GitHub OAuth, dan penerbitan aman](docs/CMS-STUDIO.md).
+
+**Katalog TEMPLATE Studio (tahap 1):** Saat mengedit klien, buka tab **TEMPLATE · 16 Gaya**. Semua gaya dan kombinasi mode Foto Asli / Avatar AI / FACELESS terdaftar. ORIGINAL siap dipakai; CHIBI dan ANIME hanya punya demo; gaya lain serta mode Avatar AI/FACELESS belum aktif. Tidak ada perubahan tersembunyi pada template klien lama. Lihat [roadmap template](docs/template-roadmap.md).
 
 ## Membuat portofolio klien baru
 

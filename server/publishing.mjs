@@ -1,6 +1,7 @@
 import { randomBytes } from 'node:crypto';
 import { github, repository } from './auth.mjs';
 import { normalizeClientWhatsapp } from '../src/utils/clientWhatsapp.mjs';
+import { canApplyIdentityMode, canApplyTemplate, getIdentityMode, getTemplate } from '../src/data/templateCatalog.mjs';
 
 const reserved = new Set(['vini', 'formulir', 'studio', 'admin', 'api', 'assets', 'demo', 'preview', 'index', 'favicon', 'robots', 'sitemap']);
 const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -88,6 +89,10 @@ export function validatePublishPayload(payload) {
   if (!normalizeClientWhatsapp(brief.whatsapp)) errors.push('Nomor WhatsApp pemilik website wajib valid agar CTA tidak salah tujuan.');
   if (brief.theme && (typeof brief.theme !== 'object' || !/^#[0-9a-f]{6}$/i.test(brief.theme.accent || '') || !/^#[0-9a-f]{6}$/i.test(brief.theme.background || ''))) errors.push('Warna tema harus berupa kode hex yang aman.');
   if (brief.designVariant !== undefined && brief.designVariant !== 'chibi-cinema') errors.push('Gaya website tidak dikenali.');
+  if (brief.templateId !== undefined && !getTemplate(brief.templateId)) errors.push('Template website tidak dikenal.');
+  else if (brief.templateId !== undefined && !canApplyTemplate(brief.templateId)) errors.push('Template ini belum siap diterbitkan untuk klien.');
+  if (brief.identityMode !== undefined && !getIdentityMode(brief.identityMode)) errors.push('Mode identitas tidak dikenal.');
+  else if (brief.identityMode !== undefined && !canApplyIdentityMode(brief.identityMode)) errors.push('Mode identitas ini belum siap diterbitkan.');
   if (brief.links) for (const link of Object.values(brief.links)) if (link && (typeof link !== 'string' || !urlValid(link))) errors.push('Link profil harus berupa URL HTTP/HTTPS.');
   if (!Array.isArray(assets) || assets.length > 241) errors.push('Daftar foto unggahan tidak valid.');
   else {

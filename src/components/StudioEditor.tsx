@@ -4,6 +4,8 @@ import { clientReferralCode, normalizeClientWhatsapp } from '../utils/clientWhat
 import { deleteDraft, listDrafts, preparedBrief, saveDraft, type StudioDraft } from '../data/studioDraft';
 import { publishedClients } from '../data/studioPublished';
 import ElementorCanvas from './ElementorCanvas';
+import StudioTemplateGallery from './StudioTemplateGallery';
+import { canApplyIdentityMode, canApplyTemplate, resolveTemplateId, type IdentityMode, type TemplateId } from '../data/templateCatalog.mjs';
 import { optimizeStudioImage, type StudioImageKind } from '../utils/imageOptimizer.mjs';
 
 type Session = { configured: boolean; authenticated: boolean; login: string | null; mode?: 'studio' | 'legacy'; publisherConfigured?: boolean };
@@ -164,6 +166,7 @@ export default function StudioEditor() {
   const [pr, setPr] = useState<SubmittedPR | null>(null);
   const [approved, setApproved] = useState(false);
   const [search, setSearch] = useState('');
+  const [workspaceTab, setWorkspaceTab] = useState<'templates' | 'editor'>('editor');
   const prepared = useMemo(() => active ? preparedBrief(active) : null, [active]);
 
   useEffect(() => {
@@ -203,8 +206,8 @@ export default function StudioEditor() {
       await persist(); window.location.assign(`/studio/preview?slug=${prepared.slug}`);
     } catch (e) { setNotice((e as Error).message); }
   };
-  const newClient = () => { setActive({ slug: '', brief: sushmitaExampleBrief(), portrait: null, projectPhotos: {}, watchPhotos: {}, pickPhotos: {}, episodePhotos: {}, mode: 'create', updatedAt: Date.now() }); setPr(null); setNotice(''); };
-  const choose = (draft: StudioDraft) => { setActive(draft); sessionStorage.setItem('personalflix-last-draft', draft.slug); setPr(readPending(draft.slug)); setNotice(''); };
+  const newClient = () => { setActive({ slug: '', brief: sushmitaExampleBrief(), portrait: null, projectPhotos: {}, watchPhotos: {}, pickPhotos: {}, episodePhotos: {}, mode: 'create', updatedAt: Date.now() }); setWorkspaceTab('templates'); setPr(null); setNotice(''); };
+  const choose = (draft: StudioDraft) => { setActive(draft); setWorkspaceTab('editor'); sessionStorage.setItem('personalflix-last-draft', draft.slug); setPr(readPending(draft.slug)); setNotice(''); };
   const usePublished = (brief: ClientBrief) => {
     const existing = drafts.find((d) => d.slug === brief.slug);
     choose(existing ? { ...existing, mode: 'edit' } : { slug: brief.slug, brief, portrait: null, projectPhotos: {}, watchPhotos: {}, pickPhotos: {}, episodePhotos: {}, mode: 'edit', updatedAt: Date.now() });
@@ -220,6 +223,16 @@ export default function StudioEditor() {
       return { ...current, projectPhotos: photos };
     });
     setPr(null);
+  };
+  const applyTemplate = (id: TemplateId) => {
+    if (!active || !canApplyTemplate(id)) return;
+    if (active.brief.designVariant && !window.confirm('Ganti ke ORIGINAL? Gambar tetap tersimpan, tetapi tata letak chibi akan diganti setelah diterbitkan.')) return;
+    patch({ templateId: id, designVariant: undefined });
+    setNotice('Gaya ORIGINAL dipilih. Simpan draft lalu periksa preview sebelum menerbitkan.');
+  };
+  const applyIdentity = (id: IdentityMode) => {
+    if (!canApplyIdentityMode(id)) return;
+    patch({ identityMode: id });
   };
   const setWatchPhoto = (index: number, file: File) => {
     setActive((current) => {
@@ -537,8 +550,12 @@ export default function StudioEditor() {
         </div>}
         {!active ? <section className={`${card} flex min-h-[400px] flex-col items-center justify-center gap-4 text-center`}><span className="text-6xl">✦</span><h2 className="text-3xl font-extrabold">Mulai Karya Baru</h2><p className="max-w-md text-white/55">Masukkan data klien dari WhatsApp, ganti foto dan atur kartu sesuai kebutuhan. Simpan draft kapan saja.</p><button type="button" onClick={newClient} className="rounded-xl bg-[#e50931] px-6 py-3 font-bold">Buat Klien Baru</button></section> : <>
           <div className="flex flex-wrap items-start justify-between gap-3"><div><p className="text-xs font-bold uppercase tracking-wider text-[#ff6580]">{active.mode === 'create' ? 'Website baru' : 'Edit website terbit'}</p><h2 className="mt-1 text-2xl font-extrabold">{active.brief.name || 'Klien Tanpa Nama'}</h2><p className="mt-1 text-sm text-white/45">/{active.brief.slug || 'nama-klien'} · Data tersimpan hanya di browser ini sampai dipublikasikan.</p></div><div className="flex flex-wrap gap-2"><button type="button" className={secondary} onClick={saveClick}>Simpan Draft</button><button type="button" className={secondary} onClick={() => { void preview(); }}>Preview Lengkap</button></div></div>
+          <nav aria-label="Menu kerja klien" className="flex flex-wrap gap-2 rounded-2xl border border-white/10 bg-[#111117] p-2">
+            <button type="button" aria-current={workspaceTab === 'templates' ? 'page' : undefined} onClick={() => setWorkspaceTab('templates')} className={`rounded-xl px-5 py-3 text-sm font-extrabold transition ${workspaceTab === 'templates' ? 'bg-[#e50931] text-white' : 'text-white/65 hover:bg-white/10'}`}>▦ TEMPLATE · 16 Gaya</button>
+            <button type="button" aria-current={workspaceTab === 'editor' ? 'page' : undefined} onClick={() => setWorkspaceTab('editor')} className={`rounded-xl px-5 py-3 text-sm font-extrabold transition ${workspaceTab === 'editor' ? 'bg-[#e50931] text-white' : 'text-white/65 hover:bg-white/10'}`}>✎ EDITOR WEBSITE</button>
+          </nav>
           {active.mode === 'create' && <p className="rounded-xl border border-amber-400/25 bg-amber-300/10 px-4 py-3 text-sm leading-relaxed text-amber-100">Ini adalah contoh lengkap portofolio Sushmita dari repo master. Klik teks, foto, dan kartu langsung di dalam kanvas untuk menyesuaikannya. Ganti semua identitas dan aset contoh sebelum menerbitkan.</p>}
-          {new URLSearchParams(location.search).has('legacy') ? <CanvasEditor draft={active} patch={patch} changeProject={changeProject} setPhoto={setPhoto} reorder={reorder} removeProject={removeProject} /> : <ElementorCanvas draft={active} patch={patch} changeProject={changeProject} setPhoto={setPhoto} setWatchPhoto={setWatchPhoto} watchAction={watchAction} setPickPhoto={setPickPhoto} pickAction={pickAction} setEpisodePhoto={setEpisodePhoto} seasonAction={seasonAction} episodeAction={episodeAction} reorder={reorder} removeProject={removeProject} notice={setNotice} />}
+          {workspaceTab === 'templates' ? <StudioTemplateGallery selectedTemplateId={resolveTemplateId(active.brief)} identityMode={active.brief.identityMode || 'photo'} onApplyTemplate={applyTemplate} onApplyIdentity={applyIdentity} /> : new URLSearchParams(location.search).has('legacy') ? <CanvasEditor draft={active} patch={patch} changeProject={changeProject} setPhoto={setPhoto} reorder={reorder} removeProject={removeProject} /> : <ElementorCanvas draft={active} patch={patch} changeProject={changeProject} setPhoto={setPhoto} setWatchPhoto={setWatchPhoto} watchAction={watchAction} setPickPhoto={setPickPhoto} pickAction={pickAction} setEpisodePhoto={setEpisodePhoto} seasonAction={seasonAction} episodeAction={episodeAction} reorder={reorder} removeProject={removeProject} notice={setNotice} />}
           <section className={`${card} border-[#5ad0c8]/35`}>
             <h3 className="text-lg font-extrabold">WhatsApp Pemilik & Referral</h3>
             <p className="mt-2 text-sm leading-relaxed text-white/60">Tombol “Mau Dibuatin” di website ini akan membuka WhatsApp pemiliknya, bukan WhatsApp Teh Vini. Gunakan nomor bisnis yang siap menerima pesan dari pengunjung.</p>
