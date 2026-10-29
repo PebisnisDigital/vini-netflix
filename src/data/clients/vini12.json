@@ -1,0 +1,49 @@
+{
+  "slug": "vini12",
+  "name": "Teh Vini",
+  "role": "Mentor AI & Kreator Website Personal",
+  "location": "Bandung, Jawa Barat",
+  "whatsapp": "62881022445869",
+  "bio": "Saya Vini, ibu rumah tangga dari Bandung yang suka bereksperimen dengan AI dan dunia digital. Awalnya cuma penasaran. Lama-lama saya dipercaya menemani pemula belajar, mengadakan kelas praktik, dan membuat website personal yang menonjolkan keahlian pemiliknya. Buat saya, setiap karya adalah level baru yang pantas dirayakan.",
+  "tagline": ["DARI COBA-COBA JADI KARYA", "Setiap karya membuka level baru.", "Belajar • Membuat • Berbagi"],
+  "interests": ["Kreasi AI", "Website Personal", "Personal Branding", "Kelas Praktik", "Pemasaran WhatsApp", "Game Edukasi"],
+  "photo": {
+    "src": "/clients/vini12/vini-pixel-hero.webp",
+    "alt": "Ilustrasi konsep pixel art 16-bit buatan AI dengan karakter fiksi mentor berhijab; bukan foto asli Teh Vini"
+  },
+  "experiences": [
+    {"company": "BADAI — Belajar Apa Aja Dengan AI", "role": "Pengelola Komunitas Belajar", "period": "Sekarang", "description": "Membangun ruang belajar AI untuk pemula agar mereka berani mencoba dan menunjukkan karya."},
+    {"company": "Pebisnis.Digital", "role": "Penggagas Edukasi Digital", "period": "Sekarang", "description": "Membagikan praktik dan strategi sederhana seputar kreativitas dan bisnis digital."},
+    {"company": "Training Bikin Game Edukasi", "role": "Mentor Kelas WhatsApp", "period": "2026", "description": "Memandu peserta menciptakan game belajar sederhana dari ide sampai bisa dimainkan."}
+  ],
+  "projects": [
+    {"title": "BADAI: Level Belajar AI", "year": "KOMUNITAS", "description": "Ruang belajar AI yang ramah pemula. Belajar pelan-pelan, membuat karya, lalu saling menguatkan.", "category": "Komunitas & Edukasi", "tags": ["Belajar AI", "Komunitas", "Praktik"], "image": "/clients/vini12/vini-pixel-kelas.webp"},
+    {"title": "Website Personal Berkarakter", "year": "KREASI", "description": "Membantu pemilik keahlian tampil lebih meyakinkan melalui website yang menceritakan pengalaman, karya, dan nilai mereka.", "category": "Website & Branding", "tags": ["Website", "Personal Branding", "Desain"], "image": "/clients/vini12/vini-pixel-studio.webp"},
+    {"title": "Training Game Edukasi", "year": "KELAS", "description": "Mengajak pemula membuat permainan edukasi dengan AI melalui latihan singkat dalam kelas WhatsApp.", "category": "Edukasi Praktis", "tags": ["Game Edukasi", "AI", "WhatsApp"], "image": "/clients/vini12/vini-pixel-kelas.webp"}
+  ],
+  "skills": ["Mentoring AI Pemula", "Pembuatan Website", "Personal Branding", "Kelas Praktik Digital", "Kreasi Konten", "Pemasaran WhatsApp"],
+  "skillsHeading": "Skill yang Saya Buka",
+  "skillsAside": "Tidak perlu jago sejak level pertama. Yang penting terus belajar sampai bisa membantu orang lain.",
+  "skillsKicker": "SKILL TREE TERBUKA",
+  "highlights": [
+    {"title": "BADAI", "description": "Ruang belajar AI yang ramah untuk pemula.", "category": "COMMUNITY QUEST"},
+    {"title": "Kelas Praktik", "description": "Mencoba langsung, bukan sekadar menonton.", "category": "LEARNING QUEST"},
+    {"title": "Website Personal", "description": "Membantu keahlian orang lain terlihat lebih bernilai.", "category": "CREATIVE QUEST"}
+  ],
+  "watchCards": [
+    {"target": "about", "title": "Kenalan Dulu", "subtitle": "Meet the player", "image": "/clients/vini12/vini-pixel-hero.webp"},
+    {"target": "originals", "title": "Quest Karya", "subtitle": "Proyek yang dibangun", "image": "/clients/vini12/vini-pixel-studio.webp"},
+    {"target": "journey", "title": "Peta Perjalanan", "subtitle": "Dari level pertama", "image": "/clients/vini12/vini-pixel-kelas.webp"},
+    {"target": "skills", "title": "Skill Tree", "subtitle": "Keahlian yang dibuka", "image": "/clients/vini12/vini-pixel-studio.webp"},
+    {"target": "picks", "title": "Pilihan Pemain", "subtitle": "Cerita favorit", "image": "/clients/vini12/vini-pixel-hero.webp"},
+    {"target": "moments", "title": "Achievement", "subtitle": "Momen berharga", "image": "/clients/vini12/vini-pixel-kelas.webp"},
+    {"target": "story", "title": "Next Level", "subtitle": "Yuk kenalan", "image": "/clients/vini12/vini-pixel-studio.webp"}
+  ],
+  "picksHeading": "Karya yang Terbuka",
+  "picksKicker": "LEVEL PILIHAN",
+  "journeyHeading": "Perjalanan Naik Level",
+  "journeyKicker": "BUKAN SEKALI MAIN LANGSUNG JAGO",
+  "journeyAside": "Setiap proyek punya tantangan. Dari belajar sendiri sampai membantu orang lain, semuanya membentuk perjalanan yang terus berkembang.",
+  "templateId": "pixel-retro",
+  "identityMode": "photo"
+}
