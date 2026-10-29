@@ -16,6 +16,7 @@ export default function EditorialHero({
   const { profile, projects } = usePortfolio();
   const { scrollTo } = useSmoothScroll();
   const needsPhoto = !profile.portrait.src || profile.portrait.src === '/assets/portrait-720.webp';
+  const conceptArt = /buatan AI|bukan foto asli/i.test(profile.portrait.alt);
 
   return (
     <section id="top" className="editorial-hero" aria-label={`Edisi pribadi ${profile.displayName}`}>
@@ -31,14 +32,14 @@ export default function EditorialHero({
         )}
         <div className="editorial-photo-wash" aria-hidden="true" />
         <div className="editorial-image-caption" aria-hidden="true">
-          <span>THE PERSON BEHIND THE WORK</span>
+          <span>{conceptArt ? 'VISUAL KONSEP · BUATAN AI' : 'THE PERSON BEHIND THE WORK'}</span>
           <span className="editorial-caption-index">NO. 01 / THE EDITION</span>
         </div>
       </div>
 
       <div className="editorial-paper">
         <motion.div className="editorial-masthead" initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .9, delay: .1 }}>
-          <span className="editorial-brand-word">P<span className="editorial-brand-dot">.</span>SONAFLIX</span>
+          <span className="editorial-brand-word">PESONA<span className="editorial-brand-dot">.</span>FLIX</span>
           <span>PERSONAL EDITION · VOL. 01</span>
         </motion.div>
         <div className="editorial-story-area">

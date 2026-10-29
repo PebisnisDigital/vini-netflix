@@ -11,6 +11,7 @@
   background: var(--color-ink, #0d0c0c);
 }
 .editorial-cinema .grain { opacity: .035; }
+.editorial-cinema header > .gutter { background: linear-gradient(180deg, #12100fe9, #12100fc9) !important; border-bottom: 1px solid #ddb78029; }
 .editorial-cinema .font-display { font-family: var(--font-display); font-weight: 500; letter-spacing: -.035em; }
 .editorial-cinema .glass { background: #161412ed; border: 1px solid #ddb78050; box-shadow: 0 18px 60px #0008; }
 .editorial-cinema .client-cta-headline { color: #f7ecdb; font-family: var(--font-display); font-weight: 500; }
