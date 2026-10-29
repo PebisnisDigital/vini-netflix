@@ -47,7 +47,7 @@ export default function App({ slug, editorMode = false }: { slug: string; editor
     '--client-accent': theme.accent,
   } as CSSProperties : undefined;
   return (
-    <div style={styles} className={`min-h-screen bg-ink${editorMode ? '' : ' client-portfolio'}${slug === 'vini3' ? ' chibi-theme' : ''}`}>
+    <div style={styles} className={`min-h-screen bg-ink${editorMode ? '' : ' client-portfolio'}${slug === 'vini3' ? ' chibi-theme' : ''}${slug === 'vini4' ? ' anime-theme' : ''}`}>
       <SmoothScrollProvider>
         <Series slug={slug} editorMode={editorMode} />
       </SmoothScrollProvider>
@@ -60,7 +60,7 @@ function Series({ slug, editorMode }: { slug: string; editorMode: boolean }) {
   const storageKey = `personal-netflix-profile-${slug}`;
   const stored = readStoredProfile(storageKey, viewerProfiles);
   // Preview tema chibi langsung memperlihatkan halaman; klien lain tetap memakai pembukaan Netflix.
-  const [stage, setStage] = useState<Stage>(slug === 'vini3' || editorMode || stored ? 'home' : 'opening');
+  const [stage, setStage] = useState<Stage>(slug === 'vini3' || slug === 'vini4' || editorMode || stored ? 'home' : 'opening');
   const [profileId, setProfileId] = useState<ProfileId>(stored ?? 'vini');
   const [playing, setPlaying] = useState(false);
   const [project, setProject] = useState<Project | null>(null);
