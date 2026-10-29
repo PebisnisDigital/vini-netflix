@@ -254,6 +254,12 @@
   transform-origin: left center;
 }
 .lp-motion-ready .lp-final-content [data-stamp].lp-stamped { transform-origin: center; }
+.lp-motion-ready [data-reveal]:not(.lp-visible) { opacity: 0; transform: translate3d(0, 22px, 0); }
+.lp-motion-ready [data-reveal].lp-visible { animation: lp-reveal .8s cubic-bezier(.22, 1, .36, 1) both; }
+@keyframes lp-reveal {
+  from { opacity: 0; transform: translate3d(0, 22px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
 .lp-motion-ready [data-parallax] { will-change: transform; }
 .lp-motion-ready img[data-parallax] {
   transform: translate3d(0, var(--parallax-y, 0px), 0) scale(1.075);
@@ -304,7 +310,7 @@
 }
 @keyframes lp-cta-zoom {
   0%, 100% { transform: scale(1); box-shadow: 0 9px 28px #ed133861; }
-  50% { transform: scale(1.035); box-shadow: 0 12px 35px #ed133878; }
+  50% { transform: scale(1.055); box-shadow: 0 12px 35px #ed133878; }
 }
 @keyframes lp-cta-ring {
   0%, 16% { opacity: .72; transform: scale(.98); }
@@ -419,5 +425,5 @@
   .lp-motion-ready [data-stamp], .lp-motion-ready [data-stamp].lp-stamped {
     opacity: 1; transform: none; filter: none;
   }
-  .lp-motion-ready [data-parallax] { transform: none !important; }
+  .lp-motion-ready [data-parallax], .lp-motion-ready [data-reveal] { opacity: 1; transform: none !important; }
 }
