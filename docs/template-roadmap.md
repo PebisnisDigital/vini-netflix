@@ -8,13 +8,13 @@
 - Teks, bukti pengalaman, dan CTA tetap jelas bagi audiens Indonesia, termasuk pembaca mobile usia lanjut.
 - Bila pengguna memilih reduced motion, animasi dekoratif harus berhenti.
 
-## Status Tahap 9 — SCRAPBOOK ikut aktif
+## Status Tahap 10 — PAPER CUT ikut aktif
 
 Katalog lengkap tersedia di `src/data/templateCatalog.mjs`. Studio menampilkan 16 gaya dan tiga mode identitas berikut statusnya.
 
 | Status | Makna dan tindakan |
 | --- | --- |
-| `available` | Renderer siap untuk klien baru; tombol Gunakan aktif. Saat ini ORIGINAL, CHIBI 3D, ANIME, CLAY 3D, KOMIK POP, EDITORIAL PREMIUM, DOODLE, STORYBOOK, dan SCRAPBOOK. |
+| `available` | Renderer siap untuk klien baru; tombol Gunakan aktif. Saat ini ORIGINAL, CHIBI 3D, ANIME, CLAY 3D, KOMIK POP, EDITORIAL PREMIUM, DOODLE, STORYBOOK, SCRAPBOOK, dan PAPER CUT. |
 | `demo` | Contoh klien ada, tetapi renderer belum aman dipakai secara umum; tombol Lihat Demo saja. |
 | `planned` | Konsep gaya tercatat; belum ada tombol Gunakan maupun preview palsu. |
 
@@ -36,7 +36,9 @@ STORYBOOK memakai `StorybookHero`, tata buku terbuka dengan dua lembar kertas iv
 
 SCRAPBOOK memakai `ScrapbookHero`, kolase polaroid, lembar jurnal bergrid, warna rose–mint–butter yellow, font Caveat, kertas bergigi, memo tempel dan washi tape. Polaroid mengayun perlahan, foto bergerak sinematik, stiker bergoyang, dan garis tinta tergambar berulang secara otomatis. Rail, section, modal karya, animasi scroll dan CTA tetap mewarisi master ORIGINAL. Demo `/vini10` memakai tiga foto konsep analog buatan AI berisi karakter **fiksi, bukan foto asli Teh Vini**. Draft klien baru menampilkan placeholder polaroid dan aset milik klien sendiri; sistem tidak membuat potret AI otomatis. Gerak dekoratif menghormati preferensi reduced motion.
 
-Halaman `/vini2` sampai `/vini10` yang sudah menggunakan variasi khusus tetap berjalan menggunakan konfigurasi masing-masing; tidak dimigrasikan otomatis ke katalog baru.
+PAPER CUT memakai `PaperCutHero`, panggung diorama dari cardstock bertingkat, lengkungan dan pinggiran bergigi, warna sage–rose–periwinkle, serta font Quicksand bulat. Layer kertas bernafas, awan melayang, matahari berputar, bunga dan ilustrasi bergerak otomatis. Rail karya, modal detail, section, animasi scroll dan CTA tetap diwarisi dari ORIGINAL. Demo `/vini11` memakai tiga ilustrasi bertekstur kertas buatan AI yang menampilkan **karakter fiksi, bukan foto asli Teh Vini**. Draft baru memunculkan placeholder apabila belum ada ilustrasi sendiri, tanpa meminjam foto demo atau mengonversi foto secara otomatis. Gerak dekoratif menghormati reduced motion.
+
+Halaman `/vini2` sampai `/vini11` yang sudah menggunakan variasi khusus tetap berjalan menggunakan konfigurasi masing-masing; tidak dimigrasikan otomatis ke katalog baru.
 
 ## Model data bertahap
 
@@ -60,6 +62,6 @@ Field baru opsional agar JSON klien lama tetap valid. Draft baru menggunakan ORI
 
 ## Tahap berikutnya
 
-1. Selesaikan PAPER CUT, lalu gaya berikutnya.
+1. Selesaikan PIXEL RETRO, lalu gaya berikutnya.
 2. Implementasikan pipeline foto/karakter untuk Avatar AI dan FACELESS, dengan persetujuan aset dan fallback.
 3. Produksi gaya tambahan sesuai urutan permintaan klien. Jangan aktifkan seluruh 16 sekaligus sebelum teruji.

@@ -337,6 +337,36 @@ test('template SCRAPBOOK menjaga data pribadi klien dan tidak meminjam foto demo
   } finally { await server.close(); }
 });
 
+test('template PAPER CUT menjaga identitas klien dan tidak meminjam ilustrasi demo VINI11', async () => {
+  const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
+  try {
+    const { createPortfolioFromBrief, validateBrief, effectiveTheme, DEFAULT_THEME, PAPERCUT_THEME } = await server.ssrLoadModule('/src/data/clientModel.ts');
+    const brief = {
+      slug: 'rani', name: 'Rani Rahma', role: 'Guru Kreatif', location: 'Bogor',
+      bio: 'Mengajarkan karya kertas dan ilustrasi digital kepada murid.', tagline: ['Bermain sambil belajar'], interests: ['Papercraft'],
+      photo: { src: '/clients/rani/rani-paper-art.webp', alt: 'Ilustrasi karya Rani' },
+      experiences: [], projects: [{ title: 'Buku Lipat', year: '2026', description: 'Belajar membuat buku pop-up.', category: 'Craft', tags: ['Kertas'], image: '/clients/rani/buku-lipat.webp' }],
+      skills: ['Kerajinan Kertas'], whatsapp: '081234567890', templateId: 'paper-cut', identityMode: 'photo',
+    };
+    assert.deepEqual(validateBrief(brief, { requireWhatsapp: true }), []);
+    const content = createPortfolioFromBrief(brief);
+    assert.equal(content.profile.templateId, 'paper-cut');
+    assert.equal(content.profile.displayName, 'Rani Rahma');
+    assert.equal(content.profile.whatsapp, '081234567890');
+    assert.equal(content.profile.referralCode, 'PSN-RANI');
+    assert.equal(content.profile.portrait.src, '/clients/rani/rani-paper-art.webp');
+    assert.equal(content.projects[0].image, '/clients/rani/buku-lipat.webp');
+    assert.deepEqual(effectiveTheme(content.profile), PAPERCUT_THEME);
+    assert.deepEqual(effectiveTheme({ templateId: 'paper-cut', theme: DEFAULT_THEME }), PAPERCUT_THEME);
+    assert.deepEqual(effectiveTheme({ templateId: 'paper-cut', theme: { accent: '#b6427b', background: '#203951' } }), { accent: '#b6427b', background: '#203951' });
+    for (const forbidden of ['/clients/vini11/', 'Teh Vini', 'BADAI', 'PROMPTIONAL']) assert.equal(JSON.stringify(content).includes(forbidden), false);
+    const demo = JSON.parse(await readFile(new URL('../src/data/clients/vini11.json', import.meta.url), 'utf8'));
+    assert.deepEqual(validateBrief(demo, { requireWhatsapp: true }), []);
+    assert.equal(createPortfolioFromBrief(demo).profile.whatsapp, '62881022445869');
+    assert.match(demo.photo.alt, /bukan foto asli Teh Vini/);
+  } finally { await server.close(); }
+});
+
 test('proyek baru memakai contoh Sushmita yang lengkap tanpa membuatnya siap terbit', async () => {
   const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
   try {
