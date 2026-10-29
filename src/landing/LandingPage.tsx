@@ -16,6 +16,7 @@ function Rail({ title, children, autoPlay = false, className = '' }: {
 }) {
   const railRef = useRef<HTMLDivElement>(null);
   const pauseUntil = useRef(0);
+  const activeIndex = useRef(0);
   const [active, setActive] = useState(0);
   const originals = Children.toArray(children);
 
@@ -56,11 +57,26 @@ function Rail({ title, children, autoPlay = false, className = '' }: {
   }
   useEffect(() => {
     if (!autoPlay || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const timer = window.setInterval(() => {
-      const box = railRef.current?.getBoundingClientRect();
-      if (box && !document.hidden && box.top < window.innerHeight && box.bottom > 0 && Date.now() >= pauseUntil.current) move(1, false);
-    }, 3700);
-    return () => window.clearInterval(timer);
+    let frame = 0;
+    let previous = 0;
+    const animate = (now: number) => {
+      const delta = previous ? Math.min(now - previous, 64) : 0;
+      previous = now;
+      const rail = railRef.current;
+      if (rail && !document.hidden && Date.now() >= pauseUntil.current) {
+        const rect = rail.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          const cycle = loopWidth(rail);
+          if (cycle > 0) {
+            const next = rail.scrollLeft + delta * 0.065;
+            jumpTo(rail, next >= cycle ? next - cycle : next);
+          }
+        }
+      }
+      frame = window.requestAnimationFrame(animate);
+    };
+    frame = window.requestAnimationFrame(animate);
+    return () => window.cancelAnimationFrame(frame);
   }, [autoPlay]);
 
   return (
@@ -72,17 +88,21 @@ function Rail({ title, children, autoPlay = false, className = '' }: {
           <button type="button" className="lp-circle-btn" aria-label={'Geser ' + title + ' ke kanan'} onClick={() => move(1)}><ChevronRight size={21} /></button>
         </div>
       </div>
-      <div ref={railRef} className="lp-rail" role="region" aria-roledescription="carousel" aria-label={title} tabIndex={0}
+      <div ref={railRef} className={'lp-rail ' + (autoPlay ? 'lp-rail-autoplay' : '')} role="region" aria-roledescription="carousel" aria-label={title} tabIndex={0}
         onScroll={() => {
           const rail = railRef.current;
           if (!rail) return;
           const cycle = loopWidth(rail);
           if (cycle && rail.scrollLeft >= cycle - 2) jumpTo(rail, rail.scrollLeft - cycle);
-          setActive(Math.round(rail.scrollLeft / Math.max(step(), 1)));
+          const nextIndex = Math.round(rail.scrollLeft / Math.max(step(), 1));
+          if (nextIndex !== activeIndex.current) {
+            activeIndex.current = nextIndex;
+            setActive(nextIndex);
+          }
         }}
-        onMouseEnter={() => { pauseUntil.current = Date.now() + 12000; }}
-        onFocusCapture={() => { pauseUntil.current = Date.now() + 12000; }}
-        onPointerDown={() => { pauseUntil.current = Date.now() + 12000; }}
+        onMouseEnter={() => { pauseUntil.current = Date.now() + 2500; }}
+        onFocusCapture={() => { pauseUntil.current = Date.now() + 8000; }}
+        onPointerDown={() => { pauseUntil.current = Date.now() + 8000; }}
         onKeyDown={(event) => {
           if (event.key === 'ArrowRight') { event.preventDefault(); move(1); }
           if (event.key === 'ArrowLeft') { event.preventDefault(); move(-1); }
@@ -164,9 +184,7 @@ function useCinematicMotion() {
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('lp-stamped');
-        observer.unobserve(entry.target);
+        entry.target.classList.toggle('lp-stamped', entry.isIntersecting);
       });
     }, { threshold: 0.23, rootMargin: '0px 0px -5% 0px' });
     stamps.forEach((element) => observer.observe(element));

@@ -47,10 +47,10 @@
 }
 .lp-header-cta, .lp-cta-button { color: #fff; background: var(--lp-red); box-shadow: 0 9px 30px #dc082e40; }
 .lp-header-cta { padding: 11px 17px; font-size: 12px; white-space: nowrap; }
-.lp-cta-button { padding: 17px 32px; font-size: 17px; min-height: 60px; position: relative; isolation: isolate; transform-origin: center; animation: lp-cta-zoom 2.65s ease-in-out infinite; }
+.lp-cta-button { padding: 18px 34px; font-size: 18px; min-height: 64px; position: relative; isolation: isolate; transform-origin: center; animation: lp-cta-zoom 1.85s ease-in-out infinite; }
 .lp-cta-button::after {
   content: ''; position: absolute; inset: -6px; border: 1px solid #ff4767;
-  border-radius: 11px; pointer-events: none; animation: lp-cta-ring 2.65s ease-out infinite;
+  border-radius: 11px; pointer-events: none; animation: lp-cta-ring 1.85s ease-out infinite;
 }
 .lp-header-cta { animation: lp-cta-zoom-header 3.1s ease-in-out infinite; transform-origin: center; }
 .lp-header-cta:hover { animation-play-state: paused; }
@@ -131,6 +131,7 @@
 }
 .lp-rail::-webkit-scrollbar { display: none; }
 .lp-rail > * { scroll-snap-align: start; flex-shrink: 0; }
+.lp-rail-autoplay { scroll-snap-type: none; scroll-behavior: auto; }
 .lp-rail-indicator { width: 110px; height: 3px; border-radius: 20px; background: #ffffff37; margin: 4px auto 0; overflow: hidden; }
 .lp-rail-indicator span { display: block; height: 100%; width: 28px; border-radius: 20px; background: #fa2243; transition: transform .3s ease; }
 .lp-offerings { background: #08080b; }
@@ -249,7 +250,7 @@
   filter: blur(5px);
 }
 .lp-motion-ready [data-stamp].lp-stamped {
-  animation: lp-headline-stamp .88s cubic-bezier(.19, 1, .22, 1) both;
+  animation: lp-headline-stamp 7s ease-in-out infinite both;
   transform-origin: left center;
 }
 .lp-motion-ready .lp-final-content [data-stamp].lp-stamped { transform-origin: center; }
@@ -271,31 +272,32 @@
   transform: translate3d(0, var(--parallax-y, 0px), 0) scale(1.13);
   transition: transform .55s cubic-bezier(.2,.8,.2,1);
 }
-.lp-motion-ready .lp-hero-background { animation: lp-cinema-push 14s ease-in-out infinite alternate; }
+.lp-motion-ready .lp-hero-background { animation: lp-cinema-push 8s ease-in-out infinite alternate; }
 .lp-motion-ready .lp-affiliate-background { animation: lp-cinema-push 17s ease-in-out infinite alternate-reverse; }
-.lp-motion-ready .lp-hero-person { animation: lp-cast-float 6s ease-in-out infinite; }
+.lp-motion-ready .lp-hero-person { animation: lp-cast-float 4s ease-in-out infinite; }
 .lp-motion-ready .lp-hero-iis { animation-delay: -2.7s; }
 .lp-motion-ready .lp-hero-citra { animation-delay: -1.3s; }
 .lp-motion-ready .lp-hero-vini { animation-delay: -.3s; }
 .lp-rail > [aria-hidden="true"] { pointer-events: auto; }
 
 @keyframes lp-headline-stamp {
-  0% { opacity: 0; transform: translate3d(0, 26px, 0) scale(1.13) rotate(-1.2deg); filter: blur(5px); }
-  51% { opacity: 1; transform: translate3d(0, -8px, 0) scale(.958) rotate(.5deg); filter: blur(0); }
-  72% { opacity: 1; transform: translate3d(0, 3px, 0) scale(1.025) rotate(-.25deg); filter: blur(0); }
-  100% { opacity: 1; transform: translate3d(0, 0, 0) scale(1) rotate(0); filter: blur(0); }
+  0%, 1% { opacity: 0; transform: translate3d(0, 26px, 0) scale(1.13) rotate(-1.2deg); filter: blur(5px); }
+  5% { opacity: 1; transform: translate3d(0, -8px, 0) scale(.958) rotate(.5deg); filter: blur(0); }
+  8% { opacity: 1; transform: translate3d(0, 3px, 0) scale(1.025) rotate(-.25deg); filter: blur(0); }
+  11%, 96% { opacity: 1; transform: translate3d(0, 0, 0) scale(1) rotate(0); filter: blur(0); }
+  100% { opacity: 0; transform: translate3d(0, 10px, 0) scale(.99); filter: blur(0); }
 }
 @keyframes lp-cast-float {
   0%, 100% { transform: translate3d(0, 0, 0); }
-  50% { transform: translate3d(0, -10px, 0); }
+  50% { transform: translate3d(0, -19px, 0); }
 }
 @keyframes lp-cinema-push {
   from { transform: scale(1.015); }
-  to { transform: scale(1.075); }
+  to { transform: scale(1.12); }
 }
 @keyframes lp-cta-zoom {
   0%, 100% { transform: scale(1); box-shadow: 0 9px 28px #ed133861; }
-  50% { transform: scale(1.065); box-shadow: 0 12px 43px #ed1338aa; }
+  50% { transform: scale(1.095); box-shadow: 0 15px 48px #ed1338cc; }
 }
 @keyframes lp-cta-ring {
   0%, 16% { opacity: .72; transform: scale(.98); }

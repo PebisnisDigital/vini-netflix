@@ -7,7 +7,7 @@
 - Design: **Cinema Showcase / Versi 1**. Netflix-inspired black, crimson, cinematic portraits and horizontal content rails.
 - Preview route: `/` only. Existing `/vini`, `/iis`, `/citra`, and `/studio` remain unchanged.
 - Content covers introduction, service deliverables, portfolio benefits, professional images, 50% affiliate opportunity, illustrative bonus ideas, real demo routes, sample testimonial layouts, how to order, and WhatsApp CTA.
-- Motion update: parallax imagery, looping card rails, section stamp entrance animation, cinematic image drift, and larger pulsing CTA.
+- Motion update: parallax imagery, continuously scrolling card rails, repeating section stamp animation, cinematic image drift, and a larger, faster pulsing CTA.
 
 ## Design comparison evidence
 
@@ -31,10 +31,11 @@
 | Example rail arrows | PASS | Clicking the next arrow changes `scrollLeft` from 2 to 118 on desktop. |
 | External action | PASS | CTA targets the prepared WhatsApp URL for Teh Vini. |
 | Claim transparency | PASS | Sample testimonials are visibly labeled simulations, bonus ideas are labeled examples, and partner terms need confirmation. |
-| Section stamp animation | PASS | Intersection observer marks headings once in view; tested the example heading on mobile. |
+| Section stamp animation | PASS | Intersection observer activates headings in view; 7s repeating stamp effect with reduced-motion override, verified in local browser. |
 | Parallax | PASS | Scroll-based `--parallax-y` updated to -4.9px on a visible portfolio portrait; hero layers animate subtly. |
-| Endless card loop | PASS | Autoplay rails duplicate non-focusable cards and reset at the repeat boundary; tested right arrow on example cards with 1371px cycle. |
-| CTA zoom | PASS | CSS animation `lp-cta-zoom` is active; full primary action remains visible on 375px mobile viewport. |
+| Endless card loop | PASS | RequestAnimationFrame smoothly advances visible rails; measured live service rail position from 0 to 93px without interaction, with loop reset at repeat boundary. |
+| CTA zoom | PASS | CSS animation `lp-cta-zoom` is active at 1.85s; stronger 9.5% pulse and larger hit area. |
+| Production domain | PENDING | `pesonaflix.vercel.app/` still shows Coming Soon; the animated landing page is only on the preview branch pending Teh Vini's release approval. |
 | Accessibility | PASS | Explicit reduced-motion CSS and autoplay guard; duplicate rail items hidden from accessibility tree and excluded from tab order. |
 | Browser errors | PASS | No application JavaScript errors observed; only browser-extension metadata messages. |
 
@@ -45,7 +46,7 @@
 - **Colors:** consistent near-black background, white titles, vivid red accent and CTA halo.
 - **Images:** existing optimized WebP photos preserve detail; parallax scale prevents edge gaps.
 - **Copy:** original PESONAFLIX offer, fictional demo labels, affiliate caveat and WhatsApp destinations remain unchanged.
-- **P0/P1/P2 issues:** none remaining after mobile and loop checks. No additional visual fixes required.
+- **P0/P1/P2 issues:** none remaining on the preview branch after mobile and loop checks. Production rollout is intentionally held for approval.
 
 ## Final release gate
 
