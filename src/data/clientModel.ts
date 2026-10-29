@@ -2,6 +2,7 @@ import * as vini from './portfolio';
 import * as sushmita from './sushmitaOriginal';
 import { portfolioServiceCTA } from './portfolioServiceCTA';
 import { clientReferralCode, normalizeClientWhatsapp } from '../utils/clientWhatsapp.mjs';
+import { canApplyIdentityMode, canApplyTemplate, getIdentityMode, getTemplate, type IdentityMode, type TemplateId } from './templateCatalog.mjs';
 
 /** Satu sumber data untuk setiap halaman portofolio, tanpa teks klien lain. */
 export type PortfolioContent = {
@@ -12,6 +13,8 @@ export type PortfolioContent = {
     websiteLabel?: string;
     theme?: ClientTheme;
     designVariant?: 'chibi-cinema';
+    templateId?: TemplateId;
+    identityMode?: IdentityMode;
     whatsapp?: string;
     referralCode?: string;
     clientSlug?: string;
@@ -126,6 +129,10 @@ export type ClientBrief = {
   theme?: ClientTheme;
   /** Tampilan pilihan klien, tanpa mengubah template Netflix milik klien lain. */
   designVariant?: 'chibi-cinema';
+  /** ID gaya katalog Studio; status belum aktif tidak boleh diterbitkan. */
+  templateId?: TemplateId;
+  /** Foto asli, avatar AI, atau tanpa wajah; independen dari gaya. */
+  identityMode?: IdentityMode;
 };
 
 /** Isi awal proyek baru: mengikuti naskah portofolio Sushmita dari repo referensi. */
@@ -141,6 +148,8 @@ export function sushmitaExampleBrief(): ClientBrief {
     photo: { src: '', alt: sushmita.profile.portrait.alt },
     email: sushmita.profile.email,
     whatsapp: '',
+    templateId: 'original',
+    identityMode: 'photo',
     links: { ...sushmita.profile.links, website: '' },
     projects: sushmita.projects.map((p) => ({
       title: p.title, year: p.year, description: p.logline, category: p.genre,
@@ -276,6 +285,10 @@ export function validateBrief(value: unknown, options: { requireWhatsapp?: boole
   if (options.requireWhatsapp && !normalizeClientWhatsapp(b.whatsapp)) errors.push('Nomor WhatsApp pemilik website wajib diisi untuk tombol referral.');
   if (b.theme && (!/^#[0-9a-fA-F]{6}$/.test(b.theme.accent) || !/^#[0-9a-fA-F]{6}$/.test(b.theme.background))) errors.push('Warna tema harus menggunakan kode hex 6 digit.');
   if (b.designVariant !== undefined && b.designVariant !== 'chibi-cinema') errors.push('Pilihan gaya website tidak dikenal.');
+  if (b.templateId !== undefined && !getTemplate(b.templateId)) errors.push('Template website tidak dikenal.');
+  else if (b.templateId !== undefined && !canApplyTemplate(b.templateId)) errors.push('Template ini baru tersedia sebagai demo atau rencana. Belum dapat diterbitkan untuk klien.');
+  if (b.identityMode !== undefined && !getIdentityMode(b.identityMode)) errors.push('Mode identitas tidak dikenal.');
+  else if (b.identityMode !== undefined && !canApplyIdentityMode(b.identityMode)) errors.push('Mode avatar AI dan FACELESS belum siap diterbitkan.');
   for (const [label, url] of Object.entries(b.links ?? {})) if (url && !validUrl(url)) errors.push(`Link ${label} harus diawali https://.`);
   return errors;
 }
@@ -386,6 +399,8 @@ export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: 
       websiteLabel: brief.links?.website && validUrl(brief.links.website) ? new URL(brief.links.website).hostname : undefined,
       theme: brief.theme,
       designVariant: brief.designVariant,
+      templateId: brief.templateId || 'original',
+      identityMode: brief.identityMode || 'photo',
     },
     projects, experience, education: (brief.education ?? []).map((e) => ({ school: e.school, degree: e.degree, place: e.place, period: e.period, score: e.score || '' })), achievements, certifications: [], skillCategories,
     skillEvidence: {}, skillsHeading: brief.skillsHeading, skillsAside: brief.skillsAside, skillsKicker: brief.skillsKicker, seasons, journeyHeading: brief.journeyHeading, journeyAside: brief.journeyAside, journeyKicker: brief.journeyKicker, topPicks, picksHeading: brief.picksHeading, picksKicker: brief.picksKicker, introSlides, viewerProfiles, sectionMeta, watchCards,
