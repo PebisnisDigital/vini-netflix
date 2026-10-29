@@ -64,7 +64,7 @@
   position: relative;
   margin: 0 auto;
   width: min(100%, 680px);
-  padding: clamp(330px, 93vw, 435px) 17px 54px;
+  padding: clamp(320px, 86.5vw, 430px) 14px 54px;
   text-align: center;
 }
 
@@ -81,7 +81,7 @@
 .chibi-title {
   margin: 0;
   color: #fff;
-  font-size: clamp(52px, 15.2vw, 88px);
+  font-size: clamp(64px, 18vw, 100px);
   line-height: 0.97;
   font-weight: 1000;
   letter-spacing: -0.07em;
@@ -91,7 +91,7 @@
 }
 
 .chibi-role {
-  margin: 12px auto 0;
+  margin: 6px auto 0;
   max-width: 35ch;
   color: #fff;
   font-size: clamp(11px, 3.2vw, 14px);
@@ -102,7 +102,7 @@
 }
 
 .chibi-intro {
-  margin: 14px auto 0;
+  margin: 6px auto 0;
   max-width: 40ch;
   color: #fff1f4;
   font-size: clamp(14px, 3.85vw, 16px);
@@ -114,18 +114,18 @@
 .chibi-actions {
   display: grid;
   gap: 8px;
-  margin: 22px auto 0;
-  width: min(100%, 300px);
+  margin: 12px auto 0;
+  width: min(100%, 244px);
 }
 
 .chibi-actions button {
-  min-height: 48px;
+  min-height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   border-radius: 100px;
-  padding: 10px 17px;
+  padding: 7px 12px;
   font-size: 16px;
   font-weight: 900;
   transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
@@ -159,9 +159,9 @@
 .chibi-posters {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  gap: 10px;
   width: 100%;
-  margin: 26px auto 0;
+  margin: 16px auto 0;
 }
 
 .chibi-poster {
