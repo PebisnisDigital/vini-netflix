@@ -11,12 +11,26 @@ const whatsapp = getPortfolioServiceWhatsappUrl('https://pesonaflix.vercel.app/'
 const mitraWhatsapp = 'https://wa.me/62881022445869?text=' +
   encodeURIComponent('Halo Teh Vini, saya ingin bertanya tentang program mitra PESONAFLIX dengan komisi 50%.');
 
+function useReducedMotion() {
+  const [reduced, setReduced] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  useEffect(() => {
+    const query = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setReduced(query.matches);
+    query.addEventListener('change', update);
+    update();
+    return () => query.removeEventListener('change', update);
+  }, []);
+  return reduced;
+}
+
 function Rail({ title, children, autoPlay = false, className = '' }: {
   title: string; children: ReactNode; autoPlay?: boolean; className?: string;
 }) {
   const railRef = useRef<HTMLDivElement>(null);
   const pauseUntil = useRef(0);
   const activeIndex = useRef(0);
+  const interacting = useRef(false);
+  const reducedMotion = useReducedMotion();
   const [active, setActive] = useState(0);
   const originals = Children.toArray(children);
 
@@ -42,7 +56,7 @@ function Rail({ title, children, autoPlay = false, className = '' }: {
   function move(direction: number, fromUser = true) {
     const rail = railRef.current;
     if (!rail) return;
-    if (fromUser) pauseUntil.current = Date.now() + 12000;
+    if (fromUser) pauseUntil.current = Date.now() + 3000;
     const cycle = loopWidth(rail);
     if (cycle) {
       if (direction < 0 && rail.scrollLeft <= 10) jumpTo(rail, cycle);
@@ -56,33 +70,71 @@ function Rail({ title, children, autoPlay = false, className = '' }: {
     else rail.scrollBy({ left: direction * step(), behavior: 'smooth' });
   }
   useEffect(() => {
-    if (!autoPlay || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!autoPlay || reducedMotion) return;
+    const rail = railRef.current;
+    if (!rail) return;
     let frame = 0;
     let previous = 0;
     let position: number | null = null;
+    let visible = false;
     const animate = (now: number) => {
+      frame = 0;
       const delta = previous ? Math.min(now - previous, 64) : 0;
       previous = now;
-      const rail = railRef.current;
-      if (rail && !document.hidden && Date.now() >= pauseUntil.current) {
-        const rect = rail.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-          const cycle = loopWidth(rail);
-          if (cycle > 0) {
-            if (position === null) position = rail.scrollLeft;
-            position = (position + delta * 0.065) % cycle;
-            jumpTo(rail, position);
-          }
-        } else position = null;
+      if (!document.hidden && !interacting.current && Date.now() >= pauseUntil.current) {
+        const cycle = loopWidth(rail);
+        if (cycle > 0) {
+          if (position === null) position = rail.scrollLeft;
+          position = (position + delta * 0.065) % cycle;
+          jumpTo(rail, position);
+        }
       } else position = null;
-      frame = window.requestAnimationFrame(animate);
+      if (visible && !document.hidden) frame = window.requestAnimationFrame(animate);
     };
-    frame = window.requestAnimationFrame(animate);
-    return () => window.cancelAnimationFrame(frame);
-  }, [autoPlay]);
+    const start = () => {
+      if (visible && !document.hidden && !frame) {
+        previous = 0;
+        frame = window.requestAnimationFrame(animate);
+      }
+    };
+    const observer = 'IntersectionObserver' in window ? new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if (visible) start();
+      else {
+        if (frame) window.cancelAnimationFrame(frame);
+        frame = 0;
+        position = null;
+      }
+    }) : null;
+    if (observer) observer.observe(rail);
+    else { visible = true; start(); }
+    const endInteraction = () => {
+      if (interacting.current) {
+        interacting.current = false;
+        pauseUntil.current = Date.now() + 2500;
+      }
+    };
+    window.addEventListener('pointerup', endInteraction);
+    window.addEventListener('pointercancel', endInteraction);
+    const visibilityChange = () => {
+      if (document.hidden) {
+        if (frame) window.cancelAnimationFrame(frame);
+        frame = 0;
+        position = null;
+      } else start();
+    };
+    document.addEventListener('visibilitychange', visibilityChange);
+    return () => {
+      observer?.disconnect();
+      window.removeEventListener('pointerup', endInteraction);
+      window.removeEventListener('pointercancel', endInteraction);
+      document.removeEventListener('visibilitychange', visibilityChange);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, [autoPlay, reducedMotion]);
 
   return (
-    <div className={'lp-rail-shell ' + className}>
+    <div data-reveal className={'lp-rail-shell ' + className}>
       <div className="lp-rail-control">
         <span className="lp-rail-hint"><span className="lp-live-dot" /> Geser untuk jelajahi</span>
         <div className="lp-rail-buttons">
@@ -102,7 +154,11 @@ function Rail({ title, children, autoPlay = false, className = '' }: {
             setActive(nextIndex);
           }
         }}
-        onPointerDown={() => { pauseUntil.current = Date.now() + 8000; }}
+        onPointerDown={() => { interacting.current = true; }}
+        onPointerUp={() => { interacting.current = false; pauseUntil.current = Date.now() + 2500; }}
+        onPointerCancel={() => { interacting.current = false; pauseUntil.current = Date.now() + 2500; }}
+        onLostPointerCapture={() => { interacting.current = false; pauseUntil.current = Date.now() + 2500; }}
+        onWheel={() => { pauseUntil.current = Date.now() + 2500; }}
         onKeyDown={(event) => {
           if (event.key === 'ArrowRight') { event.preventDefault(); move(1); }
           if (event.key === 'ArrowLeft') { event.preventDefault(); move(-1); }
@@ -124,7 +180,7 @@ function Heading({ eyebrow, title, accent, description, aside }: {
 }) {
   return <div className="lp-section-heading"><div><p className="lp-eyebrow">{eyebrow}</p>
     <h2 data-stamp>{title} {accent && <span>{accent}</span>}</h2>
-    {description && <p className="lp-section-description">{description}</p>}</div>{aside}</div>;
+    {description && <p data-reveal className="lp-section-description">{description}</p>}</div>{aside}</div>;
 }
 
 function WhatsAppButton({ label = 'Mau Dibuatin', href = whatsapp }: { label?: string; href?: string }) {
@@ -173,21 +229,25 @@ const sampleReviews = [
 ];
 
 function useCinematicMotion() {
+  const reducedMotion = useReducedMotion();
   useEffect(() => {
     const root = document.querySelector<HTMLElement>('.lp-page');
     if (!root) return;
-    const stamps = [...root.querySelectorAll<HTMLElement>('[data-stamp]')];
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      stamps.forEach((element) => element.classList.add('lp-stamped'));
+    const elements = [...root.querySelectorAll<HTMLElement>('[data-stamp], [data-reveal]')];
+    if (reducedMotion || !('IntersectionObserver' in window)) {
+      root.classList.remove('lp-motion-ready');
       return;
     }
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) { entry.target.classList.add('lp-stamped'); observer.unobserve(entry.target); }
+        if (entry.isIntersecting) {
+          entry.target.classList.add(entry.target.hasAttribute('data-stamp') ? 'lp-stamped' : 'lp-visible');
+          observer.unobserve(entry.target);
+        }
       });
     }, { threshold: 0.23, rootMargin: '0px 0px -5% 0px' });
-    stamps.forEach((element) => observer.observe(element));
+    elements.forEach((element) => observer.observe(element));
     root.classList.add('lp-motion-ready');
 
     const layers = [...root.querySelectorAll<HTMLElement>('[data-parallax]')];
@@ -210,11 +270,12 @@ function useCinematicMotion() {
     window.addEventListener('resize', schedule);
     return () => {
       observer.disconnect();
+      root.classList.remove('lp-motion-ready');
       window.removeEventListener('scroll', schedule);
       window.removeEventListener('resize', schedule);
       if (frame) window.cancelAnimationFrame(frame);
     };
-  }, []);
+  }, [reducedMotion]);
 }
 
 export default function LandingPage() {
@@ -248,11 +309,11 @@ export default function LandingPage() {
 
         <section id="tentang" className="lp-section lp-about">
           <div className="lp-container lp-about-grid">
-            <div className="lp-about-image"><img data-parallax="25" src="/landing/about-studio.webp" alt="Ilustrasi wanita menyusun portofolio personal menggunakan laptop" loading="lazy" /><span><Clapperboard size={16} /> YOUR STORY · YOUR SERIES</span></div>
+            <div data-reveal className="lp-about-image"><img data-parallax="25" src="/landing/about-studio.webp" alt="Ilustrasi wanita menyusun portofolio personal menggunakan laptop" loading="lazy" /><span><Clapperboard size={16} /> YOUR STORY · YOUR SERIES</span></div>
             <div className="lp-about-copy"><p className="lp-eyebrow">KENALAN DULU, YUK</p><h2 data-stamp>APA ITU <span>PESONAFLIX?</span></h2>
               <p>PESONAFLIX adalah layanan pembuatan web portofolio personal bergaya serial. Cerita diri, profesi, pengalaman, karya, dan keahlian dirangkum dalam satu tautan yang berkesan.</p>
               <h3>KENAPA MENARIK?</h3>
-              <div className="lp-benefits">
+              <div data-reveal className="lp-benefits">
                 <div><BriefcaseBusiness /><strong>Lebih Profesional</strong><span>Menampilkan diri dengan rapi dan meyakinkan.</span></div>
                 <div><Share2 /><strong>Mudah Dibagikan</strong><span>Satu link untuk karya, profil dan pengalaman.</span></div>
                 <div><Sparkles /><strong>Lebih Berkesan</strong><span>Seperti serial favorit, ceritamu makin hidup.</span></div>
@@ -278,7 +339,7 @@ export default function LandingPage() {
               <ul className="lp-checklist"><li><Check /> Halaman personal dengan namamu</li><li><Check /> Desain ala Netflix yang nyaman di HP</li><li><Check /> Kartu karya, prestasi, dan pengalaman</li><li><Check /> Konten bisa diperbarui saat diperlukan</li></ul>
               <a className="lp-text-link" href="/vini" target="_blank" rel="noopener noreferrer">Coba portofolio Teh Vini <ArrowUpRight size={18} /></a>
             </div>
-            <a className="lp-web-image" href="/vini" target="_blank" rel="noopener noreferrer" aria-label="Buka contoh web portofolio Teh Vini"><img data-parallax="20" src="/landing/portfolio-device.webp" alt="Ilustrasi web bergaya serial di laptop dan ponsel" loading="lazy" /><span><Play size={16} fill="currentColor" /> Buka contoh web <ArrowUpRight size={16} /></span></a>
+            <a data-reveal className="lp-web-image" href="/vini" target="_blank" rel="noopener noreferrer" aria-label="Buka contoh web portofolio Teh Vini"><img data-parallax="20" src="/landing/portfolio-device.webp" alt="Ilustrasi web bergaya serial di laptop dan ponsel" loading="lazy" /><span><Play size={16} fill="currentColor" /> Buka contoh web <ArrowUpRight size={16} /></span></a>
           </div>
         </section>
 
@@ -298,7 +359,7 @@ export default function LandingPage() {
           <div className="lp-container lp-affiliate-inner">
             <p className="lp-eyebrow">03 / PELUANG MITRA</p><h2 data-stamp>JADI MITRA,<br />DAPAT KOMISI <span>50%</span></h2>
             <p>Rekomendasikan PESONAFLIX ke teman, rekan kerja, atau komunitasmu. Kalau rekomendasimu menghasilkan pesanan yang berhasil, kamu berpeluang menerima komisi 50% sesuai ketentuan program.</p>
-            <div className="lp-affiliate-points"><span><Users size={18} /> Rekomendasikan jasa</span><span><HeartHandshake size={18} /> Pesanan berhasil</span><span><BadgeCheck size={18} /> Komisi 50%</span></div>
+            <div data-reveal className="lp-affiliate-points"><span><Users size={18} /> Rekomendasikan jasa</span><span><HeartHandshake size={18} /> Pesanan berhasil</span><span><BadgeCheck size={18} /> Komisi 50%</span></div>
             <WhatsAppButton label="Tanya Program Mitra" href={mitraWhatsapp} />
             <small>Detail harga, syarat program, dan pembayaran komisi dikonfirmasi langsung bersama Teh Vini.</small>
           </div>
@@ -338,7 +399,7 @@ export default function LandingPage() {
 
         <section id="cara" className="lp-section lp-container lp-steps">
           <Heading eyebrow="07 / MUDAH DARI AWAL" title="CARA" accent="PESAN" description="Cukup cerita lewat WhatsApp. Tim PESONAFLIX yang menyiapkan websitenya." />
-          <div className="lp-steps-grid">
+          <div data-reveal className="lp-steps-grid">
             <div><span>01</span><MessageCircle size={34} /><h3>Ceritakan di WA</h3><p>Sampaikan profesi, cerita diri, kebutuhan, dan foto yang ingin digunakan.</p></div>
             <div><span>02</span><WandSparkles size={34} /><h3>Kami Buatkan</h3><p>Tim menyusun cerita, kartu, dan visual sesuai materi yang disepakati.</p></div>
             <div><span>03</span><MonitorPlay size={34} /><h3>Web Siap Tayang</h3><p>Setelah diperiksa dan disetujui, halamanmu siap dibagikan.</p></div>
@@ -346,7 +407,7 @@ export default function LandingPage() {
         </section>
 
         <section id="pesan" className="lp-final">
-          <div className="lp-container lp-final-grid"><div className="lp-final-portrait"><img src="/assets/teh-vini-1100.webp" alt="Teh Vini mengajak membuat web portofolio personal" loading="lazy" /></div>
+          <div className="lp-container lp-final-grid"><div data-reveal className="lp-final-portrait"><img src="/assets/teh-vini-1100.webp" alt="Teh Vini mengajak membuat web portofolio personal" loading="lazy" /></div>
             <div className="lp-final-content"><p className="lp-eyebrow">KISAHMU LAYAK DITAMPILKAN</p><p className="lp-final-brand">PESONA<span>FLIX</span></p><h2 data-stamp>MAU JUGA<br /><span>DIBUATIN?</span></h2><p>Saatnya cerita kamu punya panggung sendiri.</p><WhatsAppButton /><small><MessageCircle size={15} /> Chat langsung dengan Teh Vini</small></div>
           </div>
         </section>
