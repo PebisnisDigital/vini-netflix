@@ -66,7 +66,8 @@ Halaman statis per klien beserta metadata judul/deskripsi/OG dibuat pada akhir b
 - [ ] Foto utama terlihat baik tanpa terpotong di HP dan desktop.
 - [ ] Foto proyek tajam dan tidak rusak; tidak ada berkas kosong/terlalu besar.
 - [ ] Slider karya, pilihan dan sorotan bergerak otomatis dan tetap dapat digeser secara manual.
-- [ ] Tombol CTA “Mau Dibuatin” menuju WhatsApp Teh Vini.
+- [ ] Tombol CTA “Mau Dibuatin” pada website klien menuju WhatsApp pemilik website yang benar, dengan kode referral `PSN-<SLUG>`; CTA pada landing utama tetap ke Teh Vini.
+- [ ] Nomor WhatsApp klien telah diisi, disetujui untuk ditampilkan publik, dan diuji memakai pesan otomatis.
 - [ ] Seluruh URL publik memakai `pesonaflix.vercel.app`, bukan nama deployment preview.
 - [ ] Semua tautan personal klien terbuka dengan benar.
 - [ ] `npm run verify` sukses dan pemeriksaan otomatis GitHub PR lulus.

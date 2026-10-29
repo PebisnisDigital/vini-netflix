@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { createCanvasPortfolio, DEFAULT_THEME, findUnreplacedSushmitaExamples, normalizeSlug, sushmitaExampleBrief, validateBrief, type ClientBrief } from '../data/clientModel';
+import { clientReferralCode, normalizeClientWhatsapp } from '../utils/clientWhatsapp.mjs';
 import { deleteDraft, listDrafts, preparedBrief, saveDraft, type StudioDraft } from '../data/studioDraft';
 import { publishedClients } from '../data/studioPublished';
 import ElementorCanvas from './ElementorCanvas';
@@ -405,7 +406,7 @@ export default function StudioEditor() {
   };
   const publish = async () => {
     if (!active || !prepared || busy) return;
-    const errors = validateBrief(prepared);
+    const errors = validateBrief(prepared, { requireWhatsapp: true });
     if (active.mode === 'create') {
       const leftovers = findUnreplacedSushmitaExamples(prepared);
       if (leftovers.length) errors.push(`Masih ada data Sushmita: ${leftovers.join(', ')}. Ganti dengan data klien sebelum menerbitkan.`);
@@ -538,6 +539,21 @@ export default function StudioEditor() {
           <div className="flex flex-wrap items-start justify-between gap-3"><div><p className="text-xs font-bold uppercase tracking-wider text-[#ff6580]">{active.mode === 'create' ? 'Website baru' : 'Edit website terbit'}</p><h2 className="mt-1 text-2xl font-extrabold">{active.brief.name || 'Klien Tanpa Nama'}</h2><p className="mt-1 text-sm text-white/45">/{active.brief.slug || 'nama-klien'} · Data tersimpan hanya di browser ini sampai dipublikasikan.</p></div><div className="flex flex-wrap gap-2"><button type="button" className={secondary} onClick={saveClick}>Simpan Draft</button><button type="button" className={secondary} onClick={() => { void preview(); }}>Preview Lengkap</button></div></div>
           {active.mode === 'create' && <p className="rounded-xl border border-amber-400/25 bg-amber-300/10 px-4 py-3 text-sm leading-relaxed text-amber-100">Ini adalah contoh lengkap portofolio Sushmita dari repo master. Klik teks, foto, dan kartu langsung di dalam kanvas untuk menyesuaikannya. Ganti semua identitas dan aset contoh sebelum menerbitkan.</p>}
           {new URLSearchParams(location.search).has('legacy') ? <CanvasEditor draft={active} patch={patch} changeProject={changeProject} setPhoto={setPhoto} reorder={reorder} removeProject={removeProject} /> : <ElementorCanvas draft={active} patch={patch} changeProject={changeProject} setPhoto={setPhoto} setWatchPhoto={setWatchPhoto} watchAction={watchAction} setPickPhoto={setPickPhoto} pickAction={pickAction} setEpisodePhoto={setEpisodePhoto} seasonAction={seasonAction} episodeAction={episodeAction} reorder={reorder} removeProject={removeProject} notice={setNotice} />}
+          <section className={`${card} border-[#5ad0c8]/35`}>
+            <h3 className="text-lg font-extrabold">WhatsApp Pemilik & Referral</h3>
+            <p className="mt-2 text-sm leading-relaxed text-white/60">Tombol “Mau Dibuatin” di website ini akan membuka WhatsApp pemiliknya, bukan WhatsApp Teh Vini. Gunakan nomor bisnis yang siap menerima pesan dari pengunjung.</p>
+            <div className="mt-4 grid gap-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
+              <Control label="Nomor WhatsApp pemilik *" hint="Bisa diawali 08, 62, atau +62. Wajib diisi sebelum terbit.">
+                <input className={field} type="tel" inputMode="tel" autoComplete="tel" placeholder="0812xxxxxxxx" value={active.brief.whatsapp || ''} onChange={(e) => patch({ whatsapp: e.target.value })}/>
+              </Control>
+              <div className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm">
+                <span className="block text-xs text-white/50">Kode referral</span>
+                <strong className="mt-1 block tracking-wider">{clientReferralCode(active.brief.slug) || 'Setelah nama URL diisi'}</strong>
+              </div>
+            </div>
+            {active.brief.whatsapp && !normalizeClientWhatsapp(active.brief.whatsapp) && <p role="alert" className="mt-3 text-sm text-amber-300">Nomor WhatsApp belum valid. Periksa kembali angkanya.</p>}
+            <p className="mt-3 text-xs leading-relaxed text-white/45">Kode referral ikut tercantum pada pesan WhatsApp. Komisi 50% dicatat setelah pesanan dan pembayaran diverifikasi, bukan dari jumlah klik.</p>
+          </section>
           <details className={`${card} group hidden`}><summary className="cursor-pointer text-base font-extrabold text-white">⚙ Pengaturan Detail <span className="ml-2 text-xs font-normal text-white/45">Pengalaman, pendidikan, keahlian, tautan, dan data tambahan</span></summary><div className="space-y-5 pt-6">
           <section className={card}><h3 className="mb-5 text-xl font-extrabold">01 · Profil & Redaksi</h3><div className="grid gap-4 sm:grid-cols-2">
             <Control label="Nama lengkap / brand *"><input className={field} value={active.brief.name} placeholder="Satria Putra" onChange={(e) => patch({ name: e.target.value, slug: active.brief.slug || normalizeSlug(e.target.value), photo: { ...active.brief.photo, alt: `Foto ${e.target.value}` } })}/></Control>

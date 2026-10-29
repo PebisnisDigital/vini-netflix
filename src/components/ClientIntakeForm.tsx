@@ -10,7 +10,7 @@ const newEducation = () => ({ school: '', degree: '', place: '', period: '', sco
 const newHighlight = () => ({ title: '', description: '', category: '' });
 const initial: ClientBrief = {
   slug: '', name: '', role: '', location: '', bio: '', tagline: [], interests: [],
-  photo: { src: '', alt: '' }, email: '', links: { website: '', linkedin: '', github: '' },
+  photo: { src: '', alt: '' }, email: '', whatsapp: '', links: { website: '', linkedin: '', github: '' },
   projects: [newProject()], experiences: [newExperience()], education: [], skills: [], highlights: [],
 };
 const splitLines = (value: string) => value.split(/\n|,/).map((s) => s.trim()).filter(Boolean);
@@ -97,7 +97,7 @@ export default function ClientIntakeForm() {
   };
   const exportData = async () => {
     if (packing || optimizingCount > 0) return;
-    const invalid = validateBrief(prepared);
+    const invalid = validateBrief(prepared, { requireWhatsapp: true });
     if (!portrait) invalid.push('Pilih foto utama terlebih dahulu.');
     if (invalid.length) { setErrors(invalid); window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
     setPacking(true);
@@ -115,7 +115,7 @@ export default function ClientIntakeForm() {
 
   const openStudio = async () => {
     if (savingStudio || optimizingCount > 0) return;
-    const invalid = validateBrief(prepared);
+    const invalid = validateBrief(prepared, { requireWhatsapp: true });
     if (!portrait) invalid.push('Pilih foto utama terlebih dahulu.');
     if (invalid.length) { setErrors(invalid); window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
     setSavingStudio(true);
@@ -181,6 +181,7 @@ export default function ClientIntakeForm() {
       </div>)}<button type="button" className="rounded-xl border border-white/20 px-4 py-3 text-sm font-semibold hover:bg-white/10" onClick={() => update('projects', [...brief.projects, newProject()])}>+ Tambah karya</button></section>
 
       <section className={sectionClass}><h2 className="mb-5 text-xl font-bold">05 · Keahlian & Kontak</h2><Field label="Keahlian" note="Satu keahlian per baris"><textarea rows={3} className={inputClass} value={brief.skills.join('\n')} placeholder={'Komunikasi\nDesain Grafis\nPublic Speaking'} onChange={(e) => update('skills', splitLines(e.target.value))}/></Field><div className="mt-5 grid gap-4 sm:grid-cols-2">
+        <Field label="WhatsApp pemilik website *" note="Nomor ini akan menjadi tujuan tombol Mau Dibuatin di website klien. Gunakan nomor yang boleh menerima chat publik."><input className={inputClass} type="tel" inputMode="tel" autoComplete="tel" value={brief.whatsapp || ''} placeholder="0812xxxxxxxx" onChange={(e) => update('whatsapp', e.target.value)}/></Field>
         <Field label="Email (opsional)"><input className={inputClass} type="email" value={brief.email || ''} placeholder="nama@email.com" onChange={(e) => update('email', e.target.value)}/></Field>
         {(['website','linkedin','github'] as const).map((k) => <Field key={k} label={`Link ${k} (opsional)`}><input className={inputClass} value={brief.links?.[k] || ''} placeholder="https://..." onChange={(e) => update('links', { ...brief.links, [k]: e.target.value })}/></Field>)}
       </div><h3 className="mb-4 mt-8 text-lg font-semibold">Pencapaian / sorotan (opsional)</h3>

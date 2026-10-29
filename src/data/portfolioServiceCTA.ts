@@ -1,7 +1,7 @@
 /**
- * CTA jasa pembuatan portfolio, dipakai bersama di semua halaman klien.
- * Jangan mengganti nomor ini dengan nomor pemilik portfolio (/vini, /satria,
- * dan seterusnya); pengunjung diarahkan ke jasa Teh Vini.
+ * CTA utama landing page PESONAFLIX, menuju jasa Teh Vini.
+ * CTA di halaman pribadi klien menggunakan nomor pemiliknya sendiri melalui
+ * clientWhatsapp.mjs, bukan nomor statis ini.
  */
 export const portfolioServiceCTA = {
   headlineLines: ['MAU DIBUATIN', 'WEB SEPERTI INI ?'],
