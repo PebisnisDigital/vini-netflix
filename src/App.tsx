@@ -8,6 +8,7 @@ import OpeningSequence from './components/OpeningSequence';
 import ProfileSelector from './components/ProfileSelector';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import ChibiHero from './components/ChibiHero';
 import ContinueWatching from './components/ContinueWatching';
 import Scene from './components/Scene';
 import About from './components/About';
@@ -38,6 +39,7 @@ function readStoredProfile(key: string, viewerProfiles: ReturnType<typeof usePor
 
 export default function App({ slug, editorMode = false }: { slug: string; editorMode?: boolean }) {
   const { profile } = usePortfolio();
+  const chibiCinema = profile.designVariant === 'chibi-cinema';
   const theme = profile.theme;
   const styles = theme ? {
     '--color-ink': theme.background,
@@ -47,7 +49,7 @@ export default function App({ slug, editorMode = false }: { slug: string; editor
     '--client-accent': theme.accent,
   } as CSSProperties : undefined;
   return (
-    <div style={styles} className={`min-h-screen bg-ink${editorMode ? '' : ' client-portfolio'}`}>
+    <div style={styles} className={`min-h-screen bg-ink${editorMode ? '' : ' client-portfolio'}${chibiCinema ? ' chibi-cinema' : ''}`}>
       <SmoothScrollProvider>
         <Series slug={slug} editorMode={editorMode} />
       </SmoothScrollProvider>
@@ -56,10 +58,11 @@ export default function App({ slug, editorMode = false }: { slug: string; editor
 }
 
 function Series({ slug, editorMode }: { slug: string; editorMode: boolean }) {
-  const { viewerProfiles } = usePortfolio();
+  const { viewerProfiles, profile } = usePortfolio();
+  const chibiCinema = profile.designVariant === 'chibi-cinema';
   const storageKey = `personal-netflix-profile-${slug}`;
   const stored = readStoredProfile(storageKey, viewerProfiles);
-  const [stage, setStage] = useState<Stage>(editorMode || stored ? 'home' : 'opening');
+  const [stage, setStage] = useState<Stage>(editorMode || stored || chibiCinema ? 'home' : 'opening');
   const [profileId, setProfileId] = useState<ProfileId>(stored ?? 'vini');
   const [playing, setPlaying] = useState(false);
   const [project, setProject] = useState<Project | null>(null);
@@ -127,9 +130,13 @@ function Series({ slug, editorMode }: { slug: string; editorMode: boolean }) {
 
       {stage === 'home' && (
         <motion.div initial={{ opacity: 0, scale: 1.03, filter: 'blur(10px)' }} animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }} transition={{ duration: 1, ease: EASE }}>
-          <Navbar order={order} profileId={profileId} onSwitch={pickProfile} />
+          <Navbar order={order} profileId={profileId} onSwitch={pickProfile} variant={chibiCinema ? 'chibi' : undefined} />
           <main>
-            <Hero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onResume={() => setResumeOpen(true)} profileId={profileId} editorMode={editorMode} />
+            {chibiCinema ? (
+              <ChibiHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
+            ) : (
+              <Hero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onResume={() => setResumeOpen(true)} profileId={profileId} editorMode={editorMode} />
+            )}
             <ContinueWatching order={order} />
             {order.map((id) => (
               <Scene key={id} id={id} className={id === 'originals' ? '!py-0 sm:!py-0' : ''}>

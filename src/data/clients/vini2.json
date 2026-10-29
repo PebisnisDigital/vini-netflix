@@ -1,0 +1,148 @@
+{
+  "slug": "vini2",
+  "designVariant": "chibi-cinema",
+  "name": "Teh Vini",
+  "role": "Founder • Mentor Digital",
+  "location": "Bandung, Jawa Barat",
+  "bio": "Dari ibu rumah tangga, membangun karya digital yang bermanfaat.",
+  "tagline": ["Founder Pebisnis.Digital", "CEO Cuanify ID", "Belajar AI Bareng BADAI"],
+  "interests": ["Bisnis digital", "WhatsApp Marketing", "AI kreatif", "Edukasi pemula"],
+  "photo": {
+    "src": "/clients/vini2/hero-chibi.webp",
+    "alt": "Ilustrasi 3D chibi Teh Vini berhijab hitam, tersenyum di karpet merah bioskop"
+  },
+  "whatsapp": "62881022445869",
+  "email": "",
+  "links": {
+    "website": "https://promptional.vercel.app/"
+  },
+  "experiences": [
+    {
+      "company": "Cuanify ID",
+      "role": "CEO",
+      "period": "Saat ini",
+      "description": "Mengelola rintisan Cuanify ID serta mengembangkan layanan dan produk digital."
+    },
+    {
+      "company": "Pebisnis.Digital",
+      "role": "Founder & Mentor",
+      "period": "Aktif",
+      "description": "Membagikan strategi WhatsApp Marketing dan materi bisnis digital dengan bahasa yang mudah dipahami pemula."
+    },
+    {
+      "company": "Komunitas BADAI",
+      "role": "Pengelola Komunitas",
+      "period": "2026 – Sekarang",
+      "description": "Membangun komunitas Belajar Apa Aja Dengan AI, lengkap dengan materi praktik kreatif untuk pemula."
+    }
+  ],
+  "education": [],
+  "projects": [
+    {
+      "title": "BADAI",
+      "year": "2026",
+      "description": "Komunitas Belajar Apa Aja Dengan AI, tempat pemula belajar membuat karya digital melalui praktik.",
+      "category": "Komunitas • Edukasi AI",
+      "tags": ["Komunitas", "AI Kreatif", "Kelas Online"],
+      "image": "/clients/vini2/poster-badai.webp"
+    },
+    {
+      "title": "PROMPTIONAL",
+      "year": "2026",
+      "description": "Galeri inspirasi prompt gambar AI, dengan jalur konten gratis dan akses premium.",
+      "category": "Galeri Prompt • AI Kreatif",
+      "tags": ["Prompt AI", "Konten Kreatif", "Telegram"],
+      "website": "https://promptional.vercel.app/",
+      "image": "/clients/vini2/poster-promptional.webp"
+    },
+    {
+      "title": "PEBISNIS.DIGITAL",
+      "year": "Aktif",
+      "description": "Ruang belajar bisnis digital, kelas WhatsApp, dan strategi komunikasi pemasaran untuk pemula.",
+      "category": "Edukasi Bisnis • WhatsApp Marketing",
+      "tags": ["Bisnis Digital", "WhatsApp Marketing", "KULWA"]
+    }
+  ],
+  "skills": ["WhatsApp Marketing", "AI Kreatif", "Edukasi Digital", "Strategi Penjualan"],
+  "highlights": [
+    {
+      "title": "Membangun Pebisnis.Digital",
+      "description": "Mengembangkan materi bisnis digital yang terasa dekat untuk ibu rumah tangga dan pemula.",
+      "category": "Founder"
+    },
+    {
+      "title": "Berbagi Ilmu lewat KULWA",
+      "description": "Membawakan pembelajaran pemasaran dan praktik digital melalui kelas WhatsApp.",
+      "category": "Mentor"
+    },
+    {
+      "title": "Mengembangkan BADAI",
+      "description": "Menciptakan ruang komunitas untuk belajar dan berani mencoba AI.",
+      "category": "Komunitas"
+    }
+  ],
+  "seasons": [
+    {
+      "number": 1,
+      "title": "Dari Rumah, Mulai Berkarya",
+      "period": "Awal Cerita",
+      "synopsis": "Perjalanan Teh Vini sebagai ibu rumah tangga dari Bandung yang mulai mendalami bisnis digital.",
+      "episodes": [
+        {
+          "code": "S01 E01",
+          "title": "Berani Mulai dari Rumah",
+          "description": "Rasa ingin tahu pada teknologi membuka jalan untuk terus belajar dan berbagi.",
+          "tags": ["Bandung", "Belajar", "Bisnis Digital"],
+          "runtime": "Awal Cerita",
+          "palette": { "from": "#470d25", "via": "#b63b66", "to": "#13040d", "accent": "#ff729b" }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Membangun Ruang Belajar",
+      "period": "Perjalanan Founder",
+      "synopsis": "Membuat materi digital dan menemani pemula belajar pemasaran WhatsApp.",
+      "episodes": [
+        {
+          "code": "S02 E01",
+          "title": "Lahirnya Pebisnis.Digital",
+          "description": "Menyusun materi bisnis digital dengan contoh praktik yang mudah diikuti.",
+          "tags": ["Founder", "WhatsApp", "Edukasi"],
+          "runtime": "Sedang Berjalan",
+          "palette": { "from": "#4e2a06", "via": "#b28014", "to": "#120807", "accent": "#f4c400" }
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Petualangan AI",
+      "period": "2026 – Sekarang",
+      "synopsis": "Mengembangkan komunitas BADAI dan galeri kreatif PROMPTIONAL.",
+      "episodes": [
+        {
+          "code": "S03 E01",
+          "title": "Belajar Bareng BADAI",
+          "description": "Menyiapkan ruang belajar AI yang mendorong praktik dan keberanian mencoba.",
+          "tags": ["BADAI", "Komunitas", "AI"],
+          "runtime": "2026",
+          "palette": { "from": "#350819", "via": "#a11d55", "to": "#0c0310", "accent": "#ff54aa" },
+          "image": "/clients/vini2/poster-badai.webp"
+        },
+        {
+          "code": "S03 E02",
+          "title": "Galeri PROMPTIONAL",
+          "description": "Membagikan inspirasi prompt AI untuk membantu kreator bereksperimen dengan gambar.",
+          "tags": ["PROMPTIONAL", "AI Kreatif"],
+          "runtime": "2026",
+          "palette": { "from": "#24103e", "via": "#7f37aa", "to": "#0c0414", "accent": "#d193ff" },
+          "image": "/clients/vini2/poster-promptional.webp"
+        }
+      ]
+    }
+  ],
+  "theme": {
+    "accent": "#ff1746",
+    "background": "#100309"
+  }
+}
