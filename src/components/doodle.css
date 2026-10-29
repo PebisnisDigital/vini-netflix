@@ -102,10 +102,11 @@
   .doodle-hero { min-height: 0; padding-bottom: 30px; overflow: hidden; }
   .doodle-grid-paper { opacity: .46; }
   .doodle-spiral { top: 390px; bottom: 170px; }
-  .doodle-art { position: relative; top: auto; right: auto; width: 100%; height: 390px; }
+  .doodle-art { position: relative; top: auto; right: auto; width: 100%; height: 390px; padding-top: 64px; }
+  .doodle-art > img { height: 100%; }
   .doodle-art > img { object-position: 62% 38%; }
   .doodle-art::after { background: linear-gradient(0deg,#fff8e8,transparent 22%); }
-  .doodle-art-note { top: 100px; right: 15px; font-size: 8px; }
+  .doodle-art-note { top: auto; bottom: 20px; right: 15px; font-size: 8px; }
   .doodle-copy { width: 100%; padding: 12px 8vw 25px 9vw; }
   .doodle-name { font-size: clamp(78px,13vw,112px); }
   .doodle-arrow-drawing { top: 400px; left: auto; right: 5%; width: 92px; transform: rotate(-15deg); }
@@ -118,9 +119,9 @@
 @media (max-width: 530px) {
   .doodle-spiral { top: 320px; bottom: 270px; }
   .doodle-spiral i { width: 30px; height: 13px; border-width: 3px; }
-  .doodle-art { height: 329px; }
+  .doodle-art { height: 348px; }
   .doodle-art > img { object-position: 68% 45%; }
-  .doodle-art-note { top: 87px; right: 10px; max-width: 154px; font-size: 7px; text-align: right; }
+  .doodle-art-note { top: auto; bottom: 18px; right: 10px; max-width: 154px; font-size: 7px; text-align: right; }
   .doodle-copy { padding: 10px 26px 25px 33px; }
   .doodle-kicker { font-size: 8px; gap: 5px; }
   .doodle-hello { margin-top: 26px; font-size: 28px; }
@@ -131,8 +132,8 @@
   .doodle-actions { gap: 7px; }
   .doodle-actions button { min-height: 45px; padding: 9px 12px; font-size: 11px; }
   .doodle-footnote { font-size: 10px; }
-  .doodle-arrow-drawing { top: 335px; right: 5%; width: 68px; }
-  .doodle-star-one { top: 339px; right: 13%; font-size: 30px; }
+  .doodle-arrow-drawing { top: 354px; right: 5%; width: 68px; }
+  .doodle-star-one { top: 358px; right: 13%; font-size: 30px; }
   .doodle-star-two { display: none; }
   .doodle-page-bottom { margin: 5px 25px 25px 33px; font-size: 8px; flex-wrap: wrap; }
   .doodle-projects { margin: 0 25px 18px 33px; padding: 12px; flex-wrap: wrap; gap: 16px; }
