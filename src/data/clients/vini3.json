@@ -1,0 +1,146 @@
+{
+  "slug": "vini3",
+  "name": "Teh Vini",
+  "role": "Mentor AI & Bisnis Digital",
+  "location": "Bandung, Jawa Barat",
+  "whatsapp": "62881022445869",
+  "bio": "Halo! Aku Vini, ibu rumah tangga dari Bandung yang senang belajar hal baru, berbagi ilmu AI, dan menemani teman-teman yang sedang merintis usaha. Ini versi chibi dari cerita dan karya yang aku bangun. Yuk, kenalan!",
+  "tagline": [
+    "BELAJAR • BERKARYA • BERBAGI",
+    "Cerita, karya, dan perjalanan aku.",
+    "Pelan-pelan belajar, bareng-bareng bertumbuh."
+  ],
+  "interests": [
+    "Belajar AI Praktis",
+    "Konten Kreatif",
+    "WhatsApp Marketing",
+    "Membantu UMKM",
+    "Kelas Online",
+    "Komunitas Belajar"
+  ],
+  "photo": {
+    "src": "/clients/vini3/vini-chibi-hero.webp",
+    "alt": "Ilustrasi chibi Teh Vini berhijab pink dengan laptop dan buku catatan, bukan foto asli"
+  },
+  "experiences": [
+    {
+      "company": "BADAI — Belajar Apa Aja Dengan AI",
+      "role": "Pengelola Komunitas Belajar AI",
+      "period": "Sekarang",
+      "description": "Mengajak pemula belajar membuat karya dengan bantuan AI melalui materi, contoh, dan latihan yang mudah dicoba."
+    },
+    {
+      "company": "Pebisnis.Digital",
+      "role": "Penggagas Konten Bisnis Digital",
+      "period": "Sekarang",
+      "description": "Berbagi ide pemasaran, pemanfaatan teknologi, dan cara mulai usaha digital dengan bahasa sederhana."
+    },
+    {
+      "company": "Kelas dan Komunitas WhatsApp",
+      "role": "Mentor dan Pendamping Praktik",
+      "period": "Berjalan",
+      "description": "Memandu praktik langkah demi langkah, terutama untuk pemula, ibu rumah tangga, dan pelaku usaha kecil."
+    }
+  ],
+  "projects": [
+    {
+      "title": "BADAI: Belajar AI Bareng",
+      "year": "KOMUNITAS",
+      "description": "Tempat belajar bikin gambar, video, dan karya seru memakai AI. Materinya dibuat supaya pemula berani mencoba.",
+      "category": "Belajar AI",
+      "tags": ["Belajar", "Kreativitas", "Komunitas"],
+      "image": "/clients/vini3/vini-chibi-kelas.webp"
+    },
+    {
+      "title": "Konten Kreatif dengan AI",
+      "year": "KREATIF",
+      "description": "Eksperimen membuat konten digital yang menarik, dari gambar sampai ide video dan materi promosi.",
+      "category": "Kreasi Konten",
+      "tags": ["AI Kreatif", "Video", "Ide Konten"],
+      "image": "/clients/vini3/vini-chibi-konten.webp"
+    },
+    {
+      "title": "PROMPTIONAL",
+      "year": "GALERI AI",
+      "description": "Kumpulan inspirasi prompt gambar AI yang bisa dipelajari dan dicoba untuk membuat karya sendiri.",
+      "category": "Produk Digital",
+      "tags": ["Prompt AI", "Inspirasi", "Praktik"],
+      "image": "/clients/vini3/vini-chibi-konten.webp"
+    },
+    {
+      "title": "Training Game Edukasi",
+      "year": "KELAS PRAKTIK",
+      "description": "Belajar bikin permainan edukasi sederhana dengan AI, lalu langsung mempraktikkannya bersama peserta.",
+      "category": "Kelas Online",
+      "tags": ["Game Edukasi", "AI", "Belajar Bersama"],
+      "image": "/clients/vini3/vini-chibi-kelas.webp"
+    },
+    {
+      "title": "Ide Digital untuk UMKM",
+      "year": "BERBAGI",
+      "description": "Berbagi cara sederhana memanfaatkan teknologi dan konten agar usaha kecil makin mudah dikenal pelanggan.",
+      "category": "Dukungan UMKM",
+      "tags": ["UMKM", "Bisnis Digital", "Pemasaran"],
+      "image": "/clients/vini3/vini-chibi-umkm.webp"
+    }
+  ],
+  "skills": [
+    "AI untuk Pemula",
+    "Membuat Konten",
+    "WhatsApp Marketing",
+    "Membuat Kelas Online",
+    "Berbagi Materi",
+    "Mendampingi UMKM"
+  ],
+  "skillCategories": [
+    {
+      "id": "berkarya",
+      "title": "Suka Bikin Karya",
+      "subtitle": "Dari ide kecil jadi sesuatu yang bisa dicoba",
+      "skills": [
+        { "name": "AI untuk Pemula", "mono": "AI", "note": "Praktik bareng", "evidence": ["Latihan gambar dan video AI", "Contoh prompt bahasa Indonesia"] },
+        { "name": "Membuat Konten", "mono": "KT", "note": "Eksperimen", "evidence": ["Gambar AI", "Ide video dan materi promosi"] },
+        { "name": "Berbagi Materi", "mono": "BR", "note": "Bahasa sederhana", "evidence": ["Panduan langkah demi langkah", "Materi untuk pemula"] }
+      ]
+    },
+    {
+      "id": "berbagi",
+      "title": "Suka Belajar Bareng",
+      "subtitle": "Karena belajar sendirian kadang bikin pusing",
+      "skills": [
+        { "name": "WhatsApp Marketing", "mono": "WA", "evidence": ["Komunikasi dengan calon pelanggan", "Belajar promosi melalui WhatsApp"] },
+        { "name": "Membuat Kelas Online", "mono": "KL", "evidence": ["Kelas praktik di grup", "Membimbing peserta mencoba"] },
+        { "name": "Mendampingi UMKM", "mono": "UM", "evidence": ["Ide pemasaran sederhana", "Adaptasi teknologi untuk usaha kecil"] }
+      ]
+    }
+  ],
+  "skillsHeading": "Yang Aku Suka Pelajari",
+  "skillsAside": "Nggak harus jago dulu untuk mulai. Yang penting mau mencoba dan terus belajar.",
+  "skillsKicker": "BELAJAR · PRAKTIK · BERBAGI",
+  "watchCards": [
+    { "target": "about", "title": "Kenalan Yuk", "subtitle": "Cerita singkat tentang aku", "image": "/clients/vini3/vini-chibi-cerita.webp" },
+    { "target": "originals", "title": "Konten Kreatif", "subtitle": "Yuk lihat hasil karyaku", "image": "/clients/vini3/vini-chibi-konten.webp" },
+    { "target": "journey", "title": "Perjalanan Belajar", "subtitle": "Dari penasaran jadi berani coba", "image": "/clients/vini3/vini-chibi-kelas.webp" },
+    { "target": "skills", "title": "Belajar Bareng", "subtitle": "Hal-hal yang sedang aku tekuni", "image": "/clients/vini3/vini-chibi-kelas.webp" },
+    { "target": "picks", "title": "Karya Pilihan", "subtitle": "Beberapa cerita menarik", "image": "/clients/vini3/vini-chibi-umkm.webp" },
+    { "target": "moments", "title": "Cerita Kecil", "subtitle": "Hal yang bikin aku semangat", "image": "/clients/vini3/vini-chibi-cerita.webp" },
+    { "target": "story", "title": "Ngobrol Lebih Jauh", "subtitle": "Mau kenalan atau kolaborasi?", "image": "/clients/vini3/vini-chibi-umkm.webp" }
+  ],
+  "pickCards": [
+    { "label": "BELAJAR AI", "title": "Bikin Gambar AI", "detail": "Dari ide jadi gambar lucu", "image": "/clients/vini3/vini-chibi-konten.webp" },
+    { "label": "KOMUNITAS", "title": "Kelas Bareng", "detail": "Belajar dan praktik bersama", "image": "/clients/vini3/vini-chibi-kelas.webp" },
+    { "label": "DIGITAL", "title": "Konten Kreatif", "detail": "Mencoba hal baru", "image": "/clients/vini3/vini-chibi-konten.webp" },
+    { "label": "BELAJAR", "title": "Berani Mencoba", "detail": "Mulai dari langkah sederhana", "image": "/clients/vini3/vini-chibi-kelas.webp" },
+    { "label": "BISNIS", "title": "Ide untuk UMKM", "detail": "Berbagi inspirasi usaha", "image": "/clients/vini3/vini-chibi-umkm.webp" },
+    { "label": "CERITA", "title": "Kenalan Yuk", "detail": "Ada cerita di setiap karya", "image": "/clients/vini3/vini-chibi-cerita.webp" }
+  ],
+  "picksHeading": "Cerita & Karya Favorit",
+  "picksKicker": "YANG SERU BUAT DITONTON",
+  "journeyHeading": "Perjalananku",
+  "journeyKicker": "CERITA DARI WAKTU KE WAKTU",
+  "journeyAside": "Setiap hal baru selalu dimulai dari rasa penasaran. Yuk, ikuti ceritanya.",
+  "theme": {
+    "accent": "#ff4f96",
+    "background": "#110917"
+  }
+}

@@ -49,7 +49,7 @@ export default function App({ slug, editorMode = false }: { slug: string; editor
     '--client-accent': theme.accent,
   } as CSSProperties : undefined;
   return (
-    <div style={styles} className={`min-h-screen bg-ink${editorMode ? '' : ' client-portfolio'}${chibiCinema ? ' chibi-cinema' : ''}`}>
+    <div style={styles} className={`min-h-screen bg-ink${editorMode ? '' : ' client-portfolio'}${slug === 'vini3' ? ' chibi-theme' : ''}${chibiCinema ? ' chibi-cinema' : ''}`}>
       <SmoothScrollProvider>
         <Series slug={slug} editorMode={editorMode} />
       </SmoothScrollProvider>
@@ -62,7 +62,7 @@ function Series({ slug, editorMode }: { slug: string; editorMode: boolean }) {
   const chibiCinema = profile.designVariant === 'chibi-cinema';
   const storageKey = `personal-netflix-profile-${slug}`;
   const stored = readStoredProfile(storageKey, viewerProfiles);
-  const [stage, setStage] = useState<Stage>(editorMode || stored || chibiCinema ? 'home' : 'opening');
+  const [stage, setStage] = useState<Stage>(slug === 'vini3' || editorMode || stored || chibiCinema ? 'home' : 'opening');
   const [profileId, setProfileId] = useState<ProfileId>(stored ?? 'vini');
   const [playing, setPlaying] = useState(false);
   const [project, setProject] = useState<Project | null>(null);
