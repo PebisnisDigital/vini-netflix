@@ -16,6 +16,7 @@ const item = {
 export default function Hero({ onPlay, onResume, profileId, editorMode = false }: { onPlay: () => void; onResume: () => void; profileId: ProfileId; editorMode?: boolean }) {
   const { profile, projects } = usePortfolio();
   const chibi = profile.clientSlug === 'vini3';
+  const anime = profile.clientSlug === 'vini4';
   const ref = useRef<HTMLElement>(null);
   const fine = useFinePointer();
   const { scrollTo } = useSmoothScroll();
@@ -118,14 +119,14 @@ export default function Hero({ onPlay, onResume, profileId, editorMode = false }
           <SeriesMark />
         </motion.div>
         <motion.h1 data-studio-edit="name" variants={item} className="font-display leading-[1.05] text-bone" style={{ fontSize: 'clamp(3rem, 7.2vw, 7rem)' }}>
-          {chibi ? (
-            <span className="client-name-punch">Halo, aku <span className="chibi-name">Vini!</span></span>
+          {chibi || anime ? (
+            <span className="client-name-punch">Halo, aku <span className={anime ? 'anime-name' : 'chibi-name'}>Vini!</span></span>
           ) : (
             <span className="shimmer-text client-name-punch">{profile.firstName}</span>
           )}
         </motion.h1>
         <motion.p variants={item} className="mt-1 font-sans text-sm font-bold tracking-[0.62em] text-crimson-2 sm:text-base">
-          {chibi ? 'VERSI CHIBI · CERITA TEH VINI' : profile.seriesTag}
+          {chibi ? 'VERSI CHIBI · CERITA TEH VINI' : anime ? 'ANIME EDITION · CERITA TEH VINI' : profile.seriesTag}
         </motion.p>
 
         <motion.div variants={item} className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 text-[13px] font-medium text-mist">

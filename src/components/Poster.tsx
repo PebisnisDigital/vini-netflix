@@ -104,6 +104,9 @@ export function SeriesMark({ className = '' }: { className?: string }) {
   if (profile.clientSlug === 'vini3') {
     return <span className={`inline-flex items-center font-display text-[1.08em] font-bold tracking-tight text-[#ff4085] ${className}`} aria-label="VINI3">VINI<span className="text-[#ffb95f]">3</span></span>;
   }
+  if (profile.clientSlug === 'vini4') {
+    return <span className={`inline-flex items-center font-display text-[1.06em] font-black tracking-[-0.05em] text-[#ff68ab] ${className}`} aria-label="VINI4">VINI<span className="text-[#80f5ff]">4</span></span>;
+  }
   return (
     <span className={`inline-flex items-center whitespace-nowrap font-sans text-[0.76em] font-black tracking-[0.035em] ${className}`} aria-label="PESONAFLIX">
       <span className="text-mist">PESONA</span><span className="text-[#e5132b]">FLIX</span>
