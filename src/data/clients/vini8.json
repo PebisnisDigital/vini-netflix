@@ -1,0 +1,49 @@
+{
+  "slug": "vini8",
+  "name": "Teh Vini",
+  "role": "Mentor AI & Kreator Website",
+  "location": "Bandung, Jawa Barat",
+  "whatsapp": "62881022445869",
+  "bio": "Saya Vini, ibu rumah tangga dari Bandung yang suka mengubah ide sederhana menjadi karya digital. Saya menemani pemula belajar AI, membuat konten, dan membangun website personal yang punya cerita. Bukan harus jago teknologi dulu. Mulai dari penasaran, lalu berani mencoba.",
+  "tagline": ["DARI CORETAN KECIL JADI KARYA", "Satu ide kecil bisa jadi sesuatu yang bikin orang tersenyum.", "Coba • Coret • Ciptakan"],
+  "interests": ["AI untuk Pemula", "Website Personal", "Konten Bergambar", "WhatsApp Marketing", "Game Edukasi", "Komunitas Belajar"],
+  "photo": {
+    "src": "/clients/vini8/vini-doodle-hero.webp",
+    "alt": "Ilustrasi Doodle buatan AI menampilkan karakter fiksi mentor berhijab kuning di depan laptop; bukan foto asli Teh Vini"
+  },
+  "experiences": [
+    {"company": "BADAI — Belajar Apa Aja Dengan AI", "role": "Pengelola Komunitas", "period": "Sekarang", "description": "Mengajak peserta yang baru kenal AI untuk belajar lewat contoh, praktik, dan karya sederhana."},
+    {"company": "Pebisnis.Digital", "role": "Penggagas Konten Edukasi", "period": "Sekarang", "description": "Membagikan pengetahuan bisnis digital dengan bahasa yang terasa dekat untuk kebutuhan sehari-hari."},
+    {"company": "Kelas Praktik WhatsApp", "role": "Mentor", "period": "Berjalan", "description": "Memandu latihan AI dan pemasaran untuk ibu rumah tangga, guru, serta usaha kecil."}
+  ],
+  "projects": [
+    {"title": "BADAI: Belajar Seru", "year": "KOMUNITAS", "description": "Ruang belajar AI bagi pemula. Dari coba-coba gambar sampai praktek membuat karya yang bisa dibagikan.", "category": "Komunitas & Edukasi", "tags": ["AI", "Belajar", "Praktik"], "image": "/clients/vini8/vini-doodle-kelas.webp"},
+    {"title": "Website Punya Cerita", "year": "KREASI", "description": "Membantu orang menampilkan keahlian dan kisah hidup lewat website personal yang berkarakter, termasuk pilihan gaya lucu.", "category": "Website & Personal Branding", "tags": ["Website", "Kreativitas", "Branding"], "image": "/clients/vini8/vini-doodle-studio.webp"},
+    {"title": "Game Belajar Pakai AI", "year": "KELAS", "description": "Mengajak peserta membuat game edukasi sederhana dengan panduan bertahap dan latihan langsung.", "category": "Edukasi Praktis", "tags": ["Game Edukasi", "AI", "Kelas WhatsApp"], "image": "/clients/vini8/vini-doodle-kelas.webp"}
+  ],
+  "skills": ["AI untuk Pemula", "Website Personal", "Desain Konten", "WhatsApp Marketing", "Kelas Edukasi", "Manajemen Komunitas"],
+  "skillsHeading": "Isi Kotak Pensil Saya",
+  "skillsAside": "Ini bukan daftar gelar hebat. Ini hal-hal yang terus saya pelajari, praktikkan, dan bagikan dengan cara sederhana.",
+  "skillsKicker": "ALAT BERKARYA",
+  "highlights": [
+    {"title": "Ruang Belajar BADAI", "description": "Tempat para pemula mencoba AI tanpa harus takut salah.", "category": "KOMUNITAS"},
+    {"title": "Kelas Praktik", "description": "Bukan cuma mendengar. Peserta diajak mencoba dan membuat sendiri.", "category": "EDUKASI"},
+    {"title": "Karya Website", "description": "Website personal yang membantu orang menunjukkan cerita dan keahliannya.", "category": "KREASI"}
+  ],
+  "watchCards": [
+    {"target": "about", "title": "Kenalan Yuk!", "subtitle": "Cerita tentang saya", "image": "/clients/vini8/vini-doodle-hero.webp"},
+    {"target": "originals", "title": "Lihat Hasil Coretan", "subtitle": "Karya dan ide", "image": "/clients/vini8/vini-doodle-studio.webp"},
+    {"target": "journey", "title": "Perjalanan Mencoba", "subtitle": "Dari ide ke aksi", "image": "/clients/vini8/vini-doodle-kelas.webp"},
+    {"target": "skills", "title": "Kotak Pensil Saya", "subtitle": "Keahlian yang diasah", "image": "/clients/vini8/vini-doodle-studio.webp"},
+    {"target": "picks", "title": "Pilihan Favorit", "subtitle": "Cerita pilihan", "image": "/clients/vini8/vini-doodle-kelas.webp"},
+    {"target": "moments", "title": "Momen Berwarna", "subtitle": "Hal-hal yang berarti", "image": "/clients/vini8/vini-doodle-hero.webp"},
+    {"target": "story", "title": "Lanjut Ceritanya", "subtitle": "Ayo kenal lebih dekat", "image": "/clients/vini8/vini-doodle-studio.webp"}
+  ],
+  "picksHeading": "Pilihan yang Berwarna",
+  "picksKicker": "IDE KECIL, CERITA BESAR",
+  "journeyHeading": "Dari Titik Jadi Garis",
+  "journeyKicker": "PERJALANAN BELAJAR",
+  "journeyAside": "Saya percaya proses belajar itu mirip buku sketsa. Ada coretan yang gagal, ada yang lucu, lalu pelan-pelan mulai terlihat gambarnya.",
+  "templateId": "doodle",
+  "identityMode": "photo"
+}

@@ -58,3 +58,22 @@ test('EDITORIAL PREMIUM memiliki kamera dan detail yang bergerak otomatis; secti
   assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
   assert.doesNotMatch(hero, /AnimationControl|toggleMotion|PauseAnimation/);
 });
+
+test('DOODLE memiliki garis yang tergambar dan animasi otomatis serta mewarisi section ORIGINAL', () => {
+  const app = read('src/App.tsx');
+  const hero = read('src/components/DoodleHero.tsx');
+  const css = read('src/components/doodle.css');
+  assert.match(app, /<DoodleHero\s+key=/);
+  assert.match(app, /<ContinueWatching\s+order=/);
+  assert.match(app, /<Scene\s+key=/);
+  assert.match(app, /<FinalCTA\s+onReplay=/);
+  assert.match(hero, /data-studio-edit="portrait"/);
+  assert.match(hero, /data-studio-edit="name"/);
+  assert.match(hero, /data-studio-edit="bio"/);
+  assert.match(hero, /initial=\{\{ opacity: 0/);
+  assert.match(css, /animation:\s*doodle-image-breathe[^;]*infinite/);
+  assert.match(css, /animation:\s*doodle-line-draw[^;]*infinite/);
+  assert.match(css, /animation:\s*doodle-sun-turn[^;]*infinite/);
+  assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
+  assert.doesNotMatch(hero, /AnimationControl|toggleMotion|PauseAnimation/);
+});
