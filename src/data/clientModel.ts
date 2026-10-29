@@ -52,6 +52,7 @@ export const CLAY_THEME: ClientTheme = { accent: '#ff876f', background: '#18223e
 export const COMIC_THEME: ClientTheme = { accent: '#f52983', background: '#081b42' };
 export const EDITORIAL_THEME: ClientTheme = { accent: '#ddb780', background: '#0d0c0c' };
 export const DOODLE_THEME: ClientTheme = { accent: '#f6c94d', background: '#17334d' };
+export const STORYBOOK_THEME: ClientTheme = { accent: '#d68e8b', background: '#263b32' };
 
 /** Preset visual mengikuti gaya. Warna pilihan klien tetap lebih tinggi prioritasnya. */
 export function effectiveTheme(data: { theme?: ClientTheme; templateId?: TemplateId; designVariant?: 'chibi-cinema' }): ClientTheme {
@@ -61,6 +62,7 @@ export function effectiveTheme(data: { theme?: ClientTheme; templateId?: Templat
   const comic = data.templateId === 'komik-pop';
   const editorial = data.templateId === 'editorial-premium';
   const doodle = data.templateId === 'doodle';
+  const storybook = data.templateId === 'storybook';
   const defaultOriginal = data.theme?.accent.toLowerCase() === DEFAULT_THEME.accent && data.theme?.background.toLowerCase() === DEFAULT_THEME.background;
   if (chibi && (!data.theme || defaultOriginal)) return CHIBI_THEME;
   if (anime && (!data.theme || defaultOriginal)) return ANIME_THEME;
@@ -68,6 +70,7 @@ export function effectiveTheme(data: { theme?: ClientTheme; templateId?: Templat
   if (comic && (!data.theme || defaultOriginal)) return COMIC_THEME;
   if (editorial && (!data.theme || defaultOriginal)) return EDITORIAL_THEME;
   if (doodle && (!data.theme || defaultOriginal)) return DOODLE_THEME;
+  if (storybook && (!data.theme || defaultOriginal)) return STORYBOOK_THEME;
   return data.theme || DEFAULT_THEME;
 }
 

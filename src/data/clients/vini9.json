@@ -1,0 +1,49 @@
+{
+  "slug": "vini9",
+  "name": "Teh Vini",
+  "role": "Mentor AI & Kreator Website Personal",
+  "location": "Bandung, Jawa Barat",
+  "whatsapp": "62881022445869",
+  "bio": "Saya Vini, seorang ibu rumah tangga dari Bandung yang jatuh cinta pada dunia kreasi digital. Cerita saya berawal dari rasa penasaran mencoba AI, lalu tumbuh menjadi kegiatan berbagi ilmu, membuat kelas praktik, dan membantu orang punya website personal yang memperlihatkan siapa dirinya.",
+  "tagline": ["SETIAP KARYA PUNYA CERITA", "Hal-hal besar kadang bermula dari rasa penasaran yang sederhana.", "Belajar • Bercerita • Berkarya"],
+  "interests": ["Belajar AI dari Nol", "Cerita Personal Branding", "Website Personal", "WhatsApp Marketing", "Game Edukasi", "Kreativitas Sehari-hari"],
+  "photo": {
+    "src": "/clients/vini9/vini-storybook-hero.webp",
+    "alt": "Ilustrasi buku cerita cat air buatan AI menampilkan karakter fiksi mentor berhijab membaca buku; bukan foto asli Teh Vini"
+  },
+  "experiences": [
+    {"company": "BADAI — Belajar Apa Aja Dengan AI", "role": "Pengelola Komunitas Belajar", "period": "Sekarang", "description": "Membuka ruang belajar AI yang ramah untuk pemula lewat contoh, panduan, dan praktik langsung."},
+    {"company": "Pebisnis.Digital", "role": "Penggagas Edukasi Digital", "period": "Sekarang", "description": "Mengolah pengalaman pemasaran digital menjadi cerita dan materi yang mudah dipahami."},
+    {"company": "Training Bikin Game Edukasi", "role": "Mentor Kelas Praktik", "period": "Berjalan", "description": "Mengajak peserta mencoba membuat game belajar sederhana menggunakan AI melalui kelas WhatsApp."}
+  ],
+  "projects": [
+    {"title": "BADAI: Tempat Belajar", "year": "KOMUNITAS", "description": "Komunitas yang mempertemukan rasa ingin tahu dengan langkah-langkah belajar AI yang bisa langsung dicoba.", "category": "Komunitas & Edukasi", "tags": ["AI Pemula", "Komunitas", "Praktik"], "image": "/clients/vini9/vini-storybook-kelas.webp"},
+    {"title": "Website Punya Kisah", "year": "KREASI", "description": "Membantu pemilik keahlian dan usaha menyampaikan cerita, pengalaman, serta karya mereka melalui website personal yang berkarakter.", "category": "Kreatif & Personal Branding", "tags": ["Website", "Cerita", "Branding"], "image": "/clients/vini9/vini-storybook-studio.webp"},
+    {"title": "Kelas Game Edukasi", "year": "PEMBELAJARAN", "description": "Kelas praktik membuat game edukasi sederhana dengan AI, dimulai dari satu ide hingga karya yang bisa dicoba.", "category": "Edukasi Praktis", "tags": ["Game Edukasi", "AI", "WhatsApp"], "image": "/clients/vini9/vini-storybook-kelas.webp"}
+  ],
+  "skills": ["AI untuk Pemula", "Mentoring Praktik", "Pembuatan Website", "Personal Branding", "Pembuatan Konten", "WhatsApp Marketing"],
+  "skillsHeading": "Bekal di Dalam Perjalanan",
+  "skillsAside": "Setiap keterampilan lahir dari mencoba, menemui kesulitan, dan bertemu orang-orang yang ikut belajar bersama.",
+  "skillsKicker": "BEKAL SANG TOKOH",
+  "highlights": [
+    {"title": "BADAI", "description": "Ruang belajar AI untuk pemula yang ingin mulai tanpa takut salah.", "category": "KOMUNITAS"},
+    {"title": "Kelas Praktik", "description": "Proses belajar yang mengajak peserta mencoba dan menghasilkan karya.", "category": "EDUKASI"},
+    {"title": "Website Personal", "description": "Menceritakan keahlian dan karakter seseorang lewat halaman digital.", "category": "KREASI"}
+  ],
+  "watchCards": [
+    {"target": "about", "title": "Prolog: Kenalan", "subtitle": "Tokoh di balik cerita", "image": "/clients/vini9/vini-storybook-hero.webp"},
+    {"target": "originals", "title": "Bab Karya", "subtitle": "Dari ide menjadi nyata", "image": "/clients/vini9/vini-storybook-studio.webp"},
+    {"target": "journey", "title": "Bab Perjalanan", "subtitle": "Langkah demi langkah", "image": "/clients/vini9/vini-storybook-kelas.webp"},
+    {"target": "skills", "title": "Bekal Berkreasi", "subtitle": "Hal yang saya pelajari", "image": "/clients/vini9/vini-storybook-studio.webp"},
+    {"target": "picks", "title": "Halaman Favorit", "subtitle": "Karya dan pengalaman", "image": "/clients/vini9/vini-storybook-kelas.webp"},
+    {"target": "moments", "title": "Catatan Berarti", "subtitle": "Momen kecil bermakna", "image": "/clients/vini9/vini-storybook-hero.webp"},
+    {"target": "story", "title": "Epilog: Lebih Dekat", "subtitle": "Mari bertukar cerita", "image": "/clients/vini9/vini-storybook-studio.webp"}
+  ],
+  "picksHeading": "Halaman-Halaman Favorit",
+  "picksKicker": "PILIHAN CERITA",
+  "journeyHeading": "Bab-Bab Perjalanan Saya",
+  "journeyKicker": "SETIAP LANGKAH ADALAH CERITA",
+  "journeyAside": "Tak semua halaman ditulis dengan mudah. Ada hari untuk mencoba, ada proses belajar dari kegagalan, lalu tumbuh keberanian membagikan hasilnya.",
+  "templateId": "storybook",
+  "identityMode": "photo"
+}

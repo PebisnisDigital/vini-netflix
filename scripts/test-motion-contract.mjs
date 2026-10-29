@@ -77,3 +77,22 @@ test('DOODLE memiliki garis yang tergambar dan animasi otomatis serta mewarisi s
   assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
   assert.doesNotMatch(hero, /AnimationControl|toggleMotion|PauseAnimation/);
 });
+
+test('STORYBOOK membuat halaman buku bergerak otomatis dan mewarisi section ORIGINAL', () => {
+  const app = read('src/App.tsx');
+  const hero = read('src/components/StorybookHero.tsx');
+  const css = read('src/components/storybook.css');
+  assert.match(app, /<StorybookHero\s+key=/);
+  assert.match(app, /<ContinueWatching\s+order=/);
+  assert.match(app, /<Scene\s+key=/);
+  assert.match(app, /<FinalCTA\s+onReplay=/);
+  assert.match(hero, /data-studio-edit="portrait"/);
+  assert.match(hero, /data-studio-edit="name"/);
+  assert.match(hero, /data-studio-edit="bio"/);
+  assert.match(hero, /initial=\{\{ opacity: 0/);
+  assert.match(css, /animation:\s*storybook-watercolor-drift[^;]*infinite/);
+  assert.match(css, /animation:\s*storybook-page-turn[^;]*infinite/);
+  assert.match(css, /animation:\s*storybook-firefly-float[^;]*infinite/);
+  assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
+  assert.doesNotMatch(hero, /AnimationControl|toggleMotion|PauseAnimation/);
+});

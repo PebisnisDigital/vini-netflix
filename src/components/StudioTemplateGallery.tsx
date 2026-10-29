@@ -26,7 +26,7 @@ export default function StudioTemplateGallery({ selectedTemplateId, identityMode
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#ff7294]">PESONAFLIX STUDIO · TEMPLATE</p>
           <h3 className="mt-2 text-2xl font-black sm:text-3xl">Pilih Gaya Website</h3>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/60">Ada 16 gaya dalam katalog. ORIGINAL, CHIBI 3D, ANIME, CLAY 3D, KOMIK POP, EDITORIAL PREMIUM, dan DOODLE sudah bisa dipilih untuk klien. Gaya lainnya menyusul.</p>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/60">Ada 16 gaya dalam katalog. ORIGINAL, CHIBI 3D, ANIME, CLAY 3D, KOMIK POP, EDITORIAL PREMIUM, DOODLE, dan STORYBOOK siap untuk klien. Gaya lainnya menyusul.</p>
         </div>
         <div className="rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-right">
           <span className="block text-[11px] font-bold uppercase tracking-wider text-white/45">Gaya klien ini</span>
@@ -91,6 +91,16 @@ export default function StudioTemplateGallery({ selectedTemplateId, identityMode
             <p className="mt-1 text-xs leading-relaxed text-white/85">Kertas sketsa, font tulisan tangan, coretan, stiker dan animasi otomatis akan tampil bersama section dan animasi master ORIGINAL. Isi identitas dan unggah ilustrasi serta poster karya klien melalui Editor Website. Sistem belum otomatis membuat ilustrasi dari foto.</p>
           </div>
           <button type="button" onClick={onEditWebsite} className="min-h-10 rounded-[14px_8px_17px_12px] border-2 border-[#16334d] bg-[#f6c94d] px-5 py-2.5 text-sm font-extrabold text-[#16334d] shadow-[4px_4px_0_#fff8e8] transition hover:-translate-y-1">Buka Editor Website</button>
+        </div>
+      )}
+
+      {selectedTemplateId === 'storybook' && (
+        <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-[#e8c5a0]/45 bg-gradient-to-r from-[#324c40] via-[#486552] to-[#795c57] p-4 sm:p-5">
+          <div className="max-w-2xl">
+            <p className="font-['DM_Serif_Display'] text-2xl text-[#ffedce]">✦ STORYBOOK aktif untuk klien ini</p>
+            <p className="mt-1 text-xs leading-relaxed text-white/85">Lembaran buku cerita, lukisan cat air, tipografi dongeng, dan animasi membalik halaman berjalan otomatis. Section dan motion master ORIGINAL tetap aktif. Lengkapi kisah serta unggah ilustrasi milik klien melalui Editor Website; gambar AI tidak dibuat otomatis.</p>
+          </div>
+          <button type="button" onClick={onEditWebsite} className="min-h-10 rounded-xl border border-[#f3ddb7] bg-[#f4dfbf] px-5 py-2.5 text-sm font-extrabold text-[#314737] transition hover:bg-[#fff3db]">Buka Editor Website</button>
         </div>
       )}
 
