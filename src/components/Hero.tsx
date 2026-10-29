@@ -16,7 +16,8 @@ const item = {
 export default function Hero({ onPlay, onResume, profileId, editorMode = false }: { onPlay: () => void; onResume: () => void; profileId: ProfileId; editorMode?: boolean }) {
   const { profile, projects } = usePortfolio();
   const chibi = profile.clientSlug === 'vini3';
-  const anime = profile.clientSlug === 'vini4';
+  const anime = profile.templateId === 'anime' || profile.clientSlug === 'vini4';
+  const needsAnimeArtwork = profile.templateId === 'anime' && profile.portrait.src === '/assets/portrait-720.webp';
   const ref = useRef<HTMLElement>(null);
   const fine = useFinePointer();
   const { scrollTo } = useSmoothScroll();
@@ -83,14 +84,26 @@ export default function Hero({ onPlay, onResume, profileId, editorMode = false }
           {/* rim light ring */}
           <div aria-hidden className="absolute bottom-[8%] left-1/2 h-[78%] w-[78%] -translate-x-1/2 rounded-full border border-crimson-2/20 shadow-[0_0_120px_rgba(229,19,43,0.35),inset_0_0_80px_rgba(229,19,43,0.18)]" />
           <div className="client-portrait-cinema absolute inset-0">
-            <img
-              data-studio-edit="portrait"
-              src={profile.portrait.src}
-              srcSet={profile.portrait.srcSet}
-              sizes="(max-width: 1024px) 100vw, 54vw"
-              alt={profile.portrait.alt}
-              className="absolute bottom-0 left-1/2 h-full w-auto max-w-none -translate-x-1/2 object-contain object-bottom drop-shadow-[0_30px_60px_rgba(0,0,0,0.6)] [mask-image:linear-gradient(to_bottom,black_62%,transparent_97%)]"
-            />
+            {needsAnimeArtwork ? (
+              <div data-studio-edit="portrait" className="anime-art-placeholder" role="img" aria-label="Area ilustrasi anime klien. Unggah karakter melalui Foto Utama di editor.">
+                <span className="anime-art-moon" aria-hidden="true" />
+                <span className="anime-art-character" aria-hidden="true">
+                  <span className="anime-art-hair" />
+                  <span className="anime-art-face"><i /><i /><b /></span>
+                  <span className="anime-art-body" />
+                </span>
+                <span className="anime-art-hint">UNGGAH KARAKTER ANIME</span>
+              </div>
+            ) : (
+              <img
+                data-studio-edit="portrait"
+                src={profile.portrait.src}
+                srcSet={profile.portrait.srcSet}
+                sizes="(max-width: 1024px) 100vw, 54vw"
+                alt={profile.portrait.alt}
+                className="absolute bottom-0 left-1/2 h-full w-auto max-w-none -translate-x-1/2 object-contain object-bottom drop-shadow-[0_30px_60px_rgba(0,0,0,0.6)] [mask-image:linear-gradient(to_bottom,black_62%,transparent_97%)]"
+              />
+            )}
           </div>
           {/* crimson rim light on the image edge */}
           <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_80%_30%,rgba(255,61,90,0.16),transparent_70%)] mix-blend-screen" />
@@ -120,13 +133,13 @@ export default function Hero({ onPlay, onResume, profileId, editorMode = false }
         </motion.div>
         <motion.h1 data-studio-edit="name" variants={item} className="font-display leading-[1.05] text-bone" style={{ fontSize: 'clamp(3rem, 7.2vw, 7rem)' }}>
           {chibi || anime ? (
-            <span className="client-name-punch">Halo, aku <span className={anime ? 'anime-name' : 'chibi-name'}>Vini!</span></span>
+            <span className="client-name-punch">Halo, aku <span className={anime ? 'anime-name' : 'chibi-name'}>{anime && profile.clientSlug !== 'vini4' ? profile.displayName.trim().split(/\s+/)[0] : 'Vini'}!</span></span>
           ) : (
             <span className="shimmer-text client-name-punch">{profile.firstName}</span>
           )}
         </motion.h1>
         <motion.p variants={item} className="mt-1 font-sans text-sm font-bold tracking-[0.62em] text-crimson-2 sm:text-base">
-          {chibi ? 'VERSI CHIBI · CERITA TEH VINI' : anime ? 'ANIME EDITION · CERITA TEH VINI' : profile.seriesTag}
+          {chibi ? 'VERSI CHIBI · CERITA TEH VINI' : anime ? `ANIME EDITION · CERITA ${profile.displayName.toUpperCase()}` : profile.seriesTag}
         </motion.p>
 
         <motion.div variants={item} className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 text-[13px] font-medium text-mist">

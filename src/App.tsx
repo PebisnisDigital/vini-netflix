@@ -41,9 +41,10 @@ function readStoredProfile(key: string, viewerProfiles: ReturnType<typeof usePor
 export default function App({ slug, editorMode = false }: { slug: string; editorMode?: boolean }) {
   const { profile } = usePortfolio();
   const chibiCinema = profile.templateId === 'chibi-3d' || profile.designVariant === 'chibi-cinema';
+  const animeCinema = profile.templateId === 'anime' || slug === 'vini4';
   // Warna CHIBI bawaan tidak disimpan ke data: ketika berganti gaya,
   // pilihan warna khusus dan warna asli klien tetap aman.
-  const theme = profile.theme || chibiCinema ? effectiveTheme(profile) : undefined;
+  const theme = profile.theme || chibiCinema || animeCinema ? effectiveTheme(profile) : undefined;
   const styles = theme ? {
     '--color-ink': theme.background,
     '--color-ink-2': theme.background,
@@ -52,7 +53,7 @@ export default function App({ slug, editorMode = false }: { slug: string; editor
     '--client-accent': theme.accent,
   } as CSSProperties : undefined;
   return (
-    <div style={styles} className={`min-h-screen bg-ink${editorMode ? '' : ' client-portfolio'}${slug === 'vini3' ? ' chibi-theme' : ''}${slug === 'vini4' ? ' anime-theme' : ''}${chibiCinema ? ' chibi-cinema' : ''}`}>
+    <div style={styles} className={`min-h-screen bg-ink${editorMode ? '' : ' client-portfolio'}${slug === 'vini3' ? ' chibi-theme' : ''}${animeCinema ? ' anime-theme' : ''}${chibiCinema ? ' chibi-cinema' : ''}`}>
       <SmoothScrollProvider>
         <Series slug={slug} editorMode={editorMode} />
       </SmoothScrollProvider>
@@ -63,9 +64,10 @@ export default function App({ slug, editorMode = false }: { slug: string; editor
 function Series({ slug, editorMode }: { slug: string; editorMode: boolean }) {
   const { viewerProfiles, profile } = usePortfolio();
   const chibiCinema = profile.templateId === 'chibi-3d' || profile.designVariant === 'chibi-cinema';
+  const animeCinema = profile.templateId === 'anime' || slug === 'vini4';
   const storageKey = `personal-netflix-profile-${slug}`;
   const stored = readStoredProfile(storageKey, viewerProfiles);
-  const [stage, setStage] = useState<Stage>(slug === 'vini3' || slug === 'vini4' || editorMode || stored || chibiCinema ? 'home' : 'opening');
+  const [stage, setStage] = useState<Stage>(slug === 'vini3' || animeCinema || editorMode || stored || chibiCinema ? 'home' : 'opening');
   const [profileId, setProfileId] = useState<ProfileId>(stored ?? 'vini');
   const [playing, setPlaying] = useState(false);
   const [project, setProject] = useState<Project | null>(null);

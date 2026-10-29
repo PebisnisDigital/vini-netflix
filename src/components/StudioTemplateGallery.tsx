@@ -26,7 +26,7 @@ export default function StudioTemplateGallery({ selectedTemplateId, identityMode
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#ff7294]">PESONAFLIX STUDIO · TEMPLATE</p>
           <h3 className="mt-2 text-2xl font-black sm:text-3xl">Pilih Gaya Website</h3>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/60">Ada 16 gaya dalam katalog. ORIGINAL dan CHIBI 3D sudah bisa dipilih untuk klien. ANIME bisa dilihat sebagai demo; gaya lainnya menyusul.</p>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/60">Ada 16 gaya dalam katalog. ORIGINAL, CHIBI 3D, dan ANIME sudah bisa dipilih untuk klien. Gaya lainnya menyusul.</p>
         </div>
         <div className="rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-right">
           <span className="block text-[11px] font-bold uppercase tracking-wider text-white/45">Gaya klien ini</span>
@@ -41,6 +41,16 @@ export default function StudioTemplateGallery({ selectedTemplateId, identityMode
             <p className="mt-1 text-xs leading-relaxed text-white/75">Selanjutnya isi data klien, unggah ilustrasi karakter CHIBI dan poster karya milik klien, lalu simpan dan periksa preview. Template mengatur tata letak, font, warna dan gerakan; belum otomatis mengubah foto menjadi karakter 3D.</p>
           </div>
           <button type="button" onClick={onEditWebsite} className="min-h-10 rounded-xl bg-[#ff4b82] px-5 py-2.5 text-sm font-extrabold text-white transition hover:bg-[#ff70a0]">Buka Editor Website</button>
+        </div>
+      )}
+
+      {selectedTemplateId === 'anime' && (
+        <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-[#8eeeff]/35 bg-gradient-to-r from-[#29315c] to-[#44203e] p-4 sm:p-5">
+          <div className="max-w-2xl">
+            <p className="text-sm font-extrabold text-[#a3f4ff]">ANIME aktif untuk klien ini</p>
+            <p className="mt-1 text-xs leading-relaxed text-white/75">Karakter bergaya anime, langit bercahaya, font dan kartu sinematik akan mengikuti gaya ini. Ganti teks, unggah ilustrasi anime serta poster karya milik klien di editor. Sistem belum otomatis mengubah foto menjadi ilustrasi.</p>
+          </div>
+          <button type="button" onClick={onEditWebsite} className="min-h-10 rounded-xl bg-[#ed69ad] px-5 py-2.5 text-sm font-extrabold text-[#190e30] transition hover:bg-[#ff9acb]">Buka Editor Website</button>
         </div>
       )}
 
