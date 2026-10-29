@@ -11,6 +11,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ChibiHero from './components/ChibiHero';
 import ClayHero from './components/ClayHero';
+import ComicHero from './components/ComicHero';
 import ContinueWatching from './components/ContinueWatching';
 import Scene from './components/Scene';
 import About from './components/About';
@@ -44,9 +45,10 @@ export default function App({ slug, editorMode = false }: { slug: string; editor
   const chibiCinema = profile.templateId === 'chibi-3d' || profile.designVariant === 'chibi-cinema';
   const animeCinema = profile.templateId === 'anime' || slug === 'vini4';
   const clayCinema = profile.templateId === 'clay-3d' || slug === 'vini5';
+  const comicCinema = profile.templateId === 'komik-pop' || slug === 'vini6';
   // Warna CHIBI bawaan tidak disimpan ke data: ketika berganti gaya,
   // pilihan warna khusus dan warna asli klien tetap aman.
-  const theme = profile.theme || chibiCinema || animeCinema || clayCinema ? effectiveTheme(profile) : undefined;
+  const theme = profile.theme || chibiCinema || animeCinema || clayCinema || comicCinema ? effectiveTheme(profile) : undefined;
   const styles = theme ? {
     '--color-ink': theme.background,
     '--color-ink-2': theme.background,
@@ -55,7 +57,7 @@ export default function App({ slug, editorMode = false }: { slug: string; editor
     '--client-accent': theme.accent,
   } as CSSProperties : undefined;
   return (
-    <div style={styles} className={`min-h-screen bg-ink${editorMode ? '' : ' client-portfolio'}${slug === 'vini3' ? ' chibi-theme' : ''}${animeCinema ? ' anime-theme' : ''}${chibiCinema ? ' chibi-cinema' : ''}${clayCinema ? ' clay-cinema' : ''}`}>
+    <div style={styles} className={`min-h-screen bg-ink${editorMode ? '' : ' client-portfolio'}${slug === 'vini3' ? ' chibi-theme' : ''}${animeCinema ? ' anime-theme' : ''}${chibiCinema ? ' chibi-cinema' : ''}${clayCinema ? ' clay-cinema' : ''}${comicCinema ? ' comic-cinema' : ''}`}>
       <SmoothScrollProvider>
         <Series slug={slug} editorMode={editorMode} />
       </SmoothScrollProvider>
@@ -68,9 +70,10 @@ function Series({ slug, editorMode }: { slug: string; editorMode: boolean }) {
   const chibiCinema = profile.templateId === 'chibi-3d' || profile.designVariant === 'chibi-cinema';
   const animeCinema = profile.templateId === 'anime' || slug === 'vini4';
   const clayCinema = profile.templateId === 'clay-3d' || slug === 'vini5';
+  const comicCinema = profile.templateId === 'komik-pop' || slug === 'vini6';
   const storageKey = `personal-netflix-profile-${slug}`;
   const stored = readStoredProfile(storageKey, viewerProfiles);
-  const [stage, setStage] = useState<Stage>(slug === 'vini3' || animeCinema || clayCinema || editorMode || stored || chibiCinema ? 'home' : 'opening');
+  const [stage, setStage] = useState<Stage>(slug === 'vini3' || animeCinema || clayCinema || comicCinema || editorMode || stored || chibiCinema ? 'home' : 'opening');
   const [profileId, setProfileId] = useState<ProfileId>(stored ?? 'vini');
   const [playing, setPlaying] = useState(false);
   const [project, setProject] = useState<Project | null>(null);
@@ -144,6 +147,8 @@ function Series({ slug, editorMode }: { slug: string; editorMode: boolean }) {
               <ChibiHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
             ) : clayCinema ? (
               <ClayHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
+            ) : comicCinema ? (
+              <ComicHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
             ) : (
               <Hero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onResume={() => setResumeOpen(true)} profileId={profileId} editorMode={editorMode} />
             )}

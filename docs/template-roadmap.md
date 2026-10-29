@@ -8,13 +8,13 @@
 - Teks, bukti pengalaman, dan CTA tetap jelas bagi audiens Indonesia, termasuk pembaca mobile usia lanjut.
 - Bila pengguna memilih reduced motion, animasi dekoratif harus berhenti.
 
-## Status Tahap 4 — CHIBI, ANIME, dan CLAY aktif
+## Status Tahap 5 — CHIBI, ANIME, CLAY, dan KOMIK POP aktif
 
 Katalog lengkap tersedia di `src/data/templateCatalog.mjs`. Studio menampilkan 16 gaya dan tiga mode identitas berikut statusnya.
 
 | Status | Makna dan tindakan |
 | --- | --- |
-| `available` | Renderer siap untuk klien baru; tombol Gunakan aktif. Saat ini ORIGINAL, CHIBI 3D, ANIME, dan CLAY 3D. |
+| `available` | Renderer siap untuk klien baru; tombol Gunakan aktif. Saat ini ORIGINAL, CHIBI 3D, ANIME, CLAY 3D, dan KOMIK POP. |
 | `demo` | Contoh klien ada, tetapi renderer belum aman dipakai secara umum; tombol Lihat Demo saja. |
 | `planned` | Konsep gaya tercatat; belum ada tombol Gunakan maupun preview palsu. |
 
@@ -26,7 +26,9 @@ ANIME menggunakan tata visual hero, tipografi, latar bintang, kartu dan gerakan 
 
 CLAY 3D memakai `ClayHero`, palet navy–coral–mint, font Baloo 2, material seperti plastisin, tata kartu polaroid, dan gerak otomatis terputus lembut menyerupai stop-motion. Contoh `/vini5` hanya menampilkan aset ilustrasi Teh Vini sendiri; draft baru menampilkan placeholder karakter buatan CSS sehingga tidak meminjam identitas demo. Semua teks, foto, poster karya, dan warna klien bisa disunting lewat Studio. Tidak ada konversi foto menjadi clay otomatis.
 
-Halaman `/vini2`, `/vini3`, `/vini4`, dan `/vini5` yang sudah menggunakan variasi khusus tetap berjalan menggunakan konfigurasi masing-masing; tidak dimigrasikan otomatis ke katalog baru.
+KOMIK POP memakai `ComicHero`, font Bangers, palet navy–magenta–kuning–teal, titik halftone, panel tebal, balon dialog dan stiker WOW. Gambar latar bergeser perlahan, efek pop dan garis kecepatan bergerak terus, panel karya muncul dengan gerakan spring. Animasi pada section, hover, modal, dan transisi scroll tetap berasal dari renderer ORIGINAL. Demo `/vini6` memakai aset khusus Teh Vini; klien baru mendapatkan placeholder komik sampai ilustrasinya diunggah melalui Studio, tanpa konversi foto otomatis. Motion dekoratif berhenti ketika reduced motion aktif.
+
+Halaman `/vini2`, `/vini3`, `/vini4`, `/vini5`, dan `/vini6` yang sudah menggunakan variasi khusus tetap berjalan menggunakan konfigurasi masing-masing; tidak dimigrasikan otomatis ke katalog baru.
 
 ## Model data bertahap
 
@@ -50,6 +52,6 @@ Field baru opsional agar JSON klien lama tetap valid. Draft baru menggunakan ORI
 
 ## Tahap berikutnya
 
-1. Selesaikan KOMIK POP, EDITORIAL PREMIUM, lalu gaya berikutnya.
+1. Selesaikan EDITORIAL PREMIUM, DOODLE, lalu gaya berikutnya.
 2. Implementasikan pipeline foto/karakter untuk Avatar AI dan FACELESS, dengan persetujuan aset dan fallback.
 3. Produksi gaya tambahan sesuai urutan permintaan klien. Jangan aktifkan seluruh 16 sekaligus sebelum teruji.
