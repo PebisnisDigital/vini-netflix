@@ -8,13 +8,13 @@
 - Teks, bukti pengalaman, dan CTA tetap jelas bagi audiens Indonesia, termasuk pembaca mobile usia lanjut.
 - Bila pengguna memilih reduced motion, animasi dekoratif harus berhenti.
 
-## Status Tahap 8 — STORYBOOK ikut aktif
+## Status Tahap 9 — SCRAPBOOK ikut aktif
 
 Katalog lengkap tersedia di `src/data/templateCatalog.mjs`. Studio menampilkan 16 gaya dan tiga mode identitas berikut statusnya.
 
 | Status | Makna dan tindakan |
 | --- | --- |
-| `available` | Renderer siap untuk klien baru; tombol Gunakan aktif. Saat ini ORIGINAL, CHIBI 3D, ANIME, CLAY 3D, KOMIK POP, EDITORIAL PREMIUM, DOODLE, dan STORYBOOK. |
+| `available` | Renderer siap untuk klien baru; tombol Gunakan aktif. Saat ini ORIGINAL, CHIBI 3D, ANIME, CLAY 3D, KOMIK POP, EDITORIAL PREMIUM, DOODLE, STORYBOOK, dan SCRAPBOOK. |
 | `demo` | Contoh klien ada, tetapi renderer belum aman dipakai secara umum; tombol Lihat Demo saja. |
 | `planned` | Konsep gaya tercatat; belum ada tombol Gunakan maupun preview palsu. |
 
@@ -34,7 +34,9 @@ DOODLE memakai `DoodleHero` dengan tampilan buku sketsa kertas krem bergrid, spi
 
 STORYBOOK memakai `StorybookHero`, tata buku terbuka dengan dua lembar kertas ivory, tipografi DM Serif Display, aksen sage dan rose, ilustrasi cat air, kartu karya seperti bab dongeng, halaman yang membuka otomatis, kunang-kunang dan daun yang melayang. Tetap mewarisi rail, section, animasi scroll, modal karya, dan CTA dari master ORIGINAL. Contoh `/vini9` berisi tiga ilustrasi cat air AI dengan karakter **fiksi dan bukan potret asli Teh Vini**; draft klien baru menampilkan placeholder dan wajib menggunakan karya milik klien sendiri. Tidak ada konversi foto otomatis. Gerak dekoratif nonaktif untuk reduced motion.
 
-Halaman `/vini2` sampai `/vini9` yang sudah menggunakan variasi khusus tetap berjalan menggunakan konfigurasi masing-masing; tidak dimigrasikan otomatis ke katalog baru.
+SCRAPBOOK memakai `ScrapbookHero`, kolase polaroid, lembar jurnal bergrid, warna rose–mint–butter yellow, font Caveat, kertas bergigi, memo tempel dan washi tape. Polaroid mengayun perlahan, foto bergerak sinematik, stiker bergoyang, dan garis tinta tergambar berulang secara otomatis. Rail, section, modal karya, animasi scroll dan CTA tetap mewarisi master ORIGINAL. Demo `/vini10` memakai tiga foto konsep analog buatan AI berisi karakter **fiksi, bukan foto asli Teh Vini**. Draft klien baru menampilkan placeholder polaroid dan aset milik klien sendiri; sistem tidak membuat potret AI otomatis. Gerak dekoratif menghormati preferensi reduced motion.
+
+Halaman `/vini2` sampai `/vini10` yang sudah menggunakan variasi khusus tetap berjalan menggunakan konfigurasi masing-masing; tidak dimigrasikan otomatis ke katalog baru.
 
 ## Model data bertahap
 
@@ -58,6 +60,6 @@ Field baru opsional agar JSON klien lama tetap valid. Draft baru menggunakan ORI
 
 ## Tahap berikutnya
 
-1. Selesaikan SCRAPBOOK, lalu gaya berikutnya.
+1. Selesaikan PAPER CUT, lalu gaya berikutnya.
 2. Implementasikan pipeline foto/karakter untuk Avatar AI dan FACELESS, dengan persetujuan aset dan fallback.
 3. Produksi gaya tambahan sesuai urutan permintaan klien. Jangan aktifkan seluruh 16 sekaligus sebelum teruji.

@@ -26,12 +26,15 @@ test('katalog studio menyimpan tepat 16 gaya unik dan metadata palet yang valid'
   assert.equal(getTemplate('doodle').demoUrl, '/vini8');
   assert.equal(getTemplate('storybook').status, 'available');
   assert.equal(getTemplate('storybook').demoUrl, '/vini9');
-  assert.equal(templateCatalog.filter((item) => canApplyTemplate(item.id)).length, 8);
+  assert.equal(getTemplate('scrapbook').status, 'available');
+  assert.equal(getTemplate('scrapbook').demoUrl, '/vini10');
+  assert.equal(templateCatalog.filter((item) => canApplyTemplate(item.id)).length, 9);
   assert.equal(canApplyTemplate('clay-3d'), true);
   assert.equal(canApplyTemplate('komik-pop'), true);
   assert.equal(canApplyTemplate('editorial-premium'), true);
   assert.equal(canApplyTemplate('doodle'), true);
   assert.equal(canApplyTemplate('storybook'), true);
+  assert.equal(canApplyTemplate('scrapbook'), true);
 });
 
 test('FACELESS adalah mode identitas independen, belum dapat dipublikasikan', () => {
@@ -55,6 +58,7 @@ test('contoh gaya lama tetap dikenali tanpa memaksa migrasi JSON', () => {
   assert.equal(resolveTemplateId({ slug: 'satria', templateId: 'editorial-premium' }), 'editorial-premium');
   assert.equal(resolveTemplateId({ slug: 'satria', templateId: 'doodle' }), 'doodle');
   assert.equal(resolveTemplateId({ slug: 'satria', templateId: 'storybook' }), 'storybook');
+  assert.equal(resolveTemplateId({ slug: 'satria', templateId: 'scrapbook' }), 'scrapbook');
 });
 
 const example = {
@@ -65,7 +69,7 @@ const example = {
 };
 const errors = (brief) => validatePublishPayload({ brief, assets: [], mode: 'create' });
 
-test('publikasi menerima delapan gaya aktif dan memblokir gaya yang belum siap', () => {
+test('publikasi menerima sembilan gaya aktif dan memblokir gaya yang belum siap', () => {
   assert.deepEqual(errors({ ...example, templateId: 'original', identityMode: 'photo' }), []);
   assert.deepEqual(errors({ ...example, templateId: 'chibi-3d', identityMode: 'photo' }), []);
   assert.deepEqual(errors({ ...example, templateId: 'anime', identityMode: 'photo' }), []);
@@ -74,7 +78,8 @@ test('publikasi menerima delapan gaya aktif dan memblokir gaya yang belum siap',
   assert.deepEqual(errors({ ...example, templateId: 'editorial-premium', identityMode: 'photo' }), []);
   assert.deepEqual(errors({ ...example, templateId: 'doodle', identityMode: 'photo' }), []);
   assert.deepEqual(errors({ ...example, templateId: 'storybook', identityMode: 'photo' }), []);
-  assert.ok(errors({ ...example, templateId: 'scrapbook' }).some((line) => line.includes('belum siap')));
+  assert.deepEqual(errors({ ...example, templateId: 'scrapbook', identityMode: 'photo' }), []);
+  assert.ok(errors({ ...example, templateId: 'paper-cut' }).some((line) => line.includes('belum siap')));
   assert.ok(errors({ ...example, templateId: 'tidak-ada' }).some((line) => line.includes('tidak dikenal')));
   assert.ok(errors({ ...example, identityMode: 'faceless' }).some((line) => line.includes('belum siap')));
   assert.ok(errors({ ...example, identityMode: 'alien' }).some((line) => line.includes('tidak dikenal')));

@@ -96,3 +96,23 @@ test('STORYBOOK membuat halaman buku bergerak otomatis dan mewarisi section ORIG
   assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
   assert.doesNotMatch(hero, /AnimationControl|toggleMotion|PauseAnimation/);
 });
+
+test('SCRAPBOOK memakai polaroid dan stiker bergerak tanpa menghilangkan section ORIGINAL', () => {
+  const app = read('src/App.tsx');
+  const hero = read('src/components/ScrapbookHero.tsx');
+  const css = read('src/components/scrapbook.css');
+  assert.match(app, /<ScrapbookHero\s+key=/);
+  assert.match(app, /<ContinueWatching\s+order=/);
+  assert.match(app, /<Scene\s+key=/);
+  assert.match(app, /<FinalCTA\s+onReplay=/);
+  assert.match(hero, /data-studio-edit="portrait"/);
+  assert.match(hero, /data-studio-edit="name"/);
+  assert.match(hero, /data-studio-edit="bio"/);
+  assert.match(hero, /initial=\{\{ opacity: 0/);
+  assert.match(css, /animation:\s*scrapbook-photo-sway[^;]*infinite/);
+  assert.match(css, /animation:\s*scrapbook-camera-drift[^;]*infinite/);
+  assert.match(css, /animation:\s*scrapbook-ink-draw[^;]*infinite/);
+  assert.match(css, /animation:\s*scrapbook-sticker-wiggle[^;]*infinite/);
+  assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
+  assert.doesNotMatch(hero, /AnimationControl|toggleMotion|PauseAnimation/);
+});
