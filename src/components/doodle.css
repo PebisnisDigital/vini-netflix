@@ -1,0 +1,149 @@
+/* DOODLE: an animated sketchbook, not a recolored ORIGINAL hero. */
+.doodle-cinema {
+  --font-display: 'Caveat', 'Nunito Sans', cursive;
+  --font-sans: 'Nunito Sans', system-ui, sans-serif;
+  --doodle-paper: #fff8e8;
+  --doodle-blue: #2466ba;
+  --doodle-navy: #17334d;
+  --doodle-yellow: #f6c94d;
+  --color-bone: #fff5d9;
+  --color-mist: #dcebf0;
+  --color-smoke: #bfd0db;
+  background: var(--color-ink, #17334d);
+}
+.doodle-cinema header > .gutter { background: #17334dec !important; border-bottom: 2px dashed #f6c94d70; }
+.doodle-cinema .grain { opacity: .045; }
+.doodle-cinema .font-display { font-family: var(--font-display); letter-spacing: -.035em; }
+.doodle-cinema #about h2, .doodle-cinema #journey h2,
+.doodle-cinema #originals h2, .doodle-cinema #picks h2,
+.doodle-cinema #skills h2, .doodle-cinema #moments h2,
+.doodle-cinema #story h2 { font-family: var(--font-display); font-size: clamp(46px, 6vw, 84px); font-weight: 700; letter-spacing: -.035em; }
+.doodle-cinema #about, .doodle-cinema #journey,
+.doodle-cinema #originals, .doodle-cinema #picks,
+.doodle-cinema #skills, .doodle-cinema #moments,
+.doodle-cinema #story { border-top: 2px dashed #f6c94d27; }
+.doodle-cinema .glass { border: 2px dashed #f6c94d50; background: #11253eea; }
+.doodle-cinema .client-cta-headline { color: #fff5d9; font-family: var(--font-display); font-size: clamp(35px, 5vw, 65px); }
+.doodle-cinema .client-cta-pulse { border: 2px solid #fff0ba; background: var(--color-crimson, #f6c94d); color: #16334d; box-shadow: 5px 5px 0 #2466ba80; }
+.doodle-cinema .rail .group > div,
+.doodle-cinema #originals .rail .group > div,
+.doodle-cinema #picks .rail .group > div,
+.doodle-cinema .group\/rail button > div { border: 2px solid #ffda71b8; border-radius: 13px 17px 11px 19px; box-shadow: 5px 6px 0 #071c3190; }
+.doodle-cinema .rail img { filter: saturate(1.14); }
+.doodle-cinema .rail .group:hover img { filter: saturate(1.3) contrast(1.04); }
+.doodle-cinema button:focus-visible, .doodle-cinema a:focus-visible { outline: 3px dashed #f6c94d; outline-offset: 4px; }
+
+.doodle-hero { position: relative; isolation: isolate; min-height: 920px; padding: 0 0 174px; background: var(--doodle-paper); color: #17334d; overflow: clip; }
+.doodle-grid-paper { position: absolute; z-index: 1; inset: 0; pointer-events: none; opacity: .56; background-image: linear-gradient(#94b7c822 1px,transparent 1px),linear-gradient(90deg,#94b7c822 1px,transparent 1px); background-size: 32px 32px; mask-image: linear-gradient(90deg,#000,transparent 82%); }
+.doodle-spiral { position: absolute; z-index: 5; top: 108px; bottom: 145px; left: clamp(8px,1.15vw,18px); display: flex; flex-direction: column; justify-content: space-around; pointer-events: none; }
+.doodle-spiral i { display: block; width: 35px; height: 16px; border: 4px solid #2466ba; border-radius: 12px; background: #fff8e8; transform: rotate(-6deg) translateX(-17px); box-shadow: 1px 2px 0 #c4a968; }
+.doodle-art { position: absolute; top: 0; right: 0; width: 70%; height: 800px; overflow: hidden; z-index: 0; background: #fff8e8; }
+.doodle-art > img { width: 100%; height: 100%; object-fit: cover; object-position: 61% 52%; transform-origin: 71% 48%; animation: doodle-image-breathe 17s ease-in-out infinite alternate; cursor: pointer; }
+.doodle-art::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg,#fff8e8 0%,#fff8e8ee 4%,#fff8e855 29%,transparent 52%),linear-gradient(0deg,#fff8e8 0%,transparent 12%); }
+.doodle-art-note { position: absolute; z-index: 2; top: 123px; right: clamp(18px,4vw,65px); color: #2466ba; font: 900 9px/1.4 var(--font-sans); letter-spacing: .16em; background: #fff8e8c7; border: 2px dashed #2466ba77; padding: 8px 11px; transform: rotate(4deg); }
+.doodle-art-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding-left: 20%; background: radial-gradient(ellipse at 68% 45%, #fff1bc, #fff8e8 57%); cursor: pointer; }
+.doodle-art-placeholder svg { width: clamp(150px,22vw,290px); max-height: 310px; animation: doodle-placeholder-sway 5s ease-in-out infinite; }
+.doodle-art-placeholder span { transform: rotate(-4deg); color: #2466ba; font: 900 16px/1.3 var(--font-sans); letter-spacing: .09em; text-align: center; }
+.doodle-copy { position: relative; z-index: 3; width: min(59%, 740px); padding: 159px 20px 35px clamp(45px,8.8vw,139px); }
+.doodle-kicker { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; color: #2466ba; font: 900 11px/1.4 var(--font-sans); letter-spacing: .13em; }
+.doodle-kicker > span { color: #ef8b71; }
+.doodle-hello { display: inline-block; margin-top: 28px; padding: 4px 12px 2px; color: #1d598e; background: #f5cd5f; font: 700 clamp(28px,3.5vw,48px)/1.1 var(--font-display); box-shadow: 4px 4px 0 #2466ba33; }
+.doodle-name { position: relative; display: block; width: fit-content; max-width: 100%; margin: 18px 0 8px; color: #205ca9; font: 700 clamp(84px,10vw,153px)/.82 var(--font-display); letter-spacing: -.055em; overflow-wrap: anywhere; }
+.doodle-name-underline { position: absolute; right: -2%; left: 2%; bottom: -19px; height: 24px; border-bottom: 8px solid #f7c443; border-radius: 100%; transform: rotate(-2deg); z-index: -1; }
+.doodle-role { display: inline-flex; align-items: center; gap: 9px; max-width: 100%; margin-top: 26px; padding: 9px 15px; border: 3px solid #2466ba; border-radius: 10px 21px 13px 18px; background: #fffdf5ee; color: #1e4f80; font: 900 clamp(12px,1.26vw,16px)/1.45 var(--font-sans); box-shadow: 5px 5px 0 #f5cf65; }
+.doodle-role > span { color: #ed8c6f; font-size: 21px; }
+.doodle-quote { margin-top: 28px; max-width: 37ch; color: #163e69; font: 700 clamp(26px,3.1vw,41px)/1.12 var(--font-display); }
+.doodle-bio { max-width: 50ch; margin-top: 17px; color: #38576b; font: 600 clamp(12px,1vw,14px)/1.72 var(--font-sans); }
+.doodle-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-top: 22px; }
+.doodle-actions button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 49px; padding: 11px 19px; font: 900 12px/1.35 var(--font-sans); transition: transform .25s ease, box-shadow .25s ease; }
+.doodle-actions button:hover { transform: translateY(-4px) rotate(-2deg); }
+.doodle-cta-primary { border: 3px solid #17334d; border-radius: 14px 9px 17px 12px; background: var(--color-crimson, #f6c94d); color: #17334d; box-shadow: 5px 6px 0 #2466ba; }
+.doodle-cta-secondary { border-bottom: 3px dashed #2466ba; color: #1c5695; }
+.doodle-footnote { display: flex; gap: 8px; align-items: center; margin-top: 22px; color: #597685; font: 700 11px/1.5 var(--font-sans); }
+.doodle-footnote svg { color: #df8c60; }
+.doodle-arrow-drawing { position: absolute; z-index: 3; top: 182px; left: 52%; width: clamp(85px,11vw,178px); transform: rotate(14deg); pointer-events: none; opacity: .83; }
+.doodle-arrow-drawing path { animation: doodle-line-draw 8.5s ease-in-out infinite; }
+.doodle-star { position: absolute; z-index: 4; pointer-events: none; font-family: var(--font-display); animation: doodle-squiggle 5s ease-in-out infinite alternate; }
+.doodle-star-one { top: 218px; left: 41%; color: #ee967f; font-size: 58px; }
+.doodle-star-two { top: 470px; right: 8%; color: #f6c94d; font-size: 90px; animation-delay: -2.1s; }
+.doodle-sun { position: absolute; z-index: 4; right: 3%; top: 145px; color: #f4b92e; font-size: 95px; line-height: 1; animation: doodle-sun-turn 22s linear infinite; pointer-events: none; }
+.doodle-page-bottom { position: absolute; left: clamp(45px,8.8vw,139px); right: clamp(27px,4vw,70px); bottom: 138px; z-index: 3; display: flex; align-items: center; justify-content: space-between; gap: 12px; border-top: 2px dashed #2466ba64; padding: 14px 0; color: #305678; font: 900 10px/1.4 var(--font-sans); letter-spacing: .13em; }
+.doodle-page-bottom i { font-style: normal; color: #ef8b71; }
+.doodle-page-bottom button { display: inline-flex; gap: 8px; align-items: center; color: #175db2; font-weight: 900; white-space: nowrap; animation: doodle-scroll-nudge 4s ease-in-out infinite; }
+.doodle-projects { position: absolute; z-index: 7; left: clamp(45px,8.8vw,139px); right: clamp(32px,5vw,80px); bottom: -2px; display: flex; gap: 23px; align-items: center; min-height: 141px; padding: 14px 22px 12px 22px; border: 3px solid #2466ba; border-radius: 20px 12px 25px 12px; background: #fff6dbee; box-shadow: 9px 9px 0 #2466ba, 0 12px 40px #17334d2b; }
+.doodle-projects-label { flex: 1; min-width: 150px; display: flex; flex-direction: column; align-items: flex-start; }
+.doodle-projects-label > span { color: #eb8d7d; font-size: 30px; animation: doodle-pencil-bob 5s ease-in-out infinite; }
+.doodle-projects-label strong { color: #214f8e; font: 700 29px/1 var(--font-display); }
+.doodle-projects-label small { color: #6c7a77; font: 900 9px/1.5 var(--font-sans); letter-spacing: .1em; margin-top: 8px; }
+.doodle-project-card { display: flex; align-items: center; gap: 13px; width: min(31%,270px); min-width: 0; padding: 9px; background: #fffdfa; border: 2px solid #2466ba; box-shadow: 4px 5px 0 #f6c94d; text-align: left; transform: rotate(-2deg); }
+.doodle-project-card-2 { transform: rotate(2deg); box-shadow: 4px 5px 0 #f49a84; }
+.doodle-project-card img, .doodle-project-empty { flex: 0 0 88px; width: 88px; height: 83px; object-fit: cover; border: 1px solid #215c9b; }
+.doodle-project-empty { display: grid; place-items: center; background: #ffda8b; color: #2466ba; font-size: 30px; }
+.doodle-project-card > span:last-child { display: flex; align-items: flex-start; gap: 3px; min-width: 0; color: #1d4f84; font: 900 12px/1.3 var(--font-sans); }
+.doodle-project-card svg { flex: 0 0 13px; }
+
+@keyframes doodle-image-breathe { from { transform: scale(1) translate3d(0,0,0) } to { transform: scale(1.07) translate3d(-1%,.3%,0) } }
+@keyframes doodle-placeholder-sway { 0%,100% { transform: rotate(-3deg) translateY(0) } 50% { transform: rotate(3deg) translateY(-10px) } }
+@keyframes doodle-line-draw { 0%,9% { stroke-dashoffset: 260; opacity: .3 } 41%,76% { stroke-dashoffset: 0; opacity: 1 } 95%,100% { stroke-dashoffset: -260; opacity: .3 } }
+@keyframes doodle-squiggle { from { transform: rotate(-13deg) scale(.85) } to { transform: rotate(19deg) scale(1.12) } }
+@keyframes doodle-sun-turn { to { transform: rotate(360deg) } }
+@keyframes doodle-scroll-nudge { 0%,100% { transform: translateY(0) } 45% { transform: translateY(5px) } }
+@keyframes doodle-pencil-bob { 0%,100% { transform: rotate(-12deg) } 50% { transform: rotate(16deg) } }
+
+@media (max-width: 1200px) {
+  .doodle-copy { width: 62%; padding-left: 7vw; }
+  .doodle-name { font-size: clamp(79px,10vw,120px); }
+  .doodle-page-bottom, .doodle-projects { left: 7vw; }
+  .doodle-projects { gap: 13px; }
+  .doodle-project-card img, .doodle-project-empty { flex-basis: 67px; width: 67px; height: 72px; }
+  .doodle-project-card > span:last-child { font-size: 11px; }
+}
+@media (max-width: 800px) {
+  .doodle-hero { min-height: 0; padding-bottom: 30px; overflow: hidden; }
+  .doodle-grid-paper { opacity: .46; }
+  .doodle-spiral { top: 390px; bottom: 170px; }
+  .doodle-art { position: relative; top: auto; right: auto; width: 100%; height: 390px; }
+  .doodle-art > img { object-position: 62% 38%; }
+  .doodle-art::after { background: linear-gradient(0deg,#fff8e8,transparent 22%); }
+  .doodle-art-note { top: 100px; right: 15px; font-size: 8px; }
+  .doodle-copy { width: 100%; padding: 12px 8vw 25px 9vw; }
+  .doodle-name { font-size: clamp(78px,13vw,112px); }
+  .doodle-arrow-drawing { top: 400px; left: auto; right: 5%; width: 92px; transform: rotate(-15deg); }
+  .doodle-star-one { top: 420px; left: auto; right: 13%; font-size: 39px; }
+  .doodle-star-two { top: 175px; right: 5%; }
+  .doodle-sun { display: none; }
+  .doodle-page-bottom { position: relative; left: auto; right: auto; bottom: auto; margin: 5px 7vw 23px 9vw; }
+  .doodle-projects { position: relative; left: auto; right: auto; bottom: auto; margin: 0 7vw 20px 9vw; }
+}
+@media (max-width: 530px) {
+  .doodle-spiral { top: 320px; bottom: 270px; }
+  .doodle-spiral i { width: 30px; height: 13px; border-width: 3px; }
+  .doodle-art { height: 329px; }
+  .doodle-art > img { object-position: 68% 45%; }
+  .doodle-art-note { top: 87px; right: 10px; max-width: 154px; font-size: 7px; text-align: right; }
+  .doodle-copy { padding: 10px 26px 25px 33px; }
+  .doodle-kicker { font-size: 8px; gap: 5px; }
+  .doodle-hello { margin-top: 26px; font-size: 28px; }
+  .doodle-name { margin-top: 18px; font-size: clamp(69px,17.6vw,106px); line-height: .9; }
+  .doodle-role { font-size: 11px; margin-top: 23px; padding: 6px 10px; }
+  .doodle-quote { margin-top: 24px; font-size: 28px; }
+  .doodle-bio { margin-top: 15px; font-size: 12px; line-height: 1.66; }
+  .doodle-actions { gap: 7px; }
+  .doodle-actions button { min-height: 45px; padding: 9px 12px; font-size: 11px; }
+  .doodle-footnote { font-size: 10px; }
+  .doodle-arrow-drawing { top: 335px; right: 5%; width: 68px; }
+  .doodle-star-one { top: 339px; right: 13%; font-size: 30px; }
+  .doodle-star-two { display: none; }
+  .doodle-page-bottom { margin: 5px 25px 25px 33px; font-size: 8px; flex-wrap: wrap; }
+  .doodle-projects { margin: 0 25px 18px 33px; padding: 12px; flex-wrap: wrap; gap: 16px; }
+  .doodle-projects-label { width: 100%; flex-basis: 100%; }
+  .doodle-projects-label > span { display: none; }
+  .doodle-projects-label strong { font-size: 29px; }
+  .doodle-projects-label small { font-size: 8px; }
+  .doodle-project-card { width: calc(50% - 8px); display: block; flex: 1; }
+  .doodle-project-card img, .doodle-project-empty { display: block; width: 100%; height: auto; aspect-ratio: 1.25; object-fit: cover; }
+  .doodle-project-card > span:last-child { margin-top: 8px; font-size: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .doodle-hero *, .doodle-hero *::before, .doodle-hero *::after { animation: none !important; transition: none !important; }
+}

@@ -26,7 +26,7 @@ export default function StudioTemplateGallery({ selectedTemplateId, identityMode
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#ff7294]">PESONAFLIX STUDIO · TEMPLATE</p>
           <h3 className="mt-2 text-2xl font-black sm:text-3xl">Pilih Gaya Website</h3>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/60">Ada 16 gaya dalam katalog. ORIGINAL, CHIBI 3D, ANIME, CLAY 3D, KOMIK POP, dan EDITORIAL PREMIUM sudah bisa dipilih untuk klien. Gaya lainnya menyusul.</p>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/60">Ada 16 gaya dalam katalog. ORIGINAL, CHIBI 3D, ANIME, CLAY 3D, KOMIK POP, EDITORIAL PREMIUM, dan DOODLE sudah bisa dipilih untuk klien. Gaya lainnya menyusul.</p>
         </div>
         <div className="rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-right">
           <span className="block text-[11px] font-bold uppercase tracking-wider text-white/45">Gaya klien ini</span>
@@ -81,6 +81,16 @@ export default function StudioTemplateGallery({ selectedTemplateId, identityMode
             <p className="mt-1 text-xs leading-relaxed text-white/80">Sampul majalah, tipografi serif, kertas ivory, foto elegan, kartu karya terkurasi, dan kamera bergerak otomatis. Section serta animasi ORIGINAL tetap aktif. Isi identitas dan unggah foto editorial klien sendiri melalui Editor Website. Sistem belum membuat foto AI secara otomatis.</p>
           </div>
           <button type="button" onClick={onEditWebsite} className="min-h-10 rounded-sm border border-[#ffedce] bg-[#e7c698] px-5 py-2.5 text-sm font-bold text-[#1d1711] transition hover:bg-[#f9ddb3]">Buka Editor Website</button>
+        </div>
+      )}
+
+      {selectedTemplateId === 'doodle' && (
+        <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border-2 border-dashed border-[#f6c94d]/60 bg-gradient-to-r from-[#1a466c] via-[#205783] to-[#3b6474] p-4 sm:p-5">
+          <div className="max-w-2xl">
+            <p className="font-['Caveat'] text-3xl font-bold text-[#ffe58c]">✎ DOODLE aktif untuk klien ini!</p>
+            <p className="mt-1 text-xs leading-relaxed text-white/85">Kertas sketsa, font tulisan tangan, coretan, stiker dan animasi otomatis akan tampil bersama section dan animasi master ORIGINAL. Isi identitas dan unggah ilustrasi serta poster karya klien melalui Editor Website. Sistem belum otomatis membuat ilustrasi dari foto.</p>
+          </div>
+          <button type="button" onClick={onEditWebsite} className="min-h-10 rounded-[14px_8px_17px_12px] border-2 border-[#16334d] bg-[#f6c94d] px-5 py-2.5 text-sm font-extrabold text-[#16334d] shadow-[4px_4px_0_#fff8e8] transition hover:-translate-y-1">Buka Editor Website</button>
         </div>
       )}
 
