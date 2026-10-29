@@ -1,0 +1,49 @@
+{
+  "slug": "vini7",
+  "name": "Teh Vini",
+  "role": "Mentor AI & Bisnis Digital",
+  "location": "Bandung, Jawa Barat",
+  "whatsapp": "62881022445869",
+  "bio": "Saya Vini, ibu rumah tangga asal Bandung yang membangun ruang belajar AI dan bisnis digital bagi pemula. Saya merancang kelas praktik, konten kreatif, dan website personal agar teknologi terasa dekat dengan kehidupan sehari-hari—terutama bagi ibu rumah tangga dan pelaku usaha kecil.",
+  "tagline": ["MENGUBAH RASA PENASARAN MENJADI KARYA", "Keahlian menjadi bernilai ketika dibagikan dengan cara yang bisa dipahami.", "Belajar • Berkarya • Membuka Peluang"],
+  "interests": ["Edukasi AI untuk Pemula", "Personal Branding", "Pembuatan Website", "WhatsApp Marketing", "Konten Kreatif", "Pemberdayaan UMKM"],
+  "photo": {
+    "src": "/clients/vini7/vini-editorial-hero.webp",
+    "alt": "Foto konsep editorial buatan AI: representasi visual mentor berhijab dengan laptop, bukan foto asli Teh Vini"
+  },
+  "experiences": [
+    {"company": "BADAI — Belajar Apa Aja Dengan AI", "role": "Pengelola Komunitas Belajar", "period": "Sekarang", "description": "Mengembangkan komunitas yang memudahkan pemula mengenal AI melalui panduan praktis, kelas, dan contoh karya."},
+    {"company": "Pebisnis.Digital", "role": "Penggagas Edukasi Bisnis Digital", "period": "Sekarang", "description": "Membagikan wawasan tentang pemasaran digital, peluang usaha, dan pemanfaatan teknologi untuk kegiatan bisnis sehari-hari."},
+    {"company": "Kelas Praktik WhatsApp", "role": "Mentor & Pemateri", "period": "Berjalan", "description": "Memimpin latihan langsung bagi ibu rumah tangga, pendidik, dan pelaku UMKM yang ingin mencoba keterampilan digital."}
+  ],
+  "projects": [
+    {"title": "BADAI: Ruang Belajar AI", "year": "KOMUNITAS", "description": "Materi dan pendampingan belajar AI dengan contoh sederhana yang bisa langsung dicoba, bahkan oleh peserta yang baru mulai.", "category": "Komunitas & Edukasi", "tags": ["Mentoring", "AI", "Komunitas"], "image": "/clients/vini7/vini-editorial-kelas.webp"},
+    {"title": "Studio Konten & Website", "year": "KREASI", "description": "Eksplorasi konten kreatif dan website personal yang memperlihatkan karakter, cerita, dan keahlian pemiliknya.", "category": "Kreatif & Personal Branding", "tags": ["Website", "Konten", "Branding"], "image": "/clients/vini7/vini-editorial-studio.webp"},
+    {"title": "Training Game Edukasi", "year": "KELAS", "description": "Kelas praktik membuat game belajar sederhana menggunakan AI, dengan panduan bertahap yang mudah diikuti.", "category": "Edukasi Praktis", "tags": ["Kelas WhatsApp", "AI", "Game Edukasi"], "image": "/clients/vini7/vini-editorial-kelas.webp"}
+  ],
+  "skills": ["Edukasi AI Pemula", "WhatsApp Marketing", "Desain Website Personal", "Personal Branding", "Pembuatan Konten", "Manajemen Komunitas"],
+  "skillsHeading": "Keahlian yang Saya Tekuni",
+  "skillsAside": "Setiap keterampilan tumbuh dari banyak percobaan, proyek kecil, dan percakapan dengan peserta yang belajar bersama.",
+  "skillsKicker": "THE PRACTICE BEHIND THE WORK",
+  "highlights": [
+    {"title": "BADAI", "description": "Ruang untuk belajar AI dengan pendekatan yang ramah bagi pemula.", "category": "KOMUNITAS"},
+    {"title": "Kelas Praktik", "description": "Belajar melalui langkah sederhana dan langsung menghasilkan karya.", "category": "EDUKASI"},
+    {"title": "Website Personal", "description": "Membantu individu menampilkan karakter dan kepiawaiannya dalam media digital.", "category": "PERSONAL BRANDING"}
+  ],
+  "watchCards": [
+    {"target": "about", "title": "Sosok di Balik Karya", "subtitle": "Mengenal Vini", "image": "/clients/vini7/vini-editorial-hero.webp"},
+    {"target": "originals", "title": "Portofolio Pilihan", "subtitle": "Karya dan inisiatif", "image": "/clients/vini7/vini-editorial-studio.webp"},
+    {"target": "journey", "title": "Perjalanan", "subtitle": "Proses menjadi mentor", "image": "/clients/vini7/vini-editorial-kelas.webp"},
+    {"target": "skills", "title": "Area Keahlian", "subtitle": "Yang saya tekuni", "image": "/clients/vini7/vini-editorial-studio.webp"},
+    {"target": "picks", "title": "Pilihan Redaksi", "subtitle": "Cerita terkurasi", "image": "/clients/vini7/vini-editorial-kelas.webp"},
+    {"target": "moments", "title": "Catatan Bermakna", "subtitle": "Momen yang membentuk", "image": "/clients/vini7/vini-editorial-hero.webp"},
+    {"target": "story", "title": "Lebih Dekat", "subtitle": "Mari saling mengenal", "image": "/clients/vini7/vini-editorial-studio.webp"}
+  ],
+  "picksHeading": "Pilihan Redaksi",
+  "picksKicker": "THOUGHTS, WORK & STORIES",
+  "journeyHeading": "Jejak Perjalanan",
+  "journeyKicker": "CHAPTERS OF A CREATIVE JOURNEY",
+  "journeyAside": "Bukan perjalanan yang serba instan. Semua berawal dari mencoba, menyusun materi, mengajar, dan terus mendengarkan kebutuhan orang yang belajar bersama.",
+  "templateId": "editorial-premium",
+  "identityMode": "photo"
+}
