@@ -47,7 +47,7 @@ export default function App({ slug, editorMode = false }: { slug: string; editor
     '--client-accent': theme.accent,
   } as CSSProperties : undefined;
   return (
-    <div style={styles} className="min-h-screen bg-ink">
+    <div style={styles} className={`min-h-screen bg-ink${editorMode ? '' : ' client-portfolio'}`}>
       <SmoothScrollProvider>
         <Series slug={slug} editorMode={editorMode} />
       </SmoothScrollProvider>
@@ -129,7 +129,7 @@ function Series({ slug, editorMode }: { slug: string; editorMode: boolean }) {
         <motion.div initial={{ opacity: 0, scale: 1.03, filter: 'blur(10px)' }} animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }} transition={{ duration: 1, ease: EASE }}>
           <Navbar order={order} profileId={profileId} onSwitch={pickProfile} />
           <main>
-            <Hero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onResume={() => setResumeOpen(true)} profileId={profileId} />
+            <Hero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onResume={() => setResumeOpen(true)} profileId={profileId} editorMode={editorMode} />
             <ContinueWatching order={order} />
             {order.map((id) => (
               <Scene key={id} id={id} className={id === 'originals' ? '!py-0 sm:!py-0' : ''}>

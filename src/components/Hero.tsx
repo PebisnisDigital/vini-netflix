@@ -13,7 +13,7 @@ const item = {
   show: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.9, ease: EASE } },
 };
 
-export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => void; onResume: () => void; profileId: ProfileId }) {
+export default function Hero({ onPlay, onResume, profileId, editorMode = false }: { onPlay: () => void; onResume: () => void; profileId: ProfileId; editorMode?: boolean }) {
   const { profile, projects } = usePortfolio();
   const ref = useRef<HTMLElement>(null);
   const fine = useFinePointer();
@@ -80,15 +80,16 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
         >
           {/* rim light ring */}
           <div aria-hidden className="absolute bottom-[8%] left-1/2 h-[78%] w-[78%] -translate-x-1/2 rounded-full border border-crimson-2/20 shadow-[0_0_120px_rgba(229,19,43,0.35),inset_0_0_80px_rgba(229,19,43,0.18)]" />
-          <img
-            data-studio-edit="portrait"
-            src={profile.portrait.src}
-            srcSet={profile.portrait.srcSet}
-            sizes="(max-width: 1024px) 100vw, 54vw"
-            alt={profile.portrait.alt}
-
-            className="absolute bottom-0 left-1/2 h-full w-auto max-w-none -translate-x-1/2 object-contain object-bottom drop-shadow-[0_30px_60px_rgba(0,0,0,0.6)] [mask-image:linear-gradient(to_bottom,black_62%,transparent_97%)]"
-          />
+          <div className="client-portrait-cinema absolute inset-0">
+            <img
+              data-studio-edit="portrait"
+              src={profile.portrait.src}
+              srcSet={profile.portrait.srcSet}
+              sizes="(max-width: 1024px) 100vw, 54vw"
+              alt={profile.portrait.alt}
+              className="absolute bottom-0 left-1/2 h-full w-auto max-w-none -translate-x-1/2 object-contain object-bottom drop-shadow-[0_30px_60px_rgba(0,0,0,0.6)] [mask-image:linear-gradient(to_bottom,black_62%,transparent_97%)]"
+            />
+          </div>
           {/* crimson rim light on the image edge */}
           <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_80%_30%,rgba(255,61,90,0.16),transparent_70%)] mix-blend-screen" />
 
@@ -116,7 +117,7 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
           <SeriesMark />
         </motion.div>
         <motion.h1 data-studio-edit="name" variants={item} className="font-display leading-[1.05] text-bone" style={{ fontSize: 'clamp(3rem, 7.2vw, 7rem)' }}>
-          <span className="shimmer-text">{profile.firstName}</span>
+          <span className="shimmer-text client-name-punch">{profile.firstName}</span>
         </motion.h1>
         <motion.p variants={item} className="mt-1 font-sans text-sm font-bold tracking-[0.62em] text-crimson-2 sm:text-base">
           {profile.seriesTag}
@@ -146,7 +147,7 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
               type="button"
               data-cursor="play"
               onClick={onPlay}
-              className="flex min-h-12 items-center gap-3 rounded-md bg-bone px-6 py-3 text-[15px] font-bold text-ink transition hover:bg-white sm:px-8"
+              className="client-hero-play-pulse flex min-h-12 items-center gap-3 rounded-md bg-bone px-6 py-3 text-[15px] font-bold text-ink transition hover:bg-white sm:px-8"
             >
               <span className="text-lg">▶</span> Putar Intro
             </button>
@@ -175,6 +176,13 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
             ⓘ
           </button>
         </motion.div>
+        {!editorMode && (
+          <motion.div variants={item} className="client-hero-now-playing" aria-hidden="true">
+            <span className="client-now-playing-dot" />
+            <span className="client-now-playing-label">NOW PLAYING · {profile.seriesTag}</span>
+            <span className="client-now-playing-track"><span /></span>
+          </motion.div>
+        )}
       </motion.div>
 
       <motion.div aria-hidden className="pointer-events-none absolute inset-0 z-[5] bg-ink" style={{ opacity: blackout }} />

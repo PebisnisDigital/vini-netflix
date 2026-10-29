@@ -33,7 +33,7 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
         transition={{ duration: 0.9, ease: EASE }}
       >
         <span className="block">{portfolioServiceCTA.headlineLines[0]}</span>
-        <span className="block text-crimson-2">{portfolioServiceCTA.headlineLines[1]}</span>
+        <span className="block text-crimson-2 client-cta-headline">{portfolioServiceCTA.headlineLines[1]}</span>
       </motion.h2>
 
       <motion.div
@@ -50,7 +50,7 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
             rel="noopener noreferrer"
             data-cursor="link"
             aria-label="Chat WhatsApp Teh Vini untuk dibuatkan web portofolio PESONAFLIX"
-            className="inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-crimson px-9 py-4 text-base font-bold tracking-[0.04em] text-white shadow-[0_0_50px_rgba(229,19,43,0.5)] transition duration-300 hover:scale-[1.04] hover:bg-crimson-2 focus-visible:outline-offset-4 sm:text-lg"
+            className="client-cta-pulse inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-crimson px-9 py-4 text-base font-bold tracking-[0.04em] text-white shadow-[0_0_50px_rgba(229,19,43,0.5)] transition duration-300 hover:bg-crimson-2 focus-visible:outline-offset-4 sm:text-lg"
           >
             {portfolioServiceCTA.buttonLabel}
             <span aria-hidden="true" className="text-xl">↗</span>

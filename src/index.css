@@ -148,10 +148,135 @@ a:focus-visible {
   animation: shimmer 6s linear infinite;
 }
 
+/* Portfolio motion is shared by every published client using the master template.
+   Studio deliberately skips the client-portfolio class to keep editing stable. */
+.client-portfolio .client-portrait-cinema {
+  transform-origin: 50% 80%;
+  animation: client-portrait-drift 7s ease-in-out infinite;
+  will-change: transform;
+}
+.client-portfolio .client-name-punch {
+  display: inline-block;
+  transform-origin: 18% 75%;
+  animation: shimmer 6s linear infinite, client-title-stamp 7s ease-in-out infinite;
+}
+.client-portfolio .client-reveal-title {
+  transform-origin: left 55%;
+  animation: client-title-stamp 7s ease-in-out infinite;
+}
+.client-portfolio .client-cta-headline {
+  transform-origin: center;
+  animation: client-title-stamp 7s ease-in-out infinite;
+}
+.client-portfolio .client-cta-pulse,
+.client-portfolio .client-hero-play-pulse {
+  position: relative;
+  isolation: isolate;
+  transform-origin: center;
+  animation: client-cta-zoom 2.3s ease-in-out infinite;
+  will-change: transform;
+}
+.client-portfolio .client-cta-pulse::after,
+.client-portfolio .client-hero-play-pulse::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border: 1px solid var(--color-crimson-2);
+  border-radius: inherit;
+  pointer-events: none;
+  animation: client-cta-ring 2.3s ease-out infinite;
+}
+.client-portfolio .client-cta-pulse:hover,
+.client-portfolio .client-cta-pulse:focus-visible,
+.client-portfolio .client-hero-play-pulse:hover,
+.client-portfolio .client-hero-play-pulse:focus-visible {
+  animation-play-state: paused;
+  transform: scale(1.07);
+}
+.client-portfolio .client-hero-now-playing {
+  margin-top: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  max-width: 460px;
+  color: var(--color-bone);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+.client-portfolio .client-now-playing-label { flex: 0 1 auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.client-portfolio .client-now-playing-dot {
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-crimson-2);
+  box-shadow: 0 0 12px var(--color-crimson);
+  animation: client-led-blink 1.4s ease-in-out infinite;
+}
+.client-portfolio .client-now-playing-track {
+  position: relative;
+  flex: 1 1 72px;
+  height: 3px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: rgba(244, 241, 236, 0.18);
+}
+.client-portfolio .client-now-playing-track > span {
+  position: absolute;
+  inset: 0;
+  width: 28%;
+  border-radius: inherit;
+  background: var(--color-crimson-2);
+  box-shadow: 0 0 14px var(--color-crimson);
+  animation: client-progress-travel 4s linear infinite;
+  will-change: transform;
+}
+@keyframes client-portrait-drift {
+  0%, 100% { transform: translate3d(-4px, 5px, 0) scale(1); }
+  50% { transform: translate3d(10px, -19px, 0) scale(1.025); }
+}
+@keyframes client-title-stamp {
+  0%, 71%, 100% { transform: scale(1) rotate(0deg); }
+  76% { transform: scale(1.055) rotate(-0.45deg); }
+  83% { transform: scale(0.994) rotate(0deg); }
+  90% { transform: scale(1.012); }
+}
+@keyframes client-cta-zoom {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.075); }
+}
+@keyframes client-cta-ring {
+  0% { opacity: 0.85; transform: scale(1); }
+  85%, 100% { opacity: 0; transform: scale(1.13); }
+}
+@keyframes client-led-blink {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 1; }
+}
+@keyframes client-progress-travel {
+  from { transform: translateX(-110%); }
+  to { transform: translateX(390%); }
+}
+
+@media (max-width: 640px) {
+  .client-portfolio .client-hero-now-playing { margin-top: 1.2rem; max-width: 95%; font-size: 9px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .grain,
   .light-streak,
-  .shimmer-text {
+  .shimmer-text,
+  .client-portfolio .client-portrait-cinema,
+  .client-portfolio .client-name-punch,
+  .client-portfolio .client-reveal-title,
+  .client-portfolio .client-cta-headline,
+  .client-portfolio .client-cta-pulse,
+  .client-portfolio .client-hero-play-pulse,
+  .client-portfolio .client-cta-pulse::after,
+  .client-portfolio .client-hero-play-pulse::after,
+  .client-portfolio .client-now-playing-dot,
+  .client-portfolio .client-now-playing-track > span {
     animation: none !important;
   }
   .light-streak {
