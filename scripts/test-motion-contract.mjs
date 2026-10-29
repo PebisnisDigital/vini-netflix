@@ -26,3 +26,18 @@ test('template klien memiliki gerakan otomatis tanpa memengaruhi Studio', () => 
   assert.match(css, /animation:\s*client-cta-zoom[^;]*infinite/);
   assert.match(css, /animation:\s*client-card-kenburns[^;]*infinite/);
 });
+
+test('KOMIK POP menambah gerak otomatis tanpa mengganti section dan transisi ORIGINAL', () => {
+  const app = read('src/App.tsx');
+  const hero = read('src/components/ComicHero.tsx');
+  const css = read('src/components/comic.css');
+  assert.match(app, /<ComicHero\s+key=/);
+  assert.match(app, /<ContinueWatching\s+order=/);
+  assert.match(app, /<Scene\s+key=/);
+  assert.match(app, /<FinalCTA\s+onReplay=/);
+  assert.match(hero, /data-studio-edit="portrait"/);
+  assert.match(css, /animation:\s*comic-camera-drift[^;]*infinite/);
+  assert.match(css, /animation:\s*comic-burst-pop[^;]*infinite/);
+  assert.match(css, /animation:\s*comic-halftone-drift[^;]*infinite/);
+  assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
+});
