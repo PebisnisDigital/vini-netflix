@@ -101,8 +101,8 @@ export function ProjectArt({ project, className = '' }: { project: Project; clas
 /** PESONAFLIX mark, shared by every client portfolio and the sample page. */
 export function SeriesMark({ className = '' }: { className?: string }) {
   const { profile } = usePortfolio();
-  if (profile.clientSlug === 'vini2') {
-    return <span className={`inline-flex items-center font-display text-[1.08em] font-bold tracking-tight text-[#ff4085] ${className}`} aria-label="VINI2">VINI<span className="text-[#ffb95f]">2</span></span>;
+  if (profile.clientSlug === 'vini3') {
+    return <span className={`inline-flex items-center font-display text-[1.08em] font-bold tracking-tight text-[#ff4085] ${className}`} aria-label="VINI3">VINI<span className="text-[#ffb95f]">3</span></span>;
   }
   return (
     <span className={`inline-flex items-center whitespace-nowrap font-sans text-[0.76em] font-black tracking-[0.035em] ${className}`} aria-label="PESONAFLIX">

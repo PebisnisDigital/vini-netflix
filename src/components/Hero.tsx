@@ -15,7 +15,7 @@ const item = {
 
 export default function Hero({ onPlay, onResume, profileId, editorMode = false }: { onPlay: () => void; onResume: () => void; profileId: ProfileId; editorMode?: boolean }) {
   const { profile, projects } = usePortfolio();
-  const chibi = profile.clientSlug === 'vini2';
+  const chibi = profile.clientSlug === 'vini3';
   const ref = useRef<HTMLElement>(null);
   const fine = useFinePointer();
   const { scrollTo } = useSmoothScroll();
