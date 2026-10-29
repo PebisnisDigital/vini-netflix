@@ -8,19 +8,21 @@
 - Teks, bukti pengalaman, dan CTA tetap jelas bagi audiens Indonesia, termasuk pembaca mobile usia lanjut.
 - Bila pengguna memilih reduced motion, animasi dekoratif harus berhenti.
 
-## Status Tahap 1
+## Status Tahap 2 — CHIBI aktif
 
 Katalog lengkap tersedia di `src/data/templateCatalog.mjs`. Studio menampilkan 16 gaya dan tiga mode identitas berikut statusnya.
 
 | Status | Makna dan tindakan |
 | --- | --- |
-| `available` | Renderer siap untuk klien baru; tombol Gunakan aktif. Saat ini hanya ORIGINAL. |
-| `demo` | Contoh klien ada, tetapi renderer belum aman dipakai secara umum; tombol Lihat Demo tersedia. CHIBI `/vini2` dan ANIME `/vini4`. |
+| `available` | Renderer siap untuk klien baru; tombol Gunakan aktif. Saat ini ORIGINAL dan CHIBI 3D. |
+| `demo` | Contoh klien ada, tetapi renderer belum aman dipakai secara umum; tombol Lihat Demo tersedia. ANIME `/vini4`. |
 | `planned` | Konsep gaya tercatat; belum ada tombol Gunakan maupun preview palsu. |
 
 IDENTITAS: `photo` aktif. `avatar` dan `faceless` tercatat sebagai mode independen namun belum aktif untuk produksi. Server menolak nilai tak dikenal maupun gaya/mode yang belum siap ketika data diterbitkan.
 
-Halaman `/vini2`, `/vini3`, dan `/vini4` yang sudah menggunakan variasi khusus tetap berjalan menggunakan implementasi lamanya; tidak dimigrasikan otomatis ke katalog baru. Mapping demo bersifat kompatibilitas sementara.
+CHIBI mengaktifkan renderer `ChibiHero` berdasarkan `templateId: 'chibi-3d'`, tidak lagi memerlukan alamat `/vini2`. Foto yang belum diganti ditampilkan sebagai placeholder pada editor, bukan menggunakan ilustrasi Teh Vini. Ilustrasi karakter dan poster asli harus diunggah melalui Editor Website; tidak ada pengubahan foto menjadi avatar otomatis. Warna dasar chibi dipakai bila klien belum punya warna khusus, dan data nama, karya, WhatsApp/referral tidak berubah ketika gaya diganti.
+
+Halaman `/vini2`, `/vini3`, dan `/vini4` yang sudah menggunakan variasi khusus tetap berjalan menggunakan implementasi lamanya; tidak dimigrasikan otomatis ke katalog baru.
 
 ## Model data bertahap
 
@@ -44,7 +46,6 @@ Field baru opsional agar JSON klien lama tetap valid. Draft baru menggunakan ORI
 
 ## Tahap berikutnya
 
-1. Selesaikan CHIBI sebagai renderer generik yang tidak bergantung pada gambar demo Vini2; setelah lolos QA, aktifkan untuk klien baru.
-2. Selesaikan ANIME, CLAY 3D, KOMIK POP, EDITORIAL PREMIUM.
-3. Implementasikan pipeline foto/karakter untuk Avatar AI dan FACELESS, dengan persetujuan aset dan fallback.
-4. Produksi gaya tambahan sesuai urutan permintaan klien. Jangan aktifkan seluruh 16 sekaligus sebelum teruji.
+1. Selesaikan ANIME, CLAY 3D, KOMIK POP, EDITORIAL PREMIUM.
+2. Implementasikan pipeline foto/karakter untuk Avatar AI dan FACELESS, dengan persetujuan aset dan fallback.
+3. Produksi gaya tambahan sesuai urutan permintaan klien. Jangan aktifkan seluruh 16 sekaligus sebelum teruji.

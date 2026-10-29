@@ -1,6 +1,7 @@
 import { lazy, Suspense, useCallback, useEffect, useState, type CSSProperties, type ReactNode } from 'react';
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import type { ProfileId, Project, SectionId } from './data/portfolio';
+import { effectiveTheme } from './data/clientModel';
 import { usePortfolio } from './data/PortfolioContext';
 import { SmoothScrollProvider, useSmoothScroll } from './hooks/smoothScroll';
 import CustomCursor from './components/CustomCursor';
@@ -39,8 +40,10 @@ function readStoredProfile(key: string, viewerProfiles: ReturnType<typeof usePor
 
 export default function App({ slug, editorMode = false }: { slug: string; editorMode?: boolean }) {
   const { profile } = usePortfolio();
-  const chibiCinema = profile.designVariant === 'chibi-cinema';
-  const theme = profile.theme;
+  const chibiCinema = profile.templateId === 'chibi-3d' || profile.designVariant === 'chibi-cinema';
+  // Warna CHIBI bawaan tidak disimpan ke data: ketika berganti gaya,
+  // pilihan warna khusus dan warna asli klien tetap aman.
+  const theme = profile.theme || chibiCinema ? effectiveTheme(profile) : undefined;
   const styles = theme ? {
     '--color-ink': theme.background,
     '--color-ink-2': theme.background,
@@ -59,7 +62,7 @@ export default function App({ slug, editorMode = false }: { slug: string; editor
 
 function Series({ slug, editorMode }: { slug: string; editorMode: boolean }) {
   const { viewerProfiles, profile } = usePortfolio();
-  const chibiCinema = profile.designVariant === 'chibi-cinema';
+  const chibiCinema = profile.templateId === 'chibi-3d' || profile.designVariant === 'chibi-cinema';
   const storageKey = `personal-netflix-profile-${slug}`;
   const stored = readStoredProfile(storageKey, viewerProfiles);
   const [stage, setStage] = useState<Stage>(slug === 'vini3' || slug === 'vini4' || editorMode || stored || chibiCinema ? 'home' : 'opening');

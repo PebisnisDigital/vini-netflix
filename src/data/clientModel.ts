@@ -46,6 +46,15 @@ export type ClientTheme = { accent: string; background: string };
 export type WatchCard = { target: vini.SectionId; title: string; subtitle: string; image?: string };
 export type PickCard = { label: string; title: string; detail: string; image?: string; palette?: vini.Palette };
 export const DEFAULT_THEME: ClientTheme = { accent: '#e5132b', background: '#07070a' };
+export const CHIBI_THEME: ClientTheme = { accent: '#ff1746', background: '#100309' };
+
+/** Preset visual mengikuti gaya. Warna pilihan klien tetap lebih tinggi prioritasnya. */
+export function effectiveTheme(data: { theme?: ClientTheme; templateId?: TemplateId; designVariant?: 'chibi-cinema' }): ClientTheme {
+  const chibi = data.templateId === 'chibi-3d' || data.designVariant === 'chibi-cinema';
+  const defaultOriginal = data.theme?.accent.toLowerCase() === DEFAULT_THEME.accent && data.theme?.background.toLowerCase() === DEFAULT_THEME.background;
+  if (chibi && (!data.theme || defaultOriginal)) return CHIBI_THEME;
+  return data.theme || DEFAULT_THEME;
+}
 
 const sushmitaWatchCards: WatchCard[] = sushmita.viewerProfiles[0].order.map((target) => ({
   target, title: sushmita.sectionMeta[target].card, subtitle: sushmita.sectionMeta[target].meta, image: '',
