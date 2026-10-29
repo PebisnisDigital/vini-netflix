@@ -8,13 +8,13 @@
 - Teks, bukti pengalaman, dan CTA tetap jelas bagi audiens Indonesia, termasuk pembaca mobile usia lanjut.
 - Bila pengguna memilih reduced motion, animasi dekoratif harus berhenti.
 
-## Status Tahap 5 — CHIBI, ANIME, CLAY, dan KOMIK POP aktif
+## Status Tahap 6 — CHIBI, ANIME, CLAY, KOMIK POP, dan EDITORIAL PREMIUM aktif
 
 Katalog lengkap tersedia di `src/data/templateCatalog.mjs`. Studio menampilkan 16 gaya dan tiga mode identitas berikut statusnya.
 
 | Status | Makna dan tindakan |
 | --- | --- |
-| `available` | Renderer siap untuk klien baru; tombol Gunakan aktif. Saat ini ORIGINAL, CHIBI 3D, ANIME, CLAY 3D, dan KOMIK POP. |
+| `available` | Renderer siap untuk klien baru; tombol Gunakan aktif. Saat ini ORIGINAL, CHIBI 3D, ANIME, CLAY 3D, KOMIK POP, dan EDITORIAL PREMIUM. |
 | `demo` | Contoh klien ada, tetapi renderer belum aman dipakai secara umum; tombol Lihat Demo saja. |
 | `planned` | Konsep gaya tercatat; belum ada tombol Gunakan maupun preview palsu. |
 
@@ -28,7 +28,9 @@ CLAY 3D memakai `ClayHero`, palet navy–coral–mint, font Baloo 2, material se
 
 KOMIK POP memakai `ComicHero`, font Bangers, palet navy–magenta–kuning–teal, titik halftone, panel tebal, balon dialog dan stiker WOW. Gambar latar bergeser perlahan, efek pop dan garis kecepatan bergerak terus, panel karya muncul dengan gerakan spring. Animasi pada section, hover, modal, dan transisi scroll tetap berasal dari renderer ORIGINAL. Demo `/vini6` memakai aset khusus Teh Vini; klien baru mendapatkan placeholder komik sampai ilustrasinya diunggah melalui Studio, tanpa konversi foto otomatis. Motion dekoratif berhenti ketika reduced motion aktif.
 
-Halaman `/vini2`, `/vini3`, `/vini4`, `/vini5`, dan `/vini6` yang sudah menggunakan variasi khusus tetap berjalan menggunakan konfigurasi masing-masing; tidak dimigrasikan otomatis ke katalog baru.
+EDITORIAL PREMIUM memakai `EditorialHero` dengan tata sampul majalah: halaman ivory, masthead tipis, judul Playfair Display besar, potret sinematik, kartu karya kecil terkurasi, latar charcoal, dan aksen emas hangat. Kamera bergerak lembut otomatis; judul dan karya muncul bertahap. Section asli, animasi scroll, dan modal tetap memakai sistem ORIGINAL. Demo `/vini7` menggunakan foto konsep buatan AI yang dilabeli dengan jelas sebagai representasi, **bukan foto asli Teh Vini**. Draft klien baru mendapatkan placeholder editorial; admin mengunggah foto yang berhak digunakan lewat Studio, tanpa konversi otomatis. Kustomisasi warna tidak menimpa data klien.
+
+Halaman `/vini2`, `/vini3`, `/vini4`, `/vini5`, `/vini6`, dan `/vini7` yang sudah menggunakan variasi khusus tetap berjalan menggunakan konfigurasi masing-masing; tidak dimigrasikan otomatis ke katalog baru.
 
 ## Model data bertahap
 
@@ -52,6 +54,6 @@ Field baru opsional agar JSON klien lama tetap valid. Draft baru menggunakan ORI
 
 ## Tahap berikutnya
 
-1. Selesaikan EDITORIAL PREMIUM, DOODLE, lalu gaya berikutnya.
+1. Selesaikan DOODLE, STORYBOOK, lalu gaya berikutnya.
 2. Implementasikan pipeline foto/karakter untuk Avatar AI dan FACELESS, dengan persetujuan aset dan fallback.
 3. Produksi gaya tambahan sesuai urutan permintaan klien. Jangan aktifkan seluruh 16 sekaligus sebelum teruji.

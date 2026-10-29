@@ -41,3 +41,20 @@ test('KOMIK POP menambah gerak otomatis tanpa mengganti section dan transisi ORI
   assert.match(css, /animation:\s*comic-halftone-drift[^;]*infinite/);
   assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
 });
+
+test('EDITORIAL PREMIUM memiliki kamera dan detail yang bergerak otomatis; section ORIGINAL tetap ada', () => {
+  const app = read('src/App.tsx');
+  const hero = read('src/components/EditorialHero.tsx');
+  const css = read('src/components/editorial.css');
+  assert.match(app, /<EditorialHero\s+key=/);
+  assert.match(app, /<ContinueWatching\s+order=/);
+  assert.match(app, /<Scene\s+key=/);
+  assert.match(app, /<FinalCTA\s+onReplay=/);
+  assert.match(hero, /data-studio-edit="portrait"/);
+  assert.match(hero, /data-studio-edit="bio"/);
+  assert.match(hero, /initial=\{\{ opacity: 0/);
+  assert.match(css, /animation:\s*editorial-camera-drift[^;]*infinite/);
+  assert.match(css, /animation:\s*editorial-scroll-pulse[^;]*infinite/);
+  assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
+  assert.doesNotMatch(hero, /AnimationControl|toggleMotion|PauseAnimation/);
+});
