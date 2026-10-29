@@ -285,3 +285,86 @@ a:focus-visible {
     display: none;
   }
 }
+
+/* VINI2: Netflix layout & interactions remain untouched; only its visual language changes. */
+.chibi-theme {
+  --font-display: 'Fredoka', 'Nunito Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Nunito Sans', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --color-bone: #fff5fd;
+  --color-mist: #e6c7e4;
+  --color-smoke: #ac88a6;
+  --color-ink-3: #25152f;
+  background: radial-gradient(70% 22% at 90% 6%, rgba(255, 91, 163, 0.19), transparent),
+    radial-gradient(50% 16% at 4% 38%, rgba(143, 113, 255, 0.12), transparent),
+    var(--color-ink);
+}
+
+.chibi-theme .font-display {
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+
+.chibi-theme .grain { opacity: 0.018; }
+.chibi-theme #top::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.48;
+  background-image:
+    radial-gradient(circle, rgba(255, 185, 205, .28) 0 2px, transparent 3px),
+    radial-gradient(circle, rgba(152, 253, 228, .22) 0 2px, transparent 3px);
+  background-size: 112px 128px, 155px 176px;
+  background-position: 12px 18px, 80px 90px;
+  mask-image: linear-gradient(to bottom, black, transparent 92%);
+}
+
+.chibi-theme #top .client-portrait-cinema img {
+  filter: drop-shadow(0 25px 55px rgba(255, 94, 166, 0.24));
+  mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+}
+
+.chibi-theme #top .chibi-name {
+  color: #ff5098;
+  text-shadow: 0 0 40px rgba(255, 67, 145, 0.35);
+}
+
+.chibi-theme .client-hero-play-pulse {
+  color: white;
+  background: linear-gradient(115deg, #ff337e, #ff5c9d);
+  border-radius: 999px;
+  box-shadow: 0 10px 32px rgba(255, 56, 130, 0.25);
+}
+
+.chibi-theme #top .glass,
+.chibi-theme #top button:not(.client-hero-play-pulse) {
+  border-radius: 999px;
+}
+
+.chibi-theme .glass {
+  border-color: rgba(255, 181, 224, 0.25);
+  background: linear-gradient(150deg, rgba(137, 93, 158, 0.23), rgba(38, 19, 55, 0.15));
+}
+
+.chibi-theme #originals .group > div,
+.chibi-theme .group\/rail button > div,
+.chibi-theme #picks .group > div,
+.chibi-theme .rail .group > div {
+  border-radius: 22px;
+}
+
+.chibi-theme .rail img { filter: saturate(1.12); }
+.chibi-theme .rail .group:hover img { filter: saturate(1.25) brightness(1.08); }
+.chibi-theme a:focus-visible,
+.chibi-theme button:focus-visible { outline-color: #ff9dcf; }
+
+@media (max-width: 640px) {
+  .chibi-theme #top .client-portrait-cinema img {
+    max-height: 70svh;
+  }
+  .chibi-theme #top h1 {
+    font-size: clamp(2.8rem, 11.4vw, 4.6rem) !important;
+    line-height: 1.1;
+  }
+}
