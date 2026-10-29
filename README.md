@@ -9,6 +9,7 @@ Master portofolio bergaya platform streaming untuk beberapa klien dengan brand *
 | `/vini2` | Demo Teh Vini versi Chibi Cinema (desain alternatif bergaya film animasi) |
 | `/vini3` | Demo lain gaya Chibi |
 | `/vini4` | Demo gaya Anime |
+| `/vini5` | Demo gaya Clay 3D |
 | `/formulir` | Alamat lama, otomatis mengarah ke `/studio?tab=formulir` |
 | `/studio` | CMS editor seperti Blogger: buat/edit konten dan foto, simpan draft, preview |
 | `/studio?tab=formulir` | Formulir klien, langsung dipindah ke draft CMS tanpa mengetik ulang |
@@ -19,7 +20,7 @@ Master portofolio bergaya platform streaming untuk beberapa klien dengan brand *
 
 **CMS Studio:** [Alur editorial, GitHub OAuth, dan penerbitan aman](docs/CMS-STUDIO.md).
 
-**Katalog TEMPLATE Studio:** Saat mengedit klien, buka tab **TEMPLATE · 16 Gaya**. ORIGINAL, CHIBI 3D, dan ANIME siap diterapkan ke klien baru. Gaya lain dan mode Avatar AI/FACELESS belum aktif. Untuk CHIBI dan ANIME, unggah sendiri ilustrasi karakter dan poster milik klien lewat Editor Website; sistem belum mengubah foto jadi ilustrasi secara otomatis. Pilihan gaya mengatur tata letak, font, warna latar, dan motion tanpa menyalin identitas/foto dari demo `/vini2` atau `/vini4`. Lihat [roadmap template](docs/template-roadmap.md).
+**Katalog TEMPLATE Studio:** Saat mengedit klien, buka tab **TEMPLATE · 16 Gaya**. ORIGINAL, CHIBI 3D, ANIME, dan CLAY 3D siap diterapkan ke klien baru. Gaya lain dan mode Avatar AI/FACELESS belum aktif. Untuk CHIBI, ANIME, dan CLAY 3D, unggah sendiri ilustrasi karakter dan poster milik klien lewat Editor Website; sistem belum mengubah foto jadi ilustrasi secara otomatis. Pilihan gaya mengatur tata letak, font, warna latar, dan motion tanpa menyalin identitas/foto dari demo `/vini2`, `/vini4`, atau `/vini5`. Lihat [roadmap template](docs/template-roadmap.md).
 
 ## Membuat portofolio klien baru
 

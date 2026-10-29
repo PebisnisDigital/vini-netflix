@@ -157,6 +157,33 @@ test('template ANIME memakai identitas dan karya klien sendiri, bukan demo VINI4
   } finally { await server.close(); }
 });
 
+test('template CLAY 3D memakai data dan nomor WhatsApp klien tanpa meminjam ilustrasi VINI5', async () => {
+  const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
+  try {
+    const { createPortfolioFromBrief, validateBrief, effectiveTheme, DEFAULT_THEME, CLAY_THEME } = await server.ssrLoadModule('/src/data/clientModel.ts');
+    const brief = {
+      slug: 'aisyah', name: 'Aisyah Putri', role: 'Pengajar Anak', location: 'Yogyakarta',
+      bio: 'Mendampingi keluarga membuat mainan belajar kreatif.', tagline: ['Belajar dengan menyenangkan'], interests: ['Parenting'],
+      photo: { src: '/clients/aisyah/karakter-clay.webp', alt: 'Karakter clay Aisyah Putri' },
+      experiences: [], projects: [{ title: 'Mainan Alfabet', year: '2026', description: 'Boneka clay untuk belajar huruf.', category: 'Pendidikan', tags: ['Edu'], image: '/clients/aisyah/alfabet.webp' }],
+      skills: ['Permainan Edukasi'], whatsapp: '081234567890', templateId: 'clay-3d', identityMode: 'photo',
+    };
+    assert.deepEqual(validateBrief(brief, { requireWhatsapp: true }), []);
+    const content = createPortfolioFromBrief(brief);
+    assert.equal(content.profile.templateId, 'clay-3d');
+    assert.equal(content.profile.displayName, 'Aisyah Putri');
+    assert.equal(content.profile.whatsapp, '081234567890');
+    assert.equal(content.profile.referralCode, 'PSN-AISYAH');
+    assert.equal(content.profile.portrait.src, '/clients/aisyah/karakter-clay.webp');
+    assert.equal(content.projects[0].image, '/clients/aisyah/alfabet.webp');
+    assert.deepEqual(effectiveTheme(content.profile), CLAY_THEME);
+    assert.deepEqual(effectiveTheme({ templateId: 'clay-3d', theme: DEFAULT_THEME }), CLAY_THEME);
+    assert.deepEqual(effectiveTheme({ templateId: 'clay-3d', theme: { accent: '#aabbcc', background: '#192a3b' } }), { accent: '#aabbcc', background: '#192a3b' });
+    const serialized = JSON.stringify(content);
+    for (const forbidden of ['/clients/vini5/', 'Teh Vini', 'BADAI', 'PROMPTIONAL']) assert.equal(serialized.includes(forbidden), false);
+  } finally { await server.close(); }
+});
+
 test('proyek baru memakai contoh Sushmita yang lengkap tanpa membuatnya siap terbit', async () => {
   const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
   try {
