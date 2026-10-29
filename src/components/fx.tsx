@@ -79,7 +79,7 @@ export function RevealText({ text, className = '', delay = 0, as = 'span' }: { t
   const words = text.split(' ');
   return (
     <Tag
-      className={className}
+      className={`${className}${as === 'h2' || as === 'h3' ? ' client-reveal-title' : ''}`}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: '-4% 0px' }}
