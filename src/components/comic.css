@@ -1,0 +1,123 @@
+/* KOMIK POP adalah renderer mandiri; seluruh animasi scroll ORIGINAL tetap hidup. */
+.comic-cinema {
+  --font-display: 'Bangers', Impact, 'Arial Narrow', sans-serif;
+  --font-sans: 'Nunito Sans', 'Inter', sans-serif;
+  --comic-ink: #07142d;
+  --comic-yellow: #ffdd3f;
+  --comic-pink: var(--color-crimson, #f52983);
+  --comic-teal: #24d7d3;
+  --comic-paper: #fff4d6;
+  --color-bone: #fff7e2;
+  --color-mist: #d9edf2;
+  --color-smoke: #a9c2d5;
+  --color-ink-3: #102f52;
+  background: var(--color-ink, #081b42);
+}
+.comic-cinema .grain { opacity: .025; mix-blend-mode: soft-light; }
+.comic-cinema .font-display { font-family: var(--font-display); font-weight: 400; letter-spacing: .025em; }
+.comic-cinema .glass { background: #0a2444e8; border: 2px solid #d9fbff46; box-shadow: 5px 5px 0 #020a19; }
+.comic-cinema .client-cta-headline { color: var(--comic-yellow); text-shadow: 3px 4px 0 var(--comic-ink); }
+.comic-cinema .client-cta-pulse { background: var(--comic-pink); border: 3px solid #101020; box-shadow: 6px 6px 0 var(--comic-yellow); }
+.comic-cinema #originals .rail .group > div,
+.comic-cinema #picks .group > div,
+.comic-cinema .group\/rail button > div { border-radius: 10px; border: 3px solid #ffedb785; box-shadow: 5px 6px 0 #020b20ac; }
+.comic-cinema .rail img { filter: saturate(1.2) contrast(1.06); transition: filter 320ms ease, transform 440ms ease !important; }
+.comic-cinema .rail .group:hover img { filter: saturate(1.43) contrast(1.08); }
+.comic-cinema a:focus-visible, .comic-cinema button:focus-visible { outline: 3px solid var(--comic-yellow); outline-offset: 5px; }
+.comic-cinema #about h2, .comic-cinema #journey h2,
+.comic-cinema #originals h2, .comic-cinema #picks h2,
+.comic-cinema #skills h2, .comic-cinema #moments h2,
+.comic-cinema #story h2 { text-shadow: 2px 3px 0 #061021; }
+
+.comic-hero { position: relative; isolation: isolate; min-height: 795px; overflow: hidden; background: #06172e; border-bottom: 8px solid #080e1e; }
+.comic-halftone { position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: .25; background-image: radial-gradient(#ffd63b 1.3px, transparent 1.5px); background-size: 13px 13px; mask-image: linear-gradient(100deg, #000, transparent 55%); animation: comic-halftone-drift 15s linear infinite alternate; }
+.comic-hero-art { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+.comic-hero-art img { width: 100%; height: 100%; object-fit: cover; object-position: center 46%; animation: comic-camera-drift 18s ease-in-out infinite alternate; }
+.comic-hero-art img[data-studio-edit="portrait"] { cursor: pointer; }
+.comic-hero-shade { position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg, rgba(4,13,35,.96) 0%, rgba(4,13,35,.88) 28%, rgba(4,13,35,.46) 50%, transparent 80%), linear-gradient(0deg, #081b42 0%, transparent 34%); }
+.comic-hero-inner { position: relative; z-index: 4; max-width: 1370px; margin: auto; padding: clamp(145px, 16vw, 192px) clamp(24px, 5vw, 76px) 200px; }
+.comic-issue-label { display: inline-flex; align-items: center; gap: 8px; max-width: 100%; padding: 9px 17px; color: #0b1530; background: var(--comic-yellow); border: 3px solid #0d162c; box-shadow: 5px 5px 0 var(--comic-pink); font: 900 12px/1.25 var(--font-sans); letter-spacing: .05em; }
+.comic-issue-label span { color: #f52983; font-size: 17px; }
+.comic-eyebrow { margin-top: 36px; font: 900 14px/1.2 var(--font-sans); letter-spacing: .28em; color: var(--comic-teal); }
+.comic-name { width: min(100%, 760px); max-width: 11ch; margin-top: 10px; font: 400 clamp(86px, 10.5vw, 150px)/.87 var(--font-display); letter-spacing: .005em; color: var(--comic-yellow); text-shadow: -3px -3px 0 #0c1630, 5px 5px 0 #0c1630, 10px 10px 0 var(--comic-pink), 15px 17px 24px #0009; text-transform: uppercase; overflow-wrap: anywhere; }
+.comic-role { display: inline-flex; align-items: center; gap: 10px; max-width: min(93%, 500px); margin-top: 24px; padding: 10px 16px; background: var(--comic-teal); border: 3px solid #081129; box-shadow: 5px 5px 0 #fc387c; color: #08102a; font: 900 clamp(12px, 1.7vw, 17px)/1.35 var(--font-sans); text-transform: uppercase; }
+.comic-speech { width: fit-content; position: relative; max-width: min(96%, 490px); margin-top: 28px; padding: 15px 23px 19px; background: var(--comic-paper); color: #10213d; border: 4px solid #050d23; border-radius: 20px 20px 18px 4px; box-shadow: 6px 6px 0 #071a36; transform-origin: 15% 100%; animation: comic-speech-float 5.5s ease-in-out 2s infinite; }
+.comic-speech::after { content: ''; position: absolute; bottom: -22px; left: 26px; width: 26px; height: 25px; background: var(--comic-paper); border-left: 4px solid #050d23; border-bottom: 4px solid #050d23; transform: skewY(-32deg) rotate(-20deg); z-index: -1; }
+.comic-speech p { font: 900 clamp(19px, 2.4vw, 27px)/1.14 var(--font-sans); letter-spacing: -.03em; }
+.comic-intro { max-width: 54ch; margin-top: 27px; font: 650 15px/1.6 var(--font-sans); color: #e4f1f6; text-shadow: 0 1px 6px #000b; }
+.comic-actions { display: flex; flex-wrap: wrap; gap: 17px; margin-top: 27px; }
+.comic-actions button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 53px; padding: 10px 24px; font: 900 15px/1.2 var(--font-sans); border: 3px solid #071124; box-shadow: 6px 6px 0 #020717; transition: transform 180ms ease, box-shadow 180ms ease; }
+.comic-action-main { background: var(--comic-pink); color: #fff; }
+.comic-action-alt { background: var(--comic-yellow); color: #071124; }
+.comic-actions button:hover { transform: translate(-2px,-4px); box-shadow: 8px 10px 0 #020717; }
+.comic-actions button:active { transform: translate(3px,3px); box-shadow: 2px 2px 0 #020717; }
+.comic-hero-footer { margin-top: 27px; color: #aed5ee; font: 900 10px/1.4 var(--font-sans); letter-spacing: .18em; }
+.comic-hero-footer span { color: var(--comic-yellow); margin-inline: 6px; }
+.comic-pop-sticker { position: absolute; z-index: 4; top: 17%; right: 8%; display: grid; place-items: center; width: clamp(103px, 13vw, 190px); aspect-ratio: 1; background: var(--comic-yellow); clip-path: polygon(50% 0%,58% 24%,76% 8%,76% 32%,99% 25%,85% 48%,100% 64%,75% 67%,78% 95%,56% 78%,39% 100%,33% 76%,9% 88%,23% 60%,0% 50%,24% 41%,8% 17%,37% 25%); color: #10142b; font: 400 clamp(25px, 4.5vw, 58px)/1 var(--font-display); text-shadow: 2px 2px 0 #f73980; animation: comic-burst-pop 4.5s steps(14,end) infinite; filter: drop-shadow(5px 8px 0 #08112b); }
+.comic-speed-line { position: absolute; z-index: 3; right: 3%; width: 11%; height: 4px; transform: rotate(-23deg); background: var(--comic-yellow); box-shadow: 0 4px 0 #07142d; opacity: .7; animation: comic-speed 3.4s ease-in-out infinite; pointer-events: none; }
+.comic-speed-one { top: 41%; animation-delay: -.7s; }
+.comic-speed-two { top: 45%; width: 7%; right: 5%; animation-delay: -1.6s; }
+.comic-speed-three { top: 49%; width: 9%; right: 7%; animation-delay: -2.5s; }
+.comic-feature-panels { position: absolute; right: clamp(20px, 6vw, 110px); bottom: 62px; z-index: 6; display: flex; align-items: end; gap: clamp(15px, 2.4vw, 29px); }
+.comic-feature-panel { position: relative; width: clamp(130px, 13vw, 192px); aspect-ratio: 4/3; border: 6px solid #05122b; background: var(--comic-teal); box-shadow: 8px 8px 0 var(--comic-yellow), 12px 12px 0 #061125; cursor: pointer; transform-origin: bottom center; }
+.comic-feature-panel:nth-child(2) { box-shadow: 8px 8px 0 var(--comic-pink), 12px 12px 0 #061125; }
+.comic-feature-panel img { width: 100%; height: 100%; object-fit: cover; }
+.comic-feature-title { position: absolute; bottom: -6px; inset-inline: -6px; overflow: hidden; padding: 6px 5px; color: #11172d; background: var(--comic-yellow); border: 3px solid #061125; white-space: nowrap; text-overflow: ellipsis; font: 900 11px/1.1 var(--font-sans); text-align: center; }
+.comic-feature-panel:nth-child(2) .comic-feature-title { background: #fda1c5; }
+.comic-project-fallback { display: grid; place-items: center; height: 100%; color: #f52983; font-size: 65px; }
+.comic-art-placeholder { position: absolute; inset: 0; display: grid; align-items: center; justify-content: end; padding-right: 10%; background: radial-gradient(circle at 75% 42%,#2499b4 0%,#07446c 31%,transparent 61%); cursor: pointer; }
+.comic-placeholder-burst { display: grid; place-items: center; width: clamp(220px, 34vw, 460px); aspect-ratio: 1; background: var(--comic-yellow); clip-path: polygon(50% 0%,61% 25%,79% 9%,75% 34%,100% 27%,84% 50%,100% 73%,74% 65%,78% 94%,55% 75%,36% 100%,30% 73%,6% 86%,23% 60%,0% 48%,27% 42%,9% 18%,38% 29%); animation: comic-burst-pop 5s steps(16,end) infinite; }
+.comic-placeholder-burst span { transform: rotate(-9deg); color: #0e1833; text-align: center; font: 400 clamp(55px, 6vw, 83px)/.83 var(--font-display); text-shadow: 3px 4px 0 #f52983; }
+.comic-art-placeholder p { position: absolute; right: 12%; bottom: 30%; max-width: 40%; padding: 8px 12px; background: #051532c9; color: #fffbd8; border: 2px dashed #ffeea7; font: 900 12px/1.35 var(--font-sans); letter-spacing: .07em; text-align: center; }
+
+@keyframes comic-camera-drift { from { transform: scale(1) translate3d(0,0,0) } to { transform: scale(1.07) translate3d(-1.3%,.8%,0) } }
+@keyframes comic-burst-pop { 0%,100% { transform: rotate(-8deg) scale(.96) } 52% { transform: rotate(6deg) scale(1.075) } }
+@keyframes comic-halftone-drift { from { background-position: 0 0 } to { background-position: 18px 36px } }
+@keyframes comic-speed { 0%,100% { transform: rotate(-23deg) translateX(0); opacity: .45 } 50% { transform: rotate(-23deg) translateX(-22px); opacity: 1 } }
+@keyframes comic-speech-float { 0%,100% { translate: 0 0; rotate: 0deg } 50% { translate: 0 -6px; rotate: -1deg } }
+
+@media (max-width: 900px) {
+  .comic-hero { min-height: 960px; }
+  .comic-hero-art { bottom: auto; height: 520px; }
+  .comic-hero-art img { object-position: 68% 37%; }
+  .comic-hero-shade { background: linear-gradient(180deg, #06152e1a 0%, #06152e29 28%, #081b42 53%, #081b42 100%); }
+  .comic-halftone { mask-image: none; opacity: .1; }
+  .comic-hero-inner { padding: 425px 24px 230px; text-align: center; }
+  .comic-eyebrow { margin-top: 27px; }
+  .comic-name { max-width: 100%; font-size: clamp(74px, 12.5vw, 104px); margin-inline: auto; }
+  .comic-role, .comic-speech, .comic-intro { margin-inline: auto; }
+  .comic-actions, .comic-hero-footer { justify-content: center; }
+  .comic-feature-panels { right: 50%; bottom: 42px; transform: translateX(50%); }
+  .comic-pop-sticker { top: 24%; right: 7%; }
+  .comic-speed-line { top: 31%; }
+  .comic-art-placeholder { justify-content: center; padding: 0; }
+  .comic-art-placeholder p { right: 23%; bottom: 16%; max-width: 54%; }
+}
+@media (max-width: 520px) {
+  .comic-hero { min-height: 975px; }
+  .comic-hero-art { height: 425px; }
+  .comic-hero-art img { object-position: 65% 40%; }
+  .comic-hero-shade { background: linear-gradient(180deg, #06152e1e 0%, #06152e27 25%, #081b42 43%, #081b42 100%); }
+  .comic-hero-inner { padding: 335px 17px 220px; }
+  .comic-issue-label { font-size: 10px; padding: 8px 10px; }
+  .comic-eyebrow { font-size: 11px; }
+  .comic-name { font-size: clamp(61px, 15vw, 87px); }
+  .comic-role { margin-top: 20px; padding: 9px 11px; font-size: 12px; }
+  .comic-speech { margin-top: 27px; padding: 12px 15px 17px; }
+  .comic-speech p { font-size: clamp(18px, 5vw, 23px); }
+  .comic-intro { font-size: 13px; line-height: 1.55; }
+  .comic-actions { justify-content: center; gap: 10px; }
+  .comic-actions button { font-size: 13px; padding: 9px 13px; min-height: 47px; }
+  .comic-pop-sticker { width: 100px; top: 24%; right: 4%; font-size: 28px; }
+  .comic-speed-line { display: none; }
+  .comic-feature-panels { bottom: 43px; gap: 17px; }
+  .comic-feature-panel { width: min(36vw, 160px); }
+  .comic-feature-title { font-size: 9px; }
+  .comic-placeholder-burst { width: 280px; }
+  .comic-art-placeholder p { bottom: 8%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .comic-hero-art img, .comic-halftone, .comic-pop-sticker,
+  .comic-speed-line, .comic-speech, .comic-placeholder-burst { animation: none !important; }
+  .comic-actions button, .comic-cinema .rail img { transition: none !important; }
+}

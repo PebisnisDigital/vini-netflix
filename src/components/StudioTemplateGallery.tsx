@@ -26,7 +26,7 @@ export default function StudioTemplateGallery({ selectedTemplateId, identityMode
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#ff7294]">PESONAFLIX STUDIO · TEMPLATE</p>
           <h3 className="mt-2 text-2xl font-black sm:text-3xl">Pilih Gaya Website</h3>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/60">Ada 16 gaya dalam katalog. ORIGINAL, CHIBI 3D, ANIME, dan CLAY 3D sudah bisa dipilih untuk klien. Gaya lainnya menyusul.</p>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/60">Ada 16 gaya dalam katalog. ORIGINAL, CHIBI 3D, ANIME, CLAY 3D, dan KOMIK POP sudah bisa dipilih untuk klien. Gaya lainnya menyusul.</p>
         </div>
         <div className="rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-right">
           <span className="block text-[11px] font-bold uppercase tracking-wider text-white/45">Gaya klien ini</span>
@@ -61,6 +61,16 @@ export default function StudioTemplateGallery({ selectedTemplateId, identityMode
             <p className="mt-1 text-xs leading-relaxed text-white/80">Font bulat, warna tanah liat, panggung miniatur, kartu karya dan gerak stop-motion akan tampil otomatis. Isi cerita dan unggah gambar karakter CLAY milik klien melalui Editor Website. Belum ada konversi foto menjadi clay otomatis.</p>
           </div>
           <button type="button" onClick={onEditWebsite} className="min-h-10 rounded-xl bg-[#ffad93] px-5 py-2.5 text-sm font-extrabold text-[#28334e] transition hover:bg-[#ffd0aa]">Buka Editor Website</button>
+        </div>
+      )}
+
+      {selectedTemplateId === 'komik-pop' && (
+        <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-[#ffd83b]/40 bg-gradient-to-r from-[#092f56] via-[#13355e] to-[#4c2254] p-4 sm:p-5">
+          <div className="max-w-2xl">
+            <p className="text-sm font-extrabold text-[#ffdf54]">KOMIK POP aktif untuk klien ini</p>
+            <p className="mt-1 text-xs leading-relaxed text-white/80">Panel komik, font poster, warna cerah, titik halftone, dan animasi otomatis akan diterapkan. Animasi scroll ORIGINAL tetap digunakan. Isi data dan unggah ilustrasi serta poster karya klien melalui Editor Website. Sistem tidak otomatis mengubah foto menjadi komik.</p>
+          </div>
+          <button type="button" onClick={onEditWebsite} className="min-h-10 rounded-lg border-2 border-[#081b42] bg-[#ffd83b] px-5 py-2.5 text-sm font-extrabold text-[#081b42] shadow-[5px_5px_0_#f52983] transition hover:-translate-y-1">Buka Editor Website</button>
         </div>
       )}
 

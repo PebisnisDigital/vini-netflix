@@ -1,0 +1,49 @@
+{
+  "slug": "vini6",
+  "name": "Teh Vini",
+  "role": "Mentor AI & Bisnis Digital",
+  "location": "Bandung, Jawa Barat",
+  "whatsapp": "62881022445869",
+  "bio": "Halo! Aku Vini, ibu rumah tangga dari Bandung yang senang bereksperimen dengan AI. Dari bikin gambar lucu sampai mengajar kelas WhatsApp, aku percaya hal rumit bisa dipelajari bareng-bareng. Ini ceritaku, sekarang dalam lembaran komik yang penuh warna!",
+  "tagline": ["BELAJAR • BERKARYA • BERBAGI", "Dari emak-emak penasaran, jadi teman belajar ribuan orang.", "Setiap ide punya cerita!"],
+  "interests": ["Belajar AI", "Kelas WhatsApp", "Pemasaran Digital", "Bikin Website", "Konten Kreatif", "Komunitas"],
+  "photo": {
+    "src": "/clients/vini6/vini-komik-hero.webp",
+    "alt": "Ilustrasi komik pop mentor berhijab merah muda memegang laptop, representasi kreatif Teh Vini dan bukan foto asli"
+  },
+  "experiences": [
+    {"company": "BADAI — Belajar Apa Aja Dengan AI", "role": "Pengelola Komunitas Belajar AI", "period": "Sekarang", "description": "Mengajak pemula belajar membuat karya dengan AI lewat latihan dan contoh yang mudah diikuti."},
+    {"company": "Pebisnis.Digital", "role": "Penggagas Konten Bisnis Digital", "period": "Sekarang", "description": "Berbagi cara sederhana memanfaatkan teknologi untuk promosi, pemasaran, dan bisnis rumahan."},
+    {"company": "Kelas Praktik WhatsApp", "role": "Mentor", "period": "Berjalan", "description": "Mendampingi ibu rumah tangga, guru, dan pemilik usaha kecil berani mencoba keterampilan digital baru."}
+  ],
+  "projects": [
+    {"title": "BADAI: Petualangan Belajar AI", "year": "KOMUNITAS", "description": "Komunitas pemula yang belajar bikin gambar, video, dan produk digital dengan cara asyik.", "category": "Komunitas AI", "tags": ["AI", "Praktik", "Komunitas"], "image": "/clients/vini6/vini-komik-kelas.webp"},
+    {"title": "Konten Kreatif Bikin WOW!", "year": "KONTEN", "description": "Eksperimen visual, ide promosi, dan cerita digital untuk usaha kecil dan kreator.", "category": "Kreasi Digital", "tags": ["Konten", "Desain", "AI"], "image": "/clients/vini6/vini-komik-konten.webp"},
+    {"title": "Training Game Edukasi", "year": "KELAS", "description": "Belajar membuat game edukasi sederhana memakai AI, lalu praktik bersama peserta.", "category": "Kelas Praktik", "tags": ["Game", "Edukasi", "WhatsApp"], "image": "/clients/vini6/vini-komik-kelas.webp"}
+  ],
+  "skills": ["Mengajar AI Pemula", "WhatsApp Marketing", "Membuat Website", "Konten Kreatif", "Mengelola Komunitas", "Membuat Kelas Online"],
+  "skillsHeading": "Kekuatan Superku",
+  "skillsAside": "Bukan kekuatan dari planet lain. Semua berawal dari rasa penasaran, latihan, lalu berbagi dengan orang lain.",
+  "skillsKicker": "KEAHLIAN DI BALIK LAYAR",
+  "highlights": [
+    {"title": "Komunitas BADAI", "description": "Membuka ruang belajar AI yang ramah untuk pemula dan ibu rumah tangga.", "category": "BELAJAR BARENG"},
+    {"title": "Kelas WhatsApp", "description": "Mengajak peserta praktik membuat karya, bukan sekadar membaca teori.", "category": "KELAS PRAKTIK"},
+    {"title": "Eksperimen Kreatif", "description": "Mencoba beragam visual dan materi digital untuk kebutuhan konten.", "category": "KREASI"}
+  ],
+  "watchCards": [
+    {"target": "about", "title": "Asal Usul", "subtitle": "Kenalan dengan tokoh utama", "image": "/clients/vini6/vini-komik-hero.webp"},
+    {"target": "originals", "title": "Karya Super", "subtitle": "Kreasi favorit", "image": "/clients/vini6/vini-komik-konten.webp"},
+    {"target": "journey", "title": "Petualangan", "subtitle": "Dari penasaran jadi berkarya", "image": "/clients/vini6/vini-komik-kelas.webp"},
+    {"target": "skills", "title": "Kekuatan Super", "subtitle": "Keahlian sehari-hari", "image": "/clients/vini6/vini-komik-konten.webp"},
+    {"target": "picks", "title": "Episode Seru", "subtitle": "Cerita pilihan", "image": "/clients/vini6/vini-komik-kelas.webp"},
+    {"target": "moments", "title": "Momen WOW", "subtitle": "Cerita paling berkesan", "image": "/clients/vini6/vini-komik-hero.webp"},
+    {"target": "story", "title": "Lanjut Cerita", "subtitle": "Ayo ngobrol bareng", "image": "/clients/vini6/vini-komik-konten.webp"}
+  ],
+  "picksHeading": "Episode Pilihan",
+  "picksKicker": "KOMIK POP · CERITA PENUH WARNA",
+  "journeyHeading": "Petualangan Teh Vini",
+  "journeyKicker": "SETIAP BAB ADA CERITA",
+  "journeyAside": "Dari sekadar mencoba teknologi baru sampai berani membagikan ilmunya. Setiap langkah punya bab sendiri.",
+  "templateId": "komik-pop",
+  "identityMode": "photo"
+}
