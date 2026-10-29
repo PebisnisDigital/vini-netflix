@@ -16,8 +16,8 @@ test('katalog studio menyimpan tepat 16 gaya unik dan metadata palet yang valid'
   }
   assert.equal(getTemplate('original').status, 'available');
   assert.equal(getTemplate('chibi-3d').status, 'available');
-  assert.equal(getTemplate('anime').status, 'demo');
-  assert.equal(templateCatalog.filter((item) => canApplyTemplate(item.id)).length, 2);
+  assert.equal(getTemplate('anime').status, 'available');
+  assert.equal(templateCatalog.filter((item) => canApplyTemplate(item.id)).length, 3);
   assert.equal(canApplyTemplate('clay-3d'), false);
 });
 
@@ -35,6 +35,7 @@ test('contoh gaya lama tetap dikenali tanpa memaksa migrasi JSON', () => {
   assert.equal(resolveTemplateId({ slug: 'satria' }), 'original');
   assert.equal(resolveTemplateId({ slug: 'satria', templateId: 'original' }), 'original');
   assert.equal(resolveTemplateId({ slug: 'satria', templateId: 'chibi-3d' }), 'chibi-3d');
+  assert.equal(resolveTemplateId({ slug: 'satria', templateId: 'anime' }), 'anime');
 });
 
 const example = {
@@ -45,10 +46,10 @@ const example = {
 };
 const errors = (brief) => validatePublishPayload({ brief, assets: [], mode: 'create' });
 
-test('publikasi menerima ORIGINAL/CHIBI dan memblokir gaya yang belum siap', () => {
+test('publikasi menerima ORIGINAL/CHIBI/ANIME dan memblokir gaya yang belum siap', () => {
   assert.deepEqual(errors({ ...example, templateId: 'original', identityMode: 'photo' }), []);
   assert.deepEqual(errors({ ...example, templateId: 'chibi-3d', identityMode: 'photo' }), []);
-  assert.ok(errors({ ...example, templateId: 'anime' }).some((line) => line.includes('belum siap')));
+  assert.deepEqual(errors({ ...example, templateId: 'anime', identityMode: 'photo' }), []);
   assert.ok(errors({ ...example, templateId: 'clay-3d' }).some((line) => line.includes('belum siap')));
   assert.ok(errors({ ...example, templateId: 'tidak-ada' }).some((line) => line.includes('tidak dikenal')));
   assert.ok(errors({ ...example, identityMode: 'faceless' }).some((line) => line.includes('belum siap')));

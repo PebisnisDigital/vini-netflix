@@ -19,7 +19,7 @@ Master portofolio bergaya platform streaming untuk beberapa klien dengan brand *
 
 **CMS Studio:** [Alur editorial, GitHub OAuth, dan penerbitan aman](docs/CMS-STUDIO.md).
 
-**Katalog TEMPLATE Studio:** Saat mengedit klien, buka tab **TEMPLATE · 16 Gaya**. ORIGINAL dan CHIBI 3D siap diterapkan ke klien baru, sedangkan ANIME hanya punya demo. Gaya lain dan mode Avatar AI/FACELESS belum aktif. Untuk CHIBI, unggah sendiri ilustrasi karakter dan poster milik klien lewat Editor Website; sistem belum mengubah foto jadi chibi secara otomatis. Pilihan gaya mengatur tata letak, font, warna latar, dan motion tanpa menyalin identitas/foto dari demo `/vini2`. Lihat [roadmap template](docs/template-roadmap.md).
+**Katalog TEMPLATE Studio:** Saat mengedit klien, buka tab **TEMPLATE · 16 Gaya**. ORIGINAL, CHIBI 3D, dan ANIME siap diterapkan ke klien baru. Gaya lain dan mode Avatar AI/FACELESS belum aktif. Untuk CHIBI dan ANIME, unggah sendiri ilustrasi karakter dan poster milik klien lewat Editor Website; sistem belum mengubah foto jadi ilustrasi secara otomatis. Pilihan gaya mengatur tata letak, font, warna latar, dan motion tanpa menyalin identitas/foto dari demo `/vini2` atau `/vini4`. Lihat [roadmap template](docs/template-roadmap.md).
 
 ## Membuat portofolio klien baru
 

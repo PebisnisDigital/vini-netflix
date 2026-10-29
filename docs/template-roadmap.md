@@ -8,19 +8,21 @@
 - Teks, bukti pengalaman, dan CTA tetap jelas bagi audiens Indonesia, termasuk pembaca mobile usia lanjut.
 - Bila pengguna memilih reduced motion, animasi dekoratif harus berhenti.
 
-## Status Tahap 2 — CHIBI aktif
+## Status Tahap 3 — CHIBI dan ANIME aktif
 
 Katalog lengkap tersedia di `src/data/templateCatalog.mjs`. Studio menampilkan 16 gaya dan tiga mode identitas berikut statusnya.
 
 | Status | Makna dan tindakan |
 | --- | --- |
-| `available` | Renderer siap untuk klien baru; tombol Gunakan aktif. Saat ini ORIGINAL dan CHIBI 3D. |
-| `demo` | Contoh klien ada, tetapi renderer belum aman dipakai secara umum; tombol Lihat Demo tersedia. ANIME `/vini4`. |
+| `available` | Renderer siap untuk klien baru; tombol Gunakan aktif. Saat ini ORIGINAL, CHIBI 3D, dan ANIME. |
+| `demo` | Contoh klien ada, tetapi renderer belum aman dipakai secara umum; tombol Lihat Demo saja. |
 | `planned` | Konsep gaya tercatat; belum ada tombol Gunakan maupun preview palsu. |
 
 IDENTITAS: `photo` aktif. `avatar` dan `faceless` tercatat sebagai mode independen namun belum aktif untuk produksi. Server menolak nilai tak dikenal maupun gaya/mode yang belum siap ketika data diterbitkan.
 
 CHIBI mengaktifkan renderer `ChibiHero` berdasarkan `templateId: 'chibi-3d'`, tidak lagi memerlukan alamat `/vini2`. Foto yang belum diganti ditampilkan sebagai placeholder pada editor, bukan menggunakan ilustrasi Teh Vini. Ilustrasi karakter dan poster asli harus diunggah melalui Editor Website; tidak ada pengubahan foto menjadi avatar otomatis. Warna dasar chibi dipakai bila klien belum punya warna khusus, dan data nama, karya, WhatsApp/referral tidak berubah ketika gaya diganti.
+
+ANIME menggunakan tata visual hero, tipografi, latar bintang, kartu dan gerakan dari contoh `/vini4`, tetapi kini ditentukan oleh `templateId: 'anime'` untuk setiap klien. Nama dan label episode mengikuti data klien, bukan teks Teh Vini. Pada draft baru, gambar master Sushmita diganti placeholder ilustrasi anime agar admin mengunggah karakter yang benar. Warna bawaan anime tidak menimpa pilihan warna khusus. Mode foto tetap berlaku sebagai jenis input aset; ilustrasi anime yang diunggah harus memiliki hak pakai atau persetujuan pemilik.
 
 Halaman `/vini2`, `/vini3`, dan `/vini4` yang sudah menggunakan variasi khusus tetap berjalan menggunakan implementasi lamanya; tidak dimigrasikan otomatis ke katalog baru.
 
@@ -46,6 +48,6 @@ Field baru opsional agar JSON klien lama tetap valid. Draft baru menggunakan ORI
 
 ## Tahap berikutnya
 
-1. Selesaikan ANIME, CLAY 3D, KOMIK POP, EDITORIAL PREMIUM.
+1. Selesaikan CLAY 3D, KOMIK POP, EDITORIAL PREMIUM.
 2. Implementasikan pipeline foto/karakter untuk Avatar AI dan FACELESS, dengan persetujuan aset dan fallback.
 3. Produksi gaya tambahan sesuai urutan permintaan klien. Jangan aktifkan seluruh 16 sekaligus sebelum teruji.
