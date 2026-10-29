@@ -8,13 +8,13 @@
 - Teks, bukti pengalaman, dan CTA tetap jelas bagi audiens Indonesia, termasuk pembaca mobile usia lanjut.
 - Bila pengguna memilih reduced motion, animasi dekoratif harus berhenti.
 
-## Status Tahap 3 — CHIBI dan ANIME aktif
+## Status Tahap 4 — CHIBI, ANIME, dan CLAY aktif
 
 Katalog lengkap tersedia di `src/data/templateCatalog.mjs`. Studio menampilkan 16 gaya dan tiga mode identitas berikut statusnya.
 
 | Status | Makna dan tindakan |
 | --- | --- |
-| `available` | Renderer siap untuk klien baru; tombol Gunakan aktif. Saat ini ORIGINAL, CHIBI 3D, dan ANIME. |
+| `available` | Renderer siap untuk klien baru; tombol Gunakan aktif. Saat ini ORIGINAL, CHIBI 3D, ANIME, dan CLAY 3D. |
 | `demo` | Contoh klien ada, tetapi renderer belum aman dipakai secara umum; tombol Lihat Demo saja. |
 | `planned` | Konsep gaya tercatat; belum ada tombol Gunakan maupun preview palsu. |
 
@@ -24,7 +24,9 @@ CHIBI mengaktifkan renderer `ChibiHero` berdasarkan `templateId: 'chibi-3d'`, ti
 
 ANIME menggunakan tata visual hero, tipografi, latar bintang, kartu dan gerakan dari contoh `/vini4`, tetapi kini ditentukan oleh `templateId: 'anime'` untuk setiap klien. Nama dan label episode mengikuti data klien, bukan teks Teh Vini. Pada draft baru, gambar master Sushmita diganti placeholder ilustrasi anime agar admin mengunggah karakter yang benar. Warna bawaan anime tidak menimpa pilihan warna khusus. Mode foto tetap berlaku sebagai jenis input aset; ilustrasi anime yang diunggah harus memiliki hak pakai atau persetujuan pemilik.
 
-Halaman `/vini2`, `/vini3`, dan `/vini4` yang sudah menggunakan variasi khusus tetap berjalan menggunakan implementasi lamanya; tidak dimigrasikan otomatis ke katalog baru.
+CLAY 3D memakai `ClayHero`, palet navy–coral–mint, font Baloo 2, material seperti plastisin, tata kartu polaroid, dan gerak otomatis terputus lembut menyerupai stop-motion. Contoh `/vini5` hanya menampilkan aset ilustrasi Teh Vini sendiri; draft baru menampilkan placeholder karakter buatan CSS sehingga tidak meminjam identitas demo. Semua teks, foto, poster karya, dan warna klien bisa disunting lewat Studio. Tidak ada konversi foto menjadi clay otomatis.
+
+Halaman `/vini2`, `/vini3`, `/vini4`, dan `/vini5` yang sudah menggunakan variasi khusus tetap berjalan menggunakan konfigurasi masing-masing; tidak dimigrasikan otomatis ke katalog baru.
 
 ## Model data bertahap
 
@@ -48,6 +50,6 @@ Field baru opsional agar JSON klien lama tetap valid. Draft baru menggunakan ORI
 
 ## Tahap berikutnya
 
-1. Selesaikan CLAY 3D, KOMIK POP, EDITORIAL PREMIUM.
+1. Selesaikan KOMIK POP, EDITORIAL PREMIUM, lalu gaya berikutnya.
 2. Implementasikan pipeline foto/karakter untuk Avatar AI dan FACELESS, dengan persetujuan aset dan fallback.
 3. Produksi gaya tambahan sesuai urutan permintaan klien. Jangan aktifkan seluruh 16 sekaligus sebelum teruji.

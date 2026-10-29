@@ -1,0 +1,49 @@
+{
+  "slug": "vini5",
+  "name": "Teh Vini",
+  "role": "Mentor AI & Bisnis Digital",
+  "location": "Bandung, Jawa Barat",
+  "whatsapp": "62881022445869",
+  "bio": "Halo, aku Vini dari Bandung. Aku senang membantu teman-teman yang baru kenalan dengan AI, terutama ibu rumah tangga dan pemilik usaha kecil. Ini kisahku dalam dunia miniatur clay: penuh ide, latihan, dan cerita belajar bareng.",
+  "tagline": ["BELAJAR • BERBAGI • BERKARYA", "Dari ide kecil, lahir karya berarti.", "Setiap hari ada cerita baru."],
+  "interests": ["AI untuk Pemula", "Kelas WhatsApp", "Konten Kreatif", "Bisnis Digital", "Karya Edukasi", "UMKM"],
+  "photo": {
+    "src": "/clients/vini5/vini-clay-hero.webp",
+    "alt": "Ilustrasi miniatur tanah liat seorang mentor berhijab di depan studio kreatif, representasi bergaya clay dan bukan foto asli Teh Vini"
+  },
+  "experiences": [
+    {"company": "BADAI — Belajar Apa Aja Dengan AI", "role": "Pengelola Komunitas Belajar AI", "period": "Sekarang", "description": "Mengajak pemula belajar membuat gambar, video dan karya digital dengan contoh dan latihan yang mudah dipraktikkan."},
+    {"company": "Pebisnis.Digital", "role": "Penggagas Konten Bisnis Digital", "period": "Sekarang", "description": "Berbagi ide pemasaran dan cara memanfaatkan teknologi dengan bahasa sederhana."},
+    {"company": "Kelas Praktik WhatsApp", "role": "Mentor Belajar Bersama", "period": "Berjalan", "description": "Memandu latihan bertahap bersama ibu rumah tangga, guru, dan pemilik usaha kecil."}
+  ],
+  "projects": [
+    {"title": "BADAI: Belajar AI Bareng", "year": "KOMUNITAS", "description": "Belajar membuat gambar, video dan karya AI bersama komunitas pemula. Setiap langkah dibuat gampang dicoba.", "category": "Komunitas AI", "tags": ["AI Kreatif", "Komunitas", "Praktik"], "image": "/clients/vini5/vini-clay-kelas.webp"},
+    {"title": "Konten Kreatif dengan AI", "year": "KONTEN", "description": "Eksperimen gambar, video, dan bahan promosi agar ide kecil bisa menjadi karya yang menarik.", "category": "Kreasi Digital", "tags": ["Konten", "Kreatif", "AI"], "image": "/clients/vini5/vini-clay-konten.webp"},
+    {"title": "Training Game Edukasi", "year": "KELAS PRAKTIK", "description": "Membuat game edukasi sederhana dengan bantuan AI, lalu langsung mencobanya bersama peserta kelas.", "category": "Edukasi", "tags": ["Game", "AI", "Belajar"], "image": "/clients/vini5/vini-clay-kelas.webp"}
+  ],
+  "skills": ["Mengajar AI Pemula", "WhatsApp Marketing", "Membuat Konten", "Mengelola Komunitas", "Membuat Kelas Online", "Mendampingi UMKM"],
+  "skillsHeading": "Hal yang Aku Tekuni",
+  "skillsAside": "Belajar nggak harus langsung ahli. Yang penting berani mencoba, terus berbagi, dan saling bantu.",
+  "skillsKicker": "CERITA KECIL, LANGKAH BESAR",
+  "highlights": [
+    {"title": "Komunitas BADAI", "description": "Teman belajar AI yang diajak praktik, bukan hanya menonton tutorial.", "category": "BELAJAR BERSAMA"},
+    {"title": "Kelas Praktik", "description": "Materi langkah demi langkah yang bisa diikuti pemula dan ibu rumah tangga.", "category": "EDUKASI"},
+    {"title": "Konten Digital", "description": "Beragam eksperimen gambar dan materi digital untuk inspirasi berkarya.", "category": "KREATIVITAS"}
+  ],
+  "watchCards": [
+    {"target": "about", "title": "Kenalan Yuk", "subtitle": "Cerita singkat tentang aku", "image": "/clients/vini5/vini-clay-hero.webp"},
+    {"target": "originals", "title": "Karya Pilihan", "subtitle": "Ide kecil jadi karya", "image": "/clients/vini5/vini-clay-konten.webp"},
+    {"target": "journey", "title": "Perjalanan", "subtitle": "Dari penasaran sampai berani", "image": "/clients/vini5/vini-clay-kelas.webp"},
+    {"target": "skills", "title": "Belajar Bareng", "subtitle": "Hal-hal yang aku tekuni", "image": "/clients/vini5/vini-clay-kelas.webp"},
+    {"target": "picks", "title": "Ide Favorit", "subtitle": "Cerita dan karya menarik", "image": "/clients/vini5/vini-clay-konten.webp"},
+    {"target": "moments", "title": "Momen Berarti", "subtitle": "Hal yang membuat semangat", "image": "/clients/vini5/vini-clay-hero.webp"},
+    {"target": "story", "title": "Ngobrol Lagi", "subtitle": "Mari berkenalan lebih dekat", "image": "/clients/vini5/vini-clay-konten.webp"}
+  ],
+  "picksHeading": "Cerita & Karya Favorit",
+  "picksKicker": "DARI DUNIA MINIATUR",
+  "journeyHeading": "Perjalanan Kecilku",
+  "journeyKicker": "SETIAP EPISODE ADA CERITA",
+  "journeyAside": "Mulai dari ingin tahu, lalu mencoba, dan berbagi. Perlahan tapi penuh cerita.",
+  "templateId": "clay-3d",
+  "identityMode": "photo"
+}
