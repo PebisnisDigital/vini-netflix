@@ -7,7 +7,7 @@ import { SeriesMark } from './Poster';
 import { ProfileAvatar } from './ProfileSelector';
 import { EASE } from './fx';
 
-export default function Navbar({ order, profileId, onSwitch }: { order: SectionId[]; profileId: ProfileId; onSwitch: (id: ProfileId) => void }) {
+export default function Navbar({ order, profileId, onSwitch, variant }: { order: SectionId[]; profileId: ProfileId; onSwitch: (id: ProfileId) => void; variant?: 'chibi' }) {
   const { viewerProfiles, sectionMeta } = usePortfolio();
   const { scrollY } = useScroll();
   const [solid, setSolid] = useState(false);
@@ -67,8 +67,8 @@ export default function Navbar({ order, profileId, onSwitch }: { order: SectionI
         }`}
       >
         <div className="flex items-center gap-8 lg:gap-10">
-          <button type="button" onClick={() => go('top')} className="text-[22px]" aria-label="Kembali ke atas">
-            <SeriesMark />
+          <button type="button" onClick={() => go('top')} className={variant === 'chibi' ? 'chibi-nav-brand' : 'text-[22px]'} aria-label="Kembali ke atas">
+            {variant === 'chibi' ? 'PESONAFLIX' : <SeriesMark />}
           </button>
           <nav className="hidden items-center gap-6 lg:flex" aria-label="Bagian halaman">
             <NavLink label="Beranda" active={active === 'top'} onClick={() => go('top')} />
@@ -86,7 +86,7 @@ export default function Navbar({ order, profileId, onSwitch }: { order: SectionI
           >
             KOLABORASI YUK
           </button>
-          <div className="relative" ref={menuRef}>
+          <div className={`relative ${variant === 'chibi' ? 'hidden sm:block' : ''}`} ref={menuRef}>
             <button
               type="button"
               onClick={() => setMenu((m) => !m)}

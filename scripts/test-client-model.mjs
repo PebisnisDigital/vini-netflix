@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { createServer } from 'vite';
+import { readFile } from 'node:fs/promises';
 
 test('data Satria mengganti seluruh konten tanpa identitas klien lain', async () => {
   const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
@@ -79,6 +80,24 @@ test('data Satria mengganti seluruh konten tanpa identitas klien lain', async ()
     const unfinished = createCanvasPortfolio({ ...sample, slug: '', name: '', role: '', location: '', bio: '', tagline: [], projects: [{ ...sample.projects[0], title: '', description: '' }], photo: { src: '', alt: '' } });
     assert.equal(unfinished.profile.displayName, 'NAMA KLIEN');
     assert.equal(unfinished.projects[0].title, 'KARYA 1');
+  } finally { await server.close(); }
+});
+
+test('vini2 adalah demo chibi yang tetap memakai data dan WhatsApp Teh Vini', async () => {
+  const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
+  try {
+    const { createPortfolioFromBrief, validateBrief } = await server.ssrLoadModule('/src/data/clientModel.ts');
+    const brief = JSON.parse(await readFile(new URL('../src/data/clients/vini2.json', import.meta.url), 'utf8'));
+    assert.deepEqual(validateBrief(brief, { requireWhatsapp: true }), []);
+    const page = createPortfolioFromBrief(brief);
+    assert.equal(page.profile.designVariant, 'chibi-cinema');
+    assert.equal(page.profile.clientSlug, 'vini2');
+    assert.equal(page.profile.referralCode, 'PSN-VINI2');
+    assert.equal(page.profile.whatsapp, '62881022445869');
+    assert.equal(page.profile.portrait.src, '/clients/vini2/hero-chibi.webp');
+    assert.equal(page.projects[0].image, '/clients/vini2/poster-badai.webp');
+    assert.equal(page.projects[1].image, '/clients/vini2/poster-promptional.webp');
+    assert.ok(validateBrief({ ...brief, designVariant: 'not-a-real-template' }).some((message) => message.includes('gaya')));
   } finally { await server.close(); }
 });
 
