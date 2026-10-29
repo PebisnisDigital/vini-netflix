@@ -16,11 +16,17 @@ export default function ChibiHero({
   const { profile, projects } = usePortfolio();
   const { scrollTo } = useSmoothScroll();
   const showcased = projects.slice(0, 2);
+  const needsChibiArtwork = profile.portrait.src === '/assets/portrait-720.webp' && profile.templateId === 'chibi-3d';
 
   return (
     <section id="top" className="chibi-hero" aria-label={`Kisah ${profile.displayName}`}>
-      <div className="chibi-hero-art" aria-hidden="true">
-        <img src={profile.portrait.src} alt="" fetchPriority="high" decoding="async" />
+      <div className="chibi-hero-art">
+        {needsChibiArtwork ? (
+          <div className="chibi-art-placeholder" data-studio-edit="portrait" role="img" aria-label="Area ilustrasi chibi klien. Unggah gambar lewat tombol Foto Utama di editor.">
+            <span className="chibi-art-placeholder-face" aria-hidden="true"><span /></span>
+            <span className="chibi-art-placeholder-copy">UNGGAH KARAKTER CHIBI</span>
+          </div>
+        ) : <img data-studio-edit="portrait" src={profile.portrait.src} alt={profile.portrait.alt} fetchPriority="high" decoding="async" />}
       </div>
 
       <div className="chibi-hero-copy">
@@ -78,7 +84,7 @@ export default function ChibiHero({
         </motion.div>
 
         {showcased.length > 0 && (
-          <div className="chibi-posters" aria-label="Karya pilihan Teh Vini">
+          <div className="chibi-posters" aria-label={`Karya pilihan ${profile.displayName}`}>
             {showcased.map((project, index) => (
               <motion.button
                 key={project.id}

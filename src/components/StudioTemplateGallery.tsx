@@ -6,6 +6,7 @@ type Props = {
   identityMode: IdentityMode;
   onApplyTemplate: (id: TemplateId) => void;
   onApplyIdentity: (id: IdentityMode) => void;
+  onEditWebsite: () => void;
 };
 
 const families = ['Sinematik', 'Ceria', 'Bercerita', 'Profesional'] as const;
@@ -17,7 +18,7 @@ const statusText = (status: 'available' | 'demo' | 'planned') => {
 };
 
 /** Galeri perencanaan 16 gaya. Yang belum punya renderer sengaja tidak dapat dipilih. */
-export default function StudioTemplateGallery({ selectedTemplateId, identityMode, onApplyTemplate, onApplyIdentity }: Props) {
+export default function StudioTemplateGallery({ selectedTemplateId, identityMode, onApplyTemplate, onApplyIdentity, onEditWebsite }: Props) {
   const active = templateCatalog.find((item) => item.id === selectedTemplateId);
   return (
     <section aria-label="Katalog template PESONAFLIX" className="space-y-6 rounded-2xl border border-[#fd5579]/25 bg-[#121218] p-4 sm:p-6">
@@ -25,13 +26,23 @@ export default function StudioTemplateGallery({ selectedTemplateId, identityMode
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#ff7294]">PESONAFLIX STUDIO · TEMPLATE</p>
           <h3 className="mt-2 text-2xl font-black sm:text-3xl">Pilih Gaya Website</h3>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/60">Ada 16 gaya dalam katalog. Untuk sekarang ORIGINAL siap digunakan. Gaya yang sudah memiliki halaman contoh bisa dilihat dulu; sisanya sedang disiapkan satu per satu.</p>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/60">Ada 16 gaya dalam katalog. ORIGINAL dan CHIBI 3D sudah bisa dipilih untuk klien. ANIME bisa dilihat sebagai demo; gaya lainnya menyusul.</p>
         </div>
         <div className="rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-right">
           <span className="block text-[11px] font-bold uppercase tracking-wider text-white/45">Gaya klien ini</span>
           <strong className="mt-1 block text-base text-[#ffd6df]">{active?.name || 'ORIGINAL'}</strong>
         </div>
       </div>
+
+      {selectedTemplateId === 'chibi-3d' && (
+        <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-[#ff90b3]/30 bg-gradient-to-r from-[#402036] to-[#25121e] p-4 sm:p-5">
+          <div className="max-w-2xl">
+            <p className="text-sm font-extrabold text-[#ffb4cc]">CHIBI 3D aktif untuk klien ini</p>
+            <p className="mt-1 text-xs leading-relaxed text-white/75">Selanjutnya isi data klien, unggah ilustrasi karakter CHIBI dan poster karya milik klien, lalu simpan dan periksa preview. Template mengatur tata letak, font, warna dan gerakan; belum otomatis mengubah foto menjadi karakter 3D.</p>
+          </div>
+          <button type="button" onClick={onEditWebsite} className="min-h-10 rounded-xl bg-[#ff4b82] px-5 py-2.5 text-sm font-extrabold text-white transition hover:bg-[#ff70a0]">Buka Editor Website</button>
+        </div>
+      )}
 
       <div className="space-y-7">
         {families.map((family) => (
@@ -87,7 +98,7 @@ export default function StudioTemplateGallery({ selectedTemplateId, identityMode
         </div>
       </div>
 
-      <p className="rounded-xl border border-amber-400/15 bg-amber-300/5 px-4 py-3 text-xs leading-relaxed text-amber-100/75">Gambar warna di kartu adalah petunjuk palet, belum preview template lengkap. Data nama, karya, dan WhatsApp klien tidak akan terhapus ketika sistem ganti gaya diaktifkan pada tahap berikutnya.</p>
+      <p className="rounded-xl border border-amber-400/15 bg-amber-300/5 px-4 py-3 text-xs leading-relaxed text-amber-100/75">Warna pada kartu hanyalah petunjuk palet. Untuk melihat desain utuh, pilih gaya lalu buka editor atau tautan demo. Gaya tidak otomatis menghasilkan gambar AI. Nama, karya, dan WhatsApp klien tetap tersimpan saat berpindah gaya.</p>
     </section>
   );
 }

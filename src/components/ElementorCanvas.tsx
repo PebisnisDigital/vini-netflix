@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { createCanvasPortfolio, DEFAULT_THEME, normalizeSlug, type ClientBrief } from '../data/clientModel';
+import { createCanvasPortfolio, effectiveTheme, normalizeSlug, type ClientBrief } from '../data/clientModel';
 import { preparedBrief, type StudioDraft } from '../data/studioDraft';
 import { optimizeStudioImage, type StudioImageKind } from '../utils/imageOptimizer.mjs';
 
@@ -190,7 +190,7 @@ export default function ElementorCanvas({ draft, patch, changeProject, setPhoto,
         optimizeAndSave(data.index === null ? 'hero' : 'work', (file) => photo(data.index, file));
       }
       if (data.type === 'PESONAFLIX_VISUAL_THEME' && (data.key === 'accent' || data.key === 'background') && /^#[0-9a-fA-F]{6}$/.test(data.value)) {
-        apply({ theme: { ...(state.brief.theme || DEFAULT_THEME), [data.key]: data.value } });
+        apply({ theme: { ...effectiveTheme(state.brief), [data.key]: data.value } });
       }
       if (data.type === 'PESONAFLIX_VISUAL_ACTION') {
         const index = Number(data.index);
@@ -253,7 +253,7 @@ export default function ElementorCanvas({ draft, patch, changeProject, setPhoto,
             break;
           }
           case 'skill-remove': if (categories[categoryIndex]?.skills[index] && categories[categoryIndex].skills.length > 1) saveCategories(categories.map((group, i) => i === categoryIndex ? { ...group, skills: group.skills.filter((_, j) => j !== index) } : group)); break;
-          case 'reset-theme': apply({ theme: { ...DEFAULT_THEME } }); break;
+          case 'reset-theme': apply({ theme: undefined }); break;
         }
       }
     };

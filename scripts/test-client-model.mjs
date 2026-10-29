@@ -101,6 +101,34 @@ test('vini2 adalah demo chibi yang tetap memakai data dan WhatsApp Teh Vini', as
   } finally { await server.close(); }
 });
 
+test('template CHIBI dapat dipakai klien baru tanpa membawa identitas demo', async () => {
+  const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
+  try {
+    const { createPortfolioFromBrief, validateBrief, effectiveTheme, DEFAULT_THEME, CHIBI_THEME } = await server.ssrLoadModule('/src/data/clientModel.ts');
+    const brief = {
+      slug: 'maya', name: 'Maya Putri', role: 'Mentor UMKM', location: 'Bandung',
+      bio: 'Membantu pemilik usaha belajar membuat konten produk.', tagline: ['Belajar Konten'], interests: ['UMKM'],
+      photo: { src: '/clients/maya/foto-utama.webp', alt: 'Ilustrasi karakter Maya Putri' },
+      experiences: [], projects: [{ title: 'Kelas Konten', year: '2026', description: 'Belajar membuat foto produk.', category: 'Edukasi', tags: ['UMKM'] }],
+      skills: ['Konten Produk'], whatsapp: '081234567890', templateId: 'chibi-3d', identityMode: 'photo',
+    };
+    assert.deepEqual(validateBrief(brief, { requireWhatsapp: true }), []);
+    const content = createPortfolioFromBrief(brief);
+    assert.equal(content.profile.templateId, 'chibi-3d');
+    assert.equal(content.profile.portrait.src, '/clients/maya/foto-utama.webp');
+    assert.equal(content.profile.displayName, 'Maya Putri');
+    assert.equal(content.profile.whatsapp, '081234567890');
+    assert.equal(content.profile.referralCode, 'PSN-MAYA');
+    assert.equal(effectiveTheme(content.profile).accent, CHIBI_THEME.accent);
+    assert.deepEqual(effectiveTheme({ templateId: 'original' }), DEFAULT_THEME);
+    assert.deepEqual(effectiveTheme({ templateId: 'chibi-3d', theme: { accent: '#1188ff', background: '#070f21' } }), { accent: '#1188ff', background: '#070f21' });
+    assert.deepEqual(effectiveTheme({ templateId: 'original', theme: DEFAULT_THEME }), DEFAULT_THEME);
+    assert.deepEqual(effectiveTheme({ designVariant: 'chibi-cinema' }), CHIBI_THEME);
+    const serialized = JSON.stringify(content);
+    for (const forbidden of ['/clients/vini2/', 'Teh Vini', 'BADAI', 'PROMPTIONAL']) assert.equal(serialized.includes(forbidden), false);
+  } finally { await server.close(); }
+});
+
 test('proyek baru memakai contoh Sushmita yang lengkap tanpa membuatnya siap terbit', async () => {
   const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
   try {
