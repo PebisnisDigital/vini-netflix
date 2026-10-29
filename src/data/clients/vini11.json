@@ -1,0 +1,49 @@
+{
+  "slug": "vini11",
+  "name": "Teh Vini",
+  "role": "Mentor AI & Kreator Website Personal",
+  "location": "Bandung, Jawa Barat",
+  "whatsapp": "62881022445869",
+  "bio": "Saya Vini, ibu rumah tangga dari Bandung yang senang mencoba hal baru. Dari bereksperimen dengan AI, saya mulai berbagi kelas praktik dan membantu orang memperkenalkan keahliannya lewat website personal yang berkarakter. Setiap karya saya bangun sedikit demi sedikit, seperti potongan kertas yang akhirnya menjadi cerita utuh.",
+  "tagline": ["SATU LAPIS, SATU LANGKAH, SATU KARYA", "Ide kecil pun bisa jadi karya yang berkesan.", "Belajar • Berani Mencoba • Berbagi"],
+  "interests": ["Kreasi AI", "Website Personal", "Personal Branding", "Kelas Praktik", "Pemasaran WhatsApp", "Edukasi Kreatif"],
+  "photo": {
+    "src": "/clients/vini11/vini-papercut-hero.webp",
+    "alt": "Ilustrasi konsep paper cut buatan AI dari karakter fiksi kreator berhijab di studio kertas; bukan foto asli Teh Vini"
+  },
+  "experiences": [
+    {"company": "BADAI — Belajar Apa Aja Dengan AI", "role": "Pengelola Komunitas Belajar", "period": "Sekarang", "description": "Membuat ruang belajar AI ramah pemula dengan latihan yang dapat langsung dicoba."},
+    {"company": "Pebisnis.Digital", "role": "Penggagas Edukasi Digital", "period": "Sekarang", "description": "Membagikan ide dan strategi sederhana untuk bertumbuh lewat kreativitas digital."},
+    {"company": "Training Bikin Game Edukasi", "role": "Mentor Kelas WhatsApp", "period": "2026", "description": "Mengajak peserta membuat game edukasi sederhana menggunakan AI dengan panduan bertahap."}
+  ],
+  "projects": [
+    {"title": "BADAI: Belajar Bareng", "year": "KOMUNITAS", "description": "Komunitas belajar AI yang membuat pemula berani mencoba, mempraktikkan, dan menunjukkan hasil karyanya.", "category": "Komunitas & Edukasi", "tags": ["Belajar AI", "Komunitas", "Praktik"], "image": "/clients/vini11/vini-papercut-kelas.webp"},
+    {"title": "Website Punya Cerita", "year": "KREASI", "description": "Membuat website personal yang menonjolkan keahlian, pengalaman, dan karya pemiliknya dengan tampilan sesuai karakter mereka.", "category": "Website & Personal Branding", "tags": ["Website", "Branding", "Desain"], "image": "/clients/vini11/vini-papercut-studio.webp"},
+    {"title": "Game Edukasi dengan AI", "year": "KELAS", "description": "Kelas WhatsApp yang mengajak peserta merancang game belajar dari ide sederhana sampai hasil yang bisa dimainkan.", "category": "Kelas Praktik", "tags": ["AI", "Game Edukasi", "WhatsApp"], "image": "/clients/vini11/vini-papercut-kelas.webp"}
+  ],
+  "skills": ["Mentoring AI Pemula", "Pembuatan Website", "Personal Branding", "Kelas Praktik Digital", "Kreasi Konten", "Pemasaran WhatsApp"],
+  "skillsHeading": "Lapisan Keahlian Saya",
+  "skillsAside": "Keahlian tumbuh dari percobaan kecil yang terus dilakukan. Tidak harus langsung sempurna untuk mulai berkarya.",
+  "skillsKicker": "PERLENGKAPAN BERKARYA",
+  "highlights": [
+    {"title": "BADAI", "description": "Komunitas belajar AI yang ramah bagi pemula.", "category": "KOMUNITAS"},
+    {"title": "Kelas Praktik", "description": "Belajar melalui contoh dan hasil yang dapat langsung dicoba.", "category": "MENTORING"},
+    {"title": "Website Personal", "description": "Merangkai cerita dan keahlian menjadi portofolio yang berkesan.", "category": "KREASI"}
+  ],
+  "watchCards": [
+    {"target": "about", "title": "Kenalan Yuk", "subtitle": "Siapa pembuat cerita?", "image": "/clients/vini11/vini-papercut-hero.webp"},
+    {"target": "originals", "title": "Panggung Karya", "subtitle": "Dari ide jadi nyata", "image": "/clients/vini11/vini-papercut-studio.webp"},
+    {"target": "journey", "title": "Lapis Perjalanan", "subtitle": "Langkah kecil berarti", "image": "/clients/vini11/vini-papercut-kelas.webp"},
+    {"target": "skills", "title": "Kotak Kreasi", "subtitle": "Keahlian saya", "image": "/clients/vini11/vini-papercut-studio.webp"},
+    {"target": "picks", "title": "Pilihan Warna", "subtitle": "Cerita favorit", "image": "/clients/vini11/vini-papercut-hero.webp"},
+    {"target": "moments", "title": "Momen Kecil", "subtitle": "Hal berharga", "image": "/clients/vini11/vini-papercut-kelas.webp"},
+    {"target": "story", "title": "Panggung Terakhir", "subtitle": "Mari kenalan lebih dekat", "image": "/clients/vini11/vini-papercut-studio.webp"}
+  ],
+  "picksHeading": "Potongan Cerita Pilihan",
+  "picksKicker": "DARI PANGGUNG KREASI",
+  "journeyHeading": "Bertumbuh Lapis demi Lapis",
+  "journeyKicker": "TAK ADA KARYA YANG TIBA-TIBA JADI",
+  "journeyAside": "Setiap pengalaman memberi warna baru. Ketika disusun bersama, potongan kecil itu memperlihatkan siapa kita dan apa yang bisa kita berikan.",
+  "templateId": "paper-cut",
+  "identityMode": "photo"
+}

@@ -116,3 +116,23 @@ test('SCRAPBOOK memakai polaroid dan stiker bergerak tanpa menghilangkan section
   assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
   assert.doesNotMatch(hero, /AnimationControl|toggleMotion|PauseAnimation/);
 });
+
+test('PAPER CUT menganimasikan diorama berlapis secara otomatis dan mewarisi section ORIGINAL', () => {
+  const app = read('src/App.tsx');
+  const hero = read('src/components/PaperCutHero.tsx');
+  const css = read('src/components/paper-cut.css');
+  assert.match(app, /<PaperCutHero\s+key=/);
+  assert.match(app, /<ContinueWatching\s+order=/);
+  assert.match(app, /<Scene\s+key=/);
+  assert.match(app, /<FinalCTA\s+onReplay=/);
+  assert.match(hero, /data-studio-edit="portrait"/);
+  assert.match(hero, /data-studio-edit="name"/);
+  assert.match(hero, /data-studio-edit="bio"/);
+  assert.match(hero, /initial=\{\{ opacity: 0/);
+  assert.match(css, /animation:\s*papercut-layer-breathe[^;]*infinite/);
+  assert.match(css, /animation:\s*papercut-stage-float[^;]*infinite/);
+  assert.match(css, /animation:\s*papercut-butterfly-flutter[^;]*infinite/);
+  assert.match(css, /animation:\s*papercut-sun-turn[^;]*infinite/);
+  assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
+  assert.doesNotMatch(hero, /AnimationControl|toggleMotion|PauseAnimation/);
+});
