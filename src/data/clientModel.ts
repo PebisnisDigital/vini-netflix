@@ -1,5 +1,7 @@
 import * as vini from './portfolio';
 import * as sushmita from './sushmitaOriginal';
+import { portfolioServiceCTA } from './portfolioServiceCTA';
+import { clientReferralCode, normalizeClientWhatsapp } from '../utils/clientWhatsapp.mjs';
 
 /** Satu sumber data untuk setiap halaman portofolio, tanpa teks klien lain. */
 export type PortfolioContent = {
@@ -9,6 +11,9 @@ export type PortfolioContent = {
     aboutFacts?: { k: string; v: string; s: string }[];
     websiteLabel?: string;
     theme?: ClientTheme;
+    whatsapp?: string;
+    referralCode?: string;
+    clientSlug?: string;
   };
   projects: vini.Project[];
   experience: vini.Experience[];
@@ -73,7 +78,7 @@ export const sushmitaContent: PortfolioContent = {
 };
 
 export const viniContent: PortfolioContent = {
-  profile: { ...vini.profile, websiteLabel: 'PROMPTIONAL' },
+  profile: { ...vini.profile, websiteLabel: 'PROMPTIONAL', whatsapp: portfolioServiceCTA.whatsappNumber, referralCode: clientReferralCode('vini'), clientSlug: 'vini' },
   projects: vini.projects,
   experience: vini.experience,
   education: vini.education,
@@ -98,6 +103,7 @@ export type ClientBrief = {
   interests: string[];
   photo: { src: string; alt: string; srcSet?: string };
   email?: string;
+  whatsapp?: string;
   links?: { website?: string; linkedin?: string; github?: string };
   experiences: { company: string; role: string; period: string; description: string }[];
   education?: { school: string; degree: string; place: string; period: string; score?: string }[];
@@ -131,6 +137,7 @@ export function sushmitaExampleBrief(): ClientBrief {
     interests: [...sushmita.profile.interests],
     photo: { src: '', alt: sushmita.profile.portrait.alt },
     email: sushmita.profile.email,
+    whatsapp: '',
     links: { ...sushmita.profile.links, website: '' },
     projects: sushmita.projects.map((p) => ({
       title: p.title, year: p.year, description: p.logline, category: p.genre,
@@ -186,7 +193,7 @@ function validUrl(url: string) {
 }
 
 /** Dipakai formulir, validasi build, dan pemuatan halaman. */
-export function validateBrief(value: unknown): string[] {
+export function validateBrief(value: unknown, options: { requireWhatsapp?: boolean } = {}): string[] {
   if (!value || typeof value !== 'object' || Array.isArray(value)) return ['Data klien harus berupa objek.'];
   const b = value as Partial<ClientBrief>;
   const errors: string[] = [];
@@ -261,6 +268,9 @@ export function validateBrief(value: unknown): string[] {
   }
   for (const key of ['journeyHeading', 'journeyAside', 'journeyKicker'] as const) if (b[key] !== undefined && (typeof b[key] !== 'string' || !b[key].trim())) errors.push(`Teks ${key} tidak valid.`);
   if (b.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(b.email)) errors.push('Format email tidak valid.');
+  if (b.whatsapp !== undefined && typeof b.whatsapp !== 'string') errors.push('Nomor WhatsApp pemilik website tidak valid.');
+  else if (b.whatsapp?.trim() && !normalizeClientWhatsapp(b.whatsapp)) errors.push('Nomor WhatsApp harus berupa nomor seluler Indonesia yang valid (contoh: 08... atau 628...).');
+  if (options.requireWhatsapp && !normalizeClientWhatsapp(b.whatsapp)) errors.push('Nomor WhatsApp pemilik website wajib diisi untuk tombol referral.');
   if (b.theme && (!/^#[0-9a-fA-F]{6}$/.test(b.theme.accent) || !/^#[0-9a-fA-F]{6}$/.test(b.theme.background))) errors.push('Warna tema harus menggunakan kode hex 6 digit.');
   for (const [label, url] of Object.entries(b.links ?? {})) if (url && !validUrl(url)) errors.push(`Link ${label} harus diawali https://.`);
   return errors;
@@ -358,6 +368,7 @@ export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: 
       fullName: name.toUpperCase(), displayName: name, firstName: name.toUpperCase(), seriesTag: 'THE SERIES',
       originalLabel: `KISAH ORIGINAL ${name.toUpperCase()}`, role: brief.role,
       tagline: tags, intro: brief.bio, location: brief.location, email: brief.email || '',
+      whatsapp: brief.whatsapp || '', referralCode: clientReferralCode(brief.slug), clientSlug: brief.slug,
       links: { linkedin: brief.links?.linkedin || '', github: brief.links?.github || '', website: brief.links?.website || '' },
       resumePdf: '', portrait: { src: brief.photo.src, srcSet: brief.photo.srcSet || '', alt: brief.photo.alt || `Foto ${name}` },
       interests: brief.interests, heroMeta: [brief.location, brief.role, `${projects.length} Karya`],

@@ -44,7 +44,7 @@ export async function deleteDraft(slug: string) { await transaction('readwrite',
 
 export const clientBriefBlank = (): ClientBrief => ({
   slug: '', name: '', role: '', location: '', bio: '', tagline: [], interests: [],
-  photo: { src: '', alt: '' }, email: '', links: { website: '', linkedin: '', github: '' },
+  photo: { src: '', alt: '' }, email: '', whatsapp: '', links: { website: '', linkedin: '', github: '' },
   projects: [{ title: '', year: String(new Date().getFullYear()), description: '', category: 'Portofolio', tags: [], website: '', image: '' }],
   experiences: [], education: [], skills: [], highlights: [],
 });

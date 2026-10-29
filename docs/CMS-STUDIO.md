@@ -12,6 +12,8 @@
    - `/formulir` — alamat lama yang otomatis mengarahkan ke `/studio?tab=formulir`.
 2. Klik **Buat Klien Baru** atau pilih klien yang sudah tayang. **Canvas Netflix** langsung muncul dengan contoh isi dan foto master. Alternatifnya isi tab Formulir Klien lalu klik **Buka di Editor CMS**. Halaman `/vini` tetap contoh master dan tidak diedit lewat sistem JSON klien.
 3. Klik langsung **nama, profesi, lokasi, headline, deskripsi, foto**, atau **kartu karya** di kanvas. Panel kanan menampilkan kolom teks atau unggah foto untuk elemen yang dipilih. Hasilnya langsung terlihat di kanvas yang merender komponen Netflix asli. Tombol **Desktop / HP** memeriksa tampilan responsif; tombol **Warna** mengubah aksen dan latar. Tambahkan, hapus, atau susun ulang kartu tanpa Codex. Bagian **Pengaturan Detail** tetap tersedia untuk pengalaman, pendidikan, keahlian, pencapaian, dan tautan.
+   - Isi juga **WhatsApp Pemilik & Referral** di bawah kanvas. Nomor WA setiap klien akan dipakai oleh tombol **Mau Dibuatin** pada halaman pribadinya. Format yang didukung: `08…`, `62…`, atau `+62…` (nomor seluler Indonesia).
+   - Pesan WA otomatis menyertakan kode `PSN-NAMAURL`. Kode tersebut membantu atribusi manual ketika klien meneruskan calon pembeli ke Teh Vini. **Klik bukan penjualan dan komisi 50% belum dihitung otomatis oleh sistem.**
 4. Klik **Simpan Draft** dan **Lihat Preview**. Kanvas adalah simulasi langsung yang belum publik; Preview lengkap mengambil data dan foto IndexedDB lokal serta merender website pengunjung sesungguhnya.
 5. Setelah disetujui klien dan siap diterbitkan, klik **Login GitHub & Siapkan Preview**. OAuth GitHub diminta hanya pada tahap ini (sesi sekitar 30 menit).
 6. Server memeriksa akun GitHub, mengunggah foto, dan membuat **branch serta Pull Request**, bukan langsung memodifikasi `main`. Tunggu validasi GitHub Actions dan buka Preview Vercel dari PR.
@@ -47,6 +49,10 @@ Belum bisa digunakan tanpa aplikasi OAuth dan environment variables. **Jangan me
 - **Migrasi domain:** IndexedDB terisolasi per domain. Draft lama di `tehvini.vercel.app` tidak ikut berpindah ke domain PESONAFLIX. Sebelum menghapus atau mengalihkan domain lama, selesaikan/publikasikan draft atau ekspor backup klien dari domain lama.
 
 ## Batasan saat ini
+
+- Halaman demo fiktif `/citra` dan `/iis` sementara memakai nomor WhatsApp Teh Vini sesuai pengaturan pemilik PESONAFLIX. Kode referralnya tetap berbeda. Untuk klien sungguhan, pilih **Edit website terbit** di Studio, ganti nomor sesuai izin pemilik, lalu terbitkan pembaruan.
+- Jika nomor klien sama dengan nomor layanan Teh Vini, pesan dan teks CTA menyebut Teh Vini sebagai penerima chat sambil mempertahankan identitas website sebagai sumber referral.
+- Formulir dan penerbitan baru mewajibkan nomor WhatsApp klien. Jika nomor belum terisi pada halaman lama, CTA tidak membuka WhatsApp siapa pun.
 
 - Dashboard tidak dapat memodifikasi konten `/vini` yang masih dikodekan dalam `src/data/portfolio.ts` karena halaman ini adalah contoh/master yang dilindungi.
 - Kanvas dibuka di dalam iframe agar efek Netflix tampil otentik tanpa mengganggu tombol Studio. Saat mengedit di kanvas, klik elemen untuk memilihnya lalu ketik di panel kanan. Animasi masih berjalan; navigasi dari iframe sengaja dicegah sampai masuk Preview lengkap.

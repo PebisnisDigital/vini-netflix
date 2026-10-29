@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { usePortfolio } from '../data/PortfolioContext';
-import { getPortfolioServiceWhatsappUrl, portfolioServiceCTA } from '../data/portfolioServiceCTA';
+import { portfolioServiceCTA } from '../data/portfolioServiceCTA';
+import { getClientReferralWhatsappUrl, normalizeClientWhatsapp } from '../utils/clientWhatsapp.mjs';
 import { useSmoothScroll } from '../hooks/smoothScroll';
 import { EASE, Magnetic, Particles } from './fx';
 import { SeriesMark } from './Poster';
@@ -8,8 +9,12 @@ import { SeriesMark } from './Poster';
 export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
   const { profile } = usePortfolio();
   const { scrollTo } = useSmoothScroll();
-  const exampleUrl = typeof window === 'undefined' ? undefined : `${window.location.origin}${window.location.pathname}`;
-  const whatsappUrl = getPortfolioServiceWhatsappUrl(exampleUrl);
+  const exampleUrl = typeof window === 'undefined' ? undefined : `${window.location.origin}${profile.clientSlug ? `/${profile.clientSlug}` : window.location.pathname}`;
+  const contactName = normalizeClientWhatsapp(profile.whatsapp) === normalizeClientWhatsapp(portfolioServiceCTA.whatsappNumber) ? 'Teh Vini' : profile.displayName;
+  const whatsappUrl = getClientReferralWhatsappUrl({
+    whatsapp: profile.whatsapp, ownerName: profile.displayName, contactName,
+    referralCode: profile.referralCode, exampleUrl,
+  });
 
   return (
     <section id="contact" className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-4 py-24 text-center">
@@ -43,20 +48,22 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: EASE, delay: 0.25 }}
       >
-        <Magnetic>
+        {whatsappUrl ? <Magnetic>
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
             data-cursor="link"
-            aria-label="Chat WhatsApp Teh Vini untuk dibuatkan web portofolio PESONAFLIX"
+            aria-label={`Chat WhatsApp ${contactName} untuk dibuatkan web portofolio PESONAFLIX`}
             className="client-cta-pulse inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-crimson px-9 py-4 text-base font-bold tracking-[0.04em] text-white shadow-[0_0_50px_rgba(229,19,43,0.5)] transition duration-300 hover:bg-crimson-2 focus-visible:outline-offset-4 sm:text-lg"
           >
             {portfolioServiceCTA.buttonLabel}
             <span aria-hidden="true" className="text-xl">↗</span>
           </a>
-        </Magnetic>
-        <p className="text-xs font-medium tracking-[0.08em] text-mist sm:text-sm">Langsung chat Teh Vini lewat WhatsApp</p>
+        </Magnetic> : null}
+        <p className="text-xs font-medium tracking-[0.08em] text-mist sm:text-sm">
+          {whatsappUrl ? `Langsung chat ${contactName} lewat WhatsApp` : 'Nomor WhatsApp pemilik website belum tersedia.'}
+        </p>
       </motion.div>
 
       <div className="relative mt-16 flex flex-wrap justify-center gap-6 text-xs font-semibold tracking-[0.24em] text-smoke">

@@ -1,5 +1,6 @@
 import { readdir, readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
+import { normalizeClientWhatsapp } from '../src/utils/clientWhatsapp.mjs';
 
 const root = process.cwd();
 const folder = path.join(root, 'src/data/clients');
@@ -113,6 +114,7 @@ for (const file of files) {
   for (const key of ['journeyHeading', 'journeyAside', 'journeyKicker']) if (brief[key] !== undefined) checkString(brief[key], key, slug);
   for (const key of ['picksHeading', 'picksKicker']) if (brief[key] !== undefined) checkString(brief[key], key, slug);
   if (brief.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(brief.email)) errors.push(`${slug}: email tidak valid.`);
+  if (brief.whatsapp !== undefined && !normalizeClientWhatsapp(brief.whatsapp)) errors.push(`${slug}: WhatsApp pemilik website tidak valid.`);
   for (const [name, url] of Object.entries(brief.links ?? {})) if (url && !/^https?:\/\//.test(url)) errors.push(`${slug}: link ${name} harus https://.`);
   await checkImage(brief.photo?.src, slug, 'foto utama');
 }

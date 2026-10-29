@@ -13,11 +13,16 @@ test('data Satria mengganti seluruh konten tanpa identitas klien lain', async ()
       experiences: [{ company: 'Studio Satria', role: 'Fotografer', period: '2022—Sekarang', description: 'Fotografi produk' }],
       education: [{ school: 'Sekolah Seni', degree: 'Fotografi', place: 'Jakarta', period: '2018', score: '' }],
       projects: [{ title: 'Foto Produk', year: '2026', description: 'Potret produk lokal', category: 'Fotografi', tags: ['Foto'], image: '/clients/satria/karya-1.webp' }],
-      skills: ['Fotografi'], links: {},
+      skills: ['Fotografi'], links: {}, whatsapp: '081234567890',
     };
     assert.deepEqual(validateBrief(sample), []);
+    assert.deepEqual(validateBrief(sample, { requireWhatsapp: true }), []);
+    assert.ok(validateBrief({ ...sample, whatsapp: '' }, { requireWhatsapp: true }).some((message) => message.includes('WhatsApp')));
     const page = createPortfolioFromBrief(sample);
     assert.equal(page.profile.displayName, 'Satria');
+    assert.equal(page.profile.whatsapp, sample.whatsapp);
+    assert.equal(page.profile.referralCode, 'PSN-SATRIA');
+    assert.equal(page.profile.clientSlug, 'satria');
     assert.equal(page.profile.portrait.src, sample.photo.src);
     assert.equal(page.projects[0].image, '/clients/satria/karya-1.webp');
     assert.equal(page.education[0].school, 'Sekolah Seni');

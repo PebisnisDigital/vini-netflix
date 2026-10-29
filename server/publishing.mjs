@@ -1,5 +1,6 @@
 import { randomBytes } from 'node:crypto';
 import { github, repository } from './auth.mjs';
+import { normalizeClientWhatsapp } from '../src/utils/clientWhatsapp.mjs';
 
 const reserved = new Set(['vini', 'formulir', 'studio', 'admin', 'api', 'assets', 'demo', 'preview', 'index', 'favicon', 'robots', 'sitemap']);
 const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -84,6 +85,7 @@ export function validatePublishPayload(payload) {
   for (const key of ['journeyHeading', 'journeyAside', 'journeyKicker']) if (brief[key] !== undefined && (typeof brief[key] !== 'string' || !brief[key].trim())) errors.push(`Teks ${key} tidak valid.`);
   for (const key of ['picksHeading', 'picksKicker']) if (brief[key] !== undefined && (typeof brief[key] !== 'string' || !brief[key].trim())) errors.push(`Teks ${key} tidak valid.`);
   if (brief.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(brief.email)) errors.push('Email tidak valid.');
+  if (!normalizeClientWhatsapp(brief.whatsapp)) errors.push('Nomor WhatsApp pemilik website wajib valid agar CTA tidak salah tujuan.');
   if (brief.theme && (typeof brief.theme !== 'object' || !/^#[0-9a-f]{6}$/i.test(brief.theme.accent || '') || !/^#[0-9a-f]{6}$/i.test(brief.theme.background || ''))) errors.push('Warna tema harus berupa kode hex yang aman.');
   if (brief.links) for (const link of Object.values(brief.links)) if (link && (typeof link !== 'string' || !urlValid(link))) errors.push('Link profil harus berupa URL HTTP/HTTPS.');
   if (!Array.isArray(assets) || assets.length > 241) errors.push('Daftar foto unggahan tidak valid.');

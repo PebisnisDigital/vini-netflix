@@ -10,12 +10,15 @@ import { readStudioSession, studioCodeIsValid, studioSessionCookie } from '../se
 const sample = {
   slug: 'satria', name: 'Satria', role: 'Fotografer', location: 'Bandung',
   bio: 'Fotografer produk profesional.', tagline: ['Foto produk'], interests: [],
+  whatsapp: '081234567890',
   photo: { src: '/clients/satria/foto-utama.webp', alt: 'Satria' },
   experiences: [], skills: [], projects: [{ title: 'Karya 1', description: 'Foto produk lokal', category: 'Foto', year: '2026', tags: [], image: '/clients/satria/karya-1.webp' }],
 };
 
 test('penerbitan menolak slug terlarang dan foto asing', () => {
   assert.deepEqual(validatePublishPayload({ brief: sample, assets: [], mode: 'create' }), []);
+  assert.ok(validatePublishPayload({ brief: { ...sample, whatsapp: '' }, assets: [], mode: 'create' }).some((message) => message.includes('WhatsApp')));
+  assert.ok(validatePublishPayload({ brief: { ...sample, whatsapp: 'https://wa.me/6281234567890' }, assets: [], mode: 'create' }).some((message) => message.includes('WhatsApp')));
   assert.ok(validatePublishPayload({ brief: { ...sample, slug: 'vini' }, assets: [], mode: 'create' }).length);
   assert.ok(validatePublishPayload({ brief: sample, assets: [{ path: 'public/clients/klien-lain/foto-utama.webp', sha: 'a'.repeat(40) }], mode: 'create' }).length);
   assert.ok(validatePublishPayload({ brief: sample, assets: [{ path: '../../secrets', sha: 'a'.repeat(40) }], mode: 'create' }).length);
