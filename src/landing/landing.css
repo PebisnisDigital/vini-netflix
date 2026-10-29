@@ -53,9 +53,7 @@
   border-radius: 11px; pointer-events: none; animation: lp-cta-ring 1.85s ease-out infinite;
 }
 .lp-header-cta { animation: lp-cta-zoom-header 3.1s ease-in-out infinite; transform-origin: center; }
-.lp-header-cta:hover { animation-play-state: paused; }
-.lp-cta-button:hover { animation-play-state: paused; transform: scale(1.075); }
-.lp-header-cta:hover, .lp-cta-button:hover { background: #ff3154; transform: translateY(-2px); box-shadow: 0 13px 36px #ed13385b; }
+.lp-header-cta:hover, .lp-cta-button:hover { background: #ff3154; box-shadow: 0 13px 36px #ed13385b; }
 .lp-nav-mobile-cta, .lp-menu-toggle { display: none; }
 
 .lp-hero { min-height: 735px; position: relative; display: flex; align-items: center; isolation: isolate; overflow: hidden; }
@@ -268,7 +266,8 @@
   filter: blur(5px);
 }
 .lp-motion-ready [data-stamp].lp-stamped {
-  animation: lp-headline-stamp .7s cubic-bezier(.22, 1, .36, 1) both;
+  animation: lp-headline-stamp .7s cubic-bezier(.22, 1, .36, 1) both,
+    lp-stamp-loop 4.6s ease-in-out .85s infinite;
   transform-origin: left center;
 }
 .lp-motion-ready .lp-final-content [data-stamp].lp-stamped { transform-origin: center; }
@@ -283,6 +282,16 @@
   transform: translate3d(0, var(--parallax-y, 0px), 0) scale(1.075);
   transition: transform .28s linear;
 }
+.lp-motion-ready .lp-offer-image img,
+.lp-motion-ready .lp-photo-card img,
+.lp-motion-ready .lp-example-card > img,
+.lp-motion-ready .lp-about-image img,
+.lp-motion-ready .lp-web-image img {
+  animation: lp-image-breathe 6.8s ease-in-out infinite alternate;
+  transform-origin: 50% 50%;
+}
+.lp-motion-ready .lp-rail > :nth-child(2n) img { animation-delay: -2.8s; }
+.lp-motion-ready .lp-rail > :nth-child(3n) img { animation-delay: -4.3s; }
 .lp-motion-ready .lp-hero-people[data-parallax] {
   transform: translate3d(0, var(--parallax-y, 0px), 0);
 }
@@ -323,8 +332,19 @@
 .lp-motion-ready .lp-hero-copy > :nth-child(4) { animation-delay: .23s; }
 .lp-motion-ready .lp-hero-copy > :nth-child(5), .lp-motion-ready .lp-hero-copy > :nth-child(6) { animation-delay: .32s; }
 @keyframes lp-cast-float {
-  0%, 100% { transform: translate3d(-4px, 4px, 0) scale(1); }
-  50% { transform: translate3d(9px, -20px, 0) scale(1.027); }
+  0%, 100% { transform: translate3d(-12px, 12px, 0) scale(1); }
+  50% { transform: translate3d(15px, -30px, 0) scale(1.045); }
+}
+@keyframes lp-image-breathe {
+  from { scale: 1; }
+  to { scale: 1.07; }
+}
+@keyframes lp-stamp-loop {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  12% { transform: scale(1.065) rotate(-.6deg); }
+  22% { transform: scale(.993) rotate(0deg); }
+  30% { transform: scale(1.012); }
+  40% { transform: scale(1); }
 }
 @keyframes lp-cinema-push {
   from { transform: scale(1.015) translateX(-.35%); }
@@ -455,14 +475,7 @@
   .lp-benefits svg { grid-row: 1 / 3; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .lp-page *, .lp-page *::before, .lp-page *::after {
-    scroll-behavior: auto !important; transition-duration: .01ms !important;
-    animation-duration: .01ms !important; animation-iteration-count: 1 !important;
-  }
-  .lp-page.lp-motion-ready [data-stamp],
-  .lp-page.lp-motion-ready [data-stamp].lp-stamped {
-    opacity: 1; transform: none; filter: none;
-  }
-  .lp-page.lp-motion-ready [data-parallax],
-  .lp-page.lp-motion-ready [data-reveal] { opacity: 1; transform: none !important; }
+  /* The primary cinematic motion is intentionally automatic without a toggle.
+     Keep scrolling instant if the viewer has requested reduced motion. */
+  .lp-page { scroll-behavior: auto !important; }
 }

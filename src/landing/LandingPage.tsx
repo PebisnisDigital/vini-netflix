@@ -11,18 +11,6 @@ const whatsapp = getPortfolioServiceWhatsappUrl('https://pesonaflix.vercel.app/'
 const mitraWhatsapp = 'https://wa.me/62881022445869?text=' +
   encodeURIComponent('Halo Teh Vini, saya ingin bertanya tentang program mitra PESONAFLIX dengan komisi 50%.');
 
-function useReducedMotion() {
-  const [reduced, setReduced] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-  useEffect(() => {
-    const query = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const update = () => setReduced(query.matches);
-    query.addEventListener('change', update);
-    update();
-    return () => query.removeEventListener('change', update);
-  }, []);
-  return reduced;
-}
-
 function Rail({ title, children, autoPlay = false, className = '' }: {
   title: string; children: ReactNode; autoPlay?: boolean; className?: string;
 }) {
@@ -30,7 +18,6 @@ function Rail({ title, children, autoPlay = false, className = '' }: {
   const pauseUntil = useRef(0);
   const activeIndex = useRef(0);
   const interacting = useRef(false);
-  const reducedMotion = useReducedMotion();
   const [active, setActive] = useState(0);
   const originals = Children.toArray(children);
 
@@ -70,7 +57,7 @@ function Rail({ title, children, autoPlay = false, className = '' }: {
     else rail.scrollBy({ left: direction * step(), behavior: 'smooth' });
   }
   useEffect(() => {
-    if (!autoPlay || reducedMotion) return;
+    if (!autoPlay) return;
     const rail = railRef.current;
     if (!rail) return;
     let frame = 0;
@@ -131,7 +118,7 @@ function Rail({ title, children, autoPlay = false, className = '' }: {
       document.removeEventListener('visibilitychange', visibilityChange);
       if (frame) window.cancelAnimationFrame(frame);
     };
-  }, [autoPlay, reducedMotion]);
+  }, [autoPlay]);
 
   return (
     <div data-reveal className={'lp-rail-shell ' + className}>
@@ -229,25 +216,22 @@ const sampleReviews = [
 ];
 
 function useCinematicMotion() {
-  const reducedMotion = useReducedMotion();
   useEffect(() => {
     const root = document.querySelector<HTMLElement>('.lp-page');
     if (!root) return;
     const elements = [...root.querySelectorAll<HTMLElement>('[data-stamp], [data-reveal]')];
-    if (reducedMotion || !('IntersectionObserver' in window)) {
-      root.classList.remove('lp-motion-ready');
-      return;
-    }
-
-    const observer = new IntersectionObserver((entries) => {
+    const observer = 'IntersectionObserver' in window ? new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add(entry.target.hasAttribute('data-stamp') ? 'lp-stamped' : 'lp-visible');
-          observer.unobserve(entry.target);
+          observer?.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.23, rootMargin: '0px 0px -5% 0px' });
-    elements.forEach((element) => observer.observe(element));
+    }, { threshold: 0.23, rootMargin: '0px 0px -5% 0px' }) : null;
+    elements.forEach((element) => {
+      if (observer) observer.observe(element);
+      else element.classList.add(element.hasAttribute('data-stamp') ? 'lp-stamped' : 'lp-visible');
+    });
     root.classList.add('lp-motion-ready');
 
     const layers = [...root.querySelectorAll<HTMLElement>('[data-parallax]')];
@@ -269,13 +253,13 @@ function useCinematicMotion() {
     window.addEventListener('scroll', schedule, { passive: true });
     window.addEventListener('resize', schedule);
     return () => {
-      observer.disconnect();
+      observer?.disconnect();
       root.classList.remove('lp-motion-ready');
       window.removeEventListener('scroll', schedule);
       window.removeEventListener('resize', schedule);
       if (frame) window.cancelAnimationFrame(frame);
     };
-  }, [reducedMotion]);
+  }, []);
 }
 
 export default function LandingPage() {
