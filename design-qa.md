@@ -1,10 +1,22 @@
 # PESONAFLIX landing page — design QA
 
+**Final result: passed**
+
 ## Scope
 
 - Design: **Cinema Showcase / Versi 1**. Netflix-inspired black, crimson, cinematic portraits and horizontal content rails.
 - Preview route: `/` only. Existing `/vini`, `/iis`, `/citra`, and `/studio` remain unchanged.
 - Content covers introduction, service deliverables, portfolio benefits, professional images, 50% affiliate opportunity, illustrative bonus ideas, real demo routes, sample testimonial layouts, how to order, and WhatsApp CTA.
+- Motion update: parallax imagery, looping card rails, section stamp entrance animation, cinematic image drift, and larger pulsing CTA.
+
+## Design comparison evidence
+
+- **Source visual truth:** `/workspace/scratch/f1f909124176/generated_images/exec-7324468f-f867-4bfc-b304-25e09ea43d80.png` (Cinema Showcase approved reference).
+- **Implementation:** `http://terminal.local:4173/`; screenshots captured and visually inspected in the cloud browser on 29 October 2026. Browser-produced captures remain in the browser session and were not written as files.
+- **Desktop:** approx. 1363 × 900 CSS px, browser density 1, screenshot inspected at original scale; full-view hero and focused example-card section compared to the source.
+- **Mobile:** 375 × 812 CSS px iframe, density 1; hero and example-card section inspected. Mobile rearrangement is intentional for legibility and tap sizing.
+- **State:** default dark theme; post-stamp resting states, active CTA pulse, examples rail after navigation/scroll. The supplied source is a static full-page design, so exact motion timing has no static visual comparison point.
+- **Focused comparisons:** hero portraits/headline/CTA and horizontal portfolio examples; spacing and visual hierarchy match the selected direction. The page adds intermediate sections requested after the original visual was generated.
 
 ## Browser checks (29 October 2026)
 
@@ -19,6 +31,21 @@
 | Example rail arrows | PASS | Clicking the next arrow changes `scrollLeft` from 2 to 118 on desktop. |
 | External action | PASS | CTA targets the prepared WhatsApp URL for Teh Vini. |
 | Claim transparency | PASS | Sample testimonials are visibly labeled simulations, bonus ideas are labeled examples, and partner terms need confirmation. |
+| Section stamp animation | PASS | Intersection observer marks headings once in view; tested the example heading on mobile. |
+| Parallax | PASS | Scroll-based `--parallax-y` updated to -4.9px on a visible portfolio portrait; hero layers animate subtly. |
+| Endless card loop | PASS | Autoplay rails duplicate non-focusable cards and reset at the repeat boundary; tested right arrow on example cards with 1371px cycle. |
+| CTA zoom | PASS | CSS animation `lp-cta-zoom` is active; full primary action remains visible on 375px mobile viewport. |
+| Accessibility | PASS | Explicit reduced-motion CSS and autoplay guard; duplicate rail items hidden from accessibility tree and excluded from tab order. |
+| Browser errors | PASS | No application JavaScript errors observed; only browser-extension metadata messages. |
+
+## Fidelity surfaces
+
+- **Fonts:** Nunito Sans headlines and Inter text remain readable; animation settles at the original size and wrapping.
+- **Spacing:** section rhythm unchanged; enlarged CTA still fits beside the secondary link on 375px mobile.
+- **Colors:** consistent near-black background, white titles, vivid red accent and CTA halo.
+- **Images:** existing optimized WebP photos preserve detail; parallax scale prevents edge gaps.
+- **Copy:** original PESONAFLIX offer, fictional demo labels, affiliate caveat and WhatsApp destinations remain unchanged.
+- **P0/P1/P2 issues:** none remaining after mobile and loop checks. No additional visual fixes required.
 
 ## Final release gate
 

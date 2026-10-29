@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { Children, cloneElement, isValidElement, useEffect, useRef, useState, type HTMLAttributes, type ReactElement, type ReactNode } from 'react';
 import {
   ArrowDown, ArrowRight, ArrowUpRight, BadgeCheck, BookOpen, BriefcaseBusiness,
   Check, ChevronLeft, ChevronRight, Clapperboard, FileImage, HeartHandshake,
@@ -17,6 +17,20 @@ function Rail({ title, children, autoPlay = false, className = '' }: {
   const railRef = useRef<HTMLDivElement>(null);
   const pauseUntil = useRef(0);
   const [active, setActive] = useState(0);
+  const originals = Children.toArray(children);
+
+  function loopWidth(rail: HTMLDivElement) {
+    if (!autoPlay || !originals.length) return 0;
+    const first = rail.children[0] as HTMLElement | undefined;
+    const repeated = rail.children[originals.length] as HTMLElement | undefined;
+    return first && repeated ? repeated.offsetLeft - first.offsetLeft : 0;
+  }
+  function jumpTo(rail: HTMLDivElement, left: number) {
+    const previous = rail.style.scrollBehavior;
+    rail.style.scrollBehavior = 'auto';
+    rail.scrollLeft = left;
+    rail.style.scrollBehavior = previous;
+  }
 
   function step() {
     const rail = railRef.current;
@@ -28,6 +42,12 @@ function Rail({ title, children, autoPlay = false, className = '' }: {
     const rail = railRef.current;
     if (!rail) return;
     if (fromUser) pauseUntil.current = Date.now() + 12000;
+    const cycle = loopWidth(rail);
+    if (cycle) {
+      if (direction < 0 && rail.scrollLeft <= 10) jumpTo(rail, cycle);
+      rail.scrollBy({ left: direction * step(), behavior: 'smooth' });
+      return;
+    }
     const atEnd = rail.scrollLeft >= rail.scrollWidth - rail.clientWidth - 10;
     const atStart = rail.scrollLeft <= 10;
     if (direction > 0 && atEnd) rail.scrollTo({ left: 0, behavior: 'smooth' });
@@ -37,8 +57,9 @@ function Rail({ title, children, autoPlay = false, className = '' }: {
   useEffect(() => {
     if (!autoPlay || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const timer = window.setInterval(() => {
-      if (!document.hidden && Date.now() >= pauseUntil.current) move(1, false);
-    }, 4600);
+      const box = railRef.current?.getBoundingClientRect();
+      if (box && !document.hidden && box.top < window.innerHeight && box.bottom > 0 && Date.now() >= pauseUntil.current) move(1, false);
+    }, 3700);
     return () => window.clearInterval(timer);
   }, [autoPlay]);
 
@@ -52,7 +73,13 @@ function Rail({ title, children, autoPlay = false, className = '' }: {
         </div>
       </div>
       <div ref={railRef} className="lp-rail" role="region" aria-roledescription="carousel" aria-label={title} tabIndex={0}
-        onScroll={() => { if (railRef.current) setActive(Math.round(railRef.current.scrollLeft / Math.max(step(), 1))); }}
+        onScroll={() => {
+          const rail = railRef.current;
+          if (!rail) return;
+          const cycle = loopWidth(rail);
+          if (cycle && rail.scrollLeft >= cycle - 2) jumpTo(rail, rail.scrollLeft - cycle);
+          setActive(Math.round(rail.scrollLeft / Math.max(step(), 1)));
+        }}
         onMouseEnter={() => { pauseUntil.current = Date.now() + 12000; }}
         onFocusCapture={() => { pauseUntil.current = Date.now() + 12000; }}
         onPointerDown={() => { pauseUntil.current = Date.now() + 12000; }}
@@ -61,6 +88,11 @@ function Rail({ title, children, autoPlay = false, className = '' }: {
           if (event.key === 'ArrowLeft') { event.preventDefault(); move(-1); }
         }}>
         {children}
+        {autoPlay && originals.map((child, index) => isValidElement(child)
+          ? cloneElement(child as ReactElement<HTMLAttributes<HTMLElement>>, {
+              key: 'loop-copy-' + index, 'aria-hidden': true, tabIndex: -1,
+            })
+          : null)}
       </div>
       <div className="lp-rail-indicator" aria-hidden="true"><span style={{ transform: 'translateX(' + Math.min(active, 5) * 18 + 'px)' }} /></div>
     </div>
@@ -71,7 +103,7 @@ function Heading({ eyebrow, title, accent, description, aside }: {
   eyebrow: string; title: string; accent?: string; description?: string; aside?: ReactNode;
 }) {
   return <div className="lp-section-heading"><div><p className="lp-eyebrow">{eyebrow}</p>
-    <h2>{title} {accent && <span>{accent}</span>}</h2>
+    <h2 data-stamp>{title} {accent && <span>{accent}</span>}</h2>
     {description && <p className="lp-section-description">{description}</p>}</div>{aside}</div>;
 }
 
@@ -120,14 +152,62 @@ const sampleReviews = [
   { quote: 'Kalau ada pencapaian baru, bagian cerita profesional saya bisa diperbarui.', from: 'Contoh redaksi pekerja', tone: 'purple' },
 ];
 
+function useCinematicMotion() {
+  useEffect(() => {
+    const root = document.querySelector<HTMLElement>('.lp-page');
+    if (!root) return;
+    const stamps = [...root.querySelectorAll<HTMLElement>('[data-stamp]')];
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      stamps.forEach((element) => element.classList.add('lp-stamped'));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('lp-stamped');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.23, rootMargin: '0px 0px -5% 0px' });
+    stamps.forEach((element) => observer.observe(element));
+    root.classList.add('lp-motion-ready');
+
+    const layers = [...root.querySelectorAll<HTMLElement>('[data-parallax]')];
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      if (document.hidden) return;
+      const viewport = window.innerHeight;
+      for (const layer of layers) {
+        const rect = layer.getBoundingClientRect();
+        if (rect.bottom < -100 || rect.top > viewport + 100) continue;
+        const distance = (viewport / 2 - (rect.top + rect.height / 2)) / (viewport / 2 + rect.height / 2);
+        const strength = Number(layer.dataset.parallax) || 18;
+        layer.style.setProperty('--parallax-y', Math.max(-strength, Math.min(strength, distance * strength)).toFixed(1) + 'px');
+      }
+    };
+    const schedule = () => { if (!frame) frame = window.requestAnimationFrame(update); };
+    schedule();
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', schedule);
+      window.removeEventListener('resize', schedule);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, []);
+}
+
 export default function LandingPage() {
+  useCinematicMotion();
   return (
     <div className="lp-page">
       <Header />
       <main>
         <section id="beranda" className="lp-hero" aria-labelledby="lp-hero-title">
           <div className="lp-hero-background" aria-hidden="true" />
-          <div className="lp-hero-people" aria-hidden="true">
+          <div className="lp-hero-people" data-parallax="26" aria-hidden="true">
             <img className="lp-hero-person lp-hero-iis" src="/clients/iis/foto-utama.webp" alt="" />
             <img className="lp-hero-person lp-hero-citra" src="/clients/citra/foto-utama.webp" alt="" />
             <img className="lp-hero-person lp-hero-vini" src="/assets/teh-vini-1100.webp" alt="" />
@@ -138,7 +218,7 @@ export default function LandingPage() {
           <div className="lp-container lp-hero-inner">
             <div className="lp-hero-copy">
               <p className="lp-eyebrow">WEB PORTOFOLIO ALA SERIAL</p>
-              <h1 id="lp-hero-title">BUKAN CUMA CV.<br />INI CERITA <span>KAMU.</span></h1>
+              <h1 id="lp-hero-title" data-stamp>BUKAN CUMA CV.<br />INI CERITA <span>KAMU.</span></h1>
               <p className="lp-hero-subtitle">Profesi apa pun layak punya panggung sendiri.</p>
               <p className="lp-hero-description">Tampilkan perjalanan, karya, dan pencapaianmu dalam bentuk website portofolio yang sinematik, personal, dan berkesan — seperti serial favoritmu.</p>
               <div className="lp-hero-actions"><WhatsAppButton /><a className="lp-secondary-button" href="#contoh"><Play size={17} fill="currentColor" /> Lihat Contoh</a></div>
@@ -150,8 +230,8 @@ export default function LandingPage() {
 
         <section id="tentang" className="lp-section lp-about">
           <div className="lp-container lp-about-grid">
-            <div className="lp-about-image"><img src="/landing/about-studio.webp" alt="Ilustrasi wanita menyusun portofolio personal menggunakan laptop" loading="lazy" /><span><Clapperboard size={16} /> YOUR STORY · YOUR SERIES</span></div>
-            <div className="lp-about-copy"><p className="lp-eyebrow">KENALAN DULU, YUK</p><h2>APA ITU <span>PESONAFLIX?</span></h2>
+            <div className="lp-about-image"><img data-parallax="25" src="/landing/about-studio.webp" alt="Ilustrasi wanita menyusun portofolio personal menggunakan laptop" loading="lazy" /><span><Clapperboard size={16} /> YOUR STORY · YOUR SERIES</span></div>
+            <div className="lp-about-copy"><p className="lp-eyebrow">KENALAN DULU, YUK</p><h2 data-stamp>APA ITU <span>PESONAFLIX?</span></h2>
               <p>PESONAFLIX adalah layanan pembuatan web portofolio personal bergaya serial. Cerita diri, profesi, pengalaman, karya, dan keahlian dirangkum dalam satu tautan yang berkesan.</p>
               <h3>KENAPA MENARIK?</h3>
               <div className="lp-benefits">
@@ -167,7 +247,7 @@ export default function LandingPage() {
           <Heading eyebrow="SEMUA DIKEMAS UNTUKMU" title="YANG KAMI" accent="BUATKAN" description="Web, foto, kartu cerita, dan pengalaman personal dalam satu layanan." />
           <Rail title="Layanan PESONAFLIX" autoPlay>
             {offerings.map(({ icon: Icon, ...item }) => <article className="lp-offer-card" key={item.title}>
-              <div className="lp-offer-image"><img src={item.image} alt={item.alt} loading="lazy" /><span><Icon size={20} /></span></div>
+              <div className="lp-offer-image"><img data-parallax="15" src={item.image} alt={item.alt} loading="lazy" /><span><Icon size={20} /></span></div>
               <div className="lp-offer-info"><h3>{item.title}</h3><p>{item.copy}</p></div>
             </article>)}
           </Rail>
@@ -175,22 +255,22 @@ export default function LandingPage() {
 
         <section id="web" className="lp-section lp-web">
           <div className="lp-container lp-web-grid">
-            <div><p className="lp-eyebrow">01 / WEB PERSONAL</p><h2>WEB PRIBADI,<br /><span>RASA SERIAL.</span></h2>
+            <div><p className="lp-eyebrow">01 / WEB PERSONAL</p><h2 data-stamp>WEB PRIBADI,<br /><span>RASA SERIAL.</span></h2>
               <p>Bukan cuma nama dan biodata. Ada cerita pembuka, perjalanan, karya, keahlian, hingga momen berharga yang disusun dalam kartu sinematik.</p>
               <ul className="lp-checklist"><li><Check /> Halaman personal dengan namamu</li><li><Check /> Desain ala Netflix yang nyaman di HP</li><li><Check /> Kartu karya, prestasi, dan pengalaman</li><li><Check /> Konten bisa diperbarui saat diperlukan</li></ul>
               <a className="lp-text-link" href="/vini" target="_blank" rel="noopener noreferrer">Coba portofolio Teh Vini <ArrowUpRight size={18} /></a>
             </div>
-            <a className="lp-web-image" href="/vini" target="_blank" rel="noopener noreferrer" aria-label="Buka contoh web portofolio Teh Vini"><img src="/landing/portfolio-device.webp" alt="Ilustrasi web bergaya serial di laptop dan ponsel" loading="lazy" /><span><Play size={16} fill="currentColor" /> Buka contoh web <ArrowUpRight size={16} /></span></a>
+            <a className="lp-web-image" href="/vini" target="_blank" rel="noopener noreferrer" aria-label="Buka contoh web portofolio Teh Vini"><img data-parallax="20" src="/landing/portfolio-device.webp" alt="Ilustrasi web bergaya serial di laptop dan ponsel" loading="lazy" /><span><Play size={16} fill="currentColor" /> Buka contoh web <ArrowUpRight size={16} /></span></a>
           </div>
         </section>
 
         <section id="foto" className="lp-section lp-container lp-photos">
           <Heading eyebrow="02 / FOTO DAN VISUAL" title="GAMBARNYA JUGA" accent="DIBIKIN MENARIK" description="Foto dan gambar pendukung dipilih, diolah, dan ditata sebagai bagian dari kisah profesionalmu." />
-          <Rail title="Contoh visual profesi">
-            <article className="lp-photo-card lp-photo-portrait"><img src="/assets/teh-vini-1100.webp" alt="Contoh foto profil Teh Vini" loading="lazy" /><div><strong>FOTO PROFIL</strong><span>Karakter personal menonjol</span></div></article>
-            <article className="lp-photo-card"><img src="/clients/iis/karya-literasi.webp" alt="Contoh ilustrasi kegiatan literasi guru" loading="lazy" /><div><strong>FOTO KEGIATAN</strong><span>Cerita profesi terasa hidup</span></div></article>
-            <article className="lp-photo-card"><img src="/clients/citra/pelayanan-pasien.webp" alt="Contoh ilustrasi pelayanan perawat" loading="lazy" /><div><strong>KARTU PENGALAMAN</strong><span>Karya dan momen lebih berkesan</span></div></article>
-            <article className="lp-photo-card lp-photo-portrait lp-photo-iis"><img src="/clients/iis/foto-utama.webp" alt="Contoh potret ilustratif seorang guru" loading="lazy" /><div><strong>VISUAL PROFESI</strong><span>Dibuat sesuai bidangmu</span></div></article>
+          <Rail title="Contoh visual profesi" autoPlay>
+            <article className="lp-photo-card lp-photo-portrait"><img data-parallax="17" src="/assets/teh-vini-1100.webp" alt="Contoh foto profil Teh Vini" loading="lazy" /><div><strong>FOTO PROFIL</strong><span>Karakter personal menonjol</span></div></article>
+            <article className="lp-photo-card"><img data-parallax="17" src="/clients/iis/karya-literasi.webp" alt="Contoh ilustrasi kegiatan literasi guru" loading="lazy" /><div><strong>FOTO KEGIATAN</strong><span>Cerita profesi terasa hidup</span></div></article>
+            <article className="lp-photo-card"><img data-parallax="17" src="/clients/citra/pelayanan-pasien.webp" alt="Contoh ilustrasi pelayanan perawat" loading="lazy" /><div><strong>KARTU PENGALAMAN</strong><span>Karya dan momen lebih berkesan</span></div></article>
+            <article className="lp-photo-card lp-photo-portrait lp-photo-iis"><img data-parallax="17" src="/clients/iis/foto-utama.webp" alt="Contoh potret ilustratif seorang guru" loading="lazy" /><div><strong>VISUAL PROFESI</strong><span>Dibuat sesuai bidangmu</span></div></article>
           </Rail>
           <p className="lp-disclaimer">*Foto contoh Iis dan Citra adalah ilustrasi AI untuk profil demo fiktif. Hasil klien akan disesuaikan dengan materi dan persetujuan yang diberikan.</p>
         </section>
@@ -198,7 +278,7 @@ export default function LandingPage() {
         <section id="mitra" className="lp-section lp-affiliate">
           <div className="lp-affiliate-background" aria-hidden="true" />
           <div className="lp-container lp-affiliate-inner">
-            <p className="lp-eyebrow">03 / PELUANG MITRA</p><h2>JADI MITRA,<br />DAPAT KOMISI <span>50%</span></h2>
+            <p className="lp-eyebrow">03 / PELUANG MITRA</p><h2 data-stamp>JADI MITRA,<br />DAPAT KOMISI <span>50%</span></h2>
             <p>Rekomendasikan PESONAFLIX ke teman, rekan kerja, atau komunitasmu. Kalau rekomendasimu menghasilkan pesanan yang berhasil, kamu berpeluang menerima komisi 50% sesuai ketentuan program.</p>
             <div className="lp-affiliate-points"><span><Users size={18} /> Rekomendasikan jasa</span><span><HeartHandshake size={18} /> Pesanan berhasil</span><span><BadgeCheck size={18} /> Komisi 50%</span></div>
             <WhatsAppButton label="Tanya Program Mitra" href={mitraWhatsapp} />
@@ -208,7 +288,7 @@ export default function LandingPage() {
 
         <section id="bonus" className="lp-section lp-container lp-bonuses">
           <Heading eyebrow="04 / TAMBAHAN UNTUKMU" title="BONUS" accent="EKSTRA" description="Contoh materi tambahan yang dapat melengkapi webmu. Isi bonus final akan dikonfirmasi saat memesan." />
-          <Rail title="Contoh bonus PESONAFLIX">
+          <Rail title="Contoh bonus PESONAFLIX" autoPlay>
             {bonuses.map(({ icon: Icon, ...item }, index) => <article className={'lp-bonus-card lp-tone-' + item.tone} key={item.title}>
               <div className="lp-bonus-art"><Icon size={68} strokeWidth={1.3} /></div><div className="lp-bonus-body"><small>CONTOH BONUS 0{index + 1}</small><h3>{item.title}</h3><p>{item.copy}</p></div>
             </article>)}
@@ -219,7 +299,7 @@ export default function LandingPage() {
           <Heading eyebrow="05 / SUDAH ADA CONTOHNYA" title="LIHAT" accent="PORTOFOLIONYA" description="Klik cover-nya untuk menjelajahi halaman asli. Ini demo website yang bisa dibuka." aside={<a className="lp-text-link lp-heading-link" href="/vini" target="_blank" rel="noopener noreferrer">Mulai dari Vini <ArrowUpRight size={18} /></a>} />
           <Rail title="Contoh website PESONAFLIX" autoPlay>
             {examples.map((person) => <a className={'lp-example-card lp-example-' + person.style} href={person.link} target="_blank" rel="noopener noreferrer" key={person.name}>
-              <span className="lp-example-tag">{person.tag}</span><img src={person.photo} alt={'Foto ' + person.name + ', contoh web ' + person.role.toLowerCase()} loading="lazy" />
+              <span className="lp-example-tag">{person.tag}</span><img data-parallax="16" src={person.photo} alt={'Foto ' + person.name + ', contoh web ' + person.role.toLowerCase()} loading="lazy" />
               <div className="lp-example-info"><h3>{person.name}</h3><strong>{person.role}</strong><p>“{person.quote}”</p><span className="lp-example-open"><Play size={15} fill="currentColor" /> Buka Web <ArrowUpRight size={15} /></span></div>
             </a>)}
           </Rail>
@@ -249,7 +329,7 @@ export default function LandingPage() {
 
         <section id="pesan" className="lp-final">
           <div className="lp-container lp-final-grid"><div className="lp-final-portrait"><img src="/assets/teh-vini-1100.webp" alt="Teh Vini mengajak membuat web portofolio personal" loading="lazy" /></div>
-            <div className="lp-final-content"><p className="lp-eyebrow">KISAHMU LAYAK DITAMPILKAN</p><p className="lp-final-brand">PESONA<span>FLIX</span></p><h2>MAU JUGA<br /><span>DIBUATIN?</span></h2><p>Saatnya cerita kamu punya panggung sendiri.</p><WhatsAppButton /><small><MessageCircle size={15} /> Chat langsung dengan Teh Vini</small></div>
+            <div className="lp-final-content"><p className="lp-eyebrow">KISAHMU LAYAK DITAMPILKAN</p><p className="lp-final-brand">PESONA<span>FLIX</span></p><h2 data-stamp>MAU JUGA<br /><span>DIBUATIN?</span></h2><p>Saatnya cerita kamu punya panggung sendiri.</p><WhatsAppButton /><small><MessageCircle size={15} /> Chat langsung dengan Teh Vini</small></div>
           </div>
         </section>
       </main>
