@@ -6,6 +6,7 @@ Master template portofolio bergaya platform streaming untuk beberapa klien denga
 | --- | --- |
 | `/` | LP PESONAFLIX (sementara COMING SOON) |
 | `/vini` | Portofolio Teh Vini (contoh & acuan desain) |
+| `/vini2` | Demo Teh Vini versi Chibi Cinema (desain alternatif bergaya film animasi) |
 | `/formulir` | Alamat lama, otomatis mengarah ke `/studio?tab=formulir` |
 | `/studio` | CMS editor seperti Blogger: buat/edit konten dan foto, simpan draft, preview |
 | `/studio?tab=formulir` | Formulir klien, langsung dipindah ke draft CMS tanpa mengetik ulang |
@@ -28,6 +29,10 @@ Contoh: `src/data/clients/satria.json` dan `public/clients/satria/foto-utama.web
 **Catatan migrasi domain:** Draft CMS tersimpan di IndexedDB yang terikat ke asal domain. Draft dari `tehvini.vercel.app` tidak otomatis muncul di `pesonaflix.vercel.app`; domain lama perlu tetap dapat diakses sampai semua draft penting dipindahkan/diterbitkan. Login GitHub memerlukan callback OAuth baru dan perubahan `GITHUB_CALLBACK_URL` di Vercel.
 
 Tidak diperlukan database atau proyek Vercel baru untuk setiap klien. Saat penambahan klien hanya perlu mengubah JSON dan aset foto; komponen desain membaca data secara otomatis. File `src/data/portfolio.ts` dikhususkan untuk Teh Vini dan tidak perlu diubah.
+
+### Varian Chibi Cinema
+
+`/vini2` menggunakan `designVariant: "chibi-cinema"` dalam `src/data/clients/vini2.json`. Varian ini memberi hero karpet merah bergambar chibi, dua poster BADAI/PROMPTIONAL, font lebih membulat, dan gerakan otomatis. Halaman `/vini` serta klien biasa tidak berubah. Foto dan konten `/vini2` tetap dapat diperbarui melalui Studio. WhatsApp awal memakai nomor Teh Vini dengan kode `PSN-VINI2`, yang bisa diedit di Studio.
 
 ## Pengembangan
 
