@@ -27,3 +27,15 @@ test('dua website klien membuka WhatsApp pemilik masing-masing dan membawa kode 
   assert.doesNotMatch(citra, /62881022445869/);
   assert.equal(getClientReferralWhatsappUrl({ whatsapp: '', ownerName: 'Belum Ada' }), null);
 });
+
+test('nomor sementara Teh Vini tetap menandai asal website klien', () => {
+  const url = getClientReferralWhatsappUrl({
+    whatsapp: '62881022445869', ownerName: 'Citra', contactName: 'Teh Vini',
+    referralCode: clientReferralCode('citra'), exampleUrl: 'https://pesonaflix.vercel.app/citra',
+  });
+  assert.equal(new URL(url).pathname, '/62881022445869');
+  const message = new URL(url).searchParams.get('text');
+  assert.match(message, /Halo Teh Vini, saya lihat website Citra/);
+  assert.match(message, /PSN-CITRA/);
+  assert.doesNotMatch(message, /Halo Kak Citra/);
+});

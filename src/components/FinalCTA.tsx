@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { usePortfolio } from '../data/PortfolioContext';
 import { portfolioServiceCTA } from '../data/portfolioServiceCTA';
-import { getClientReferralWhatsappUrl } from '../utils/clientWhatsapp.mjs';
+import { getClientReferralWhatsappUrl, normalizeClientWhatsapp } from '../utils/clientWhatsapp.mjs';
 import { useSmoothScroll } from '../hooks/smoothScroll';
 import { EASE, Magnetic, Particles } from './fx';
 import { SeriesMark } from './Poster';
@@ -10,8 +10,9 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
   const { profile } = usePortfolio();
   const { scrollTo } = useSmoothScroll();
   const exampleUrl = typeof window === 'undefined' ? undefined : `${window.location.origin}${profile.clientSlug ? `/${profile.clientSlug}` : window.location.pathname}`;
+  const contactName = normalizeClientWhatsapp(profile.whatsapp) === normalizeClientWhatsapp(portfolioServiceCTA.whatsappNumber) ? 'Teh Vini' : profile.displayName;
   const whatsappUrl = getClientReferralWhatsappUrl({
-    whatsapp: profile.whatsapp, ownerName: profile.displayName,
+    whatsapp: profile.whatsapp, ownerName: profile.displayName, contactName,
     referralCode: profile.referralCode, exampleUrl,
   });
 
@@ -53,7 +54,7 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
             target="_blank"
             rel="noopener noreferrer"
             data-cursor="link"
-            aria-label={`Chat WhatsApp ${profile.displayName} untuk dibuatkan web portofolio PESONAFLIX`}
+            aria-label={`Chat WhatsApp ${contactName} untuk dibuatkan web portofolio PESONAFLIX`}
             className="client-cta-pulse inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-crimson px-9 py-4 text-base font-bold tracking-[0.04em] text-white shadow-[0_0_50px_rgba(229,19,43,0.5)] transition duration-300 hover:bg-crimson-2 focus-visible:outline-offset-4 sm:text-lg"
           >
             {portfolioServiceCTA.buttonLabel}
@@ -61,7 +62,7 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
           </a>
         </Magnetic> : null}
         <p className="text-xs font-medium tracking-[0.08em] text-mist sm:text-sm">
-          {whatsappUrl ? `Langsung chat ${profile.displayName} lewat WhatsApp` : 'Nomor WhatsApp pemilik website belum tersedia.'}
+          {whatsappUrl ? `Langsung chat ${contactName} lewat WhatsApp` : 'Nomor WhatsApp pemilik website belum tersedia.'}
         </p>
       </motion.div>
 

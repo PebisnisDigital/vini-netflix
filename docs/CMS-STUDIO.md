@@ -50,7 +50,8 @@ Belum bisa digunakan tanpa aplikasi OAuth dan environment variables. **Jangan me
 
 ## Batasan saat ini
 
-- Halaman lama `/citra` dan `/iis` belum memiliki nomor WhatsApp klien di JSON. Sebelum CTA referral dapat aktif, pilih **Edit website terbit** di Studio, isi nomor masing-masing, lalu terbitkan pembaruannya. Nomor tidak boleh ditebak atau otomatis diganti nomor Teh Vini.
+- Halaman demo fiktif `/citra` dan `/iis` sementara memakai nomor WhatsApp Teh Vini sesuai pengaturan pemilik PESONAFLIX. Kode referralnya tetap berbeda. Untuk klien sungguhan, pilih **Edit website terbit** di Studio, ganti nomor sesuai izin pemilik, lalu terbitkan pembaruan.
+- Jika nomor klien sama dengan nomor layanan Teh Vini, pesan dan teks CTA menyebut Teh Vini sebagai penerima chat sambil mempertahankan identitas website sebagai sumber referral.
 - Formulir dan penerbitan baru mewajibkan nomor WhatsApp klien. Jika nomor belum terisi pada halaman lama, CTA tidak membuka WhatsApp siapa pun.
 
 - Dashboard tidak dapat memodifikasi konten `/vini` yang masih dikodekan dalam `src/data/portfolio.ts` karena halaman ini adalah contoh/master yang dilindungi.

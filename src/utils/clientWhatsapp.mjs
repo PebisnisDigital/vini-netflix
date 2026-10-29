@@ -12,12 +12,15 @@ export function clientReferralCode(slug) {
   return `PSN-${slug.toUpperCase()}`;
 }
 
-export function getClientReferralWhatsappUrl({ whatsapp, ownerName, referralCode, exampleUrl }) {
+export function getClientReferralWhatsappUrl({ whatsapp, ownerName, contactName, referralCode, exampleUrl }) {
   const number = normalizeClientWhatsapp(whatsapp);
   if (!number) return null;
-  const name = typeof ownerName === 'string' && ownerName.trim() ? ownerName.trim() : 'Pemilik Website';
+  const owner = typeof ownerName === 'string' && ownerName.trim() ? ownerName.trim() : 'Pemilik Website';
+  const contact = typeof contactName === 'string' && contactName.trim() ? contactName.trim() : owner;
+  const greeting = contact.toLowerCase() === 'teh vini' ? 'Halo Teh Vini' : `Halo Kak ${contact}`;
+  const page = owner.toLowerCase() === contact.toLowerCase() ? 'website profil Kakak' : `website ${owner}`;
   const source = typeof exampleUrl === 'string' && /^https?:\/\//.test(exampleUrl) ? `\nContoh website: ${exampleUrl}` : '';
   const referral = typeof referralCode === 'string' && /^PSN-[A-Z0-9-]+$/.test(referralCode) ? `\nKode referral: ${referralCode}` : '';
-  const message = `Halo Kak ${name}, saya lihat website profil Kakak dan ingin dibuatkan website PESONAFLIX seperti ini. Bisa dibantu?${source}${referral}`;
+  const message = `${greeting}, saya lihat ${page} dan ingin dibuatkan website PESONAFLIX seperti ini. Bisa dibantu?${source}${referral}`;
   return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
 }
