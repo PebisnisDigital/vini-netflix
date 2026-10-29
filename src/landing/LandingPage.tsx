@@ -11,16 +11,53 @@ const whatsapp = getPortfolioServiceWhatsappUrl('https://pesonaflix.vercel.app/'
 const mitraWhatsapp = 'https://wa.me/62881022445869?text=' +
   encodeURIComponent('Halo Teh Vini, saya ingin bertanya tentang program mitra PESONAFLIX dengan komisi 50%.');
 
+const motionPreferenceKey = 'pesonaflix-motion-opt-in';
+const motionChangeEvent = 'pesonaflix-motion-preference-change';
+
+function hasMotionOptIn() {
+  try { return localStorage.getItem(motionPreferenceKey) === 'yes'; }
+  catch { return false; }
+}
+
 function useReducedMotion() {
-  const [reduced, setReduced] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  const [reduced, setReduced] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches && !hasMotionOptIn());
   useEffect(() => {
     const query = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const update = () => setReduced(query.matches);
+    const update = () => setReduced(query.matches && !hasMotionOptIn());
     query.addEventListener('change', update);
+    window.addEventListener(motionChangeEvent, update);
     update();
-    return () => query.removeEventListener('change', update);
+    return () => {
+      query.removeEventListener('change', update);
+      window.removeEventListener(motionChangeEvent, update);
+    };
   }, []);
   return reduced;
+}
+
+function MotionPreferenceControl({ reducedMotion }: { reducedMotion: boolean }) {
+  const [systemReduced, setSystemReduced] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  useEffect(() => {
+    const query = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setSystemReduced(query.matches);
+    query.addEventListener('change', update);
+    return () => query.removeEventListener('change', update);
+  }, []);
+  if (!systemReduced) return null;
+
+  const toggleMotion = () => {
+    try {
+      if (reducedMotion) localStorage.setItem(motionPreferenceKey, 'yes');
+      else localStorage.removeItem(motionPreferenceKey);
+    } catch { /* The page still works when browser storage is disabled. */ }
+    window.dispatchEvent(new Event(motionChangeEvent));
+  };
+
+  return <aside className="lp-motion-prompt" aria-label="Pengaturan animasi">
+    <span className="lp-motion-status-dot" aria-hidden="true" />
+    <span>{reducedMotion ? 'Perangkat membatasi animasi' : 'Animasi dinyalakan manual'}</span>
+    <button type="button" onClick={toggleMotion}>{reducedMotion ? 'Gerakkan halaman' : 'Ikuti perangkat'}</button>
+  </aside>;
 }
 
 function Rail({ title, children, autoPlay = false, className = '' }: {
@@ -279,10 +316,12 @@ function useCinematicMotion() {
 }
 
 export default function LandingPage() {
+  const reducedMotion = useReducedMotion();
   useCinematicMotion();
   return (
-    <div className="lp-page">
+    <div className={'lp-page' + (!reducedMotion ? ' lp-force-motion' : '')}>
       <Header />
+      <MotionPreferenceControl reducedMotion={reducedMotion} />
       <main>
         <section id="beranda" className="lp-hero" aria-labelledby="lp-hero-title">
           <div className="lp-hero-background" aria-hidden="true" />
@@ -302,6 +341,7 @@ export default function LandingPage() {
               <p className="lp-hero-description">Tampilkan perjalanan, karya, dan pencapaianmu dalam bentuk website portofolio yang sinematik, personal, dan berkesan — seperti serial favoritmu.</p>
               <div className="lp-hero-actions"><WhatsAppButton /><a className="lp-secondary-button" href="#contoh"><Play size={17} fill="currentColor" /> Lihat Contoh</a></div>
               <div className="lp-hero-points"><span><BadgeCheck /> Tampilan profesional</span><span><Share2 /> Mudah dibagikan</span><span><Star /> Lebih berkesan</span></div>
+              <div className="lp-hero-now-playing" aria-hidden="true"><span className="lp-now-playing-dot" /><span>NOW PLAYING · PESONAFLIX ORIGINALS</span><span className="lp-now-playing-track"><i /></span></div>
             </div>
           </div>
           <a className="lp-scroll-cue" href="#tentang">Jelajahi ceritanya <ArrowDown size={15} /></a>
