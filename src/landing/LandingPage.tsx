@@ -8,7 +8,7 @@ import {
 import { getPortfolioServiceWhatsappUrl } from '../data/portfolioServiceCTA';
 
 const whatsapp = getPortfolioServiceWhatsappUrl('https://pesonaflix.vercel.app/');
-const mitraWhatsapp = 'https://wa.me/6282137523626?text=' +
+const mitraWhatsapp = 'https://wa.me/62881022445869?text=' +
   encodeURIComponent('Halo Teh Vini, saya ingin bertanya tentang program mitra PESONAFLIX dengan komisi 50%.');
 
 function Rail({ title, children, autoPlay = false, className = '' }: {
@@ -59,6 +59,7 @@ function Rail({ title, children, autoPlay = false, className = '' }: {
     if (!autoPlay || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     let frame = 0;
     let previous = 0;
+    let position: number | null = null;
     const animate = (now: number) => {
       const delta = previous ? Math.min(now - previous, 64) : 0;
       previous = now;
@@ -68,11 +69,12 @@ function Rail({ title, children, autoPlay = false, className = '' }: {
         if (rect.top < window.innerHeight && rect.bottom > 0) {
           const cycle = loopWidth(rail);
           if (cycle > 0) {
-            const next = rail.scrollLeft + delta * 0.065;
-            jumpTo(rail, next >= cycle ? next - cycle : next);
+            if (position === null) position = rail.scrollLeft;
+            position = (position + delta * 0.065) % cycle;
+            jumpTo(rail, position);
           }
-        }
-      }
+        } else position = null;
+      } else position = null;
       frame = window.requestAnimationFrame(animate);
     };
     frame = window.requestAnimationFrame(animate);
@@ -93,15 +95,13 @@ function Rail({ title, children, autoPlay = false, className = '' }: {
           const rail = railRef.current;
           if (!rail) return;
           const cycle = loopWidth(rail);
-          if (cycle && rail.scrollLeft >= cycle - 2) jumpTo(rail, rail.scrollLeft - cycle);
+          if (cycle && rail.scrollLeft >= cycle) jumpTo(rail, rail.scrollLeft - cycle);
           const nextIndex = Math.round(rail.scrollLeft / Math.max(step(), 1));
           if (nextIndex !== activeIndex.current) {
             activeIndex.current = nextIndex;
             setActive(nextIndex);
           }
         }}
-        onMouseEnter={() => { pauseUntil.current = Date.now() + 2500; }}
-        onFocusCapture={() => { pauseUntil.current = Date.now() + 8000; }}
         onPointerDown={() => { pauseUntil.current = Date.now() + 8000; }}
         onKeyDown={(event) => {
           if (event.key === 'ArrowRight') { event.preventDefault(); move(1); }
@@ -184,7 +184,7 @@ function useCinematicMotion() {
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        entry.target.classList.toggle('lp-stamped', entry.isIntersecting);
+        if (entry.isIntersecting) { entry.target.classList.add('lp-stamped'); observer.unobserve(entry.target); }
       });
     }, { threshold: 0.23, rootMargin: '0px 0px -5% 0px' });
     stamps.forEach((element) => observer.observe(element));

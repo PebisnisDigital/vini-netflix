@@ -6,7 +6,7 @@
 export const portfolioServiceCTA = {
   headlineLines: ['MAU DIBUATIN', 'WEB SEPERTI INI ?'],
   buttonLabel: 'Mau Dibuatin',
-  whatsappNumber: '6282137523626',
+  whatsappNumber: '62881022445869',
   whatsappMessage: 'Halo Teh Vini, saya mau dibuatin web portofolio PESONAFLIX seperti contoh ini. Boleh dibantu?',
 } as const;
 
