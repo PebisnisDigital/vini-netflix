@@ -2,6 +2,7 @@ import { randomBytes } from 'node:crypto';
 import { github, repository } from './auth.mjs';
 import { normalizeClientWhatsapp } from '../src/utils/clientWhatsapp.mjs';
 import { canApplyIdentityMode, canApplyTemplate, getIdentityMode, getTemplate } from '../src/data/templateCatalog.mjs';
+import { validClientSlug } from '../src/data/clientAliases.mjs';
 
 const reserved = new Set(['vini', 'formulir', 'studio', 'admin', 'api', 'assets', 'demo', 'preview', 'index', 'favicon', 'robots', 'sitemap']);
 const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -142,31 +143,46 @@ export async function createClientPullRequest(token, { brief, assets, mode }) {
   return { number: pr.number, url: pr.html_url, branch, sha: commit.sha };
 }
 
+export function cmsDescriptor(pr) {
+  const marker = String(pr.body || '').split('\n', 1)[0];
+  const alias = /^PERSONALFLIX_ALIAS:([a-z0-9]+(?:-[a-z0-9]+)*):([a-z0-9]+(?:-[a-z0-9]+)*)$/.exec(marker);
+  if (alias && validClientSlug(alias[1]) && validClientSlug(alias[2]) && pr.head?.ref.startsWith(`cms/alias-${alias[1]}-`)) return { kind: 'alias', slug: alias[2], job: 'auto-publish-alias' };
+  const client = /^PERSONALFLIX_CMS:([a-z0-9]+(?:-[a-z0-9]+)*)$/.exec(marker);
+  if (client && validClientSlug(client[1]) && pr.head?.ref.startsWith(`cms/${client[1]}-`)) return { kind: 'client', slug: client[1], job: 'auto-publish-cms' };
+  return null;
+}
+
 export async function mergeClientPullRequest(token, { number, sha }) {
   if (!Number.isSafeInteger(number) || number <= 0 || !/^[a-f0-9]{40}$/i.test(sha || '')) throw new Error('Data PR tidak valid.');
   const pr = await github(token, `${repository}/pulls/${number}`);
-  if (pr.state !== 'open' || pr.base?.ref !== 'main' || !/^cms\/[a-z0-9-]+$/.test(pr.head?.ref || '') || pr.head?.sha !== sha || pr.head?.repo?.full_name !== 'PebisnisDigital/vini-netflix' || !/^PERSONALFLIX_CMS:[a-z0-9-]+/.test(pr.body || '')) throw new Error('PR ini bukan draft CMS yang siap diterbitkan.');
+  const descriptor = cmsDescriptor(pr);
+  if (pr.state !== 'open' || pr.base?.ref !== 'main' || !/^cms\/[a-z0-9-]+$/.test(pr.head?.ref || '') || pr.head?.sha !== sha || pr.head?.repo?.full_name !== 'PebisnisDigital/vini-netflix' || !descriptor) throw new Error('PR ini bukan draft CMS yang siap diterbitkan.');
+  if (descriptor.kind === 'alias') {
+    const changed = await github(token, `${repository}/pulls/${number}/files?per_page=100`);
+    if (pr.changed_files !== 1 || changed.length !== 1 || changed[0].filename !== 'src/data/clientAliases.json' || changed[0].status !== 'modified') throw new Error('PR ubah link berisi perubahan yang tidak diizinkan.');
+  }
   const checks = await github(token, `${repository}/commits/${sha}/check-runs`);
   const validation = checks.check_runs?.filter((r) => r.name === 'verify' || r.name === 'Validasi PESONAFLIX' || r.name === 'Validasi Web Personal Netflix') || [];
   if (!validation.some((r) => r.status === 'completed' && r.conclusion === 'success')) throw new Error('Validasi GitHub Actions belum lulus. Tunggu sampai berhasil.');
   const merged = await github(token, `${repository}/pulls/${number}/merge`, { method: 'PUT', body: JSON.stringify({ sha, merge_method: 'squash', commit_title: `Terbitkan ${pr.title}` }) });
   if (!merged.merged) throw new Error('GitHub belum bisa menerbitkan PR ini.');
-  return { merged: true, slug: pr.body.match(/^PERSONALFLIX_CMS:([a-z0-9-]+)/)?.[1] };
+  return { merged: true, slug: descriptor.slug, kind: descriptor.kind };
 }
 
 export async function getClientPublicationStatus(token, { number, sha }) {
   if (!Number.isSafeInteger(number) || number <= 0 || !/^[a-f0-9]{40}$/i.test(sha || '')) throw new Error('Nomor publikasi tidak valid.');
   const pr = await github(token, `${repository}/pulls/${number}`);
-  const slug = pr.body?.match(/^PERSONALFLIX_CMS:([a-z0-9-]+)/)?.[1];
-  if (!slug || !/^cms\/[a-z0-9-]+$/.test(pr.head?.ref || '') || pr.head?.repo?.full_name !== 'PebisnisDigital/vini-netflix' || pr.base?.ref !== 'main') throw new Error('Publikasi ini bukan berasal dari Studio.');
+  const descriptor = cmsDescriptor(pr);
+  if (!descriptor || !/^cms\/[a-z0-9-]+$/.test(pr.head?.ref || '') || pr.head?.repo?.full_name !== 'PebisnisDigital/vini-netflix' || pr.base?.ref !== 'main') throw new Error('Publikasi ini bukan berasal dari Studio.');
+  const { slug, kind } = descriptor;
   if (pr.head?.sha !== sha) throw new Error('Data publikasi sudah berubah. Muat ulang proyek.');
-  if (pr.merged) return { state: 'merged', slug, url: `https://pesonaflix.vercel.app/${slug}` };
-  if (pr.state !== 'open') return { state: 'failed', slug, message: 'Penerbitan ditutup tanpa dipublikasikan.' };
+  if (pr.merged) return { state: 'merged', slug, kind, url: `https://pesonaflix.vercel.app/${slug}` };
+  if (pr.state !== 'open') return { state: 'failed', slug, kind, message: 'Penerbitan ditutup tanpa dipublikasikan.' };
   const result = await github(token, `${repository}/commits/${sha}/check-runs`);
   const checks = result.check_runs || [];
   const validation = checks.filter((check) => check.name === 'verify');
-  const mergeJob = checks.filter((check) => check.name === 'auto-publish-cms');
-  if (validation.some((check) => check.status === 'completed' && check.conclusion !== 'success')) return { state: 'failed', slug, message: 'Pengujian proyek gagal. Website lama tetap aman.' };
-  if (mergeJob.some((check) => check.status === 'completed' && check.conclusion !== 'success')) return { state: 'failed', slug, message: 'GitHub belum diizinkan menerbitkan. Periksa izin GitHub Actions dan PR.' };
-  return { state: 'pending', slug, message: validation.some((check) => check.conclusion === 'success') ? 'Pengujian lulus. Menunggu penerbitan otomatis…' : 'GitHub sedang memeriksa perubahan…' };
+  const mergeJob = checks.filter((check) => check.name === descriptor.job);
+  if (validation.some((check) => check.status === 'completed' && check.conclusion !== 'success')) return { state: 'failed', slug, kind, message: 'Pengujian proyek gagal. Website lama tetap aman.' };
+  if (mergeJob.some((check) => check.status === 'completed' && check.conclusion !== 'success')) return { state: 'failed', slug, kind, message: 'GitHub belum diizinkan menerbitkan. Periksa izin GitHub Actions dan PR.' };
+  return { state: 'pending', slug, kind, message: validation.some((check) => check.conclusion === 'success') ? 'Pengujian lulus. Menunggu penerbitan otomatis…' : 'GitHub sedang memeriksa perubahan…' };
 }

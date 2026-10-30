@@ -1,6 +1,7 @@
 import { readdir, readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { normalizeClientWhatsapp } from '../src/utils/clientWhatsapp.mjs';
+import { validateClientAliasRegistry } from '../src/data/clientAliases.mjs';
 
 const root = process.cwd();
 const folder = path.join(root, 'src/data/clients');
@@ -118,6 +119,11 @@ for (const file of files) {
   for (const [name, url] of Object.entries(brief.links ?? {})) if (url && !/^https?:\/\//.test(url)) errors.push(`${slug}: link ${name} harus https://.`);
   await checkImage(brief.photo?.src, slug, 'foto utama');
 }
+
+try {
+  const aliases = JSON.parse(await readFile(path.join(root, 'src/data/clientAliases.json'), 'utf8'));
+  errors.push(...validateClientAliasRegistry(aliases, files.map((file) => file.slice(0, -5))));
+} catch (cause) { errors.push(`Peta URL klien tidak bisa dibaca: ${cause.message}`); }
 
 if (errors.length) {
   console.error(`❌ ${errors.length} masalah ditemukan:\n- ${errors.join('\n- ')}`);
