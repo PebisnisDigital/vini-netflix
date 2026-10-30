@@ -45,7 +45,7 @@ export default function Hero({ onPlay, onResume, profileId, editorMode = false }
   const meta = profile.heroMeta || [profile.location, profile.role, `${projects.length} Karya Pilihan`];
   const contactNumber = normalizeClientWhatsapp(profile.whatsapp);
 
-  const floating = (profile.floating || projects.slice(0, 3).map((project) => ({ text: project.title, sub: project.genre })))
+  const floating = (profile.clientSlug === 'yantiriyantini' ? [] : profile.floating || projects.slice(0, 3).map((project) => ({ text: project.title, sub: project.genre })))
     .map((f, i) => ({ ...f, pos: ['left-[2%] top-[30%]', 'right-[0%] top-[18%]', 'right-[4%] bottom-[24%]'][i % 3], depth: [1, -1, 0.6][i % 3] }));
 
   return (
