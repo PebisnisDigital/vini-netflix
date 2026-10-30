@@ -427,6 +427,36 @@ test('MINIATURE WORLD menjaga data klien dan tidak meminjam diorama demo VINI13'
   } finally { await server.close(); }
 });
 
+test('DOCUMENTARY menjaga identitas, aset dan kisah klien tanpa meminjam foto konsep VINI14', async () => {
+  const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
+  try {
+    const { createPortfolioFromBrief, validateBrief, effectiveTheme, DEFAULT_THEME, DOCUMENTARY_THEME } = await server.ssrLoadModule('/src/data/clientModel.ts');
+    const brief = {
+      slug: 'rani', name: 'Rani Putri', role: 'Pendiri UMKM Batik', location: 'Solo',
+      bio: 'Mendokumentasikan perjalanan membangun usaha batik rumahan.', tagline: ['Selembar kain punya kisah'], interests: ['Batik', 'Bisnis'],
+      photo: { src: '/clients/rani/foto-rani.webp', alt: 'Foto kegiatan milik Rani' },
+      experiences: [], projects: [{ title: 'Usaha Batik Rani', year: '2026', description: 'Proses belajar membatik bersama keluarga.', category: 'UMKM', tags: ['Batik'], image: '/clients/rani/proses-batik.webp' }],
+      skills: ['Batik'], whatsapp: '081234567890', templateId: 'documentary', identityMode: 'photo',
+    };
+    assert.deepEqual(validateBrief(brief, { requireWhatsapp: true }), []);
+    const content = createPortfolioFromBrief(brief);
+    assert.equal(content.profile.templateId, 'documentary');
+    assert.equal(content.profile.displayName, 'Rani Putri');
+    assert.equal(content.profile.whatsapp, '081234567890');
+    assert.equal(content.profile.referralCode, 'PSN-RANI');
+    assert.equal(content.profile.portrait.src, '/clients/rani/foto-rani.webp');
+    assert.equal(content.projects[0].image, '/clients/rani/proses-batik.webp');
+    assert.deepEqual(effectiveTheme(content.profile), DOCUMENTARY_THEME);
+    assert.deepEqual(effectiveTheme({ templateId: 'documentary', theme: DEFAULT_THEME }), DOCUMENTARY_THEME);
+    assert.deepEqual(effectiveTheme({ templateId: 'documentary', theme: { accent: '#a5844a', background: '#1a1c19' } }), { accent: '#a5844a', background: '#1a1c19' });
+    for (const forbidden of ['/clients/vini14/', 'Teh Vini', 'BADAI', 'PROMPTIONAL']) assert.equal(JSON.stringify(content).includes(forbidden), false);
+    const demo = JSON.parse(await readFile(new URL('../src/data/clients/vini14.json', import.meta.url), 'utf8'));
+    assert.deepEqual(validateBrief(demo, { requireWhatsapp: true }), []);
+    assert.equal(createPortfolioFromBrief(demo).profile.whatsapp, '62881022445869');
+    assert.match(demo.photo.alt, /bukan foto asli/);
+  } finally { await server.close(); }
+});
+
 test('proyek baru memakai contoh Sushmita yang lengkap tanpa membuatnya siap terbit', async () => {
   const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
   try {

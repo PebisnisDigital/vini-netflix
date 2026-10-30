@@ -26,7 +26,7 @@ export default function StudioTemplateGallery({ selectedTemplateId, identityMode
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#ff7294]">PESONAFLIX STUDIO · TEMPLATE</p>
           <h3 className="mt-2 text-2xl font-black sm:text-3xl">Pilih Gaya Website</h3>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/60">Ada 16 gaya dalam katalog. ORIGINAL, CHIBI 3D, ANIME, CLAY 3D, KOMIK POP, EDITORIAL PREMIUM, DOODLE, STORYBOOK, SCRAPBOOK, PAPER CUT, PIXEL RETRO, dan MINIATURE WORLD siap untuk klien. Gaya lainnya menyusul.</p>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/60">Ada 16 gaya dalam katalog. ORIGINAL, CHIBI 3D, ANIME, CLAY 3D, KOMIK POP, EDITORIAL PREMIUM, DOODLE, STORYBOOK, SCRAPBOOK, PAPER CUT, PIXEL RETRO, MINIATURE WORLD dan DOCUMENTARY siap untuk klien. Gaya lainnya menyusul.</p>
         </div>
         <div className="rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-right">
           <span className="block text-[11px] font-bold uppercase tracking-wider text-white/45">Gaya klien ini</span>
@@ -141,6 +141,16 @@ export default function StudioTemplateGallery({ selectedTemplateId, identityMode
             <p className="mt-2 text-xs leading-relaxed text-white/85">Koleksi diorama miniatur, kamera makro bergerak, orbit panggung, cahaya dan kartu karya hidup otomatis. Section serta animasi master ORIGINAL tetap aktif. Lengkapi cerita dan unggah ilustrasi miniatur milik klien melalui Editor Website; sistem tidak otomatis membuat miniatur dari foto.</p>
           </div>
           <button type="button" onClick={onEditWebsite} className="min-h-10 rounded-full border border-[#ebd6a9] bg-[#ade4c9] px-5 py-2.5 text-sm font-extrabold text-[#163f46] shadow-[0_8px_18px_#041d285c] transition hover:-translate-y-1 hover:bg-[#d5f1df]">Buka Editor Website</button>
+        </div>
+      )}
+
+      {selectedTemplateId === 'documentary' && (
+        <div className="flex flex-wrap items-center justify-between gap-4 border border-[#d8af76]/50 bg-gradient-to-r from-[#151a19] via-[#303830] to-[#3e352c] p-4 sm:p-5">
+          <div className="max-w-2xl">
+            <p className="font-['Manrope'] text-xl font-black tracking-tight text-[#f4dbb7]">◉ DOCUMENTARY aktif!</p>
+            <p className="mt-2 text-xs leading-relaxed text-white/85">Tampilan seperti film dokumenter, foto observasional, filmstrip, efek grain, dan gerak kamera otomatis. Seluruh fitur ORIGINAL tetap ada. Unggah foto kegiatan nyata milik klien dan tulis pengalaman yang benar-benar terjadi; ilustrasi AI demo bukan bukti kegiatan.</p>
+          </div>
+          <button type="button" onClick={onEditWebsite} className="min-h-10 border border-[#ebc890] bg-[#e0b778] px-5 py-2.5 text-sm font-extrabold text-[#171a18] transition hover:-translate-y-1 hover:bg-[#f4d8a7]">Buka Editor Website</button>
         </div>
       )}
 
