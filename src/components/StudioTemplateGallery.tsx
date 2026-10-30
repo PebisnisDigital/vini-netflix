@@ -41,6 +41,12 @@ export default function StudioTemplateGallery({ selectedTemplateId, identityMode
         {templateCatalog.map((item) => {
           const applied = selectedTemplateId === item.id;
           const available = canApplyTemplate(item.id);
+          const startColor = item.colors[0];
+          const previewStartsLight = (
+            0.2126 * Number.parseInt(startColor.slice(1, 3), 16) +
+            0.7152 * Number.parseInt(startColor.slice(3, 5), 16) +
+            0.0722 * Number.parseInt(startColor.slice(5, 7), 16)
+          ) > 165;
           return (
             <article key={item.id} className={`group flex min-w-0 flex-col overflow-hidden rounded-xl border bg-[#1b1a22] shadow-[0_4px_16px_#00000016] transition-[border-color,transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_#00000030] ${applied ? 'border-[#ff6587] ring-1 ring-[#ff6587]/50' : 'border-white/10 hover:border-white/30'}`}>
               <div className="relative flex h-[84px] min-w-0 flex-col justify-between overflow-hidden p-2.5 sm:h-[90px]" style={{ background: `linear-gradient(140deg, ${item.colors[0]} 5%, ${item.colors[1]} 76%, ${item.colors[2]})` }}>
@@ -50,7 +56,7 @@ export default function StudioTemplateGallery({ selectedTemplateId, identityMode
                   <span className="max-w-[78%] truncate rounded-full border border-white/20 bg-black/25 px-2 py-0.5 text-[9px] font-bold text-white/90 backdrop-blur-sm">{item.family}</span>
                   {applied && <CheckCircle2 size={15} className="shrink-0 text-white drop-shadow-md" aria-label="Gaya aktif" />}
                 </div>
-                <h4 className="relative line-clamp-2 break-words text-[13px] font-black leading-[1.05] text-white drop-shadow-lg sm:text-[15px]" style={{ fontFamily: `"${item.fonts[0]}", system-ui, sans-serif`, textShadow: '0 2px 9px #000a' }}>{item.name}</h4>
+                <h4 className={`relative line-clamp-2 break-words text-[13px] font-black leading-[1.05] sm:text-[15px] ${previewStartsLight ? 'text-[#1b273b]' : 'text-white'}`} style={{ fontFamily: `"${item.fonts[0]}", system-ui, sans-serif`, textShadow: previewStartsLight ? '0 1px 5px #fff8' : '0 2px 9px #000a' }}>{item.name}</h4>
               </div>
               <div className="flex flex-1 flex-col gap-2 p-2.5 sm:p-3">
                 <p className="line-clamp-2 min-h-[2.5em] text-[11px] leading-[1.3] text-white/60" title={item.description}>{item.description}</p>
