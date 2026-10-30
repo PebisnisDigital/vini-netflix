@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="920" viewBox="0 0 720 920">
+  <defs><linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#092e38"/><stop offset="0.55" stop-color="#246568"/><stop offset="1" stop-color="#101f38"/></linearGradient></defs>
+  <rect width="720" height="920" fill="url(#bg)"/><g opacity=".13" stroke="#e4fcf5"><path d="M0 140h720M0 245h720M0 350h720M0 455h720M0 560h720M0 665h720M0 770h720"/><path d="M120 0v920M240 0v920M360 0v920M480 0v920M600 0v920"/></g>
+  <text x="64" y="88" fill="#c8f4e7" font-size="22" font-family="sans-serif" font-weight="700" letter-spacing="7">YANTI RIYANTINI</text><rect x="64" y="117" width="110" height="4" fill="#c8f4e7"/>
+  <text x="64" y="270" fill="#ffffff" font-size="92" font-family="sans-serif" font-weight="800">RISET</text><text x="64" y="352" fill="#ffffff" font-size="74" font-family="sans-serif" font-weight="800">IBU &amp; BAYI</text><text x="64" y="417" fill="#b9ecdd" font-size="25" font-family="sans-serif" letter-spacing="4">PENELITIAN KEPERAWATAN</text>
+  <g fill="none" stroke="#bcf3e4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"><path d="M90 690l110 -84l106 48l112 -140l90 62l125 -178"/></g><g fill="#f6ddb7" stroke="#0e4750" stroke-width="5"><circle cx="90" cy="690" r="18"/><circle cx="200" cy="606" r="18"/><circle cx="306" cy="654" r="18"/><circle cx="418" cy="514" r="18"/><circle cx="508" cy="576" r="18"/><circle cx="633" cy="398" r="18"/></g>
+  <text x="64" y="860" fill="#e1f9f0" font-family="sans-serif" font-size="25" letter-spacing="4">KAJIAN · 2010 &amp; 2021</text>
+</svg>

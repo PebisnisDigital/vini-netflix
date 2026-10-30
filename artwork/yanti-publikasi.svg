@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="920" viewBox="0 0 720 920">
+  <defs><linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#0d2940"/><stop offset="0.6" stop-color="#245d72"/><stop offset="1" stop-color="#090f24"/></linearGradient><linearGradient id="book" x1="0" x2="1"><stop stop-color="#fbf0dc"/><stop offset="1" stop-color="#a9d7d3"/></linearGradient></defs>
+  <rect width="720" height="920" fill="url(#bg)"/>
+  <circle cx="580" cy="210" r="255" fill="none" stroke="#98e0d5" stroke-opacity=".18" stroke-width="2"/><circle cx="580" cy="210" r="200" fill="none" stroke="#98e0d5" stroke-opacity=".17" stroke-width="2"/>
+  <text x="64" y="88" fill="#b7ecdd" font-size="22" font-family="sans-serif" font-weight="700" letter-spacing="7">YANTI RIYANTINI</text><rect x="64" y="117" width="110" height="4" fill="#b7ecdd"/>
+  <text x="64" y="280" fill="#ffffff" font-size="64" font-family="sans-serif" font-weight="800">PUBLIKASI</text><text x="64" y="357" fill="#ffffff" font-size="64" font-family="sans-serif" font-weight="800">KEPERAWATAN</text><text x="64" y="430" fill="#bbefdf" font-size="64" font-family="sans-serif" font-weight="800">ANAK</text>
+  <g transform="translate(170 510) rotate(-12)"><rect x="28" y="38" width="320" height="255" rx="16" fill="#071d31" stroke="#4e8798" stroke-width="4"/><rect x="0" y="0" width="320" height="255" rx="16" fill="url(#book)"/><rect x="30" y="36" width="8" height="180" rx="4" fill="#1b6670"/><path d="M75 75h197M75 106h197M75 137h155M75 168h180" stroke="#2c7782" stroke-width="7" stroke-linecap="round" opacity=".55"/><circle cx="252" cy="201" r="19" fill="#2c7782" opacity=".65"/></g>
+  <text x="64" y="860" fill="#e6eee8" font-family="sans-serif" font-size="25" letter-spacing="4">BUKU AJAR · 2023—2026</text>
+</svg>

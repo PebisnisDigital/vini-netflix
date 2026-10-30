@@ -137,7 +137,7 @@ export default function Hero({ onPlay, onResume, profileId, editorMode = false }
           {chibi || anime ? (
             <span className="client-name-punch">Halo, aku <span className={anime ? 'anime-name' : 'chibi-name'}>{anime && profile.clientSlug !== 'vini4' ? profile.displayName.trim().split(/\s+/)[0] : 'Vini'}!</span></span>
           ) : (
-            <span className="shimmer-text client-name-punch">{profile.firstName}</span>
+            <span className="shimmer-text client-name-punch">{profile.clientSlug === 'yantiriyantini' ? 'YANTI RIYANTINI' : profile.firstName}</span>
           )}
         </motion.h1>
         <motion.p variants={item} className="mt-1 font-sans text-sm font-bold tracking-[0.62em] text-crimson-2 sm:text-base">
@@ -184,7 +184,7 @@ export default function Hero({ onPlay, onResume, profileId, editorMode = false }
                 onClick={() => scrollTo('#originals')}
                 className="glass flex min-h-12 items-center gap-3 rounded-md px-6 py-3 text-[15px] font-semibold text-bone transition hover:bg-white/15 sm:px-8"
               >
-                <span className="text-xl leading-none">＋</span> Karya Saya
+                <span className="text-xl leading-none">＋</span> {profile.clientSlug === 'yantiriyantini' ? 'Buku & Riset' : 'Karya Saya'}
               </button>
             )}
           </Magnetic>
