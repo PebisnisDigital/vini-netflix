@@ -61,9 +61,7 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
             <span aria-hidden="true" className="text-xl">↗</span>
           </a>
         </Magnetic> : null}
-        <p className="text-xs font-medium tracking-[0.08em] text-mist sm:text-sm">
-          {whatsappUrl ? `Langsung chat ${contactName} lewat WhatsApp` : 'Nomor WhatsApp pemilik website belum tersedia.'}
-        </p>
+        {!whatsappUrl && <p className="text-xs font-medium tracking-[0.08em] text-mist sm:text-sm">Nomor WhatsApp pemilik website belum tersedia.</p>}
       </motion.div>
 
       <div className="relative mt-16 flex flex-wrap justify-center gap-6 text-xs font-semibold tracking-[0.24em] text-smoke">
