@@ -3,7 +3,7 @@ import {
   ArrowDown, ArrowRight, ArrowUpRight, BadgeCheck, BookOpen, BriefcaseBusiness,
   Check, ChevronLeft, ChevronRight, Clapperboard, FileImage, HeartHandshake,
   Image as ImageIcon, Menu, MessageCircle, MonitorPlay, PencilRuler, Play,
-  QrCode, Share2, ShieldCheck, Smartphone, Sparkles, Star, Users, WandSparkles, X,
+  QrCode, Share2, Smartphone, Sparkles, Star, Users, WandSparkles, X,
 } from 'lucide-react';
 import { getPortfolioServiceWhatsappUrl } from '../data/portfolioServiceCTA';
 
@@ -371,13 +371,12 @@ export default function LandingPage() {
         </section>
 
         <section id="ulasan" className="lp-section lp-reviews"><div className="lp-container">
-          <Heading eyebrow="06 / GAMBARAN PENGALAMAN" title="CONTOH" accent="TESTIMONI" description="Simulasi bagaimana ulasan bisa ditampilkan. Ini belum merupakan ulasan pelanggan sungguhan." />
-          <p className="lp-review-notice"><ShieldCheck size={18} /> SEMUA KUTIPAN DI BAWAH HANYA CONTOH REDAKSI, BUKAN TESTIMONI NYATA.</p>
+          <Heading eyebrow="06 / GAMBARAN PENGALAMAN" title="CONTOH" accent="TESTIMONI" />
           <Rail title="Simulasi testimoni" autoPlay>
             {sampleReviews.map((review, index) => <article className={'lp-review-card lp-tone-' + review.tone} key={review.from}>
               <div className="lp-review-stars" aria-hidden="true">{[1, 2, 3, 4, 5].map(n => <Star size={14} fill="currentColor" key={n} />)}</div>
               <p>“{review.quote}”</p>
-              <div className="lp-review-by"><span>{index + 1}</span><div><strong>Simulasi ulasan {index + 1}</strong><small>{review.from}</small></div></div>
+              <div className="lp-review-by"><span>{index + 1}</span><div><strong>Simulasi ulasan {index + 1}</strong></div></div>
             </article>)}
           </Rail>
         </div></section>
