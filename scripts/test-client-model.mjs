@@ -519,6 +519,36 @@ test('FUTURISTIC NEON menjaga data klien, warna kustom dan visual demo terisolas
   } finally { await server.close(); }
 });
 
+test('VINTAGE HERITAGE menjaga informasi dan aset klien tanpa menyalin demo VINI17', async () => {
+  const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
+  try {
+    const { createPortfolioFromBrief, validateBrief, effectiveTheme, DEFAULT_THEME, VINTAGE_THEME } = await server.ssrLoadModule('/src/data/clientModel.ts');
+    const brief = {
+      slug: 'maya', name: 'Maya Wulandari', role: 'Pengusaha Batik', location: 'Pekalongan',
+      bio: 'Membuat kerajinan batik bersama tim lokal sejak memulai usaha sendiri.', tagline: ['Dibuat dengan cerita'], interests: ['Batik', 'UMKM'],
+      photo: { src: '/clients/maya/foto-maya.webp', alt: 'Foto milik Maya' },
+      experiences: [{ company: 'Usaha Batik Maya', role: 'Pemilik', period: '2026', description: 'Mengembangkan produksi bersama perajin.' }],
+      projects: [{ title: 'Katalog Batik', year: '2026', description: 'Koleksi motif lokal.', category: 'Kerajinan', tags: ['Batik'], image: '/clients/maya/batik.webp' }],
+      skills: ['Kerajinan Batik'], whatsapp: '081234567890', templateId: 'vintage-heritage', identityMode: 'photo',
+    };
+    assert.deepEqual(validateBrief(brief, { requireWhatsapp: true }), []);
+    const content = createPortfolioFromBrief(brief);
+    assert.equal(content.profile.templateId, 'vintage-heritage');
+    assert.equal(content.profile.displayName, 'Maya Wulandari');
+    assert.equal(content.profile.portrait.src, '/clients/maya/foto-maya.webp');
+    assert.equal(content.projects[0].image, '/clients/maya/batik.webp');
+    assert.equal(content.profile.referralCode, 'PSN-MAYA');
+    assert.deepEqual(effectiveTheme(content.profile), VINTAGE_THEME);
+    assert.deepEqual(effectiveTheme({ templateId: 'vintage-heritage', theme: DEFAULT_THEME }), VINTAGE_THEME);
+    assert.deepEqual(effectiveTheme({ templateId: 'vintage-heritage', theme: { accent: '#a67855', background: '#fff7e0' } }), { accent: '#a67855', background: '#fff7e0' });
+    for (const forbidden of ['/clients/vini17/', 'Teh Vini', 'BADAI', 'PROMPTIONAL']) assert.equal(JSON.stringify(content).includes(forbidden), false);
+    const demo = JSON.parse(await readFile(new URL('../src/data/clients/vini17.json', import.meta.url), 'utf8'));
+    assert.deepEqual(validateBrief(demo, { requireWhatsapp: true }), []);
+    assert.equal(createPortfolioFromBrief(demo).profile.whatsapp, '62881022445869');
+    assert.match(demo.photo.alt, /bukan foto asli Teh Vini/);
+  } finally { await server.close(); }
+});
+
 test('proyek baru memakai contoh Sushmita yang lengkap tanpa membuatnya siap terbit', async () => {
   const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
   try {
