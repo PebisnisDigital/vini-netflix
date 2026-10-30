@@ -5,7 +5,8 @@ import {
   Image as ImageIcon, LockKeyhole, Menu, MessageCircle, MonitorPlay, PencilRuler, Play,
   QrCode, Share2, Smartphone, Sparkles, Star, Users, X,
 } from 'lucide-react';
-import { CheckoutModal } from './PesonaflixCheckout';
+export const daftarWhatsapp = 'https://wa.me/62881022445869?text=' +
+  encodeURIComponent('Halo Teh Vini, saya ingin daftar jasa pembuatan website personal PESONAFLIX. Mohon dibantu proses pendaftarannya.');
 
 const mitraWhatsapp = 'https://wa.me/62881022445869?text=' +
   encodeURIComponent('Halo Teh Vini, saya ingin bertanya tentang program mitra PESONAFLIX dan ketentuan komisinya.');
@@ -169,18 +170,15 @@ function Heading({ eyebrow, title, accent, description, aside }: {
     {description && <p data-reveal className="lp-section-description">{description}</p>}</div>{aside}</div>;
 }
 
-function WhatsAppButton({ label = 'Daftar Sekarang', href, onCheckoutOpen }: {
-  label?: string; href?: string; onCheckoutOpen: () => void;
+function WhatsAppButton({ label = 'Daftar Sekarang', href = daftarWhatsapp }: {
+  label?: string; href?: string;
 }) {
-  if (href) return <a className="lp-cta-button" href={href} target="_blank" rel="noopener noreferrer">
+  return <a className="lp-cta-button" href={href} target="_blank" rel="noopener noreferrer">
     <MessageCircle size={20} /><span>{label}</span><ArrowRight size={19} />
   </a>;
-  return <button type="button" className="lp-cta-button" onClick={onCheckoutOpen}>
-    <QrCode size={20} /><span>{label}</span><ArrowRight size={19} />
-  </button>;
 }
 
-function Header({ onCheckoutOpen }: { onCheckoutOpen: () => void }) {
+function Header() {
   const [open, setOpen] = useState(false);
   const links = [
     ['#tentang', 'Apa Itu'], ['#layanan', 'Layanan'], ['#contoh', 'Contoh'],
@@ -190,9 +188,9 @@ function Header({ onCheckoutOpen }: { onCheckoutOpen: () => void }) {
     <a href="#beranda" className="lp-brand" aria-label="PESONAFLIX, kembali ke atas">PESONA<span>FLIX</span></a>
     <nav aria-label="Navigasi PESONAFLIX" className={'lp-nav ' + (open ? 'is-open' : '')}>
       {links.map(([href, label]) => <a key={href} href={href} onClick={() => setOpen(false)}>{label}</a>)}
-      <button type="button" className="lp-nav-mobile-cta" onClick={() => { setOpen(false); onCheckoutOpen(); }}>Daftar Sekarang <ArrowUpRight size={17} /></button>
+      <a className="lp-nav-mobile-cta" href={daftarWhatsapp} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Daftar Sekarang <ArrowUpRight size={17} /></a>
     </nav>
-    <button type="button" className="lp-header-cta" onClick={onCheckoutOpen}><QrCode size={17} /> Daftar Sekarang <ArrowRight size={17} /></button>
+    <a className="lp-header-cta" href={daftarWhatsapp} target="_blank" rel="noopener noreferrer"><MessageCircle size={17} /> Daftar Sekarang <ArrowRight size={17} /></a>
     <button className="lp-menu-toggle" aria-expanded={open} aria-label={open ? 'Tutup menu' : 'Buka menu'} type="button" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>
   </header>;
 }
@@ -269,11 +267,10 @@ function useCinematicMotion() {
 }
 
 export default function LandingPage() {
-  const [checkoutOpen, setCheckoutOpen] = useState(false);
   useCinematicMotion();
   return (
     <div className="lp-page">
-      <Header onCheckoutOpen={() => setCheckoutOpen(true)} />
+      <Header />
       <main>
         <section id="beranda" className="lp-hero" aria-labelledby="lp-hero-title">
           <div className="lp-hero-background" aria-hidden="true" />
@@ -291,7 +288,7 @@ export default function LandingPage() {
               <h1 id="lp-hero-title" data-stamp>BUKAN CUMA CV.<br />INI CERITA <span>KAMU.</span></h1>
               <p className="lp-hero-subtitle">Profesi apa pun layak punya panggung sendiri.</p>
               <p className="lp-hero-description">Tampilkan perjalanan, karya, dan pencapaianmu dalam bentuk website portofolio yang sinematik, personal, dan berkesan — seperti serial favoritmu.</p>
-              <div className="lp-hero-actions"><WhatsAppButton onCheckoutOpen={() => setCheckoutOpen(true)} /><a className="lp-secondary-button" href="#contoh"><Play size={17} fill="currentColor" /> Lihat Contoh</a></div>
+              <div className="lp-hero-actions"><WhatsAppButton /><a className="lp-secondary-button" href="#contoh"><Play size={17} fill="currentColor" /> Lihat Contoh</a></div>
               <div className="lp-hero-points"><span><BadgeCheck /> Tampilan profesional</span><span><Share2 /> Mudah dibagikan</span><span><Star /> Lebih berkesan</span></div>
               <div className="lp-hero-now-playing" aria-hidden="true"><span className="lp-now-playing-dot" /><span>NOW PLAYING · PESONAFLIX ORIGINALS</span><span className="lp-now-playing-track"><i /></span></div>
             </div>
@@ -352,7 +349,7 @@ export default function LandingPage() {
             <p className="lp-eyebrow">03 / PELUANG MITRA</p><h2 data-stamp>JADI MITRA,<br />DAPAT <span>KOMISI.</span></h2>
             <p>Rekomendasikan PESONAFLIX ke teman, rekan kerja, atau komunitasmu. Kalau rekomendasimu menghasilkan pesanan yang berhasil, kamu berpeluang menerima komisi sesuai ketentuan program.</p>
             <div data-reveal className="lp-affiliate-points"><span><Users size={18} /> Rekomendasikan jasa</span><span><HeartHandshake size={18} /> Pesanan berhasil</span><span><BadgeCheck size={18} /> Ada peluang komisi</span></div>
-            <WhatsAppButton label="Tanya Program Mitra" href={mitraWhatsapp} onCheckoutOpen={() => setCheckoutOpen(true)} />
+            <WhatsAppButton label="Tanya Program Mitra" href={mitraWhatsapp} />
             <small>Detail harga, syarat program, dan pembayaran komisi dikonfirmasi langsung bersama Teh Vini.</small>
           </div>
         </section>
@@ -399,12 +396,11 @@ export default function LandingPage() {
 
         <section id="pesan" className="lp-final">
           <div className="lp-container lp-final-grid"><div data-reveal className="lp-final-portrait"><img src="/assets/teh-vini-1100.webp" alt="Teh Vini mengajak membuat web portofolio personal" loading="lazy" /></div>
-            <div className="lp-final-content"><p className="lp-eyebrow">KISAHMU LAYAK DITAMPILKAN</p><p className="lp-final-brand">PESONA<span>FLIX</span></p><h2 data-stamp>MAU JUGA<br /><span>DIBUATIN?</span></h2><p>Saatnya cerita kamu punya panggung sendiri.</p><WhatsAppButton onCheckoutOpen={() => setCheckoutOpen(true)} /><small><LockKeyhole size={15} /> Pendaftaran langsung di PESONAFLIX</small></div>
+            <div className="lp-final-content"><p className="lp-eyebrow">KISAHMU LAYAK DITAMPILKAN</p><p className="lp-final-brand">PESONA<span>FLIX</span></p><h2 data-stamp>MAU JUGA<br /><span>DIBUATIN?</span></h2><p>Saatnya cerita kamu punya panggung sendiri.</p><WhatsAppButton /><small><LockKeyhole size={15} /> Pendaftaran dibantu melalui WhatsApp</small></div>
           </div>
         </section>
       </main>
       <footer className="lp-footer"><div className="lp-container"><div className="lp-footer-top"><a href="#beranda" className="lp-brand">PESONA<span>FLIX</span></a><nav aria-label="Navigasi footer"><a href="#tentang">Tentang</a><a href="#layanan">Layanan</a><a href="#contoh">Contoh</a><a href="#mitra">Mitra</a><a href="#pesan">Kontak</a></nav></div><div className="lp-footer-bottom"><span>© 2026 PESONAFLIX. Semua profesi punya cerita.</span><span>Profil demo dan contoh testimoni ditandai sebagai simulasi.</span><a href="/studio">Studio</a></div></div></footer>
-      {checkoutOpen && <CheckoutModal onClose={() => setCheckoutOpen(false)} />}
     </div>
   );
 }
