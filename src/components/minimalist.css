@@ -1,0 +1,152 @@
+/* MINIMALIST — quiet authority, not a magazine or an empty white template. */
+.minimalist-cinema {
+  --font-display: 'Manrope', 'Inter', system-ui, sans-serif;
+  --font-sans: 'Manrope', 'Inter', system-ui, sans-serif;
+  --color-ink: #f6f6f3;
+  --color-ink-2: #eeefea;
+  --color-ink-3: #e4e7e1;
+  --color-bone: #1c2421;
+  --color-mist: #5e6863;
+  --color-smoke: #67736d;
+  --color-crimson-2: #365c4d;
+  --minimalist-ink: #1c2421;
+  --minimalist-rule: #cbd0c8;
+  background: #f6f6f3;
+  color: #1c2421;
+  color-scheme: light;
+}
+.minimalist-cinema .grain { opacity: .01; }
+.minimalist-cinema .font-display { font-family: 'Manrope',sans-serif; letter-spacing: -.055em; font-weight: 800; }
+.minimalist-cinema .text-outline { -webkit-text-stroke: 2px #32483b42; }
+.minimalist-cinema header > .gutter { background: #f6f6f3f7 !important; border-bottom: 1px solid #d3d7d0; backdrop-filter: blur(15px); }
+.minimalist-cinema header .bg-bone { background-color: #243d32; }
+.minimalist-cinema header .text-ink { color: #fff; }
+.minimalist-cinema header button:hover { color: #1f4d39; }
+.minimalist-cinema .glass { background: #f7f7f4ed; border: 1px solid #cfd4cc; backdrop-filter: blur(10px); box-shadow: 0 8px 30px #293c2910; }
+.minimalist-cinema #about, .minimalist-cinema #journey, .minimalist-cinema #originals,
+.minimalist-cinema #picks, .minimalist-cinema #skills, .minimalist-cinema #moments,
+.minimalist-cinema #story { border-top: 1px solid #d7dbd4; }
+.minimalist-cinema #about h2, .minimalist-cinema #journey h2, .minimalist-cinema #originals h2,
+.minimalist-cinema #picks h2, .minimalist-cinema #skills h2, .minimalist-cinema #moments h2,
+.minimalist-cinema #story h2 { letter-spacing: -.06em; font-family: 'Manrope',sans-serif; font-weight: 850; }
+.minimalist-cinema #skills [data-studio-edit^="skill:"] { border-radius: 2px; }
+.minimalist-cinema #skills [role="tab"] { border-radius: 2px; }
+.minimalist-cinema #about .relative.aspect-\[4\/5\] .text-bone,
+.minimalist-cinema #picks .group .text-bone,
+.minimalist-cinema #originals .group .text-bone,
+.minimalist-cinema section[aria-labelledby="continue-title"] .group .text-bone { color: #f4f3ee; }
+.minimalist-cinema #picks .group .text-mist,
+.minimalist-cinema #originals .group .text-mist,
+.minimalist-cinema section[aria-labelledby="continue-title"] .group .text-mist { color: #d7ddd7; }
+.minimalist-cinema #originals .group .text-crimson-2,
+.minimalist-cinema #picks .group .text-crimson-2,
+.minimalist-cinema section[aria-labelledby="continue-title"] .group .text-crimson-2 { color: #d5e8d9; }
+.minimalist-cinema #contact { border-top: 1px solid #d2d8ce; }
+.minimalist-cinema #contact > .absolute.inset-0 { opacity: .1; }
+.minimalist-cinema .client-cta-headline { font-family: 'Manrope',sans-serif; font-weight: 900; letter-spacing: -.063em; }
+.minimalist-cinema .client-cta-pulse { background: #203d32; box-shadow: 0 15px 40px #26483a38; color: #fff; border-radius: 3px; }
+.minimalist-cinema .client-cta-pulse:hover { background: #2c5946; }
+.minimalist-cinema button:focus-visible, .minimalist-cinema a:focus-visible { outline: 3px solid #48735a; outline-offset: 4px; }
+
+.minimalist-hero { padding: 112px 0 82px; background: #f6f6f3; color: #1c2421; overflow: clip; }
+.minimalist-page-shell { width: min(90vw,1390px); margin-inline: auto; }
+.minimalist-hero-meta { display: flex; justify-content: space-between; gap: 18px; padding-bottom: 17px; border-bottom: 1px solid #bfc5bc; color: #66716a; font: 750 9px/1.4 'Manrope',sans-serif; letter-spacing: .2em; }
+.minimalist-hero-meta b { color: #203e31; }
+.minimalist-hero-grid { display: grid; grid-template-columns: minmax(0,1.13fr) minmax(0,.87fr); align-items: center; gap: clamp(35px,5vw,95px); min-height: 660px; padding-block: 55px 65px; }
+.minimalist-copy { min-width: 0; }
+.minimalist-kicker { display: flex; align-items: center; gap: 11px; color: #587466; font: 820 10px/1.5 'Manrope',sans-serif; letter-spacing: .2em; }
+.minimalist-live-dot { width: 8px; height: 8px; background: #567660; border-radius: 50%; box-shadow: 0 0 0 5px #bed1c159; animation: minimalist-dot-pulse 3.7s ease-in-out infinite; }
+.minimalist-name { margin: 23px 0 0; max-width: 10ch; color: #18221d; font: 850 clamp(72px,8.2vw,150px)/.94 'Manrope',sans-serif; letter-spacing: -.097em; overflow-wrap: anywhere; text-wrap: balance; }
+.minimalist-role { margin: 23px 0 0; color: #234838; font: 780 clamp(14px,1.4vw,18px)/1.5 'Manrope',sans-serif; letter-spacing: -.025em; }
+.minimalist-statement { max-width: 31ch; margin-top: 24px; color: #283e34; font: 740 clamp(21px,2.15vw,34px)/1.22 'Manrope',sans-serif; letter-spacing: -.055em; text-wrap: balance; }
+.minimalist-intro { max-width: 58ch; margin-top: 18px; color: #5e6a64; font: 520 clamp(12px,1.1vw,15px)/1.82 'Manrope',sans-serif; }
+.minimalist-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.minimalist-actions button { display: inline-flex; align-items: center; justify-content: center; gap: 11px; min-height: 51px; padding: 12px 19px; border: 1px solid #1e3328; border-radius: 2px; font: 820 12px/1.4 'Manrope',sans-serif; transition: transform .3s ease, background .3s; }
+.minimalist-actions button:hover { transform: translateY(-3px); }
+.minimalist-primary { background: #1d372b; color: #f6f8f3; }
+.minimalist-primary:hover { background: #34533e; }
+.minimalist-secondary { background: transparent; color: #1d3328; }
+.minimalist-secondary:hover { background: #e4e8e0; }
+.minimalist-focus { margin-top: 38px; padding-top: 16px; border-top: 1px solid #c9cfc7; }
+.minimalist-focus > span { color: #7a827a; font: 830 9px/1.5 'Manrope',sans-serif; letter-spacing: .24em; }
+.minimalist-focus > div { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
+.minimalist-focus small { border: 1px solid #c6ccc3; padding: 7px 10px; color: #47584e; font: 730 10px/1.3 'Manrope',sans-serif; }
+
+.minimalist-photo-frame { position: relative; align-self: stretch; min-width: 0; min-height: 570px; padding: 17px 0 0 19px; }
+.minimalist-photo-frame::before { content: ''; position: absolute; inset: 0 16px 18px 0; border: 1px solid #9daea1; pointer-events: none; }
+.minimalist-image-index { position: absolute; top: 1px; right: 28px; z-index: 3; padding: 6px 8px; background: #f6f6f3; color: #657368; font: 760 9px/1.4 'Manrope',sans-serif; letter-spacing: .18em; }
+.minimalist-photo { display: block; width: 100%; height: calc(100% - 31px); min-height: 520px; object-fit: cover; object-position: center 55%; filter: saturate(.59) contrast(.97) brightness(1.035); animation: minimalist-camera-breathe 27s ease-in-out infinite alternate; }
+.minimalist-photo-placeholder { display: flex; width: 100%; height: calc(100% - 31px); min-height: 520px; flex-direction: column; align-items: center; justify-content: center; gap: 18px; background: #e1e5dd; color: #5b6d60; cursor: pointer; }
+.minimalist-photo-placeholder strong { font: 850 clamp(24px,2.8vw,45px)/1.1 'Manrope',sans-serif; letter-spacing: -.06em; text-align: center; }
+.minimalist-photo-placeholder span { font: 750 9px/1.5 'Manrope',sans-serif; letter-spacing: .23em; }
+.minimalist-photo-caption { display: flex; justify-content: space-between; gap: 8px; align-items: center; min-height: 31px; color: #788077; font: 750 8px/1.5 'Manrope',sans-serif; letter-spacing: .12em; }
+
+.minimalist-facts { display: grid; grid-template-columns: 1fr 1fr 1.25fr 1fr; gap: 0; border-top: 1px solid #adb6aa; border-bottom: 1px solid #adb6aa; }
+.minimalist-facts > div { display: flex; flex-direction: column; justify-content: center; gap: 6px; min-height: 125px; padding: 19px; border-right: 1px solid #cbd1c8; }
+.minimalist-facts strong { color: #20382b; font: 850 clamp(19px,2.5vw,36px)/1.1 'Manrope',sans-serif; letter-spacing: -.065em; overflow-wrap: anywhere; }
+.minimalist-facts span { color: #727e74; font: 800 9px/1.5 'Manrope',sans-serif; letter-spacing: .16em; }
+.minimalist-facts > button { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 18px 23px; text-align: left; background: #e8ece5; transition: background .3s; }
+.minimalist-facts > button:hover { background: #dce4d9; }
+.minimalist-facts > button span { color: #284634; }
+
+.minimalist-work-index { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(25px,6vw,100px); padding: 95px 0 30px; }
+.minimalist-work-heading > span { color: #698075; font: 820 10px/1.5 'Manrope',sans-serif; letter-spacing: .23em; }
+.minimalist-work-heading h2 { max-width: 13ch; margin-top: 14px; font: 860 clamp(32px,3.8vw,57px)/1.06 'Manrope',sans-serif; letter-spacing: -.065em; }
+.minimalist-work-heading p { max-width: 38ch; margin-top: 15px; font: 520 13px/1.72 'Manrope',sans-serif; color: #67716a; }
+.minimalist-work-list { border-top: 1px solid #bfc6bd; }
+.minimalist-project-row { display: grid; grid-template-columns: 30px 77px minmax(0,1fr) 25px; gap: 15px; min-width: 0; align-items: center; width: 100%; padding: 17px 5px; border-bottom: 1px solid #cbd1c8; text-align: left; transition: padding .3s,background .3s; }
+.minimalist-project-row:hover { padding-inline: 13px; background: #e8ece5; }
+.minimalist-project-number { color: #7b8c7e; font: 810 12px/1.4 'Manrope',sans-serif; }
+.minimalist-project-thumb { display: grid; place-items: center; overflow: hidden; width: 77px; height: 66px; background: #dbe3d9; color: #516759; }
+.minimalist-project-thumb img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.6); animation: minimalist-thumbnail-breathe 20s ease-in-out infinite alternate; }
+.minimalist-project-info { min-width: 0; }
+.minimalist-project-info strong { display: block; color: #24362b; font: 830 clamp(13px,1.1vw,17px)/1.36 'Manrope',sans-serif; letter-spacing: -.025em; overflow-wrap: anywhere; }
+.minimalist-project-info small { display: block; margin-top: 5px; color: #778278; font: 710 10px/1.4 'Manrope',sans-serif; }
+.minimalist-project-arrow { color: #385641; }
+
+@keyframes minimalist-dot-pulse { 0%,100% { box-shadow: 0 0 0 5px #bed1c159; } 50% { box-shadow: 0 0 0 10px #bed1c122; } }
+@keyframes minimalist-camera-breathe { from { object-position: center 53%; filter: saturate(.58) contrast(.98) brightness(1.04); } to { object-position: center 60%; filter: saturate(.66) contrast(1.01) brightness(1.01); } }
+@keyframes minimalist-thumbnail-breathe { from { transform: scale(1.04); } to { transform: scale(1.14); } }
+
+@media (max-width: 960px) {
+  .minimalist-hero-grid { grid-template-columns: minmax(0,1fr) minmax(0,.8fr); gap: 28px; }
+  .minimalist-name { font-size: clamp(58px,8.6vw,97px); }
+  .minimalist-photo-frame { min-height: 480px; }
+  .minimalist-photo,.minimalist-photo-placeholder { min-height: 440px; }
+  .minimalist-facts { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .minimalist-facts > div:nth-child(2) { border-right: none; }
+  .minimalist-facts > div:nth-child(-n+2) { border-bottom: 1px solid #cbd1c8; }
+}
+@media (max-width: 660px) {
+  .minimalist-hero { padding: 86px 0 55px; }
+  .minimalist-page-shell { width: min(90vw,530px); }
+  .minimalist-hero-meta { font-size: 8px; letter-spacing: .1em; }
+  .minimalist-hero-meta > span:nth-child(2) { display: none; }
+  .minimalist-hero-grid { display: flex; flex-direction: column; gap: 32px; min-height: 0; padding: 45px 0 30px; align-items: stretch; }
+  .minimalist-name { font-size: clamp(54px,14vw,84px); margin-top: 17px; }
+  .minimalist-role { margin-top: 17px; font-size: 13px; }
+  .minimalist-statement { margin-top: 18px; font-size: clamp(20px,5.5vw,27px); }
+  .minimalist-intro { font-size: 12px; line-height: 1.75; }
+  .minimalist-actions { gap: 9px; margin-top: 24px; }
+  .minimalist-actions button { min-height: 46px; padding: 10px 13px; font-size: 11px; }
+  .minimalist-focus { margin-top: 28px; }
+  .minimalist-photo-frame { min-height: 0; height: 440px; padding-left: 13px; }
+  .minimalist-photo-frame::before { right: 12px; bottom: 17px; }
+  .minimalist-photo,.minimalist-photo-placeholder { height: 395px; min-height: 0; }
+  .minimalist-facts > div { min-height: 99px; padding: 15px; }
+  .minimalist-facts > div strong { font-size: 24px; }
+  .minimalist-facts > div:nth-child(3) strong { font-size: 17px; }
+  .minimalist-facts > button { padding: 16px; }
+  .minimalist-facts span { font-size: 8px; letter-spacing: .09em; }
+  .minimalist-work-index { grid-template-columns: 1fr; gap: 24px; padding-top: 65px; }
+  .minimalist-work-heading h2 { font-size: 35px; }
+  .minimalist-project-row { grid-template-columns: 20px 65px minmax(0,1fr) 20px; gap: 10px; }
+  .minimalist-project-thumb { width: 65px; height: 60px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .minimalist-cinema .minimalist-live-dot,
+  .minimalist-cinema .minimalist-photo,
+  .minimalist-cinema .minimalist-project-thumb img { animation: none !important; }
+  .minimalist-cinema .minimalist-project-row,
+  .minimalist-cinema .minimalist-actions button { transition: none !important; }
+}

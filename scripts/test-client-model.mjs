@@ -457,6 +457,37 @@ test('DOCUMENTARY menjaga identitas, aset dan kisah klien tanpa meminjam foto ko
   } finally { await server.close(); }
 });
 
+test('MINIMALIST menjaga data dan foto masing-masing klien tanpa mengambil aset VINI15', async () => {
+  const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
+  try {
+    const { createPortfolioFromBrief, validateBrief, effectiveTheme, DEFAULT_THEME, MINIMALIST_THEME } = await server.ssrLoadModule('/src/data/clientModel.ts');
+    const brief = {
+      slug: 'nina', name: 'Nina Kusuma', role: 'Konsultan UMKM', location: 'Yogyakarta',
+      bio: 'Mendampingi usaha mikro menyusun profil bisnis dan karya nyata.', tagline: ['Usaha kecil, arah jelas'], interests: ['UMKM', 'Konsultasi'],
+      photo: { src: '/clients/nina/foto-nina.webp', alt: 'Foto profesional milik Nina' },
+      experiences: [{ company: 'Klinik UMKM', role: 'Konsultan', period: '2026', description: 'Pendampingan UMKM lokal.' }],
+      projects: [{ title: 'Klinik Rasa', year: '2026', description: 'Pengembangan katalog untuk UMKM.', category: 'Pendampingan', tags: ['UMKM'], image: '/clients/nina/karya-nina.webp' }],
+      skills: ['Pendampingan UMKM'], whatsapp: '081234567890', templateId: 'minimalist', identityMode: 'photo',
+    };
+    assert.deepEqual(validateBrief(brief, { requireWhatsapp: true }), []);
+    const content = createPortfolioFromBrief(brief);
+    assert.equal(content.profile.templateId, 'minimalist');
+    assert.equal(content.profile.displayName, 'Nina Kusuma');
+    assert.equal(content.profile.whatsapp, '081234567890');
+    assert.equal(content.profile.referralCode, 'PSN-NINA');
+    assert.equal(content.profile.portrait.src, '/clients/nina/foto-nina.webp');
+    assert.equal(content.projects[0].image, '/clients/nina/karya-nina.webp');
+    assert.deepEqual(effectiveTheme(content.profile), MINIMALIST_THEME);
+    assert.deepEqual(effectiveTheme({ templateId: 'minimalist', theme: DEFAULT_THEME }), MINIMALIST_THEME);
+    assert.deepEqual(effectiveTheme({ templateId: 'minimalist', theme: { accent: '#325647', background: '#f0f1e9' } }), { accent: '#325647', background: '#f0f1e9' });
+    for (const forbidden of ['/clients/vini15/', 'Teh Vini', 'BADAI', 'PROMPTIONAL']) assert.equal(JSON.stringify(content).includes(forbidden), false);
+    const demo = JSON.parse(await readFile(new URL('../src/data/clients/vini15.json', import.meta.url), 'utf8'));
+    assert.deepEqual(validateBrief(demo, { requireWhatsapp: true }), []);
+    assert.equal(createPortfolioFromBrief(demo).profile.whatsapp, '62881022445869');
+    assert.match(demo.photo.alt, /bukan foto asli Teh Vini/);
+  } finally { await server.close(); }
+});
+
 test('proyek baru memakai contoh Sushmita yang lengkap tanpa membuatnya siap terbit', async () => {
   const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
   try {
