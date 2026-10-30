@@ -17,7 +17,7 @@ const statusText = (status: 'available' | 'demo' | 'planned') => {
   return 'Segera hadir';
 };
 
-/** Galeri perencanaan 16 gaya. Yang belum punya renderer sengaja tidak dapat dipilih. */
+/** Galeri 16 gaya siap pakai; mode identitas eksperimental tetap terkunci. */
 export default function StudioTemplateGallery({ selectedTemplateId, identityMode, onApplyTemplate, onApplyIdentity, onEditWebsite }: Props) {
   const active = templateCatalog.find((item) => item.id === selectedTemplateId);
   return (
@@ -26,7 +26,7 @@ export default function StudioTemplateGallery({ selectedTemplateId, identityMode
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#ff7294]">PESONAFLIX STUDIO · TEMPLATE</p>
           <h3 className="mt-2 text-2xl font-black sm:text-3xl">Pilih Gaya Website</h3>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/60">Ada 16 gaya dalam katalog. Kini 15 gaya siap untuk klien, termasuk MINIMALIST dan FUTURISTIC NEON. Tinggal VINTAGE HERITAGE yang menyusul.</p>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/60">Lengkap! Semua 16 gaya website sekarang siap dipakai klien. VINTAGE HERITAGE menutup koleksi dengan nuansa arsip klasik yang hangat. Mode Avatar AI dan Faceless masih dalam pengembangan.</p>
         </div>
         <div className="rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-right">
           <span className="block text-[11px] font-bold uppercase tracking-wider text-white/45">Gaya klien ini</span>
@@ -171,6 +171,16 @@ export default function StudioTemplateGallery({ selectedTemplateId, identityMode
             <p className="mt-2 text-xs leading-relaxed text-[#e4e9ff]">Studio masa depan dengan cahaya cyan–ungu, HUD, foto bernapas, orbit dan sapuan scan bergerak otomatis. Seluruh fungsi ORIGINAL tetap ada. Isi prestasi dan karya sebenarnya, lalu unggah foto berizin milik klien. Visual AI di demo hanyalah konsep, bukan foto asli Teh Vini.</p>
           </div>
           <button type="button" onClick={onEditWebsite} className="min-h-10 border border-[#5bdfed] bg-[#80e7f4] px-5 py-2.5 text-sm font-extrabold text-[#09182a] transition hover:bg-[#c0f8fc]">Buka Editor Website</button>
+        </div>
+      )}
+
+      {selectedTemplateId === 'vintage-heritage' && (
+        <div className="flex flex-wrap items-center justify-between gap-4 border border-[#b88b5f]/60 bg-gradient-to-r from-[#f1e3c9] via-[#e0c9a4] to-[#bd9b6f] p-4 text-[#35271c] sm:p-5">
+          <div className="max-w-2xl">
+            <p className="font-serif text-2xl font-semibold tracking-tight">✦ VINTAGE HERITAGE aktif</p>
+            <p className="mt-2 text-xs leading-relaxed text-[#57412c]">Sampul arsip klasik, tipografi serif, tekstur kertas, foto bergerak halus dan kartu karya seperti koleksi bersejarah. Semua fitur ORIGINAL tetap berjalan. Lengkapi pengalaman nyata dan unggah foto milik klien; gambar AI demo bukan potret Teh Vini.</p>
+          </div>
+          <button type="button" onClick={onEditWebsite} className="min-h-10 border border-[#63452f] bg-[#60412d] px-5 py-2.5 text-sm font-extrabold text-[#fbeed6] transition hover:bg-[#7f5536]">Buka Editor Website</button>
         </div>
       )}
 

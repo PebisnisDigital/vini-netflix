@@ -21,6 +21,7 @@ Master portofolio bergaya platform streaming untuk beberapa klien dengan brand *
 | `/vini14` | Demo gaya Documentary: film dokumenter observasional, visual sinematik, film grain dan kamera bergerak otomatis |
 | `/vini15` | Demo gaya Minimalist: ruang terang, tipografi profesional, daftar karya, dan gerakan halus otomatis |
 | `/vini16` | Demo gaya Futuristic Neon: studio teknologi cyan–ungu, HUD, foto dan cahaya bergerak otomatis |
+| `/vini17` | Demo gaya Vintage Heritage: arsip kertas klasik, potret editorial hangat, segel dan karya bergerak otomatis |
 | `/formulir` | Alamat lama, otomatis mengarah ke `/studio?tab=formulir` |
 | `/studio` | CMS editor seperti Blogger: buat/edit konten dan foto, simpan draft, preview |
 | `/studio?tab=formulir` | Formulir klien, langsung dipindah ke draft CMS tanpa mengetik ulang |
@@ -31,7 +32,7 @@ Master portofolio bergaya platform streaming untuk beberapa klien dengan brand *
 
 **CMS Studio:** [Alur editorial, GitHub OAuth, dan penerbitan aman](docs/CMS-STUDIO.md).
 
-**Katalog TEMPLATE Studio:** Saat mengedit klien, buka tab **TEMPLATE · 16 Gaya**. Sebanyak **15 gaya tersedia**, termasuk FUTURISTIC NEON di `/vini16`; VINTAGE HERITAGE serta mode Avatar AI/FACELESS belum aktif. Untuk setiap gaya, unggah sendiri foto atau karya klien lewat Editor Website; sistem tidak otomatis membuat ilustrasi AI. Pilihan gaya mengatur tata letak, font, warna latar, dan motion tanpa menyalin identitas/foto dari demo klien lain. Animasi dan section master ORIGINAL tetap aktif pada setiap varian. Aset demo EDITORIAL PREMIUM, DOODLE, STORYBOOK, SCRAPBOOK, PAPER CUT, PIXEL RETRO, MINIATURE WORLD, DOCUMENTARY, MINIMALIST dan FUTURISTIC NEON dibuat dengan AI dan bukan foto nyata Teh Vini. Lihat [roadmap template](docs/template-roadmap.md).
+**Katalog TEMPLATE Studio:** Saat mengedit klien, buka tab **TEMPLATE · 16 Gaya**. **Semua 16 gaya tersedia**, termasuk VINTAGE HERITAGE di `/vini17`. Mode Avatar AI/FACELESS masih belum aktif. Untuk setiap gaya, unggah sendiri foto atau karya klien lewat Editor Website; sistem tidak otomatis membuat ilustrasi AI. Pilihan gaya mengatur tata letak, font, warna latar, dan motion tanpa menyalin identitas/foto dari demo klien lain. Animasi dan section master ORIGINAL tetap aktif pada setiap varian. Aset demo EDITORIAL PREMIUM, DOODLE, STORYBOOK, SCRAPBOOK, PAPER CUT, PIXEL RETRO, MINIATURE WORLD, DOCUMENTARY, MINIMALIST, FUTURISTIC NEON, dan VINTAGE HERITAGE memuat visual konsep AI, bukan foto nyata Teh Vini. Lihat [roadmap template](docs/template-roadmap.md).
 
 ## Membuat portofolio klien baru
 

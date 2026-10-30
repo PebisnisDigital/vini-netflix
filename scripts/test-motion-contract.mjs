@@ -226,3 +226,20 @@ test('FUTURISTIC NEON menggerakkan HUD, foto, orbit dan karya tanpa kontrol manu
   assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
   assert.doesNotMatch(hero, /PauseAnimation|AnimationControl|toggleMotion/);
 });
+
+test('VINTAGE HERITAGE menggerakkan arsip editorial otomatis dan mewarisi fungsi ORIGINAL', () => {
+  const app = read('src/App.tsx');
+  const hero = read('src/components/VintageHeritageHero.tsx');
+  const css = read('src/components/vintage-heritage.css');
+  assert.match(app, /<VintageHeritageHero\s+key=/);
+  for (const original of ['<ContinueWatching', '<Scene', '<FinalCTA']) assert.ok(app.includes(original));
+  for (const field of ['portrait', 'name', 'role', 'tagline', 'bio']) assert.match(hero, new RegExp(`data-studio-edit="${field}"`));
+  assert.match(hero, /onOpenProject\(project\)/);
+  assert.match(hero, /onClick=\{onPlay\}/);
+  assert.match(hero, /BUKAN FOTO ASLI/);
+  for (const animation of ['heritage-camera-breathe', 'heritage-mat-rock', 'heritage-grain-shift', 'heritage-seal-sway', 'heritage-project-drift']) {
+    assert.match(css, new RegExp(`animation:\\s*${animation}[^;]*infinite`));
+  }
+  assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
+  assert.doesNotMatch(hero, /PauseAnimation|AnimationControl|toggleMotion/);
+});

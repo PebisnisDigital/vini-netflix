@@ -8,13 +8,13 @@
 - Teks, bukti pengalaman, dan CTA tetap jelas bagi audiens Indonesia, termasuk pembaca mobile usia lanjut.
 - Bila pengguna memilih reduced motion, animasi dekoratif harus berhenti.
 
-## Status Tahap 15 — FUTURISTIC NEON ikut aktif
+## Status Tahap 16 — semua 16 gaya aktif, termasuk VINTAGE HERITAGE
 
 Katalog lengkap tersedia di `src/data/templateCatalog.mjs`. Studio menampilkan 16 gaya dan tiga mode identitas berikut statusnya.
 
 | Status | Makna dan tindakan |
 | --- | --- |
-| `available` | Renderer siap untuk klien baru; tombol Gunakan aktif. Saat ini ORIGINAL, CHIBI 3D, ANIME, CLAY 3D, KOMIK POP, EDITORIAL PREMIUM, DOODLE, STORYBOOK, SCRAPBOOK, PAPER CUT, PIXEL RETRO, MINIATURE WORLD, DOCUMENTARY, MINIMALIST, dan FUTURISTIC NEON. |
+| `available` | Renderer siap untuk klien baru; tombol Gunakan aktif. Semua 16 gaya: ORIGINAL, CHIBI 3D, ANIME, CLAY 3D, KOMIK POP, EDITORIAL PREMIUM, DOODLE, STORYBOOK, SCRAPBOOK, PAPER CUT, PIXEL RETRO, MINIATURE WORLD, DOCUMENTARY, MINIMALIST, FUTURISTIC NEON, dan VINTAGE HERITAGE. |
 | `demo` | Contoh klien ada, tetapi renderer belum aman dipakai secara umum; tombol Lihat Demo saja. |
 | `planned` | Konsep gaya tercatat; belum ada tombol Gunakan maupun preview palsu. |
 
@@ -48,7 +48,9 @@ MINIMALIST memakai `MinimalistHero`: halaman terang tanpa dekorasi berlebihan, n
 
 FUTURISTIC NEON memakai `FuturisticNeonHero`: komposisi personal-technology studio gelap dengan tipografi Manrope besar dan terbaca, layar HUD untuk label fungsi, bingkai cahaya cyan–ungu, orbit holografik, sapuan scan, napas kamera, dan tiga kartu karya interaktif yang bergerak otomatis. Jumlah proyek dan pengalaman berasal dari data aktual, bukan angka dibuat-buat. Modal karya, section, kontak, navigasi, dan fungsi editor ORIGINAL dipertahankan. Demo `/vini16` memakai konsep foto AI tentang perempuan berhijab fiksi di studio masa depan serta tiga visual proyek konsep yang diisolasi ke folder `/clients/vini16`. **Bukan foto asli atau bukti prestasi Teh Vini.** Klien baru memperoleh placeholder sampai mengunggah foto dan dokumentasi berizin sendiri. Reduced motion mematikan animasi dekoratif.
 
-Halaman `/vini2` sampai `/vini16` yang sudah menggunakan variasi khusus tetap berjalan menggunakan konfigurasi masing-masing; tidak dimigrasikan otomatis ke katalog baru.
+VINTAGE HERITAGE memakai `VintageHeritageHero`: halaman arsip premium di atas kertas ivory dengan tipografi Georgia klasik, bingkai foto ala cetak analog, segel lilin, garis buku, metrik jumlah karya/peran nyata dan kartu folio yang membuka modal proyek. Kamera bernapas, halaman bergoyang pelan, tekstur film dan stempel bergerak otomatis tanpa kontrol. Seluruh section, tombol, animasi scroll dan kontak mewarisi master ORIGINAL. Demo `/vini17` berisi foto konsep AI perempuan berhijab fiksi dari belakang di ruang kerja bernuansa rumah jati Indonesia serta tiga gambar konsep karya yang disimpan khusus dalam `/clients/vini17`; **bukan foto asli atau bukti kegiatan Teh Vini**. Klien baru memperoleh placeholder dan wajib mengunggah aset sendiri yang berizin. Reduced motion dihormati.
+
+Halaman `/vini2` sampai `/vini17` yang sudah menggunakan variasi khusus tetap berjalan menggunakan konfigurasi masing-masing; tidak dimigrasikan otomatis ke katalog baru.
 
 ## Model data bertahap
 
@@ -72,6 +74,6 @@ Field baru opsional agar JSON klien lama tetap valid. Draft baru menggunakan ORI
 
 ## Tahap berikutnya
 
-1. Selesaikan FUTURISTIC NEON, lalu gaya berikutnya sesuai katalog.
+1. Semua 16 gaya aktif; lanjutkan pengujian pemakaian pada klien nyata.
 2. Implementasikan pipeline foto/karakter untuk Avatar AI dan FACELESS, dengan persetujuan aset dan fallback.
-3. Produksi gaya tambahan sesuai urutan permintaan klien. Jangan aktifkan seluruh 16 sekaligus sebelum teruji.
+3. Evaluasi kebutuhan gaya baru berdasarkan umpan balik dan hasil uji pemakaian, bukan sekadar menambah jumlah.
