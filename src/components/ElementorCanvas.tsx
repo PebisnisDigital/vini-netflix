@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { createCanvasPortfolio, effectiveTheme, normalizeSlug, type ClientBrief } from '../data/clientModel';
 import { preparedBrief, type StudioDraft } from '../data/studioDraft';
+import { withStudioDemoPreviewAssets } from '../data/studioStyleStarters';
 import { optimizeStudioImage, type StudioImageKind } from '../utils/imageOptimizer.mjs';
 
 type CanvasProps = {
@@ -60,7 +61,8 @@ export default function ElementorCanvas({ draft, patch, changeProject, setPhoto,
   }, [draft.portrait, draft.projectPhotos, draft.watchPhotos, draft.pickPhotos, draft.episodePhotos]);
 
   const sendCanvas = useCallback(() => {
-    const content = structuredClone(createCanvasPortfolio(current));
+    const base = createCanvasPortfolio(current);
+    const content = draft.mode === 'create' ? withStudioDemoPreviewAssets(base, current) : structuredClone(base);
     if (photoUrls.portrait) { content.profile.portrait.src = photoUrls.portrait; content.profile.portrait.srcSet = ''; }
     for (const [index, url] of Object.entries(photoUrls.projects)) if (content.projects[Number(index)]) content.projects[Number(index)].image = url;
     for (const [index, url] of Object.entries(photoUrls.watch)) if (content.watchCards?.[Number(index)]) content.watchCards[Number(index)].image = url;
@@ -70,7 +72,7 @@ export default function ElementorCanvas({ draft, patch, changeProject, setPhoto,
       if (content.seasons[season]?.episodes[episode]) content.seasons[season].episodes[episode].image = url;
     }
     frame.current?.contentWindow?.postMessage({ type: 'PESONAFLIX_CANVAS_UPDATE', content }, location.origin);
-  }, [current, photoUrls]);
+  }, [current, draft.mode, photoUrls]);
 
   useEffect(() => { sendCanvas(); }, [sendCanvas]);
 
