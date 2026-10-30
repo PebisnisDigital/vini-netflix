@@ -1,6 +1,6 @@
 {
   "slug": "isa",
-  "name": "Isa A, S.Hut",
+  "name": "Isa Ponti99",
   "role": "Sarjana Kehutanan · Herbal, Jasa & Digital",
   "location": "Kota Pontianak, Kalimantan Barat",
   "bio": "Saya Isa Anshori, S.Hut, dari Pontianak, Kalimantan Barat. Melalui identitas IsaPonti99, saya memperkenalkan minat dan kegiatan di bidang herbal, jasa, serta digital.",
@@ -18,7 +18,7 @@
   ],
   "photo": {
     "src": "/clients/isa/foto-utama.webp",
-    "alt": "Foto Isa A, S.Hut"
+    "alt": "Foto Isa Ponti99"
   },
   "email": "isaanshori.ponti@gmail.com",
   "whatsapp": "6285600000648",
@@ -55,7 +55,8 @@
         "Jasa",
         "Digital"
       ],
-      "image": "/clients/isa/isaponti99-logo.webp"
+      "image": "/clients/isa/isaponti99-logo.webp",
+      "website": "https://lpgenie.my.id/seriburempahponti"
     },
     {
       "title": "Seribu Rempah",
@@ -67,7 +68,8 @@
         "Produk",
         "Reseller"
       ],
-      "image": "/clients/isa/seribu-rempah.webp"
+      "image": "/clients/isa/seribu-rempah.webp",
+      "website": "https://lpgenie.my.id/seriburempahponti"
     },
     {
       "title": "Galeri Potret Profesional",
@@ -485,6 +487,10 @@
   "journeyHeading": "Tentang Isa",
   "journeyAside": "Perjalanan tematik dari identitas personal, karya, hingga galeri visual. Riwayat jabatan, tahun pengalaman, dan capaian dapat dilengkapi ketika data pendukung tersedia.",
   "journeyKicker": "PERJALANAN • ISAPONTI99",
-  "templateId": "original",
-  "identityMode": "photo"
+  "templateId": "doodle",
+  "identityMode": "photo",
+  "theme": {
+    "accent": "#fad900",
+    "background": "#a52809"
+  }
 }
