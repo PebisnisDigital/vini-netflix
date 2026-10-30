@@ -23,6 +23,7 @@ import DocumentaryHero from './components/DocumentaryHero';
 import MinimalistHero from './components/MinimalistHero';
 import FuturisticNeonHero from './components/FuturisticNeonHero';
 import VintageHeritageHero from './components/VintageHeritageHero';
+import CinematicHeroMotion from './components/CinematicHeroMotion';
 import ContinueWatching from './components/ContinueWatching';
 import Scene from './components/Scene';
 import About from './components/About';
@@ -79,7 +80,7 @@ export default function App({ slug, editorMode = false }: { slug: string; editor
     '--client-accent': theme.accent,
   } as CSSProperties : undefined;
   return (
-    <div style={styles} className={`min-h-screen bg-ink${editorMode ? '' : ' client-portfolio'}${slug === 'vini3' ? ' chibi-theme' : ''}${animeCinema ? ' anime-theme' : ''}${chibiCinema ? ' chibi-cinema' : ''}${clayCinema ? ' clay-cinema' : ''}${comicCinema ? ' comic-cinema' : ''}${editorialCinema ? ' editorial-cinema' : ''}${doodleCinema ? ' doodle-cinema' : ''}${storybookCinema ? ' storybook-cinema' : ''}${scrapbookCinema ? ' scrapbook-cinema' : ''}${papercutCinema ? ' papercut-cinema' : ''}${pixelCinema ? ' pixel-cinema' : ''}${miniatureCinema ? ' miniature-cinema' : ''}${documentaryCinema ? ' documentary-cinema' : ''}${minimalistCinema ? ' minimalist-cinema' : ''}${futuristicNeonCinema ? ' futuristic-cinema' : ''}${vintageHeritageCinema ? ' vintage-cinema' : ''}`}>
+    <div style={styles} className={`min-h-screen bg-ink client-portfolio${editorMode ? ' studio-canvas' : ''}${slug === 'vini3' ? ' chibi-theme' : ''}${animeCinema ? ' anime-theme' : ''}${chibiCinema ? ' chibi-cinema' : ''}${clayCinema ? ' clay-cinema' : ''}${comicCinema ? ' comic-cinema' : ''}${editorialCinema ? ' editorial-cinema' : ''}${doodleCinema ? ' doodle-cinema' : ''}${storybookCinema ? ' storybook-cinema' : ''}${scrapbookCinema ? ' scrapbook-cinema' : ''}${papercutCinema ? ' papercut-cinema' : ''}${pixelCinema ? ' pixel-cinema' : ''}${miniatureCinema ? ' miniature-cinema' : ''}${documentaryCinema ? ' documentary-cinema' : ''}${minimalistCinema ? ' minimalist-cinema' : ''}${futuristicNeonCinema ? ' futuristic-cinema' : ''}${vintageHeritageCinema ? ' vintage-cinema' : ''}`}>
       <SmoothScrollProvider>
         <Series slug={slug} editorMode={editorMode} />
       </SmoothScrollProvider>
@@ -162,6 +163,37 @@ function Series({ slug, editorMode }: { slug: string; editorMode: boolean }) {
     story: <ResumeSection onView={() => setResumeOpen(true)} />,
   };
 
+  const customCinema = chibiCinema || clayCinema || comicCinema || editorialCinema || doodleCinema || storybookCinema || scrapbookCinema || papercutCinema || pixelCinema || miniatureCinema || documentaryCinema || minimalistCinema || futuristicNeonCinema || vintageHeritageCinema;
+  const customHero = chibiCinema ? (
+    <ChibiHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
+  ) : clayCinema ? (
+    <ClayHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
+  ) : comicCinema ? (
+    <ComicHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
+  ) : editorialCinema ? (
+    <EditorialHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
+  ) : doodleCinema ? (
+    <DoodleHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
+  ) : storybookCinema ? (
+    <StorybookHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
+  ) : scrapbookCinema ? (
+    <ScrapbookHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
+  ) : papercutCinema ? (
+    <PaperCutHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
+  ) : pixelCinema ? (
+    <PixelRetroHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
+  ) : miniatureCinema ? (
+    <MiniatureWorldHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
+  ) : documentaryCinema ? (
+    <DocumentaryHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
+  ) : minimalistCinema ? (
+    <MinimalistHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
+  ) : futuristicNeonCinema ? (
+    <FuturisticNeonHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
+  ) : vintageHeritageCinema ? (
+    <VintageHeritageHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
+  ) : null;
+
   return (
     <LayoutGroup>
       <div className="grain" aria-hidden />
@@ -176,34 +208,8 @@ function Series({ slug, editorMode }: { slug: string; editorMode: boolean }) {
         <motion.div initial={{ opacity: 0, scale: 1.03, filter: 'blur(10px)' }} animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }} transition={{ duration: 1, ease: EASE }}>
           <Navbar order={order} profileId={profileId} onSwitch={pickProfile} variant={chibiCinema ? 'chibi' : undefined} />
           <main>
-            {chibiCinema ? (
-              <ChibiHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
-            ) : clayCinema ? (
-              <ClayHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
-            ) : comicCinema ? (
-              <ComicHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
-            ) : editorialCinema ? (
-              <EditorialHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
-            ) : doodleCinema ? (
-              <DoodleHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
-            ) : storybookCinema ? (
-              <StorybookHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
-            ) : scrapbookCinema ? (
-              <ScrapbookHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
-            ) : papercutCinema ? (
-              <PaperCutHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
-            ) : pixelCinema ? (
-              <PixelRetroHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
-            ) : miniatureCinema ? (
-              <MiniatureWorldHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
-            ) : documentaryCinema ? (
-              <DocumentaryHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
-            ) : minimalistCinema ? (
-              <MinimalistHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
-            ) : futuristicNeonCinema ? (
-              <FuturisticNeonHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
-            ) : vintageHeritageCinema ? (
-              <VintageHeritageHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
+            {customCinema ? (
+              <CinematicHeroMotion>{customHero}</CinematicHeroMotion>
             ) : (
               <Hero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onResume={() => setResumeOpen(true)} profileId={profileId} editorMode={editorMode} />
             )}

@@ -15,11 +15,27 @@ test('gerakan landing otomatis tanpa kontrol dan tanpa penonaktifan dari prefere
   assert.doesNotMatch(css, /animation-duration:\s*\.01ms\s*!important/);
 });
 
-test('template klien memiliki gerakan otomatis tanpa memengaruhi Studio', () => {
+test('demo dan kanvas Studio memakai kamera sinematik yang sama pada seluruh template', () => {
   const app = read('src/App.tsx');
   const hero = read('src/components/Hero.tsx');
   const css = read('src/index.css');
-  assert.match(app, /editorMode\s*\?\s*''\s*:\s*' client-portfolio'/);
+  const camera = read('src/components/CinematicHeroMotion.tsx');
+  const cameraCss = read('src/components/cinematic-hero-motion.css');
+  const studio = read('src/components/StudioPreview.tsx');
+  assert.match(app, /bg-ink client-portfolio/);
+  assert.match(app, /<CinematicHeroMotion>/);
+  assert.match(camera, /useScroll\(/);
+  assert.match(camera, /useSpring\(/);
+  assert.match(camera, /requestAnimationFrame\(/);
+  assert.match(camera, /onPointerMove=\{onPointerMove\}/);
+  assert.match(camera, /--cinema-photo-y/);
+  assert.match(camera, /--cinema-copy-y/);
+  assert.match(cameraCss, /translate: var\(--cinema-photo-x/);
+  assert.match(cameraCss, /translate: var\(--cinema-copy-x/);
+  assert.match(studio, /MotionConfig reducedMotion="never"/);
+  for (const art of ['chibi-hero-art', 'clay-visual', 'comic-hero-art', 'editorial-hero-image', 'doodle-art', 'storybook-image-page', 'scrapbook-collage', 'papercut-stage', 'pixel-scene', 'miniature-stage', 'documentary-film-image', 'minimalist-photo-frame', 'neon-visual', 'heritage-portrait-column']) {
+    assert.ok(cameraCss.includes(art), `${art} missing from shared cinematic camera`);
+  }
   assert.match(hero, /client-portrait-cinema/);
   assert.match(hero, /client-hero-now-playing/);
   assert.match(css, /animation:\s*client-portrait-drift[^;]*infinite/);

@@ -67,6 +67,6 @@ export default function StudioPreview() {
   return <>
     {!canvasMode && <div className="fixed right-4 top-4 z-[9999] flex items-center gap-3 rounded-xl border border-white/15 bg-black/85 px-4 py-2.5 text-sm text-white shadow-xl backdrop-blur"><span className="hidden text-white/60 sm:inline">PREVIEW · Belum Live</span><a className="font-bold text-[#ff6f85] underline" href="/studio">← Kembali Edit</a></div>}
     {canvasMode && <style>{'[data-studio-edit]{cursor:text!important}[data-studio-edit]:hover{outline:2px dashed var(--color-crimson-2);outline-offset:2px}[data-studio-edit="portrait"], [data-studio-edit^="project:"]{cursor:pointer!important}'}</style>}
-    <MotionConfig reducedMotion="user"><PortfolioProvider data={content}>{canvasMode ? <VisualCanvasTools content={content}><App slug={slug} editorMode /></VisualCanvasTools> : <App slug={slug} editorMode={false}/>}</PortfolioProvider></MotionConfig>
+    <MotionConfig reducedMotion="never"><PortfolioProvider data={content}>{canvasMode ? <VisualCanvasTools content={content}><App slug={slug} editorMode /></VisualCanvasTools> : <App slug={slug} editorMode={false}/>}</PortfolioProvider></MotionConfig>
   </>;
 }

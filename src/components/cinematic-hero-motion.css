@@ -1,0 +1,52 @@
+/*
+ * Artwork and copy drift on separate depth planes. `translate` and `scale`
+ * are individual transform properties: no conflict with existing CSS keyframes
+ * or Framer Motion's `transform` on the original hero artwork.
+ */
+.cinematic-hero-motion :is(
+  .chibi-hero-art,
+  .clay-visual,
+  .comic-hero-art,
+  .editorial-hero-image,
+  .doodle-art,
+  .storybook-image-page,
+  .scrapbook-collage,
+  .papercut-stage,
+  .pixel-scene,
+  .miniature-stage,
+  .documentary-film-image,
+  .minimalist-photo-frame,
+  .neon-visual,
+  .heritage-portrait-column
+) {
+  translate: var(--cinema-photo-x, 0px) var(--cinema-photo-y, 0px);
+  scale: var(--cinema-photo-scale, 1);
+  will-change: translate, scale;
+}
+
+.cinematic-hero-motion :is(
+  .chibi-hero-copy,
+  .clay-hero-content,
+  .comic-hero-inner,
+  .editorial-paper,
+  .doodle-copy,
+  .storybook-left-page,
+  .scrapbook-copy-paper,
+  .papercut-copy,
+  .pixel-copy,
+  .miniature-copy,
+  .documentary-feature-copy,
+  .minimalist-copy,
+  .neon-copy,
+  .heritage-story-column
+) {
+  translate: var(--cinema-copy-x, 0px) var(--cinema-copy-y, 0px);
+  will-change: translate;
+}
+
+/* Keep small screens readable; camera movement is already halved in JS. */
+@media (max-width: 767px) {
+  .cinematic-hero-motion :is(.editorial-paper, .storybook-left-page, .documentary-feature-copy) {
+    translate: 0 var(--cinema-copy-y, 0px);
+  }
+}
