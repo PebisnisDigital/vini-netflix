@@ -1,0 +1,49 @@
+{
+  "slug": "vini15",
+  "name": "Teh Vini",
+  "role": "Kreator Website Personal & Mentor AI Pemula",
+  "location": "Bandung, Jawa Barat",
+  "whatsapp": "62881022445869",
+  "bio": "Saya Vini, ibu rumah tangga dari Bandung yang belajar AI lewat praktik, kemudian membagikannya dalam kelas dan komunitas BADAI. Kini saya juga membuat website personal bagi orang-orang yang ingin menunjukkan keahlian dan karya secara lebih meyakinkan. Saya percaya profil yang jelas memudahkan orang memahami nilai pekerjaan kita.",
+  "tagline": ["PROFIL YANG BERBICARA", "Keahlian lebih mudah dihargai ketika karya dan cerita kita terlihat jelas.", "Belajar · Berkarya · Berbagi"],
+  "interests": ["Website Personal", "Edukasi AI", "Personal Branding", "Bisnis Digital", "Komunitas BADAI"],
+  "photo": {
+    "src": "/clients/vini15/vini-minimalist-hero.webp",
+    "alt": "Foto konsep buatan AI: seorang perempuan berhijab fiksi dari belakang sedang bekerja di rumah, bukan foto asli Teh Vini"
+  },
+  "experiences": [
+    { "company": "BADAI — Belajar Apa Aja Dengan AI", "role": "Pengelola Komunitas Belajar", "period": "Sekarang", "description": "Menyusun materi praktik AI yang mudah diikuti pemula dan mengelola ruang belajar untuk berbagi hasil karya." },
+    { "company": "Pebisnis.Digital", "role": "Penggagas Edukasi Bisnis Digital", "period": "Sekarang", "description": "Berbagi ide pemasaran WhatsApp, kreasi produk digital, dan pemanfaatan teknologi untuk usaha kecil." },
+    { "company": "Website Personal Berkarakter", "role": "Kreator Website Personal", "period": "Sekarang", "description": "Membantu individu menyusun informasi tentang keahlian, pengalaman, dan karya agar mudah dipahami calon klien." }
+  ],
+  "projects": [
+    { "title": "Komunitas BADAI", "year": "KOMUNITAS", "description": "Ruang belajar AI untuk pemula dengan materi yang berorientasi praktik dan hasil yang bisa dicoba sendiri.", "category": "Komunitas & Edukasi", "tags": ["AI Pemula", "Kelas", "Komunitas"], "image": "/clients/vini15/vini-minimalist-class.webp" },
+    { "title": "PESONAFLIX — Website Personal", "year": "KREASI", "description": "Website profil untuk menampilkan profesi, cerita, dan portofolio agar pemiliknya lebih mudah dikenal lewat karya.", "category": "Website & Personal Branding", "tags": ["Website", "Profil Digital", "Branding"], "image": "/clients/vini15/vini-minimalist-web.webp" },
+    { "title": "Training Bikin Game Edukasi", "year": "PELATIHAN", "description": "Kelas praktik lewat WhatsApp yang mengajak peserta membuat game belajar sederhana dengan bantuan AI.", "category": "Edukasi Praktis", "tags": ["WhatsApp", "Pelatihan", "AI"], "image": "/clients/vini15/vini-minimalist-training.webp" }
+  ],
+  "skills": ["Website Personal", "Personal Branding", "Mentoring AI", "Kelas WhatsApp", "Pemasaran WhatsApp", "Konten Digital"],
+  "skillsHeading": "Keahlian & Fokus Kerja",
+  "skillsAside": "Keahlian saya berkembang dari kebutuhan nyata peserta dan klien: belajar, membagikan langkah, lalu merapikan hasilnya agar dapat digunakan.",
+  "skillsKicker": "BIDANG YANG DIKERJAKAN",
+  "highlights": [
+    { "title": "Belajar dan Mempraktikkan AI", "description": "Memulai dari percobaan kecil sebelum membagikannya kepada pemula.", "category": "PROSES" },
+    { "title": "Membangun Ruang Belajar", "description": "Mendampingi peserta kelas dan komunitas untuk mencoba keterampilan digital.", "category": "EDUKASI" },
+    { "title": "Membuat Profil Lebih Jelas", "description": "Membantu pelaku usaha dan profesional menampilkan peran serta karya lewat website personal.", "category": "KREASI" }
+  ],
+  "watchCards": [
+    { "target": "about", "title": "Mengenal Saya", "subtitle": "Peran & latar belakang", "image": "/clients/vini15/vini-minimalist-hero.webp" },
+    { "target": "originals", "title": "Portofolio", "subtitle": "Karya dan kegiatan", "image": "/clients/vini15/vini-minimalist-web.webp" },
+    { "target": "journey", "title": "Perjalanan", "subtitle": "Dari belajar ke berbagi", "image": "/clients/vini15/vini-minimalist-hero.webp" },
+    { "target": "skills", "title": "Keahlian", "subtitle": "Bidang kerja", "image": "/clients/vini15/vini-minimalist-web.webp" },
+    { "target": "picks", "title": "Pilihan", "subtitle": "Sorotan karya", "image": "/clients/vini15/vini-minimalist-class.webp" },
+    { "target": "moments", "title": "Momen", "subtitle": "Jejak belajar", "image": "/clients/vini15/vini-minimalist-training.webp" },
+    { "target": "story", "title": "Hubungi Saya", "subtitle": "Mari berkolaborasi", "image": "/clients/vini15/vini-minimalist-hero.webp" }
+  ],
+  "picksHeading": "Pilihan Karya & Cerita",
+  "picksKicker": "SOROTAN KERJA",
+  "journeyHeading": "Perjalanan & Pengalaman",
+  "journeyKicker": "LANGKAH DEMI LANGKAH",
+  "journeyAside": "Saya terus belajar dan membagikan hasil praktik saya lewat komunitas, kelas, dan proyek website personal.",
+  "templateId": "minimalist",
+  "identityMode": "photo"
+}

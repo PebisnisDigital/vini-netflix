@@ -191,3 +191,21 @@ test('DOCUMENTARY memiliki gerak film otomatis dan mempertahankan semua fitur OR
   assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
   assert.doesNotMatch(hero, /PauseAnimation|AnimationControl|toggleMotion/);
 });
+
+test('MINIMALIST memiliki gerak foto tenang, indeks karya interaktif dan fitur ORIGINAL', () => {
+  const app = read('src/App.tsx');
+  const hero = read('src/components/MinimalistHero.tsx');
+  const css = read('src/components/minimalist.css');
+  assert.match(app, /<MinimalistHero\s+key=/);
+  assert.match(app, /<ContinueWatching\s+order=/);
+  assert.match(app, /<Scene\s+key=/);
+  assert.match(app, /<FinalCTA\s+onReplay=/);
+  for (const field of ['portrait', 'name', 'role', 'tagline', 'bio']) assert.match(hero, new RegExp(`data-studio-edit="${field}"`));
+  assert.match(hero, /onOpenProject\(project\)/);
+  assert.match(hero, /onClick=\{onPlay\}/);
+  assert.match(css, /animation:\s*minimalist-camera-breathe[^;]*infinite/);
+  assert.match(css, /animation:\s*minimalist-dot-pulse[^;]*infinite/);
+  assert.match(css, /animation:\s*minimalist-thumbnail-breathe[^;]*infinite/);
+  assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
+  assert.doesNotMatch(hero, /PauseAnimation|AnimationControl|toggleMotion/);
+});

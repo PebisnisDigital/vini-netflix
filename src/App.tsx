@@ -20,6 +20,7 @@ import PaperCutHero from './components/PaperCutHero';
 import PixelRetroHero from './components/PixelRetroHero';
 import MiniatureWorldHero from './components/MiniatureWorldHero';
 import DocumentaryHero from './components/DocumentaryHero';
+import MinimalistHero from './components/MinimalistHero';
 import ContinueWatching from './components/ContinueWatching';
 import Scene from './components/Scene';
 import About from './components/About';
@@ -62,9 +63,10 @@ export default function App({ slug, editorMode = false }: { slug: string; editor
   const pixelCinema = profile.templateId === 'pixel-retro' || slug === 'vini12';
   const miniatureCinema = profile.templateId === 'miniature-world' || slug === 'vini13';
   const documentaryCinema = profile.templateId === 'documentary' || slug === 'vini14';
+  const minimalistCinema = profile.templateId === 'minimalist' || slug === 'vini15';
   // Warna CHIBI bawaan tidak disimpan ke data: ketika berganti gaya,
   // pilihan warna khusus dan warna asli klien tetap aman.
-  const theme = profile.theme || chibiCinema || animeCinema || clayCinema || comicCinema || editorialCinema || doodleCinema || storybookCinema || scrapbookCinema || papercutCinema || pixelCinema || miniatureCinema || documentaryCinema ? effectiveTheme(profile) : undefined;
+  const theme = profile.theme || chibiCinema || animeCinema || clayCinema || comicCinema || editorialCinema || doodleCinema || storybookCinema || scrapbookCinema || papercutCinema || pixelCinema || miniatureCinema || documentaryCinema || minimalistCinema ? effectiveTheme(profile) : undefined;
   const styles = theme ? {
     '--color-ink': theme.background,
     '--color-ink-2': theme.background,
@@ -73,7 +75,7 @@ export default function App({ slug, editorMode = false }: { slug: string; editor
     '--client-accent': theme.accent,
   } as CSSProperties : undefined;
   return (
-    <div style={styles} className={`min-h-screen bg-ink${editorMode ? '' : ' client-portfolio'}${slug === 'vini3' ? ' chibi-theme' : ''}${animeCinema ? ' anime-theme' : ''}${chibiCinema ? ' chibi-cinema' : ''}${clayCinema ? ' clay-cinema' : ''}${comicCinema ? ' comic-cinema' : ''}${editorialCinema ? ' editorial-cinema' : ''}${doodleCinema ? ' doodle-cinema' : ''}${storybookCinema ? ' storybook-cinema' : ''}${scrapbookCinema ? ' scrapbook-cinema' : ''}${papercutCinema ? ' papercut-cinema' : ''}${pixelCinema ? ' pixel-cinema' : ''}${miniatureCinema ? ' miniature-cinema' : ''}${documentaryCinema ? ' documentary-cinema' : ''}`}>
+    <div style={styles} className={`min-h-screen bg-ink${editorMode ? '' : ' client-portfolio'}${slug === 'vini3' ? ' chibi-theme' : ''}${animeCinema ? ' anime-theme' : ''}${chibiCinema ? ' chibi-cinema' : ''}${clayCinema ? ' clay-cinema' : ''}${comicCinema ? ' comic-cinema' : ''}${editorialCinema ? ' editorial-cinema' : ''}${doodleCinema ? ' doodle-cinema' : ''}${storybookCinema ? ' storybook-cinema' : ''}${scrapbookCinema ? ' scrapbook-cinema' : ''}${papercutCinema ? ' papercut-cinema' : ''}${pixelCinema ? ' pixel-cinema' : ''}${miniatureCinema ? ' miniature-cinema' : ''}${documentaryCinema ? ' documentary-cinema' : ''}${minimalistCinema ? ' minimalist-cinema' : ''}`}>
       <SmoothScrollProvider>
         <Series slug={slug} editorMode={editorMode} />
       </SmoothScrollProvider>
@@ -95,9 +97,10 @@ function Series({ slug, editorMode }: { slug: string; editorMode: boolean }) {
   const pixelCinema = profile.templateId === 'pixel-retro' || slug === 'vini12';
   const miniatureCinema = profile.templateId === 'miniature-world' || slug === 'vini13';
   const documentaryCinema = profile.templateId === 'documentary' || slug === 'vini14';
+  const minimalistCinema = profile.templateId === 'minimalist' || slug === 'vini15';
   const storageKey = `personal-netflix-profile-${slug}`;
   const stored = readStoredProfile(storageKey, viewerProfiles);
-  const [stage, setStage] = useState<Stage>(slug === 'vini3' || animeCinema || clayCinema || comicCinema || editorialCinema || doodleCinema || storybookCinema || scrapbookCinema || papercutCinema || pixelCinema || miniatureCinema || documentaryCinema || editorMode || stored || chibiCinema ? 'home' : 'opening');
+  const [stage, setStage] = useState<Stage>(slug === 'vini3' || animeCinema || clayCinema || comicCinema || editorialCinema || doodleCinema || storybookCinema || scrapbookCinema || papercutCinema || pixelCinema || miniatureCinema || documentaryCinema || minimalistCinema || editorMode || stored || chibiCinema ? 'home' : 'opening');
   const [profileId, setProfileId] = useState<ProfileId>(stored ?? 'vini');
   const [playing, setPlaying] = useState(false);
   const [project, setProject] = useState<Project | null>(null);
@@ -189,6 +192,8 @@ function Series({ slug, editorMode }: { slug: string; editorMode: boolean }) {
               <MiniatureWorldHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
             ) : documentaryCinema ? (
               <DocumentaryHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
+            ) : minimalistCinema ? (
+              <MinimalistHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
             ) : (
               <Hero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onResume={() => setResumeOpen(true)} profileId={profileId} editorMode={editorMode} />
             )}
