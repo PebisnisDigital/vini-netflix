@@ -3,7 +3,8 @@ import { createCanvasPortfolio, effectiveTheme, findUnreplacedSushmitaExamples, 
 import { clientReferralCode, normalizeClientWhatsapp } from '../utils/clientWhatsapp.mjs';
 import { deleteDraft, listDrafts, preparedBrief, saveDraft, type StudioDraft } from '../data/studioDraft';
 import { createStudioStarterBrief, findUnreplacedStudioDemoFields, isUneditedStudioStarter, withStudioDemoPreviewAssets } from '../data/studioStyleStarters';
-import { publishedClients } from '../data/studioPublished';
+import { publishedClients, type PublishedClient } from '../data/studioPublished';
+import { validClientSlug } from '../data/clientAliases.mjs';
 import ElementorCanvas from './ElementorCanvas';
 import StudioTemplateGallery from './StudioTemplateGallery';
 import { canApplyIdentityMode, canApplyTemplate, getTemplate, resolveTemplateId, type IdentityMode, type TemplateId } from '../data/templateCatalog.mjs';
@@ -11,11 +12,19 @@ import { optimizeStudioImage, type StudioImageKind } from '../utils/imageOptimiz
 
 type Session = { configured: boolean; authenticated: boolean; login: string | null; mode?: 'studio' | 'legacy'; publisherConfigured?: boolean };
 type SubmittedPR = { number: number; url: string; branch: string; sha: string };
+type AliasPR = SubmittedPR & { sourceSlug: string; publicSlug: string };
 const pendingKey = (slug: string) => `pesonaflix-pending-${slug}`;
+const aliasPendingKey = (slug: string) => `pesonaflix-alias-pending-${slug}`;
 function readPending(slug: string): SubmittedPR | null {
   try {
     const data = JSON.parse(localStorage.getItem(pendingKey(slug)) || 'null');
     return Number.isSafeInteger(data?.number) && /^[a-f0-9]{40}$/i.test(data?.sha || '') && typeof data?.url === 'string' ? data : null;
+  } catch { return null; }
+}
+function readAliasPending(slug: string): AliasPR | null {
+  try {
+    const data = JSON.parse(localStorage.getItem(aliasPendingKey(slug)) || 'null');
+    return Number.isSafeInteger(data?.number) && /^[a-f0-9]{40}$/i.test(data?.sha || '') && data?.sourceSlug === slug && validClientSlug(data?.publicSlug) ? data : null;
   } catch { return null; }
 }
 const field = 'w-full rounded-xl border border-white/15 bg-[#18181f] px-3.5 py-3 text-base text-white placeholder:text-white/30 outline-none transition focus:border-[#ff5c75] focus:ring-2 focus:ring-[#ff5c75]/10';
@@ -159,12 +168,16 @@ function CanvasEditor({ draft, patch, changeProject, setPhoto, reorder, removePr
 
 export default function StudioEditor() {
   const [drafts, setDrafts] = useState<StudioDraft[]>([]);
-  const [published, setPublished] = useState<ClientBrief[]>([]);
+  const [published, setPublished] = useState<PublishedClient[]>([]);
   const [active, setActive] = useState<StudioDraft | null>(null);
   const [session, setSession] = useState<Session>(initialSession);
   const [notice, setNotice] = useState('');
   const [busy, setBusy] = useState(false);
   const [pr, setPr] = useState<SubmittedPR | null>(null);
+  const [aliasPr, setAliasPr] = useState<AliasPR | null>(null);
+  const [aliasOpen, setAliasOpen] = useState(false);
+  const [aliasInput, setAliasInput] = useState('');
+  const [aliasApproved, setAliasApproved] = useState(false);
   const [approved, setApproved] = useState(false);
   const [search, setSearch] = useState('');
   const [workspaceTab, setWorkspaceTab] = useState<'templates' | 'editor'>('editor');
@@ -176,7 +189,7 @@ export default function StudioEditor() {
       setPublished(live); setSession(auth);
       const last = sessionStorage.getItem('personalflix-last-draft');
       const recent = local.find((d) => d.slug === last);
-      if (recent) { setActive(recent); setPr(readPending(recent.slug)); }
+      if (recent) { setActive(recent); setPr(readPending(recent.slug)); setAliasPr(readAliasPending(recent.slug)); }
     }).catch(() => setNotice('Tidak bisa membuka draft lokal. Coba browser biasa, bukan mode privat.'));
   }, []);
 
@@ -207,11 +220,16 @@ export default function StudioEditor() {
       await persist(); window.location.assign(`/studio/preview?slug=${prepared.slug}`);
     } catch (e) { setNotice((e as Error).message); }
   };
-  const newClient = () => { setActive({ slug: '', brief: createStudioStarterBrief('original'), portrait: null, projectPhotos: {}, watchPhotos: {}, pickPhotos: {}, episodePhotos: {}, mode: 'create', updatedAt: Date.now() }); setWorkspaceTab('templates'); setPr(null); setNotice(''); };
-  const choose = (draft: StudioDraft) => { setActive(draft); setWorkspaceTab('editor'); sessionStorage.setItem('personalflix-last-draft', draft.slug); setPr(readPending(draft.slug)); setNotice(''); };
-  const usePublished = (brief: ClientBrief) => {
+  const newClient = () => { setActive({ slug: '', brief: createStudioStarterBrief('original'), portrait: null, projectPhotos: {}, watchPhotos: {}, pickPhotos: {}, episodePhotos: {}, mode: 'create', updatedAt: Date.now() }); setWorkspaceTab('templates'); setPr(null); setAliasPr(null); setAliasOpen(false); setNotice(''); };
+  const choose = (draft: StudioDraft) => { setActive(draft); setWorkspaceTab('editor'); sessionStorage.setItem('personalflix-last-draft', draft.slug); setPr(readPending(draft.slug)); setAliasPr(readAliasPending(draft.slug)); setAliasOpen(Boolean(readAliasPending(draft.slug))); setAliasApproved(false); setNotice(''); };
+  const usePublished = ({ publicSlug: _publicSlug, ...brief }: PublishedClient) => {
     const existing = drafts.find((d) => d.slug === brief.slug);
     choose(existing ? { ...existing, mode: 'edit' } : { slug: brief.slug, brief, portrait: null, projectPhotos: {}, watchPhotos: {}, pickPhotos: {}, episodePhotos: {}, mode: 'edit', updatedAt: Date.now() });
+  };
+  const activePublicSlug = active ? published.find((item) => item.slug === active.brief.slug)?.publicSlug || active.brief.slug : '';
+  const openAliasEditor = () => {
+    if (!active || active.mode !== 'edit') return;
+    setAliasInput(aliasPr?.publicSlug || activePublicSlug); setAliasApproved(false); setAliasOpen(true); setNotice('');
   };
   const setPhoto = (index: number | null, file: File | null) => {
     setActive((current) => {
@@ -477,6 +495,74 @@ export default function StudioEditor() {
     } catch (error) { setNotice((error as Error).message); }
     finally { setBusy(false); }
   };
+  const submitAlias = async () => {
+    if (!active || active.mode !== 'edit' || busy) return;
+    const sourceSlug = active.brief.slug;
+    const publicSlug = normalizeSlug(aliasInput);
+    if (!validClientSlug(publicSlug)) { setNotice('Link hanya boleh huruf kecil, angka dan tanda minus, maksimal 60 karakter.'); return; }
+    if (publicSlug === activePublicSlug) { setNotice('Link belum berubah. Isi alamat baru dulu.'); return; }
+    if (published.some((item) => item.slug !== sourceSlug && (item.slug === publicSlug || item.publicSlug === publicSlug))) { setNotice(`/${publicSlug} sudah dipakai klien lain. Pilih nama berbeda.`); return; }
+    if (session.mode === 'studio' && !session.publisherConfigured) { setNotice('Koneksi GitHub untuk penerbitan belum diaktifkan di Vercel.'); return; }
+    if (!session.authenticated) {
+      setNotice('Masuk ke Studio dengan akses penerbitan atau login GitHub dulu untuk mengubah link.');
+      return;
+    }
+    try {
+      setBusy(true); setNotice('Menyiapkan link baru dan memeriksa bentrok URL di GitHub…');
+      const result = await apiPost('/api/alias', { sourceSlug, publicSlug }) as SubmittedPR;
+      const pending = { ...result, sourceSlug, publicSlug };
+      if (session.mode === 'studio') localStorage.setItem(aliasPendingKey(sourceSlug), JSON.stringify(pending));
+      setAliasPr(pending); setAliasApproved(false);
+      setNotice(session.mode === 'studio' ? 'Penggantian link sedang diperiksa dan diterbitkan otomatis. Link lama tetap aktif.' : 'Preview perubahan link siap. Periksa PR sebelum mengaktifkan alamat baru.');
+    } catch (cause) { setNotice((cause as Error).message); }
+    finally { setBusy(false); }
+  };
+
+  const mergeAlias = async () => {
+    if (!aliasPr || !aliasApproved || busy) return;
+    try {
+      setBusy(true); setNotice('Memeriksa hasil pengujian sebelum mengubah alamat publik…');
+      const result = await apiPost('/api/publish-merge', { number: aliasPr.number, sha: aliasPr.sha, confirmed: true });
+      if (result.merged) {
+        const updatedSlug = aliasPr.publicSlug;
+        setPublished((current) => current.map((item) => item.slug === aliasPr.sourceSlug ? { ...item, publicSlug: updatedSlug } : item));
+        localStorage.removeItem(aliasPendingKey(aliasPr.sourceSlug));
+        setAliasPr(null); setAliasOpen(false);
+        setNotice(`Link utama berhasil diubah ke /${updatedSlug}. Vercel sedang menayangkan versi baru; link lama tetap berfungsi.`);
+      }
+    } catch (cause) { setNotice((cause as Error).message); }
+    finally { setBusy(false); }
+  };
+
+  useEffect(() => {
+    if (!aliasPr || session.mode !== 'studio') return;
+    let cancelled = false;
+    let polling = false;
+    const pending = aliasPr;
+    const poll = async () => {
+      if (cancelled || polling) return;
+      polling = true;
+      try {
+        const response = await fetch(`/api/publish-status?number=${pending.number}&sha=${encodeURIComponent(pending.sha)}`, { credentials: 'same-origin', cache: 'no-store' });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(result.error || 'Status perubahan link belum tersedia.');
+        if (cancelled) return;
+        if (result.state === 'merged') {
+          localStorage.removeItem(aliasPendingKey(pending.sourceSlug));
+          setPublished((current) => current.map((item) => item.slug === pending.sourceSlug ? { ...item, publicSlug: pending.publicSlug } : item));
+          setAliasPr(null); setAliasOpen(false);
+          setNotice(`Link baru /${pending.publicSlug} telah disetujui. Vercel sedang menayangkannya. Link lama tetap tersedia.`);
+        } else if (result.state === 'failed') {
+          localStorage.removeItem(aliasPendingKey(pending.sourceSlug));
+          setAliasPr(null); setNotice(`${result.message} Periksa PR: ${pending.url}`);
+        } else setNotice(result.message || 'Perubahan link sedang diperiksa…');
+      } catch (cause) { if (!cancelled) setNotice((cause as Error).message); }
+      finally { polling = false; }
+    };
+    void poll();
+    const interval = window.setInterval(() => { void poll(); }, 6000);
+    return () => { cancelled = true; window.clearInterval(interval); };
+  }, [aliasPr, session.mode]);
   const merge = async () => {
     if (!pr || !approved || busy) return;
     try {
@@ -540,7 +626,7 @@ export default function StudioEditor() {
         <p className="mb-2 text-xs font-bold uppercase tracking-wider text-white/40">Draft tersimpan</p>
         <div className="space-y-1">{drafts.filter((d) => d.brief.name.toLowerCase().includes(search.toLowerCase()) || d.slug.includes(search.toLowerCase())).map((entry) => <button type="button" key={entry.slug} onClick={() => choose(entry)} className={`w-full rounded-lg px-3 py-2.5 text-left text-sm ${active?.slug === entry.slug ? 'bg-[#e50931]/20 text-white' : 'text-white/70 hover:bg-white/5'}`}><span className="block font-semibold">{entry.brief.name || entry.slug}</span><span className="block text-xs text-white/45">/{entry.slug} · Draft lokal</span></button>)}{!drafts.length && <p className="rounded-lg bg-white/[0.03] p-3 text-xs text-white/40">Belum ada draft.</p>}</div>
         <p className="mb-2 mt-6 text-xs font-bold uppercase tracking-wider text-white/40">Sudah tayang</p>
-        <div className="space-y-1">{published.filter((p) => p.name.toLowerCase().includes(search.toLowerCase()) || p.slug.includes(search.toLowerCase())).map((entry) => <button key={entry.slug} type="button" onClick={() => usePublished(entry)} className="w-full rounded-lg px-3 py-2.5 text-left text-sm hover:bg-white/5"><span className="block font-semibold">{entry.name}</span><span className="block text-xs text-emerald-300/70">/{entry.slug} · Edit website</span></button>)}<p className="px-3 pt-2 text-xs text-white/40">Halaman /vini adalah contoh master dan tetap dilindungi.</p></div>
+        <div className="space-y-1">{published.filter((p) => p.name.toLowerCase().includes(search.toLowerCase()) || p.slug.includes(search.toLowerCase()) || p.publicSlug.includes(search.toLowerCase())).map((entry) => <button key={entry.slug} type="button" onClick={() => usePublished(entry)} className="w-full rounded-lg px-3 py-2.5 text-left text-sm hover:bg-white/5"><span className="block font-semibold">{entry.name}</span><span className="block text-xs text-emerald-300/70">/{entry.publicSlug} · Edit website</span></button>)}<p className="px-3 pt-2 text-xs text-white/40">Halaman /vini adalah contoh master dan tetap dilindungi.</p></div>
       </aside>
 
       <main className="min-w-0 space-y-5">
@@ -553,20 +639,27 @@ export default function StudioEditor() {
               <p className="px-2 text-[11px] font-bold uppercase tracking-widest text-white/40">Draft tersimpan</p>
               {drafts.filter((d) => d.brief.name.toLowerCase().includes(search.toLowerCase()) || d.slug.includes(search.toLowerCase())).map((entry) => <button type="button" key={entry.slug} className="block w-full rounded-lg px-2 py-2 text-left text-sm hover:bg-white/10" onClick={(event) => { choose(entry); event.currentTarget.closest('details')?.removeAttribute('open'); }}>{entry.brief.name || entry.slug}<span className="block text-xs text-white/45">/{entry.slug}</span></button>)}
               <p className="px-2 pt-2 text-[11px] font-bold uppercase tracking-widest text-white/40">Sudah tayang</p>
-              {published.filter((p) => p.name.toLowerCase().includes(search.toLowerCase()) || p.slug.includes(search.toLowerCase())).map((entry) => <button type="button" key={entry.slug} className="block w-full rounded-lg px-2 py-2 text-left text-sm hover:bg-white/10" onClick={(event) => { usePublished(entry); event.currentTarget.closest('details')?.removeAttribute('open'); }}>{entry.name}<span className="block text-xs text-emerald-300/60">/{entry.slug}</span></button>)}
+              {published.filter((p) => p.name.toLowerCase().includes(search.toLowerCase()) || p.slug.includes(search.toLowerCase()) || p.publicSlug.includes(search.toLowerCase())).map((entry) => <button type="button" key={entry.slug} className="block w-full rounded-lg px-2 py-2 text-left text-sm hover:bg-white/10" onClick={(event) => { usePublished(entry); event.currentTarget.closest('details')?.removeAttribute('open'); }}>{entry.name}<span className="block text-xs text-emerald-300/60">/{entry.publicSlug}</span></button>)}
               {!drafts.length && !published.length && <p className="px-2 py-2 text-xs text-white/40">Belum ada klien tersimpan.</p>}
             </div>
           </details>
           <span className="text-xs text-white/40">Edit langsung di kanvas · Simpan sebelum pindah klien</span>
         </div>}
         {!active ? <section className={`${card} flex min-h-[400px] flex-col items-center justify-center gap-4 text-center`}><span className="text-6xl">✦</span><h2 className="text-3xl font-extrabold">Mulai Karya Baru</h2><p className="max-w-md text-white/55">Masukkan data klien dari WhatsApp, ganti foto dan atur kartu sesuai kebutuhan. Simpan draft kapan saja.</p><button type="button" onClick={newClient} className="rounded-xl bg-[#e50931] px-6 py-3 font-bold">Buat Klien Baru</button></section> : <>
-          <div className="flex flex-wrap items-start justify-between gap-3"><div><p className="text-xs font-bold uppercase tracking-wider text-[#ff6580]">{active.mode === 'create' ? 'Website baru' : 'Edit website terbit'}</p><h2 className="mt-1 text-2xl font-extrabold">{active.brief.name || 'Klien Tanpa Nama'}</h2><p className="mt-1 text-sm text-white/45">/{active.brief.slug || 'nama-klien'} · Data tersimpan hanya di browser ini sampai dipublikasikan.</p></div><div className="flex flex-wrap gap-2"><button type="button" className={secondary} onClick={saveClick}>Simpan Draft</button><button type="button" className={secondary} onClick={() => { void preview(); }}>Preview Lengkap</button></div></div>
+          <div className="flex flex-wrap items-start justify-between gap-3"><div><p className="text-xs font-bold uppercase tracking-wider text-[#ff6580]">{active.mode === 'create' ? 'Website baru' : 'Edit website terbit'}</p><h2 className="mt-1 text-2xl font-extrabold">{active.brief.name || 'Klien Tanpa Nama'}</h2><p className="mt-1 text-sm text-white/45">/{activePublicSlug || 'nama-klien'} · {active.mode === 'edit' ? 'Website sudah tayang; perubahan konten tetap perlu diterbitkan.' : 'Data tersimpan hanya di browser ini sampai dipublikasikan.'}</p></div><div className="flex flex-wrap gap-2"><button type="button" className={secondary} onClick={saveClick}>Simpan Draft</button><button type="button" className={secondary} onClick={() => { void preview(); }}>Preview Lengkap</button></div></div>
           <nav aria-label="Menu kerja klien" className="flex flex-wrap gap-2 rounded-2xl border border-white/10 bg-[#111117] p-2">
             <button type="button" aria-current={workspaceTab === 'templates' ? 'page' : undefined} onClick={() => setWorkspaceTab('templates')} className={`rounded-xl px-5 py-3 text-sm font-extrabold transition ${workspaceTab === 'templates' ? 'bg-[#e50931] text-white' : 'text-white/65 hover:bg-white/10'}`}>▦ TEMPLATE · 16 Gaya</button>
             <button type="button" aria-current={workspaceTab === 'editor' ? 'page' : undefined} onClick={() => setWorkspaceTab('editor')} className={`rounded-xl px-5 py-3 text-sm font-extrabold transition ${workspaceTab === 'editor' ? 'bg-[#e50931] text-white' : 'text-white/65 hover:bg-white/10'}`}>✎ EDITOR WEBSITE</button>
           </nav>
           {active.mode === 'create' && <p className="rounded-xl border border-amber-400/25 bg-amber-300/10 px-4 py-3 text-sm leading-relaxed text-amber-100">Ini contoh gaya {getTemplate(resolveTemplateId(active.brief))?.name}: {resolveTemplateId(active.brief) === 'original' ? 'portofolio Sushmita' : 'mengikuti isi dan tampilan demo gaya ini'}. Klik teks, foto, dan kartu di kanvas untuk mengganti data. Gambar contoh hanya muncul saat mengedit; unggah aset milik klien sebelum menerbitkan.</p>}
           {workspaceTab === 'templates' ? <StudioTemplateGallery selectedTemplateId={resolveTemplateId(active.brief)} identityMode={active.brief.identityMode || 'photo'} onApplyTemplate={applyTemplate} onApplyIdentity={applyIdentity} onEditWebsite={() => setWorkspaceTab('editor')} /> : new URLSearchParams(location.search).has('legacy') ? <CanvasEditor draft={active} patch={patch} changeProject={changeProject} setPhoto={setPhoto} reorder={reorder} removeProject={removeProject} /> : <ElementorCanvas draft={active} patch={patch} changeProject={changeProject} setPhoto={setPhoto} setWatchPhoto={setWatchPhoto} watchAction={watchAction} setPickPhoto={setPickPhoto} pickAction={pickAction} setEpisodePhoto={setEpisodePhoto} seasonAction={seasonAction} episodeAction={episodeAction} reorder={reorder} removeProject={removeProject} notice={setNotice} />}
+          {active.mode === 'edit' && <section className={`${card} border-[#72d6ba]/35`}>
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <div><p className="text-xs font-bold uppercase tracking-[0.18em] text-emerald-300">LINK WEBSITE</p><h3 className="mt-1 text-lg font-extrabold">Alamat Halaman Klien</h3><a href={`/${activePublicSlug}`} target="_blank" rel="noreferrer" className="mt-2 block break-all text-sm text-emerald-300 underline">pesonaflix.vercel.app/{activePublicSlug}</a>{activePublicSlug !== active.brief.slug && <p className="mt-1 text-xs text-white/40">Link awal /{active.brief.slug} tetap berfungsi.</p>}</div>
+              <button type="button" className={secondary} onClick={openAliasEditor}>✎ Ubah Link Website</button>
+            </div>
+            {aliasPr && <p className="mt-3 text-xs text-amber-300">Permintaan /{aliasPr.publicSlug} sedang diproses. <button type="button" className="underline" onClick={openAliasEditor}>Lihat proses</button></p>}
+          </section>}
           <section className={`${card} border-[#5ad0c8]/35`}>
             <h3 className="text-lg font-extrabold">WhatsApp Pemilik & Referral</h3>
             <p className="mt-2 text-sm leading-relaxed text-white/60">Tombol “Mau Dibuatin” di website ini akan membuka WhatsApp pemiliknya, bukan WhatsApp Teh Vini. Gunakan nomor bisnis yang siap menerima pesan dari pengunjung.</p>
@@ -617,6 +710,19 @@ export default function StudioEditor() {
           <div className="pb-6 text-right"><button type="button" className="text-xs text-red-300/70 underline" onClick={() => { if (active.slug && window.confirm('Hapus draft dari browser ini? Website yang sudah live tidak ikut terhapus.')) { void deleteDraft(active.slug).then(async () => { setActive(null); await refreshList(); }); } }}>Hapus Draft Lokal</button></div>
         </>}
       </main>
+
+      {aliasOpen && active?.mode === 'edit' && <div className="fixed inset-0 z-[80] flex items-center justify-center overflow-y-auto bg-black/85 p-4 backdrop-blur-sm" role="presentation">
+        <section role="dialog" aria-modal="true" aria-labelledby="change-client-link-title" className="w-full max-w-lg space-y-5 rounded-3xl border border-white/15 bg-[#18181f] p-5 shadow-2xl sm:p-7">
+          <div className="flex items-start justify-between gap-3"><div><p className="text-xs font-bold tracking-[0.2em] text-[#ff758b]">PESONAFLIX STUDIO</p><h2 id="change-client-link-title" className="mt-2 text-2xl font-extrabold">Ubah Link Website</h2><p className="mt-2 text-sm leading-relaxed text-white/55">Ganti alamat publik tanpa menyentuh desain, animasi, foto, atau isi halaman.</p></div><button type="button" aria-label="Tutup pengaturan link" className="rounded-xl border border-white/15 px-3 py-2 text-xl text-white/70 hover:bg-white/10" onClick={() => setAliasOpen(false)}>×</button></div>
+          <div className="rounded-xl bg-white/[0.035] p-4 text-sm"><p className="text-white/45">Link utama saat ini</p><p className="mt-1 break-all font-bold text-emerald-300">pesonaflix.vercel.app/{activePublicSlug}</p><p className="mt-2 text-xs text-white/40">Sumber halaman: /{active.brief.slug}. Link lama tetap dapat dibuka setelah perubahan.</p></div>
+          <Control label="Nama link baru" hint="Gunakan huruf kecil, angka, atau tanda minus. Contoh: vinicontoh"><div className="flex items-center overflow-hidden rounded-xl border border-white/15 bg-[#101017] focus-within:border-[#ff5c75]"><span className="shrink-0 pl-3 text-sm text-white/45">/</span><input aria-label="Nama link baru" className="min-w-0 w-full bg-transparent px-3 py-3 text-base text-white outline-none" value={aliasInput} maxLength={60} placeholder="vinicontoh" disabled={Boolean(aliasPr)} onChange={(event) => setAliasInput(normalizeSlug(event.target.value))}/></div></Control>
+          <div className="rounded-xl border border-white/10 bg-[#101017] p-4"><p className="text-xs text-white/45">Preview alamat baru</p><p className="mt-1 break-all font-semibold text-white">pesonaflix.vercel.app/{aliasInput || 'nama-baru'}</p></div>
+          <p className="text-xs leading-relaxed text-amber-200/80">Link sebelumnya tetap aktif demi pelanggan yang sudah menyimpannya. Perubahan berlaku setelah pemeriksaan GitHub dan deploy Vercel selesai.</p>
+          {!aliasPr ? <button type="button" disabled={busy || !validClientSlug(aliasInput) || (session.mode === 'studio' && !session.publisherConfigured)} onClick={() => { void submitAlias(); }} className="w-full rounded-xl bg-[#e50931] px-5 py-3 font-extrabold hover:bg-[#fa284c] disabled:opacity-40">{busy ? 'Memeriksa…' : 'Siapkan Link Baru'}</button> : <div className="space-y-3 rounded-xl border border-emerald-400/20 bg-emerald-400/5 p-4"><p className="text-sm font-semibold text-emerald-300">Pengubahan ke /{aliasPr.publicSlug} sedang diproses</p><a href={aliasPr.url} target="_blank" rel="noreferrer" className="block break-all text-sm underline">Periksa PR #{aliasPr.number} di GitHub</a>{session.mode !== 'studio' && <><label className="flex gap-2 text-sm leading-relaxed"><input type="checkbox" className="mt-1 accent-[#e50931]" checked={aliasApproved} onChange={(event) => setAliasApproved(event.target.checked)}/><span>Saya sudah memeriksa alamat tujuan dan menyetujui perubahan URL.</span></label><button type="button" disabled={!aliasApproved || busy} onClick={() => { void mergeAlias(); }} className="w-full rounded-xl bg-emerald-600 px-4 py-3 font-bold disabled:opacity-40">Terbitkan Link Baru</button></>}</div>}
+          {session.mode === 'studio' && !session.publisherConfigured && <p className="text-xs text-amber-300">Koneksi penerbitan GitHub belum diaktifkan. Pengaturan link dapat digunakan setelah kunci GitHub tersedia.</p>}
+          {notice && <p role="status" className="rounded-xl bg-white/5 p-3 text-sm text-white/80">{notice}</p>}
+        </section>
+      </div>}
 
       <aside className={`${card} ${active ? 'hidden' : ''} h-fit lg:sticky lg:top-24`}><h3 className="mb-4 text-base font-extrabold">Ringkasan Visual</h3>{active ? <><div className="overflow-hidden rounded-xl bg-gradient-to-br from-[#491327] to-[#120c12] p-4"><p className="text-[10px] font-bold tracking-[0.3em] text-[#ff99aa]">THE SERIES</p><h4 className="mt-3 break-words text-2xl font-black uppercase">{active.brief.name || 'NAMA KLIEN'}</h4><p className="mt-2 text-xs text-white/70">{active.brief.role || 'Profesi klien'}</p></div><p className="mb-2 mt-5 text-xs font-bold uppercase tracking-wider text-white/50">{active.brief.projects.length} Kartu karya</p><div className="space-y-2">{active.brief.projects.slice(0, 5).map((project, i) => <div key={i} className="rounded-lg border border-white/10 bg-white/5 px-3 py-2"><p className="truncate text-sm font-bold">{project.title || `Karya ${i + 1}`}</p><p className="truncate text-xs text-white/45">{project.category}</p></div>)}</div><p className="mt-5 text-xs leading-relaxed text-white/45">Preview lengkap menampilkan animasi dan susunan asli website, bukan sekadar ringkasan di samping.</p></> : <p className="text-sm text-white/50">Pilih klien untuk melihat ringkasan.</p>}
         <div className="mt-6 border-t border-white/10 pt-5"><p className="text-xs font-bold uppercase tracking-wider text-white/50">Privasi</p><p className="mt-2 text-xs leading-relaxed text-white/50">Draft dan foto disimpan hanya di browser ini (IndexedDB). Gunakan perangkat pribadi; jangan memakai komputer umum. Saat menerbitkan, foto dan data klien menjadi publik di website.</p></div>
