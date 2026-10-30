@@ -6,6 +6,7 @@ import { useFinePointer } from '../hooks/useMedia';
 import { useSmoothScroll } from '../hooks/smoothScroll';
 import { EASE, Magnetic, Particles } from './fx';
 import { SeriesMark } from './Poster';
+import { normalizeClientWhatsapp } from '../utils/clientWhatsapp.mjs';
 
 const container = { hidden: {}, show: { transition: { staggerChildren: 0.09, delayChildren: 0.25 } } };
 const item = {
@@ -42,6 +43,7 @@ export default function Hero({ onPlay, onResume, profileId, editorMode = false }
   const glowX = useTransform(px, [-1, 1], ['-6%', '6%']);
 
   const meta = profile.heroMeta || [profile.location, profile.role, `${projects.length} Karya Pilihan`];
+  const contactNumber = normalizeClientWhatsapp(profile.whatsapp);
 
   const floating = (profile.floating || projects.slice(0, 3).map((project) => ({ text: project.title, sub: project.genre })))
     .map((f, i) => ({ ...f, pos: ['left-[2%] top-[30%]', 'right-[0%] top-[18%]', 'right-[4%] bottom-[24%]'][i % 3], depth: [1, -1, 0.6][i % 3] }));
@@ -194,7 +196,16 @@ export default function Hero({ onPlay, onResume, profileId, editorMode = false }
           >
             ⓘ
           </button>
+          {contactNumber && <a
+            href={`https://wa.me/${contactNumber}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="glass flex min-h-12 items-center rounded-md px-5 py-3 text-sm font-semibold text-bone transition hover:bg-white/15"
+          >Hubungi Saya ↗</a>}
         </motion.div>
+        {Boolean(profile.socialLinks?.length) && <motion.div variants={item} className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-medium text-bone/80">
+          {profile.socialLinks?.map(({ label, url }) => <a key={label} href={url} target="_blank" rel="noopener noreferrer" className="underline decoration-white/30 underline-offset-4 transition hover:text-white hover:decoration-white">{label} ↗</a>)}
+        </motion.div>}
         {!editorMode && (
           <motion.div variants={item} className="client-hero-now-playing" aria-hidden="true">
             <span className="client-now-playing-dot" />

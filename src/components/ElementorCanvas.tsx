@@ -160,7 +160,7 @@ export default function ElementorCanvas({ draft, patch, changeProject, setPhoto,
         } else if (field.startsWith('contact:')) {
           const key = field.split(':')[1];
           if (key === 'email') apply({ email: value });
-          else if (key === 'website' || key === 'linkedin' || key === 'github') apply({ links: { ...state.brief.links, [key]: value } });
+          else if (['website', 'linkedin', 'github', 'facebook', 'instagram', 'tiktok', 'threads', 'youtube'].includes(key)) apply({ links: { ...state.brief.links, [key]: value } });
         }
       }
       if (data.type === 'PESONAFLIX_VISUAL_FILE') {

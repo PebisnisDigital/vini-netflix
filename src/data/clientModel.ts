@@ -18,6 +18,7 @@ export type PortfolioContent = {
     whatsapp?: string;
     referralCode?: string;
     clientSlug?: string;
+    socialLinks?: { label: string; url: string }[];
   };
   projects: vini.Project[];
   experience: vini.Experience[];
@@ -159,7 +160,7 @@ export type ClientBrief = {
   photo: { src: string; alt: string; srcSet?: string };
   email?: string;
   whatsapp?: string;
-  links?: { website?: string; linkedin?: string; github?: string };
+  links?: { website?: string; linkedin?: string; github?: string; facebook?: string; instagram?: string; tiktok?: string; threads?: string; youtube?: string };
   experiences: { company: string; role: string; period: string; description: string }[];
   education?: { school: string; degree: string; place: string; period: string; score?: string }[];
   projects: { title: string; year: string; description: string; category: string; tags: string[]; website?: string; image?: string }[];
@@ -448,6 +449,13 @@ export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: 
         { k: 'Asal', v: brief.location, s: 'Lokasi' },
       ],
       websiteLabel: brief.links?.website && validUrl(brief.links.website) ? new URL(brief.links.website).hostname : undefined,
+      socialLinks: ([
+        ['Facebook', brief.links?.facebook],
+        ['Instagram', brief.links?.instagram],
+        ['TikTok', brief.links?.tiktok],
+        ['Threads', brief.links?.threads],
+        ['YouTube', brief.links?.youtube],
+      ] as const).filter(([, url]) => Boolean(url && validUrl(url))).map(([label, url]) => ({ label, url: url! })),
       theme: brief.theme,
       designVariant: brief.designVariant,
       templateId: brief.templateId || 'original',

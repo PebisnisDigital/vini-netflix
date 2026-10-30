@@ -106,6 +106,8 @@ export function ResumeSheet() {
           {profile.links.website && <a href={profile.links.website} target="_blank" rel="noreferrer" className="block hover:text-bone">{profile.websiteLabel || 'Website'} ↗</a>}
           {profile.links.linkedin && <a href={profile.links.linkedin} target="_blank" rel="noreferrer" className="block hover:text-bone">LinkedIn ↗</a>}
           {profile.links.github && <a href={profile.links.github} target="_blank" rel="noreferrer" className="block hover:text-bone">GitHub ↗</a>}
+          {profile.socialLinks?.map(({ label, url }) => <a key={label} href={url} target="_blank" rel="noopener noreferrer" className="block hover:text-bone">{label} ↗</a>)}
+          {profile.whatsapp && <a href={`https://wa.me/${profile.whatsapp.replace(/\D/g, '').replace(/^0/, '62')}`} target="_blank" rel="noopener noreferrer" className="block hover:text-bone">WhatsApp ↗</a>}
         </div>
       </header>
 
@@ -126,7 +128,7 @@ export function ResumeSheet() {
             </>
           )}
 
-          <H>Peran & Pengalaman</H>
+          {experience.length > 0 && <H>Peran & Pengalaman</H>}
           {experience.map((x) => (
             <div key={x.company}>
               <div className="flex flex-wrap justify-between gap-x-3">

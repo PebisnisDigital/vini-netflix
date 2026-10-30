@@ -1,0 +1,407 @@
+{
+  "slug": "isa",
+  "name": "Isa Anshori, S.Hut",
+  "role": "Sarjana Kehutanan · Herbal, Jasa & Digital",
+  "location": "Pontianak, Kalimantan Barat",
+  "bio": "Saya Isa Anshori, S.Hut, dari Pontianak, Kalimantan Barat. Melalui identitas IsaPonti99, saya memperkenalkan minat dan kegiatan di bidang herbal, jasa, serta digital. Di halaman ini, Anda bisa mengenal sosok saya, melihat Seribu Rempah dan materi visual yang saya bagikan, serta terhubung melalui kanal komunikasi saya.",
+  "tagline": [
+    "ISAPONTI99",
+    "Herbal · Jasa · Digital",
+    "Tumbuh, Berkarya, Menebar"
+  ],
+  "interests": [
+    "Produk Herbal",
+    "Layanan Jasa",
+    "Media Digital",
+    "Jejaring Masyarakat",
+    "Budaya Melayu",
+    "Kota Pontianak"
+  ],
+  "photo": {
+    "src": "/clients/isa/isa-melayu-hero.webp",
+    "alt": "Potret Isa Anshori mengenakan busana adat Melayu berwarna cokelat keemasan"
+  },
+  "email": "isaanshori.ponti@gmail.com",
+  "whatsapp": "6285600000648",
+  "links": {
+    "facebook": "https://www.facebook.com/Isaanshoriptk",
+    "instagram": "https://www.instagram.com/sahabatisaanshori",
+    "tiktok": "https://www.tiktok.com/@isa.ponti99",
+    "threads": "https://www.threads.com/@sahabatisaanshori",
+    "youtube": "https://www.youtube.com/@sahabatisaanshori"
+  },
+  "experiences": [
+    {
+      "company": "IsaPonti99",
+      "role": "Identitas Herbal, Jasa & Digital",
+      "period": "Bidang yang diperkenalkan",
+      "description": "IsaPonti99 adalah identitas yang tampil pada materi profil, dengan cakupan herbal, jasa, dan digital serta pesan Tumbuh, Berkarya, Menebar."
+    },
+    {
+      "company": "Seribu Rempah",
+      "role": "Informasi & Promosi Produk Herbal",
+      "period": "Produk yang ditampilkan",
+      "description": "Materi promosi menampilkan minuman rempah Seribu Rempah beserta informasi komposisi dan kategori pembelian. Untuk detail produk dan harga terkini, hubungi langsung melalui WhatsApp."
+    }
+  ],
+  "education": [],
+  "projects": [
+    {
+      "title": "IsaPonti99",
+      "year": "Identitas Brand",
+      "description": "Identitas visual dengan elemen herbal, jasa, dan digital. Nama IsaPonti99 menghubungkan tema karya dan komunikasi dalam satu tanda pengenal.",
+      "category": "Personal Brand",
+      "tags": ["Herbal", "Jasa", "Digital"],
+      "image": "/clients/isa/isaponti99-logo.webp"
+    },
+    {
+      "title": "Seribu Rempah",
+      "year": "Materi Produk",
+      "description": "Minuman rempah yang diperkenalkan melalui poster produk. Informasi bahan dan pilihan konsumen, reseller, serta agen tersedia di materi promosi; konfirmasi detail terkini melalui WhatsApp.",
+      "category": "Produk Herbal",
+      "tags": ["Rempah", "Produk", "Reseller"],
+      "image": "/clients/isa/seribu-rempah.webp"
+    },
+    {
+      "title": "Galeri Potret Profesional",
+      "year": "Dokumentasi Visual",
+      "description": "Kumpulan sembilan gaya potret profesional dalam busana dan latar berbeda yang disiapkan untuk kebutuhan personal branding.",
+      "category": "Profil Visual",
+      "tags": ["Potret", "Personal Branding", "Galeri"],
+      "image": "/clients/isa/isa-gaya-profesional.webp"
+    },
+    {
+      "title": "Potret Budaya Melayu",
+      "year": "Dokumentasi Visual",
+      "description": "Potret dalam busana Melayu cokelat keemasan sebagai salah satu representasi visual yang dekat dengan identitas budaya Kalimantan Barat.",
+      "category": "Budaya & Identitas",
+      "tags": ["Melayu", "Pontianak", "Potret"],
+      "image": "/clients/isa/isa-melayu-hero.webp"
+    },
+    {
+      "title": "KUDA EMAS",
+      "year": "Materi Organisasi",
+      "description": "Logo Kelompok Usaha Dagang Ekonomi Masyarakat (KUDA EMAS) yang disertakan dalam bahan profil. Jabatan dan keterlibatan personal belum dicantumkan.",
+      "category": "Dokumentasi Komunitas",
+      "tags": ["KUDA EMAS", "Organisasi", "Identitas Visual"],
+      "image": "/clients/isa/kuda-emas-logo.webp"
+    },
+    {
+      "title": "Masjid Irsyadul Iman",
+      "year": "Materi Organisasi",
+      "description": "Identitas visual Dewan Kemakmuran Masjid (DKM) Masjid Irsyadul Iman, Pontianak, yang disertakan dalam bahan profil. Jabatan dan keterlibatan personal belum dicantumkan.",
+      "category": "Dokumentasi Komunitas",
+      "tags": ["Masjid", "Pontianak", "Identitas Visual"],
+      "image": "/clients/isa/dkm-irsyadul-iman-logo.webp"
+    },
+    {
+      "title": "Potret Bernuansa Islami",
+      "year": "Visual Kreatif",
+      "description": "Komposisi visual kreatif berlatar Ka'bah dan Masjid Nabawi. Gambar ini ditampilkan sebagai karya visual, bukan dokumentasi perjalanan ibadah.",
+      "category": "Galeri Personal",
+      "tags": ["Visual Kreatif", "Islami", "Potret"],
+      "image": "/clients/isa/isa-islami.webp"
+    }
+  ],
+  "skills": [
+    "Informasi Produk Herbal",
+    "Identitas IsaPonti99",
+    "Kanal Media Sosial",
+    "Dokumentasi Komunitas",
+    "Budaya Melayu",
+    "Komunikasi Digital"
+  ],
+  "skillCategories": [
+    {
+      "id": "herbal",
+      "title": "Herbal & Produk",
+      "subtitle": "Ruang untuk mengenal produk yang ditampilkan",
+      "skills": [
+        {
+          "name": "Seribu Rempah",
+          "mono": "SR",
+          "note": "Produk",
+          "evidence": [
+            "Materi minuman rempah",
+            "Informasi konsumen, reseller, dan agen"
+          ]
+        },
+        {
+          "name": "Informasi Herbal",
+          "mono": "HB",
+          "evidence": [
+            "Komposisi bahan pada poster produk",
+            "Konsultasi informasi produk melalui kontak resmi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "digital",
+      "title": "Jasa & Kehadiran Digital",
+      "subtitle": "Identitas dan kanal untuk saling terhubung",
+      "skills": [
+        {
+          "name": "IsaPonti99",
+          "mono": "I99",
+          "evidence": [
+            "Identitas dengan tiga fokus: herbal, jasa, dan digital",
+            "Tagline Tumbuh, Berkarya, Menebar"
+          ]
+        },
+        {
+          "name": "Media Sosial",
+          "mono": "SOC",
+          "evidence": [
+            "Tautan Facebook, Instagram, dan TikTok",
+            "Identitas Threads dan YouTube"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "identitas",
+      "title": "Identitas & Komunitas",
+      "subtitle": "Materi visual yang turut dibagikan",
+      "skills": [
+        {
+          "name": "Budaya Melayu",
+          "mono": "MY",
+          "evidence": [
+            "Potret dalam busana Melayu",
+            "Dokumentasi personal bernuansa Pontianak"
+          ]
+        },
+        {
+          "name": "Visual Organisasi",
+          "mono": "ORG",
+          "evidence": [
+            "Logo KUDA EMAS",
+            "Logo DKM Masjid Irsyadul Iman"
+          ]
+        }
+      ]
+    }
+  ],
+  "skillsHeading": "Ruang Kegiatan & Minat",
+  "skillsAside": "Fokus yang terlihat dari materi profil yang dibagikan. Detail peran, pengalaman, dan pencapaian dapat dilengkapi langsung di Studio.",
+  "skillsKicker": "FOKUS • ISAPONTI99",
+  "highlights": [
+    {
+      "title": "Isa Anshori, S.Hut",
+      "description": "Identitas profesional dengan gelar Sarjana Kehutanan dan domisili Pontianak, Kalimantan Barat.",
+      "category": "PROFIL"
+    },
+    {
+      "title": "IsaPonti99",
+      "description": "Identitas herbal, jasa, dan digital dengan pesan Tumbuh, Berkarya, Menebar.",
+      "category": "BRAND"
+    },
+    {
+      "title": "Seribu Rempah",
+      "description": "Produk minuman rempah yang ditampilkan dalam materi promosi yang dibagikan.",
+      "category": "PRODUK"
+    },
+    {
+      "title": "Terhubung dari Pontianak",
+      "description": "Kanal Facebook, Instagram, TikTok, Threads, YouTube, WhatsApp, dan email tersedia untuk komunikasi.",
+      "category": "KOMUNIKASI"
+    }
+  ],
+  "watchCards": [
+    {
+      "target": "about",
+      "title": "Kenal Pak Isa",
+      "subtitle": "Sosok dari Pontianak",
+      "image": "/clients/isa/isa-blue-portrait.webp"
+    },
+    {
+      "target": "journey",
+      "title": "Cerita Perjalanan",
+      "subtitle": "Identitas dan usaha",
+      "image": "/clients/isa/isa-melayu-hero.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Karya & Produk",
+      "subtitle": "IsaPonti99 dan Seribu Rempah",
+      "image": "/clients/isa/seribu-rempah.webp"
+    },
+    {
+      "target": "picks",
+      "title": "Galeri Pilihan",
+      "subtitle": "Visual yang berkesan",
+      "image": "/clients/isa/isa-gaya-profesional.webp"
+    },
+    {
+      "target": "skills",
+      "title": "Bidang Minat",
+      "subtitle": "Herbal, jasa, dan digital",
+      "image": "/clients/isa/isaponti99-logo.webp"
+    },
+    {
+      "target": "moments",
+      "title": "Sorotan Profil",
+      "subtitle": "Hal yang ingin dibagikan",
+      "image": "/clients/isa/isa-islami.webp"
+    }
+  ],
+  "pickCards": [
+    {
+      "label": "PERSONAL BRAND",
+      "title": "Kenal Lebih Dekat",
+      "detail": "Mengenal sosok Isa Anshori dari Pontianak.",
+      "image": "/clients/isa/isa-blue-portrait.webp",
+      "palette": {
+        "from": "#07336c",
+        "via": "#175ca8",
+        "to": "#040d20",
+        "accent": "#7dc6ff"
+      }
+    },
+    {
+      "label": "BUDAYA MELAYU",
+      "title": "Akar & Identitas",
+      "detail": "Potret Melayu yang hangat dan berkarakter.",
+      "image": "/clients/isa/isa-melayu-hero.webp",
+      "palette": {
+        "from": "#201207",
+        "via": "#815323",
+        "to": "#080605",
+        "accent": "#e8ba6b"
+      }
+    },
+    {
+      "label": "IDENTITAS BRAND",
+      "title": "IsaPonti99",
+      "detail": "Herbal, jasa, dan digital dalam satu identitas.",
+      "image": "/clients/isa/isaponti99-logo.webp",
+      "palette": {
+        "from": "#102615",
+        "via": "#326c36",
+        "to": "#071107",
+        "accent": "#b4d476"
+      }
+    },
+    {
+      "label": "PRODUK HERBAL",
+      "title": "Seribu Rempah",
+      "detail": "Materi produk minuman berbahan rempah.",
+      "image": "/clients/isa/seribu-rempah.webp",
+      "palette": {
+        "from": "#3c1307",
+        "via": "#bf5117",
+        "to": "#1b0d06",
+        "accent": "#ffbb67"
+      }
+    },
+    {
+      "label": "GALERI PERSONAL",
+      "title": "Visual Bernuansa Islami",
+      "detail": "Karya visual kreatif dengan suasana spiritual.",
+      "image": "/clients/isa/isa-islami.webp",
+      "palette": {
+        "from": "#192a35",
+        "via": "#4f777b",
+        "to": "#101115",
+        "accent": "#c3e4d6"
+      }
+    }
+  ],
+  "picksHeading": "Sisi Isa yang Ingin Dibagikan",
+  "picksKicker": "GALERI PILIHAN • PROFIL PERSONAL",
+  "seasons": [
+    {
+      "number": 1,
+      "title": "Mengenal Isa",
+      "period": "Profil Personal",
+      "synopsis": "Sosok Isa Anshori, S.Hut, dengan akar di Pontianak dan minat pada herbal, jasa, serta digital.",
+      "episodes": [
+        {
+          "code": "S01 E01",
+          "title": "Salam dari Pontianak",
+          "description": "Perkenalan Isa Anshori, S.Hut, dan identitas personal yang ingin dibagikan.",
+          "tags": ["Profil", "Pontianak"],
+          "runtime": "Perkenalan",
+          "image": "/clients/isa/isa-blue-portrait.webp",
+          "palette": { "from": "#07336c", "via": "#175ca8", "to": "#040d20", "accent": "#7dc6ff" }
+        },
+        {
+          "code": "S01 E02",
+          "title": "Sisi Budaya Melayu",
+          "description": "Potret Isa dalam busana Melayu, salah satu visual yang disertakan dalam profil.",
+          "tags": ["Budaya", "Identitas"],
+          "runtime": "Galeri",
+          "image": "/clients/isa/isa-melayu-hero.webp",
+          "palette": { "from": "#201207", "via": "#815323", "to": "#080605", "accent": "#e8ba6b" }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Herbal, Jasa & Digital",
+      "period": "Brand dan Produk",
+      "synopsis": "Mengenal identitas IsaPonti99 dan materi promosi minuman rempah.",
+      "episodes": [
+        {
+          "code": "S02 E01",
+          "title": "Identitas IsaPonti99",
+          "description": "Brand yang mempertemukan tema herbal, jasa, dan digital serta semangat untuk tumbuh dan berkarya.",
+          "tags": ["Brand", "Digital"],
+          "runtime": "Identitas",
+          "image": "/clients/isa/isaponti99-logo.webp",
+          "palette": { "from": "#102615", "via": "#326c36", "to": "#071107", "accent": "#b4d476" }
+        },
+        {
+          "code": "S02 E02",
+          "title": "Cerita Seribu Rempah",
+          "description": "Materi produk minuman rempah dengan informasi komposisi dan pilihan kategori pembelian.",
+          "tags": ["Herbal", "Produk"],
+          "runtime": "Produk",
+          "image": "/clients/isa/seribu-rempah.webp",
+          "palette": { "from": "#3c1307", "via": "#bf5117", "to": "#1b0d06", "accent": "#ffbb67" }
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Dokumentasi & Jejaring",
+      "period": "Ruang Komunitas",
+      "synopsis": "Materi identitas organisasi dan galeri visual yang turut dibagikan bersama profil.",
+      "episodes": [
+        {
+          "code": "S03 E01",
+          "title": "KUDA EMAS",
+          "description": "Logo Kelompok Usaha Dagang Ekonomi Masyarakat yang dilampirkan. Keterangan keterlibatan personal belum dicantumkan.",
+          "tags": ["Organisasi", "Dokumentasi"],
+          "runtime": "Identitas Visual",
+          "image": "/clients/isa/kuda-emas-logo.webp",
+          "palette": { "from": "#342301", "via": "#82610c", "to": "#120d03", "accent": "#f4d164" }
+        },
+        {
+          "code": "S03 E02",
+          "title": "Masjid Irsyadul Iman",
+          "description": "Logo DKM Masjid Irsyadul Iman, Pontianak, yang dilampirkan sebagai materi profil.",
+          "tags": ["Masjid", "Pontianak"],
+          "runtime": "Identitas Visual",
+          "image": "/clients/isa/dkm-irsyadul-iman-logo.webp",
+          "palette": { "from": "#0f240c", "via": "#3d7826", "to": "#061007", "accent": "#a0d781" }
+        },
+        {
+          "code": "S03 E03",
+          "title": "Karya Visual Personal",
+          "description": "Potret kreatif bernuansa Islami; bukan dokumentasi kunjungan atau perjalanan ibadah.",
+          "tags": ["Galeri", "Visual"],
+          "runtime": "Karya Visual",
+          "image": "/clients/isa/isa-islami.webp",
+          "palette": { "from": "#192a35", "via": "#4f777b", "to": "#101115", "accent": "#c3e4d6" }
+        }
+      ]
+    }
+  ],
+  "journeyHeading": "Episode tentang Isa",
+  "journeyAside": "Perjalanan tematik dari identitas personal, karya, hingga galeri visual. Riwayat jabatan, tahun pengalaman, dan capaian dapat dilengkapi ketika data pendukung tersedia.",
+  "journeyKicker": "PERJALANAN • ISAPONTI99",
+  "templateId": "original",
+  "identityMode": "photo"
+}
