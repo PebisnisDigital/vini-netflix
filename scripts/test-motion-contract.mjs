@@ -209,3 +209,20 @@ test('MINIMALIST memiliki gerak foto tenang, indeks karya interaktif dan fitur O
   assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
   assert.doesNotMatch(hero, /PauseAnimation|AnimationControl|toggleMotion/);
 });
+
+test('FUTURISTIC NEON menggerakkan HUD, foto, orbit dan karya tanpa kontrol manual', () => {
+  const app = read('src/App.tsx');
+  const hero = read('src/components/FuturisticNeonHero.tsx');
+  const css = read('src/components/futuristic-neon.css');
+  assert.match(app, /<FuturisticNeonHero\s+key=/);
+  for (const original of ['<ContinueWatching', '<Scene', '<FinalCTA']) assert.ok(app.includes(original));
+  for (const field of ['portrait', 'name', 'role', 'tagline', 'bio']) assert.match(hero, new RegExp(`data-studio-edit="${field}"`));
+  assert.match(hero, /onOpenProject\(project\)/);
+  assert.match(hero, /onClick=\{onPlay\}/);
+  assert.match(hero, /bukan foto asli/i);
+  for (const animation of ['neon-camera-breathe', 'neon-scan-sweep', 'neon-orbit-turn', 'neon-project-drift', 'neon-atmosphere-drift']) {
+    assert.match(css, new RegExp(`animation:\\s*${animation}[^;]*infinite`));
+  }
+  assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
+  assert.doesNotMatch(hero, /PauseAnimation|AnimationControl|toggleMotion/);
+});

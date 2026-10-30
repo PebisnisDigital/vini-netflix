@@ -59,6 +59,7 @@ export const PIXEL_THEME: ClientTheme = { accent: '#69e8d8', background: '#10162
 export const MINIATURE_THEME: ClientTheme = { accent: '#95d9c2', background: '#102b35' };
 export const DOCUMENTARY_THEME: ClientTheme = { accent: '#d6aa6c', background: '#111516' };
 export const MINIMALIST_THEME: ClientTheme = { accent: '#365c4d', background: '#f6f6f3' };
+export const FUTURISTIC_THEME: ClientTheme = { accent: '#4bdcf2', background: '#080b1a' };
 
 /** Preset visual mengikuti gaya. Warna pilihan klien tetap lebih tinggi prioritasnya. */
 export function effectiveTheme(data: { theme?: ClientTheme; templateId?: TemplateId; designVariant?: 'chibi-cinema' }): ClientTheme {
@@ -75,6 +76,7 @@ export function effectiveTheme(data: { theme?: ClientTheme; templateId?: Templat
   const miniature = data.templateId === 'miniature-world';
   const documentary = data.templateId === 'documentary';
   const minimalist = data.templateId === 'minimalist';
+  const futuristic = data.templateId === 'futuristic-neon';
   const defaultOriginal = data.theme?.accent.toLowerCase() === DEFAULT_THEME.accent && data.theme?.background.toLowerCase() === DEFAULT_THEME.background;
   if (chibi && (!data.theme || defaultOriginal)) return CHIBI_THEME;
   if (anime && (!data.theme || defaultOriginal)) return ANIME_THEME;
@@ -89,6 +91,7 @@ export function effectiveTheme(data: { theme?: ClientTheme; templateId?: Templat
   if (miniature && (!data.theme || defaultOriginal)) return MINIATURE_THEME;
   if (documentary && (!data.theme || defaultOriginal)) return DOCUMENTARY_THEME;
   if (minimalist && (!data.theme || defaultOriginal)) return MINIMALIST_THEME;
+  if (futuristic && (!data.theme || defaultOriginal)) return FUTURISTIC_THEME;
   return data.theme || DEFAULT_THEME;
 }
 

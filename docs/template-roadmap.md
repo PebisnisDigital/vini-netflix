@@ -8,13 +8,13 @@
 - Teks, bukti pengalaman, dan CTA tetap jelas bagi audiens Indonesia, termasuk pembaca mobile usia lanjut.
 - Bila pengguna memilih reduced motion, animasi dekoratif harus berhenti.
 
-## Status Tahap 14 — MINIMALIST ikut aktif
+## Status Tahap 15 — FUTURISTIC NEON ikut aktif
 
 Katalog lengkap tersedia di `src/data/templateCatalog.mjs`. Studio menampilkan 16 gaya dan tiga mode identitas berikut statusnya.
 
 | Status | Makna dan tindakan |
 | --- | --- |
-| `available` | Renderer siap untuk klien baru; tombol Gunakan aktif. Saat ini ORIGINAL, CHIBI 3D, ANIME, CLAY 3D, KOMIK POP, EDITORIAL PREMIUM, DOODLE, STORYBOOK, SCRAPBOOK, PAPER CUT, PIXEL RETRO, MINIATURE WORLD, DOCUMENTARY, dan MINIMALIST. |
+| `available` | Renderer siap untuk klien baru; tombol Gunakan aktif. Saat ini ORIGINAL, CHIBI 3D, ANIME, CLAY 3D, KOMIK POP, EDITORIAL PREMIUM, DOODLE, STORYBOOK, SCRAPBOOK, PAPER CUT, PIXEL RETRO, MINIATURE WORLD, DOCUMENTARY, MINIMALIST, dan FUTURISTIC NEON. |
 | `demo` | Contoh klien ada, tetapi renderer belum aman dipakai secara umum; tombol Lihat Demo saja. |
 | `planned` | Konsep gaya tercatat; belum ada tombol Gunakan maupun preview palsu. |
 
@@ -46,7 +46,9 @@ DOCUMENTARY memakai `DocumentaryHero`: komposisi seperti opening film dokumenter
 
 MINIMALIST memakai `MinimalistHero`: halaman terang tanpa dekorasi berlebihan, nama besar Manrope, role jelas, bio yang bisa dibaca cepat, foto berbingkai tipis, bidang kerja, metrik faktual dari jumlah proyek dan peran, serta daftar karya bernomor yang membuka modal asli. Foto bergerak sangat halus otomatis dan penanda bidang berdenyut pelan. Section lanjutan menggunakan palet ivory–hijau gelap, dengan foto/kartu tetap memiliki kontras. Demo `/vini15` memakai satu foto konsep AI baru dan tiga potongan visual konsep proyek dari aset demo terdahulu yang disimpan ulang dalam folder vini15; **figur fiksi, bukan foto asli atau bukti kegiatan Teh Vini**. Klien baru tidak menyalin aset demo, foto harus diunggah sendiri dan dimiliki secara sah. Reduced motion dihormati.
 
-Halaman `/vini2` sampai `/vini15` yang sudah menggunakan variasi khusus tetap berjalan menggunakan konfigurasi masing-masing; tidak dimigrasikan otomatis ke katalog baru.
+FUTURISTIC NEON memakai `FuturisticNeonHero`: komposisi personal-technology studio gelap dengan tipografi Manrope besar dan terbaca, layar HUD untuk label fungsi, bingkai cahaya cyan–ungu, orbit holografik, sapuan scan, napas kamera, dan tiga kartu karya interaktif yang bergerak otomatis. Jumlah proyek dan pengalaman berasal dari data aktual, bukan angka dibuat-buat. Modal karya, section, kontak, navigasi, dan fungsi editor ORIGINAL dipertahankan. Demo `/vini16` memakai konsep foto AI tentang perempuan berhijab fiksi di studio masa depan serta tiga visual proyek konsep yang diisolasi ke folder `/clients/vini16`. **Bukan foto asli atau bukti prestasi Teh Vini.** Klien baru memperoleh placeholder sampai mengunggah foto dan dokumentasi berizin sendiri. Reduced motion mematikan animasi dekoratif.
+
+Halaman `/vini2` sampai `/vini16` yang sudah menggunakan variasi khusus tetap berjalan menggunakan konfigurasi masing-masing; tidak dimigrasikan otomatis ke katalog baru.
 
 ## Model data bertahap
 
