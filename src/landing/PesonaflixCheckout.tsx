@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState, type FormEvent } from 'react';
-import { ArrowLeft, ArrowRight, BadgeCheck, CheckCircle2, LoaderCircle, LockKeyhole, RefreshCw } from 'lucide-react';
+import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
+import { ArrowLeft, ArrowRight, BadgeCheck, CheckCircle2, LoaderCircle, LockKeyhole, RefreshCw, X } from 'lucide-react';
 import { templateCatalog } from '../data/templateCatalog.mjs';
 import './checkout.css';
 
@@ -85,7 +85,7 @@ function Header() {
   </header>;
 }
 
-export function CheckoutPage() {
+export function CheckoutPage({ embedded = false }: { embedded?: boolean }) {
   const [offer, setOffer] = useState<Offer | null>(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
@@ -135,9 +135,9 @@ export function CheckoutPage() {
     } finally { setCreating(false); }
   }
 
-  return <div className="pf-checkout-page">
-    <Header />
-    <main className="pf-checkout-main">
+  return <div className={'pf-checkout-page' + (embedded ? ' pf-checkout-embedded' : '')}>
+    {!embedded && <Header />}
+    <main className={'pf-checkout-main' + (embedded ? ' pf-checkout-modal-main' : '')}>
       <div className="pf-checkout-heading"><span>WEBSITE PERSONAL BRANDING</span><h1>Pesan Website <em>Personalmu.</em></h1>
         <p>Pilih gaya, lakukan pembayaran, lalu ceritakan tentang dirimu. Tim PESONAFLIX yang menyiapkan websitenya.</p>
       </div>
@@ -202,6 +202,24 @@ export function CheckoutPage() {
       </div>}
     </main>
   </div>;
+}
+
+export function CheckoutModal({ onClose }: { onClose: () => void }) {
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+    dialog.showModal();
+    return () => { if (dialog.open) dialog.close(); };
+  }, []);
+
+  return <dialog ref={dialogRef} className="pf-checkout-modal" aria-label="Formulir checkout PESONAFLIX"
+    onClose={onClose} onClick={event => { if (event.target === event.currentTarget) event.currentTarget.close(); }}>
+    <button className="pf-checkout-modal-close" type="button" aria-label="Tutup checkout"
+      onClick={() => dialogRef.current?.close()}><X size={21} /></button>
+    <CheckoutPage embedded />
+  </dialog>;
 }
 
 export function BriefPage() {

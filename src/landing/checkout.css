@@ -1,4 +1,17 @@
 .pf-checkout-page{min-height:100vh;background:radial-gradient(circle at 90% -10%,#3a1125 0%,transparent 32%),#08090e;color:#f8f6f6;font-family:Inter,Arial,sans-serif}
+.pf-checkout-modal{width:min(960px,calc(100vw - 26px));max-width:960px;max-height:92dvh;margin:auto;padding:0;border:1px solid #ffffff38;border-radius:22px;background:#08090e;color:#f8f6f6;box-shadow:0 35px 110px #000c;overflow:auto;overscroll-behavior:contain}
+.pf-checkout-modal::backdrop{background:rgba(3,3,7,.84);backdrop-filter:blur(9px)}
+.pf-checkout-modal-close{position:sticky;top:13px;z-index:4;display:flex;align-items:center;justify-content:center;width:42px;height:42px;margin:13px 13px -55px auto;border:1px solid #ffffff38;border-radius:50%;background:#22232e;color:white;cursor:pointer}
+.pf-checkout-modal-close:hover{background:#f34270}
+.pf-checkout-modal-close:focus-visible{outline:3px solid #ff719b;outline-offset:2px}
+.pf-checkout-embedded{min-height:0}
+.pf-checkout-modal-main{padding:40px 28px 38px}
+.pf-checkout-modal-main .pf-checkout-heading{max-width:660px;margin-bottom:25px;padding-right:45px}
+.pf-checkout-modal-main .pf-checkout-heading h1{font-size:clamp(31px,4.8vw,48px);margin:9px 0}
+.pf-checkout-modal-main .pf-checkout-heading p{font-size:13px;line-height:1.6}
+.pf-checkout-modal-main .pf-checkout-grid{grid-template-columns:minmax(0,1.25fr) minmax(270px,.85fr);gap:15px}
+.pf-checkout-modal-main .pf-checkout-card{padding:24px}
+.pf-checkout-modal-main .pf-summary{position:static}
 .pf-checkout-header{min-height:76px;border-bottom:1px solid #ffffff15;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px max(22px,calc((100vw - 1120px)/2))}
 .pf-checkout-header>a{display:flex;align-items:center;gap:8px;font-size:13px;color:#ddd;text-decoration:none}
 .pf-checkout-header>span{font-size:23px;font-weight:950;letter-spacing:-.08em}
@@ -50,3 +63,5 @@
 .pf-brief-actions button:disabled{opacity:.45}
 @media(max-width:800px){.pf-checkout-grid{grid-template-columns:1fr}.pf-summary{position:static}.pf-checkout-main{padding-top:36px}.pf-checkout-header{padding:16px 20px}.pf-checkout-header>small{display:none}}
 @media(max-width:500px){.pf-checkout-card{padding:22px 19px;border-radius:18px}.pf-brief-actions{grid-template-columns:1fr}.pf-checkout-heading h1{font-size:41px}.pf-checkout-heading p{font-size:14px}}
+@media(max-width:800px){.pf-checkout-modal-main .pf-checkout-grid{grid-template-columns:1fr}.pf-checkout-modal-main .pf-checkout-heading p{font-size:13px}}
+@media(max-width:500px){.pf-checkout-modal{width:calc(100vw - 12px);max-height:96dvh;border-radius:15px}.pf-checkout-modal-main{padding:48px 13px 18px}.pf-checkout-modal-main .pf-checkout-card{padding:20px 16px}.pf-checkout-modal-main .pf-checkout-heading{padding-right:0;margin-bottom:18px}.pf-checkout-modal-main .pf-checkout-heading h1{font-size:32px}}
