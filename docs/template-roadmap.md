@@ -8,13 +8,13 @@
 - Teks, bukti pengalaman, dan CTA tetap jelas bagi audiens Indonesia, termasuk pembaca mobile usia lanjut.
 - Bila pengguna memilih reduced motion, animasi dekoratif harus berhenti.
 
-## Status Tahap 11 — PIXEL RETRO ikut aktif
+## Status Tahap 12 — MINIATURE WORLD ikut aktif
 
 Katalog lengkap tersedia di `src/data/templateCatalog.mjs`. Studio menampilkan 16 gaya dan tiga mode identitas berikut statusnya.
 
 | Status | Makna dan tindakan |
 | --- | --- |
-| `available` | Renderer siap untuk klien baru; tombol Gunakan aktif. Saat ini ORIGINAL, CHIBI 3D, ANIME, CLAY 3D, KOMIK POP, EDITORIAL PREMIUM, DOODLE, STORYBOOK, SCRAPBOOK, PAPER CUT, dan PIXEL RETRO. |
+| `available` | Renderer siap untuk klien baru; tombol Gunakan aktif. Saat ini ORIGINAL, CHIBI 3D, ANIME, CLAY 3D, KOMIK POP, EDITORIAL PREMIUM, DOODLE, STORYBOOK, SCRAPBOOK, PAPER CUT, PIXEL RETRO, dan MINIATURE WORLD. |
 | `demo` | Contoh klien ada, tetapi renderer belum aman dipakai secara umum; tombol Lihat Demo saja. |
 | `planned` | Konsep gaya tercatat; belum ada tombol Gunakan maupun preview palsu. |
 
@@ -40,7 +40,9 @@ PAPER CUT memakai `PaperCutHero`, panggung diorama dari cardstock bertingkat, le
 
 PIXEL RETRO memakai `PixelRetroHero`: panggung karakter game 16-bit dengan HUD level, font Press Start 2P, warna midnight navy–mint–lavender–emas, bingkai layar arcade, indikator HP, koin, bintang berkedip dan kartu karya berupa quest. Kamera karakter bergerak dengan keyframe bertahap otomatis, tanpa kontrol manual. Semua section/rail, animasi scroll, popup karya, pembukaan dan CTA tetap diwarisi dari ORIGINAL. Demo `/vini12` memakai tiga ilustrasi pixel art buatan AI yang menggambarkan **karakter fiksi, bukan potret asli Teh Vini**. Foto klien baru akan menjadi placeholder sampai diunggah melalui Studio, tidak mengambil gambar demo dan tidak ada konversi AI otomatis. Gerak dekoratif menghormati reduced motion.
 
-Halaman `/vini2` sampai `/vini12` yang sudah menggunakan variasi khusus tetap berjalan menggunakan konfigurasi masing-masing; tidak dimigrasikan otomatis ke katalog baru.
+MINIATURE WORLD memakai `MiniatureWorldHero`: dunia profesi disajikan sebagai model koleksi skala mungil dari kayu, resin dan lampu kecil—bukan stop-motion clay atau potongan kertas. Hero menggunakan tipografi editorial DM Serif Display, mint–amber–deep teal, orbit diorama, cahaya hangat, pulau mini mengambang serta foto makro yang bergerak otomatis; kartu karya seperti koleksi model mini. Semua section, rail, animasi scroll, modal karya dan CTA asli tetap ada. Demo `/vini13` menggunakan tiga ilustrasi diorama buatan AI dengan **figur fiksi, bukan foto asli Teh Vini**. Draft klien baru hanya menampilkan placeholder foto sampai gambar milik klien diunggah via Studio; template tidak otomatis menghasilkan diorama AI. Reduced motion dihormati.
+
+Halaman `/vini2` sampai `/vini13` yang sudah menggunakan variasi khusus tetap berjalan menggunakan konfigurasi masing-masing; tidak dimigrasikan otomatis ke katalog baru.
 
 ## Model data bertahap
 
@@ -64,6 +66,6 @@ Field baru opsional agar JSON klien lama tetap valid. Draft baru menggunakan ORI
 
 ## Tahap berikutnya
 
-1. Selesaikan MINIATURE WORLD, lalu gaya berikutnya.
+1. Selesaikan DOCUMENTARY, lalu gaya berikutnya.
 2. Implementasikan pipeline foto/karakter untuk Avatar AI dan FACELESS, dengan persetujuan aset dan fallback.
 3. Produksi gaya tambahan sesuai urutan permintaan klien. Jangan aktifkan seluruh 16 sekaligus sebelum teruji.

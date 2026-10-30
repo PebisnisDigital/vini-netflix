@@ -154,3 +154,21 @@ test('PIXEL RETRO menganimasikan dunia game tanpa kontrol dan tetap memakai sect
   assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
   assert.doesNotMatch(hero, /AnimationControl|toggleMotion|PauseAnimation/);
 });
+
+test('MINIATURE WORLD menggerakkan diorama, orbit dan kamera tanpa mematikan section ORIGINAL', () => {
+  const app = read('src/App.tsx');
+  const hero = read('src/components/MiniatureWorldHero.tsx');
+  const css = read('src/components/miniature-world.css');
+  assert.match(app, /<MiniatureWorldHero\s+key=/);
+  assert.match(app, /<ContinueWatching\s+order=/);
+  assert.match(app, /<Scene\s+key=/);
+  assert.match(app, /<FinalCTA\s+onReplay=/);
+  for (const field of ['portrait', 'name', 'role', 'tagline', 'bio']) assert.match(hero, new RegExp(`data-studio-edit="${field}"`));
+  assert.match(hero, /initial=\{\{ opacity: 0/);
+  assert.match(css, /animation:\s*miniature-island-bob[^;]*infinite/);
+  assert.match(css, /animation:\s*miniature-camera-drift[^;]*infinite/);
+  assert.match(css, /animation:\s*miniature-orbit-turn[^;]*infinite/);
+  assert.match(css, /animation:\s*miniature-project-pan[^;]*infinite/);
+  assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
+  assert.doesNotMatch(hero, /AnimationControl|toggleMotion|PauseAnimation/);
+});

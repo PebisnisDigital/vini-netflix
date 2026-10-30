@@ -17,6 +17,7 @@ Master portofolio bergaya platform streaming untuk beberapa klien dengan brand *
 | `/vini10` | Demo gaya Scrapbook: kolase polaroid analog, memo dan stiker bergerak, serta jurnal kreatif |
 | `/vini11` | Demo gaya Paper Cut: diorama kertas berlapis, lengkungan pastel dan gerakan panggung otomatis |
 | `/vini12` | Demo gaya Pixel Retro: arcade 16-bit, character select, animasi bintang serta kartu quest karya |
+| `/vini13` | Demo gaya Miniature World: pulau diorama mini 3D, orbit kamera makro, panggung dan kartu karya bergerak |
 | `/formulir` | Alamat lama, otomatis mengarah ke `/studio?tab=formulir` |
 | `/studio` | CMS editor seperti Blogger: buat/edit konten dan foto, simpan draft, preview |
 | `/studio?tab=formulir` | Formulir klien, langsung dipindah ke draft CMS tanpa mengetik ulang |
@@ -27,7 +28,7 @@ Master portofolio bergaya platform streaming untuk beberapa klien dengan brand *
 
 **CMS Studio:** [Alur editorial, GitHub OAuth, dan penerbitan aman](docs/CMS-STUDIO.md).
 
-**Katalog TEMPLATE Studio:** Saat mengedit klien, buka tab **TEMPLATE · 16 Gaya**. ORIGINAL, CHIBI 3D, ANIME, CLAY 3D, KOMIK POP, EDITORIAL PREMIUM, DOODLE, STORYBOOK, SCRAPBOOK, PAPER CUT dan PIXEL RETRO siap diterapkan ke klien baru. Gaya lain dan mode Avatar AI/FACELESS belum aktif. Untuk gaya ilustrasi, unggah sendiri karakter dan poster klien lewat Editor Website; sistem belum mengubah foto menjadi ilustrasi secara otomatis. Pilihan gaya mengatur tata letak, font, warna latar, dan motion tanpa menyalin identitas/foto dari demo klien lain. Animasi dan section master ORIGINAL tetap aktif pada setiap varian. Aset demo EDITORIAL PREMIUM, DOODLE, STORYBOOK, SCRAPBOOK, PAPER CUT dan PIXEL RETRO merupakan representasi AI, bukan foto nyata Teh Vini. Lihat [roadmap template](docs/template-roadmap.md).
+**Katalog TEMPLATE Studio:** Saat mengedit klien, buka tab **TEMPLATE · 16 Gaya**. ORIGINAL, CHIBI 3D, ANIME, CLAY 3D, KOMIK POP, EDITORIAL PREMIUM, DOODLE, STORYBOOK, SCRAPBOOK, PAPER CUT, PIXEL RETRO dan MINIATURE WORLD siap diterapkan ke klien baru. Gaya lain dan mode Avatar AI/FACELESS belum aktif. Untuk gaya ilustrasi, unggah sendiri karakter dan poster klien lewat Editor Website; sistem belum mengubah foto menjadi ilustrasi secara otomatis. Pilihan gaya mengatur tata letak, font, warna latar, dan motion tanpa menyalin identitas/foto dari demo klien lain. Animasi dan section master ORIGINAL tetap aktif pada setiap varian. Aset demo EDITORIAL PREMIUM, DOODLE, STORYBOOK, SCRAPBOOK, PAPER CUT, PIXEL RETRO dan MINIATURE WORLD merupakan representasi AI, bukan foto nyata Teh Vini. Lihat [roadmap template](docs/template-roadmap.md).
 
 ## Membuat portofolio klien baru
 
