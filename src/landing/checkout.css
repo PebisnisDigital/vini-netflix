@@ -1,5 +1,5 @@
 .pf-checkout-page{min-height:100vh;background:radial-gradient(circle at 90% -10%,#3a1125 0%,transparent 32%),#08090e;color:#f8f6f6;font-family:Inter,Arial,sans-serif}
-.pf-checkout-modal{width:min(960px,calc(100vw - 26px));max-width:960px;max-height:92dvh;margin:auto;padding:0;border:1px solid #ffffff38;border-radius:22px;background:#08090e;color:#f8f6f6;box-shadow:0 35px 110px #000c;overflow:auto;overscroll-behavior:contain}
+.pf-checkout-modal{width:min(960px,calc(100vw - 26px));max-width:960px;max-height:92dvh;margin:auto;padding:0;border:1px solid #ffffff38;border-radius:22px;background:#08090e;color:#f8f6f6;box-shadow:0 35px 110px #000c;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain}
 .pf-checkout-modal::backdrop{background:rgba(3,3,7,.84);backdrop-filter:blur(9px)}
 .pf-checkout-modal-close{position:sticky;top:13px;z-index:4;display:flex;align-items:center;justify-content:center;width:42px;height:42px;margin:13px 13px -55px auto;border:1px solid #ffffff38;border-radius:50%;background:#22232e;color:white;cursor:pointer}
 .pf-checkout-modal-close:hover{background:#f34270}
@@ -10,7 +10,10 @@
 .pf-checkout-modal-main .pf-checkout-heading h1{font-size:clamp(31px,4.8vw,48px);margin:9px 0}
 .pf-checkout-modal-main .pf-checkout-heading p{font-size:13px;line-height:1.6}
 .pf-checkout-modal-main .pf-checkout-grid{grid-template-columns:minmax(0,1.25fr) minmax(270px,.85fr);gap:15px}
-.pf-checkout-modal-main .pf-checkout-card{padding:24px}
+.pf-checkout-modal-main .pf-checkout-card{padding:24px;min-width:0}
+.lp-page .pf-checkout-modal-main .pf-checkout-card h2{font-size:23px;line-height:1.2;font-weight:800;letter-spacing:-.035em;overflow-wrap:anywhere}
+.lp-page .pf-checkout-modal-main .pf-summary h2{font-size:25px}
+.lp-page .pf-checkout-modal-main .pf-primary{font-size:15px;font-weight:850}
 .pf-checkout-modal-main .pf-summary{position:static}
 .pf-checkout-header{min-height:76px;border-bottom:1px solid #ffffff15;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px max(22px,calc((100vw - 1120px)/2))}
 .pf-checkout-header>a{display:flex;align-items:center;gap:8px;font-size:13px;color:#ddd;text-decoration:none}

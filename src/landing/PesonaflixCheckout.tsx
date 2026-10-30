@@ -39,11 +39,16 @@ const formatMoney = (value: number | null | undefined) =>
 export async function commerce<T>(action: string, init: RequestInit = {}, token?: string): Promise<T> {
   const params = new URLSearchParams({ action });
   if (token) params.set('token', token);
-  const res = await fetch(ENDPOINT + '?' + params, {
-    cache: 'no-store',
-    ...init,
-    headers: { apikey: PUBLIC_KEY, 'Content-Type': 'application/json', ...(init.headers || {}) }
-  });
+  let res: Response;
+  try {
+    res = await fetch(ENDPOINT + '?' + params, {
+      cache: 'no-store',
+      ...init,
+      headers: { apikey: PUBLIC_KEY, 'Content-Type': 'application/json', ...(init.headers || {}) }
+    });
+  } catch {
+    throw new Error('Layanan checkout belum dapat dihubungi. Silakan coba lagi nanti.');
+  }
   const body = await res.json().catch(() => ({}));
   if (!res.ok) throw new Error(body.error || 'Koneksi belum berhasil. Coba lagi.');
   return body as T;
