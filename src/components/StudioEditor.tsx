@@ -190,6 +190,66 @@ export default function StudioEditor() {
       const last = sessionStorage.getItem('personalflix-last-draft');
       const recent = local.find((d) => d.slug === last);
       if (recent) { setActive(recent); setPr(readPending(recent.slug)); setAliasPr(readAliasPending(recent.slug)); }
+      const orderToken = new URLSearchParams(location.search).get('order');
+      if (orderToken) {
+        void (async () => {
+          try {
+            if (!/^[0-9a-f-]{36}$/i.test(orderToken)) throw new Error('Tautan pesanan tidak valid.');
+            const endpoint = (import.meta.env.VITE_PESONAFLIX_API_URL ||
+              'https://tlvxlekqrllkvcpgwmic.supabase.co/functions/v1/pesonaflix-public');
+            const apiKey = import.meta.env.VITE_PESONAFLIX_ANON_KEY ||
+              'sb_publishable_CttQA-59OaKmYm2GnzB_Hw_eHfVCv_R';
+            const response = await fetch(endpoint + '?action=brief&token=' + encodeURIComponent(orderToken), {
+              headers: { apikey: apiKey }, cache: 'no-store'
+            });
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.error || 'Brief belum tersedia.');
+            if (data.status !== 'submitted' && data.status !== 'approved') {
+              throw new Error('Pelanggan belum menyelesaikan formulir.');
+            }
+            const answer = data.brief as Record<string, string>;
+            const name = (answer.name || '').trim();
+            const slug = normalizeSlug(answer.preferred_slug || name);
+            if (!validClientSlug(slug)) throw new Error('Nama URL belum valid. Minta pelanggan memperbaiki datanya.');
+            if (local.some(d => d.slug === slug) || live.some(p => p.slug === slug || p.publicSlug === slug)) {
+              throw new Error('Link /' + slug + ' sudah ada. Buka draft yang tersedia atau pilih link lain.');
+            }
+            const template = canApplyTemplate(data.template_id) ? data.template_id : 'original';
+            const initial = createStudioStarterBrief(template);
+            const rows = (value: string) => String(value || '').split(/\n/).map(line => line.trim()).filter(Boolean);
+            const imported: ClientBrief = {
+              ...initial,
+              slug, name, role: answer.role || '', location: answer.location || '',
+              bio: answer.bio || '', tagline: rows(answer.headline), interests: rows(answer.services),
+              photo: { src: '', alt: 'Foto ' + name },
+              whatsapp: answer.whatsapp || '',
+              links: { website: answer.website || '', linkedin: '', github: '' },
+              experiences: [], education: [],
+              projects: rows(answer.portfolio).map((line) => ({
+                title: line.slice(0, 80), year: '', description: '', category: 'Portofolio',
+                tags: [], image: ''
+              })),
+              highlights: rows(answer.achievements).map(line => ({ title: line, description: '' })),
+              skills: rows(answer.services),
+              skillCategories: [], watchCards: [], pickCards: [], seasons: []
+            };
+            const draft: StudioDraft = {
+              slug, brief: imported, portrait: null, projectPhotos: {},
+              watchPhotos: {}, pickPhotos: {}, episodePhotos: {},
+              mode: 'create', updatedAt: Date.now()
+            };
+            await saveDraft(draft);
+            setActive(draft);
+            setWorkspaceTab('editor');
+            setDrafts((await listDrafts()).sort((a, b) => b.updatedAt - a.updatedAt));
+            sessionStorage.setItem('personalflix-last-draft', slug);
+            window.history.replaceState(null, '', '/studio');
+            setNotice('Data pelanggan berhasil diimpor. Lengkapi foto, kartu karya, dan pemeriksaan sebelum publish.');
+          } catch (error) {
+            setNotice(error instanceof Error ? error.message : 'Tidak dapat mengimpor pesanan.');
+          }
+        })();
+      }
     }).catch(() => setNotice('Tidak bisa membuka draft lokal. Coba browser biasa, bukan mode privat.'));
   }, []);
 

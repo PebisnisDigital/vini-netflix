@@ -401,7 +401,7 @@
   .lp-nav { display: none; position: absolute; top: 64px; left: 14px; right: 14px; background: #151216f7; border: 1px solid #ffffff32; border-radius: 8px; padding: 16px; flex-direction: column; align-items: stretch; gap: 0; box-shadow: 0 20px 50px #0008; }
   .lp-nav.is-open { display: flex; }
   .lp-nav a { font-size: 14px; min-height: 44px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #ffffff12; padding: 7px 5px; }
-  .lp-nav .lp-nav-mobile-cta { display: flex; color: #ff4867; }
+  .lp-nav .lp-nav-mobile-cta { display: flex; align-items: center; justify-content: space-between; width: 100%; border: 0; border-bottom: 1px solid #ffffff12; padding: 7px 5px; min-height: 44px; background: none; color: #ff4867; font-size: 14px; font-weight: 700; }
   .lp-hero { min-height: 820px; align-items: flex-end; }
   .lp-hero-background { background-position: 63% top; }
   .lp-hero::after { background: linear-gradient(to bottom, #08080b55 0%, #08080b0e 26%, #08080bcb 49%, #08080b 74%, #08080b 100%); }

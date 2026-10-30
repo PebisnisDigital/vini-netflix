@@ -1,6 +1,6 @@
 /** Link publik dapat diganti tanpa memindahkan data atau aset demo/klien. */
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
-const RESERVED = new Set(['vini', 'formulir', 'studio', 'admin', 'api', 'assets', 'demo', 'preview', 'index', 'favicon', 'robots', 'sitemap']);
+const RESERVED = new Set(['vini', 'formulir', 'studio', 'checkout', 'pesanan', 'admin', 'api', 'assets', 'demo', 'preview', 'index', 'favicon', 'robots', 'sitemap']);
 
 export function validClientSlug(value) {
   return typeof value === 'string' && value.length <= 60 && SLUG.test(value) && !RESERVED.has(value);
