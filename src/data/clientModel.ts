@@ -56,6 +56,7 @@ export const STORYBOOK_THEME: ClientTheme = { accent: '#d68e8b', background: '#2
 export const SCRAPBOOK_THEME: ClientTheme = { accent: '#e7848c', background: '#263e44' };
 export const PAPERCUT_THEME: ClientTheme = { accent: '#f3a9b7', background: '#213e4c' };
 export const PIXEL_THEME: ClientTheme = { accent: '#69e8d8', background: '#10162c' };
+export const MINIATURE_THEME: ClientTheme = { accent: '#95d9c2', background: '#102b35' };
 
 /** Preset visual mengikuti gaya. Warna pilihan klien tetap lebih tinggi prioritasnya. */
 export function effectiveTheme(data: { theme?: ClientTheme; templateId?: TemplateId; designVariant?: 'chibi-cinema' }): ClientTheme {
@@ -69,6 +70,7 @@ export function effectiveTheme(data: { theme?: ClientTheme; templateId?: Templat
   const scrapbook = data.templateId === 'scrapbook';
   const papercut = data.templateId === 'paper-cut';
   const pixel = data.templateId === 'pixel-retro';
+  const miniature = data.templateId === 'miniature-world';
   const defaultOriginal = data.theme?.accent.toLowerCase() === DEFAULT_THEME.accent && data.theme?.background.toLowerCase() === DEFAULT_THEME.background;
   if (chibi && (!data.theme || defaultOriginal)) return CHIBI_THEME;
   if (anime && (!data.theme || defaultOriginal)) return ANIME_THEME;
@@ -80,6 +82,7 @@ export function effectiveTheme(data: { theme?: ClientTheme; templateId?: Templat
   if (scrapbook && (!data.theme || defaultOriginal)) return SCRAPBOOK_THEME;
   if (papercut && (!data.theme || defaultOriginal)) return PAPERCUT_THEME;
   if (pixel && (!data.theme || defaultOriginal)) return PIXEL_THEME;
+  if (miniature && (!data.theme || defaultOriginal)) return MINIATURE_THEME;
   return data.theme || DEFAULT_THEME;
 }
 

@@ -1,0 +1,49 @@
+{
+  "slug": "vini13",
+  "name": "Teh Vini",
+  "role": "Kreator Website Personal & Mentor AI",
+  "location": "Bandung, Jawa Barat",
+  "whatsapp": "62881022445869",
+  "bio": "Saya Vini, ibu rumah tangga dari Bandung yang senang membuat hal-hal digital terasa dekat dan menyenangkan. Dari belajar AI untuk diri sendiri, saya mulai berbagi lewat kelas praktik dan komunitas BADAI. Sekarang saya juga membantu orang yang punya keahlian tetapi belum paham teknis website, agar cerita dan karya mereka tampil lebih meyakinkan.",
+  "tagline": ["DUNIA KECIL, IDE BESAR", "Setiap detail kecil bisa membuat orang lebih percaya.", "Belajar · Membuat · Membagikan"],
+  "interests": ["Website Personal", "Personal Branding", "AI untuk Pemula", "Kelas WhatsApp", "Desain Digital", "Komunitas Belajar"],
+  "photo": {
+    "src": "/clients/vini13/vini-miniature-hero.webp",
+    "alt": "Ilustrasi konsep diorama miniatur 3D buatan AI dengan karakter fiksi kreator berhijab; bukan foto asli Teh Vini"
+  },
+  "experiences": [
+    { "company": "BADAI — Belajar Apa Aja Dengan AI", "role": "Pengelola Komunitas Belajar", "period": "Sekarang", "description": "Menyediakan ruang latihan untuk pemula mencoba AI, belajar bersama dan menunjukkan hasil karya." },
+    { "company": "Pebisnis.Digital", "role": "Penggagas Edukasi Digital", "period": "Sekarang", "description": "Membagikan pengalaman membuat konten, mengelola WhatsApp dan mencoba peluang bisnis digital." },
+    { "company": "Website Personal Berkarakter", "role": "Kreator Website Personal", "period": "Sekarang", "description": "Membantu klien memperlihatkan keahlian dan karya melalui website personal yang lebih mudah dipahami calon pelanggan." }
+  ],
+  "projects": [
+    { "title": "BADAI: Ruang Belajar AI", "year": "KOMUNITAS", "description": "Tempat mencoba AI tanpa harus merasa paling jago. Dari praktik sederhana, peserta belajar membuat karya yang bisa dibagikan.", "category": "Komunitas & Edukasi", "tags": ["Belajar AI", "Komunitas", "Kreasi Digital"], "image": "/clients/vini13/vini-miniature-kelas.webp" },
+    { "title": "Website Personal Berkarakter", "year": "KREASI", "description": "Website yang menampilkan cerita, pengalaman, dan karya pemiliknya supaya pengunjung cepat paham keahlian yang mereka tawarkan.", "category": "Website & Personal Branding", "tags": ["Web Personal", "Branding", "Desain"], "image": "/clients/vini13/vini-miniature-studio.webp" },
+    { "title": "Kelas Bikin Game Edukasi", "year": "PELATIHAN", "description": "Kelas praktik lewat WhatsApp yang mengajak pemula membuat permainan belajar sederhana menggunakan bantuan AI.", "category": "Kelas & Pelatihan", "tags": ["Game Edukasi", "WhatsApp", "AI"], "image": "/clients/vini13/vini-miniature-kelas.webp" }
+  ],
+  "skills": ["Pembuatan Website Personal", "Personal Branding", "Mentoring AI Pemula", "Memandu Kelas WhatsApp", "Kreasi Konten Digital", "Pemasaran WhatsApp"],
+  "skillsHeading": "Keahlian di Balik Karya",
+  "skillsAside": "Setiap hasil yang terlihat sederhana punya proses, latihan, dan cerita di belakangnya.",
+  "skillsKicker": "DIBUAT DENGAN TELITI",
+  "highlights": [
+    { "title": "BADAI", "description": "Komunitas untuk berani belajar dan mempraktikkan AI.", "category": "RUANG BELAJAR" },
+    { "title": "Website Personal", "description": "Ruang digital agar keahlian klien lebih mudah dikenali.", "category": "KARYA DIGITAL" },
+    { "title": "Kelas Praktik", "description": "Belajar langsung membuat sesuatu, langkah demi langkah.", "category": "PENGALAMAN" }
+  ],
+  "watchCards": [
+    { "target": "about", "title": "Kenalan Dulu", "subtitle": "Di balik diorama", "image": "/clients/vini13/vini-miniature-hero.webp" },
+    { "target": "originals", "title": "Dunia Karya", "subtitle": "Yang saya bangun", "image": "/clients/vini13/vini-miniature-studio.webp" },
+    { "target": "journey", "title": "Perjalanan", "subtitle": "Mulai dari hal kecil", "image": "/clients/vini13/vini-miniature-kelas.webp" },
+    { "target": "skills", "title": "Keahlian", "subtitle": "Di balik setiap detail", "image": "/clients/vini13/vini-miniature-studio.webp" },
+    { "target": "picks", "title": "Cerita Pilihan", "subtitle": "Yang paling berkesan", "image": "/clients/vini13/vini-miniature-hero.webp" },
+    { "target": "moments", "title": "Momen", "subtitle": "Yang patut dirayakan", "image": "/clients/vini13/vini-miniature-kelas.webp" },
+    { "target": "story", "title": "Mari Terhubung", "subtitle": "Kita mulai cerita baru", "image": "/clients/vini13/vini-miniature-studio.webp" }
+  ],
+  "picksHeading": "Detail yang Jadi Cerita",
+  "picksKicker": "KURASI KARYA",
+  "journeyHeading": "Dari Kecil Jadi Berarti",
+  "journeyKicker": "SEMUA DIMULAI DARI MENCOBA",
+  "journeyAside": "Belajar sendiri, mengajar pemula, lalu membantu orang lain memperlihatkan keahliannya. Tidak instan, tapi terus bertumbuh.",
+  "templateId": "miniature-world",
+  "identityMode": "photo"
+}
