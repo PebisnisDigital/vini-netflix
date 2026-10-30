@@ -1,10 +1,11 @@
+import { useEffect, useRef, useState } from 'react';
 import { CheckCircle2, Clapperboard, ExternalLink, Image, LockKeyhole, Sparkles, UserRoundX } from 'lucide-react';
 import { canApplyIdentityMode, canApplyTemplate, identityModes, templateCatalog, type IdentityMode, type TemplateId } from '../data/templateCatalog.mjs';
 
 type Props = {
   selectedTemplateId: TemplateId;
   identityMode: IdentityMode;
-  onApplyTemplate: (id: TemplateId) => void;
+  onApplyTemplate: (id: TemplateId) => boolean;
   onApplyIdentity: (id: IdentityMode) => void;
   onEditWebsite: () => void;
 };
@@ -12,6 +13,41 @@ type Props = {
 /** Grid ringkas seluruh gaya Studio; mode identitas tetap terpisah. */
 export default function StudioTemplateGallery({ selectedTemplateId, identityMode, onApplyTemplate, onApplyIdentity, onEditWebsite }: Props) {
   const active = templateCatalog.find((item) => item.id === selectedTemplateId);
+  const [newlySelectedId, setNewlySelectedId] = useState<TemplateId | null>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const newlySelected = templateCatalog.find((item) => item.id === newlySelectedId);
+
+  useEffect(() => {
+    if (!newlySelectedId) return;
+    const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const buttons = dialogRef.current?.querySelectorAll<HTMLButtonElement>('button:not([disabled])');
+    buttons?.[buttons.length - 1]?.focus();
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        setNewlySelectedId(null);
+      }
+      if (event.key !== 'Tab' || !buttons?.length) return;
+      const first = buttons[0];
+      const last = buttons[buttons.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      previousFocus?.focus();
+    };
+  }, [newlySelectedId]);
+
+  const selectTemplate = (id: TemplateId) => {
+    if (onApplyTemplate(id)) setNewlySelectedId(id);
+  };
 
   return (
     <section aria-label="Katalog template PESONAFLIX" className="mx-auto max-w-[1280px] space-y-5 rounded-2xl border border-[#fd5579]/20 bg-[#121218] p-3 sm:p-5">
@@ -62,7 +98,7 @@ export default function StudioTemplateGallery({ selectedTemplateId, identityMode
                 <p className="line-clamp-2 min-h-[2.5em] text-[11px] leading-[1.3] text-white/60" title={item.description}>{item.description}</p>
                 <div className="mt-auto flex min-w-0 gap-1.5">
                   {available ? (
-                    <button type="button" disabled={applied} onClick={() => onApplyTemplate(item.id)} aria-pressed={applied} className={`min-h-9 min-w-0 flex-1 rounded-lg px-1.5 text-[11px] font-extrabold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff9eb6] ${applied ? 'cursor-default bg-[#ff6487]/15 text-[#ffadbf]' : 'bg-[#e72b57] text-white hover:bg-[#ff3867]'}`}>
+                    <button type="button" disabled={applied} onClick={() => selectTemplate(item.id)} aria-pressed={applied} className={`min-h-9 min-w-0 flex-1 rounded-lg px-1.5 text-[11px] font-extrabold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff9eb6] ${applied ? 'cursor-default bg-[#ff6487]/15 text-[#ffadbf]' : 'bg-[#e72b57] text-white hover:bg-[#ff3867]'}`}>
                       {applied ? 'Dipakai' : 'Pilih'}
                     </button>
                   ) : (
@@ -96,6 +132,24 @@ export default function StudioTemplateGallery({ selectedTemplateId, identityMode
       </div>
 
       <p className="rounded-lg border border-amber-400/15 bg-amber-300/5 px-3 py-2.5 text-[11px] leading-relaxed text-amber-100/75">Kartu menunjukkan palet gaya, bukan hasil akhir. Buka Demo untuk melihat gerakan aslinya. Berpindah gaya tidak menghapus data klien; gambar AI tidak dibuat otomatis.</p>
+
+      {newlySelected && (
+        <div className="fixed inset-0 z-[90] flex items-center justify-center bg-[#07070c]/80 px-4 py-6 backdrop-blur-md" onMouseDown={(event) => { if (event.target === event.currentTarget) setNewlySelectedId(null); }}>
+          <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="style-selected-title" aria-describedby="style-selected-description" className="w-full max-w-[420px] overflow-hidden rounded-2xl border border-[#ff7294]/35 bg-[#1b1822] shadow-[0_30px_100px_#000b]">
+            <div className="h-1.5" style={{ background: `linear-gradient(90deg, ${newlySelected.colors[1]}, ${newlySelected.colors[2]})` }} />
+            <div className="p-5 sm:p-6">
+              <span className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-400/10 text-emerald-300"><CheckCircle2 size={24} /></span>
+              <p className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-emerald-300">Gaya berhasil dipilih</p>
+              <h3 id="style-selected-title" className="mt-1.5 text-2xl font-black tracking-tight text-white">{newlySelected.name}</h3>
+              <p id="style-selected-description" className="mt-2 text-sm leading-relaxed text-white/65">Sekarang isi profil, ganti foto, dan atur karya klien lewat Web Editor. Desain serta gerakan mengikuti gaya ini.</p>
+              <div className="mt-5 flex flex-col-reverse gap-2 sm:flex-row">
+                <button type="button" onClick={() => setNewlySelectedId(null)} className="min-h-11 flex-1 rounded-xl border border-white/15 bg-white/[0.04] px-4 text-sm font-bold text-white/75 transition-colors hover:bg-white/10">Lihat Gaya Lain</button>
+                <button type="button" onClick={() => { setNewlySelectedId(null); onEditWebsite(); }} className="min-h-11 flex-1 rounded-xl bg-[#eb2553] px-4 text-sm font-extrabold text-white transition-colors hover:bg-[#ff3867]">Buka Web Editor</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
