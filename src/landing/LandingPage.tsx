@@ -386,10 +386,10 @@ export default function LandingPage() {
         </div></section>
 
         <section id="cara" className="lp-section lp-container lp-steps">
-          <Heading eyebrow="07 / MUDAH DARI AWAL" title="CARA" accent="PESAN" description="Daftar dan bayar lewat formulir, lalu isi data website. Tim PESONAFLIX yang mengerjakannya." />
+          <Heading eyebrow="07 / MUDAH DARI AWAL" title="CARA" accent="PESAN" description="Hubungi tim melalui WhatsApp, selesaikan pendaftaran, lalu isi data website. Tim PESONAFLIX yang mengerjakannya." />
           <div data-reveal className="lp-steps-grid">
-            <div><span>01</span><QrCode size={34} /><h3>Daftar & Bayar</h3><p>Klik Daftar Sekarang, isi data pemesan, lalu selesaikan pembayaran QRIS.</p></div>
-            <div><span>02</span><PencilRuler size={34} /><h3>Isi Data Website</h3><p>Setelah pembayaran terverifikasi, lengkapi formulir untuk tim PESONAFLIX.</p></div>
+            <div><span>01</span><MessageCircle size={34} /><h3>Daftar via WhatsApp</h3><p>Klik Daftar Sekarang, lalu tim akan membantu pendaftaran dan memberi petunjuk pembayaran.</p></div>
+            <div><span>02</span><PencilRuler size={34} /><h3>Isi Data Website</h3><p>Setelah pembayaran dikonfirmasi, lengkapi formulir untuk tim PESONAFLIX.</p></div>
             <div><span>03</span><MonitorPlay size={34} /><h3>Web Siap Tayang</h3><p>Tim menyusun website, mengirim preview, dan menerbitkannya setelah disetujui.</p></div>
           </div>
         </section>
