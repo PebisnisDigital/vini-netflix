@@ -55,6 +55,12 @@ async function main() {
   });
   await mkdir(path.join(dist, 'formulir'), { recursive: true });
   await writeFile(path.join(dist, 'formulir/index.html'), intake);
+  const landing = await readFile(path.join(dist, 'index.html'), 'utf8');
+  for (const route of ['checkout', 'pesanan']) {
+    const destination = path.join(dist, route);
+    await mkdir(destination, { recursive: true });
+    await writeFile(path.join(destination, 'index.html'), landing);
+  }
   const studio = renderClientHtml(template, {
     name: 'Dashboard Studio — PESONAFLIX',
     bio: 'Buat, edit, dan kelola portofolio klien bergaya Netflix.', photo: { src: '/favicon.svg' },
@@ -62,7 +68,7 @@ async function main() {
   await mkdir(path.join(dist, 'studio', 'preview'), { recursive: true });
   await writeFile(path.join(dist, 'studio/index.html'), studio);
   await writeFile(path.join(dist, 'studio/preview/index.html'), studio);
-  console.log(`✅ Formulir, Studio, Preview Studio, ${files.length} halaman klien dan ${Object.keys(registry.aliasToSource).length} link khusus disiapkan.`);
+  console.log(`✅ Checkout, pesanan, Studio, Preview, ${files.length} halaman klien dan ${Object.keys(registry.aliasToSource).length} link khusus disiapkan.`);
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) await main();

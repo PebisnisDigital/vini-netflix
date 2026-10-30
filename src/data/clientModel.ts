@@ -244,7 +244,7 @@ export function findUnreplacedSushmitaExamples(brief: ClientBrief): string[] {
   return leftover;
 }
 
-export const RESERVED_SLUGS = new Set(['vini', 'formulir', 'studio', 'admin', 'api', 'assets', 'demo', 'preview', 'index', 'favicon', 'robots', 'sitemap']);
+export const RESERVED_SLUGS = new Set(['vini', 'formulir', 'studio', 'checkout', 'pesanan', 'admin', 'api', 'assets', 'demo', 'preview', 'index', 'favicon', 'robots', 'sitemap']);
 
 export function normalizeSlug(value: string) {
   return value.toLowerCase().trim().normalize('NFKD').replace(/[\u0300-\u036f]/g, '')

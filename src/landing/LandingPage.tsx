@@ -6,10 +6,23 @@ import {
   QrCode, Share2, Smartphone, Sparkles, Star, Users, WandSparkles, X,
 } from 'lucide-react';
 import { getPortfolioServiceWhatsappUrl } from '../data/portfolioServiceCTA';
+import { commerce } from './PesonaflixCheckout';
 
 const whatsapp = getPortfolioServiceWhatsappUrl('https://pesonaflix.vercel.app/');
 const mitraWhatsapp = 'https://wa.me/62881022445869?text=' +
-  encodeURIComponent('Halo Teh Vini, saya ingin bertanya tentang program mitra PESONAFLIX dengan komisi 50%.');
+  encodeURIComponent('Halo Teh Vini, saya ingin bertanya tentang program mitra PESONAFLIX dan ketentuan komisinya.');
+
+let availability: Promise<boolean> | null = null;
+function useOnlineCheckout() {
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    let mounted = true;
+    availability ??= commerce<{ sales_open: boolean }>('offer').then(v => v.sales_open).catch(() => false);
+    availability.then(value => { if (mounted) setOpen(value); });
+    return () => { mounted = false; };
+  }, []);
+  return open;
+}
 
 function Rail({ title, children, autoPlay = false, className = '' }: {
   title: string; children: ReactNode; autoPlay?: boolean; className?: string;
@@ -171,22 +184,30 @@ function Heading({ eyebrow, title, accent, description, aside }: {
 }
 
 function WhatsAppButton({ label = 'Mau Dibuatin', href = whatsapp }: { label?: string; href?: string }) {
-  return <a className="lp-cta-button" href={href} target="_blank" rel="noopener noreferrer"><MessageCircle size={20} /><span>{label}</span><ArrowRight size={19} /></a>;
+  const open = useOnlineCheckout();
+  const checkout = open && href === whatsapp;
+  return <a className="lp-cta-button" href={checkout ? '/checkout' : href}
+    target={checkout ? undefined : '_blank'} rel={checkout ? undefined : 'noopener noreferrer'}>
+    {checkout ? <QrCode size={20} /> : <MessageCircle size={20} />}
+    <span>{checkout ? 'Pesan Website' : label}</span><ArrowRight size={19} />
+  </a>;
 }
 
 function Header() {
   const [open, setOpen] = useState(false);
+  const checkout = useOnlineCheckout();
+  const callToAction = checkout ? '/checkout' : whatsapp;
   const links = [
     ['#tentang', 'Apa Itu'], ['#layanan', 'Layanan'], ['#contoh', 'Contoh'],
-    ['#mitra', 'Mitra 50%'], ['#cara', 'Cara Pesan'],
+    ['#mitra', 'Jadi Mitra'], ['#cara', 'Cara Pesan'],
   ];
   return <header className="lp-header">
     <a href="#beranda" className="lp-brand" aria-label="PESONAFLIX, kembali ke atas">PESONA<span>FLIX</span></a>
     <nav aria-label="Navigasi PESONAFLIX" className={'lp-nav ' + (open ? 'is-open' : '')}>
       {links.map(([href, label]) => <a key={href} href={href} onClick={() => setOpen(false)}>{label}</a>)}
-      <a className="lp-nav-mobile-cta" href={whatsapp} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Mau Dibuatin <ArrowUpRight size={17} /></a>
+      <a className="lp-nav-mobile-cta" href={callToAction} target={checkout ? undefined : '_blank'} rel={checkout ? undefined : 'noopener noreferrer'} onClick={() => setOpen(false)}>{checkout ? 'Pesan Website' : 'Mau Dibuatin'} <ArrowUpRight size={17} /></a>
     </nav>
-    <a className="lp-header-cta" href={whatsapp} target="_blank" rel="noopener noreferrer"><MessageCircle size={17} /> Mau Dibuatin <ArrowRight size={17} /></a>
+    <a className="lp-header-cta" href={callToAction} target={checkout ? undefined : '_blank'} rel={checkout ? undefined : 'noopener noreferrer'}>{checkout ? <QrCode size={17} /> : <MessageCircle size={17} />} {checkout ? 'Pesan Website' : 'Mau Dibuatin'} <ArrowRight size={17} /></a>
     <button className="lp-menu-toggle" aria-expanded={open} aria-label={open ? 'Tutup menu' : 'Buka menu'} type="button" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>
   </header>;
 }
@@ -342,9 +363,9 @@ export default function LandingPage() {
         <section id="mitra" className="lp-section lp-affiliate">
           <div className="lp-affiliate-background" aria-hidden="true" />
           <div className="lp-container lp-affiliate-inner">
-            <p className="lp-eyebrow">03 / PELUANG MITRA</p><h2 data-stamp>JADI MITRA,<br />DAPAT KOMISI <span>50%</span></h2>
-            <p>Rekomendasikan PESONAFLIX ke teman, rekan kerja, atau komunitasmu. Kalau rekomendasimu menghasilkan pesanan yang berhasil, kamu berpeluang menerima komisi 50% sesuai ketentuan program.</p>
-            <div data-reveal className="lp-affiliate-points"><span><Users size={18} /> Rekomendasikan jasa</span><span><HeartHandshake size={18} /> Pesanan berhasil</span><span><BadgeCheck size={18} /> Komisi 50%</span></div>
+            <p className="lp-eyebrow">03 / PELUANG MITRA</p><h2 data-stamp>JADI MITRA,<br />DAPAT <span>KOMISI.</span></h2>
+            <p>Rekomendasikan PESONAFLIX ke teman, rekan kerja, atau komunitasmu. Kalau rekomendasimu menghasilkan pesanan yang berhasil, kamu berpeluang menerima komisi sesuai ketentuan program.</p>
+            <div data-reveal className="lp-affiliate-points"><span><Users size={18} /> Rekomendasikan jasa</span><span><HeartHandshake size={18} /> Pesanan berhasil</span><span><BadgeCheck size={18} /> Ada peluang komisi</span></div>
             <WhatsAppButton label="Tanya Program Mitra" href={mitraWhatsapp} />
             <small>Detail harga, syarat program, dan pembayaran komisi dikonfirmasi langsung bersama Teh Vini.</small>
           </div>
