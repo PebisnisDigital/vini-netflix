@@ -488,6 +488,37 @@ test('MINIMALIST menjaga data dan foto masing-masing klien tanpa mengambil aset 
   } finally { await server.close(); }
 });
 
+test('FUTURISTIC NEON menjaga data klien, warna kustom dan visual demo terisolasi', async () => {
+  const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
+  try {
+    const { createPortfolioFromBrief, validateBrief, effectiveTheme, DEFAULT_THEME, FUTURISTIC_THEME } = await server.ssrLoadModule('/src/data/clientModel.ts');
+    const brief = {
+      slug: 'ratna', name: 'Ratna Wijaya', role: 'Mentor Teknologi', location: 'Bogor',
+      bio: 'Mendampingi UMKM belajar teknologi yang bermanfaat bagi usaha.', tagline: ['Teknologi manusiawi'], interests: ['UMKM', 'AI'],
+      photo: { src: '/clients/ratna/foto-ratna.webp', alt: 'Potret Ratna milik sendiri' },
+      experiences: [{ company: 'Kelas Digital', role: 'Mentor', period: '2026', description: 'Pendampingan UMKM.' }],
+      projects: [{ title: 'Katalog Produk', year: '2026', description: 'Katalog digital bagi pelaku usaha.', category: 'UMKM', tags: ['Digital'], image: '/clients/ratna/katalog.webp' }],
+      skills: ['Edukasi Digital'], whatsapp: '081234567890', templateId: 'futuristic-neon', identityMode: 'photo',
+    };
+    assert.deepEqual(validateBrief(brief, { requireWhatsapp: true }), []);
+    const content = createPortfolioFromBrief(brief);
+    assert.equal(content.profile.templateId, 'futuristic-neon');
+    assert.equal(content.profile.displayName, 'Ratna Wijaya');
+    assert.equal(content.profile.portrait.src, '/clients/ratna/foto-ratna.webp');
+    assert.equal(content.projects[0].image, '/clients/ratna/katalog.webp');
+    assert.equal(content.profile.whatsapp, '081234567890');
+    assert.equal(content.profile.referralCode, 'PSN-RATNA');
+    assert.deepEqual(effectiveTheme(content.profile), FUTURISTIC_THEME);
+    assert.deepEqual(effectiveTheme({ templateId: 'futuristic-neon', theme: DEFAULT_THEME }), FUTURISTIC_THEME);
+    assert.deepEqual(effectiveTheme({ templateId: 'futuristic-neon', theme: { accent: '#13acde', background: '#101535' } }), { accent: '#13acde', background: '#101535' });
+    for (const forbidden of ['/clients/vini16/', 'Teh Vini', 'BADAI', 'PROMPTIONAL']) assert.equal(JSON.stringify(content).includes(forbidden), false);
+    const demo = JSON.parse(await readFile(new URL('../src/data/clients/vini16.json', import.meta.url), 'utf8'));
+    assert.deepEqual(validateBrief(demo, { requireWhatsapp: true }), []);
+    assert.equal(createPortfolioFromBrief(demo).profile.whatsapp, '62881022445869');
+    assert.match(demo.photo.alt, /bukan foto asli Teh Vini/);
+  } finally { await server.close(); }
+});
+
 test('proyek baru memakai contoh Sushmita yang lengkap tanpa membuatnya siap terbit', async () => {
   const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
   try {

@@ -26,7 +26,7 @@ export default function StudioTemplateGallery({ selectedTemplateId, identityMode
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#ff7294]">PESONAFLIX STUDIO · TEMPLATE</p>
           <h3 className="mt-2 text-2xl font-black sm:text-3xl">Pilih Gaya Website</h3>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/60">Ada 16 gaya dalam katalog. ORIGINAL, CHIBI 3D, ANIME, CLAY 3D, KOMIK POP, EDITORIAL PREMIUM, DOODLE, STORYBOOK, SCRAPBOOK, PAPER CUT, PIXEL RETRO, MINIATURE WORLD, DOCUMENTARY dan MINIMALIST siap untuk klien. Gaya lainnya menyusul.</p>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/60">Ada 16 gaya dalam katalog. Kini 15 gaya siap untuk klien, termasuk MINIMALIST dan FUTURISTIC NEON. Tinggal VINTAGE HERITAGE yang menyusul.</p>
         </div>
         <div className="rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-right">
           <span className="block text-[11px] font-bold uppercase tracking-wider text-white/45">Gaya klien ini</span>
@@ -161,6 +161,16 @@ export default function StudioTemplateGallery({ selectedTemplateId, identityMode
             <p className="mt-2 text-xs leading-relaxed text-[#415749]">Profil dengan tipografi tegas, ruang lega, karya berurutan, dan animasi foto sangat halus tanpa kontrol. Seluruh fungsi ORIGINAL tetap ada. Isi fakta pengalaman klien dan unggah foto yang memiliki izin pakai; visual AI pada demo bukan foto Teh Vini.</p>
           </div>
           <button type="button" onClick={onEditWebsite} className="min-h-10 border border-[#284737] bg-[#254334] px-5 py-2.5 text-sm font-extrabold text-white transition hover:bg-[#42644e]">Buka Editor Website</button>
+        </div>
+      )}
+
+      {selectedTemplateId === 'futuristic-neon' && (
+        <div className="flex flex-wrap items-center justify-between gap-4 border border-[#4bdcf2]/50 bg-gradient-to-r from-[#0c162e] via-[#172746] to-[#31234f] p-4 sm:p-5">
+          <div className="max-w-2xl">
+            <p className="font-['Manrope'] text-xl font-black tracking-tight text-[#a0eff9]">✦ FUTURISTIC NEON aktif!</p>
+            <p className="mt-2 text-xs leading-relaxed text-[#e4e9ff]">Studio masa depan dengan cahaya cyan–ungu, HUD, foto bernapas, orbit dan sapuan scan bergerak otomatis. Seluruh fungsi ORIGINAL tetap ada. Isi prestasi dan karya sebenarnya, lalu unggah foto berizin milik klien. Visual AI di demo hanyalah konsep, bukan foto asli Teh Vini.</p>
+          </div>
+          <button type="button" onClick={onEditWebsite} className="min-h-10 border border-[#5bdfed] bg-[#80e7f4] px-5 py-2.5 text-sm font-extrabold text-[#09182a] transition hover:bg-[#c0f8fc]">Buka Editor Website</button>
         </div>
       )}
 
