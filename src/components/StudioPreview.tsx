@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { MotionConfig } from 'framer-motion';
 import App from '../App';
 import { PortfolioProvider } from '../data/PortfolioContext';
-import { createPortfolioFromBrief, sushmitaContent, validateBrief, type PortfolioContent } from '../data/clientModel';
+import { createPortfolioFromBrief, validateBrief, type PortfolioContent } from '../data/clientModel';
 import { getDraft, preparedBrief } from '../data/studioDraft';
 import VisualCanvasTools from './VisualCanvasTools';
 
@@ -14,7 +14,8 @@ export default function StudioPreview() {
 
   useEffect(() => {
     if (canvasMode) {
-      setContent(sushmitaContent);
+      // Hindari kilasan ORIGINAL/Sushmita sebelum konten gaya terpilih dikirim editor.
+      setContent(null);
       setSlug('studio-canvas');
       const receive = (event: MessageEvent) => {
         if (event.origin !== location.origin || event.source !== window.parent || event.data?.type !== 'PESONAFLIX_CANVAS_UPDATE') return;
