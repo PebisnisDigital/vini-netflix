@@ -219,8 +219,6 @@
 .lp-example-info > p { font-size: 13px; font-style: italic; color: #f5e7e9; margin: 12px 0 18px; max-width: 190px; line-height: 1.55; }
 .lp-example-open { display: inline-flex; align-items: center; gap: 8px; background: white; color: #101010; border-radius: 5px; font-size: 12px; font-weight: 900; padding: 10px 14px; }
 .lp-reviews { background: radial-gradient(ellipse at 60% 20%, #3a0b17, #16080e 70%, #0c070a); border-block: 1px solid #ed13382b; }
-.lp-review-notice { color: #ffd2db; display: inline-flex; gap: 8px; align-items: center; padding: 10px 13px; border: 1px solid #ffffff24; background: #ffffff0b; border-radius: 6px; font-size: 10px; line-height: 1.5; letter-spacing: .04em; margin: 3px 0 18px; }
-.lp-review-notice svg { flex: 0 0 auto; }
 .lp-review-card { width: clamp(265px, 29%, 355px); min-height: 240px; padding: 25px; background: #410c1d89; border: 1px solid #e845664a; border-radius: 8px; display: flex; flex-direction: column; }
 .lp-review-card.lp-tone-blue { background: #1a273c75; border-color: #6ca6db55; }
 .lp-review-card.lp-tone-gold { background: #4b321a71; border-color: #d1a66c4d; }
@@ -231,7 +229,6 @@
 .lp-review-by > span { flex: 0 0 auto; width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; background: #ffffff1b; color: #fff; font-weight: 800; border: 1px solid #ffffff4a; }
 .lp-review-by div { display: flex; flex-direction: column; gap: 3px; }
 .lp-review-by strong { font-size: 12px; }
-.lp-review-by small { color: #c1abb3; font-size: 10px; }
 .lp-steps { padding-bottom: 120px; }
 .lp-steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 45px; }
 .lp-steps-grid > div { display: grid; grid-template-columns: 45px 46px 1fr; grid-template-rows: auto auto; gap: 10px 14px; align-items: center; padding: 22px; background: #141417; border: 1px solid #ffffff1c; border-radius: 9px; }
