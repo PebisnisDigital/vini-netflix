@@ -8,13 +8,13 @@
 - Teks, bukti pengalaman, dan CTA tetap jelas bagi audiens Indonesia, termasuk pembaca mobile usia lanjut.
 - Bila pengguna memilih reduced motion, animasi dekoratif harus berhenti.
 
-## Status Tahap 12 — MINIATURE WORLD ikut aktif
+## Status Tahap 13 — DOCUMENTARY ikut aktif
 
 Katalog lengkap tersedia di `src/data/templateCatalog.mjs`. Studio menampilkan 16 gaya dan tiga mode identitas berikut statusnya.
 
 | Status | Makna dan tindakan |
 | --- | --- |
-| `available` | Renderer siap untuk klien baru; tombol Gunakan aktif. Saat ini ORIGINAL, CHIBI 3D, ANIME, CLAY 3D, KOMIK POP, EDITORIAL PREMIUM, DOODLE, STORYBOOK, SCRAPBOOK, PAPER CUT, PIXEL RETRO, dan MINIATURE WORLD. |
+| `available` | Renderer siap untuk klien baru; tombol Gunakan aktif. Saat ini ORIGINAL, CHIBI 3D, ANIME, CLAY 3D, KOMIK POP, EDITORIAL PREMIUM, DOODLE, STORYBOOK, SCRAPBOOK, PAPER CUT, PIXEL RETRO, MINIATURE WORLD, dan DOCUMENTARY. |
 | `demo` | Contoh klien ada, tetapi renderer belum aman dipakai secara umum; tombol Lihat Demo saja. |
 | `planned` | Konsep gaya tercatat; belum ada tombol Gunakan maupun preview palsu. |
 
@@ -42,7 +42,9 @@ PIXEL RETRO memakai `PixelRetroHero`: panggung karakter game 16-bit dengan HUD l
 
 MINIATURE WORLD memakai `MiniatureWorldHero`: dunia profesi disajikan sebagai model koleksi skala mungil dari kayu, resin dan lampu kecil—bukan stop-motion clay atau potongan kertas. Hero menggunakan tipografi editorial DM Serif Display, mint–amber–deep teal, orbit diorama, cahaya hangat, pulau mini mengambang serta foto makro yang bergerak otomatis; kartu karya seperti koleksi model mini. Semua section, rail, animasi scroll, modal karya dan CTA asli tetap ada. Demo `/vini13` menggunakan tiga ilustrasi diorama buatan AI dengan **figur fiksi, bukan foto asli Teh Vini**. Draft klien baru hanya menampilkan placeholder foto sampai gambar milik klien diunggah via Studio; template tidak otomatis menghasilkan diorama AI. Reduced motion dihormati.
 
-Halaman `/vini2` sampai `/vini13` yang sudah menggunakan variasi khusus tetap berjalan menggunakan konfigurasi masing-masing; tidak dimigrasikan otomatis ke katalog baru.
+DOCUMENTARY memakai `DocumentaryHero`: komposisi seperti opening film dokumenter observasional, dengan foto sinematik besar, Manrope tegas, frame kamera, garis arsip, ticker cerita, dua cuplikan karya dan film-grain. Fotografi bergerak pelan dengan Ken Burns; cuplikan punya motion kamera tersendiri. Berbeda dari EDITORIAL PREMIUM yang menyerupai majalah. Semua section, rail, modal karya, gerak scroll, tombol profil dan CTA asli tetap utuh. Demo `/vini14` memakai tiga foto konsep buatan AI dengan **figur fiksi tanpa identitas wajah, bukan foto atau bukti kegiatan Teh Vini**. Setiap klien harus memasukkan foto dokumentasi miliknya sendiri melalui Studio; draft baru tidak menyalin aset contoh. Reduced motion dihormati.
+
+Halaman `/vini2` sampai `/vini14` yang sudah menggunakan variasi khusus tetap berjalan menggunakan konfigurasi masing-masing; tidak dimigrasikan otomatis ke katalog baru.
 
 ## Model data bertahap
 

@@ -1,0 +1,148 @@
+/* DOCUMENTARY: an observational film, distinct from magazine-style Editorial. */
+.documentary-cinema {
+  --font-display: 'Manrope', 'Inter', system-ui, sans-serif;
+  --font-sans: 'Manrope', 'Inter', system-ui, sans-serif;
+  --doc-paper: #f3efe4;
+  --doc-amber: #d6aa6c;
+  --doc-ink: #111516;
+  --color-bone: #f3efe4;
+  --color-mist: #bfc1b8;
+  --color-smoke: #9caaa3;
+  background: #111516;
+}
+.documentary-cinema header > .gutter { background: #141717f0 !important; border-bottom: 1px solid #e7c79732; }
+.documentary-cinema .grain { opacity: .055; }
+.documentary-cinema .font-display { font-family: 'Manrope', sans-serif; letter-spacing: -.055em; }
+.documentary-cinema #about h2, .documentary-cinema #journey h2,
+.documentary-cinema #originals h2, .documentary-cinema #picks h2,
+.documentary-cinema #skills h2, .documentary-cinema #moments h2,
+.documentary-cinema #story h2 { font-family: 'Manrope', sans-serif; letter-spacing: -.055em; font-weight: 850; }
+.documentary-cinema #about, .documentary-cinema #journey, .documentary-cinema #originals,
+.documentary-cinema #picks, .documentary-cinema #skills, .documentary-cinema #moments,
+.documentary-cinema #story { border-top: 1px solid #e9dac320; }
+.documentary-cinema .glass { background: #1b201ff0; border: 1px solid #e6d8bc38; border-radius: 12px; box-shadow: 0 15px 45px #06090881; }
+.documentary-cinema .rail .group > div, .documentary-cinema .group\/rail button > div { border-radius: 8px; border: 1px solid #e1bb8140; }
+.documentary-cinema .client-cta-headline { font-family: 'Manrope', sans-serif; font-weight: 900; letter-spacing: -.06em; }
+.documentary-cinema .client-cta-pulse { background: var(--color-crimson,#d6aa6c); color: #151717; border-radius: 8px; }
+.documentary-cinema a:focus-visible, .documentary-cinema button:focus-visible { outline: 3px solid #e0b879; outline-offset: 4px; }
+
+.documentary-hero { position: relative; isolation: isolate; overflow: clip; padding: 106px 0 75px; background: #111516; color: #f3efe4; }
+.documentary-projector-glow { position: absolute; z-index: -1; inset: 0; background: radial-gradient(ellipse at 80% 30%,#61684b28,transparent 61%); }
+.documentary-marquee { width: 100%; height: 27px; margin: -4px 0 15px; overflow: hidden; border-block: 1px solid #dec18f26; color: #b7aa92; font: 750 9px/25px 'Manrope',sans-serif; letter-spacing: .32em; }
+.documentary-marquee-track { display: flex; align-items: center; gap: 19px; width: max-content; white-space: nowrap; animation: documentary-ticker 32s linear infinite; }
+.documentary-marquee-track i { display: inline-block; height: 5px; width: 5px; margin-inline: 10px; background: #d6aa6c; border-radius: 50%; }
+
+.documentary-film { position: relative; isolation: isolate; overflow: hidden; width: min(94vw,1510px); min-height: 735px; margin: 0 auto; border: 1px solid #c6b79a6b; background: #171b19; box-shadow: 0 36px 80px #04060594; }
+.documentary-film::before { content: ''; position: absolute; inset: 0; z-index: 4; pointer-events: none; box-shadow: inset 0 0 0 9px #181b1a4a, inset 0 0 0 10px #e0d4b32c; }
+.documentary-film-image { position: absolute; z-index: -2; inset: 0; overflow: hidden; }
+.documentary-film-image > img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 53% center; filter: brightness(.84) saturate(.7) contrast(1.1); transform: scale(1.04); animation: documentary-ken-burns 25s ease-in-out infinite alternate; }
+.documentary-photo-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; width: 100%; height: 100%; background: radial-gradient(circle at 65% 39%, #596651 0%,#2a3834 36%,#141b1d 81%); color: #efd5b0; text-align: center; cursor: pointer; }
+.documentary-photo-placeholder > strong { font: 850 clamp(28px,3.8vw,65px)/1.16 'Manrope',sans-serif; letter-spacing: -.05em; }
+.documentary-photo-placeholder > span { font: 800 10px 'Manrope',sans-serif; letter-spacing: .3em; }
+.documentary-film-shade { position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg,#0c1111f9 0%,#0b1111d9 28%,#0f13139a 49%,#171b1840 73%,#10151231 100%), linear-gradient(0deg,#0e1514ce,transparent 21%,transparent 80%,#111614a6); }
+.documentary-film-grain { position: absolute; z-index: 2; inset: -40%; opacity: .27; pointer-events: none; background: repeating-radial-gradient(ellipse at 28% 42%,#fff3e909 0 1px,transparent 1px 3px); background-size: 6px 8px; mix-blend-mode: screen; animation: documentary-grain-shift 1.5s steps(4) infinite; }
+.documentary-viewfinder { position: absolute; z-index: 3; height: 48px; width: 48px; pointer-events: none; opacity: .76; }
+.documentary-viewfinder-a { top: 29px; left: 29px; border-top: 1px solid #fff0d899; border-left: 1px solid #fff0d899; }
+.documentary-viewfinder-b { bottom: 29px; right: 29px; border-bottom: 1px solid #fff0d899; border-right: 1px solid #fff0d899; }
+.documentary-frame-top, .documentary-frame-bottom { position: absolute; z-index: 5; right: 4.2%; left: 4.2%; display: flex; justify-content: space-between; align-items: center; gap: 12px; color: #e1d8c7; font: 800 10px/1.5 'Manrope',sans-serif; letter-spacing: .17em; text-transform: uppercase; }
+.documentary-frame-top { top: 39px; }
+.documentary-frame-top > span:first-child,.documentary-frame-bottom > span:first-child { display: inline-flex; align-items: center; gap: 9px; }
+.documentary-frame-top b,.documentary-frame-bottom b { color: #d8aa70; }
+.documentary-frame-bottom { bottom: 39px; color: #c9c4b6; font-size: 9px; }
+.documentary-frame-bottom > span:first-child { padding: 7px 10px; background: #10151399; border: 1px solid #fff8e638; }
+
+.documentary-feature-copy { position: relative; z-index: 5; max-width: 730px; padding: 142px 4.9% 130px; }
+.documentary-eyebrow { display: flex; align-items: center; gap: 11px; color: #e8c88e; font: 850 11px/1.5 'Manrope',sans-serif; letter-spacing: .2em; }
+.documentary-eyebrow-light { width: 8px; height: 8px; border-radius: 50%; flex: 0 0 auto; background: #ffcb79; box-shadow: 0 0 0 4px #ffcc7921; animation: documentary-light-pulse 3.5s ease-in-out infinite; }
+.documentary-name { max-width: 9.5ch; margin: 23px 0 0; color: #faf3e6; font: 900 clamp(66px,7.8vw,137px)/.98 'Manrope',sans-serif; letter-spacing: -.082em; overflow-wrap: anywhere; text-wrap: balance; text-shadow: 0 7px 22px #101313aa; }
+.documentary-role { margin: 21px 0 0; padding-left: 16px; border-left: 3px solid #d2a568; font: 800 clamp(13px,1.3vw,18px)/1.46 'Manrope',sans-serif; color: #e4d6c2; }
+.documentary-tagline { max-width: 31ch; margin: 25px 0 0; color: #e9c18b; font: 850 clamp(22px,2.25vw,38px)/1.15 'Manrope',sans-serif; letter-spacing: -.048em; text-wrap: balance; }
+.documentary-bio { max-width: 64ch; margin: 19px 0 0; color: #e4e4dadd; font: 540 clamp(13px,1.13vw,15px)/1.8 'Manrope',sans-serif; }
+.documentary-buttons { display: flex; gap: 13px; flex-wrap: wrap; align-items: center; margin-top: 29px; }
+.documentary-buttons button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 49px; padding: 11px 18px; font: 820 12px/1.4 'Manrope',sans-serif; border: 1px solid #ead9bc76; transition: transform .3s ease, background .3s ease; }
+.documentary-buttons button:hover { transform: translateY(-4px); }
+.documentary-watch { background: var(--color-crimson,#d6aa6c); color: #1b201e; border-color: transparent !important; }
+.documentary-watch:hover { background: #efc58e; }
+.documentary-explore { color: #f1e9db; background: #1820219e; }
+.documentary-explore:hover { background: #344037; }
+
+.documentary-next-chapters { display: grid; grid-template-columns: minmax(0,1.07fr) repeat(2,minmax(0,1fr)); gap: 20px; align-items: stretch; width: min(92vw,1455px); margin: 32px auto 0; }
+.documentary-chapter-intro { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: 7px 4px 7px 0; }
+.documentary-chapter-intro > span { color: #c5a579; font: 800 10px/1.4 'Manrope',sans-serif; letter-spacing: .24em; }
+.documentary-chapter-intro > strong { margin-top: 11px; color: #f1eadc; font: 850 clamp(25px,2vw,33px)/1.13 'Manrope',sans-serif; letter-spacing: -.045em; }
+.documentary-chapter-intro > small { margin-top: 8px; max-width: 37ch; color: #bbbdb2; font: 520 12px/1.6 'Manrope',sans-serif; }
+.documentary-chapter-intro > button { display: inline-flex; gap: 8px; align-items: center; margin-top: 18px; color: #e9bd85; font: 850 12px/1.5 'Manrope',sans-serif; transition: gap .25s; }
+.documentary-chapter-intro > button:hover { gap: 14px; }
+.documentary-scene-card { position: relative; display: grid; grid-template-columns: 125px minmax(0,1fr) 18px; align-items: center; gap: 15px; min-width: 0; min-height: 158px; padding: 11px 14px 11px 11px; border: 1px solid #ddcba94c; background: #202624; color: #f1e9dc; text-align: left; transition: transform .35s,background .35s,border-color .35s; }
+.documentary-scene-card:hover { transform: translateY(-6px); background: #2a322d; border-color: #d9b37d; }
+.documentary-scene-image { position: relative; display: grid; place-items: center; overflow: hidden; width: 125px; height: 134px; background: #384238; color: #dbb27b; }
+.documentary-scene-image::after { content: ''; position: absolute; inset: 0; border: 1px solid #f0e4ce2c; box-shadow: inset 0 0 40px #0c100f50; pointer-events: none; }
+.documentary-scene-image img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.78) sepia(.11); animation: documentary-scene-pan 17s ease-in-out infinite alternate; }
+.documentary-scene-text { display: block; min-width: 0; }
+.documentary-scene-text small { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; color: #d2b68b; font: 850 9px/1.6 'Manrope',sans-serif; letter-spacing: .1em; }
+.documentary-scene-text i { width: 3px; height: 3px; border-radius: 50%; background: #d2b68b; }
+.documentary-scene-text strong { display: block; margin-top: 8px; font: 800 clamp(14px,1.25vw,19px)/1.25 'Manrope',sans-serif; overflow-wrap: anywhere; }
+.documentary-scene-card > svg { color: #d8ad77; }
+
+@keyframes documentary-ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes documentary-ken-burns { from { transform: scale(1.04) translate3d(0,0,0); } to { transform: scale(1.14) translate3d(-1.8%,1.6%,0); } }
+@keyframes documentary-grain-shift { 0% { transform: translate(0,0); } 25% { transform: translate(1%,-.5%); } 50% { transform: translate(-1%,1%); } 75% { transform: translate(.5%,-1%); } 100% { transform: translate(0,0); } }
+@keyframes documentary-light-pulse { 0%,100% { box-shadow: 0 0 0 4px #ffcc7921; } 50% { box-shadow: 0 0 0 9px #ffcc790d; } }
+@keyframes documentary-scene-pan { from { transform: scale(1.06) translateY(0); } to { transform: scale(1.17) translateY(-3%); } }
+
+@media (max-width: 1120px) {
+  .documentary-feature-copy { max-width: 650px; padding-left: 5%; }
+  .documentary-scene-card { grid-template-columns: 94px minmax(0,1fr) 14px; gap: 10px; }
+  .documentary-scene-image { width: 94px; height: 110px; }
+  .documentary-scene-text small { font-size: 8px; }
+}
+@media (max-width: 800px) {
+  .documentary-hero { padding-top: 67px; }
+  .documentary-film { min-height: 780px; width: 100%; border-inline: 0; }
+  .documentary-film-image > img { object-position: 67% center; }
+  .documentary-film-shade { background: linear-gradient(90deg,#0d1111ed,#101514c0 57%,#14181542),linear-gradient(0deg,#101514db,transparent 34%); }
+  .documentary-feature-copy { max-width: 610px; padding: 154px 6.5% 107px; }
+  .documentary-frame-top,.documentary-frame-bottom { left: 6%; right: 6%; }
+  .documentary-next-chapters { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .documentary-chapter-intro { grid-column: 1/-1; }
+  .documentary-scene-card { grid-template-columns: 100px minmax(0,1fr) 14px; }
+  .documentary-scene-image { width: 100px; }
+}
+@media (max-width: 560px) {
+  .documentary-hero { padding: 59px 0 55px; }
+  .documentary-marquee { margin: 1px 0 0; }
+  .documentary-film { min-height: 0; display: flex; flex-direction: column; padding-top: 320px; background: #161c1a; }
+  .documentary-film::before { box-shadow: inset 0 0 0 4px #181b1a43; }
+  .documentary-film-image { inset: 0 0 auto; height: 365px; }
+  .documentary-film-image > img { object-position: 58% center; }
+  .documentary-film-shade { z-index: -1; background: linear-gradient(to bottom,#10171538 0%,#10171523 30%,#161c1a 365px,#161c1a 100%); }
+  .documentary-film-grain { opacity: .16; }
+  .documentary-viewfinder { width: 23px; height: 23px; }
+  .documentary-viewfinder-a { top: 19px; left: 15px; }
+  .documentary-viewfinder-b { bottom: 19px; right: 15px; }
+  .documentary-frame-top { top: 22px; left: 5.4%; right: 5.4%; font-size: 8px; letter-spacing: .07em; }
+  .documentary-frame-top > span:last-child { max-width: 100px; text-align: right; }
+  .documentary-feature-copy { padding: 0 6.4% 34px; max-width: none; }
+  .documentary-eyebrow { font-size: 9px; letter-spacing: .15em; }
+  .documentary-name { font-size: clamp(55px,13.3vw,82px); line-height: 1; margin-top: 17px; letter-spacing: -.075em; }
+  .documentary-role { margin-top: 18px; font-size: 13px; }
+  .documentary-tagline { margin-top: 20px; font-size: clamp(21px,6vw,29px); }
+  .documentary-bio { margin-top: 15px; font-size: 12px; line-height: 1.8; }
+  .documentary-buttons { margin-top: 24px; gap: 8px; }
+  .documentary-buttons button { min-height: 45px; font-size: 11px; padding: 10px 13px; }
+  .documentary-frame-bottom { position: relative; left: auto; right: auto; bottom: auto; display: flex; align-items: flex-start; gap: 11px; flex-wrap: wrap; margin: 8px 6.4% 28px; font-size: 8px; letter-spacing: .08em; }
+  .documentary-next-chapters { width: 92vw; grid-template-columns: 1fr; gap: 13px; margin-top: 27px; }
+  .documentary-chapter-intro { grid-column: auto; padding: 0 0 9px; }
+  .documentary-chapter-intro > strong { font-size: 26px; }
+  .documentary-scene-card { grid-template-columns: 112px minmax(0,1fr) 15px; min-height: 117px; padding: 8px; }
+  .documentary-scene-image { width: 112px; height: 102px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .documentary-cinema .documentary-marquee-track,
+  .documentary-cinema .documentary-film-image > img,
+  .documentary-cinema .documentary-film-grain,
+  .documentary-cinema .documentary-eyebrow-light,
+  .documentary-cinema .documentary-scene-image img { animation: none !important; transform: none !important; }
+  .documentary-cinema .documentary-buttons button,
+  .documentary-cinema .documentary-scene-card { transition: none !important; }
+}

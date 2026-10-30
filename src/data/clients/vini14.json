@@ -1,0 +1,49 @@
+{
+  "slug": "vini14",
+  "name": "Teh Vini",
+  "role": "Kreator Website Personal & Mentor AI",
+  "location": "Bandung, Jawa Barat",
+  "whatsapp": "62881022445869",
+  "bio": "Saya Vini, ibu rumah tangga dari Bandung yang mulai belajar dan bereksperimen dengan AI. Dari rasa penasaran, saya kemudian membagikan praktiknya lewat kelas dan komunitas BADAI. Sekarang saya juga membantu orang-orang yang punya keahlian, tetapi belum paham teknis website, untuk menampilkan cerita dan karya mereka dengan lebih jelas.",
+  "tagline": ["KISAH DI BALIK KARYA", "Berawal dari rumah. Berkembang menjadi ruang belajar dan karya digital.", "Belajar · Berkarya · Berbagi"],
+  "interests": ["Website Personal", "Personal Branding", "AI untuk Pemula", "Kelas WhatsApp", "Kreasi Digital", "Komunitas Belajar"],
+  "photo": {
+    "src": "/clients/vini14/vini-documentary-hero.webp",
+    "alt": "Foto dokumenter konseptual buatan AI dengan figur perempuan fiksi dari belakang; bukan foto asli atau dokumentasi kegiatan Teh Vini"
+  },
+  "experiences": [
+    { "company": "BADAI — Belajar Apa Aja Dengan AI", "role": "Pengelola Komunitas Belajar", "period": "Sekarang", "description": "Membuat ruang latihan untuk pemula mencoba AI, bertanya tanpa takut salah, dan memperlihatkan hasil praktiknya." },
+    { "company": "Pebisnis.Digital", "role": "Penggagas Edukasi Digital", "period": "Sekarang", "description": "Berbagi pengalaman tentang bisnis digital, WhatsApp marketing, dan cara memulai dengan alat yang mudah dijangkau." },
+    { "company": "Website Personal Berkarakter", "role": "Kreator Website Personal", "period": "Sekarang", "description": "Membantu pemilik usaha dan profesional menyusun profil digital yang memperlihatkan peran, pengalaman, dan karya." }
+  ],
+  "projects": [
+    { "title": "BADAI: Ruang Belajar AI", "year": "KOMUNITAS", "description": "Komunitas untuk belajar AI dengan langkah praktis, hasil yang bisa dicoba sendiri, dan kesempatan saling berbagi karya.", "category": "Komunitas & Edukasi", "tags": ["AI Pemula", "Komunitas", "Praktik Digital"], "image": "/clients/vini14/vini-documentary-kelas.webp" },
+    { "title": "Website Personal Berkarakter", "year": "KREASI", "description": "Pembuatan halaman personal yang membantu pengunjung memahami siapa pemiliknya, apa yang dikerjakan, dan karya apa yang pernah dibuat.", "category": "Website & Personal Branding", "tags": ["Website", "Profil Digital", "Branding"], "image": "/clients/vini14/vini-documentary-studio.webp" },
+    { "title": "Kelas Bikin Game Edukasi", "year": "PELATIHAN", "description": "Kelas praktik via WhatsApp untuk mengajak pemula membuat game belajar sederhana dengan bantuan AI.", "category": "Kelas & Pelatihan", "tags": ["Game Edukasi", "WhatsApp", "AI"], "image": "/clients/vini14/vini-documentary-kelas.webp" }
+  ],
+  "skills": ["Pembuatan Website Personal", "Personal Branding", "Mentoring AI Pemula", "Memandu Kelas WhatsApp", "Kreasi Konten Digital", "Pemasaran WhatsApp"],
+  "skillsHeading": "Yang Dikerjakan di Balik Layar",
+  "skillsAside": "Keahlian bukan sekadar daftar kata. Ini adalah hal-hal yang saya pelajari, praktikkan, dan bagikan kembali.",
+  "skillsKicker": "PROSES & KEAHLIAN",
+  "highlights": [
+    { "title": "Mulai dari Rasa Penasaran", "description": "Belajar AI dari percobaan kecil sebelum membagikannya kepada orang lain.", "category": "AWAL PERJALANAN" },
+    { "title": "Berbagi lewat BADAI", "description": "Mendampingi pemula agar berani belajar melalui praktik.", "category": "RUANG BELAJAR" },
+    { "title": "Membangun Website Personal", "description": "Menyusun halaman digital yang menunjukkan cerita dan keahlian pemiliknya.", "category": "KARYA DIGITAL" }
+  ],
+  "watchCards": [
+    { "target": "about", "title": "Di Balik Nama", "subtitle": "Kenalan dengan Teh Vini", "image": "/clients/vini14/vini-documentary-hero.webp" },
+    { "target": "originals", "title": "Hasil Karya", "subtitle": "Yang pernah dibangun", "image": "/clients/vini14/vini-documentary-studio.webp" },
+    { "target": "journey", "title": "Perjalanan", "subtitle": "Dari rumah ke dunia digital", "image": "/clients/vini14/vini-documentary-hero.webp" },
+    { "target": "skills", "title": "Proses Kerja", "subtitle": "Yang dilakukan di balik layar", "image": "/clients/vini14/vini-documentary-studio.webp" },
+    { "target": "picks", "title": "Kisah Pilihan", "subtitle": "Momen dan karya", "image": "/clients/vini14/vini-documentary-kelas.webp" },
+    { "target": "moments", "title": "Titik Penting", "subtitle": "Yang membentuk perjalanan", "image": "/clients/vini14/vini-documentary-kelas.webp" },
+    { "target": "story", "title": "Lanjut Bercerita", "subtitle": "Hubungi dan berkolaborasi", "image": "/clients/vini14/vini-documentary-studio.webp" }
+  ],
+  "picksHeading": "Potongan Kisah yang Berarti",
+  "picksKicker": "CERITA PILIHAN",
+  "journeyHeading": "Perjalanan di Balik Layar",
+  "journeyKicker": "SEMUA BERAWAL DARI MENCOBA",
+  "journeyAside": "Saya belajar untuk diri sendiri, lalu membagikan apa yang saya praktikkan. Perjalanannya berlanjut lewat kelas, komunitas, dan website personal.",
+  "templateId": "documentary",
+  "identityMode": "photo"
+}
