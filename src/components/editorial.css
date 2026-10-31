@@ -132,3 +132,30 @@
   .editorial-hero-image > img, .editorial-placeholder-monogram, .editorial-scroll-link { animation: none !important; }
   .editorial-actions button, .editorial-cinema .rail img { transition: none !important; }
 }
+
+/* Yudha Andaka: sosok berdiri utuh dengan latar editorial khusus. */
+.yudhaandaka-executive .editorial-hero-image {
+  background: radial-gradient(ellipse at 53% 42%, #4b5967 0%, #283542 47%, #111820 86%);
+}
+.yudhaandaka-executive .editorial-hero-image::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(90deg, transparent 0 69px, #d7bb8440 70px, transparent 71px),
+    linear-gradient(180deg, #f0d7aa12, transparent 64%);
+  opacity: .4;
+}
+.yudhaandaka-executive .editorial-hero-image > img {
+  position: relative; z-index: 1; object-fit: contain; object-position: center bottom;
+  filter: drop-shadow(0 24px 28px #070b11ac);
+}
+.yudhaandaka-executive .editorial-paper {
+  --editorial-cream: #f0ece5;
+}
+.yudhaandaka-executive .editorial-photo-wash {
+  background: linear-gradient(0deg, #101820b0, transparent 24%);
+}
+@media (max-width: 800px) {
+  .yudhaandaka-executive .editorial-hero-image { height: 480px; }
+}
+@media (max-width: 520px) {
+  .yudhaandaka-executive .editorial-hero-image { height: 415px; }
+}

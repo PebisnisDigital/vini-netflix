@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640">
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#162936"/><stop offset=".54" stop-color="#38535b"/><stop offset="1" stop-color="#0e1b27"/></linearGradient>
+    <linearGradient id="gold" x2="1" y2="1"><stop stop-color="#f7e0b4"/><stop offset="1" stop-color="#b59a6b"/></linearGradient>
+    <pattern id="grid" width="37" height="37" patternUnits="userSpaceOnUse"><path d="M37 0H0V37" fill="none" stroke="#d8c4a2" stroke-opacity=".06"/></pattern>
+  </defs>
+  <rect width="960" height="640" fill="url(#bg)"/><rect width="960" height="640" fill="url(#grid)"/>
+  <circle cx="703" cy="246" r="260" stroke="#ddc395" stroke-width="2" fill="none" opacity=".19"/>
+  <circle cx="703" cy="246" r="195" stroke="#ddc395" stroke-width="2" fill="none" opacity=".2"/>
+  <path d="M264 414L467 235L670 414" fill="none" stroke="url(#gold)" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M321 379V506H614V379" fill="none" stroke="#d9ba82" stroke-width="12"/>
+  <path d="M416 504V405H522V504" fill="none" stroke="#d9ba82" stroke-width="9"/>
+  <path d="M730 170V322M691 197H782M691 258H763" stroke="#d9ba82" stroke-width="8" stroke-linecap="round" opacity=".9"/>
+  <circle cx="730" cy="247" r="115" stroke="#e2cc9e" stroke-width="8" fill="#142d37" opacity=".78"/>
+  <path d="M698 251l27 28 52-65" fill="none" stroke="#e7cf9e" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="62" y="76" font-size="15" font-family="Arial,sans-serif" letter-spacing="6" fill="#e1c997">FINANCING &amp; ANALYSIS</text>
+  <text x="62" y="565" font-size="55" font-family="Georgia,serif" fill="#f8ecda">Banking &amp; Credit</text>
+  <path d="M63 585H425" stroke="#d3b786" stroke-width="2"/>
+</svg>

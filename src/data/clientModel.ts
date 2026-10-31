@@ -9,6 +9,7 @@ import { validateElementLinks, type ElementLinks } from './elementLinks';
 /** Satu sumber data untuk setiap halaman portofolio, tanpa teks klien lain. */
 export type PortfolioContent = {
   profile: typeof vini.profile & {
+    secondaryEmail?: string;
     heroMeta?: string[];
     floating?: { text: string; sub: string }[];
     aboutFacts?: { k: string; v: string; s: string }[];
@@ -163,6 +164,7 @@ export type ClientBrief = {
   interests: string[];
   photo: { src: string; alt: string; srcSet?: string };
   email?: string;
+  secondaryEmail?: string;
   whatsapp?: string;
   links?: { website?: string; linkedin?: string; github?: string; facebook?: string; instagram?: string; tiktok?: string; threads?: string; youtube?: string };
   experiences: { company: string; role: string; period: string; description: string }[];
@@ -343,6 +345,7 @@ export function validateBrief(value: unknown, options: { requireWhatsapp?: boole
   }
   for (const key of ['journeyHeading', 'journeyAside', 'journeyKicker'] as const) if (b[key] !== undefined && (typeof b[key] !== 'string' || !b[key].trim())) errors.push(`Teks ${key} tidak valid.`);
   if (b.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(b.email)) errors.push('Format email tidak valid.');
+  if (b.secondaryEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(b.secondaryEmail)) errors.push('Format email kedua tidak valid.');
   if (b.whatsapp !== undefined && typeof b.whatsapp !== 'string') errors.push('Nomor WhatsApp pemilik website tidak valid.');
   else if (b.whatsapp?.trim() && !normalizeClientWhatsapp(b.whatsapp)) errors.push('Nomor WhatsApp harus berupa nomor seluler Indonesia atau Singapura yang valid (contoh: 08..., +62..., atau +65...).');
   if (options.requireWhatsapp && !normalizeClientWhatsapp(b.whatsapp)) errors.push('Nomor WhatsApp pemilik website wajib diisi untuk tombol referral.');
@@ -451,7 +454,7 @@ export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: 
       fullName: preserveAcademicTitle ? name : name.toUpperCase(), displayName: name,
       firstName: preserveAcademicTitle ? name.split(',')[0].toUpperCase() : name.toUpperCase(), seriesTag: 'THE SERIES',
       originalLabel: `KISAH ORIGINAL ${preserveAcademicTitle ? name : name.toUpperCase()}`, role: brief.role,
-      tagline: tags, intro: brief.bio, location: brief.location, email: brief.email || '',
+      tagline: tags, intro: brief.bio, location: brief.location, email: brief.email || '', secondaryEmail: brief.secondaryEmail || '',
       whatsapp: brief.whatsapp || '', referralCode: clientReferralCode(brief.slug), clientSlug: brief.slug,
       links: { linkedin: brief.links?.linkedin || '', github: brief.links?.github || '', website: brief.links?.website || '' },
       resumePdf: '', portrait: { src: brief.photo.src, srcSet: brief.photo.srcSet || '', alt: brief.photo.alt || `Foto ${name}` },

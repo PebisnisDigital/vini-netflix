@@ -104,6 +104,7 @@ export function ResumeSheet() {
         <div className="text-xs leading-relaxed text-mist sm:text-right">
           <p>{profile.location}</p>
           {profile.email && <a href={`mailto:${profile.email}`} className="block hover:text-bone">{profile.email}</a>}
+          {profile.secondaryEmail && <a href={`mailto:${profile.secondaryEmail}`} className="block hover:text-bone">{profile.secondaryEmail}</a>}
           {profile.links.website && <a href={profile.links.website} target="_blank" rel="noreferrer" className="block hover:text-bone">{profile.websiteLabel || 'Website'} ↗</a>}
           {profile.links.linkedin && <a href={profile.links.linkedin} target="_blank" rel="noreferrer" className="block hover:text-bone">LinkedIn ↗</a>}
           {profile.links.github && <a href={profile.links.github} target="_blank" rel="noreferrer" className="block hover:text-bone">GitHub ↗</a>}

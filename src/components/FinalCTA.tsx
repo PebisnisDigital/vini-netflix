@@ -10,6 +10,8 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
   const { profile } = usePortfolio();
   const { scrollTo } = useSmoothScroll();
   const isNoahInna = profile.clientSlug === 'noahinna';
+  const isYudha = profile.clientSlug === 'yudhaandaka';
+  const directContactPortfolio = isNoahInna || isYudha;
   const exampleUrl = typeof window === 'undefined' ? undefined : `${window.location.origin}${profile.clientSlug ? `/${profile.clientSlug}` : window.location.pathname}`;
   const contactName = normalizeClientWhatsapp(profile.whatsapp) === normalizeClientWhatsapp(portfolioServiceCTA.whatsappNumber) ? 'Teh Vini' : profile.displayName;
   const whatsappUrl = getClientReferralWhatsappUrl({
@@ -17,8 +19,8 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
     referralCode: profile.referralCode, exampleUrl,
   });
   const contactNumber = normalizeClientWhatsapp(profile.whatsapp);
-  const directContactUrl = isNoahInna && contactNumber
-    ? `https://wa.me/${contactNumber}?text=${encodeURIComponent('Hi Ain, I found your Noah Inna creative portfolio and would love to discuss a creative project.')}`
+  const directContactUrl = directContactPortfolio && contactNumber
+    ? `https://wa.me/${contactNumber}?text=${encodeURIComponent(isNoahInna ? 'Hi Ain, I found your Noah Inna creative portfolio and would love to discuss a creative project.' : 'Halo Pak Yudha, saya melihat profil profesional Bapak di PESONAFLIX. Boleh berkenalan dan berdiskusi?')}`
     : null;
 
   return (
@@ -32,7 +34,7 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
       >
-        {isNoahInna ? 'CONTACT ELECTRONIC TIGER CREATIVE STUDIO' : 'Jasa Web Portofolio'}
+        {isNoahInna ? 'CONTACT ELECTRONIC TIGER CREATIVE STUDIO' : isYudha ? 'TERHUBUNG · YUDHA ANDAKA' : 'Jasa Web Portofolio'}
       </motion.p>
       <motion.h2
         className="relative mx-auto max-w-6xl font-display leading-[1.14] text-bone"
@@ -42,8 +44,8 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
         viewport={{ once: true, margin: '-10% 0px' }}
         transition={{ duration: 0.9, ease: EASE }}
       >
-        <span className="block">{isNoahInna ? 'Have a Creative Idea?' : portfolioServiceCTA.headlineLines[0]}</span>
-        <span className="block text-crimson-2 client-cta-headline">{isNoahInna ? "Let's Bring It to Life." : portfolioServiceCTA.headlineLines[1]}</span>
+        <span className="block">{isNoahInna ? 'Have a Creative Idea?' : isYudha ? 'Pengalaman Membuka Percakapan.' : portfolioServiceCTA.headlineLines[0]}</span>
+        <span className="block text-crimson-2 client-cta-headline">{isNoahInna ? "Let's Bring It to Life." : isYudha ? 'Mari Terhubung.' : portfolioServiceCTA.headlineLines[1]}</span>
       </motion.h2>
 
       <motion.div
@@ -53,21 +55,22 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: EASE, delay: 0.25 }}
       >
-        {(isNoahInna ? directContactUrl : whatsappUrl) ? <Magnetic>
+        {(directContactPortfolio ? directContactUrl : whatsappUrl) ? <Magnetic>
           <a
-            href={(isNoahInna ? directContactUrl : whatsappUrl) || '#contact'}
+            href={(directContactPortfolio ? directContactUrl : whatsappUrl) || '#contact'}
             target="_blank"
             rel="noopener noreferrer"
             data-cursor="link"
-            aria-label={`Chat WhatsApp ${contactName} untuk dibuatkan web portofolio PESONAFLIX`}
+            aria-label={directContactPortfolio ? `Hubungi ${contactName} melalui WhatsApp` : `Chat WhatsApp ${contactName} untuk dibuatkan web portofolio PESONAFLIX`}
             className="client-cta-pulse inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-crimson px-9 py-4 text-base font-bold tracking-[0.04em] text-white shadow-[0_0_50px_rgba(229,19,43,0.5)] transition duration-300 hover:bg-crimson-2 focus-visible:outline-offset-4 sm:text-lg"
           >
-            {isNoahInna ? 'Message Ain' : portfolioServiceCTA.buttonLabel}
+            {isNoahInna ? 'Message Ain' : isYudha ? 'Hubungi Pak Yudha' : portfolioServiceCTA.buttonLabel}
             <span aria-hidden="true" className="text-xl">↗</span>
           </a>
         </Magnetic> : null}
-        {isNoahInna && profile.email && <a className="text-sm font-semibold text-bone/85 underline decoration-white/40 underline-offset-4 hover:text-bone" href={`mailto:${profile.email}`}>Email the Studio ↗</a>}
-        {isNoahInna && whatsappUrl && <div className="mt-8 rounded-2xl border border-white/15 bg-white/5 px-6 py-5 text-sm text-mist"><p>Love this portfolio format?</p><a className="mt-2 inline-flex font-bold text-bone underline decoration-crimson-2 underline-offset-4" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Get Your Own ↗</a></div>}
+        {directContactPortfolio && profile.email && <a className="text-sm font-semibold text-bone/85 underline decoration-white/40 underline-offset-4 hover:text-bone" href={`mailto:${profile.email}`}>{isNoahInna ? 'Email the Studio ↗' : profile.email}</a>}
+        {isYudha && profile.secondaryEmail && <a className="text-sm font-semibold text-bone/85 underline decoration-white/40 underline-offset-4 hover:text-bone" href={`mailto:${profile.secondaryEmail}`}>{profile.secondaryEmail}</a>}
+        {directContactPortfolio && whatsappUrl && <div className="mt-8 rounded-2xl border border-white/15 bg-white/5 px-6 py-5 text-sm text-mist"><p>{isNoahInna ? 'Love this portfolio format?' : 'Ingin website personal seperti ini?'}</p><a className="mt-2 inline-flex font-bold text-bone underline decoration-crimson-2 underline-offset-4" href={whatsappUrl} target="_blank" rel="noopener noreferrer">{isNoahInna ? 'Get Your Own ↗' : 'Buat Web Serupa ↗'}</a></div>}
         {!whatsappUrl && <p className="text-xs font-medium tracking-[0.08em] text-mist sm:text-sm">Nomor WhatsApp pemilik website belum tersedia.</p>}
       </motion.div>
 
