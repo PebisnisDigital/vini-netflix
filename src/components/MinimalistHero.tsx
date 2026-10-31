@@ -14,6 +14,7 @@ export default function MinimalistHero({ onPlay, onOpenProject }: {
   const { scrollTo } = useSmoothScroll();
   const noPortrait = !profile.portrait.src || profile.portrait.src === '/assets/portrait-720.webp';
   const conceptPhoto = /buatan AI|konsep|ilustrasi|bukan foto asli|fiksi/i.test(profile.portrait.alt);
+  const introductoryProfile = profile.clientSlug === 'ermaneffendi';
 
   return (
     <section id="top" className="minimalist-hero" aria-label={`Profil profesional ${profile.displayName}`}>
@@ -33,7 +34,7 @@ export default function MinimalistHero({ onPlay, onOpenProject }: {
             <motion.p data-studio-edit="bio" className="minimalist-intro" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8, delay: .55 }}>{profile.intro}</motion.p>
 
             <motion.div className="minimalist-actions" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8, delay: .67 }}>
-              <button type="button" className="minimalist-primary" onClick={() => scrollTo('#originals')}>Lihat Portofolio <ArrowUpRight size={17} aria-hidden="true" /></button>
+              <button type="button" className="minimalist-primary" onClick={() => scrollTo('#originals')}>{introductoryProfile ? 'Lihat Informasi' : 'Lihat Portofolio'} <ArrowUpRight size={17} aria-hidden="true" /></button>
               <button type="button" className="minimalist-secondary" onClick={onPlay}><Play size={14} fill="currentColor" aria-hidden="true" /> Kenali Saya</button>
             </motion.div>
 
@@ -59,17 +60,17 @@ export default function MinimalistHero({ onPlay, onOpenProject }: {
         </div>
 
         <div className="minimalist-facts">
-          <div><strong>{String(projects.length).padStart(2, '0')}</strong><span>KARYA PILIHAN</span></div>
-          <div><strong>{String(experience.length).padStart(2, '0')}</strong><span>PERAN &amp; PENGALAMAN</span></div>
+          <div><strong>{String(projects.length).padStart(2, '0')}</strong><span>{introductoryProfile ? 'INFORMASI PROFIL' : 'KARYA PILIHAN'}</span></div>
+          <div><strong>{String(experience.length).padStart(2, '0')}</strong><span>{introductoryProfile ? 'PROFESI' : 'PERAN & PENGALAMAN'}</span></div>
           <div><strong>{profile.location}</strong><span>BERKARYA DARI</span></div>
           <button type="button" onClick={() => scrollTo('#about')} aria-label="Lanjut ke cerita lengkap"><span>KENALI LEBIH DEKAT</span><ArrowDownRight size={24} aria-hidden="true" /></button>
         </div>
 
         <div className="minimalist-work-index">
-          <div className="minimalist-work-heading"><span>02 / SELECTED WORK</span><h2>Karya yang berbicara.</h2><p>Bukan sekadar gelar. Berikut hal yang saya kerjakan dan bisa Anda lihat lebih dekat.</p></div>
+          <div className="minimalist-work-heading"><span>{introductoryProfile ? '02 / PROFIL & KONTAK' : '02 / SELECTED WORK'}</span><h2>{introductoryProfile ? 'Mari mengenal lebih dekat.' : 'Karya yang berbicara.'}</h2><p>{introductoryProfile ? 'Informasi singkat untuk mengenal Erman, memulai diskusi, dan terhubung langsung.' : 'Bukan sekadar gelar. Berikut hal yang saya kerjakan dan bisa Anda lihat lebih dekat.'}</p></div>
           <div className="minimalist-work-list">
             {projects.slice(0, 3).map((project, index) => (
-              <button className="minimalist-project-row" type="button" key={project.id} onClick={() => onOpenProject(project)} aria-label={`Buka karya ${project.title}`}>
+              <button className="minimalist-project-row" type="button" key={project.id} onClick={() => onOpenProject(project)} aria-label={`${introductoryProfile ? 'Buka informasi' : 'Buka karya'} ${project.title}`}>
                 <span className="minimalist-project-number">{String(index + 1).padStart(2, '0')}</span>
                 {project.image ? <span className="minimalist-project-thumb"><img src={project.image} alt="" loading="lazy" decoding="async" /></span> : <span className="minimalist-project-thumb minimalist-project-empty" aria-hidden="true"><ImageIcon size={20} /></span>}
                 <span className="minimalist-project-info"><strong>{project.title}</strong><small>{project.genre}</small></span>

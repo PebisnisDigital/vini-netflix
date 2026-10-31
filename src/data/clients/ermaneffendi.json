@@ -1,0 +1,189 @@
+{
+  "slug": "ermaneffendi",
+  "name": "Erman Effenndi",
+  "role": "Freelancer · Profesional Independen",
+  "location": "Indonesia",
+  "bio": "Halo, saya Erman Effenndi, seorang freelancer. Saya membuka ruang untuk berkenalan, berdiskusi tentang kebutuhan proyek, dan menjajaki peluang kerja sama. Untuk mengetahui bidang pekerjaan yang saya tangani, contoh hasil kerja, dan ketersediaan jadwal, silakan hubungi saya langsung melalui WhatsApp atau email.",
+  "tagline": [
+    "Freelancer · Terbuka untuk diskusi dan kolaborasi",
+    "Mari mulai dari sebuah percakapan yang baik."
+  ],
+  "interests": [
+    "Freelance",
+    "Peluang Kerja Sama",
+    "Diskusi Proyek",
+    "Jaringan Profesional"
+  ],
+  "photo": {
+    "src": "/clients/ermaneffendi/erman-closeup.webp",
+    "alt": "Foto close-up Erman Effenndi mengenakan setelan jas hitam dan dasi, dengan latar transparan"
+  },
+  "email": "ermaneffendi26@gmail.com",
+  "whatsapp": "082162156959",
+  "links": {},
+  "experiences": [
+    {
+      "company": "Profesional Independen",
+      "role": "Freelancer",
+      "period": "Profil saat ini",
+      "description": "Erman memperkenalkan profesinya sebagai freelancer. Bidang spesialisasi, pengalaman, serta riwayat proyek belum dicantumkan dan dapat ditambahkan setelah dikonfirmasi."
+    }
+  ],
+  "education": [],
+  "projects": [
+    {
+      "title": "Profil Profesional",
+      "year": "PERKENALAN",
+      "description": "Erman Effenndi memperkenalkan diri sebagai freelancer yang dapat dihubungi untuk perkenalan profesional dan diskusi awal. Kartu ini merupakan informasi profil, bukan klaim proyek yang telah diselesaikan.",
+      "category": "Informasi Profil",
+      "tags": ["Erman Effenndi", "Freelancer", "Profil"]
+    },
+    {
+      "title": "Ruang Diskusi Proyek",
+      "year": "KOLABORASI",
+      "description": "Punya kebutuhan pekerjaan lepas atau ide kolaborasi? Ceritakan lingkup, target, dan jadwal yang diharapkan terlebih dahulu. Kecocokan bidang layanan serta ketersediaan Erman dikonfirmasi dalam percakapan.",
+      "category": "Peluang Kerja Sama",
+      "tags": ["Diskusi", "Kerja Sama", "Kebutuhan Proyek"],
+      "website": "https://wa.me/6282162156959?text=Halo%20Pak%20Erman%2C%20saya%20ingin%20berdiskusi%20tentang%20peluang%20kerja%20sama."
+    },
+    {
+      "title": "Kontak Langsung",
+      "year": "KOMUNIKASI",
+      "description": "Hubungi Erman melalui WhatsApp untuk percakapan awal atau kirim email ke ermaneffendi26@gmail.com. Informasi tarif, layanan, dan portofolio dapat diminta langsung sesuai kebutuhan.",
+      "category": "Informasi Kontak",
+      "tags": ["WhatsApp", "Email", "Komunikasi"],
+      "website": "https://wa.me/6282162156959?text=Halo%20Pak%20Erman%2C%20saya%20menemukan%20profil%20Anda%20di%20PESONAFLIX."
+    }
+  ],
+  "skills": [
+    "Freelance",
+    "Diskusi Kebutuhan",
+    "Kolaborasi Proyek"
+  ],
+  "skillCategories": [
+    {
+      "id": "perkenalan",
+      "title": "Profil & Cara Berkomunikasi",
+      "subtitle": "Informasi awal untuk mengenal Erman",
+      "skills": [
+        {
+          "name": "Freelance Independen",
+          "mono": "FR",
+          "note": "Profesi",
+          "evidence": ["Profesi yang disampaikan: freelancer", "Spesialisasi dan portofolio dapat dikonfirmasi langsung"]
+        },
+        {
+          "name": "Diskusi Kolaborasi",
+          "mono": "KO",
+          "note": "Langkah awal",
+          "evidence": ["Jelaskan kebutuhan proyek terlebih dahulu", "Kecocokan layanan dan jadwal dibahas langsung"]
+        }
+      ]
+    }
+  ],
+  "skillsHeading": "Mari Kenalan & Berdiskusi",
+  "skillsAside": "Ini adalah halaman perkenalan profesional Erman. Rincian bidang freelance, pengalaman, keterampilan khusus, dan portofolio belum diberikan sehingga tidak ditampilkan sebagai klaim.",
+  "skillsKicker": "PROFIL SINGKAT",
+  "highlights": [
+    {
+      "title": "Freelancer",
+      "description": "Profesi Erman sebagai pekerja lepas independen.",
+      "category": "PROFIL"
+    },
+    {
+      "title": "Diskusi Lebih Dulu",
+      "description": "Ceritakan tujuan dan kebutuhan sebelum menentukan bentuk kerja sama.",
+      "category": "KOLABORASI"
+    },
+    {
+      "title": "Kontak Personal",
+      "description": "Terhubung langsung melalui WhatsApp atau email yang dicantumkan.",
+      "category": "KONTAK"
+    }
+  ],
+  "watchCards": [
+    {
+      "target": "about",
+      "title": "Kenali Erman",
+      "subtitle": "Perkenalan singkat dan profesi",
+      "image": "/clients/ermaneffendi/erman-closeup.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Informasi Profesional",
+      "subtitle": "Profil, kolaborasi, dan kontak"
+    },
+    {
+      "target": "skills",
+      "title": "Mulai Diskusi",
+      "subtitle": "Ruang untuk bertanya dan bekerja sama"
+    },
+    {
+      "target": "journey",
+      "title": "Cerita Singkat",
+      "subtitle": "Langkah awal saling mengenal"
+    }
+  ],
+  "pickCards": [
+    {
+      "label": "PROFIL",
+      "title": "Kenali Erman",
+      "detail": "Perkenalan singkat seorang freelancer independen.",
+      "image": "/clients/ermaneffendi/erman-closeup.webp",
+      "palette": { "from": "#172b31", "via": "#56727a", "to": "#172329", "accent": "#d8c6a5" }
+    },
+    {
+      "label": "DISKUSI",
+      "title": "Peluang Kolaborasi",
+      "detail": "Bicarakan ruang lingkup proyek dan kemungkinan kerja sama.",
+      "palette": { "from": "#243b42", "via": "#6e8890", "to": "#1c292e", "accent": "#dfd6c6" }
+    },
+    {
+      "label": "KONTAK",
+      "title": "Terhubung Langsung",
+      "detail": "Gunakan WhatsApp atau email untuk percakapan pertama.",
+      "palette": { "from": "#313941", "via": "#73838d", "to": "#19242b", "accent": "#f1d8ac" }
+    }
+  ],
+  "picksHeading": "Satu Langkah untuk Berkenalan",
+  "picksKicker": "PROFIL · KOLABORASI · KONTAK",
+  "seasons": [
+    {
+      "number": 1,
+      "title": "Mengenal Erman",
+      "period": "Perkenalan profesional",
+      "synopsis": "Erman Effenndi memperkenalkan diri sebagai freelancer yang terbuka untuk diskusi dan komunikasi profesional.",
+      "episodes": [
+        {
+          "title": "Halo, Saya Erman",
+          "runtime": "Profil",
+          "description": "Perkenalan diri, profesi, serta cara untuk menghubungi Erman secara langsung.",
+          "tags": ["Perkenalan", "Freelancer"],
+          "image": "/clients/ermaneffendi/erman-closeup.webp",
+          "palette": { "from": "#23343a", "via": "#728791", "to": "#19272d", "accent": "#e6d4b3" }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Memulai Kolaborasi",
+      "period": "Ruang percakapan",
+      "synopsis": "Diskusi awal membantu memastikan kebutuhan dan kesesuaian kerja sama sebelum melangkah lebih jauh.",
+      "episodes": [
+        {
+          "title": "Ceritakan Kebutuhan Anda",
+          "runtime": "Diskusi",
+          "description": "Sampaikan topik pekerjaan, target, dan jadwal. Erman dapat memberikan informasi lebih lanjut mengenai layanan serta ketersediaannya.",
+          "tags": ["Kebutuhan", "Kolaborasi"],
+          "palette": { "from": "#28444d", "via": "#7f999d", "to": "#223238", "accent": "#e6d4b3" }
+        }
+      ]
+    }
+  ],
+  "journeyHeading": "Awal Sebuah Kolaborasi",
+  "journeyAside": "Halaman ini berisi informasi yang sudah diberikan: nama, profesi, foto, dan kontak. Bidang spesialisasi, proyek terdahulu, tahun pengalaman, serta riwayat pendidikan dapat dilengkapi melalui Studio setelah memperoleh data dari Erman.",
+  "journeyKicker": "PERKENALAN · DISKUSI · LANGKAH LANJUT",
+  "theme": { "accent": "#315c61", "background": "#f6f6f3" },
+  "templateId": "minimalist",
+  "identityMode": "photo"
+}
