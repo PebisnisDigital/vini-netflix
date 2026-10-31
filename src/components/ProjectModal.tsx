@@ -14,6 +14,8 @@ const block = {
 export default function ProjectModal({ project, onClose, onSwitch }: { project: Project; onClose: () => void; onSwitch: (p: Project) => void }) {
   const { projects, profile } = usePortfolio();
   const isNoahInna = profile.clientSlug === 'noahinna';
+  const videoSource = /\.mp4(?:\?|$)/i.test(project.github ?? '') ? project.github : null;
+  const isDocumentImage = Boolean(project.image && /sertifikat|piagam/i.test(project.genre));
   useScrollLock(true);
   const scroller = useRef<HTMLDivElement>(null);
   const closeBtn = useRef<HTMLButtonElement>(null);
@@ -94,7 +96,26 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
               {project.logline}
             </motion.p>
 
-            {project.github && (
+            {videoSource && (
+              <motion.div variants={block} className="mt-8 overflow-hidden rounded-xl border border-white/15 bg-black/40 p-3 sm:p-5">
+                <h3 className="mb-3 text-sm font-semibold text-bone">Putar Video Edukasi</h3>
+                <video src={videoSource} poster={project.image} controls playsInline preload="metadata"
+                  aria-label={project.title} className="mx-auto max-h-[70vh] w-full object-contain">
+                  Browser Anda tidak mendukung video HTML5.
+                </video>
+              </motion.div>
+            )}
+
+            {isDocumentImage && project.image && (
+              <motion.div variants={block} className="mt-8 rounded-xl border border-white/15 bg-white p-3 sm:p-5">
+                <a href={project.image} target="_blank" rel="noreferrer" aria-label={`Buka gambar asli ${project.title}`}>
+                  <img src={project.image} alt={project.title} loading="lazy" decoding="async" className="mx-auto max-h-[80vh] w-full object-contain" />
+                </a>
+                <p className="mt-3 text-center text-xs text-slate-700">Klik sertifikat untuk melihat gambar lebih besar.</p>
+              </motion.div>
+            )}
+
+            {project.github && !videoSource && (
               <motion.div variants={block} className="mt-6 flex flex-wrap gap-3">
                 <Magnetic>
                   <a

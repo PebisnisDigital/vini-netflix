@@ -30,6 +30,7 @@ import Scene from './components/Scene';
 import About from './components/About';
 import Seasons from './components/Seasons';
 import Originals from './components/Originals';
+import MunasifahShowcase from './components/MunasifahShowcase';
 import TopPicks from './components/TopPicks';
 import Skills from './components/Skills';
 import Achievements from './components/Achievements';
@@ -198,7 +199,7 @@ function Series({ slug, editorMode }: { slug: string; editorMode: boolean }) {
   const sections: Record<SectionId, ReactNode> = {
     about: <About />,
     journey: <Seasons />,
-    originals: <Originals onOpen={openProject} />,
+    originals: profile.clientSlug === 'munasifah' ? <MunasifahShowcase onOpen={openProject} /> : <Originals onOpen={openProject} />,
     picks: <TopPicks />,
     skills: <Skills />,
     moments: <Achievements />,
