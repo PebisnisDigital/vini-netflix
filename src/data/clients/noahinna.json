@@ -1,6 +1,6 @@
 {
   "slug": "noahinna",
-  "name": "Nur Ain Hassan",
+  "name": "NOAH & INNA",
   "role": "Content Creator · 3D Clay Animation",
   "location": "Creative work online",
   "bio": "Hello, I'm Nur Ain Hassan—just call me Ain. I create music-led videos, educational content and handcrafted 3D clay animation. My work lives on the Noah Inna YouTube channel, with each video credited 'Created by Electronic Tiger Creative Studio.' This space brings together the different ways I explore music, learning and visual creativity.",
@@ -19,7 +19,7 @@
   ],
   "photo": {
     "src": "/clients/noahinna/clay-characters.jpeg",
-    "alt": "Two expressive 3D clay-style child characters, one wearing blue with round glasses and the other dressed in pink, from the visual supplied for Noah Inna's portfolio"
+    "alt": "Foto NOAH & INNA"
   },
   "email": "theelectronictiger@gmail.com",
   "whatsapp": "+6593433749",
@@ -48,7 +48,11 @@
       "year": "YOUTUBE COLLECTION",
       "description": "Ain's main body of published content is built around songs and music. Explore the music-led videos on the Noah Inna channel.",
       "category": "Music & Animation",
-      "tags": ["Music", "Video", "Creative Content"],
+      "tags": [
+        "Music",
+        "Video",
+        "Creative Content"
+      ],
       "website": "https://www.youtube.com/@noahinna",
       "image": "/clients/noahinna/clay-characters.jpeg"
     },
@@ -57,7 +61,11 @@
       "year": "VISUAL CRAFT",
       "description": "A visual direction defined by the charm and texture of handcrafted 3D clay characters. The character artwork shown here was supplied for this portfolio; a dedicated storytelling video has not been shared yet.",
       "category": "3D Clay Animation",
-      "tags": ["Clay", "Characters", "Animation"],
+      "tags": [
+        "Clay",
+        "Characters",
+        "Animation"
+      ],
       "image": "/clients/noahinna/clay-characters.jpeg"
     },
     {
@@ -65,16 +73,26 @@
       "year": "YOUTUBE VIDEO",
       "description": "One educational tutorial is part of Ain's published YouTube work. Visit the channel to find the full video.",
       "category": "Educational Content",
-      "tags": ["Tutorial", "Learning", "Video"],
-      "website": "https://www.youtube.com/@noahinna"
+      "tags": [
+        "Tutorial",
+        "Learning",
+        "Video"
+      ],
+      "website": "https://www.youtube.com/@noahinna",
+      "image": ""
     },
     {
       "title": "Explanatory Video",
       "year": "YOUTUBE VIDEO",
       "description": "Ain has also published one explanatory video, using visual content to communicate an idea. Its individual video link can be added later in Studio.",
       "category": "Explainer Content",
-      "tags": ["Explanation", "Visuals", "Video"],
-      "website": "https://www.youtube.com/@noahinna"
+      "tags": [
+        "Explanation",
+        "Visuals",
+        "Video"
+      ],
+      "website": "https://www.youtube.com/@noahinna",
+      "image": ""
     }
   ],
   "skills": [
@@ -91,8 +109,24 @@
       "title": "Clay & Character Worlds",
       "subtitle": "A tactile visual style with personality",
       "skills": [
-        { "name": "Handcrafted 3D Clay", "mono": "3D", "note": "Visual style", "evidence": ["Character art supplied for this portfolio", "Part of Ain's stated creative focus"] },
-        { "name": "Character Visuals", "mono": "CV", "note": "Design", "evidence": ["Expressive, friendly clay-style characters", "A visual foundation for future stories"] }
+        {
+          "name": "Handcrafted 3D Clay",
+          "mono": "3D",
+          "note": "Visual style",
+          "evidence": [
+            "Character art supplied for this portfolio",
+            "Part of Ain's stated creative focus"
+          ]
+        },
+        {
+          "name": "Character Visuals",
+          "mono": "CV",
+          "note": "Design",
+          "evidence": [
+            "Expressive, friendly clay-style characters",
+            "A visual foundation for future stories"
+          ]
+        }
       ]
     },
     {
@@ -100,8 +134,23 @@
       "title": "Video & Music",
       "subtitle": "Creative work currently shared on YouTube",
       "skills": [
-        { "name": "Music-Led Videos", "mono": "MV", "note": "Main format", "evidence": ["Songs and music make up most of the channel's videos"] },
-        { "name": "Video Content Creation", "mono": "VC", "note": "Publishing", "evidence": ["Noah Inna on YouTube", "Electronic Tiger Creative Studio video credit"] }
+        {
+          "name": "Music-Led Videos",
+          "mono": "MV",
+          "note": "Main format",
+          "evidence": [
+            "Songs and music make up most of the channel's videos"
+          ]
+        },
+        {
+          "name": "Video Content Creation",
+          "mono": "VC",
+          "note": "Publishing",
+          "evidence": [
+            "Noah Inna on YouTube",
+            "Electronic Tiger Creative Studio video credit"
+          ]
+        }
       ]
     },
     {
@@ -109,8 +158,22 @@
       "title": "Teach & Explain",
       "subtitle": "Useful ideas brought to life on screen",
       "skills": [
-        { "name": "Educational Tutorial", "mono": "ED", "note": "One video", "evidence": ["An educational tutorial is published on the channel"] },
-        { "name": "Explanatory Video", "mono": "EX", "note": "One video", "evidence": ["An explanatory video is part of the channel's collection"] }
+        {
+          "name": "Educational Tutorial",
+          "mono": "ED",
+          "note": "One video",
+          "evidence": [
+            "An educational tutorial is published on the channel"
+          ]
+        },
+        {
+          "name": "Explanatory Video",
+          "mono": "EX",
+          "note": "One video",
+          "evidence": [
+            "An explanatory video is part of the channel's collection"
+          ]
+        }
       ]
     }
   ],
@@ -135,11 +198,36 @@
     }
   ],
   "watchCards": [
-    { "target": "about", "title": "Meet Ain", "subtitle": "The person behind the studio", "image": "/clients/noahinna/clay-characters.jpeg" },
-    { "target": "originals", "title": "See the Videos", "subtitle": "Music, tutorials and explainers", "image": "/clients/noahinna/clay-characters.jpeg" },
-    { "target": "skills", "title": "Explore the Craft", "subtitle": "Clay, animation and creative video", "image": "/clients/noahinna/clay-characters.jpeg" },
-    { "target": "journey", "title": "Creative Chapters", "subtitle": "A portfolio in episodes", "image": "/clients/noahinna/clay-characters.jpeg" },
-    { "target": "picks", "title": "Studio Highlights", "subtitle": "What makes Noah Inna distinct", "image": "/clients/noahinna/clay-characters.jpeg" }
+    {
+      "target": "about",
+      "title": "Meet Ain",
+      "subtitle": "The person behind the studio",
+      "image": "/clients/noahinna/clay-characters.jpeg"
+    },
+    {
+      "target": "originals",
+      "title": "See the Videos",
+      "subtitle": "Music, tutorials and explainers",
+      "image": "/clients/noahinna/clay-characters.jpeg"
+    },
+    {
+      "target": "skills",
+      "title": "Explore the Craft",
+      "subtitle": "Clay, animation and creative video",
+      "image": "/clients/noahinna/clay-characters.jpeg"
+    },
+    {
+      "target": "journey",
+      "title": "Creative Chapters",
+      "subtitle": "A portfolio in episodes",
+      "image": "/clients/noahinna/clay-characters.jpeg"
+    },
+    {
+      "target": "picks",
+      "title": "Studio Highlights",
+      "subtitle": "What makes Noah Inna distinct",
+      "image": "/clients/noahinna/clay-characters.jpeg"
+    }
   ],
   "pickCards": [
     {
@@ -147,26 +235,48 @@
       "title": "A World in Rhythm",
       "detail": "Most of Ain's published videos are built around songs and music.",
       "image": "/clients/noahinna/clay-characters.jpeg",
-      "palette": { "from": "#35243c", "via": "#976c92", "to": "#10101b", "accent": "#f8afc8" }
+      "palette": {
+        "from": "#35243c",
+        "via": "#976c92",
+        "to": "#10101b",
+        "accent": "#f8afc8"
+      }
     },
     {
       "label": "HANDCRAFTED STYLE",
       "title": "Little Clay Characters",
       "detail": "Friendly, expressive character artwork with a handcrafted 3D clay feel.",
       "image": "/clients/noahinna/clay-characters.jpeg",
-      "palette": { "from": "#1f3a49", "via": "#547f9c", "to": "#0d131c", "accent": "#a7d9ee" }
+      "palette": {
+        "from": "#1f3a49",
+        "via": "#547f9c",
+        "to": "#0d131c",
+        "accent": "#a7d9ee"
+      }
     },
     {
       "label": "LEARN & DISCOVER",
       "title": "Make It Understandable",
       "detail": "A published educational tutorial and explanatory video extend the channel beyond music.",
-      "palette": { "from": "#5a302e", "via": "#b97368", "to": "#1d161e", "accent": "#ffd6aa" }
+      "palette": {
+        "from": "#5a302e",
+        "via": "#b97368",
+        "to": "#1d161e",
+        "accent": "#ffd6aa"
+      },
+      "image": ""
     },
     {
       "label": "STUDIO SIGNATURE",
       "title": "Electronic Tiger",
       "detail": "Every video carries the credit: Created by Electronic Tiger Creative Studio.",
-      "palette": { "from": "#35211a", "via": "#8e4b3d", "to": "#16141c", "accent": "#ffb578" }
+      "palette": {
+        "from": "#35211a",
+        "via": "#8e4b3d",
+        "to": "#16141c",
+        "accent": "#ffb578"
+      },
+      "image": ""
     }
   ],
   "picksHeading": "Inside the Studio",
@@ -182,9 +292,18 @@
           "title": "Music-Led Video Collection",
           "runtime": "YouTube collection",
           "description": "A collection of creative videos built around songs and music. Explore the published work on the Noah Inna channel.",
-          "tags": ["Music", "Video", "YouTube"],
+          "tags": [
+            "Music",
+            "Video",
+            "YouTube"
+          ],
           "image": "/clients/noahinna/clay-characters.jpeg",
-          "palette": { "from": "#35243c", "via": "#976c92", "to": "#10101b", "accent": "#f8afc8" }
+          "palette": {
+            "from": "#35243c",
+            "via": "#976c92",
+            "to": "#10101b",
+            "accent": "#f8afc8"
+          }
         }
       ]
     },
@@ -198,15 +317,33 @@
           "title": "Educational Tutorial",
           "runtime": "One published video",
           "description": "An educational tutorial from the Noah Inna YouTube collection.",
-          "tags": ["Education", "Tutorial"],
-          "palette": { "from": "#254349", "via": "#548c97", "to": "#101b24", "accent": "#9de2dd" }
+          "tags": [
+            "Education",
+            "Tutorial"
+          ],
+          "palette": {
+            "from": "#254349",
+            "via": "#548c97",
+            "to": "#101b24",
+            "accent": "#9de2dd"
+          },
+          "image": ""
         },
         {
           "title": "Explanatory Video",
           "runtime": "One published video",
           "description": "A visual explanation video from Ain's channel.",
-          "tags": ["Explainer", "Creative Content"],
-          "palette": { "from": "#56352b", "via": "#bb8062", "to": "#1d1720", "accent": "#ffd4a7" }
+          "tags": [
+            "Explainer",
+            "Creative Content"
+          ],
+          "palette": {
+            "from": "#56352b",
+            "via": "#bb8062",
+            "to": "#1d1720",
+            "accent": "#ffd4a7"
+          },
+          "image": ""
         }
       ]
     },
@@ -220,9 +357,18 @@
           "title": "Clay Character Study",
           "runtime": "Portfolio visual",
           "description": "The clay-style characters shown on this page represent the creative visual supplied for Noah Inna's portfolio.",
-          "tags": ["3D Clay", "Characters", "Visual Study"],
+          "tags": [
+            "3D Clay",
+            "Characters",
+            "Visual Study"
+          ],
           "image": "/clients/noahinna/clay-characters.jpeg",
-          "palette": { "from": "#42293f", "via": "#b07d9b", "to": "#17121e", "accent": "#f9c2cf" }
+          "palette": {
+            "from": "#42293f",
+            "via": "#b07d9b",
+            "to": "#17121e",
+            "accent": "#f9c2cf"
+          }
         }
       ]
     }
@@ -230,7 +376,10 @@
   "journeyHeading": "The Noah Inna Chapters",
   "journeyAside": "A clear look at what Ain has already shared: music videos, a tutorial, an explainer, and her handcrafted clay visual style. Individual video links can be attached as the portfolio grows.",
   "journeyKicker": "EPISODES FROM THE CREATIVE WORLD",
-  "theme": { "accent": "#ffadba", "background": "#121321" },
-  "templateId": "clay-3d",
+  "theme": {
+    "accent": "#ffadba",
+    "background": "#121321"
+  },
+  "templateId": "original",
   "identityMode": "photo"
 }
