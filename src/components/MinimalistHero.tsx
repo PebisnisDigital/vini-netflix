@@ -14,7 +14,7 @@ export default function MinimalistHero({ onPlay, onOpenProject }: {
   const { scrollTo } = useSmoothScroll();
   const noPortrait = !profile.portrait.src || profile.portrait.src === '/assets/portrait-720.webp';
   const conceptPhoto = /buatan AI|konsep|ilustrasi|bukan foto asli|fiksi/i.test(profile.portrait.alt);
-  const introductoryProfile = ['ermaneffendi', 'heriyono', 'muhaiminjumat'].includes(profile.clientSlug ?? '');
+  const introductoryProfile = ['ermaneffendi', 'heriyono', 'muhaiminjumat', 'fahrurrozi'].includes(profile.clientSlug ?? '');
   const locationKnown = Boolean(profile.location && profile.location !== 'Belum dicantumkan');
 
   return (
