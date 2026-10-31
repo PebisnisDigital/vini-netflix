@@ -6,7 +6,10 @@ import EpisodeCard from './EpisodeCard';
 import { RailButtons } from './Rail';
 
 export default function Seasons() {
-  const { seasons, journeyHeading, journeyAside, journeyKicker } = usePortfolio();
+  const { seasons, projects, profile, journeyHeading, journeyAside, journeyKicker } = usePortfolio();
+  const isaProductUrl = profile.clientSlug === 'isa'
+    ? projects.find((project) => project.title === 'Seribu Rempah')?.github
+    : undefined;
   const [active, setActive] = useState(Math.max(0, seasons.length - 2));
   // Klien baru bisa memiliki lebih sedikit musim daripada portfolio master.
   // Clamp indeks saat data canvas diganti agar tidak merender season undefined.
@@ -70,7 +73,8 @@ export default function Seasons() {
           <div className="group/rail relative">
             <div ref={rail} className="rail gutter flex snap-x snap-mandatory gap-4 overflow-x-auto py-8 [perspective:1200px]">
               {season.episodes.map((e, i) => (
-                <EpisodeCard key={e.code} episode={e} index={i} seasonIndex={activeIndex} />
+                <EpisodeCard key={e.code} episode={e} index={i} seasonIndex={activeIndex}
+                  productUrl={e.title === 'Cerita Seribu Rempah' ? isaProductUrl : undefined} />
               ))}
             </div>
             <RailButtons rail={rail} />

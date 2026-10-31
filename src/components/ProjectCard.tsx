@@ -68,7 +68,7 @@ export default function ProjectCard({ project, index, onOpen, duplicate = false 
     <motion.article
       data-studio-edit={`project:${index}`}
       aria-hidden={duplicate}
-      className="w-[84vw] shrink-0 snap-start sm:w-[62vw] lg:w-[46vw] xl:w-[42vw]"
+      className="client-project-card w-[84vw] shrink-0 snap-start sm:w-[62vw] lg:w-[46vw] xl:w-[42vw]"
       initial={false}
     >
       <Tilt max={5} className="group rounded-2xl">

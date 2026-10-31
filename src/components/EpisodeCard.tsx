@@ -3,18 +3,18 @@ import type { Episode } from '../data/portfolio';
 import { EASE, Tilt } from './fx';
 import { PosterBackdrop } from './Poster';
 
-export default function EpisodeCard({ episode, index, seasonIndex }: { episode: Episode; index: number; seasonIndex?: number }) {
+export default function EpisodeCard({ episode, index, seasonIndex, productUrl }: { episode: Episode; index: number; seasonIndex?: number; productUrl?: string }) {
   const [season, ep] = episode.code.split(' ');
   const editId = seasonIndex === undefined ? undefined : `episode:${seasonIndex}:${index}`;
   return (
     <motion.article
       data-studio-edit={editId}
-      className="w-[80vw] shrink-0 snap-start sm:w-[52vw] md:w-[38vw] lg:w-[30vw] xl:w-[26vw]"
+      className="client-episode-card w-[80vw] shrink-0 snap-start sm:w-[52vw] md:w-[38vw] lg:w-[30vw] xl:w-[26vw]"
       initial={{ opacity: 0, y: 30, rotateY: -8 }}
       animate={{ opacity: 1, y: 0, rotateY: 0 }}
       transition={{ duration: 0.7, delay: index * 0.1, ease: EASE }}
     >
-      <Tilt max={7} className="group h-full rounded-xl">
+      <Tilt max={7} className="group relative h-full rounded-xl">
         <div className="flex h-full flex-col overflow-hidden rounded-xl bg-ink-2 ring-1 ring-white/10 transition duration-500 group-hover:ring-crimson-2/60">
           <div className="relative aspect-video overflow-hidden">
             <div className="absolute inset-0 transition-transform duration-[1.2s] ease-[var(--ease-cine)] group-hover:scale-110">
@@ -46,6 +46,9 @@ export default function EpisodeCard({ episode, index, seasonIndex }: { episode: 
             </div>
           </div>
         </div>
+        {productUrl && <a href={productUrl} target="_blank" rel="noopener noreferrer"
+          aria-label="Lihat informasi produk Seribu Rempah di tab baru"
+          className="absolute inset-0 z-20 rounded-xl focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#facc15]" />}
       </Tilt>
     </motion.article>
   );

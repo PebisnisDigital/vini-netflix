@@ -33,6 +33,74 @@
 .doodle-cinema .rail .group:hover img { filter: saturate(1.3) contrast(1.04); }
 .doodle-cinema button:focus-visible, .doodle-cinema a:focus-visible { outline: 3px dashed #f6c94d; outline-offset: 4px; }
 
+/* Isa Ponti99: terang seperti kertas premium, dengan kontras hijau herbal.
+   Kartu poster tetap gelap agar tulisan pada gambar dan gradasi terbaca. */
+.doodle-cinema.isa-light {
+  --color-bone: #234132;
+  --color-mist: #486453;
+  --color-smoke: #637d6c;
+  --doodle-paper: #fff9ed;
+  background: #fff9ed;
+  color: #234132;
+}
+.doodle-cinema.isa-light .grain { opacity: .023; }
+.doodle-cinema.isa-light header > .gutter {
+  background: #fff9edf2 !important;
+  border-bottom: 1px solid #8ca99470;
+}
+.doodle-cinema.isa-light :is(#about,#journey,#originals,#picks,#skills,#moments,#story) {
+  border-top-color: #8fb9a259;
+}
+.doodle-cinema.isa-light .glass {
+  background: #fffef8ea;
+  border: 1px solid #91b09b80;
+}
+.doodle-cinema.isa-light .client-cta-headline { color: #286f4e; }
+.doodle-cinema.isa-light .client-cta-pulse {
+  color: #fffdf4;
+  border-color: #195c3c;
+  box-shadow: 4px 6px 0 #ceac57;
+}
+.doodle-cinema.isa-light :is(#about,#story) dl { background: #b6cdbb; }
+.doodle-cinema.isa-light :is(#about,#story) dl > div { background: #fffef9; }
+.doodle-cinema.isa-light #skills [data-studio-edit^="skill:"] {
+  background: #fffef9;
+  border: 1px solid #c7dbc9;
+}
+.doodle-cinema.isa-light #skills [role="tab"][aria-selected="true"] {
+  background: #e2eee3;
+}
+.doodle-cinema.isa-light #originals button[aria-label^="Karya"] {
+  border-color: #90ac98;
+  background: #fffef9;
+}
+.doodle-cinema.isa-light #originals .rail > a {
+  background: #ffffffa8;
+  border-color: #8caf9b;
+}
+.doodle-cinema.isa-light :is(.client-project-card,.client-episode-card,.client-watch-card,.client-pick-card,.client-achievement-card,.client-about-photo-card,.client-resume-card) {
+  --color-ink: #172b25;
+  --color-ink-2: #172b25;
+  --color-bone: #fff9ec;
+  --color-mist: #d2e2da;
+  --color-smoke: #abc4b5;
+}
+.doodle-cinema.isa-light :is(.client-project-card,.client-episode-card,.client-achievement-card,.client-resume-card) { color: #fff9ec; }
+.doodle-cinema.isa-light .client-social-icon {
+  border: 1.5px solid #2f7251;
+  background: #fffdf6;
+  color: #245b40;
+  box-shadow: 2px 3px 0 #f0d58e;
+}
+.doodle-cinema.isa-light .client-social-icon:hover { background: #e0f1e4; }
+.doodle-cinema.isa-light .client-resume-card .client-social-icon {
+  border-color: #8ab9a2;
+  background: #183629;
+  color: #fff9ec;
+  box-shadow: none;
+}
+.doodle-cinema.isa-light .client-resume-card .client-social-icon:hover { background: #285f43; }
+
 .doodle-hero { position: relative; isolation: isolate; min-height: 920px; padding: 0 0 174px; background: var(--doodle-paper); color: #17334d; overflow: clip; }
 .doodle-grid-paper { position: absolute; z-index: 1; inset: 0; pointer-events: none; opacity: .56; background-image: linear-gradient(#94b7c822 1px,transparent 1px),linear-gradient(90deg,#94b7c822 1px,transparent 1px); background-size: 32px 32px; mask-image: linear-gradient(90deg,#000,transparent 82%); }
 .doodle-spiral { position: absolute; z-index: 5; top: 108px; bottom: 145px; left: clamp(8px,1.15vw,18px); display: flex; flex-direction: column; justify-content: space-around; pointer-events: none; }
@@ -58,6 +126,7 @@
 .doodle-actions button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 49px; padding: 11px 19px; font: 900 12px/1.35 var(--font-sans); transition: transform .25s ease, box-shadow .25s ease; }
 .doodle-actions button:hover { transform: translateY(-4px) rotate(-2deg); }
 .doodle-cta-primary { border: 3px solid #17334d; border-radius: 14px 9px 17px 12px; background: var(--color-crimson, #f6c94d); color: #17334d; box-shadow: 5px 6px 0 #2466ba; }
+.doodle-cinema.isa-light .doodle-cta-primary { color: #fffdf5; border-color: #1f6644; box-shadow: 5px 6px 0 #e1c56f; }
 .doodle-cta-secondary { border-bottom: 3px dashed #2466ba; color: #1c5695; }
 .doodle-footnote { display: flex; gap: 8px; align-items: center; margin-top: 22px; color: #597685; font: 700 11px/1.5 var(--font-sans); }
 .doodle-footnote svg { color: #df8c60; }

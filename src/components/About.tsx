@@ -21,7 +21,7 @@ export default function About() {
           transition={{ duration: 1.2, ease: EASE }}
         >
         <Tilt max={5} className="rounded-2xl">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl ring-1 ring-white/10">
+          <div className="client-about-photo-card relative aspect-[4/5] overflow-hidden rounded-2xl ring-1 ring-white/10">
             <div className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_30%,#5a0b1b,#14060a_60%,#07070a)]" />
             <div className="absolute inset-0 opacity-50 [background-image:repeating-linear-gradient(90deg,rgba(255,255,255,0.03)_0px,rgba(255,255,255,0.03)_1px,transparent_1px,transparent_28px)]" />
             <img

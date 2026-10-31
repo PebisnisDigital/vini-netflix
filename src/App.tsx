@@ -80,7 +80,7 @@ export default function App({ slug, editorMode = false }: { slug: string; editor
     '--client-accent': theme.accent,
   } as CSSProperties : undefined;
   return (
-    <div style={styles} className={`min-h-screen bg-ink client-portfolio${editorMode ? ' studio-canvas' : ''}${slug === 'vini3' ? ' chibi-theme' : ''}${animeCinema ? ' anime-theme' : ''}${chibiCinema ? ' chibi-cinema' : ''}${clayCinema ? ' clay-cinema' : ''}${comicCinema ? ' comic-cinema' : ''}${editorialCinema ? ' editorial-cinema' : ''}${doodleCinema ? ' doodle-cinema' : ''}${storybookCinema ? ' storybook-cinema' : ''}${scrapbookCinema ? ' scrapbook-cinema' : ''}${papercutCinema ? ' papercut-cinema' : ''}${pixelCinema ? ' pixel-cinema' : ''}${miniatureCinema ? ' miniature-cinema' : ''}${documentaryCinema ? ' documentary-cinema' : ''}${minimalistCinema ? ' minimalist-cinema' : ''}${futuristicNeonCinema ? ' futuristic-cinema' : ''}${vintageHeritageCinema ? ' vintage-cinema' : ''}`}>
+    <div style={styles} className={`min-h-screen bg-ink client-portfolio${editorMode ? ' studio-canvas' : ''}${slug === 'isa' ? ' isa-light' : ''}${slug === 'vini3' ? ' chibi-theme' : ''}${animeCinema ? ' anime-theme' : ''}${chibiCinema ? ' chibi-cinema' : ''}${clayCinema ? ' clay-cinema' : ''}${comicCinema ? ' comic-cinema' : ''}${editorialCinema ? ' editorial-cinema' : ''}${doodleCinema ? ' doodle-cinema' : ''}${storybookCinema ? ' storybook-cinema' : ''}${scrapbookCinema ? ' scrapbook-cinema' : ''}${papercutCinema ? ' papercut-cinema' : ''}${pixelCinema ? ' pixel-cinema' : ''}${miniatureCinema ? ' miniature-cinema' : ''}${documentaryCinema ? ' documentary-cinema' : ''}${minimalistCinema ? ' minimalist-cinema' : ''}${futuristicNeonCinema ? ' futuristic-cinema' : ''}${vintageHeritageCinema ? ' vintage-cinema' : ''}`}>
       <SmoothScrollProvider>
         <Series slug={slug} editorMode={editorMode} />
       </SmoothScrollProvider>
@@ -152,11 +152,18 @@ function Series({ slug, editorMode }: { slug: string; editorMode: boolean }) {
   const closeIntro = useCallback(() => setPlaying(false), []);
   const closeProject = useCallback(() => setProject(null), []);
   const closeResume = useCallback(() => setResumeOpen(false), []);
+  const openProject = useCallback((item: Project) => {
+    if (slug === 'isa' && item.title === 'Seribu Rempah' && item.github) {
+      window.open(item.github, '_blank', 'noopener,noreferrer');
+      return;
+    }
+    setProject(item);
+  }, [slug]);
 
   const sections: Record<SectionId, ReactNode> = {
     about: <About />,
     journey: <Seasons />,
-    originals: <Originals onOpen={setProject} />,
+    originals: <Originals onOpen={openProject} />,
     picks: <TopPicks />,
     skills: <Skills />,
     moments: <Achievements />,
@@ -173,7 +180,7 @@ function Series({ slug, editorMode }: { slug: string; editorMode: boolean }) {
   ) : editorialCinema ? (
     <EditorialHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
   ) : doodleCinema ? (
-    <DoodleHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
+    <DoodleHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={openProject} />
   ) : storybookCinema ? (
     <StorybookHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
   ) : scrapbookCinema ? (

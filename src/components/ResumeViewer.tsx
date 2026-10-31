@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { usePortfolio } from '../data/PortfolioContext';
 import { EASE, Magnetic, SectionHeading } from './fx';
+import SocialIconLinks from './SocialIconLinks';
 
 /** THE FULL STORY — a designed resume preview plus view / download actions. */
 export default function ResumeSection({ onView }: { onView: () => void }) {
@@ -93,7 +94,7 @@ function H({ children }: { children: string }) {
 export function ResumeSheet() {
   const { achievements, certifications, education, experience, profile, projects, skillCategories } = usePortfolio();
   return (
-    <article className="relative overflow-hidden rounded-2xl bg-[linear-gradient(180deg,#121218,#0c0c11)] p-6 ring-1 ring-white/10 sm:p-10">
+    <article className="client-resume-card relative overflow-hidden rounded-2xl bg-[linear-gradient(180deg,#121218,#0c0c11)] p-6 ring-1 ring-white/10 sm:p-10">
       <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-crimson-2/70 to-transparent" />
       <header className="mb-8 flex flex-wrap items-end justify-between gap-4 border-b border-white/10 pb-6">
         <div>
@@ -106,7 +107,9 @@ export function ResumeSheet() {
           {profile.links.website && <a href={profile.links.website} target="_blank" rel="noreferrer" className="block hover:text-bone">{profile.websiteLabel || 'Website'} ↗</a>}
           {profile.links.linkedin && <a href={profile.links.linkedin} target="_blank" rel="noreferrer" className="block hover:text-bone">LinkedIn ↗</a>}
           {profile.links.github && <a href={profile.links.github} target="_blank" rel="noreferrer" className="block hover:text-bone">GitHub ↗</a>}
-          {profile.socialLinks?.map(({ label, url }) => <a key={label} href={url} target="_blank" rel="noopener noreferrer" className="block hover:text-bone">{label} ↗</a>)}
+          {profile.clientSlug === 'isa'
+            ? <SocialIconLinks links={profile.socialLinks || []} className="mt-3 sm:justify-end" />
+            : profile.socialLinks?.map(({ label, url }) => <a key={label} href={url} target="_blank" rel="noopener noreferrer" className="block hover:text-bone">{label} ↗</a>)}
           {profile.whatsapp && <a href={`https://wa.me/${profile.whatsapp.replace(/\D/g, '').replace(/^0/, '62')}`} target="_blank" rel="noopener noreferrer" className="block hover:text-bone">WhatsApp ↗</a>}
         </div>
       </header>

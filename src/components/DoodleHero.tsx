@@ -3,6 +3,7 @@ import { ArrowDown, ArrowUpRight, PencilLine, Play, Sparkles } from 'lucide-reac
 import type { Project } from '../data/portfolio';
 import { usePortfolio } from '../data/PortfolioContext';
 import { useSmoothScroll } from '../hooks/smoothScroll';
+import SocialIconLinks from './SocialIconLinks';
 import './doodle.css';
 
 /** Lembar sketsa hidup: semua identitas, ilustrasi dan karya berasal dari klien aktif. */
@@ -59,6 +60,7 @@ export default function DoodleHero({ onPlay, onOpenProject }: {
           <button type="button" className="doodle-cta-primary" onClick={onPlay}><Play size={16} fill="currentColor" aria-hidden="true" /> Kenali Saya</button>
           <button type="button" className="doodle-cta-secondary" onClick={() => scrollTo('#originals')}>Lihat Karya <ArrowUpRight size={17} aria-hidden="true" /></button>
         </motion.div>
+        {profile.clientSlug === 'isa' && <SocialIconLinks links={profile.socialLinks || []} className="doodle-socials mt-5" />}
         <motion.p className="doodle-footnote" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: .8, delay: 1.1 }}><Sparkles size={15} aria-hidden="true" /> Karya kecil. Cerita besar. Semua ada prosesnya.</motion.p>
       </div>
 
