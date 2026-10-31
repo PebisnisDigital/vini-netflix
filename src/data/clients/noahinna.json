@@ -93,6 +93,44 @@
       ],
       "website": "https://www.youtube.com/@noahinna",
       "image": ""
+    },
+    {
+      "title": "Noah Inna YouTube Channel",
+      "year": "ACTIVE CHANNEL",
+      "description": "The home of Ain's published work, including music-led videos, one educational tutorial and one explanatory video. YouTube is currently the only social platform with content shared for this portfolio.",
+      "category": "Creative Portfolio",
+      "tags": [
+        "YouTube",
+        "Music",
+        "Educational Content"
+      ],
+      "website": "https://www.youtube.com/@noahinna",
+      "image": "/clients/noahinna/clay-characters.jpeg"
+    },
+    {
+      "title": "Electronic Tiger Creative Studio",
+      "year": "CREATOR CREDIT",
+      "description": "The creative studio identity credited on Ain's videos with the line 'Created by Electronic Tiger Creative Studio.' It connects her work under a recognizable production name.",
+      "category": "Studio Identity",
+      "tags": [
+        "Studio Credit",
+        "Creative Production",
+        "Noah Inna"
+      ],
+      "website": "https://www.youtube.com/@noahinna",
+      "image": "/clients/noahinna/clay-characters.jpeg"
+    },
+    {
+      "title": "Clay Storytelling — In Development",
+      "year": "FUTURE DIRECTION",
+      "description": "Ain's handcrafted 3D clay characters provide a visual starting point for future stories. A dedicated storytelling video has not yet been shared, so this is presented as a creative direction rather than a published film.",
+      "category": "Creative Development",
+      "tags": [
+        "3D Clay",
+        "Character Design",
+        "Storytelling"
+      ],
+      "image": "/clients/noahinna/clay-characters.jpeg"
     }
   ],
   "skills": [

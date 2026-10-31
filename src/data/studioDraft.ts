@@ -1,4 +1,5 @@
 import type { ClientBrief } from './clientModel';
+import noahInna from './clients/noahinna.json';
 
 export type StudioDraft = {
   slug: string;
@@ -39,7 +40,43 @@ async function transaction<T>(mode: IDBTransactionMode, operation: (store: IDBOb
 
 export async function saveDraft(draft: StudioDraft) { await transaction('readwrite', (store) => store.put(draft)); }
 export async function getDraft(slug: string): Promise<StudioDraft | undefined> { return transaction('readonly', (store) => store.get(slug)); }
-export async function listDrafts(): Promise<StudioDraft[]> { return transaction('readonly', (store) => store.getAll()); }
+/** Isi hanya kartu contoh Noah Inna yang belum pernah diberi judul/keterangan sendiri. */
+export function completeNoahInnaDraft(draft: StudioDraft): StudioDraft {
+  if (draft.slug !== 'noahinna' && draft.brief.slug !== 'noahinna') return draft;
+  let changed = false;
+  const projects = draft.brief.projects.map((project, index) => {
+    if (index < 4 || index > 6) return project;
+    const published = noahInna.projects[index];
+    if (!published) return project;
+    const title = project.title.trim();
+    const genericTitle = !title || /^KARYA\s*[5-7]$/i.test(title);
+    const matchedTitle = title === published.title;
+    if (!genericTitle && !matchedTitle) return project;
+    const genericDescription = !project.description.trim() || project.description.trim() === 'Ceritakan karya unggulan klien di sini.';
+    const completed = {
+      ...project,
+      title: genericTitle ? published.title : project.title,
+      description: genericDescription ? published.description : project.description,
+      category: !project.category || project.category === 'Portofolio' ? published.category : project.category,
+      year: !project.year || /^20\d{2}$/.test(project.year) ? published.year : project.year,
+      tags: project.tags?.length ? project.tags : published.tags,
+      website: project.website || published.website || '',
+      image: project.image || published.image || '',
+    };
+    if (JSON.stringify(completed) !== JSON.stringify(project)) changed = true;
+    return completed;
+  });
+  return changed ? { ...draft, brief: { ...draft.brief, projects }, updatedAt: Date.now() } : draft;
+}
+
+export async function listDrafts(): Promise<StudioDraft[]> {
+  const existing = await transaction<StudioDraft[]>('readonly', (store) => store.getAll());
+  const completed = existing.map(completeNoahInnaDraft);
+  for (let i = 0; i < completed.length; i++) {
+    if (completed[i] !== existing[i]) await saveDraft(completed[i]);
+  }
+  return completed;
+}
 export async function deleteDraft(slug: string) { await transaction('readwrite', (store) => store.delete(slug)); }
 
 export const clientBriefBlank = (): ClientBrief => ({

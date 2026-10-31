@@ -159,6 +159,9 @@ export function ResumeSheet() {
                 <p className="text-xs text-smoke">{p.year}</p>
               </div>
               <p className="text-xs text-mist">{p.stack.join(', ')}</p>
+              {profile.clientSlug === 'noahinna' && p.logline && (
+                <p className="mt-1 max-w-xl text-xs leading-relaxed text-mist/85">{p.logline}</p>
+              )}
             </div>
           ))}
         </div>
