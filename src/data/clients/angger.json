@@ -55,7 +55,11 @@
       "year": "SANGGA GRAFIKA",
       "description": "Layanan undangan cetak untuk momen istimewa, termasuk pernikahan dan acara keluarga. Galeri ini menampilkan contoh desain undangan bernuansa cokelat dan emas yang diberikan sebagai referensi. Pilihan bahan, desain, jumlah, dan harga dapat dikonsultasikan langsung.",
       "category": "Percetakan Undangan",
-      "tags": ["Undangan Pernikahan", "Custom Design", "Cetak Fisik"],
+      "tags": [
+        "Undangan Pernikahan",
+        "Custom Design",
+        "Cetak Fisik"
+      ],
       "image": "/clients/angger/contoh-undangan-cetak.webp",
       "website": "https://wa.me/6281548166363?text=Halo%20Pak%20Angger%2C%20saya%20ingin%20bertanya%20mengenai%20undangan%20cetak."
     },
@@ -64,7 +68,11 @@
       "year": "SEJAK 2003",
       "description": "Unit usaha fotokopi dan layanan kebutuhan dokumen yang dikelola sejak 2003. Foto menampilkan contoh visual identitas ruang usaha Photocopy Sangga yang disediakan pemilik profil.",
       "category": "Layanan Fotokopi",
-      "tags": ["Fotokopi", "Dokumen", "Layanan Cetak"],
+      "tags": [
+        "Fotokopi",
+        "Dokumen",
+        "Layanan Cetak"
+      ],
       "image": "/clients/angger/photocopy-sangga-office.webp",
       "website": "https://wa.me/6281548166363?text=Halo%20Pak%20Angger%2C%20saya%20ingin%20bertanya%20mengenai%20Photocopy%20Sangga."
     },
@@ -73,7 +81,11 @@
       "year": "SANGGA GRAFIKA",
       "description": "Pembuatan buku Yasin dan tahlil untuk kebutuhan keluarga, doa bersama, dan acara keagamaan. Konsultasikan isi, ukuran, sampul, jumlah eksemplar, serta kebutuhan personalisasi sebelum pemesanan.",
       "category": "Buku Cetak",
-      "tags": ["Buku Yasin", "Tahlil", "Sampul Custom"],
+      "tags": [
+        "Buku Yasin",
+        "Tahlil",
+        "Sampul Custom"
+      ],
       "image": "",
       "website": "https://wa.me/6281548166363?text=Halo%20Pak%20Angger%2C%20saya%20ingin%20pesan%20buku%20Yasin%20dan%20tahlil."
     },
@@ -82,7 +94,12 @@
       "year": "SEJAK 2022",
       "description": "Pilihan souvenir dan merchandise yang dikembangkan sejak 2022, termasuk gantungan kunci, pin, nametag, magnet kulkas, dan produk custom lainnya untuk kebutuhan pribadi, acara, maupun komunitas.",
       "category": "Souvenir & Merchandise",
-      "tags": ["Gantungan Kunci", "Pin", "Magnet Kulkas", "Nametag"],
+      "tags": [
+        "Gantungan Kunci",
+        "Pin",
+        "Magnet Kulkas",
+        "Nametag"
+      ],
       "image": "/clients/angger/photocopy-sangga-logo.webp",
       "website": "https://wa.me/6281548166363?text=Halo%20Pak%20Angger%2C%20saya%20ingin%20bertanya%20mengenai%20Sangga%20Collection."
     },
@@ -91,7 +108,11 @@
       "year": "PRODUK CUSTOM",
       "description": "Produk cetak praktis seperti kalender, notebook, nametag, serta stiker tasyakuran yang dapat disiapkan menyesuaikan kebutuhan dan kegiatan pelanggan.",
       "category": "Kebutuhan Cetak",
-      "tags": ["Kalender", "Notebook", "Stiker Tasyakuran"],
+      "tags": [
+        "Kalender",
+        "Notebook",
+        "Stiker Tasyakuran"
+      ],
       "image": "",
       "website": "https://wa.me/6281548166363?text=Halo%20Pak%20Angger%2C%20saya%20ingin%20konsultasi%20produk%20cetak%20custom."
     },
@@ -100,7 +121,11 @@
       "year": "SANGGA COLLECTION",
       "description": "Pilihan wall decor dan jam wall decor untuk mempercantik ruang atau menjadi hadiah yang personal. Silakan konsultasikan desain, ukuran, material, dan kebutuhan pesanan melalui WhatsApp.",
       "category": "Produk Dekorasi",
-      "tags": ["Wall Decor", "Jam Wall Decor", "Custom"],
+      "tags": [
+        "Wall Decor",
+        "Jam Wall Decor",
+        "Custom"
+      ],
       "image": "",
       "website": "https://wa.me/6281548166363?text=Halo%20Pak%20Angger%2C%20saya%20ingin%20bertanya%20mengenai%20wall%20decor."
     }
@@ -119,9 +144,33 @@
       "title": "Percetakan Sangga Grafika",
       "subtitle": "Melayani kebutuhan cetak sejak 2003",
       "skills": [
-        {"name": "Undangan Cetak", "mono": "UND", "note": "Acara istimewa", "evidence": ["Contoh undangan cetak tersedia dalam galeri", "Bisa konsultasi desain, ukuran, dan jumlah"]},
-        {"name": "Buku Yasin & Tahlil", "mono": "YSN", "note": "Buku keagamaan", "evidence": ["Pilihan buku untuk kebutuhan doa dan keluarga", "Detail sampul dan isi dapat dikonsultasikan"]},
-        {"name": "Kalender & Notebook", "mono": "CAL", "note": "Cetak custom", "evidence": ["Produk untuk kebutuhan pribadi dan kegiatan", "Pemesanan disesuaikan kebutuhan"]}
+        {
+          "name": "Undangan Cetak",
+          "mono": "UND",
+          "note": "Acara istimewa",
+          "evidence": [
+            "Contoh undangan cetak tersedia dalam galeri",
+            "Bisa konsultasi desain, ukuran, dan jumlah"
+          ]
+        },
+        {
+          "name": "Buku Yasin & Tahlil",
+          "mono": "YSN",
+          "note": "Buku keagamaan",
+          "evidence": [
+            "Pilihan buku untuk kebutuhan doa dan keluarga",
+            "Detail sampul dan isi dapat dikonsultasikan"
+          ]
+        },
+        {
+          "name": "Kalender & Notebook",
+          "mono": "CAL",
+          "note": "Cetak custom",
+          "evidence": [
+            "Produk untuk kebutuhan pribadi dan kegiatan",
+            "Pemesanan disesuaikan kebutuhan"
+          ]
+        }
       ]
     },
     {
@@ -129,8 +178,24 @@
       "title": "Photocopy Sangga",
       "subtitle": "Layanan dokumen dan fotokopi sejak 2003",
       "skills": [
-        {"name": "Layanan Fotokopi", "mono": "COPY", "note": "Dokumen", "evidence": ["Usaha Photocopy Sangga berdiri sejak 2003", "Identitas ruang usaha tercantum dalam galeri"]},
-        {"name": "Kebutuhan Cetak", "mono": "PRT", "note": "Konsultasi pesanan", "evidence": ["Layanan cetak terkait kebutuhan dokumen", "Rincian layanan dikonfirmasi langsung"]}
+        {
+          "name": "Layanan Fotokopi",
+          "mono": "COPY",
+          "note": "Dokumen",
+          "evidence": [
+            "Usaha Photocopy Sangga berdiri sejak 2003",
+            "Identitas ruang usaha tercantum dalam galeri"
+          ]
+        },
+        {
+          "name": "Kebutuhan Cetak",
+          "mono": "PRT",
+          "note": "Konsultasi pesanan",
+          "evidence": [
+            "Layanan cetak terkait kebutuhan dokumen",
+            "Rincian layanan dikonfirmasi langsung"
+          ]
+        }
       ]
     },
     {
@@ -138,9 +203,33 @@
       "title": "Sangga Collection",
       "subtitle": "Souvenir, merchandise, dan dekorasi sejak 2022",
       "skills": [
-        {"name": "Souvenir Custom", "mono": "GFT", "note": "Merchandise", "evidence": ["Gantungan kunci, pin, magnet kulkas", "Nametag dan kebutuhan acara"]},
-        {"name": "Stiker Tasyakuran", "mono": "STK", "note": "Label acara", "evidence": ["Stiker untuk kegiatan tasyakuran", "Desain dan jumlah dapat didiskusikan"]},
-        {"name": "Wall Decor", "mono": "WAL", "note": "Dekorasi", "evidence": ["Wall decor dan jam wall decor", "Bisa konsultasi kebutuhan personalisasi"]}
+        {
+          "name": "Souvenir Custom",
+          "mono": "GFT",
+          "note": "Merchandise",
+          "evidence": [
+            "Gantungan kunci, pin, magnet kulkas",
+            "Nametag dan kebutuhan acara"
+          ]
+        },
+        {
+          "name": "Stiker Tasyakuran",
+          "mono": "STK",
+          "note": "Label acara",
+          "evidence": [
+            "Stiker untuk kegiatan tasyakuran",
+            "Desain dan jumlah dapat didiskusikan"
+          ]
+        },
+        {
+          "name": "Wall Decor",
+          "mono": "WAL",
+          "note": "Dekorasi",
+          "evidence": [
+            "Wall decor dan jam wall decor",
+            "Bisa konsultasi kebutuhan personalisasi"
+          ]
+        }
       ]
     }
   ],
@@ -148,20 +237,85 @@
   "skillsAside": "Tiga usaha Sangga hadir untuk melayani beragam kebutuhan: cetak undangan dan buku, layanan dokumen, serta souvenir, merchandise, dan dekorasi. Untuk memastikan pilihan produk yang tepat, diskusikan jenis barang, desain, ukuran, jumlah, dan tenggat pemesanan langsung bersama Angger L. Anggit.",
   "skillsKicker": "SANGGA GRAFIKA · PHOTOCOPY SANGGA · SANGGA COLLECTION",
   "highlights": [
-    {"title": "1990–2027", "description": "Periode pengabdian Angger L. Anggit sebagai ASN.", "category": "PENGABDIAN"},
-    {"title": "Sejak 2003", "description": "Mengelola Percetakan Sangga Grafika dan Photocopy Sangga.", "category": "USAHA"},
-    {"title": "Sejak 2022", "description": "Memperluas produk melalui Sangga Collection.", "category": "PENGEMBANGAN"}
+    {
+      "title": "1990–2027",
+      "description": "Periode pengabdian Angger L. Anggit sebagai ASN.",
+      "category": "PENGABDIAN"
+    },
+    {
+      "title": "Sejak 2003",
+      "description": "Mengelola Percetakan Sangga Grafika dan Photocopy Sangga.",
+      "category": "USAHA"
+    },
+    {
+      "title": "Sejak 2022",
+      "description": "Memperluas produk melalui Sangga Collection.",
+      "category": "PENGEMBANGAN"
+    }
   ],
   "watchCards": [
-    {"target": "about", "title": "Kenali Angger L. Anggit", "subtitle": "ASN dan pengusaha di balik usaha Sangga", "image": "/clients/angger/foto-profesional.webp"},
-    {"target": "originals", "title": "Galeri Produk Sangga", "subtitle": "Undangan cetak, layanan, dan merchandise", "image": "/clients/angger/contoh-undangan-cetak.webp"},
-    {"target": "journey", "title": "Perjalanan Usaha", "subtitle": "Dari 1990 hingga kini", "image": "/clients/angger/photocopy-sangga-office.webp"},
-    {"target": "skills", "title": "Apa Saja yang Bisa Dipesan?", "subtitle": "Percetakan, fotokopi, hingga dekorasi", "image": "/clients/angger/photocopy-sangga-logo.webp"}
+    {
+      "target": "about",
+      "title": "Kenali Angger L. Anggit",
+      "subtitle": "ASN dan pengusaha di balik usaha Sangga",
+      "image": "/clients/angger/foto-profesional.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Galeri Produk Sangga",
+      "subtitle": "Undangan cetak, layanan, dan merchandise",
+      "image": "/clients/angger/contoh-undangan-cetak.webp"
+    },
+    {
+      "target": "journey",
+      "title": "Perjalanan Usaha",
+      "subtitle": "Dari 1990 hingga kini",
+      "image": "/clients/angger/photocopy-sangga-office.webp"
+    },
+    {
+      "target": "skills",
+      "title": "Apa Saja yang Bisa Dipesan?",
+      "subtitle": "Percetakan, fotokopi, hingga dekorasi",
+      "image": "/clients/angger/photocopy-sangga-logo.webp"
+    }
   ],
   "pickCards": [
-    {"label": "PRODUK UNGGULAN", "title": "Undangan untuk Momen Istimewa", "detail": "Lihat contoh desain undangan cetak, lalu konsultasikan kebutuhan acara.", "image": "/clients/angger/contoh-undangan-cetak.webp", "palette": {"from": "#4a241c", "via": "#9b7041", "to": "#1b1722", "accent": "#f0cb83"}},
-    {"label": "BISNIS SEJAK 2003", "title": "Photocopy Sangga", "detail": "Layanan fotokopi dan kebutuhan dokumen yang terus dikembangkan.", "image": "/clients/angger/photocopy-sangga-office.webp", "palette": {"from": "#0d2b44", "via": "#3a85a8", "to": "#0b162b", "accent": "#dabe6c"}},
-    {"label": "PRODUK KREATIF", "title": "Sangga Collection", "detail": "Souvenir, merchandise custom, serta produk dekorasi.", "image": "/clients/angger/photocopy-sangga-logo.webp", "palette": {"from": "#17455a", "via": "#3385a7", "to": "#13223e", "accent": "#f8d477"}}
+    {
+      "label": "PRODUK UNGGULAN",
+      "title": "Undangan untuk Momen Istimewa",
+      "detail": "Lihat contoh desain undangan cetak, lalu konsultasikan kebutuhan acara.",
+      "image": "/clients/angger/contoh-undangan-cetak.webp",
+      "palette": {
+        "from": "#4a241c",
+        "via": "#9b7041",
+        "to": "#1b1722",
+        "accent": "#f0cb83"
+      }
+    },
+    {
+      "label": "BISNIS SEJAK 2003",
+      "title": "Photocopy Sangga",
+      "detail": "Layanan fotokopi dan kebutuhan dokumen yang terus dikembangkan.",
+      "image": "/clients/angger/photocopy-sangga-office.webp",
+      "palette": {
+        "from": "#0d2b44",
+        "via": "#3a85a8",
+        "to": "#0b162b",
+        "accent": "#dabe6c"
+      }
+    },
+    {
+      "label": "PRODUK KREATIF",
+      "title": "Sangga Collection",
+      "detail": "Souvenir, merchandise custom, serta produk dekorasi.",
+      "image": "/clients/angger/photocopy-sangga-logo.webp",
+      "palette": {
+        "from": "#17455a",
+        "via": "#3385a7",
+        "to": "#13223e",
+        "accent": "#f8d477"
+      }
+    }
   ],
   "picksHeading": "Pilihan Karya & Layanan Sangga",
   "picksKicker": "PERCETAKAN · FOTOKOPI · MERCHANDISE",
@@ -172,7 +326,22 @@
       "period": "1990–2002",
       "synopsis": "Pengabdian sebagai ASN menjadi bagian penting perjalanan profesional Angger L. Anggit sebelum mengembangkan usaha Sangga.",
       "episodes": [
-        {"title": "Mengawali Pengabdian sebagai ASN", "runtime": "Sejak 1990", "description": "Menjalani profesi ASN dalam periode 1990–2027, berdampingan dengan perjalanan membangun usaha.", "tags": ["ASN", "Profesional"], "image": "/clients/angger/foto-profesional.webp", "palette": {"from": "#1d2539", "via": "#58667a", "to": "#10131c", "accent": "#dfb97c"}}
+        {
+          "title": "Mengawali Pengabdian sebagai ASN",
+          "runtime": "Sejak 1990",
+          "description": "Menjalani profesi ASN dalam periode 1990–2027, berdampingan dengan perjalanan membangun usaha.",
+          "tags": [
+            "ASN",
+            "Profesional"
+          ],
+          "image": "/clients/angger/foto-profesional.webp",
+          "palette": {
+            "from": "#1d2539",
+            "via": "#58667a",
+            "to": "#10131c",
+            "accent": "#dfb97c"
+          }
+        }
       ]
     },
     {
@@ -181,8 +350,39 @@
       "period": "2003–sekarang",
       "synopsis": "Percetakan Sangga Grafika dan Photocopy Sangga tumbuh menjadi dua layanan usaha yang dikelola sejak 2003.",
       "episodes": [
-        {"title": "Percetakan Sangga Grafika", "runtime": "Sejak 2003", "description": "Beragam kebutuhan cetak, dari undangan hingga buku dan perlengkapan acara.", "tags": ["Percetakan", "Undangan", "Buku"], "image": "/clients/angger/contoh-undangan-cetak.webp", "palette": {"from": "#3a241e", "via": "#966f48", "to": "#1c1715", "accent": "#f2d499"}},
-        {"title": "Photocopy Sangga", "runtime": "Sejak 2003", "description": "Layanan fotokopi dan kebutuhan dokumen dengan identitas usaha Sangga.", "tags": ["Photocopy", "Dokumen"], "image": "/clients/angger/photocopy-sangga-office.webp", "palette": {"from": "#12344c", "via": "#3a7890", "to": "#0c1c2b", "accent": "#e1bb6d"}}
+        {
+          "title": "Percetakan Sangga Grafika",
+          "runtime": "Sejak 2003",
+          "description": "Beragam kebutuhan cetak, dari undangan hingga buku dan perlengkapan acara.",
+          "tags": [
+            "Percetakan",
+            "Undangan",
+            "Buku"
+          ],
+          "image": "/clients/angger/contoh-undangan-cetak.webp",
+          "palette": {
+            "from": "#3a241e",
+            "via": "#966f48",
+            "to": "#1c1715",
+            "accent": "#f2d499"
+          }
+        },
+        {
+          "title": "Photocopy Sangga",
+          "runtime": "Sejak 2003",
+          "description": "Layanan fotokopi dan kebutuhan dokumen dengan identitas usaha Sangga.",
+          "tags": [
+            "Photocopy",
+            "Dokumen"
+          ],
+          "image": "/clients/angger/photocopy-sangga-office.webp",
+          "palette": {
+            "from": "#12344c",
+            "via": "#3a7890",
+            "to": "#0c1c2b",
+            "accent": "#e1bb6d"
+          }
+        }
       ]
     },
     {
@@ -191,14 +391,29 @@
       "period": "2022–sekarang",
       "synopsis": "Sangga Collection menambah pilihan souvenir, merchandise, dan dekorasi untuk beragam kebutuhan pelanggan.",
       "episodes": [
-        {"title": "Produk Kreatif dan Personal", "runtime": "Sejak 2022", "description": "Gantungan kunci, pin, magnet kulkas, nametag, notebook, stiker, serta aneka wall decor.", "tags": ["Collection", "Souvenir", "Custom"], "image": "/clients/angger/photocopy-sangga-logo.webp", "palette": {"from": "#17445d", "via": "#53b0d2", "to": "#101b33", "accent": "#e5cc77"}}
+        {
+          "title": "Produk Kreatif dan Personal",
+          "runtime": "Sejak 2022",
+          "description": "Gantungan kunci, pin, magnet kulkas, nametag, notebook, stiker, serta aneka wall decor.",
+          "tags": [
+            "Collection",
+            "Souvenir",
+            "Custom"
+          ],
+          "image": "/clients/angger/photocopy-sangga-logo.webp",
+          "palette": {
+            "from": "#17445d",
+            "via": "#53b0d2",
+            "to": "#101b33",
+            "accent": "#e5cc77"
+          }
+        }
       ]
     }
   ],
   "journeyHeading": "Pengabdian Panjang, Semangat Berkarya yang Terus Tumbuh",
   "journeyAside": "Sejak memulai pengabdian sebagai ASN pada 1990, Angger L. Anggit terus mengembangkan perjalanan profesionalnya. Tahun 2003 menjadi awal dua usaha, Percetakan Sangga Grafika dan Photocopy Sangga. Pada 2022 hadir Sangga Collection yang memperluas pilihan produk kreatif. Kini ketiga usaha tersebut menjadi ruang layanan untuk kebutuhan cetak, dokumen, souvenir, serta dekorasi sesuai pesanan pelanggan.",
   "journeyKicker": "ASN · USAHA SEJAK 2003 · EKSPANSI 2022",
-  "theme": {"accent": "#e0b86d", "background": "#0b1420"},
   "templateId": "original",
   "identityMode": "photo"
 }
