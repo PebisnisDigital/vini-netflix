@@ -5,8 +5,6 @@
   "location": "Indonesia",
   "bio": "Assalamu'alaikum, saya M. Mas'uddin Noor, biasa disapa Abu Fawwaz. Melalui MITRA AMANAH, saya menjalankan usaha di bidang laptop second berkualitas, produk digital, produk kasur kesehatan, serta menjadi agen travel umrah dan haji. Di sini Anda bisa mengenal bidang usaha saya dan menghubungi saya langsung untuk bertanya tentang pilihan yang tersedia.",
   "tagline": [
-    "ABU FAWWAZ · MITRA AMANAH",
-    "Satu mitra, beragam kebutuhan.",
     "Laptop second · Produk digital · Kasur kesehatan · Travel ibadah"
   ],
   "interests": [
@@ -16,7 +14,7 @@
     "Travel Umrah & Haji"
   ],
   "photo": {
-    "src": "/clients/abufawwaz/abu-fawwaz-faceless.webp",
+    "src": "/clients/abufawwaz/foto-utama.webp",
     "alt": "Ilustrasi konseptual AI, bukan foto asli: sosok pria Muslim berpeci hitam dan berjenggot, dilihat dari belakang tanpa menampilkan wajah"
   },
   "email": "amanahdigitalpartner@gmail.com",
@@ -37,7 +35,11 @@
       "year": "PERDAGANGAN",
       "description": "Pilihan laptop second untuk kebutuhan belajar, bekerja, maupun aktivitas sehari-hari. Tanyakan kondisi unit, spesifikasi, ketersediaan, dan harga terkini langsung kepada Abu Fawwaz sebelum membeli.",
       "category": "Perangkat & Komputer",
-      "tags": ["Laptop Second", "Spesifikasi", "Konsultasi Unit"],
+      "tags": [
+        "Laptop Second",
+        "Spesifikasi",
+        "Konsultasi Unit"
+      ],
       "website": "https://wa.me/6281249196000?text=Assalamu%27alaikum%20Abu%20Fawwaz%2C%20saya%20ingin%20tanya%20laptop%20second.",
       "image": "/clients/abufawwaz/laptop-second.webp"
     },
@@ -46,7 +48,11 @@
       "year": "PRODUK DIGITAL",
       "description": "MITRA AMANAH juga menawarkan produk digital. Jenis produk, cara memperoleh, dan ketentuan penggunaannya dapat ditanyakan langsung agar sesuai dengan kebutuhan Anda.",
       "category": "Solusi Digital",
-      "tags": ["Produk Digital", "Informasi Produk", "Kebutuhan Online"],
+      "tags": [
+        "Produk Digital",
+        "Informasi Produk",
+        "Kebutuhan Online"
+      ],
       "website": "https://wa.me/6281249196000?text=Assalamu%27alaikum%20Abu%20Fawwaz%2C%20saya%20ingin%20tanya%20produk%20digital.",
       "image": "/clients/abufawwaz/produk-digital.webp"
     },
@@ -55,7 +61,11 @@
       "year": "PRODUK RUMAH TANGGA",
       "description": "Produk kasur kesehatan menjadi salah satu bidang usaha MITRA AMANAH. Silakan tanyakan pilihan ukuran, bahan, spesifikasi, harga, serta informasi produk yang tersedia. Klaim manfaat mengikuti keterangan produk resmi.",
       "category": "Kebutuhan Rumah & Istirahat",
-      "tags": ["Kasur Kesehatan", "Pilihan Ukuran", "Informasi Produk"],
+      "tags": [
+        "Kasur Kesehatan",
+        "Pilihan Ukuran",
+        "Informasi Produk"
+      ],
       "website": "https://wa.me/6281249196000?text=Assalamu%27alaikum%20Abu%20Fawwaz%2C%20saya%20ingin%20tanya%20kasur%20kesehatan.",
       "image": "/clients/abufawwaz/kasur-kesehatan.webp"
     },
@@ -64,7 +74,11 @@
       "year": "LAYANAN PERJALANAN",
       "description": "Sebagai agen travel umrah dan haji, Abu Fawwaz menjadi kontak untuk konsultasi informasi perjalanan ibadah. Konfirmasi penyelenggara, izin, paket, jadwal, syarat, serta rincian biaya langsung sebelum melakukan pemesanan.",
       "category": "Informasi Perjalanan Ibadah",
-      "tags": ["Umrah", "Haji", "Konsultasi Travel"],
+      "tags": [
+        "Umrah",
+        "Haji",
+        "Konsultasi Travel"
+      ],
       "website": "https://wa.me/6281249196000?text=Assalamu%27alaikum%20Abu%20Fawwaz%2C%20saya%20ingin%20tanya%20travel%20umrah%20dan%20haji.",
       "image": "/clients/abufawwaz/travel-umrah-haji.webp"
     }
@@ -83,8 +97,24 @@
       "title": "Perdagangan & Kebutuhan Digital",
       "subtitle": "Pilihan untuk aktivitas belajar, kerja, dan kebutuhan online",
       "skills": [
-        { "name": "Laptop Second", "mono": "LT", "note": "Perdagangan", "evidence": ["Bidang penjualan laptop bekas berkualitas", "Spesifikasi dan kondisi unit dikonfirmasi sebelum transaksi"] },
-        { "name": "Produk Digital", "mono": "DG", "note": "Katalog digital", "evidence": ["Salah satu lini usaha MITRA AMANAH", "Detail produk dan akses tersedia melalui konsultasi"] }
+        {
+          "name": "Laptop Second",
+          "mono": "LT",
+          "note": "Perdagangan",
+          "evidence": [
+            "Bidang penjualan laptop bekas berkualitas",
+            "Spesifikasi dan kondisi unit dikonfirmasi sebelum transaksi"
+          ]
+        },
+        {
+          "name": "Produk Digital",
+          "mono": "DG",
+          "note": "Katalog digital",
+          "evidence": [
+            "Salah satu lini usaha MITRA AMANAH",
+            "Detail produk dan akses tersedia melalui konsultasi"
+          ]
+        }
       ]
     },
     {
@@ -92,7 +122,15 @@
       "title": "Kebutuhan Rumah & Kenyamanan",
       "subtitle": "Produk yang dapat ditanyakan sebelum memilih",
       "skills": [
-        { "name": "Kasur Kesehatan", "mono": "KS", "note": "Informasi produk", "evidence": ["Lini usaha produk kasur kesehatan", "Ukuran, bahan, dan spesifikasi mengikuti pilihan yang tersedia"] }
+        {
+          "name": "Kasur Kesehatan",
+          "mono": "KS",
+          "note": "Informasi produk",
+          "evidence": [
+            "Lini usaha produk kasur kesehatan",
+            "Ukuran, bahan, dan spesifikasi mengikuti pilihan yang tersedia"
+          ]
+        }
       ]
     },
     {
@@ -100,7 +138,15 @@
       "title": "Perjalanan Ibadah",
       "subtitle": "Arah informasi untuk calon jamaah",
       "skills": [
-        { "name": "Agen Umrah & Haji", "mono": "UH", "note": "Konsultasi", "evidence": ["Peran sebagai agen travel umrah dan haji", "Rincian penyelenggara, izin, paket, dan jadwal perlu dikonfirmasi"] }
+        {
+          "name": "Agen Umrah & Haji",
+          "mono": "UH",
+          "note": "Konsultasi",
+          "evidence": [
+            "Peran sebagai agen travel umrah dan haji",
+            "Rincian penyelenggara, izin, paket, dan jadwal perlu dikonfirmasi"
+          ]
+        }
       ]
     }
   ],
@@ -108,22 +154,103 @@
   "skillsAside": "Empat bidang usaha, satu kontak untuk bertanya. Informasi di halaman ini adalah pengenalan layanan; stok, harga, manfaat produk, dan rincian perjalanan tidak diasumsikan tanpa konfirmasi langsung.",
   "skillsKicker": "APA YANG BISA DITANYAKAN?",
   "highlights": [
-    { "title": "MITRA AMANAH", "description": "Identitas usaha yang menaungi beragam kebutuhan pelanggan, dari perangkat hingga perjalanan ibadah.", "category": "IDENTITAS USAHA" },
-    { "title": "Empat Bidang Usaha", "description": "Laptop second, produk digital, kasur kesehatan, dan keagenan travel umrah serta haji.", "category": "LINGKUP LAYANAN" },
-    { "title": "Hubungi Abu Fawwaz", "description": "Satu jalur WhatsApp untuk meminta informasi produk, ketersediaan, dan detail layanan secara langsung.", "category": "KONTAK" }
+    {
+      "title": "MITRA AMANAH",
+      "description": "Identitas usaha yang menaungi beragam kebutuhan pelanggan, dari perangkat hingga perjalanan ibadah.",
+      "category": "IDENTITAS USAHA"
+    },
+    {
+      "title": "Empat Bidang Usaha",
+      "description": "Laptop second, produk digital, kasur kesehatan, dan keagenan travel umrah serta haji.",
+      "category": "LINGKUP LAYANAN"
+    },
+    {
+      "title": "Hubungi Abu Fawwaz",
+      "description": "Satu jalur WhatsApp untuk meminta informasi produk, ketersediaan, dan detail layanan secara langsung.",
+      "category": "KONTAK"
+    }
   ],
   "watchCards": [
-    { "target": "about", "title": "Kenali Abu Fawwaz", "subtitle": "Sosok di balik MITRA AMANAH", "image": "/clients/abufawwaz/abu-fawwaz-faceless.webp" },
-    { "target": "originals", "title": "Empat Bidang Usaha", "subtitle": "Laptop, digital, kasur, dan travel", "image": "/clients/abufawwaz/laptop-second.webp" },
-    { "target": "skills", "title": "Apa yang Ditawarkan?", "subtitle": "Lihat fokus layanan MITRA AMANAH", "image": "/clients/abufawwaz/produk-digital.webp" },
-    { "target": "journey", "title": "Cerita Usaha", "subtitle": "Perjalanan dan arah layanan", "image": "/clients/abufawwaz/travel-umrah-haji.webp" },
-    { "target": "picks", "title": "Pilihan Kebutuhan", "subtitle": "Temukan kategori yang sesuai", "image": "/clients/abufawwaz/kasur-kesehatan.webp" }
+    {
+      "target": "about",
+      "title": "Kenali Abu Fawwaz",
+      "subtitle": "Sosok di balik MITRA AMANAH",
+      "image": "/clients/abufawwaz/abu-fawwaz-faceless.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Empat Bidang Usaha",
+      "subtitle": "Laptop, digital, kasur, dan travel",
+      "image": "/clients/abufawwaz/laptop-second.webp"
+    },
+    {
+      "target": "skills",
+      "title": "Apa yang Ditawarkan?",
+      "subtitle": "Lihat fokus layanan MITRA AMANAH",
+      "image": "/clients/abufawwaz/produk-digital.webp"
+    },
+    {
+      "target": "journey",
+      "title": "Cerita Usaha",
+      "subtitle": "Perjalanan dan arah layanan",
+      "image": "/clients/abufawwaz/travel-umrah-haji.webp"
+    },
+    {
+      "target": "picks",
+      "title": "Pilihan Kebutuhan",
+      "subtitle": "Temukan kategori yang sesuai",
+      "image": "/clients/abufawwaz/kasur-kesehatan.webp"
+    }
   ],
   "pickCards": [
-    { "label": "PERANGKAT KERJA", "title": "Laptop Second", "detail": "Tanyakan pilihan dan kondisi laptop untuk kebutuhan Anda.", "image": "/clients/abufawwaz/laptop-second.webp", "palette": { "from": "#1b332b", "via": "#4c6653", "to": "#101712", "accent": "#dcc492" } },
-    { "label": "SOLUSI ONLINE", "title": "Produk Digital", "detail": "Cari informasi produk digital dan ketentuan akses yang ditawarkan.", "image": "/clients/abufawwaz/produk-digital.webp", "palette": { "from": "#173d35", "via": "#557f71", "to": "#101c1a", "accent": "#d6b475" } },
-    { "label": "KEBUTUHAN RUMAH", "title": "Kasur Kesehatan", "detail": "Konsultasikan ukuran, bahan, dan pilihan produk yang tersedia.", "image": "/clients/abufawwaz/kasur-kesehatan.webp", "palette": { "from": "#4d4b35", "via": "#94856b", "to": "#26241e", "accent": "#ead6aa" } },
-    { "label": "PERJALANAN IBADAH", "title": "Umrah & Haji", "detail": "Tanyakan informasi agen, paket, dan penyelenggara perjalanan.", "image": "/clients/abufawwaz/travel-umrah-haji.webp", "palette": { "from": "#1e382c", "via": "#97784b", "to": "#111a14", "accent": "#edc983" } }
+    {
+      "label": "PERANGKAT KERJA",
+      "title": "Laptop Second",
+      "detail": "Tanyakan pilihan dan kondisi laptop untuk kebutuhan Anda.",
+      "image": "/clients/abufawwaz/laptop-second.webp",
+      "palette": {
+        "from": "#1b332b",
+        "via": "#4c6653",
+        "to": "#101712",
+        "accent": "#dcc492"
+      }
+    },
+    {
+      "label": "SOLUSI ONLINE",
+      "title": "Produk Digital",
+      "detail": "Cari informasi produk digital dan ketentuan akses yang ditawarkan.",
+      "image": "/clients/abufawwaz/produk-digital.webp",
+      "palette": {
+        "from": "#173d35",
+        "via": "#557f71",
+        "to": "#101c1a",
+        "accent": "#d6b475"
+      }
+    },
+    {
+      "label": "KEBUTUHAN RUMAH",
+      "title": "Kasur Kesehatan",
+      "detail": "Konsultasikan ukuran, bahan, dan pilihan produk yang tersedia.",
+      "image": "/clients/abufawwaz/kasur-kesehatan.webp",
+      "palette": {
+        "from": "#4d4b35",
+        "via": "#94856b",
+        "to": "#26241e",
+        "accent": "#ead6aa"
+      }
+    },
+    {
+      "label": "PERJALANAN IBADAH",
+      "title": "Umrah & Haji",
+      "detail": "Tanyakan informasi agen, paket, dan penyelenggara perjalanan.",
+      "image": "/clients/abufawwaz/travel-umrah-haji.webp",
+      "palette": {
+        "from": "#1e382c",
+        "via": "#97784b",
+        "to": "#111a14",
+        "accent": "#edc983"
+      }
+    }
   ],
   "picksHeading": "Pilihan dari MITRA AMANAH",
   "picksKicker": "EMPAT ARAH KEBUTUHAN",
@@ -134,7 +261,22 @@
       "period": "Profil usaha",
       "synopsis": "M. Mas'uddin Noor memperkenalkan MITRA AMANAH sebagai identitas untuk beragam bidang usaha.",
       "episodes": [
-        { "title": "Di Balik MITRA AMANAH", "runtime": "Profil usaha", "description": "Kenali Abu Fawwaz dan empat bidang usaha yang diperkenalkannya melalui MITRA AMANAH.", "tags": ["Wiraswasta", "MITRA AMANAH"], "image": "/clients/abufawwaz/abu-fawwaz-faceless.webp", "palette": { "from": "#1b332b", "via": "#4c6653", "to": "#101712", "accent": "#dcc492" } }
+        {
+          "title": "Di Balik MITRA AMANAH",
+          "runtime": "Profil usaha",
+          "description": "Kenali Abu Fawwaz dan empat bidang usaha yang diperkenalkannya melalui MITRA AMANAH.",
+          "tags": [
+            "Wiraswasta",
+            "MITRA AMANAH"
+          ],
+          "image": "/clients/abufawwaz/abu-fawwaz-faceless.webp",
+          "palette": {
+            "from": "#1b332b",
+            "via": "#4c6653",
+            "to": "#101712",
+            "accent": "#dcc492"
+          }
+        }
       ]
     },
     {
@@ -143,17 +285,76 @@
       "period": "Kategori yang ditawarkan",
       "synopsis": "Laptop second, produk digital, kasur kesehatan, serta keagenan travel umrah dan haji.",
       "episodes": [
-        { "title": "Laptop Second", "runtime": "Perdagangan", "description": "Informasi laptop second, spesifikasi, kondisi, dan stok yang dapat ditanyakan langsung.", "tags": ["Laptop", "Perangkat"], "image": "/clients/abufawwaz/laptop-second.webp", "palette": { "from": "#1b332b", "via": "#4c6653", "to": "#101712", "accent": "#dcc492" } },
-        { "title": "Produk Digital", "runtime": "Produk", "description": "Produk digital yang menjadi salah satu usaha MITRA AMANAH; detail pilihan dan akses melalui konsultasi.", "tags": ["Digital", "Produk"], "image": "/clients/abufawwaz/produk-digital.webp", "palette": { "from": "#173d35", "via": "#557f71", "to": "#101c1a", "accent": "#d6b475" } },
-        { "title": "Kasur Kesehatan", "runtime": "Produk", "description": "Lini usaha kasur kesehatan dengan ukuran dan spesifikasi produk yang dapat ditanyakan.", "tags": ["Kasur", "Rumah"], "image": "/clients/abufawwaz/kasur-kesehatan.webp", "palette": { "from": "#4d4b35", "via": "#94856b", "to": "#26241e", "accent": "#ead6aa" } },
-        { "title": "Umrah & Haji", "runtime": "Keagenan", "description": "Kontak untuk konsultasi perjalanan ibadah, dengan rincian izin, penyelenggara, dan paket yang perlu dikonfirmasi.", "tags": ["Umrah", "Haji"], "image": "/clients/abufawwaz/travel-umrah-haji.webp", "palette": { "from": "#1e382c", "via": "#97784b", "to": "#111a14", "accent": "#edc983" } }
+        {
+          "title": "Laptop Second",
+          "runtime": "Perdagangan",
+          "description": "Informasi laptop second, spesifikasi, kondisi, dan stok yang dapat ditanyakan langsung.",
+          "tags": [
+            "Laptop",
+            "Perangkat"
+          ],
+          "image": "/clients/abufawwaz/laptop-second.webp",
+          "palette": {
+            "from": "#1b332b",
+            "via": "#4c6653",
+            "to": "#101712",
+            "accent": "#dcc492"
+          }
+        },
+        {
+          "title": "Produk Digital",
+          "runtime": "Produk",
+          "description": "Produk digital yang menjadi salah satu usaha MITRA AMANAH; detail pilihan dan akses melalui konsultasi.",
+          "tags": [
+            "Digital",
+            "Produk"
+          ],
+          "image": "/clients/abufawwaz/produk-digital.webp",
+          "palette": {
+            "from": "#173d35",
+            "via": "#557f71",
+            "to": "#101c1a",
+            "accent": "#d6b475"
+          }
+        },
+        {
+          "title": "Kasur Kesehatan",
+          "runtime": "Produk",
+          "description": "Lini usaha kasur kesehatan dengan ukuran dan spesifikasi produk yang dapat ditanyakan.",
+          "tags": [
+            "Kasur",
+            "Rumah"
+          ],
+          "image": "/clients/abufawwaz/kasur-kesehatan.webp",
+          "palette": {
+            "from": "#4d4b35",
+            "via": "#94856b",
+            "to": "#26241e",
+            "accent": "#ead6aa"
+          }
+        },
+        {
+          "title": "Umrah & Haji",
+          "runtime": "Keagenan",
+          "description": "Kontak untuk konsultasi perjalanan ibadah, dengan rincian izin, penyelenggara, dan paket yang perlu dikonfirmasi.",
+          "tags": [
+            "Umrah",
+            "Haji"
+          ],
+          "image": "/clients/abufawwaz/travel-umrah-haji.webp",
+          "palette": {
+            "from": "#1e382c",
+            "via": "#97784b",
+            "to": "#111a14",
+            "accent": "#edc983"
+          }
+        }
       ]
     }
   ],
   "journeyHeading": "Perjalanan MITRA AMANAH",
   "journeyAside": "Halaman ini memperkenalkan bidang usaha dan cara menghubungi Abu Fawwaz. Tidak mencantumkan tahun berdiri, penghargaan, sertifikasi, atau testimoni yang belum diberikan.",
   "journeyKicker": "CERITA USAHA · LANGKAH BERIKUTNYA",
-  "theme": { "accent": "#365c4d", "background": "#f6f6f3" },
-  "templateId": "minimalist",
+  "templateId": "original",
   "identityMode": "photo"
 }
