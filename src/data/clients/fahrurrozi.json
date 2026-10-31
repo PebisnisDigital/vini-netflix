@@ -5,8 +5,7 @@
   "location": "Belum dicantumkan",
   "bio": "Halo, saya FAHRUR ROZI, seorang pengusaha. Halaman ini menjadi tempat untuk memperkenalkan diri dan membuka komunikasi dengan orang-orang yang ingin saling mengenal. Setiap hubungan profesional dapat dimulai dari percakapan yang baik. Jika ingin bertanya, berkenalan, atau menyampaikan gagasan untuk didiskusikan, silakan hubungi saya melalui WhatsApp atau email.",
   "tagline": [
-    "PENGUSAHA · PERKENALAN · RELASI",
-    "Setiap hubungan usaha bermula dari sebuah perkenalan."
+    "PENGUSAHA"
   ],
   "interests": [
     "Dunia Usaha",
@@ -36,7 +35,11 @@
       "year": "PERKENALAN",
       "description": "Berkenalan dengan FAHRUR ROZI, seorang pengusaha. Profil ini memperkenalkan identitas profesional dan menyediakan jalur untuk terhubung secara langsung.",
       "category": "Profil Pengusaha",
-      "tags": ["FAHRUR ROZI", "Pengusaha", "Perkenalan"],
+      "tags": [
+        "FAHRUR ROZI",
+        "Pengusaha",
+        "Perkenalan"
+      ],
       "image": "/clients/fahrurrozi/foto-profesional.webp"
     },
     {
@@ -44,16 +47,26 @@
       "year": "DISKUSI",
       "description": "Punya pertanyaan atau topik yang ingin dibicarakan? Awali dengan memperkenalkan diri dan menyampaikan kebutuhan. Rincian bidang usaha dapat didiskusikan langsung bersama FAHRUR ROZI.",
       "category": "Komunikasi Usaha",
-      "tags": ["Diskusi", "Komunikasi", "Dunia Usaha"],
-      "website": "https://wa.me/6281553851884?text=Halo%20Pak%20Fahrur%20Rozi%2C%20saya%20ingin%20berkenalan%20dan%20berdiskusi."
+      "tags": [
+        "Diskusi",
+        "Komunikasi",
+        "Dunia Usaha"
+      ],
+      "website": "https://wa.me/6281553851884?text=Halo%20Pak%20Fahrur%20Rozi%2C%20saya%20ingin%20berkenalan%20dan%20berdiskusi.",
+      "image": ""
     },
     {
       "title": "Terhubung Langsung",
       "year": "KONTAK",
       "description": "Untuk memulai percakapan mengenai pengenalan diri atau peluang yang relevan, gunakan WhatsApp maupun email yang tertera. Sampaikan topik secara ringkas agar mudah ditindaklanjuti.",
       "category": "Kontak Profesional",
-      "tags": ["WhatsApp", "Email", "Relasi"],
-      "website": "https://wa.me/6281553851884?text=Halo%20Pak%20Fahrur%20Rozi%2C%20saya%20melihat%20profil%20Bapak%20di%20PESONAFLIX."
+      "tags": [
+        "WhatsApp",
+        "Email",
+        "Relasi"
+      ],
+      "website": "https://wa.me/6281553851884?text=Halo%20Pak%20Fahrur%20Rozi%2C%20saya%20melihat%20profil%20Bapak%20di%20PESONAFLIX.",
+      "image": ""
     }
   ],
   "skills": [
@@ -72,13 +85,19 @@
           "name": "Pengusaha",
           "mono": "PG",
           "note": "Profesi",
-          "evidence": ["Profesi yang disampaikan: pengusaha", "Bidang usaha khusus dapat dilengkapi setelah ada informasi langsung"]
+          "evidence": [
+            "Profesi yang disampaikan: pengusaha",
+            "Bidang usaha khusus dapat dilengkapi setelah ada informasi langsung"
+          ]
         },
         {
           "name": "Ruang Perkenalan",
           "mono": "PR",
           "note": "Profil",
-          "evidence": ["Halaman ini menjadi sarana pengenalan diri", "Kontak WhatsApp dan email tersedia untuk pengunjung"]
+          "evidence": [
+            "Halaman ini menjadi sarana pengenalan diri",
+            "Kontak WhatsApp dan email tersedia untuk pengunjung"
+          ]
         }
       ]
     },
@@ -91,7 +110,10 @@
           "name": "Diskusi Profesional",
           "mono": "DS",
           "note": "Percakapan",
-          "evidence": ["Pengunjung dapat menyampaikan pertanyaan lewat WhatsApp", "Kesesuaian topik dibicarakan langsung dengan pemilik profil"]
+          "evidence": [
+            "Pengunjung dapat menyampaikan pertanyaan lewat WhatsApp",
+            "Kesesuaian topik dibicarakan langsung dengan pemilik profil"
+          ]
         }
       ]
     }
@@ -126,17 +148,20 @@
     {
       "target": "originals",
       "title": "Informasi Profil",
-      "subtitle": "Topik perkenalan dan diskusi"
+      "subtitle": "Topik perkenalan dan diskusi",
+      "image": ""
     },
     {
       "target": "skills",
       "title": "Peran & Relasi",
-      "subtitle": "Gambaran umum dunia usaha"
+      "subtitle": "Gambaran umum dunia usaha",
+      "image": ""
     },
     {
       "target": "journey",
       "title": "Langkah Selanjutnya",
-      "subtitle": "Dari perkenalan menuju percakapan"
+      "subtitle": "Dari perkenalan menuju percakapan",
+      "image": ""
     }
   ],
   "pickCards": [
@@ -145,19 +170,36 @@
       "title": "Halo, Saya FAHRUR ROZI",
       "detail": "Mengenal FAHRUR ROZI dan profesinya sebagai pengusaha.",
       "image": "/clients/fahrurrozi/foto-profesional.webp",
-      "palette": { "from": "#2f3540", "via": "#b79a6c", "to": "#1d232d", "accent": "#ecd9ac" }
+      "palette": {
+        "from": "#2f3540",
+        "via": "#b79a6c",
+        "to": "#1d232d",
+        "accent": "#ecd9ac"
+      }
     },
     {
       "label": "DUNIA USAHA",
       "title": "Buka Percakapan",
       "detail": "Tanyakan informasi usaha secara langsung melalui kontak yang tersedia.",
-      "palette": { "from": "#4b4c37", "via": "#b6aa82", "to": "#25291f", "accent": "#f6e3b6" }
+      "palette": {
+        "from": "#4b4c37",
+        "via": "#b6aa82",
+        "to": "#25291f",
+        "accent": "#f6e3b6"
+      },
+      "image": ""
     },
     {
       "label": "KONTAK",
       "title": "Mari Terhubung",
       "detail": "Mulai dengan sapaan melalui WhatsApp atau email.",
-      "palette": { "from": "#2e453e", "via": "#8ea599", "to": "#1d2c29", "accent": "#ead5a6" }
+      "palette": {
+        "from": "#2e453e",
+        "via": "#8ea599",
+        "to": "#1d2c29",
+        "accent": "#ead5a6"
+      },
+      "image": ""
     }
   ],
   "picksHeading": "Perkenalan yang Membuka Jalan",
@@ -173,9 +215,17 @@
           "title": "Salam Perkenalan",
           "runtime": "Profil",
           "description": "Mengenal nama, profesi, dan jalur kontak FAHRUR ROZI.",
-          "tags": ["Pengusaha", "Perkenalan"],
+          "tags": [
+            "Pengusaha",
+            "Perkenalan"
+          ],
           "image": "/clients/fahrurrozi/foto-profesional.webp",
-          "palette": { "from": "#2f3540", "via": "#b79a6c", "to": "#1d232d", "accent": "#ecd9ac" }
+          "palette": {
+            "from": "#2f3540",
+            "via": "#b79a6c",
+            "to": "#1d232d",
+            "accent": "#ecd9ac"
+          }
         }
       ]
     },
@@ -189,16 +239,24 @@
           "title": "Mulai dari Sebuah Sapaan",
           "runtime": "Diskusi",
           "description": "Sampaikan pertanyaan atau topik lewat WhatsApp agar komunikasi bisa dimulai secara langsung.",
-          "tags": ["Komunikasi", "Relasi"],
-          "palette": { "from": "#3a4740", "via": "#b2aa8b", "to": "#202b28", "accent": "#eedcb6" }
+          "tags": [
+            "Komunikasi",
+            "Relasi"
+          ],
+          "palette": {
+            "from": "#3a4740",
+            "via": "#b2aa8b",
+            "to": "#202b28",
+            "accent": "#eedcb6"
+          },
+          "image": ""
         }
       ]
     }
   ],
-  "journeyHeading": "Usaha, Ide, dan Orang-Orang di Baliknya",
+  "journeyHeading": "Setiap Langkah Dimulai dari Kenalan",
   "journeyAside": "FAHRUR ROZI adalah seorang pengusaha yang membuka ruang untuk saling mengenal dan berbincang tentang dunia usaha. Melalui halaman ini, pengunjung bisa menyampaikan kebutuhan, bertukar gagasan, atau memulai percakapan mengenai peluang kerja sama. Untuk berdiskusi lebih lanjut, hubungi Fahrur Rozi secara langsung melalui WhatsApp atau email yang tersedia.",
-  "journeyKicker": "PROFIL PENGUSAHA · IDE · PELUANG",
-  "theme": { "accent": "#a77a3b", "background": "#f8f5ed" },
-  "templateId": "minimalist",
+  "journeyKicker": "PERKENALAN · KOMUNIKASI · RELASI",
+  "templateId": "original",
   "identityMode": "photo"
 }
