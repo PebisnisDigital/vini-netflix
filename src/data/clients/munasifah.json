@@ -1,18 +1,19 @@
 {
   "slug": "munasifah",
   "name": "Munasifah",
-  "role": "Guru RA/TK · Pendidikan Anak Usia Dini",
+  "role": "Guru RA/TK · Usaha Kecil-Kecilan",
   "location": "Krapyak, Pekalongan, Jawa Tengah",
-  "bio": "Assalamu'alaikum, saya Munasifah, guru RA/TK di RA Masyithoh 13 Krapyak Pekalongan. Dunia anak usia dini penuh rasa ingin tahu, gerak, dan cerita. Melalui halaman ini, saya berbagi dokumentasi kegiatan sekolah, contoh media belajar, video edukasi, serta sertifikat yang menjadi bagian dari perjalanan saya sebagai pendidik. Semoga setiap karya dan kegiatan memberi gambaran tentang pembelajaran yang dekat dengan dunia anak.",
+  "bio": "Assalamu'alaikum, saya Munasifah, guru RA/TK di RA Masyithoh 13 Krapyak Pekalongan. Dunia anak usia dini penuh rasa ingin tahu, gerak, dan cerita. Di luar kegiatan mengajar, saya juga menjalankan usaha kecil-kecilan. Melalui halaman ini, saya berbagi dokumentasi kegiatan sekolah, contoh media belajar, video edukasi, sertifikat, dan sedikit cerita kegiatan usaha saya. Semoga setiap kegiatan memberi gambaran tentang keseharian yang saya jalani dengan sepenuh hati.",
   "tagline": [
-    "GURU RA/TK · MEDIA BELAJAR · PENGALAMAN KELAS"
+    "GURU RA/TK · MEDIA BELAJAR · USAHA KECIL"
   ],
   "interests": [
     "Pendidikan Anak Usia Dini",
     "Media Pembelajaran Kreatif",
     "Kegiatan Belajar Mengajar",
     "Pembelajaran Visual",
-    "Pengembangan Diri Pendidik"
+    "Pengembangan Diri Pendidik",
+    "Usaha Kecil-Kecilan"
   ],
   "photo": {
     "src": "/clients/munasifah/foto-profesional.webp",
@@ -33,6 +34,12 @@
       "role": "Media visual dan materi edukasi",
       "period": "Karya yang dibagikan",
       "description": "Contoh materi visual tentang mengenal tanda sama dengan dan tidak sama dengan, mengenal keluarga, serta video bertema kesehatan gigi."
+    },
+    {
+      "company": "Usaha Sampingan",
+      "role": "Jualan Kecil-Kecilan",
+      "period": "Di luar kegiatan mengajar",
+      "description": "Selain mengajar, Munasifah menjalankan usaha kecil-kecilan. Informasi produk yang sedang ditawarkan dapat ditanyakan langsung melalui WhatsApp."
     }
   ],
   "education": [],
@@ -193,6 +200,18 @@
         "2024"
       ],
       "image": "/clients/munasifah/sertifikat-pelatihan-november.webp"
+    },
+    {
+      "title": "Cerita Usaha Kecil-Kecilan",
+      "year": "USAHA SAMPINGAN",
+      "description": "Selain aktif sebagai guru RA/TK, Munasifah juga menjalankan kegiatan jualan skala kecil. Foto yang dibagikan menggambarkan sisi aktivitas usaha tersebut. Untuk bertanya tentang barang yang tersedia, silakan hubungi Munasifah langsung.",
+      "category": "Usaha Sampingan",
+      "tags": [
+        "Usaha Kecil",
+        "Jualan",
+        "Kegiatan Sampingan"
+      ],
+      "image": "/clients/munasifah/cerita-usaha-kecil.webp"
     }
   ],
   "skills": [
@@ -201,7 +220,8 @@
     "Media Belajar Visual",
     "Numerasi Dasar",
     "Kegiatan Pembiasaan",
-    "Pengembangan Materi Digital"
+    "Pengembangan Materi Digital",
+    "Usaha Kecil-Kecilan"
   ],
   "skillCategories": [
     {
@@ -253,10 +273,26 @@
           ]
         }
       ]
+    },
+    {
+      "id": "usaha-sampingan",
+      "title": "Aktivitas di Luar Kelas",
+      "subtitle": "Usaha kecil yang dijalani di sela kegiatan mengajar",
+      "skills": [
+        {
+          "name": "Jualan Kecil-Kecilan",
+          "mono": "UK",
+          "note": "Kegiatan sampingan",
+          "evidence": [
+            "Munasifah juga menjalankan usaha kecil-kecilan",
+            "Foto kegiatan usaha dibagikan untuk melengkapi profil"
+          ]
+        }
+      ]
     }
   ],
   "skillsHeading": "Ruang Belajar yang Hidup dan Dekat dengan Anak",
-  "skillsAside": "Dari kegiatan bersama di sekolah hingga pengembangan media edukasi, Munasifah menghadirkan berbagai bentuk dokumentasi pembelajaran. Poster visual, video bertema kesehatan gigi, serta sertifikat pelatihan melengkapi perjalanannya sebagai guru RA/TK.",
+  "skillsAside": "Dari kegiatan bersama di sekolah hingga pengembangan media edukasi, Munasifah menghadirkan berbagai bentuk dokumentasi pembelajaran. Poster visual, video bertema kesehatan gigi, serta sertifikat pelatihan melengkapi perjalanannya sebagai guru RA/TK. Di luar sekolah, ia juga menjalankan usaha kecil-kecilan sebagai bagian dari aktivitas sehari-hari.",
   "skillsKicker": "PENDIDIKAN ANAK USIA DINI · KREATIVITAS",
   "highlights": [
     {
@@ -283,6 +319,11 @@
       "title": "Belajar Membuat Ebook dan Konten Digital",
       "description": "Sertifikat kelas AI, Canva, dan pembuatan ebook yang dibagikan.",
       "category": "KOMPETENSI DIGITAL"
+    },
+    {
+      "title": "Usaha Kecil-Kecilan",
+      "description": "Aktivitas jualan sampingan di luar kesehariannya sebagai pendidik.",
+      "category": "KEGIATAN USAHA"
     }
   ],
   "watchCards": [
@@ -309,6 +350,12 @@
       "title": "Cerita Sang Pendidik",
       "subtitle": "Perjalanan dan proses belajar",
       "image": ""
+    },
+    {
+      "target": "originals",
+      "title": "Cerita Usaha Kecil",
+      "subtitle": "Kegiatan jualan di luar sekolah",
+      "image": "/clients/munasifah/cerita-usaha-kecil.webp"
     }
   ],
   "pickCards": [
@@ -359,10 +406,22 @@
         "to": "#2e3938",
         "accent": "#fce6bd"
       }
+    },
+    {
+      "label": "USAHA SAMPINGAN",
+      "title": "Kecil-Kecilan, Tetap Dijalani",
+      "detail": "Kegiatan jualan sebagai bagian dari keseharian Bu Munasifah di luar sekolah.",
+      "image": "/clients/munasifah/cerita-usaha-kecil.webp",
+      "palette": {
+        "from": "#3c3633",
+        "via": "#9b8f6f",
+        "to": "#2d403a",
+        "accent": "#f3ddb2"
+      }
     }
   ],
   "picksHeading": "Beragam Cara untuk Belajar",
-  "picksKicker": "KEGIATAN · MEDIA · VIDEO · PENGHARGAAN",
+  "picksKicker": "KEGIATAN · MEDIA · VIDEO · PENGHARGAAN · USAHA",
   "seasons": [
     {
       "number": 1,
@@ -483,11 +542,35 @@
           }
         }
       ]
+    },
+    {
+      "number": 4,
+      "title": "Cerita Usaha Sampingan",
+      "period": "Di Luar Kelas",
+      "synopsis": "Selain menjadi guru, Munasifah juga menjalankan usaha kecil-kecilan sebagai kegiatan sampingan.",
+      "episodes": [
+        {
+          "title": "Jualan Kecil-Kecilan",
+          "runtime": "Kegiatan Usaha",
+          "description": "Sisi keseharian Bu Munasifah di luar sekolah, menjalankan jualan dalam skala kecil.",
+          "tags": [
+            "Usaha Sampingan",
+            "Keseharian"
+          ],
+          "image": "/clients/munasifah/cerita-usaha-kecil.webp",
+          "palette": {
+            "from": "#4b3f32",
+            "via": "#a3a17c",
+            "to": "#2e453e",
+            "accent": "#f4dbad"
+          }
+        }
+      ]
     }
   ],
-  "journeyHeading": "Mengajar Anak, Terus Belajar sebagai Pendidik",
-  "journeyAside": "Munasifah mengajar di RA Masyithoh 13 Krapyak Pekalongan. Foto-foto kegiatan memperlihatkan sisi keseharian sekolah, sementara poster dan video edukasi menunjukkan contoh media visual yang dibagikan. Piagam Juara III Cipta Media Pembelajaran tahun 2022 serta sertifikat webinar dan pelatihan menjadi bagian dari dokumentasi pengembangan diri yang melengkapi profilnya. Untuk terhubung, silakan hubungi Munasifah melalui WhatsApp atau email.",
-  "journeyKicker": "KELAS · MEDIA BELAJAR · PENGEMBANGAN DIRI",
+  "journeyHeading": "Mengajar, Berkarya, dan Menjalani Usaha Kecil",
+  "journeyAside": "Munasifah mengajar di RA Masyithoh 13 Krapyak Pekalongan. Foto-foto kegiatan memperlihatkan sisi keseharian sekolah, sementara poster dan video edukasi menunjukkan contoh media visual yang dibagikan. Piagam Juara III Cipta Media Pembelajaran tahun 2022 serta sertifikat webinar dan pelatihan melengkapi profilnya. Di luar kegiatan mengajar, Munasifah juga menjalankan usaha kecil-kecilan. Untuk mengenal kegiatan usaha atau menyapa langsung, silakan hubungi melalui WhatsApp atau email.",
+  "journeyKicker": "PENDIDIKAN · MEDIA BELAJAR · USAHA SAMPINGAN",
   "templateId": "original",
   "identityMode": "photo"
 }

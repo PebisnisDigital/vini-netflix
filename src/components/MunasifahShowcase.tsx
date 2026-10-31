@@ -1,4 +1,4 @@
-import { Play, ArrowUpRight, BookOpenText, GraduationCap, Award } from 'lucide-react';
+import { Play, ArrowUpRight, BookOpenText, GraduationCap, Award, ShoppingBag } from 'lucide-react';
 import type { Project } from '../data/portfolio';
 import { usePortfolio } from '../data/PortfolioContext';
 
@@ -25,6 +25,13 @@ const groups = [
     description: 'Jejak apresiasi dan pengembangan diri yang dilampirkan pemilik profil.',
     Icon: Award,
   },
+  {
+    category: 'Usaha Sampingan',
+    number: '04',
+    title: 'Cerita Usaha Kecil-Kecilan',
+    description: 'Di luar sekolah, Munasifah juga menjalankan kegiatan jualan dalam skala kecil.',
+    Icon: ShoppingBag,
+  },
 ] as const;
 
 export default function MunasifahShowcase({ onOpen }: { onOpen: (p: Project) => void }) {
@@ -36,7 +43,7 @@ export default function MunasifahShowcase({ onOpen }: { onOpen: (p: Project) => 
         <p className="mb-4 text-xs font-bold uppercase tracking-[0.3em] text-crimson-2">PORTOFOLIO PENDIDIK · RA MASYITHOH 13 KRAPYAK</p>
         <h2 className="font-display text-[clamp(3rem,7vw,6rem)] leading-[0.95] text-bone">CERITA DARI KELAS</h2>
         <p className="mt-6 max-w-2xl text-base leading-relaxed text-mist">
-          Dokumentasi nyata kegiatan belajar, contoh media visual, video edukasi, serta sertifikat Munasifah. Pilih foto untuk membaca keterangannya atau putar video langsung di halaman ini.
+          Dokumentasi kegiatan belajar, media visual, video edukasi, sertifikat, dan cerita usaha kecil-kecilan Munasifah. Pilih foto untuk membaca keterangannya atau putar video langsung di halaman ini.
         </p>
       </div>
 
