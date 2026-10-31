@@ -195,9 +195,9 @@
       ]
     }
   ],
-  "journeyHeading": "Setiap Langkah Dimulai dari Kenalan",
-  "journeyAside": "FAHRUR ROZI memperkenalkan dirinya sebagai seorang pengusaha. Melalui halaman ini, pengunjung dapat mengenal identitas profesionalnya dan menghubunginya secara langsung. Cerita usaha yang lebih spesifik bisa ditambahkan berdasarkan informasi yang nantinya dibagikan pemilik profil.",
-  "journeyKicker": "PERKENALAN · KOMUNIKASI · RELASI",
+  "journeyHeading": "Usaha, Ide, dan Orang-Orang di Baliknya",
+  "journeyAside": "FAHRUR ROZI adalah seorang pengusaha yang membuka ruang untuk saling mengenal dan berbincang tentang dunia usaha. Melalui halaman ini, pengunjung bisa menyampaikan kebutuhan, bertukar gagasan, atau memulai percakapan mengenai peluang kerja sama. Untuk berdiskusi lebih lanjut, hubungi Fahrur Rozi secara langsung melalui WhatsApp atau email yang tersedia.",
+  "journeyKicker": "PROFIL PENGUSAHA · IDE · PELUANG",
   "theme": { "accent": "#a77a3b", "background": "#f8f5ed" },
   "templateId": "minimalist",
   "identityMode": "photo"
