@@ -5,8 +5,6 @@
   "location": "Semarang, Jawa Tengah",
   "bio": "Saya Yudha Andaka, purnabakti BUMN dengan perjalanan karier lebih dari dua dekade di PT Bank Tabungan Negara (Persero) Tbk. Pengalaman saya melintasi analisis kredit, kepemimpinan cabang, tata kelola perusahaan, pembiayaan perumahan, dan pengembangan sumber daya manusia. Integritas, kerja sama, dan kemauan untuk terus belajar menjadi nilai yang saya bawa dalam setiap tanggung jawab.",
   "tagline": [
-    "YUDHA ANDAKA · JEJAK PROFESIONAL",
-    "Integritas ditempa oleh perjalanan.",
     "Dari analisis kredit hingga kepemimpinan perbankan."
   ],
   "interests": [
@@ -88,8 +86,18 @@
     }
   ],
   "education": [
-    { "school": "Universitas Hasanuddin, Makassar", "degree": "Magister Manajemen (MM)", "place": "Makassar", "period": "2006–2008" },
-    { "school": "UPN ‘Veteran’ Yogyakarta", "degree": "Riwayat pendidikan tinggi", "place": "Yogyakarta", "period": "1989–2006 (sesuai CV)" }
+    {
+      "school": "Universitas Hasanuddin, Makassar",
+      "degree": "Magister Manajemen (MM)",
+      "place": "Makassar",
+      "period": "2006–2008"
+    },
+    {
+      "school": "UPN ‘Veteran’ Yogyakarta",
+      "degree": "Riwayat pendidikan tinggi",
+      "place": "Yogyakarta",
+      "period": "1989–2006 (sesuai CV)"
+    }
   ],
   "projects": [
     {
@@ -97,7 +105,11 @@
       "year": "2019–2023",
       "description": "Perjalanan memimpin Kantor Cabang BTN Tasikmalaya dan Padang, setelah mengemban tanggung jawab Deputy Branch Manager Business di Malang. Kartu ini merangkum posisi dalam CV, bukan klaim hasil bisnis tertentu.",
       "category": "Kepemimpinan Perbankan",
-      "tags": ["Branch Manager", "Banking", "Leadership"],
+      "tags": [
+        "Branch Manager",
+        "Banking",
+        "Leadership"
+      ],
       "image": "/clients/yudhaandaka/kepemimpinan.webp"
     },
     {
@@ -105,7 +117,11 @@
       "year": "1998–2014",
       "description": "Fondasi profesional dalam analisis kredit komersial dan konsumer di Balikpapan, kemudian pengalaman di Mortgage Consumer Loan Division Kantor Pusat Jakarta.",
       "category": "Kredit & Pembiayaan",
-      "tags": ["Credit Analysis", "Mortgage Loan", "Consumer Banking"],
+      "tags": [
+        "Credit Analysis",
+        "Mortgage Loan",
+        "Consumer Banking"
+      ],
       "image": "/clients/yudhaandaka/kredit.webp"
     },
     {
@@ -113,7 +129,11 @@
       "year": "2009–2010 · 2025",
       "description": "Pengalaman pada Corporate Secretary Division dalam lingkup GCG, serta penugasan Regional Branch Control Supervisor untuk wilayah Jawa Tengah–DIY yang tercatat pada November 2025.",
       "category": "Governance & Control",
-      "tags": ["GCG", "Regional Control", "Governance"],
+      "tags": [
+        "GCG",
+        "Regional Control",
+        "Governance"
+      ],
       "image": "/clients/yudhaandaka/tata-kelola.webp"
     },
     {
@@ -121,7 +141,11 @@
       "year": "2014–2018",
       "description": "Tanggung jawab sebagai Head Unit Commercial Loan & SME pada BTN Kantor Cabang Semarang.",
       "category": "Commercial Banking",
-      "tags": ["Commercial Loan", "SME", "Unit Leadership"],
+      "tags": [
+        "Commercial Loan",
+        "SME",
+        "Unit Leadership"
+      ],
       "image": "/clients/yudhaandaka/kredit.webp"
     },
     {
@@ -129,7 +153,11 @@
       "year": "2023–2025",
       "description": "Pengalaman pada Human Capital Strategy Division, dilengkapi kompetensi sebagai Internal Trainer, Management Development Program, dan Certified Trainer BNSP sebagaimana tercantum dalam CV.",
       "category": "People Development",
-      "tags": ["Human Capital", "Internal Trainer", "BNSP"],
+      "tags": [
+        "Human Capital",
+        "Internal Trainer",
+        "BNSP"
+      ],
       "image": "/clients/yudhaandaka/pengembangan-sdm.webp"
     },
     {
@@ -137,20 +165,57 @@
       "year": "Sertifikasi Profesional",
       "description": "CV mencantumkan kompetensi Bank Risk Management LSPP Level 1, 2, dan 3 serta sertifikasi Sistem Pembayaran dan Pengelolaan Uang Rupiah jenjang VI dari LSPP.",
       "category": "Sertifikasi & Kompetensi",
-      "tags": ["Risk Management", "LSPP", "Payment System"],
+      "tags": [
+        "Risk Management",
+        "LSPP",
+        "Payment System"
+      ],
       "image": "/clients/yudhaandaka/tata-kelola.webp"
     }
   ],
-  "skills": ["Kepemimpinan Cabang", "Analisis Kredit", "Commercial Loan & SME", "Good Corporate Governance", "Manajemen Risiko Perbankan", "Human Capital Strategy", "Internal Trainer", "Sistem Pembayaran Rupiah"],
+  "skills": [
+    "Kepemimpinan Cabang",
+    "Analisis Kredit",
+    "Commercial Loan & SME",
+    "Good Corporate Governance",
+    "Manajemen Risiko Perbankan",
+    "Human Capital Strategy",
+    "Internal Trainer",
+    "Sistem Pembayaran Rupiah"
+  ],
   "skillCategories": [
     {
       "id": "kepemimpinan",
       "title": "Kepemimpinan & Bisnis",
       "subtitle": "Pengalaman di kantor cabang dan segmen komersial",
       "skills": [
-        { "name": "Branch Leadership", "mono": "BM", "note": "BTN", "evidence": ["Branch Manager Tasikmalaya 2019–2022", "Branch Manager Padang 2022–2023"] },
-        { "name": "Commercial Loan & SME", "mono": "SME", "note": "Semarang", "evidence": ["Head Unit Commercial Loan & SME 2014–2018", "Deputy Branch Manager Business Malang 2018–2019"] },
-        { "name": "Credit Analysis", "mono": "CA", "note": "Fondasi karier", "evidence": ["Analis kredit komersial dan konsumer", "BTN Balikpapan 1998–2006"] }
+        {
+          "name": "Branch Leadership",
+          "mono": "BM",
+          "note": "BTN",
+          "evidence": [
+            "Branch Manager Tasikmalaya 2019–2022",
+            "Branch Manager Padang 2022–2023"
+          ]
+        },
+        {
+          "name": "Commercial Loan & SME",
+          "mono": "SME",
+          "note": "Semarang",
+          "evidence": [
+            "Head Unit Commercial Loan & SME 2014–2018",
+            "Deputy Branch Manager Business Malang 2018–2019"
+          ]
+        },
+        {
+          "name": "Credit Analysis",
+          "mono": "CA",
+          "note": "Fondasi karier",
+          "evidence": [
+            "Analis kredit komersial dan konsumer",
+            "BTN Balikpapan 1998–2006"
+          ]
+        }
       ]
     },
     {
@@ -158,9 +223,30 @@
       "title": "Tata Kelola & Risiko",
       "subtitle": "Pengalaman fungsi kontrol dan kompetensi profesional",
       "skills": [
-        { "name": "Good Corporate Governance", "mono": "GCG", "note": "Corporate Secretary", "evidence": ["Penugasan Corporate Secretary Division 2009–2010"] },
-        { "name": "Bank Risk Management", "mono": "RM", "note": "LSPP", "evidence": ["Sertifikasi Bank Risk Management Level 1, 2, dan 3 tercantum dalam CV"] },
-        { "name": "Regional Branch Control", "mono": "RC", "note": "Jateng–DIY", "evidence": ["Regional Branch Control Supervisor, November 2025"] }
+        {
+          "name": "Good Corporate Governance",
+          "mono": "GCG",
+          "note": "Corporate Secretary",
+          "evidence": [
+            "Penugasan Corporate Secretary Division 2009–2010"
+          ]
+        },
+        {
+          "name": "Bank Risk Management",
+          "mono": "RM",
+          "note": "LSPP",
+          "evidence": [
+            "Sertifikasi Bank Risk Management Level 1, 2, dan 3 tercantum dalam CV"
+          ]
+        },
+        {
+          "name": "Regional Branch Control",
+          "mono": "RC",
+          "note": "Jateng–DIY",
+          "evidence": [
+            "Regional Branch Control Supervisor, November 2025"
+          ]
+        }
       ]
     },
     {
@@ -168,9 +254,31 @@
       "title": "Pengembangan SDM & Pelatihan",
       "subtitle": "Berkembang bersama orang dan organisasi",
       "skills": [
-        { "name": "Human Capital Strategy", "mono": "HC", "note": "Kantor pusat", "evidence": ["Human Capital Strategy Division 2023–2025"] },
-        { "name": "Internal Trainer", "mono": "TR", "note": "Pelatihan internal", "evidence": ["Internal Trainer", "Management Development Program"] },
-        { "name": "Certified Trainer", "mono": "BN", "note": "BNSP", "evidence": ["Certified Trainer – BNSP tercantum dalam CV"] }
+        {
+          "name": "Human Capital Strategy",
+          "mono": "HC",
+          "note": "Kantor pusat",
+          "evidence": [
+            "Human Capital Strategy Division 2023–2025"
+          ]
+        },
+        {
+          "name": "Internal Trainer",
+          "mono": "TR",
+          "note": "Pelatihan internal",
+          "evidence": [
+            "Internal Trainer",
+            "Management Development Program"
+          ]
+        },
+        {
+          "name": "Certified Trainer",
+          "mono": "BN",
+          "note": "BNSP",
+          "evidence": [
+            "Certified Trainer – BNSP tercantum dalam CV"
+          ]
+        }
       ]
     }
   ],
@@ -178,25 +286,118 @@
   "skillsAside": "Perjalanan profesional ini disusun dari CV Yudha Andaka. Setiap posisi, pendidikan, dan sertifikasi ditampilkan sesuai informasi yang diberikan, tanpa mengarang capaian atau penghargaan.",
   "skillsKicker": "KEPEMIMPINAN · RISIKO · PENGEMBANGAN SDM",
   "highlights": [
-    { "title": "1998–2025", "description": "Rentang perjalanan karier di PT Bank Tabungan Negara (Persero) Tbk yang tercantum dalam CV.", "category": "PENGABDIAN PROFESIONAL" },
-    { "title": "Dua Kota, Dua Kepemimpinan", "description": "Branch Manager BTN Tasikmalaya (2019–2022) dan Padang (2022–2023).", "category": "PENGALAMAN PIMPINAN" },
-    { "title": "Magister Manajemen", "description": "Pendidikan S2 di Universitas Hasanuddin, Makassar, tercantum pada periode 2006–2008.", "category": "PENDIDIKAN" },
-    { "title": "Certified Trainer · BNSP", "description": "Kompetensi pelatihan yang tercantum dalam CV, bersama pengalaman sebagai Internal Trainer.", "category": "PENGEMBANGAN SDM" },
-    { "title": "Risk Management · LSPP", "description": "Bank Risk Management Level 1, 2, dan 3 serta sertifikasi sistem pembayaran rupiah jenjang VI.", "category": "KOMPETENSI PROFESIONAL" },
-    { "title": "Terhubung dengan Yudha", "description": "WhatsApp 085770424249 · yudha_andaka@yahoo.com · yudhaandaka2006@gmail.com", "category": "KONTAK" }
+    {
+      "title": "1998–2025",
+      "description": "Rentang perjalanan karier di PT Bank Tabungan Negara (Persero) Tbk yang tercantum dalam CV.",
+      "category": "PENGABDIAN PROFESIONAL"
+    },
+    {
+      "title": "Dua Kota, Dua Kepemimpinan",
+      "description": "Branch Manager BTN Tasikmalaya (2019–2022) dan Padang (2022–2023).",
+      "category": "PENGALAMAN PIMPINAN"
+    },
+    {
+      "title": "Magister Manajemen",
+      "description": "Pendidikan S2 di Universitas Hasanuddin, Makassar, tercantum pada periode 2006–2008.",
+      "category": "PENDIDIKAN"
+    },
+    {
+      "title": "Certified Trainer · BNSP",
+      "description": "Kompetensi pelatihan yang tercantum dalam CV, bersama pengalaman sebagai Internal Trainer.",
+      "category": "PENGEMBANGAN SDM"
+    },
+    {
+      "title": "Risk Management · LSPP",
+      "description": "Bank Risk Management Level 1, 2, dan 3 serta sertifikasi sistem pembayaran rupiah jenjang VI.",
+      "category": "KOMPETENSI PROFESIONAL"
+    },
+    {
+      "title": "Terhubung dengan Yudha",
+      "description": "WhatsApp 085770424249 · yudha_andaka@yahoo.com · yudhaandaka2006@gmail.com",
+      "category": "KONTAK"
+    }
   ],
   "watchCards": [
-    { "target": "about", "title": "Kenali Yudha Andaka", "subtitle": "Profil dan nilai profesional", "image": "/clients/yudhaandaka/yudha-berdiri.webp" },
-    { "target": "originals", "title": "Jejak Tanggung Jawab", "subtitle": "Peran sepanjang karier BTN", "image": "/clients/yudhaandaka/kepemimpinan.webp" },
-    { "target": "journey", "title": "Perjalanan Karier", "subtitle": "Dari Balikpapan ke kantor pusat", "image": "/clients/yudhaandaka/kredit.webp" },
-    { "target": "skills", "title": "Kompetensi Profesional", "subtitle": "Kepemimpinan, tata kelola, dan SDM", "image": "/clients/yudhaandaka/tata-kelola.webp" },
-    { "target": "picks", "title": "Sorotan Profil", "subtitle": "Pendidikan dan pengalaman", "image": "/clients/yudhaandaka/pengembangan-sdm.webp" }
+    {
+      "target": "about",
+      "title": "Kenali Yudha Andaka",
+      "subtitle": "Profil dan nilai profesional",
+      "image": "/clients/yudhaandaka/yudha-berdiri.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Jejak Tanggung Jawab",
+      "subtitle": "Peran sepanjang karier BTN",
+      "image": "/clients/yudhaandaka/kepemimpinan.webp"
+    },
+    {
+      "target": "journey",
+      "title": "Perjalanan Karier",
+      "subtitle": "Dari Balikpapan ke kantor pusat",
+      "image": "/clients/yudhaandaka/kredit.webp"
+    },
+    {
+      "target": "skills",
+      "title": "Kompetensi Profesional",
+      "subtitle": "Kepemimpinan, tata kelola, dan SDM",
+      "image": "/clients/yudhaandaka/tata-kelola.webp"
+    },
+    {
+      "target": "picks",
+      "title": "Sorotan Profil",
+      "subtitle": "Pendidikan dan pengalaman",
+      "image": "/clients/yudhaandaka/pengembangan-sdm.webp"
+    }
   ],
   "pickCards": [
-    { "label": "PIMPINAN CABANG", "title": "Kepemimpinan", "detail": "Jejak kepemimpinan dari Tasikmalaya hingga Padang.", "image": "/clients/yudhaandaka/kepemimpinan.webp", "palette": { "from": "#111b2a", "via": "#273c54", "to": "#091019", "accent": "#d2b17b" } },
-    { "label": "PERBANKAN", "title": "Kredit & Bisnis", "detail": "Analisis kredit komersial, konsumer, dan segmen SME.", "image": "/clients/yudhaandaka/kredit.webp", "palette": { "from": "#192b38", "via": "#44626b", "to": "#101b26", "accent": "#e6c894" } },
-    { "label": "TATA KELOLA", "title": "Governance & Risk", "detail": "GCG, kontrol cabang, dan kompetensi manajemen risiko.", "image": "/clients/yudhaandaka/tata-kelola.webp", "palette": { "from": "#242331", "via": "#626177", "to": "#121522", "accent": "#e0ba7b" } },
-    { "label": "PENGEMBANGAN", "title": "Human Capital", "detail": "Strategi SDM dan pengalaman sebagai internal trainer.", "image": "/clients/yudhaandaka/pengembangan-sdm.webp", "palette": { "from": "#20332f", "via": "#526d64", "to": "#121f1d", "accent": "#e2c595" } }
+    {
+      "label": "PIMPINAN CABANG",
+      "title": "Kepemimpinan",
+      "detail": "Jejak kepemimpinan dari Tasikmalaya hingga Padang.",
+      "image": "/clients/yudhaandaka/kepemimpinan.webp",
+      "palette": {
+        "from": "#111b2a",
+        "via": "#273c54",
+        "to": "#091019",
+        "accent": "#d2b17b"
+      }
+    },
+    {
+      "label": "PERBANKAN",
+      "title": "Kredit & Bisnis",
+      "detail": "Analisis kredit komersial, konsumer, dan segmen SME.",
+      "image": "/clients/yudhaandaka/kredit.webp",
+      "palette": {
+        "from": "#192b38",
+        "via": "#44626b",
+        "to": "#101b26",
+        "accent": "#e6c894"
+      }
+    },
+    {
+      "label": "TATA KELOLA",
+      "title": "Governance & Risk",
+      "detail": "GCG, kontrol cabang, dan kompetensi manajemen risiko.",
+      "image": "/clients/yudhaandaka/tata-kelola.webp",
+      "palette": {
+        "from": "#242331",
+        "via": "#626177",
+        "to": "#121522",
+        "accent": "#e0ba7b"
+      }
+    },
+    {
+      "label": "PENGEMBANGAN",
+      "title": "Human Capital",
+      "detail": "Strategi SDM dan pengalaman sebagai internal trainer.",
+      "image": "/clients/yudhaandaka/pengembangan-sdm.webp",
+      "palette": {
+        "from": "#20332f",
+        "via": "#526d64",
+        "to": "#121f1d",
+        "accent": "#e2c595"
+      }
+    }
   ],
   "picksHeading": "Bekal Sepanjang Perjalanan",
   "picksKicker": "EMPAT RUANG PENGALAMAN",
@@ -207,9 +408,54 @@
       "period": "1998–2010",
       "synopsis": "Dari analisis kredit ke kepemimpinan unit dan pengalaman tata kelola perusahaan.",
       "episodes": [
-        { "title": "Awal Karier di Balikpapan", "runtime": "1998–2006", "description": "Analis Kredit Komersial & Konsumer, BTN Kantor Cabang Balikpapan.", "tags": ["Credit Analysis", "Balikpapan"], "image": "/clients/yudhaandaka/kredit.webp", "palette": { "from": "#192b38", "via": "#44626b", "to": "#101b26", "accent": "#e6c894" } },
-        { "title": "Kepala KCP & Head Unit", "runtime": "2006–2009", "description": "Tanggung jawab kepemimpinan di BTN Kantor Cabang Makassar.", "tags": ["Leadership", "Makassar"], "image": "/clients/yudhaandaka/kepemimpinan.webp", "palette": { "from": "#111b2a", "via": "#273c54", "to": "#091019", "accent": "#d2b17b" } },
-        { "title": "Corporate Secretary · GCG", "runtime": "2009–2010", "description": "Penugasan tata kelola perusahaan pada Kantor Pusat Jakarta.", "tags": ["GCG", "Corporate Secretary"], "image": "/clients/yudhaandaka/tata-kelola.webp", "palette": { "from": "#242331", "via": "#626177", "to": "#121522", "accent": "#e0ba7b" } }
+        {
+          "title": "Awal Karier di Balikpapan",
+          "runtime": "1998–2006",
+          "description": "Analis Kredit Komersial & Konsumer, BTN Kantor Cabang Balikpapan.",
+          "tags": [
+            "Credit Analysis",
+            "Balikpapan"
+          ],
+          "image": "/clients/yudhaandaka/kredit.webp",
+          "palette": {
+            "from": "#192b38",
+            "via": "#44626b",
+            "to": "#101b26",
+            "accent": "#e6c894"
+          }
+        },
+        {
+          "title": "Kepala KCP & Head Unit",
+          "runtime": "2006–2009",
+          "description": "Tanggung jawab kepemimpinan di BTN Kantor Cabang Makassar.",
+          "tags": [
+            "Leadership",
+            "Makassar"
+          ],
+          "image": "/clients/yudhaandaka/kepemimpinan.webp",
+          "palette": {
+            "from": "#111b2a",
+            "via": "#273c54",
+            "to": "#091019",
+            "accent": "#d2b17b"
+          }
+        },
+        {
+          "title": "Corporate Secretary · GCG",
+          "runtime": "2009–2010",
+          "description": "Penugasan tata kelola perusahaan pada Kantor Pusat Jakarta.",
+          "tags": [
+            "GCG",
+            "Corporate Secretary"
+          ],
+          "image": "/clients/yudhaandaka/tata-kelola.webp",
+          "palette": {
+            "from": "#242331",
+            "via": "#626177",
+            "to": "#121522",
+            "accent": "#e0ba7b"
+          }
+        }
       ]
     },
     {
@@ -218,9 +464,54 @@
       "period": "2010–2019",
       "synopsis": "Peran di kredit perumahan, commercial loan dan SME, hingga deputy branch manager.",
       "episodes": [
-        { "title": "Mortgage Consumer Loan", "runtime": "2010–2014", "description": "Mortgage Consumer Loan Division, BTN Kantor Pusat Jakarta.", "tags": ["Mortgage", "Jakarta"], "image": "/clients/yudhaandaka/kredit.webp", "palette": { "from": "#192b38", "via": "#44626b", "to": "#101b26", "accent": "#e6c894" } },
-        { "title": "Commercial Loan & SME", "runtime": "2014–2018", "description": "Head Unit Commercial Loan & SME, BTN Kantor Cabang Semarang.", "tags": ["Commercial", "SME"], "image": "/clients/yudhaandaka/kepemimpinan.webp", "palette": { "from": "#111b2a", "via": "#273c54", "to": "#091019", "accent": "#d2b17b" } },
-        { "title": "Deputy Branch Manager", "runtime": "2018–2019", "description": "Deputy Branch Manager Business, BTN Kantor Cabang Malang.", "tags": ["Business", "Malang"], "image": "/clients/yudhaandaka/kepemimpinan.webp", "palette": { "from": "#111b2a", "via": "#273c54", "to": "#091019", "accent": "#d2b17b" } }
+        {
+          "title": "Mortgage Consumer Loan",
+          "runtime": "2010–2014",
+          "description": "Mortgage Consumer Loan Division, BTN Kantor Pusat Jakarta.",
+          "tags": [
+            "Mortgage",
+            "Jakarta"
+          ],
+          "image": "/clients/yudhaandaka/kredit.webp",
+          "palette": {
+            "from": "#192b38",
+            "via": "#44626b",
+            "to": "#101b26",
+            "accent": "#e6c894"
+          }
+        },
+        {
+          "title": "Commercial Loan & SME",
+          "runtime": "2014–2018",
+          "description": "Head Unit Commercial Loan & SME, BTN Kantor Cabang Semarang.",
+          "tags": [
+            "Commercial",
+            "SME"
+          ],
+          "image": "/clients/yudhaandaka/kepemimpinan.webp",
+          "palette": {
+            "from": "#111b2a",
+            "via": "#273c54",
+            "to": "#091019",
+            "accent": "#d2b17b"
+          }
+        },
+        {
+          "title": "Deputy Branch Manager",
+          "runtime": "2018–2019",
+          "description": "Deputy Branch Manager Business, BTN Kantor Cabang Malang.",
+          "tags": [
+            "Business",
+            "Malang"
+          ],
+          "image": "/clients/yudhaandaka/kepemimpinan.webp",
+          "palette": {
+            "from": "#111b2a",
+            "via": "#273c54",
+            "to": "#091019",
+            "accent": "#d2b17b"
+          }
+        }
       ]
     },
     {
@@ -229,17 +520,80 @@
       "period": "2019–2025",
       "synopsis": "Pimpinan dua kantor cabang, strategi SDM, dan fungsi kontrol wilayah.",
       "episodes": [
-        { "title": "Memimpin Cabang Tasikmalaya", "runtime": "2019–2022", "description": "Branch Manager, BTN Kantor Cabang Tasikmalaya.", "tags": ["Branch Manager", "Tasikmalaya"], "image": "/clients/yudhaandaka/kepemimpinan.webp", "palette": { "from": "#111b2a", "via": "#273c54", "to": "#091019", "accent": "#d2b17b" } },
-        { "title": "Memimpin Cabang Padang", "runtime": "2022–2023", "description": "Branch Manager, BTN Kantor Cabang Padang.", "tags": ["Branch Manager", "Padang"], "image": "/clients/yudhaandaka/kepemimpinan.webp", "palette": { "from": "#111b2a", "via": "#273c54", "to": "#091019", "accent": "#d2b17b" } },
-        { "title": "Human Capital Strategy", "runtime": "2023–2025", "description": "Penugasan pada Human Capital Strategy Division, Kantor Pusat Jakarta.", "tags": ["Human Capital", "Strategy"], "image": "/clients/yudhaandaka/pengembangan-sdm.webp", "palette": { "from": "#20332f", "via": "#526d64", "to": "#121f1d", "accent": "#e2c595" } },
-        { "title": "Regional Branch Control", "runtime": "November 2025", "description": "Regional Branch Control Supervisor, wilayah Jawa Tengah–DIY, menurut CV.", "tags": ["Control", "Regional"], "image": "/clients/yudhaandaka/tata-kelola.webp", "palette": { "from": "#242331", "via": "#626177", "to": "#121522", "accent": "#e0ba7b" } }
+        {
+          "title": "Memimpin Cabang Tasikmalaya",
+          "runtime": "2019–2022",
+          "description": "Branch Manager, BTN Kantor Cabang Tasikmalaya.",
+          "tags": [
+            "Branch Manager",
+            "Tasikmalaya"
+          ],
+          "image": "/clients/yudhaandaka/kepemimpinan.webp",
+          "palette": {
+            "from": "#111b2a",
+            "via": "#273c54",
+            "to": "#091019",
+            "accent": "#d2b17b"
+          }
+        },
+        {
+          "title": "Memimpin Cabang Padang",
+          "runtime": "2022–2023",
+          "description": "Branch Manager, BTN Kantor Cabang Padang.",
+          "tags": [
+            "Branch Manager",
+            "Padang"
+          ],
+          "image": "/clients/yudhaandaka/kepemimpinan.webp",
+          "palette": {
+            "from": "#111b2a",
+            "via": "#273c54",
+            "to": "#091019",
+            "accent": "#d2b17b"
+          }
+        },
+        {
+          "title": "Human Capital Strategy",
+          "runtime": "2023–2025",
+          "description": "Penugasan pada Human Capital Strategy Division, Kantor Pusat Jakarta.",
+          "tags": [
+            "Human Capital",
+            "Strategy"
+          ],
+          "image": "/clients/yudhaandaka/pengembangan-sdm.webp",
+          "palette": {
+            "from": "#20332f",
+            "via": "#526d64",
+            "to": "#121f1d",
+            "accent": "#e2c595"
+          }
+        },
+        {
+          "title": "Regional Branch Control",
+          "runtime": "November 2025",
+          "description": "Regional Branch Control Supervisor, wilayah Jawa Tengah–DIY, menurut CV.",
+          "tags": [
+            "Control",
+            "Regional"
+          ],
+          "image": "/clients/yudhaandaka/tata-kelola.webp",
+          "palette": {
+            "from": "#242331",
+            "via": "#626177",
+            "to": "#121522",
+            "accent": "#e0ba7b"
+          }
+        }
       ]
     }
   ],
   "journeyHeading": "Perjalanan Karier di BTN",
   "journeyAside": "Bukan daftar pencapaian yang dibesar-besarkan. Ini rangkaian penugasan yang tercatat dalam CV: dari analis kredit, pimpinan cabang, hingga strategi SDM dan kontrol wilayah.",
   "journeyKicker": "TIGA BABAK · SATU PERJALANAN",
-  "theme": { "accent": "#d1aa72", "background": "#11151b" },
-  "templateId": "editorial-premium",
+  "theme": {
+    "accent": "#d1aa72",
+    "background": "#11151b"
+  },
+  "templateId": "original",
   "identityMode": "photo"
 }
