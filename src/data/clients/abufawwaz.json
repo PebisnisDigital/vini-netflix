@@ -1,17 +1,18 @@
 {
   "slug": "abufawwaz",
-  "name": "M. Mas'uddin Noor",
-  "role": "Wiraswasta · MITRA AMANAH",
-  "location": "Indonesia",
-  "bio": "Assalamu'alaikum, saya M. Mas'uddin Noor, biasa disapa Abu Fawwaz. Melalui MITRA AMANAH, saya menjalankan usaha di bidang laptop second berkualitas, produk digital, produk kasur kesehatan, serta menjadi agen travel umrah dan haji. Di sini Anda bisa mengenal bidang usaha saya dan menghubungi saya langsung untuk bertanya tentang pilihan yang tersedia.",
+  "name": "Mas'uddin",
+  "role": "Penyedia Laptop Second Berkualitas · MITRA AMANAH",
+  "location": "Bangil, Pasuruan, Jawa Timur",
+  "bio": "Assalamu'alaikum, saya Mas'uddin. Saya menjalankan usaha di bidang penyedia laptop second berkualitas melalui MITRA AMANAH. Saat ini saya bersama keluarga menetap di Kota Bangil, Pasuruan, Jawa Timur. Semasa muda, saya pernah bermukim di Kotamobagu dan Manado, Sulawesi Utara. Melalui halaman ini, saya memperkenalkan bidang usaha laptop second dan membuka ruang untuk bertanya tentang kebutuhan, spesifikasi, kondisi, serta pilihan unit yang tersedia. Silakan hubungi saya secara langsung melalui WhatsApp atau email.",
   "tagline": [
-    "Laptop second · Produk digital · Kasur kesehatan · Travel ibadah"
+    "MITRA AMANAH · LAPTOP SECOND BERKUALITAS",
+    "Menyediakan laptop second berkualitas untuk kebutuhan Anda."
   ],
   "interests": [
     "Laptop Second Berkualitas",
-    "Produk Digital",
-    "Produk Kasur Kesehatan",
-    "Travel Umrah & Haji"
+    "Kebutuhan Laptop",
+    "Spesifikasi & Kondisi Unit",
+    "Informasi Ketersediaan"
   ],
   "photo": {
     "src": "/clients/abufawwaz/foto-utama.webp",
@@ -23,338 +24,194 @@
   "experiences": [
     {
       "company": "MITRA AMANAH",
-      "role": "Wiraswasta · Pengelola beberapa lini usaha",
+      "role": "Penyedia Laptop Second Berkualitas",
       "period": "Bidang usaha saat ini",
-      "description": "Bidang usaha yang diperkenalkan mencakup perdagangan laptop second, produk digital, kasur kesehatan, serta layanan sebagai agen travel umrah dan haji. Informasi stok, jenis produk, paket, dan harga dikonfirmasi langsung melalui kontak resmi."
+      "description": "Mas'uddin menjalankan usaha penyediaan laptop second berkualitas. Untuk mengetahui kondisi unit, spesifikasi, pilihan yang tersedia, dan harga terbaru, silakan hubungi Mas'uddin secara langsung."
     }
   ],
   "education": [],
   "projects": [
     {
-      "title": "Laptop Second Berkualitas",
-      "year": "PERDAGANGAN",
-      "description": "Pilihan laptop second untuk kebutuhan belajar, bekerja, maupun aktivitas sehari-hari. Tanyakan kondisi unit, spesifikasi, ketersediaan, dan harga terkini langsung kepada Abu Fawwaz sebelum membeli.",
-      "category": "Perangkat & Komputer",
-      "tags": [
-        "Laptop Second",
-        "Spesifikasi",
-        "Konsultasi Unit"
-      ],
-      "website": "https://wa.me/6281249196000?text=Assalamu%27alaikum%20Abu%20Fawwaz%2C%20saya%20ingin%20tanya%20laptop%20second.",
+      "title": "Penyedia Laptop Second Berkualitas",
+      "year": "BIDANG USAHA / LAPTOP SECOND",
+      "description": "Fokus usaha Mas'uddin melalui MITRA AMANAH adalah menyediakan laptop second berkualitas. Tanyakan spesifikasi, kondisi unit, ketersediaan, dan harga sebelum menentukan pilihan.",
+      "category": "Bidang Usaha · Laptop Second",
+      "tags": ["Laptop Second", "Bidang Usaha", "MITRA AMANAH"],
+      "website": "https://wa.me/6281249196000?text=Assalamu%27alaikum%20Pak%20Mas%27uddin%2C%20saya%20ingin%20tanya%20pilihan%20laptop%20second.",
       "image": "/clients/abufawwaz/laptop-second.webp"
     },
     {
-      "title": "Produk Digital",
-      "year": "PRODUK DIGITAL",
-      "description": "MITRA AMANAH juga menawarkan produk digital. Jenis produk, cara memperoleh, dan ketentuan penggunaannya dapat ditanyakan langsung agar sesuai dengan kebutuhan Anda.",
-      "category": "Solusi Digital",
-      "tags": [
-        "Produk Digital",
-        "Informasi Produk",
-        "Kebutuhan Online"
-      ],
-      "website": "https://wa.me/6281249196000?text=Assalamu%27alaikum%20Abu%20Fawwaz%2C%20saya%20ingin%20tanya%20produk%20digital.",
-      "image": "/clients/abufawwaz/produk-digital.webp"
+      "title": "Karya di Bidang Laptop",
+      "year": "KARYA / LAPTOP",
+      "description": "Bidang karya dan kegiatan usaha yang diperkenalkan Mas'uddin berfokus pada laptop second. Untuk melihat contoh unit serta memperoleh informasi produk yang benar-benar tersedia, silakan berkomunikasi langsung melalui WhatsApp.",
+      "category": "Karya · Laptop",
+      "tags": ["Laptop", "Karya Usaha", "Informasi Unit"],
+      "website": "https://wa.me/6281249196000?text=Assalamu%27alaikum%20Pak%20Mas%27uddin%2C%20boleh%20lihat%20contoh%20unit%20laptop%20second%20yang%20tersedia%3F",
+      "image": "/clients/abufawwaz/laptop-second.webp"
     },
     {
-      "title": "Kasur Kesehatan",
-      "year": "PRODUK RUMAH TANGGA",
-      "description": "Produk kasur kesehatan menjadi salah satu bidang usaha MITRA AMANAH. Silakan tanyakan pilihan ukuran, bahan, spesifikasi, harga, serta informasi produk yang tersedia. Klaim manfaat mengikuti keterangan produk resmi.",
-      "category": "Kebutuhan Rumah & Istirahat",
-      "tags": [
-        "Kasur Kesehatan",
-        "Pilihan Ukuran",
-        "Informasi Produk"
-      ],
-      "website": "https://wa.me/6281249196000?text=Assalamu%27alaikum%20Abu%20Fawwaz%2C%20saya%20ingin%20tanya%20kasur%20kesehatan.",
-      "image": "/clients/abufawwaz/kasur-kesehatan.webp"
-    },
-    {
-      "title": "Agen Travel Umrah & Haji",
-      "year": "LAYANAN PERJALANAN",
-      "description": "Sebagai agen travel umrah dan haji, Abu Fawwaz menjadi kontak untuk konsultasi informasi perjalanan ibadah. Konfirmasi penyelenggara, izin, paket, jadwal, syarat, serta rincian biaya langsung sebelum melakukan pemesanan.",
-      "category": "Informasi Perjalanan Ibadah",
-      "tags": [
-        "Umrah",
-        "Haji",
-        "Konsultasi Travel"
-      ],
-      "website": "https://wa.me/6281249196000?text=Assalamu%27alaikum%20Abu%20Fawwaz%2C%20saya%20ingin%20tanya%20travel%20umrah%20dan%20haji.",
-      "image": "/clients/abufawwaz/travel-umrah-haji.webp"
+      "title": "Diskusi Kebutuhan Laptop",
+      "year": "KONTAK & INFORMASI",
+      "description": "Membutuhkan laptop untuk belajar, bekerja, atau penggunaan sehari-hari? Ceritakan kebutuhan dan anggaran Anda. Pilihan unit, kecocokan spesifikasi, dan stok dapat dibicarakan langsung bersama Mas'uddin.",
+      "category": "Informasi Laptop",
+      "tags": ["Kebutuhan Laptop", "Spesifikasi", "Konsultasi"],
+      "website": "https://wa.me/6281249196000?text=Assalamu%27alaikum%20Pak%20Mas%27uddin%2C%20saya%20ingin%20konsultasi%20kebutuhan%20laptop%20second."
     }
   ],
   "skills": [
-    "Perdagangan Laptop Second",
-    "Produk Digital",
-    "Informasi Kasur Kesehatan",
-    "Agen Travel Umrah & Haji",
-    "Komunikasi Pelanggan",
-    "Konsultasi Produk"
+    "Penyedia Laptop Second",
+    "Informasi Kondisi & Spesifikasi",
+    "Pilihan Laptop Sesuai Kebutuhan",
+    "Komunikasi Pelanggan"
   ],
   "skillCategories": [
     {
-      "id": "perdagangan",
-      "title": "Perdagangan & Kebutuhan Digital",
-      "subtitle": "Pilihan untuk aktivitas belajar, kerja, dan kebutuhan online",
+      "id": "laptop-second",
+      "title": "Bidang Usaha / Laptop Second",
+      "subtitle": "Fokus perniagaan MITRA AMANAH",
       "skills": [
         {
-          "name": "Laptop Second",
+          "name": "Penyedia Laptop Second Berkualitas",
           "mono": "LT",
-          "note": "Perdagangan",
-          "evidence": [
-            "Bidang penjualan laptop bekas berkualitas",
-            "Spesifikasi dan kondisi unit dikonfirmasi sebelum transaksi"
-          ]
+          "note": "Bidang usaha",
+          "evidence": ["Bidang usaha utama yang disampaikan Mas'uddin", "Kondisi dan ketersediaan unit dikonfirmasi sebelum transaksi"]
         },
         {
-          "name": "Produk Digital",
-          "mono": "DG",
-          "note": "Katalog digital",
-          "evidence": [
-            "Salah satu lini usaha MITRA AMANAH",
-            "Detail produk dan akses tersedia melalui konsultasi"
-          ]
+          "name": "Informasi Laptop",
+          "mono": "SP",
+          "note": "Spesifikasi & unit",
+          "evidence": ["Calon pembeli dapat menanyakan spesifikasi dan kondisi unit", "Pilihan serta harga mengikuti ketersediaan saat ditanyakan"]
         }
       ]
     },
     {
-      "id": "rumah",
-      "title": "Kebutuhan Rumah & Kenyamanan",
-      "subtitle": "Produk yang dapat ditanyakan sebelum memilih",
+      "id": "karya-laptop",
+      "title": "Karya / Laptop",
+      "subtitle": "Pengenalan kegiatan usaha dan pilihan unit",
       "skills": [
         {
-          "name": "Kasur Kesehatan",
-          "mono": "KS",
-          "note": "Informasi produk",
-          "evidence": [
-            "Lini usaha produk kasur kesehatan",
-            "Ukuran, bahan, dan spesifikasi mengikuti pilihan yang tersedia"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "perjalanan",
-      "title": "Perjalanan Ibadah",
-      "subtitle": "Arah informasi untuk calon jamaah",
-      "skills": [
-        {
-          "name": "Agen Umrah & Haji",
-          "mono": "UH",
-          "note": "Konsultasi",
-          "evidence": [
-            "Peran sebagai agen travel umrah dan haji",
-            "Rincian penyelenggara, izin, paket, dan jadwal perlu dikonfirmasi"
-          ]
+          "name": "Karya di Bidang Laptop",
+          "mono": "KL",
+          "note": "Fokus usaha",
+          "evidence": ["Kegiatan usaha yang diperkenalkan berfokus pada laptop second", "Contoh unit dapat diminta langsung melalui WhatsApp"]
         }
       ]
     }
   ],
-  "skillsHeading": "Bidang Usaha MITRA AMANAH",
-  "skillsAside": "Empat bidang usaha, satu kontak untuk bertanya. Informasi di halaman ini adalah pengenalan layanan; stok, harga, manfaat produk, dan rincian perjalanan tidak diasumsikan tanpa konfirmasi langsung.",
-  "skillsKicker": "APA YANG BISA DITANYAKAN?",
+  "skillsHeading": "Laptop Second, Fokus Usaha Saya",
+  "skillsAside": "Melalui MITRA AMANAH, Mas'uddin memperkenalkan usaha penyedia laptop second berkualitas. Informasi detail mengenai merek, spesifikasi, kondisi, ketersediaan, garansi apabila ada, serta harga perlu dikonfirmasi langsung sebelum transaksi.",
+  "skillsKicker": "BIDANG USAHA / LAPTOP SECOND",
   "highlights": [
     {
-      "title": "MITRA AMANAH",
-      "description": "Identitas usaha yang menaungi beragam kebutuhan pelanggan, dari perangkat hingga perjalanan ibadah.",
-      "category": "IDENTITAS USAHA"
+      "title": "Mas'uddin",
+      "description": "Nama singkat yang digunakan untuk memperkenalkan pemilik MITRA AMANAH.",
+      "category": "PROFIL"
     },
     {
-      "title": "Empat Bidang Usaha",
-      "description": "Laptop second, produk digital, kasur kesehatan, dan keagenan travel umrah serta haji.",
-      "category": "LINGKUP LAYANAN"
+      "title": "Penyedia Laptop Second Berkualitas",
+      "description": "Fokus bidang usaha Mas'uddin yang ditampilkan pada halaman ini.",
+      "category": "BIDANG USAHA"
     },
     {
-      "title": "Hubungi Abu Fawwaz",
-      "description": "Satu jalur WhatsApp untuk meminta informasi produk, ketersediaan, dan detail layanan secara langsung.",
-      "category": "KONTAK"
+      "title": "Menetap di Bangil, Pasuruan",
+      "description": "Kini tinggal bersama keluarga di Bangil, Jawa Timur; semasa muda pernah bermukim di Kotamobagu dan Manado, Sulawesi Utara.",
+      "category": "CERITA PRIBADI"
     }
   ],
   "watchCards": [
     {
       "target": "about",
-      "title": "Kenali Abu Fawwaz",
-      "subtitle": "Sosok di balik MITRA AMANAH",
+      "title": "Kenali Mas'uddin",
+      "subtitle": "Profil pribadi dan tempat tinggal",
       "image": "/clients/abufawwaz/abu-fawwaz-faceless.webp"
     },
     {
       "target": "originals",
-      "title": "Empat Bidang Usaha",
-      "subtitle": "Laptop, digital, kasur, dan travel",
+      "title": "Bidang Usaha Laptop Second",
+      "subtitle": "Penyedia laptop second berkualitas",
       "image": "/clients/abufawwaz/laptop-second.webp"
     },
     {
       "target": "skills",
-      "title": "Apa yang Ditawarkan?",
-      "subtitle": "Lihat fokus layanan MITRA AMANAH",
-      "image": "/clients/abufawwaz/produk-digital.webp"
+      "title": "Karya / Laptop",
+      "subtitle": "Fokus kegiatan usaha dan informasi unit",
+      "image": "/clients/abufawwaz/laptop-second.webp"
     },
     {
       "target": "journey",
-      "title": "Cerita Usaha",
-      "subtitle": "Perjalanan dan arah layanan",
-      "image": "/clients/abufawwaz/travel-umrah-haji.webp"
-    },
-    {
-      "target": "picks",
-      "title": "Pilihan Kebutuhan",
-      "subtitle": "Temukan kategori yang sesuai",
-      "image": "/clients/abufawwaz/kasur-kesehatan.webp"
+      "title": "Cerita Perjalanan",
+      "subtitle": "Kotamobagu, Manado, lalu Bangil",
+      "image": "/clients/abufawwaz/abu-fawwaz-faceless.webp"
     }
   ],
   "pickCards": [
     {
-      "label": "PERANGKAT KERJA",
-      "title": "Laptop Second",
-      "detail": "Tanyakan pilihan dan kondisi laptop untuk kebutuhan Anda.",
+      "label": "LAPTOP SECOND",
+      "title": "Penyedia Laptop Berkualitas",
+      "detail": "Tanyakan pilihan, kondisi, dan spesifikasi laptop second.",
       "image": "/clients/abufawwaz/laptop-second.webp",
-      "palette": {
-        "from": "#1b332b",
-        "via": "#4c6653",
-        "to": "#101712",
-        "accent": "#dcc492"
-      }
+      "palette": { "from": "#1b332b", "via": "#4c6653", "to": "#101712", "accent": "#dcc492" }
     },
     {
-      "label": "SOLUSI ONLINE",
-      "title": "Produk Digital",
-      "detail": "Cari informasi produk digital dan ketentuan akses yang ditawarkan.",
-      "image": "/clients/abufawwaz/produk-digital.webp",
-      "palette": {
-        "from": "#173d35",
-        "via": "#557f71",
-        "to": "#101c1a",
-        "accent": "#d6b475"
-      }
+      "label": "KARYA / LAPTOP",
+      "title": "Kegiatan di Bidang Laptop",
+      "detail": "Berkenalan dengan fokus karya dan usaha MITRA AMANAH.",
+      "image": "/clients/abufawwaz/laptop-second.webp",
+      "palette": { "from": "#183a3c", "via": "#62857c", "to": "#101d1e", "accent": "#d9c4a2" }
     },
     {
-      "label": "KEBUTUHAN RUMAH",
-      "title": "Kasur Kesehatan",
-      "detail": "Konsultasikan ukuran, bahan, dan pilihan produk yang tersedia.",
-      "image": "/clients/abufawwaz/kasur-kesehatan.webp",
-      "palette": {
-        "from": "#4d4b35",
-        "via": "#94856b",
-        "to": "#26241e",
-        "accent": "#ead6aa"
-      }
-    },
-    {
-      "label": "PERJALANAN IBADAH",
-      "title": "Umrah & Haji",
-      "detail": "Tanyakan informasi agen, paket, dan penyelenggara perjalanan.",
-      "image": "/clients/abufawwaz/travel-umrah-haji.webp",
-      "palette": {
-        "from": "#1e382c",
-        "via": "#97784b",
-        "to": "#111a14",
-        "accent": "#edc983"
-      }
+      "label": "TANYA LANGSUNG",
+      "title": "Cari Laptop Sesuai Kebutuhan",
+      "detail": "Sampaikan kebutuhan Anda melalui kontak Mas'uddin.",
+      "palette": { "from": "#3c4135", "via": "#a99c7b", "to": "#1e211a", "accent": "#f4deb7" }
     }
   ],
-  "picksHeading": "Pilihan dari MITRA AMANAH",
-  "picksKicker": "EMPAT ARAH KEBUTUHAN",
+  "picksHeading": "Kenali Pilihan Laptop Second",
+  "picksKicker": "LAPTOP SECOND · KARYA LAPTOP · KONSULTASI",
   "seasons": [
     {
       "number": 1,
-      "title": "Mengenal Abu Fawwaz",
-      "period": "Profil usaha",
-      "synopsis": "M. Mas'uddin Noor memperkenalkan MITRA AMANAH sebagai identitas untuk beragam bidang usaha.",
+      "title": "Mengenal Mas'uddin",
+      "period": "Cerita pribadi",
+      "synopsis": "Mas'uddin kini menetap bersama keluarga di Kota Bangil, Pasuruan, Jawa Timur. Semasa muda, ia pernah bermukim di Kotamobagu dan Manado, Sulawesi Utara.",
       "episodes": [
         {
-          "title": "Di Balik MITRA AMANAH",
-          "runtime": "Profil usaha",
-          "description": "Kenali Abu Fawwaz dan empat bidang usaha yang diperkenalkannya melalui MITRA AMANAH.",
-          "tags": [
-            "Wiraswasta",
-            "MITRA AMANAH"
-          ],
+          "title": "Jejak Masa Muda di Sulawesi Utara",
+          "runtime": "Cerita pribadi",
+          "description": "Semasa muda, Mas'uddin pernah bermukim di Kotamobagu dan Manado, Sulawesi Utara.",
+          "tags": ["Kotamobagu", "Manado", "Sulawesi Utara"],
           "image": "/clients/abufawwaz/abu-fawwaz-faceless.webp",
-          "palette": {
-            "from": "#1b332b",
-            "via": "#4c6653",
-            "to": "#101712",
-            "accent": "#dcc492"
-          }
+          "palette": { "from": "#1b332b", "via": "#4c6653", "to": "#101712", "accent": "#dcc492" }
+        },
+        {
+          "title": "Menetap Bersama Keluarga di Bangil",
+          "runtime": "Saat ini",
+          "description": "Saat ini Mas'uddin bersama keluarga menetap di Kota Bangil, Pasuruan, Jawa Timur.",
+          "tags": ["Bangil", "Pasuruan", "Jawa Timur"],
+          "palette": { "from": "#2a4438", "via": "#8d9a76", "to": "#172920", "accent": "#e4d7a8" }
         }
       ]
     },
     {
       "number": 2,
-      "title": "Empat Lini Usaha",
-      "period": "Kategori yang ditawarkan",
-      "synopsis": "Laptop second, produk digital, kasur kesehatan, serta keagenan travel umrah dan haji.",
+      "title": "Perniagaan Laptop Second",
+      "period": "Bidang usaha kini",
+      "synopsis": "Melalui MITRA AMANAH, Mas'uddin menjalankan usaha sebagai penyedia laptop second berkualitas.",
       "episodes": [
         {
-          "title": "Laptop Second",
-          "runtime": "Perdagangan",
-          "description": "Informasi laptop second, spesifikasi, kondisi, dan stok yang dapat ditanyakan langsung.",
-          "tags": [
-            "Laptop",
-            "Perangkat"
-          ],
+          "title": "Fokus pada Laptop Second Berkualitas",
+          "runtime": "Bidang usaha",
+          "description": "Mengenal fokus usaha penyediaan laptop second dan cara menanyakan pilihan unit yang tersedia.",
+          "tags": ["Laptop Second", "MITRA AMANAH"],
           "image": "/clients/abufawwaz/laptop-second.webp",
-          "palette": {
-            "from": "#1b332b",
-            "via": "#4c6653",
-            "to": "#101712",
-            "accent": "#dcc492"
-          }
-        },
-        {
-          "title": "Produk Digital",
-          "runtime": "Produk",
-          "description": "Produk digital yang menjadi salah satu usaha MITRA AMANAH; detail pilihan dan akses melalui konsultasi.",
-          "tags": [
-            "Digital",
-            "Produk"
-          ],
-          "image": "/clients/abufawwaz/produk-digital.webp",
-          "palette": {
-            "from": "#173d35",
-            "via": "#557f71",
-            "to": "#101c1a",
-            "accent": "#d6b475"
-          }
-        },
-        {
-          "title": "Kasur Kesehatan",
-          "runtime": "Produk",
-          "description": "Lini usaha kasur kesehatan dengan ukuran dan spesifikasi produk yang dapat ditanyakan.",
-          "tags": [
-            "Kasur",
-            "Rumah"
-          ],
-          "image": "/clients/abufawwaz/kasur-kesehatan.webp",
-          "palette": {
-            "from": "#4d4b35",
-            "via": "#94856b",
-            "to": "#26241e",
-            "accent": "#ead6aa"
-          }
-        },
-        {
-          "title": "Umrah & Haji",
-          "runtime": "Keagenan",
-          "description": "Kontak untuk konsultasi perjalanan ibadah, dengan rincian izin, penyelenggara, dan paket yang perlu dikonfirmasi.",
-          "tags": [
-            "Umrah",
-            "Haji"
-          ],
-          "image": "/clients/abufawwaz/travel-umrah-haji.webp",
-          "palette": {
-            "from": "#1e382c",
-            "via": "#97784b",
-            "to": "#111a14",
-            "accent": "#edc983"
-          }
+          "palette": { "from": "#1b332b", "via": "#4c6653", "to": "#101712", "accent": "#dcc492" }
         }
       ]
     }
   ],
-  "journeyHeading": "Perjalanan MITRA AMANAH",
-  "journeyAside": "Halaman ini memperkenalkan bidang usaha dan cara menghubungi Abu Fawwaz. Tidak mencantumkan tahun berdiri, penghargaan, sertifikasi, atau testimoni yang belum diberikan.",
-  "journeyKicker": "CERITA USAHA · LANGKAH BERIKUTNYA",
+  "journeyHeading": "Dari Sulawesi Utara ke Bangil",
+  "journeyAside": "Semasa muda, Mas'uddin pernah bermukim di Kotamobagu dan Manado, Sulawesi Utara. Kini ia menetap bersama keluarga di Kota Bangil, Pasuruan, Jawa Timur, sambil menjalankan usaha sebagai penyedia laptop second berkualitas melalui MITRA AMANAH.",
+  "journeyKicker": "KOTAMOBAGU · MANADO · BANGIL",
   "templateId": "original",
   "identityMode": "photo"
 }
