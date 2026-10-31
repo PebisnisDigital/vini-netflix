@@ -9,6 +9,8 @@ const clientFiles = import.meta.glob<{ default: ClientBrief }>('./clients/*.json
 export async function loadClient(pathname: string): Promise<{ slug: string; content: PortfolioContent } | null> {
   let slug: string;
   try { slug = decodeURIComponent(pathname.replace(/^\/+|\/+$/g, '')); } catch { return null; }
+  // Preserve the exact PascalCase marketing URL requested by the studio.
+  if (slug === 'ElectronicTigerCreativeStudio') slug = 'electronictigercreativestudio';
   if (slug === 'vini') return { slug, content: viniContent };
   if (!slug || slug !== normalizeSlug(slug)) return null;
   const sourceSlug = sourceForPublicSlug(aliases, slug);

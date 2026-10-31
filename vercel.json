@@ -9,6 +9,10 @@
       "source": "/vini",
       "destination": "/vini/index.html"
     },
+    {
+      "source": "/ElectronicTigerCreativeStudio",
+      "destination": "/electronictigercreativestudio/index.html"
+    },
     { "source": "/:slug([a-z0-9-]+)", "destination": "/:slug/index.html" }
   ]
 }

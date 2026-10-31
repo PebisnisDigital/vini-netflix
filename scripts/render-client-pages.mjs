@@ -11,19 +11,26 @@ function replaceMeta(html, attr, key, value) {
 }
 
 export function renderClientHtml(template, { name, bio, photo }) {
-  const title = `${name} — THE SERIES`;
+  const isElectronicTiger = name === 'Electronic Tiger Creative Studio';
+  const title = isElectronicTiger ? 'Electronic Tiger Creative Studio — Ideas Into Creations' : `${name} — THE SERIES`;
+  const description = isElectronicTiger
+    ? 'Electronic Tiger Creative Studio creates original brands, meaningful stories, Islamic children’s entertainment, personal development media, and cinematic AI films.'
+    : bio;
+  const noscript = isElectronicTiger
+    ? 'Electronic Tiger Creative Studio portfolio. Enable JavaScript to explore our creative worlds.'
+    : `Portofolio ${name}. Aktifkan JavaScript untuk menjelajahinya.`;
   return replaceMeta(
     replaceMeta(
       replaceMeta(
         template
           .replace(/<title>[^<]*<\/title>/i, `<title>${escapeHtml(title)}</title>`)
-          .replace(/<noscript>[^<]*<\/noscript>/i, `<noscript>Portofolio ${escapeHtml(name)}. Aktifkan JavaScript untuk menjelajahinya.</noscript>`)
+          .replace(/<noscript>[^<]*<\/noscript>/i, `<noscript>${escapeHtml(noscript)}</noscript>`)
           .replace(/<link\s+rel="preload"\s+as="image"\s+href="\/assets\/teh-vini-720.webp"[^>]*>/i, ''),
-        'name', 'description', bio,
+        'name', 'description', description,
       ),
       'property', 'og:title', title,
     ),
-    'property', 'og:description', bio,
+    'property', 'og:description', description,
   ).replace('</head>', `<meta property="og:image" content="${escapeHtml((process.env.PUBLIC_SITE_ORIGIN || 'https://pesonaflix.vercel.app') + photo.src)}" /></head>`);
 }
 

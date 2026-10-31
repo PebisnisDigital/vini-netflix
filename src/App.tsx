@@ -31,6 +31,7 @@ import About from './components/About';
 import Seasons from './components/Seasons';
 import Originals from './components/Originals';
 import MunasifahShowcase from './components/MunasifahShowcase';
+import ElectronicTigerStudio from './components/ElectronicTigerStudio';
 import TopPicks from './components/TopPicks';
 import Skills from './components/Skills';
 import Achievements from './components/Achievements';
@@ -58,6 +59,11 @@ function readStoredProfile(key: string, viewerProfiles: ReturnType<typeof usePor
 
 export default function App({ slug, editorMode = false }: { slug: string; editorMode?: boolean }) {
   const { profile, elementLinks } = usePortfolio();
+  // This client requested an English-first studio brand site, while retaining
+  // the same CMS data source and editable project/image fields.
+  if (profile.clientSlug === 'noahinna' || profile.clientSlug === 'electronictigercreativestudio') {
+    return <ElectronicTigerStudio editorMode={editorMode} />;
+  }
   // Alamat publik dapat berupa alias, sedangkan kanvas dahulu memakai slug
   // sementara. Kelas tema khusus selalu mengikuti identitas sumber klien.
   const clientSlug = appearanceSlug(slug, profile.clientSlug);

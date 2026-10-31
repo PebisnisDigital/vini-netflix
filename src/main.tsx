@@ -8,6 +8,10 @@ import './index.css';
 
 async function start() {
   const root = createRoot(document.getElementById('root')!);
+  if (/^\/noahinna\/?$/i.test(location.pathname)) {
+    location.replace(`/ElectronicTigerCreativeStudio${location.search}${location.hash}`);
+    return;
+  }
   if (/^\/formulir\/?$/.test(location.pathname)) {
     location.replace(`/studio?tab=formulir${location.hash}`);
     return;
@@ -38,11 +42,17 @@ async function start() {
       root.render(<div className="flex min-h-screen flex-col items-center justify-center gap-5 bg-[#07070a] p-6 text-center text-white"><h1 className="text-4xl font-bold">Halaman belum tersedia</h1><p>Portofolio belum diterbitkan atau nama URL keliru.</p><a className="rounded-lg bg-white px-6 py-3 font-bold text-black" href="/">Kembali ke Beranda</a></div>);
       return;
     }
-    document.title = `${client.content.profile.displayName} — THE SERIES`;
+    const electronicTiger = client.content.profile.clientSlug === 'electronictigercreativestudio';
+    document.title = electronicTiger
+      ? 'Electronic Tiger Creative Studio — Ideas Into Creations'
+      : `${client.content.profile.displayName} — THE SERIES`;
+    const metaDescription = electronicTiger
+      ? 'Electronic Tiger Creative Studio creates original brands, meaningful stories, Islamic children’s entertainment, personal development media, and cinematic AI films.'
+      : client.content.profile.intro;
     const description = document.querySelector('meta[name="description"]');
-    description?.setAttribute('content', client.content.profile.intro);
+    description?.setAttribute('content', metaDescription);
     document.querySelector('meta[property="og:title"]')?.setAttribute('content', document.title);
-    document.querySelector('meta[property="og:description"]')?.setAttribute('content', client.content.profile.intro);
+    document.querySelector('meta[property="og:description"]')?.setAttribute('content', metaDescription);
     root.render(<StrictMode><MotionConfig reducedMotion="user"><PortfolioProvider data={client.content}><App slug={client.slug} /></PortfolioProvider></MotionConfig></StrictMode>);
   } catch (error) {
     console.error('Data portofolio tidak valid:', error);
