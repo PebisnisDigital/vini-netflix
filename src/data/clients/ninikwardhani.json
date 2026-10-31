@@ -1,0 +1,235 @@
+{
+  "slug": "ninikwardhani",
+  "name": "Ninik Wardhani",
+  "role": "Mitra Samira Travel · Umrah & Haji Khusus",
+  "location": "Indonesia",
+  "bio": "Assalamu'alaikum, saya Ninik Wardhani, Mitra Samira Travel. Melalui halaman ini, saya membuka ruang untuk calon jamaah dan keluarga yang ingin bertanya tentang perjalanan umrah maupun haji khusus bersama Samira Travel. Mari diskusikan kebutuhan, pilihan program, persiapan, dan alur pendaftaran melalui WhatsApp. Detail paket, jadwal, ketentuan, dan biaya dikonfirmasi mengikuti informasi resmi penyelenggara.",
+  "tagline": [
+    "Mitra Samira Travel · Informasi Umrah & Haji Khusus",
+    "Mari awali perjalanan ibadah dengan informasi yang jelas."
+  ],
+  "interests": [
+    "Informasi Umrah",
+    "Informasi Haji Khusus",
+    "Konsultasi Perjalanan",
+    "Persiapan Calon Jamaah"
+  ],
+  "photo": {
+    "src": "/clients/ninikwardhani/foto-utama.webp",
+    "alt": "Foto Ninik Wardhani mengenakan hijab hitam, kacamata bening, serta abaya hitam berbordir; latar transparan"
+  },
+  "whatsapp": "0812 3504 6528",
+  "links": {},
+  "experiences": [
+    {
+      "company": "Samira Travel",
+      "role": "Mitra Travel",
+      "period": "Peran saat ini",
+      "description": "Ninik Wardhani memperkenalkan dirinya sebagai Mitra Samira Travel. Halaman ini menjadi jalur perkenalan dan komunikasi awal mengenai informasi perjalanan umrah serta haji khusus."
+    }
+  ],
+  "education": [],
+  "projects": [
+    {
+      "title": "Informasi Program Umrah",
+      "year": "PERJALANAN IBADAH",
+      "description": "Ingin mengenal pilihan perjalanan umrah yang ditawarkan Samira Travel? Hubungi Ninik untuk meminta informasi awal mengenai program, keberangkatan, fasilitas, dan cara memperoleh rincian terbaru dari penyelenggara.",
+      "category": "Informasi Umrah",
+      "tags": ["Umrah", "Pilihan Program", "Konsultasi"],
+      "website": "https://wa.me/6281235046528?text=Assalamu%27alaikum%20Bu%20Ninik%2C%20saya%20ingin%20bertanya%20program%20umrah%20Samira%20Travel."
+    },
+    {
+      "title": "Informasi Haji Khusus",
+      "year": "PERJALANAN IBADAH",
+      "description": "Samira Travel juga memperkenalkan layanan haji khusus. Tanyakan informasi program, alur pendaftaran, persyaratan, dan ketersediaan melalui kontak Ninik; seluruh rincian perlu dipastikan sesuai ketentuan penyelenggara.",
+      "category": "Informasi Haji Khusus",
+      "tags": ["Haji Khusus", "Informasi Program", "Persyaratan"],
+      "website": "https://wa.me/6281235046528?text=Assalamu%27alaikum%20Bu%20Ninik%2C%20saya%20ingin%20bertanya%20informasi%20haji%20khusus."
+    },
+    {
+      "title": "Konsultasi Kebutuhan Perjalanan",
+      "year": "KONSULTASI",
+      "description": "Setiap calon jamaah dapat memiliki pertanyaan dan kebutuhan berbeda. Sampaikan rencana perjalanan serta hal yang ingin diketahui agar informasi yang diberikan dapat lebih relevan.",
+      "category": "Diskusi Awal",
+      "tags": ["Kebutuhan Jamaah", "Tanya Jawab", "Perencanaan"],
+      "website": "https://wa.me/6281235046528?text=Assalamu%27alaikum%20Bu%20Ninik%2C%20boleh%20saya%20konsultasi%20perjalanan%20ibadah%3F"
+    },
+    {
+      "title": "Persiapan & Pendaftaran",
+      "year": "LANGKAH BERIKUTNYA",
+      "description": "Untuk pertanyaan tentang dokumen, proses pendaftaran, pembayaran, jadwal, serta ketentuan keberangkatan, mintalah penjelasan dan dokumen resmi yang berlaku sebelum mengambil keputusan.",
+      "category": "Informasi Persiapan",
+      "tags": ["Persyaratan", "Pendaftaran", "Konfirmasi Resmi"],
+      "website": "https://wa.me/6281235046528?text=Assalamu%27alaikum%20Bu%20Ninik%2C%20saya%20ingin%20bertanya%20persiapan%20dan%20pendaftaran."
+    }
+  ],
+  "skills": [
+    "Informasi Program Umrah",
+    "Informasi Haji Khusus",
+    "Konsultasi Calon Jamaah",
+    "Persiapan Perjalanan Ibadah"
+  ],
+  "skillCategories": [
+    {
+      "id": "program",
+      "title": "Informasi Program Ibadah",
+      "subtitle": "Mengenal pilihan melalui Samira Travel",
+      "skills": [
+        {
+          "name": "Program Umrah",
+          "mono": "UM",
+          "note": "Informasi",
+          "evidence": ["Samira Travel menawarkan perjalanan umrah", "Pilihan dan jadwal dikonfirmasi melalui informasi resmi"]
+        },
+        {
+          "name": "Haji Khusus",
+          "mono": "HK",
+          "note": "Informasi",
+          "evidence": ["Samira Travel juga memperkenalkan layanan haji khusus", "Persyaratan dan proses mengikuti ketentuan yang berlaku"]
+        }
+      ]
+    },
+    {
+      "id": "persiapan",
+      "title": "Komunikasi & Persiapan",
+      "subtitle": "Percakapan awal sebelum menentukan pilihan",
+      "skills": [
+        {
+          "name": "Konsultasi Awal",
+          "mono": "KT",
+          "note": "WhatsApp",
+          "evidence": ["Ninik dapat dihubungi melalui nomor WA bisnis", "Calon jamaah dapat menyampaikan pertanyaan awal"]
+        },
+        {
+          "name": "Informasi Pendaftaran",
+          "mono": "DF",
+          "note": "Konfirmasi",
+          "evidence": ["Dokumen dan proses pendaftaran ditanyakan sebelum memutuskan", "Rincian akhir merujuk penyelenggara resmi"]
+        }
+      ]
+    }
+  ],
+  "skillsHeading": "Informasi Perjalanan bersama Ninik",
+  "skillsAside": "Sebagai Mitra Samira Travel, Ninik menjadi kontak awal untuk pertanyaan seputar umrah dan haji khusus. Pilihan program, biaya, jadwal, fasilitas, dan syarat dapat berubah sehingga perlu dicocokkan dengan keterangan resmi sebelum pendaftaran.",
+  "skillsKicker": "BAGAIMANA BISA MEMBANTU?",
+  "highlights": [
+    {
+      "title": "Mitra Samira Travel",
+      "description": "Identitas peran Ninik dalam memperkenalkan informasi perjalanan ibadah dari Samira Travel.",
+      "category": "PROFIL MITRA"
+    },
+    {
+      "title": "Umrah & Haji Khusus",
+      "description": "Dua jenis perjalanan ibadah yang diperkenalkan melalui penyelenggara Samira Travel.",
+      "category": "LINGKUP INFORMASI"
+    },
+    {
+      "title": "WhatsApp Bisnis",
+      "description": "Jalur langsung untuk menanyakan kebutuhan, informasi program, dan langkah berikutnya.",
+      "category": "KONTAK"
+    }
+  ],
+  "watchCards": [
+    {
+      "target": "about",
+      "title": "Kenali Ninik Wardhani",
+      "subtitle": "Sosok Mitra Samira Travel",
+      "image": "/clients/ninikwardhani/foto-utama.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Informasi Perjalanan",
+      "subtitle": "Umrah, haji khusus, dan persiapan"
+    },
+    {
+      "target": "skills",
+      "title": "Yang Bisa Ditanyakan",
+      "subtitle": "Pilihan program dan persyaratan"
+    },
+    {
+      "target": "journey",
+      "title": "Langkah Konsultasi",
+      "subtitle": "Dari pertanyaan hingga konfirmasi"
+    },
+    {
+      "target": "picks",
+      "title": "Pilih Topik Anda",
+      "subtitle": "Temukan informasi yang dibutuhkan"
+    }
+  ],
+  "pickCards": [
+    {
+      "label": "UMRAH",
+      "title": "Program Umrah",
+      "detail": "Kenali pilihan program dan informasi keberangkatan yang tersedia.",
+      "palette": { "from": "#243b34", "via": "#85785c", "to": "#101d1a", "accent": "#edcc8b" }
+    },
+    {
+      "label": "HAJI KHUSUS",
+      "title": "Informasi Haji Khusus",
+      "detail": "Tanyakan persyaratan, proses, dan ketentuan program dari penyelenggara.",
+      "palette": { "from": "#3a3325", "via": "#a88e67", "to": "#151910", "accent": "#f4dba3" }
+    },
+    {
+      "label": "KONSULTASI",
+      "title": "Diskusi Kebutuhan",
+      "detail": "Sampaikan rencana serta pertanyaan perjalanan kepada Ninik.",
+      "image": "/clients/ninikwardhani/foto-utama.webp",
+      "palette": { "from": "#3b463d", "via": "#b8a489", "to": "#26352d", "accent": "#f5dba7" }
+    },
+    {
+      "label": "PERSIAPAN",
+      "title": "Langkah Pendaftaran",
+      "detail": "Konfirmasi dokumen, informasi resmi, dan langkah selanjutnya.",
+      "palette": { "from": "#2f3c38", "via": "#7f9787", "to": "#1b2623", "accent": "#e4d4af" }
+    }
+  ],
+  "picksHeading": "Awali dengan Informasi yang Tepat",
+  "picksKicker": "PROGRAM · PERSYARATAN · KONSULTASI",
+  "seasons": [
+    {
+      "number": 1,
+      "title": "Mengenal Bu Ninik",
+      "period": "Mitra Samira Travel",
+      "synopsis": "Ninik Wardhani memperkenalkan dirinya sebagai Mitra Samira Travel yang dapat dihubungi untuk pertanyaan awal perjalanan ibadah.",
+      "episodes": [
+        {
+          "title": "Assalamu'alaikum, Saya Ninik",
+          "runtime": "Perkenalan",
+          "description": "Kenali Ninik Wardhani dan perannya sebagai Mitra Samira Travel untuk komunikasi awal calon jamaah.",
+          "tags": ["Profil Mitra", "Samira Travel"],
+          "image": "/clients/ninikwardhani/foto-utama.webp",
+          "palette": { "from": "#27382e", "via": "#9a896c", "to": "#15211a", "accent": "#ead2a2" }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Menyiapkan Perjalanan",
+      "period": "Tanya dan konfirmasi",
+      "synopsis": "Perjalanan ibadah dapat diawali dengan mengenal program yang tersedia, bertanya tentang persyaratan, dan memastikan rincian melalui pihak penyelenggara.",
+      "episodes": [
+        {
+          "title": "Mengenal Pilihan Program",
+          "runtime": "Informasi",
+          "description": "Tanyakan pilihan umrah maupun haji khusus yang tersedia melalui Samira Travel.",
+          "tags": ["Umrah", "Haji Khusus"],
+          "palette": { "from": "#3a3225", "via": "#b39a74", "to": "#1f2820", "accent": "#f1d8a5" }
+        },
+        {
+          "title": "Konfirmasi Persiapan",
+          "runtime": "Langkah berikutnya",
+          "description": "Diskusikan pertanyaan dan konfirmasikan persyaratan, jadwal, serta biaya melalui informasi resmi sebelum mendaftar.",
+          "tags": ["Persiapan", "Pendaftaran"],
+          "palette": { "from": "#29433a", "via": "#8b9a7b", "to": "#18251d", "accent": "#e9d19d" }
+        }
+      ]
+    }
+  ],
+  "journeyHeading": "Menyambut Perjalanan Ibadah",
+  "journeyAside": "Bersama Ninik Wardhani, mulailah dari percakapan yang tenang: sampaikan kebutuhan dan rencana, kenali informasi program Samira Travel, lalu pastikan pilihan serta ketentuannya sebelum mengambil langkah pendaftaran. Semua keputusan sebaiknya didasari informasi resmi yang dapat diperiksa.",
+  "journeyKicker": "PERKENALAN · INFORMASI · PERSIAPAN",
+  "theme": { "accent": "#ddb780", "background": "#0d0c0c" },
+  "templateId": "editorial-premium",
+  "identityMode": "photo"
+}

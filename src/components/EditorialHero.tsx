@@ -17,6 +17,7 @@ export default function EditorialHero({
   const { scrollTo } = useSmoothScroll();
   const needsPhoto = !profile.portrait.src || profile.portrait.src === '/assets/portrait-720.webp';
   const conceptArt = /buatan AI|bukan foto asli/i.test(profile.portrait.alt);
+  const travelProfile = profile.clientSlug === 'ninikwardhani';
 
   return (
     <section id="top" className="editorial-hero" aria-label={`Edisi pribadi ${profile.displayName}`}>
@@ -44,7 +45,7 @@ export default function EditorialHero({
         </motion.div>
         <div className="editorial-story-area">
           <motion.p className="editorial-overline" initial={{ opacity: 0, x: -14 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: .8, delay: .26 }}>
-            <span className="editorial-overline-dash" aria-hidden="true" /> BEHIND THE NAME
+            <span className="editorial-overline-dash" aria-hidden="true" /> {travelProfile ? 'MENGENAL MITRA TRAVEL' : 'BEHIND THE NAME'}
           </motion.p>
           <motion.h1 className="editorial-name" data-studio-edit="name" initial={{ opacity: 0, y: 45 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .37, ease: [.2,.7,.2,1] }}>
             {profile.displayName}
@@ -62,17 +63,17 @@ export default function EditorialHero({
           </motion.p>
           <motion.div className="editorial-actions" initial={{ opacity: 0, y: 17 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8, delay: .94 }}>
             <button type="button" onClick={onPlay} className="editorial-btn-dark"><Play size={15} fill="currentColor" aria-hidden="true" /> Kenali Saya</button>
-            <button type="button" className="editorial-btn-plain" onClick={() => scrollTo('#originals')}>Jelajahi Karya <ArrowUpRight size={17} aria-hidden="true" /></button>
+            <button type="button" className="editorial-btn-plain" onClick={() => scrollTo('#originals')}>{travelProfile ? 'Lihat Informasi' : 'Jelajahi Karya'} <ArrowUpRight size={17} aria-hidden="true" /></button>
           </motion.div>
         </div>
-        <div className="editorial-paper-bottom"><span>AN EDITION OF STORIES & IDEAS</span><span>{profile.location || 'INDONESIA'}</span></div>
+        <div className="editorial-paper-bottom"><span>{travelProfile ? 'PERSONAL PROFILE · TRAVEL PARTNER' : 'AN EDITION OF STORIES & IDEAS'}</span><span>{profile.location || 'INDONESIA'}</span></div>
       </div>
 
       <motion.div className="editorial-hero-bottom" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 1.1 }}>
-        <div className="editorial-footer-lead"><span>CURATED STORIES</span><span aria-hidden="true">01 — 02</span></div>
+        <div className="editorial-footer-lead"><span>{travelProfile ? 'INFORMASI PERJALANAN' : 'CURATED STORIES'}</span><span aria-hidden="true">01 — 02</span></div>
         <div className="editorial-feature-list">
           {projects.slice(0, 2).map((project, index) => (
-            <motion.button key={project.id} type="button" className="editorial-feature" onClick={() => onOpenProject(project)} whileHover={{ y: -4 }} transition={{ duration: .3 }} aria-label={`Buka karya ${project.title}`}>
+            <motion.button key={project.id} type="button" className="editorial-feature" onClick={() => onOpenProject(project)} whileHover={{ y: -4 }} transition={{ duration: .3 }} aria-label={`${travelProfile ? 'Buka informasi' : 'Buka karya'} ${project.title}`}>
               <span className="editorial-feature-index">{String(index + 1).padStart(2, '0')}</span>
               {project.image ? <img src={project.image} alt="" loading="lazy" decoding="async" /> : <span className="editorial-feature-empty" aria-hidden="true">{index + 1}</span>}
               <span className="editorial-feature-label">{project.title}<ArrowUpRight size={13} aria-hidden="true" /></span>

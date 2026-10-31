@@ -159,3 +159,27 @@
 @media (max-width: 520px) {
   .yudhaandaka-executive .editorial-hero-image { height: 415px; }
 }
+
+/* Ninik Wardhani: potret hijab hitam menonjol pada latar editorial emas hangat. */
+.ninikwardhani-elegant .editorial-hero-image {
+  background: radial-gradient(ellipse at 51% 32%, #f1dfbf 0%, #cdb68e 49%, #7f6950 100%);
+}
+.ninikwardhani-elegant .editorial-hero-image::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(90deg, transparent 0 94px, #fff7e522 95px, transparent 97px),
+    linear-gradient(180deg, #fff4dc29, transparent 58%);
+  opacity: .55;
+}
+.ninikwardhani-elegant .editorial-hero-image > img {
+  position: relative; z-index: 1; object-fit: contain; object-position: center bottom;
+  filter: drop-shadow(0 20px 26px #4e382d65);
+}
+.ninikwardhani-elegant .editorial-photo-wash {
+  background: linear-gradient(0deg, #34291c8a, transparent 24%);
+}
+@media (max-width: 800px) {
+  .ninikwardhani-elegant .editorial-hero-image { height: 490px; }
+}
+@media (max-width: 520px) {
+  .ninikwardhani-elegant .editorial-hero-image { height: 405px; }
+}
