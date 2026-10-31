@@ -51,6 +51,12 @@ export default function ElectronicTigerStudio({ editorMode = false }: { editorMo
   const brands = projects.filter((project) => project.genre !== 'Our Team').slice(0, 3);
   const team = projects.filter((project) => project.genre === 'Our Team');
   const paragraphs = profile.intro.split(/\n\s*\n/).filter(Boolean);
+  const heroName = profile.displayName.trim().toUpperCase();
+  const standardStudioName = heroName === 'ELECTRONIC TIGER CREATIVE STUDIO';
+  const heroTagline = profile.tagline[0] || 'Ideas Into Creations. Creativity Without Boundaries.';
+  const taglineBreak = heroTagline.indexOf('. ');
+  const taglineOpening = taglineBreak < 0 ? heroTagline : heroTagline.slice(0, taglineBreak + 1);
+  const taglineClosing = taglineBreak < 0 ? '' : heroTagline.slice(taglineBreak + 2);
   const contactWhatsApp = profile.whatsapp?.replace(/\D/g, '');
   const siteOrigin = profile.links.website || 'https://www.noahinna.com';
   const currentYear = new Date().getFullYear();
@@ -82,11 +88,11 @@ export default function ElectronicTigerStudio({ editorMode = false }: { editorMo
           <div className="et-hero-halo et-hero-halo-two" aria-hidden="true" />
           <div className="et-container et-hero-grid">
             <motion.div className="et-hero-content" initial={editorMode ? false : { opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-              <p className="et-eyebrow"><span className="et-star">✳</span> INDEPENDENT CREATIVE & DIGITAL MEDIA STUDIO</p>
-              <h1 data-studio-edit="name">ELECTRONIC<br/><span>TIGER</span><small>CREATIVE STUDIO</small></h1>
+              <p className="et-eyebrow" data-studio-edit="role"><span className="et-star">✳</span> {profile.role.toUpperCase()}</p>
+              <h1 data-studio-edit="name">{standardStudioName ? <>ELECTRONIC<br/><span>TIGER</span><small>CREATIVE STUDIO</small></> : heroName}</h1>
               <div className="et-hero-rule" />
-              <p className="et-hero-tagline" data-studio-edit="tagline">Ideas Into Creations.<br/><em>Creativity Without Boundaries.</em></p>
-              <p className="et-hero-caption" data-studio-edit="role">We build original brands, meaningful stories, and imaginative digital experiences at the intersection of creativity and technology.</p>
+              <p className="et-hero-tagline" data-studio-edit="tagline">{taglineOpening}{taglineClosing && <><br/><em>{taglineClosing}</em></>}</p>
+              <p className="et-hero-caption">We build original brands, meaningful stories, and imaginative digital experiences at the intersection of creativity and technology.</p>
               <div className="et-hero-actions">
                 <a className="et-button et-button-gold" href="#et-portfolio">Explore Our Creations <ArrowUpRight size={18}/></a>
                 <a className="et-text-button" href="#et-about">Discover the studio <ArrowDown size={16}/></a>
