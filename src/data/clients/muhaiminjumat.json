@@ -5,8 +5,7 @@
   "location": "Belum dicantumkan",
   "bio": "Salam kenal, saya Muhaimin Hj Jumat. Saya berkecimpung dalam bidang perniagaan. Melalui halaman ini, saya ingin memperkenalkan diri dan membuka ruang komunikasi yang baik dengan siapa saja yang ingin berkenalan, bertanya, atau berbincang tentang peluang usaha. Setiap hubungan bisnis dimulai dengan percakapan. Silakan hubungi saya melalui WhatsApp atau email untuk melanjutkan diskusi.",
   "tagline": [
-    "Perniagaan · Relasi · Komunikasi",
-    "Perniagaan bermula dari kepercayaan dan percakapan yang baik."
+    "Perniagaan · Relasi · Komunikasi"
   ],
   "interests": [
     "Perniagaan",
@@ -36,7 +35,11 @@
       "year": "PERKENALAN",
       "description": "Perkenalkan Muhaimin Hj Jumat, seorang peniaga yang membuka ruang untuk saling mengenal. Di sini tersedia gambaran singkat tentang dirinya serta cara menghubunginya secara langsung.",
       "category": "Profil Peniaga",
-      "tags": ["Perkenalan", "Perniagaan", "Profil"],
+      "tags": [
+        "Perkenalan",
+        "Perniagaan",
+        "Profil"
+      ],
       "image": "/clients/muhaiminjumat/foto-profesional.webp"
     },
     {
@@ -44,16 +47,26 @@
       "year": "DISKUSI",
       "description": "Setiap kebutuhan usaha berbeda. Mulai dengan menyampaikan pertanyaan, bidang yang ingin dibicarakan, atau rencana kerja sama. Rincian produk dan bentuk layanan dapat dikonfirmasi langsung bersama Muhaimin.",
       "category": "Komunikasi Bisnis",
-      "tags": ["Diskusi", "Usaha", "Kebutuhan"],
-      "website": "https://wa.me/6738645955?text=Salam%20Pak%20Muhaimin%2C%20saya%20ingin%20bertanya%20tentang%20perniagaan."
+      "tags": [
+        "Diskusi",
+        "Usaha",
+        "Kebutuhan"
+      ],
+      "website": "https://wa.me/6738645955?text=Salam%20Pak%20Muhaimin%2C%20saya%20ingin%20bertanya%20tentang%20perniagaan.",
+      "image": ""
     },
     {
       "title": "Jalin Hubungan Usaha",
       "year": "KOLABORASI",
       "description": "Ingin membuka percakapan tentang peluang usaha atau kerja sama? Ceritakan kebutuhan dan tujuan terlebih dahulu melalui WhatsApp atau email. Kesesuaian serta langkah berikutnya bisa didiskusikan langsung.",
       "category": "Relasi & Kerja Sama",
-      "tags": ["Relasi", "Komunikasi", "Kolaborasi"],
-      "website": "https://wa.me/6738645955?text=Salam%20Pak%20Muhaimin%2C%20bolehkah%20kita%20berbincang%20tentang%20peluang%20kerja%20sama%3F"
+      "tags": [
+        "Relasi",
+        "Komunikasi",
+        "Kolaborasi"
+      ],
+      "website": "https://wa.me/6738645955?text=Salam%20Pak%20Muhaimin%2C%20bolehkah%20kita%20berbincang%20tentang%20peluang%20kerja%20sama%3F",
+      "image": ""
     }
   ],
   "skills": [
@@ -72,13 +85,19 @@
           "name": "Peniaga",
           "mono": "NG",
           "note": "Profesi",
-          "evidence": ["Profesi yang disampaikan adalah berniaga", "Bidang dagang khusus dapat ditanyakan secara langsung"]
+          "evidence": [
+            "Profesi yang disampaikan adalah berniaga",
+            "Bidang dagang khusus dapat ditanyakan secara langsung"
+          ]
         },
         {
           "name": "Komunikasi Bisnis",
           "mono": "KB",
           "note": "Jalur kontak",
-          "evidence": ["WhatsApp tersedia untuk memulai percakapan", "Email tersedia sebagai kontak alternatif"]
+          "evidence": [
+            "WhatsApp tersedia untuk memulai percakapan",
+            "Email tersedia sebagai kontak alternatif"
+          ]
         }
       ]
     },
@@ -91,7 +110,10 @@
           "name": "Diskusi Kebutuhan",
           "mono": "DK",
           "note": "Topik percakapan",
-          "evidence": ["Sampaikan tujuan dan kebutuhan yang ingin dibahas", "Detail produk dan kesesuaian dikonfirmasi oleh Muhaimin"]
+          "evidence": [
+            "Sampaikan tujuan dan kebutuhan yang ingin dibahas",
+            "Detail produk dan kesesuaian dikonfirmasi oleh Muhaimin"
+          ]
         }
       ]
     }
@@ -126,17 +148,20 @@
     {
       "target": "originals",
       "title": "Informasi Usaha",
-      "subtitle": "Topik perniagaan dan diskusi"
+      "subtitle": "Topik perniagaan dan diskusi",
+      "image": ""
     },
     {
       "target": "skills",
       "title": "Ruang Komunikasi",
-      "subtitle": "Perkenalan dan relasi bisnis"
+      "subtitle": "Perkenalan dan relasi bisnis",
+      "image": ""
     },
     {
       "target": "journey",
       "title": "Langkah Selanjutnya",
-      "subtitle": "Dari berkenalan ke percakapan"
+      "subtitle": "Dari berkenalan ke percakapan",
+      "image": ""
     }
   ],
   "pickCards": [
@@ -145,19 +170,36 @@
       "title": "Halo, Saya Muhaimin",
       "detail": "Berkenalan dengan Muhaimin Hj Jumat, seorang peniaga.",
       "image": "/clients/muhaiminjumat/foto-profesional.webp",
-      "palette": { "from": "#263b49", "via": "#ad997f", "to": "#172631", "accent": "#f1d8aa" }
+      "palette": {
+        "from": "#263b49",
+        "via": "#ad997f",
+        "to": "#172631",
+        "accent": "#f1d8aa"
+      }
     },
     {
       "label": "PERNIAGAAN",
       "title": "Bicara Soal Usaha",
       "detail": "Sampaikan kebutuhan dan pertanyaan sebelum melangkah lebih jauh.",
-      "palette": { "from": "#3c423e", "via": "#a7a28c", "to": "#20272b", "accent": "#e0d6ad" }
+      "palette": {
+        "from": "#3c423e",
+        "via": "#a7a28c",
+        "to": "#20272b",
+        "accent": "#e0d6ad"
+      },
+      "image": ""
     },
     {
       "label": "TERHUBUNG",
       "title": "Mulai Percakapan",
       "detail": "Hubungi Muhaimin lewat WhatsApp atau email.",
-      "palette": { "from": "#233d47", "via": "#819ca1", "to": "#172b33", "accent": "#e1e4d4" }
+      "palette": {
+        "from": "#233d47",
+        "via": "#819ca1",
+        "to": "#172b33",
+        "accent": "#e1e4d4"
+      },
+      "image": ""
     }
   ],
   "picksHeading": "Setiap Hubungan Dimulai dari Sapaan",
@@ -173,9 +215,17 @@
           "title": "Salam Perkenalan",
           "runtime": "Profil",
           "description": "Mengenal nama, profesi, dan kontak Muhaimin Hj Jumat.",
-          "tags": ["Muhaimin", "Peniaga"],
+          "tags": [
+            "Muhaimin",
+            "Peniaga"
+          ],
           "image": "/clients/muhaiminjumat/foto-profesional.webp",
-          "palette": { "from": "#2e4350", "via": "#b6a38a", "to": "#1d2c36", "accent": "#f0ddbd" }
+          "palette": {
+            "from": "#2e4350",
+            "via": "#b6a38a",
+            "to": "#1d2c36",
+            "accent": "#f0ddbd"
+          }
         }
       ]
     },
@@ -189,8 +239,17 @@
           "title": "Sampaikan Kebutuhan Anda",
           "runtime": "Diskusi",
           "description": "Hubungi Muhaimin melalui WhatsApp untuk membahas tujuan dan rincian yang ingin ditanyakan.",
-          "tags": ["Komunikasi", "Bisnis"],
-          "palette": { "from": "#3a4a50", "via": "#b1ac99", "to": "#1d3239", "accent": "#ede4c9" }
+          "tags": [
+            "Komunikasi",
+            "Bisnis"
+          ],
+          "palette": {
+            "from": "#3a4a50",
+            "via": "#b1ac99",
+            "to": "#1d3239",
+            "accent": "#ede4c9"
+          },
+          "image": ""
         }
       ]
     }
@@ -198,7 +257,6 @@
   "journeyHeading": "Awal Sebuah Relasi Usaha",
   "journeyAside": "Perkenalan yang baik membantu dua pihak memahami kebutuhan masing-masing. Dari sini, Muhaimin Hj Jumat membuka ruang untuk bertukar informasi dan berdiskusi tentang perniagaan. Rincian bidang usaha dan langkah berikutnya dapat disampaikan langsung oleh pemilik profil.",
   "journeyKicker": "KENALAN · DISKUSI · TERHUBUNG",
-  "theme": { "accent": "#a87943", "background": "#f7f5ef" },
-  "templateId": "minimalist",
+  "templateId": "original",
   "identityMode": "photo"
 }
