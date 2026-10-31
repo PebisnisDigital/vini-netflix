@@ -12,7 +12,8 @@ const block = {
 };
 
 export default function ProjectModal({ project, onClose, onSwitch }: { project: Project; onClose: () => void; onSwitch: (p: Project) => void }) {
-  const { projects } = usePortfolio();
+  const { projects, profile } = usePortfolio();
+  const isNoahInna = profile.clientSlug === 'noahinna';
   useScrollLock(true);
   const scroller = useRef<HTMLDivElement>(null);
   const closeBtn = useRef<HTMLButtonElement>(null);
@@ -69,7 +70,7 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
             </button>
             <div className="absolute inset-x-0 bottom-0 px-5 pb-6 sm:px-10">
               <motion.p className="mb-2 flex items-center gap-2 text-[11px] font-bold tracking-[0.34em] text-bone/80" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
-                <span className="font-display text-xl tracking-normal text-crimson-2">V</span> ORISINAL
+                <span className="font-display text-xl tracking-normal text-crimson-2">{isNoahInna ? 'N' : 'V'}</span> {isNoahInna ? 'CREATIVE WORK' : 'ORISINAL'}
               </motion.p>
               <motion.h2
                 id={`title-${project.id}-modal`}
@@ -103,14 +104,14 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
                     data-cursor="link"
                     className="flex min-h-12 items-center gap-2 rounded-md bg-bone px-6 text-[15px] font-bold text-ink transition hover:bg-white"
                   >
-                    GitHub ↗
+                    {project.github.includes('youtube.com') ? 'Watch on YouTube' : project.github.includes('github.com') ? 'GitHub' : isNoahInna ? 'View Project' : 'Kunjungi Website'} ↗
                   </a>
                 </Magnetic>
               </motion.div>
             )}
 
             {/* impact */}
-            <motion.section variants={block} className="mt-12">
+            {project.metrics.length > 0 && <motion.section variants={block} className="mt-12">
               <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">Hasil / Dampak</h3>
               <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl bg-white/10 sm:grid-cols-3 lg:grid-cols-5">
                 {project.metrics.map((m, i) => (
@@ -128,11 +129,11 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
                   </motion.div>
                 ))}
               </div>
-            </motion.section>
+            </motion.section>}
 
             <div className="mt-12 grid gap-10 lg:grid-cols-[3fr_2fr]">
               <motion.section variants={block}>
-                <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">Kontribusi Saya</h3>
+                <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">{isNoahInna ? 'Creative Notes' : 'Kontribusi Saya'}</h3>
                 <ul className="space-y-4">
                   {project.build.map((b) => (
                     <li key={b} className="flex gap-3 text-[15px] leading-relaxed text-bone/85">
@@ -144,7 +145,7 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
               </motion.section>
               <div className="space-y-10">
                 <motion.section variants={block}>
-                  <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">Teknologi</h3>
+                  <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">{isNoahInna ? 'Format & Themes' : 'Teknologi'}</h3>
                   <div className="flex flex-wrap gap-2">
                     {project.stack.map((t) => (
                       <span key={t} className="glass rounded-full px-3 py-1.5 text-sm font-medium text-bone">
@@ -154,7 +155,7 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
                   </div>
                 </motion.section>
                 <motion.section variants={block}>
-                  <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">Fitur Utama</h3>
+                  <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">{isNoahInna ? 'Highlights' : 'Fitur Utama'}</h3>
                   <ul className="space-y-2.5">
                     {project.features.map((f) => (
                       <li key={f} className="flex items-start gap-3 text-sm text-bone/85">

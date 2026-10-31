@@ -344,7 +344,7 @@ export function validateBrief(value: unknown, options: { requireWhatsapp?: boole
   for (const key of ['journeyHeading', 'journeyAside', 'journeyKicker'] as const) if (b[key] !== undefined && (typeof b[key] !== 'string' || !b[key].trim())) errors.push(`Teks ${key} tidak valid.`);
   if (b.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(b.email)) errors.push('Format email tidak valid.');
   if (b.whatsapp !== undefined && typeof b.whatsapp !== 'string') errors.push('Nomor WhatsApp pemilik website tidak valid.');
-  else if (b.whatsapp?.trim() && !normalizeClientWhatsapp(b.whatsapp)) errors.push('Nomor WhatsApp harus berupa nomor seluler Indonesia yang valid (contoh: 08... atau 628...).');
+  else if (b.whatsapp?.trim() && !normalizeClientWhatsapp(b.whatsapp)) errors.push('Nomor WhatsApp harus berupa nomor seluler Indonesia atau Singapura yang valid (contoh: 08..., +62..., atau +65...).');
   if (options.requireWhatsapp && !normalizeClientWhatsapp(b.whatsapp)) errors.push('Nomor WhatsApp pemilik website wajib diisi untuk tombol referral.');
   if (b.theme && (!/^#[0-9a-fA-F]{6}$/.test(b.theme.accent) || !/^#[0-9a-fA-F]{6}$/.test(b.theme.background))) errors.push('Warna tema harus menggunakan kode hex 6 digit.');
   errors.push(...validateVisualDesign(b.visualDesign));

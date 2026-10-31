@@ -45,7 +45,7 @@ export default function Seasons() {
             className={`relative shrink-0 rounded-full px-4 py-2.5 text-left transition ${i === activeIndex ? 'text-ink' : 'text-mist hover:text-bone'}`}
           >
             {i === activeIndex && <motion.span layoutId="season-pill" className="absolute inset-0 rounded-full bg-bone" transition={{ duration: 0.5, ease: EASE }} />}
-            <span className="relative block text-[10px] font-bold tracking-[0.24em]">MUSIM {String(s.number).padStart(2, '0')}</span>
+            <span className="relative block text-[10px] font-bold tracking-[0.24em]">{profile.clientSlug === 'noahinna' ? 'CHAPTER' : 'MUSIM'} {String(s.number).padStart(2, '0')}</span>
             <span className="relative block whitespace-nowrap text-sm font-semibold">{s.title}</span>
           </button>
         ))}

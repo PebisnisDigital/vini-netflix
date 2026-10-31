@@ -6,6 +6,9 @@ test('nomor Indonesia dinormalisasi tanpa mengubah nomor pemilik lain', () => {
   assert.equal(normalizeClientWhatsapp('0812-3456-7890'), '6281234567890');
   assert.equal(normalizeClientWhatsapp('+62 812 3456 7890'), '6281234567890');
   assert.equal(normalizeClientWhatsapp('62881022445869'), '62881022445869');
+  assert.equal(normalizeClientWhatsapp('+65 9343 3749'), '6593433749');
+  assert.equal(normalizeClientWhatsapp('6593433749'), '6593433749');
+  assert.equal(normalizeClientWhatsapp('+65 7343 3749'), null);
   for (const value of ['', undefined, '123', 'https://wa.me/6281234567890', '+62<script>', '62123456789']) {
     assert.equal(normalizeClientWhatsapp(value), null);
   }

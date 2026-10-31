@@ -4,6 +4,7 @@ import { EASE, SectionHeading, Tilt } from './fx';
 
 export default function About() {
   const { profile, seasons } = usePortfolio();
+  const isNoahInna = profile.clientSlug === 'noahinna';
   const facts = profile.aboutFacts || [
     { k: 'Peran', v: profile.role, s: 'Aktivitas utama' },
     { k: 'Asal', v: profile.location, s: 'Lokasi' },
@@ -11,7 +12,7 @@ export default function About() {
 
   return (
     <>
-      <SectionHeading kicker="Episode Perdana" title="Tentang Saya" />
+      <SectionHeading kicker={isNoahInna ? 'THE PERSON BEHIND THE WORK' : 'Episode Perdana'} title={isNoahInna ? 'Meet Ain' : 'Tentang Saya'} />
       <div className="gutter grid items-center gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-16">
         <motion.div
           className="mx-auto w-full max-w-md lg:max-w-none"
@@ -36,7 +37,7 @@ export default function About() {
             <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/90 to-transparent" />
             <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
               <div>
-                <p className="text-[10px] font-bold tracking-[0.3em] text-crimson-2">DIBINTANGI</p>
+                <p className="text-[10px] font-bold tracking-[0.3em] text-crimson-2">{isNoahInna ? 'CREATOR' : 'DIBINTANGI'}</p>
                 <p data-studio-edit="name" className="font-display text-3xl leading-none text-bone">{profile.displayName}</p>
               </div>
               <span className="rounded border border-white/30 px-1.5 text-[10px] font-bold text-bone">S01–S{String(seasons.length).padStart(2, '0')}</span>
@@ -71,7 +72,7 @@ export default function About() {
                 className="bg-ink-2 p-5"
                 variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } } }}
               >
-                <dt className="text-[10px] font-bold uppercase tracking-[0.28em] text-smoke">{f.k}</dt>
+                <dt className="text-[10px] font-bold uppercase tracking-[0.28em] text-smoke">{isNoahInna ? ({ Peran: 'Creative role', Karya: 'Portfolio areas', Keahlian: 'Creative skills', Asal: 'Where' } as Record<string, string>)[f.k] || f.k : f.k}</dt>
                 <dd data-studio-edit={f.k === 'Peran' ? 'role' : f.k === 'Asal' ? 'location' : undefined} className="mt-2 text-base font-semibold text-bone">{f.v}</dd>
                 <dd className="mt-0.5 text-xs text-mist">{f.s}</dd>
               </motion.div>
@@ -79,7 +80,7 @@ export default function About() {
           </motion.dl>
 
           <div className="mt-8">
-            <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.28em] text-smoke">Minat</p>
+            <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.28em] text-smoke">{isNoahInna ? 'Creative interests' : 'Minat'}</p>
             <div data-studio-edit="interests" className="flex flex-wrap gap-2">
               {profile.interests.map((i) => (
                 <span key={i} className="glass rounded-full px-3 py-1.5 text-xs font-medium text-bone">

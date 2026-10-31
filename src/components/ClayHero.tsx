@@ -15,6 +15,8 @@ export default function ClayHero({
 }) {
   const { profile, projects } = usePortfolio();
   const { scrollTo } = useSmoothScroll();
+  const isNoahInna = profile.clientSlug === 'noahinna';
+  const youtube = isNoahInna ? profile.socialLinks?.find((link) => link.label === 'YouTube')?.url : undefined;
   const isUnchangedSamplePortrait = profile.portrait.src === '/assets/portrait-720.webp';
   const needsArtwork = !profile.portrait.src || isUnchangedSamplePortrait;
 
@@ -46,10 +48,10 @@ export default function ClayHero({
 
       <div className="clay-hero-content">
         <motion.div className="clay-episode-chip" initial={{ opacity: 0, y: 15, rotate: -7 }} animate={{ opacity: 1, y: 0, rotate: -3 }} transition={{ duration: .7, delay: .2 }}>
-          <Clapperboard size={17} strokeWidth={2.5} aria-hidden="true" /> CERITA DARI DUNIA KECIL
+          <Clapperboard size={17} strokeWidth={2.5} aria-hidden="true" /> {isNoahInna ? 'ELECTRONIC TIGER CREATIVE STUDIO' : 'CERITA DARI DUNIA KECIL'}
         </motion.div>
         <motion.p className="clay-eyebrow" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .32 }}>
-          KENALAN DENGAN
+          {isNoahInna ? 'MEET THE CREATOR · CALL ME AIN' : 'KENALAN DENGAN'}
         </motion.p>
         <motion.h1 className="clay-headline" data-studio-edit="name" initial={{ opacity: 0, y: 26, rotate: -1 }} animate={{ opacity: 1, y: 0, rotate: 0 }} transition={{ duration: .86, delay: .42, type: 'spring', stiffness: 95, damping: 14 }}>
           {profile.displayName}
@@ -64,12 +66,16 @@ export default function ClayHero({
           {profile.intro}
         </motion.p>
         <motion.div className="clay-hero-buttons" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .8 }}>
-          <button type="button" className="clay-main-button" onClick={onPlay}><Play size={16} fill="currentColor" aria-hidden="true" /> Kenalan Yuk</button>
-          <button type="button" className="clay-soft-button" onClick={() => scrollTo('#originals')}>Lihat Karya <ArrowUpRight size={19} aria-hidden="true" /></button>
+          {youtube ? (
+            <a className="clay-main-button" href={youtube} target="_blank" rel="noopener noreferrer"><Play size={16} fill="currentColor" aria-hidden="true" /> Watch on YouTube</a>
+          ) : (
+            <button type="button" className="clay-main-button" onClick={onPlay}><Play size={16} fill="currentColor" aria-hidden="true" /> Kenalan Yuk</button>
+          )}
+          <button type="button" className="clay-soft-button" onClick={() => scrollTo('#originals')}>{isNoahInna ? 'Explore the Work' : 'Lihat Karya'} <ArrowUpRight size={19} aria-hidden="true" /></button>
         </motion.div>
         <motion.div className="clay-reel-note" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.1 }} aria-label="Film cerita pribadi">
           <span className="clay-reel-icon" aria-hidden="true">✦</span>
-          <span>BUATAN HATI · PUNYA CERITA</span>
+          <span>{isNoahInna ? 'CREATED BY ELECTRONIC TIGER CREATIVE STUDIO' : 'BUATAN HATI · PUNYA CERITA'}</span>
         </motion.div>
       </div>
 

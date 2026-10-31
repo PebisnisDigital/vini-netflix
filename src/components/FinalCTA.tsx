@@ -9,12 +9,17 @@ import { SeriesMark } from './Poster';
 export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
   const { profile } = usePortfolio();
   const { scrollTo } = useSmoothScroll();
+  const isNoahInna = profile.clientSlug === 'noahinna';
   const exampleUrl = typeof window === 'undefined' ? undefined : `${window.location.origin}${profile.clientSlug ? `/${profile.clientSlug}` : window.location.pathname}`;
   const contactName = normalizeClientWhatsapp(profile.whatsapp) === normalizeClientWhatsapp(portfolioServiceCTA.whatsappNumber) ? 'Teh Vini' : profile.displayName;
   const whatsappUrl = getClientReferralWhatsappUrl({
     whatsapp: profile.whatsapp, ownerName: profile.displayName, contactName,
     referralCode: profile.referralCode, exampleUrl,
   });
+  const contactNumber = normalizeClientWhatsapp(profile.whatsapp);
+  const directContactUrl = isNoahInna && contactNumber
+    ? `https://wa.me/${contactNumber}?text=${encodeURIComponent('Hi Ain, I found your Noah Inna creative portfolio and would love to discuss a creative project.')}`
+    : null;
 
   return (
     <section id="contact" className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-4 py-24 text-center">
@@ -27,7 +32,7 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
       >
-        Jasa Web Portofolio
+        {isNoahInna ? 'CONTACT ELECTRONIC TIGER CREATIVE STUDIO' : 'Jasa Web Portofolio'}
       </motion.p>
       <motion.h2
         className="relative mx-auto max-w-6xl font-display leading-[1.14] text-bone"
@@ -37,8 +42,8 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
         viewport={{ once: true, margin: '-10% 0px' }}
         transition={{ duration: 0.9, ease: EASE }}
       >
-        <span className="block">{portfolioServiceCTA.headlineLines[0]}</span>
-        <span className="block text-crimson-2 client-cta-headline">{portfolioServiceCTA.headlineLines[1]}</span>
+        <span className="block">{isNoahInna ? 'Have a Creative Idea?' : portfolioServiceCTA.headlineLines[0]}</span>
+        <span className="block text-crimson-2 client-cta-headline">{isNoahInna ? "Let's Bring It to Life." : portfolioServiceCTA.headlineLines[1]}</span>
       </motion.h2>
 
       <motion.div
@@ -48,28 +53,30 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: EASE, delay: 0.25 }}
       >
-        {whatsappUrl ? <Magnetic>
+        {(isNoahInna ? directContactUrl : whatsappUrl) ? <Magnetic>
           <a
-            href={whatsappUrl}
+            href={(isNoahInna ? directContactUrl : whatsappUrl) || '#contact'}
             target="_blank"
             rel="noopener noreferrer"
             data-cursor="link"
             aria-label={`Chat WhatsApp ${contactName} untuk dibuatkan web portofolio PESONAFLIX`}
             className="client-cta-pulse inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-crimson px-9 py-4 text-base font-bold tracking-[0.04em] text-white shadow-[0_0_50px_rgba(229,19,43,0.5)] transition duration-300 hover:bg-crimson-2 focus-visible:outline-offset-4 sm:text-lg"
           >
-            {portfolioServiceCTA.buttonLabel}
+            {isNoahInna ? 'Message Ain' : portfolioServiceCTA.buttonLabel}
             <span aria-hidden="true" className="text-xl">↗</span>
           </a>
         </Magnetic> : null}
+        {isNoahInna && profile.email && <a className="text-sm font-semibold text-bone/85 underline decoration-white/40 underline-offset-4 hover:text-bone" href={`mailto:${profile.email}`}>Email the Studio ↗</a>}
+        {isNoahInna && whatsappUrl && <div className="mt-8 rounded-2xl border border-white/15 bg-white/5 px-6 py-5 text-sm text-mist"><p>Love this portfolio format?</p><a className="mt-2 inline-flex font-bold text-bone underline decoration-crimson-2 underline-offset-4" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Get Your Own ↗</a></div>}
         {!whatsappUrl && <p className="text-xs font-medium tracking-[0.08em] text-mist sm:text-sm">Nomor WhatsApp pemilik website belum tersedia.</p>}
       </motion.div>
 
       <div className="relative mt-16 flex flex-wrap justify-center gap-6 text-xs font-semibold tracking-[0.24em] text-smoke">
         <button type="button" onClick={() => scrollTo(0, { offset: 0 })} className="hover:text-bone">
-          ↺ TONTON LAGI
+          ↺ {isNoahInna ? 'BACK TO TOP' : 'TONTON LAGI'}
         </button>
         <button type="button" onClick={onReplay} className="hover:text-bone">
-          ▶ ULANGI PEMBUKAAN
+          ▶ {isNoahInna ? 'REPLAY INTRO' : 'ULANGI PEMBUKAAN'}
         </button>
       </div>
 
@@ -78,7 +85,7 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
           <SeriesMark />
         </div>
         <p className="text-[11px] leading-relaxed text-smoke">
-          © {new Date().getFullYear()} {profile.displayName}. Portofolio personal bergaya layanan streaming — tidak berafiliasi dengan layanan streaming mana pun.
+          {isNoahInna ? `© ${new Date().getFullYear()} ${profile.displayName}. Created by Electronic Tiger Creative Studio. Independent creative portfolio.` : `© ${new Date().getFullYear()} ${profile.displayName}. Portofolio personal bergaya layanan streaming — tidak berafiliasi dengan layanan streaming mana pun.`}
         </p>
       </footer>
     </section>

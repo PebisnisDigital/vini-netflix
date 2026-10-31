@@ -105,11 +105,13 @@ export default function Originals({ onOpen }: { onOpen: (p: Project) => void }) 
       <div className="gutter mb-7 flex flex-wrap items-end justify-between gap-6 sm:mb-9">
         <div>
           <p className="mb-3 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.32em] text-crimson-2">
-            <span className="h-px w-8 bg-crimson-2" /> {projects.length} {profile.clientSlug === 'isa' ? 'Materi Pilihan' : profile.clientSlug === 'yantiriyantini' ? 'Buku & Penelitian' : 'Karya Orisinal'} · {profile.clientSlug === 'yantiriyantini' ? '2010–2026' : projects[0].year}
+            <span className="h-px w-8 bg-crimson-2" /> {projects.length} {profile.clientSlug === 'noahinna' ? 'Creative Formats' : profile.clientSlug === 'isa' ? 'Materi Pilihan' : profile.clientSlug === 'yantiriyantini' ? 'Buku & Penelitian' : 'Karya Orisinal'} · {profile.clientSlug === 'yantiriyantini' ? '2010–2026' : projects[0].year}
           </p>
-          <RevealText as="h2" text={profile.clientSlug === 'yantiriyantini' ? 'PUBLIKASI' : 'KARYA'} className="font-display text-[clamp(2.8rem,7vw,6rem)] leading-tight text-bone" />
+          <RevealText as="h2" text={profile.clientSlug === 'noahinna' ? 'THE WORK' : profile.clientSlug === 'yantiriyantini' ? 'PUBLIKASI' : 'KARYA'} className="font-display text-[clamp(2.8rem,7vw,6rem)] leading-tight text-bone" />
           <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-mist">
-            {profile.clientSlug === 'yantiriyantini'
+            {profile.clientSlug === 'noahinna'
+              ? 'Music-led videos, handcrafted 3D clay visuals, one educational tutorial and one explainer. Explore the cards to discover each format.'
+              : profile.clientSlug === 'yantiriyantini'
               ? 'Empat buku keperawatan anak dan dua penelitian. Geser kartu, lalu buka detail untuk membaca karya selengkapnya.'
               : `${projects.map((project) => project.title).join(' · ')}. Geser kartunya untuk menjelajahi setiap cerita.`}
           </p>
@@ -155,7 +157,7 @@ export default function Originals({ onOpen }: { onOpen: (p: Project) => void }) 
                 aria-hidden={copy !== 1} tabIndex={copy === 1 ? 0 : -1}
                 className="group flex aspect-[3/4] w-[70vw] shrink-0 snap-start flex-col items-center justify-center gap-4 rounded-2xl border border-dashed border-white/15 text-center transition hover:border-crimson-2/60 sm:w-[44vw] lg:aspect-auto lg:h-[66vh] lg:w-[24vw]">
                 <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/25 text-2xl text-bone transition group-hover:scale-110 group-hover:border-crimson-2 group-hover:text-crimson-2">↗</span>
-                <span className="font-display text-3xl tracking-wide text-bone">Kunjungi Website</span>
+                <span className="font-display text-3xl tracking-wide text-bone">{profile.clientSlug === 'noahinna' ? 'Visit Website' : 'Kunjungi Website'}</span>
                 <span className="text-xs text-mist">{profile.links.website.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
               </a>
             )}
@@ -173,7 +175,7 @@ export default function Originals({ onOpen }: { onOpen: (p: Project) => void }) 
           ))}
         </div>
         <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-smoke">
-          {String(active + 1).padStart(2, '0')} / {String(slideCount).padStart(2, '0')} · Geser untuk menjelajah
+          {String(active + 1).padStart(2, '0')} / {String(slideCount).padStart(2, '0')} · {profile.clientSlug === 'noahinna' ? 'Swipe to explore' : 'Geser untuk menjelajah'}
         </span>
       </div>
     </div>
