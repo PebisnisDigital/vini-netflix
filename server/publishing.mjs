@@ -89,6 +89,20 @@ export function validatePublishPayload(payload) {
   if (brief.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(brief.email)) errors.push('Email tidak valid.');
   if (!normalizeClientWhatsapp(brief.whatsapp)) errors.push('Nomor WhatsApp pemilik website wajib valid agar CTA tidak salah tujuan.');
   if (brief.theme && (typeof brief.theme !== 'object' || !/^#[0-9a-f]{6}$/i.test(brief.theme.accent || '') || !/^#[0-9a-f]{6}$/i.test(brief.theme.background || ''))) errors.push('Warna tema harus berupa kode hex yang aman.');
+  if (brief.visualDesign !== undefined) {
+    const design = brief.visualDesign;
+    const color = (value) => typeof value === 'string' && /^#[0-9a-f]{6}$/i.test(value);
+    const sections = ['top', 'continue', 'about', 'journey', 'originals', 'picks', 'skills', 'moments', 'story', 'contact'];
+    const fonts = ['Default', 'Inter', 'Nunito Sans', 'Playfair Display', 'Poppins', 'Montserrat', 'Caveat', 'Bebas Neue', 'Georgia'];
+    const icons = ['star', 'heart', 'award', 'book-open', 'graduation-cap', 'briefcase-business', 'mail', 'phone', 'globe', 'map-pin', 'leaf', 'check-circle', 'lightbulb', 'sparkles', 'users', 'instagram', 'facebook', 'youtube', 'music-2'];
+    const textStyle = (style) => style && typeof style === 'object' && !Array.isArray(style) && (style.color === undefined || color(style.color)) && (style.fontFamily === undefined || fonts.includes(style.fontFamily)) && (style.fontSize === undefined || Number.isInteger(style.fontSize) && style.fontSize >= 10 && style.fontSize <= 112);
+    if (!design || typeof design !== 'object' || Array.isArray(design)) errors.push('Pengaturan desain visual tidak valid.');
+    else {
+      if (design.sectionBackgrounds !== undefined && (!design.sectionBackgrounds || typeof design.sectionBackgrounds !== 'object' || Array.isArray(design.sectionBackgrounds) || Object.entries(design.sectionBackgrounds).some(([section, value]) => !sections.includes(section) || !color(value)))) errors.push('Warna section tidak valid.');
+      if (design.textStyles !== undefined && (!design.textStyles || typeof design.textStyles !== 'object' || Array.isArray(design.textStyles) || Object.keys(design.textStyles).length > 200 || Object.entries(design.textStyles).some(([field, style]) => !/^[a-z0-9:-]{1,100}$/.test(field) || !textStyle(style)))) errors.push('Gaya tulisan tidak valid.');
+      if (design.widgets !== undefined && (!Array.isArray(design.widgets) || design.widgets.length > 60 || design.widgets.some((widget) => !widget || typeof widget.id !== 'string' || !/^[a-z0-9-]{1,64}$/.test(widget.id) || !sections.includes(widget.section) || !['text', 'icon'].includes(widget.type) || typeof widget.text !== 'string' || widget.text.length > 1000 || widget.icon !== undefined && !icons.includes(widget.icon) || !textStyle(widget) || widget.url !== undefined && widget.url !== '' && !urlValid(widget.url)))) errors.push('Widget teks/ikon tidak valid.');
+    }
+  }
   if (brief.designVariant !== undefined && brief.designVariant !== 'chibi-cinema') errors.push('Gaya website tidak dikenali.');
   if (brief.templateId !== undefined && !getTemplate(brief.templateId)) errors.push('Template website tidak dikenal.');
   else if (brief.templateId !== undefined && !canApplyTemplate(brief.templateId)) errors.push('Template ini belum siap diterbitkan untuk klien.');

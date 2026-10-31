@@ -3,6 +3,7 @@ import * as sushmita from './sushmitaOriginal';
 import { portfolioServiceCTA } from './portfolioServiceCTA';
 import { clientReferralCode, normalizeClientWhatsapp } from '../utils/clientWhatsapp.mjs';
 import { canApplyIdentityMode, canApplyTemplate, getIdentityMode, getTemplate, type IdentityMode, type TemplateId } from './templateCatalog.mjs';
+import { validateVisualDesign, type VisualDesign } from './visualDesign';
 
 /** Satu sumber data untuk setiap halaman portofolio, tanpa teks klien lain. */
 export type PortfolioContent = {
@@ -41,6 +42,7 @@ export type PortfolioContent = {
   viewerProfiles: typeof vini.viewerProfiles;
   sectionMeta: typeof vini.sectionMeta;
   watchCards?: WatchCard[];
+  visualDesign?: VisualDesign;
 };
 
 export type ClientTheme = { accent: string; background: string };
@@ -179,6 +181,7 @@ export type ClientBrief = {
   journeyAside?: string;
   journeyKicker?: string;
   theme?: ClientTheme;
+  visualDesign?: VisualDesign;
   /** Tampilan pilihan klien, tanpa mengubah template Netflix milik klien lain. */
   designVariant?: 'chibi-cinema';
   /** ID gaya katalog Studio; status belum aktif tidak boleh diterbitkan. */
@@ -336,6 +339,7 @@ export function validateBrief(value: unknown, options: { requireWhatsapp?: boole
   else if (b.whatsapp?.trim() && !normalizeClientWhatsapp(b.whatsapp)) errors.push('Nomor WhatsApp harus berupa nomor seluler Indonesia yang valid (contoh: 08... atau 628...).');
   if (options.requireWhatsapp && !normalizeClientWhatsapp(b.whatsapp)) errors.push('Nomor WhatsApp pemilik website wajib diisi untuk tombol referral.');
   if (b.theme && (!/^#[0-9a-fA-F]{6}$/.test(b.theme.accent) || !/^#[0-9a-fA-F]{6}$/.test(b.theme.background))) errors.push('Warna tema harus menggunakan kode hex 6 digit.');
+  errors.push(...validateVisualDesign(b.visualDesign));
   if (b.designVariant !== undefined && b.designVariant !== 'chibi-cinema') errors.push('Pilihan gaya website tidak dikenal.');
   if (b.templateId !== undefined && !getTemplate(b.templateId)) errors.push('Template website tidak dikenal.');
   else if (b.templateId !== undefined && !canApplyTemplate(b.templateId)) errors.push('Template ini baru tersedia sebagai demo atau rencana. Belum dapat diterbitkan untuk klien.');
@@ -463,7 +467,7 @@ export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: 
       templateId: brief.templateId || 'original',
       identityMode: brief.identityMode || 'photo',
     },
-    projects, experience, education: (brief.education ?? []).map((e) => ({ school: e.school, degree: e.degree, place: e.place, period: e.period, score: e.score || '' })), achievements, certifications: [], skillCategories,
+    projects, experience, education: (brief.education ?? []).map((e) => ({ school: e.school, degree: e.degree, place: e.place, period: e.period, score: e.score || '' })), achievements, certifications: [], skillCategories, visualDesign: brief.visualDesign,
     skillEvidence: {}, skillsHeading: brief.skillsHeading, skillsAside: brief.skillsAside, skillsKicker: brief.skillsKicker, seasons, journeyHeading: brief.journeyHeading, journeyAside: brief.journeyAside, journeyKicker: brief.journeyKicker, topPicks, picksHeading: brief.picksHeading, picksKicker: brief.picksKicker, introSlides, viewerProfiles, sectionMeta, watchCards,
   };
 }

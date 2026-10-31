@@ -37,6 +37,17 @@ test('data Satria mengganti seluruh konten tanpa identitas klien lain', async ()
     assert.equal(themed.profile.theme.accent, '#14c5b8');
     assert.equal(themed.projects[0].palette.accent, '#14c5b8');
     assert.ok(validateBrief({ ...sample, theme: { accent: 'red', background: '#040f12' } }).length > 0);
+    const visualDesign = {
+      sectionBackgrounds: { about: '#fff8ee', originals: '#101820' },
+      textStyles: { name: { color: '#17202a', fontFamily: 'Playfair Display', fontSize: 56 }, 'project:0:title': { color: '#f9f2e9', fontSize: 26 } },
+      widgets: [{ id: 'widget-1', section: 'about', type: 'text', text: 'Karya dan pengalaman', color: '#28382a', fontSize: 21 }, { id: 'widget-2', section: 'contact', type: 'icon', icon: 'mail', text: 'Hubungi Saya', url: 'https://example.com', color: '#ffffff' }],
+    };
+    assert.deepEqual(validateBrief({ ...sample, visualDesign }), []);
+    const designed = createPortfolioFromBrief({ ...sample, visualDesign });
+    assert.deepEqual(designed.visualDesign, visualDesign);
+    assert.ok(validateBrief({ ...sample, visualDesign: { ...visualDesign, sectionBackgrounds: { about: 'red' } } }).length > 0);
+    assert.ok(validateBrief({ ...sample, visualDesign: { ...visualDesign, textStyles: { name: { fontSize: 900 } } } }).length > 0);
+    assert.ok(validateBrief({ ...sample, visualDesign: { ...visualDesign, widgets: [{ ...visualDesign.widgets[0], section: 'bukan-section' }] } }).length > 0);
     const watchCards = [{ target: 'moments', title: 'Cerita Saya', subtitle: 'Sorotan perjalanan', image: '/clients/satria/jelajah-1.webp' }];
     const withWatch = createPortfolioFromBrief({ ...sample, watchCards });
     assert.deepEqual(withWatch.watchCards, watchCards);

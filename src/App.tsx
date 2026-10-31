@@ -34,6 +34,7 @@ import Skills from './components/Skills';
 import Achievements from './components/Achievements';
 import ResumeSection from './components/ResumeViewer';
 import FinalCTA from './components/FinalCTA';
+import { VisualDesignStyles, VisualWidgets } from './components/VisualDesignLayer';
 import { EASE } from './components/fx';
 
 // Overlays are only needed on demand — split them out of the first load.
@@ -81,6 +82,7 @@ export default function App({ slug, editorMode = false }: { slug: string; editor
   } as CSSProperties : undefined;
   return (
     <div style={styles} className={`min-h-screen bg-ink client-portfolio${editorMode ? ' studio-canvas' : ''}${slug === 'isa' ? ' isa-light' : ''}${slug === 'vini3' ? ' chibi-theme' : ''}${animeCinema ? ' anime-theme' : ''}${chibiCinema ? ' chibi-cinema' : ''}${clayCinema ? ' clay-cinema' : ''}${comicCinema ? ' comic-cinema' : ''}${editorialCinema ? ' editorial-cinema' : ''}${doodleCinema ? ' doodle-cinema' : ''}${storybookCinema ? ' storybook-cinema' : ''}${scrapbookCinema ? ' scrapbook-cinema' : ''}${papercutCinema ? ' papercut-cinema' : ''}${pixelCinema ? ' pixel-cinema' : ''}${miniatureCinema ? ' miniature-cinema' : ''}${documentaryCinema ? ' documentary-cinema' : ''}${minimalistCinema ? ' minimalist-cinema' : ''}${futuristicNeonCinema ? ' futuristic-cinema' : ''}${vintageHeritageCinema ? ' vintage-cinema' : ''}`}>
+      <VisualDesignStyles />
       <SmoothScrollProvider>
         <Series slug={slug} editorMode={editorMode} />
       </SmoothScrollProvider>
@@ -220,13 +222,17 @@ function Series({ slug, editorMode }: { slug: string; editorMode: boolean }) {
             ) : (
               <Hero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onResume={() => setResumeOpen(true)} profileId={profileId} editorMode={editorMode} />
             )}
+            <VisualWidgets section="top" />
             <ContinueWatching order={order} />
+            <VisualWidgets section="continue" />
             {order.map((id) => (
               <Scene key={id} id={id} className={id === 'originals' ? '!py-0 sm:!py-0' : ''}>
                 {sections[id]}
+                <VisualWidgets section={id} />
               </Scene>
             ))}
             <FinalCTA onReplay={() => setStage('opening')} />
+            <VisualWidgets section="contact" />
           </main>
         </motion.div>
       )}

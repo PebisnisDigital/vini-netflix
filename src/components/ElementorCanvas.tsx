@@ -3,6 +3,8 @@ import { createCanvasPortfolio, effectiveTheme, normalizeSlug, type ClientBrief 
 import { preparedBrief, type StudioDraft } from '../data/studioDraft';
 import { withStudioDemoPreviewAssets } from '../data/studioStyleStarters';
 import { optimizeStudioImage, type StudioImageKind } from '../utils/imageOptimizer.mjs';
+import { VISUAL_SECTIONS, type VisualSectionId } from '../data/visualDesign';
+import StudioDesignSidebar from './StudioDesignSidebar';
 
 type CanvasProps = {
   draft: StudioDraft;
@@ -30,6 +32,9 @@ export default function ElementorCanvas({ draft, patch, changeProject, setPhoto,
   const latest = useRef({ draft, patch, changeProject, setPhoto, setWatchPhoto, watchAction, setPickPhoto, pickAction, setEpisodePhoto, seasonAction, episodeAction, reorder, removeProject, notice });
   latest.current = { draft, patch, changeProject, setPhoto, setWatchPhoto, watchAction, setPickPhoto, pickAction, setEpisodePhoto, seasonAction, episodeAction, reorder, removeProject, notice };
   const [device, setDevice] = useState<'desktop' | 'mobile'>('desktop');
+  const [activeSection, setActiveSection] = useState<VisualSectionId>('top');
+  const [selectedText, setSelectedText] = useState('');
+  const [selectedWidget, setSelectedWidget] = useState('');
   const [photoUrls, setPhotoUrls] = useState<{ portrait: string; projects: Record<number, string>; watch: Record<number, string>; picks: Record<number, string>; episodes: Record<string, string> }>({ portrait: '', projects: {}, watch: {}, picks: {}, episodes: {} });
   const current = preparedBrief(draft);
 
@@ -82,6 +87,12 @@ export default function ElementorCanvas({ draft, patch, changeProject, setPhoto,
       const data = event.data;
       if (!data || typeof data.type !== 'string') return;
       if (data.type === 'PESONAFLIX_CANVAS_READY') { sendCanvas(); return; }
+      if (data.type === 'PESONAFLIX_VISUAL_SELECT') {
+        if (VISUAL_SECTIONS.some((section) => section.id === data.section)) setActiveSection(data.section as VisualSectionId);
+        if (typeof data.field === 'string' && data.field !== 'portrait' && /^[a-z0-9:-]{1,100}$/.test(data.field)) { setSelectedText(data.field); setSelectedWidget(''); }
+        if (typeof data.widgetId === 'string' && /^widget-[a-z0-9-]+$/.test(data.widgetId)) { setSelectedWidget(data.widgetId); setSelectedText(''); }
+        return;
+      }
       const { draft: state, patch: apply, changeProject: applyProject, setPhoto: photo, setWatchPhoto: watchPhoto, watchAction: updateWatch, setPickPhoto: pickPhoto, pickAction: updatePick, setEpisodePhoto: episodePhoto, seasonAction: updateSeason, episodeAction: updateEpisode, reorder: move, removeProject: remove, notice: notify } = latest.current;
       if (data.type === 'PESONAFLIX_VISUAL_TEXT' && typeof data.field === 'string' && typeof data.value === 'string' && data.value.length < 15000) {
         const field = data.field;
@@ -268,8 +279,11 @@ export default function ElementorCanvas({ draft, patch, changeProject, setPhoto,
       <div><p className="text-sm font-extrabold">✦ Editor Visual PESONAFLIX <span className="ml-1 rounded bg-emerald-500/15 px-2 py-1 text-[10px] text-emerald-300">EDIT LANGSUNG</span></p><p className="mt-1 text-xs text-white/45">Klik teks atau foto di kanvas. Gunakan tombol di dalam kanvas untuk menambah dan mengatur kartu.</p></div>
       <div className="flex gap-1 rounded-lg bg-black/40 p-1"><button type="button" aria-pressed={device === 'desktop'} onClick={() => setDevice('desktop')} className={`rounded-md px-3 py-1.5 text-xs ${device === 'desktop' ? 'bg-white/15' : 'text-white/45'}`}>Desktop</button><button type="button" aria-pressed={device === 'mobile'} onClick={() => setDevice('mobile')} className={`rounded-md px-3 py-1.5 text-xs ${device === 'mobile' ? 'bg-white/15' : 'text-white/45'}`}>HP</button></div>
     </div>
-    <div className="flex justify-center overflow-auto bg-[#050506] p-2 sm:p-4">
-      <iframe ref={frame} title="Kanvas visual portofolio Netflix" src="/studio/preview?canvas=1" onLoad={sendCanvas} className="block h-[min(84vh,980px)] min-h-[650px] shrink-0 rounded-lg border border-white/15 bg-[#07070a] shadow-2xl transition-[width] duration-300" style={{ width: device === 'mobile' ? 'min(390px, 100%)' : '100%' }} />
+    <div className="flex flex-col lg:flex-row">
+      <StudioDesignSidebar brief={draft.brief} patch={patch} activeSection={activeSection} selectSection={setActiveSection} selectedText={selectedText} selectText={setSelectedText} selectedWidget={selectedWidget} selectWidget={setSelectedWidget} />
+      <div className="flex min-w-0 flex-1 justify-center overflow-auto bg-[#050506] p-2 sm:p-4">
+        <iframe ref={frame} title="Kanvas visual portofolio Netflix" src="/studio/preview?canvas=1" onLoad={sendCanvas} className="block h-[min(84vh,980px)] min-h-[650px] shrink-0 rounded-lg border border-white/15 bg-[#07070a] shadow-2xl transition-[width] duration-300" style={{ width: device === 'mobile' ? 'min(390px, 100%)' : '100%' }} />
+      </div>
     </div>
     <p className="px-4 pb-4 text-xs leading-relaxed text-white/45">Edit di kanvas tersimpan sebagai draft lokal. Tombol Simpan Draft menyimpan ke browser ini, bukan langsung menerbitkan website.</p>
   </section>;

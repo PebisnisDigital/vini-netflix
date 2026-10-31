@@ -29,6 +29,18 @@ test('tema klien hanya menerima kode warna hex yang aman', () => {
   assert.ok(validatePublishPayload({ brief: { ...sample, theme: { accent: 'url(javascript:alert(1))', background: '#09090e' } }, assets: [], mode: 'create' }).some((message) => message.includes('Warna tema')));
 });
 
+test('builder visual menerima gaya per section dan menolak CSS atau ikon berbahaya', () => {
+  const visualDesign = {
+    sectionBackgrounds: { about: '#ffffff' },
+    textStyles: { name: { color: '#202020', fontFamily: 'Inter', fontSize: 38 } },
+    widgets: [{ id: 'widget-hello', section: 'about', type: 'icon', icon: 'star', text: 'Halo', url: 'https://example.com' }],
+  };
+  assert.deepEqual(validatePublishPayload({ brief: { ...sample, visualDesign }, assets: [], mode: 'edit' }), []);
+  assert.ok(validatePublishPayload({ brief: { ...sample, visualDesign: { ...visualDesign, textStyles: { name: { color: 'url(javascript:bad)' } } } }, assets: [], mode: 'edit' }).length);
+  assert.ok(validatePublishPayload({ brief: { ...sample, visualDesign: { ...visualDesign, widgets: [{ ...visualDesign.widgets[0], icon: '<script>' }] } }, assets: [], mode: 'edit' }).length);
+  assert.ok(validatePublishPayload({ brief: { ...sample, visualDesign: { ...visualDesign, sectionBackgrounds: { about: 'red' } } }, assets: [], mode: 'edit' }).length);
+});
+
 test('kartu jelajah boleh ditambah tetapi target dan fotonya wajib aman', () => {
   const watchCards = [{ title: 'Momen', subtitle: 'Cerita terbaik', target: 'moments', image: '/clients/satria/jelajah-1.webp' }];
   assert.deepEqual(validatePublishPayload({ brief: { ...sample, watchCards }, assets: [{ path: 'public/clients/satria/jelajah-1.webp', sha: 'a'.repeat(40) }], mode: 'create' }), []);

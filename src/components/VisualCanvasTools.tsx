@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type MouseEvent, type ReactNode } from 'react';
 import { effectiveTheme, type PortfolioContent } from '../data/clientModel';
+import { VISUAL_SECTIONS } from '../data/visualDesign';
 
 type EditBox = {
   field: string;
@@ -19,7 +20,8 @@ type ChangeMessage =
   | { type: 'PESONAFLIX_VISUAL_TEXT'; field: string; value: string }
   | { type: 'PESONAFLIX_VISUAL_FILE'; index: number | null; file: File; watchIndex?: number; pickIndex?: number; seasonIndex?: number; episodeIndex?: number }
   | { type: 'PESONAFLIX_VISUAL_ACTION'; action: string; index?: number; seasonIndex?: number; categoryIndex?: number }
-  | { type: 'PESONAFLIX_VISUAL_THEME'; key: 'accent' | 'background'; value: string };
+  | { type: 'PESONAFLIX_VISUAL_THEME'; key: 'accent' | 'background'; value: string }
+  | { type: 'PESONAFLIX_VISUAL_SELECT'; section: string; field?: string; widgetId?: string };
 
 const uiButton = 'rounded-lg border border-white/20 bg-[#18181f] px-3 py-2 text-xs font-semibold text-white transition hover:border-[#ff6983] hover:bg-[#30202a] disabled:opacity-30';
 const uiInput = 'w-full rounded-lg border border-white/20 bg-[#14141a] px-3 py-2 text-sm text-white outline-none focus:border-[#ff6983]';
@@ -136,7 +138,16 @@ export default function VisualCanvasTools({ content, children }: Props) {
 
   const handleCanvasClick = (event: MouseEvent<HTMLDivElement>) => {
     const target = event.target as HTMLElement;
+    const widget = target.closest<HTMLElement>('[data-studio-widget]');
+    const closestSection = target.closest<HTMLElement>('section[id]');
+    const section = VISUAL_SECTIONS.find((item) => item.id === closestSection?.id)?.id || 'top';
+    if (widget?.dataset.studioWidget) {
+      emit({ type: 'PESONAFLIX_VISUAL_SELECT', section: widget.dataset.studioSection || section, widgetId: widget.dataset.studioWidget });
+      event.preventDefault(); event.stopPropagation();
+      return;
+    }
     const editable = target.closest<HTMLElement>('[data-studio-edit]');
+    emit({ type: 'PESONAFLIX_VISUAL_SELECT', section, field: editable?.dataset.studioEdit || undefined });
     if (!editable) {
       // Hindari tautan luar dan aksi modal portofolio pada mode editor.
       if (target.closest('a, button, [role="button"]')) { event.preventDefault(); event.stopPropagation(); }

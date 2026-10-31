@@ -23,7 +23,7 @@ export default function ContinueWatching({ order }: { order: SectionId[] }) {
   const { pause } = useAutoRail(rail, { itemCount: cards.length, speed: 110 });
 
   return (
-    <section aria-labelledby="continue-title" className="relative z-10 isolate pb-10 pt-10 sm:pt-14">
+    <section id="continue" aria-labelledby="continue-title" className="relative z-10 isolate pb-10 pt-10 sm:pt-14">
       <div className="gutter mb-4 flex flex-wrap items-end justify-between gap-x-8 gap-y-2">
         <RevealText as="h2" text="Lanjutkan Menjelajah" className="font-sans text-lg font-semibold tracking-tight text-bone sm:text-2xl" />
         <span className="hidden text-xs text-smoke sm:block">Progres menunjukkan bagian yang sudah ditonton</span>
