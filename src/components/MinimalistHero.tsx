@@ -14,7 +14,7 @@ export default function MinimalistHero({ onPlay, onOpenProject }: {
   const { scrollTo } = useSmoothScroll();
   const noPortrait = !profile.portrait.src || profile.portrait.src === '/assets/portrait-720.webp';
   const conceptPhoto = /buatan AI|konsep|ilustrasi|bukan foto asli|fiksi/i.test(profile.portrait.alt);
-  const introductoryProfile = profile.clientSlug === 'ermaneffendi';
+  const introductoryProfile = profile.clientSlug === 'ermaneffendi' || profile.clientSlug === 'heriyono';
 
   return (
     <section id="top" className="minimalist-hero" aria-label={`Profil profesional ${profile.displayName}`}>

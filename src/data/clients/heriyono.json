@@ -1,0 +1,203 @@
+{
+  "slug": "heriyono",
+  "name": "Heriyono, CMT",
+  "role": "Volunteer · Relawan",
+  "location": "Indonesia",
+  "bio": "Perkenalkan, saya Heriyono, CMT. Saya menjalani peran sebagai volunteer atau relawan. Halaman ini menjadi ruang untuk memperkenalkan diri, menjalin komunikasi, dan membuka percakapan tentang kepedulian serta kemungkinan berkolaborasi. Saya percaya bahwa hubungan yang baik sering berawal dari saling mengenal. Silakan menghubungi saya melalui WhatsApp atau email.",
+  "tagline": [
+    "Volunteer · Kepedulian · Ruang Kolaborasi",
+    "Langkah sederhana bisa menjadi awal sesuatu yang berarti."
+  ],
+  "interests": [
+    "Kerelawanan",
+    "Kepedulian",
+    "Kolaborasi",
+    "Komunikasi Positif"
+  ],
+  "photo": {
+    "src": "/clients/heriyono/foto-profesional.webp",
+    "alt": "Visual potret profesional Heriyono berdasarkan foto yang diberikan, dengan kemeja putih dan blazer abu-abu gelap, latar transparan"
+  },
+  "email": "masthertau26@gmail.com",
+  "whatsapp": "085643766820",
+  "links": {},
+  "experiences": [
+    {
+      "company": "Kerelawanan",
+      "role": "Volunteer",
+      "period": "Peran saat ini",
+      "description": "Heriyono memperkenalkan dirinya sebagai volunteer. Melalui profil ini, ia membuka ruang untuk saling mengenal dan berkomunikasi seputar kepedulian serta peluang kolaborasi."
+    }
+  ],
+  "education": [],
+  "projects": [
+    {
+      "title": "Mengenal Heriyono",
+      "year": "PERKENALAN",
+      "description": "Heriyono, CMT memperkenalkan diri sebagai seorang volunteer. Halaman ini menjadi titik awal untuk mengenal sosok, profesi, dan cara menghubunginya secara langsung.",
+      "category": "Profil Relawan",
+      "tags": ["Heriyono", "Volunteer", "Perkenalan"],
+      "image": "/clients/heriyono/foto-profesional.webp"
+    },
+    {
+      "title": "Semangat Kepedulian",
+      "year": "NILAI",
+      "description": "Kepedulian dapat dimulai dari perhatian terhadap sekitar, kemauan mendengar, dan langkah kecil yang dilakukan bersama. Inilah semangat yang ingin diangkat dalam profil kerelawanan Heriyono.",
+      "category": "Arah & Kepedulian",
+      "tags": ["Kepedulian", "Kerelawanan", "Kebersamaan"]
+    },
+    {
+      "title": "Ruang Kolaborasi",
+      "year": "KOMUNIKASI",
+      "description": "Ingin berkenalan atau mendiskusikan kegiatan yang membutuhkan relawan? Mulailah dengan menyampaikan topik, kebutuhan, dan rencana melalui kontak Heriyono. Kesesuaian serta ketersediaan dapat dibicarakan langsung.",
+      "category": "Diskusi & Kolaborasi",
+      "tags": ["Kolaborasi", "Diskusi", "Komunikasi"],
+      "website": "https://wa.me/6285643766820?text=Halo%20Pak%20Heriyono%2C%20saya%20ingin%20berkenalan%20dan%20berdiskusi%20tentang%20peluang%20kolaborasi."
+    }
+  ],
+  "skills": [
+    "Volunteer",
+    "Kepedulian",
+    "Komunikasi",
+    "Kolaborasi"
+  ],
+  "skillCategories": [
+    {
+      "id": "peran",
+      "title": "Peran & Arah Kerelawanan",
+      "subtitle": "Pengenalan tentang profil Heriyono",
+      "skills": [
+        {
+          "name": "Volunteer",
+          "mono": "VOL",
+          "note": "Peran",
+          "evidence": ["Profesi yang disampaikan: volunteer", "Bagian dari identitas profesional Heriyono"]
+        },
+        {
+          "name": "Ruang Kepedulian",
+          "mono": "KP",
+          "note": "Arah cerita",
+          "evidence": ["Kepedulian menjadi tema pengenalan profil", "Kegiatan khusus dapat didiskusikan sesuai konteks"]
+        }
+      ]
+    },
+    {
+      "id": "komunikasi",
+      "title": "Komunikasi & Kolaborasi",
+      "subtitle": "Terhubung untuk saling mengenal",
+      "skills": [
+        {
+          "name": "Diskusi Kolaborasi",
+          "mono": "KB",
+          "note": "Percakapan",
+          "evidence": ["Sampaikan tema dan kebutuhan sebelum berkolaborasi", "Kesesuaian dan waktu dibahas secara langsung"]
+        }
+      ]
+    }
+  ],
+  "skillsHeading": "Kepedulian & Ruang Kolaborasi",
+  "skillsAside": "Volunteer memiliki banyak bentuk peran. Profil Heriyono menekankan perkenalan pribadi, semangat kepedulian, serta kemudahan untuk terhubung. Diskusikan kebutuhan dan peluang kegiatan secara langsung melalui kontak yang tersedia.",
+  "skillsKicker": "KENALI LEBIH DEKAT",
+  "highlights": [
+    {
+      "title": "Heriyono, CMT",
+      "description": "Identitas profil yang memperkenalkan sosok Heriyono secara personal dan profesional.",
+      "category": "PROFIL"
+    },
+    {
+      "title": "Volunteer",
+      "description": "Peran yang menjadi titik utama perkenalan dan cerita di halaman ini.",
+      "category": "PERAN"
+    },
+    {
+      "title": "Terhubung Langsung",
+      "description": "WhatsApp dan email tersedia untuk membuka percakapan mengenai peluang kolaborasi.",
+      "category": "KONTAK"
+    }
+  ],
+  "watchCards": [
+    {
+      "target": "about",
+      "title": "Kenali Heriyono",
+      "subtitle": "Profil volunteer dan perkenalan",
+      "image": "/clients/heriyono/foto-profesional.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Cerita Profil",
+      "subtitle": "Kepedulian dan ruang kolaborasi"
+    },
+    {
+      "target": "journey",
+      "title": "Langkah Kerelawanan",
+      "subtitle": "Dari perkenalan ke percakapan"
+    },
+    {
+      "target": "skills",
+      "title": "Peran & Arah",
+      "subtitle": "Hal yang ingin dikenalkan"
+    }
+  ],
+  "pickCards": [
+    {
+      "label": "PERKENALAN",
+      "title": "Mengenal Heriyono",
+      "detail": "Kenali sosok Heriyono, CMT melalui profil singkatnya.",
+      "image": "/clients/heriyono/foto-profesional.webp",
+      "palette": { "from": "#243d36", "via": "#8aa79c", "to": "#1b2927", "accent": "#d8e5ce" }
+    },
+    {
+      "label": "KEPEDULIAN",
+      "title": "Langkah yang Berarti",
+      "detail": "Tentang perhatian, kebersamaan, dan semangat kerelawanan.",
+      "palette": { "from": "#3b4b43", "via": "#a5b4a2", "to": "#1d2d2b", "accent": "#ebedda" }
+    },
+    {
+      "label": "KOLABORASI",
+      "title": "Mari Saling Terhubung",
+      "detail": "Buka percakapan melalui WhatsApp atau email yang tersedia.",
+      "palette": { "from": "#263f4b", "via": "#728e98", "to": "#192a2f", "accent": "#e3e7d7" }
+    }
+  ],
+  "picksHeading": "Perkenalan yang Membuka Jalan",
+  "picksKicker": "PROFIL · KEPEDULIAN · KOLABORASI",
+  "seasons": [
+    {
+      "number": 1,
+      "title": "Mengenal Heriyono",
+      "period": "Profil volunteer",
+      "synopsis": "Heriyono, CMT memperkenalkan dirinya sebagai volunteer, dengan ruang untuk menjalin komunikasi yang baik.",
+      "episodes": [
+        {
+          "title": "Perkenalan Heriyono",
+          "runtime": "Profil",
+          "description": "Mengenal nama, peran volunteer, dan jalur kontak Heriyono.",
+          "tags": ["Heriyono", "Volunteer"],
+          "image": "/clients/heriyono/foto-profesional.webp",
+          "palette": { "from": "#254034", "via": "#92a99d", "to": "#1b2c29", "accent": "#dfebd6" }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Membuka Ruang Kebaikan",
+      "period": "Komunikasi & kolaborasi",
+      "synopsis": "Sebuah percakapan bisa menjadi langkah awal untuk menemukan titik temu dan berkontribusi bersama.",
+      "episodes": [
+        {
+          "title": "Mulai dari Percakapan",
+          "runtime": "Diskusi",
+          "description": "Sampaikan topik kegiatan dan rencana kolaborasi, lalu diskusikan kecocokan serta ketersediaan dengan Heriyono.",
+          "tags": ["Diskusi", "Kolaborasi"],
+          "palette": { "from": "#2e4441", "via": "#8da7a6", "to": "#1a2d2d", "accent": "#d8e9df" }
+        }
+      ]
+    }
+  ],
+  "journeyHeading": "Mengawali Langkah Kepedulian",
+  "journeyAside": "Setiap peran dapat dimulai dari niat untuk hadir dan terhubung. Heriyono memperkenalkan dirinya sebagai volunteer dan membuka ruang perkenalan serta diskusi. Dari percakapan sederhana, kesempatan untuk saling mengenal dan bekerja bersama bisa tumbuh.",
+  "journeyKicker": "KENALAN · KEPEDULIAN · KOLABORASI",
+  "theme": { "accent": "#365c4d", "background": "#f6f6f3" },
+  "templateId": "minimalist",
+  "identityMode": "photo"
+}
