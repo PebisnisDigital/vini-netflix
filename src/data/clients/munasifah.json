@@ -43,7 +43,11 @@
       "year": "DOKUMENTASI",
       "description": "Foto kegiatan bersama anak-anak RA/TK di lingkungan sekolah. Momen ini memperlihatkan pendampingan dan kebersamaan dalam aktivitas yang melibatkan para peserta didik.",
       "category": "Kegiatan Sekolah",
-      "tags": ["RA Masyithoh 13", "Aktivitas Anak", "Pendampingan"],
+      "tags": [
+        "RA Masyithoh 13",
+        "Aktivitas Anak",
+        "Pendampingan"
+      ],
       "image": "/clients/munasifah/kegiatan-pendampingan.webp"
     },
     {
@@ -51,7 +55,11 @@
       "year": "DOKUMENTASI",
       "description": "Dokumentasi anak-anak dan para pendidik berkumpul untuk mengikuti rangkaian kegiatan bersama di sekolah.",
       "category": "Kegiatan Sekolah",
-      "tags": ["Kegiatan Bersama", "Lingkungan Sekolah", "RA/TK"],
+      "tags": [
+        "Kegiatan Bersama",
+        "Lingkungan Sekolah",
+        "RA/TK"
+      ],
       "image": "/clients/munasifah/kegiatan-kebersamaan.webp"
     },
     {
@@ -59,7 +67,11 @@
       "year": "DOKUMENTASI",
       "description": "Suasana aktivitas kelompok yang melibatkan gerak, tepuk tangan, dan interaksi anak-anak bersama pendidik.",
       "category": "Kegiatan Sekolah",
-      "tags": ["Kegiatan Kelas", "Gerak", "Belajar Bersama"],
+      "tags": [
+        "Kegiatan Kelas",
+        "Gerak",
+        "Belajar Bersama"
+      ],
       "image": "/clients/munasifah/kegiatan-belajar-bersama.webp"
     },
     {
@@ -67,7 +79,11 @@
       "year": "DOKUMENTASI",
       "description": "Foto bersama rombongan anak RA/TK dan para pendidik dalam kunjungan wisata edukasi. Kegiatan di luar kelas menjadi bagian dari dokumentasi pengalaman bersama.",
       "category": "Kegiatan Sekolah",
-      "tags": ["Wisata Edukasi", "Kebersamaan", "Sekolah"],
+      "tags": [
+        "Wisata Edukasi",
+        "Kebersamaan",
+        "Sekolah"
+      ],
       "image": "/clients/munasifah/wisata-edukasi.webp"
     },
     {
@@ -75,7 +91,11 @@
       "year": "DOKUMENTASI",
       "description": "Momen kegiatan ibadah bersama anak-anak dalam suasana belajar dan pembiasaan nilai-nilai keagamaan sejak usia dini.",
       "category": "Kegiatan Sekolah",
-      "tags": ["Pembiasaan", "Nilai Keagamaan", "RA/TK"],
+      "tags": [
+        "Pembiasaan",
+        "Nilai Keagamaan",
+        "RA/TK"
+      ],
       "image": "/clients/munasifah/kegiatan-ibadah.webp"
     },
     {
@@ -83,7 +103,11 @@
       "year": "MEDIA BELAJAR",
       "description": "Materi visual pengenalan konsep sama dengan dan tidak sama dengan melalui contoh benda-benda dekat dengan dunia anak.",
       "category": "Media Belajar",
-      "tags": ["Numerasi Dini", "Sama dan Tidak Sama", "Visual Edukasi"],
+      "tags": [
+        "Numerasi Dini",
+        "Sama dan Tidak Sama",
+        "Visual Edukasi"
+      ],
       "image": "/clients/munasifah/media-tanda-sama.webp"
     },
     {
@@ -91,7 +115,11 @@
       "year": "MEDIA BELAJAR",
       "description": "Materi visual mengenal anggota keluarga dan aktivitas kebersamaan di rumah dengan ilustrasi ramah anak.",
       "category": "Media Belajar",
-      "tags": ["Tema Keluarga", "Anak Usia Dini", "Ilustrasi"],
+      "tags": [
+        "Tema Keluarga",
+        "Anak Usia Dini",
+        "Ilustrasi"
+      ],
       "image": "/clients/munasifah/media-keluargaku.webp"
     },
     {
@@ -99,7 +127,11 @@
       "year": "VIDEO EDUKASI",
       "description": "Video edukasi singkat bertema kesehatan gigi dengan karakter animasi dan identitas Sifah Creative. Putar langsung dari halaman portofolio ini.",
       "category": "Video Belajar",
-      "tags": ["Video Edukasi", "Kesehatan Gigi", "Sifah Creative"],
+      "tags": [
+        "Video Edukasi",
+        "Kesehatan Gigi",
+        "Sifah Creative"
+      ],
       "image": "/clients/munasifah/video-gigiku-poster.webp",
       "website": "https://pesonaflix.vercel.app/clients/munasifah/video-gigiku-sehat.mp4"
     },
@@ -108,7 +140,11 @@
       "year": "2022",
       "description": "Piagam penghargaan Juara III Cipta Media Pembelajaran dari kegiatan apresiasi guru RA di Jawa Tengah, tertanggal 24 September 2022, atas nama Munasifah, S.Pd.AUD.",
       "category": "Sertifikat & Piagam",
-      "tags": ["Juara III", "Cipta Media Pembelajaran", "2022"],
+      "tags": [
+        "Juara III",
+        "Cipta Media Pembelajaran",
+        "2022"
+      ],
       "image": "/clients/munasifah/piagam-juara-iii.webp"
     },
     {
@@ -116,7 +152,11 @@
       "year": "2026",
       "description": "Sertifikat peserta webinar Implementasi Kurikulum Raudlatul Athfal KMA 1503 Tahun 2025 yang diselenggarakan Pokjawas Madrasah Provinsi Jawa Tengah pada 2 Juni 2026.",
       "category": "Sertifikat & Piagam",
-      "tags": ["Webinar", "Kurikulum RA", "2026"],
+      "tags": [
+        "Webinar",
+        "Kurikulum RA",
+        "2026"
+      ],
       "image": "/clients/munasifah/sertifikat-webinar-kurikulum.webp"
     },
     {
@@ -124,7 +164,11 @@
       "year": "2026",
       "description": "Sertifikat kelulusan penyelesaian pembuatan tiga ebook dengan tools CUANIFY BIKIN BUKU, terbit 31 Januari 2026 atas nama Munasifah.",
       "category": "Sertifikat & Piagam",
-      "tags": ["Ebook", "Karya Digital", "2026"],
+      "tags": [
+        "Ebook",
+        "Karya Digital",
+        "2026"
+      ],
       "image": "/clients/munasifah/sertifikat-ebook-cuanify.webp"
     },
     {
@@ -132,7 +176,11 @@
       "year": "2024",
       "description": "Sertifikat partisipasi kelas Artificial Intelligence (AI) Magic Gambar dan Video Batch 1 yang berlangsung 06–21 Oktober 2024.",
       "category": "Sertifikat & Piagam",
-      "tags": ["AI", "Gambar & Video", "2024"],
+      "tags": [
+        "AI",
+        "Gambar & Video",
+        "2024"
+      ],
       "image": "/clients/munasifah/sertifikat-pelatihan-oktober.webp"
     },
     {
@@ -140,7 +188,11 @@
       "year": "2024",
       "description": "Sertifikat partisipasi kelas Artificial Intelligence (AI) Canva Batch 1 yang berlangsung 05–18 November 2024.",
       "category": "Sertifikat & Piagam",
-      "tags": ["AI Canva", "Pelatihan", "2024"],
+      "tags": [
+        "AI Canva",
+        "Pelatihan",
+        "2024"
+      ],
       "image": "/clients/munasifah/sertifikat-pelatihan-november.webp"
     }
   ],
@@ -162,13 +214,19 @@
           "name": "Pendidikan RA/TK",
           "mono": "RA",
           "note": "Profesi",
-          "evidence": ["Mengajar di RA Masyithoh 13 Krapyak Pekalongan", "Dokumentasi kegiatan bersama anak usia dini"]
+          "evidence": [
+            "Mengajar di RA Masyithoh 13 Krapyak Pekalongan",
+            "Dokumentasi kegiatan bersama anak usia dini"
+          ]
         },
         {
           "name": "Kegiatan dan Pembiasaan",
           "mono": "KB",
           "note": "Aktivitas sekolah",
-          "evidence": ["Dokumentasi gerak dan kebersamaan", "Kegiatan pembiasaan ibadah bersama"]
+          "evidence": [
+            "Dokumentasi gerak dan kebersamaan",
+            "Kegiatan pembiasaan ibadah bersama"
+          ]
         }
       ]
     },
@@ -181,13 +239,19 @@
           "name": "Media Belajar Visual",
           "mono": "MV",
           "note": "Contoh karya",
-          "evidence": ["Poster pengenalan tanda sama dengan dan tidak sama dengan", "Poster bertema keluarga"]
+          "evidence": [
+            "Poster pengenalan tanda sama dengan dan tidak sama dengan",
+            "Poster bertema keluarga"
+          ]
         },
         {
           "name": "Pembelajaran Digital",
           "mono": "DG",
           "note": "Sertifikat & media",
-          "evidence": ["Video edukasi Gigiku Sehat dan Kuat", "Sertifikat kelas AI dan pembuatan ebook"]
+          "evidence": [
+            "Video edukasi Gigiku Sehat dan Kuat",
+            "Sertifikat kelas AI dan pembuatan ebook"
+          ]
         }
       ]
     }
@@ -244,7 +308,8 @@
     {
       "target": "journey",
       "title": "Cerita Sang Pendidik",
-      "subtitle": "Perjalanan dan proses belajar"
+      "subtitle": "Perjalanan dan proses belajar",
+      "image": ""
     }
   ],
   "pickCards": [
@@ -253,28 +318,48 @@
       "title": "Bersama Anak, Tumbuh Bersama",
       "detail": "Dokumentasi aktivitas anak-anak bersama pendidik di RA/TK.",
       "image": "/clients/munasifah/kegiatan-pendampingan.webp",
-      "palette": { "from": "#163f40", "via": "#3f8b82", "to": "#0f2934", "accent": "#e8d9a6" }
+      "palette": {
+        "from": "#163f40",
+        "via": "#3f8b82",
+        "to": "#0f2934",
+        "accent": "#e8d9a6"
+      }
     },
     {
       "label": "MEDIA PEMBELAJARAN",
       "title": "Ayo Mengenal Tanda = dan ≠",
       "detail": "Mengenalkan konsep sama dan tidak sama melalui ilustrasi.",
       "image": "/clients/munasifah/media-tanda-sama.webp",
-      "palette": { "from": "#215f65", "via": "#77c8b5", "to": "#1b3c49", "accent": "#e8f2cf" }
+      "palette": {
+        "from": "#215f65",
+        "via": "#77c8b5",
+        "to": "#1b3c49",
+        "accent": "#e8f2cf"
+      }
     },
     {
       "label": "VIDEO EDUKASI",
       "title": "Gigiku Sehat dan Kuat",
       "detail": "Video belajar animasi singkat bertema kesehatan gigi.",
       "image": "/clients/munasifah/video-gigiku-poster.webp",
-      "palette": { "from": "#356b8b", "via": "#a5ccdf", "to": "#294962", "accent": "#fff0c8" }
+      "palette": {
+        "from": "#356b8b",
+        "via": "#a5ccdf",
+        "to": "#294962",
+        "accent": "#fff0c8"
+      }
     },
     {
       "label": "PENGHARGAAN",
       "title": "Juara III Cipta Media Pembelajaran",
       "detail": "Piagam penghargaan dari apresiasi guru RA pada tahun 2022.",
       "image": "/clients/munasifah/piagam-juara-iii.webp",
-      "palette": { "from": "#665127", "via": "#c99c55", "to": "#2e3938", "accent": "#fce6bd" }
+      "palette": {
+        "from": "#665127",
+        "via": "#c99c55",
+        "to": "#2e3938",
+        "accent": "#fce6bd"
+      }
     }
   ],
   "picksHeading": "Beragam Cara untuk Belajar",
@@ -290,17 +375,33 @@
           "title": "Kegiatan Belajar Bersama",
           "runtime": "Dokumentasi Sekolah",
           "description": "Suasana interaksi dan aktivitas bersama anak-anak di lingkungan sekolah.",
-          "tags": ["RA/TK", "Kegiatan Sekolah"],
+          "tags": [
+            "RA/TK",
+            "Kegiatan Sekolah"
+          ],
           "image": "/clients/munasifah/kegiatan-belajar-bersama.webp",
-          "palette": { "from": "#174c43", "via": "#79ad97", "to": "#1a3438", "accent": "#f6e6b5" }
+          "palette": {
+            "from": "#174c43",
+            "via": "#79ad97",
+            "to": "#1a3438",
+            "accent": "#f6e6b5"
+          }
         },
         {
           "title": "Wisata Edukasi",
           "runtime": "Dokumentasi Kegiatan",
           "description": "Momen rombongan anak-anak dan guru dalam kunjungan wisata edukasi.",
-          "tags": ["Wisata Edukasi", "Kebersamaan"],
+          "tags": [
+            "Wisata Edukasi",
+            "Kebersamaan"
+          ],
           "image": "/clients/munasifah/wisata-edukasi.webp",
-          "palette": { "from": "#275257", "via": "#adbc85", "to": "#263e46", "accent": "#f3e4b6" }
+          "palette": {
+            "from": "#275257",
+            "via": "#adbc85",
+            "to": "#263e46",
+            "accent": "#f3e4b6"
+          }
         }
       ]
     },
@@ -314,17 +415,33 @@
           "title": "Tanda Sama dan Tidak Sama",
           "runtime": "Media Visual",
           "description": "Belajar membandingkan jumlah benda lewat ilustrasi sederhana.",
-          "tags": ["Numerasi", "Anak Usia Dini"],
+          "tags": [
+            "Numerasi",
+            "Anak Usia Dini"
+          ],
           "image": "/clients/munasifah/media-tanda-sama.webp",
-          "palette": { "from": "#395d83", "via": "#a7c4de", "to": "#253b59", "accent": "#f9e6a1" }
+          "palette": {
+            "from": "#395d83",
+            "via": "#a7c4de",
+            "to": "#253b59",
+            "accent": "#f9e6a1"
+          }
         },
         {
           "title": "Gigiku Sehat dan Kuat",
           "runtime": "Video 40 Detik",
           "description": "Video animasi edukasi kesehatan gigi dari Sifah Creative.",
-          "tags": ["Video Edukasi", "Kesehatan Gigi"],
+          "tags": [
+            "Video Edukasi",
+            "Kesehatan Gigi"
+          ],
           "image": "/clients/munasifah/video-gigiku-poster.webp",
-          "palette": { "from": "#2d607c", "via": "#9cc6d2", "to": "#244358", "accent": "#f9e6c2" }
+          "palette": {
+            "from": "#2d607c",
+            "via": "#9cc6d2",
+            "to": "#244358",
+            "accent": "#f9e6c2"
+          }
         }
       ]
     },
@@ -338,17 +455,33 @@
           "title": "Juara III Cipta Media Pembelajaran",
           "runtime": "2022",
           "description": "Piagam penghargaan tingkat Provinsi Jawa Tengah dalam bidang cipta media pembelajaran.",
-          "tags": ["Penghargaan", "Media Belajar"],
+          "tags": [
+            "Penghargaan",
+            "Media Belajar"
+          ],
           "image": "/clients/munasifah/piagam-juara-iii.webp",
-          "palette": { "from": "#69552c", "via": "#c0a268", "to": "#3a3d32", "accent": "#ffedc4" }
+          "palette": {
+            "from": "#69552c",
+            "via": "#c0a268",
+            "to": "#3a3d32",
+            "accent": "#ffedc4"
+          }
         },
         {
           "title": "Webinar Kurikulum RA",
           "runtime": "2026",
           "description": "Sertifikat peserta webinar implementasi kurikulum Raudlatul Athfal.",
-          "tags": ["Webinar", "Kurikulum RA"],
+          "tags": [
+            "Webinar",
+            "Kurikulum RA"
+          ],
           "image": "/clients/munasifah/sertifikat-webinar-kurikulum.webp",
-          "palette": { "from": "#236960", "via": "#b4d2a1", "to": "#26443f", "accent": "#fce5af" }
+          "palette": {
+            "from": "#236960",
+            "via": "#b4d2a1",
+            "to": "#26443f",
+            "accent": "#fce5af"
+          }
         }
       ]
     }
@@ -356,7 +489,6 @@
   "journeyHeading": "Mengajar Anak, Terus Belajar sebagai Pendidik",
   "journeyAside": "Munasifah mengajar di RA Masyithoh 13 Krapyak Pekalongan. Foto-foto kegiatan memperlihatkan sisi keseharian sekolah, sementara poster dan video edukasi menunjukkan contoh media visual yang dibagikan. Piagam Juara III Cipta Media Pembelajaran tahun 2022 serta sertifikat webinar dan pelatihan menjadi bagian dari dokumentasi pengembangan diri yang melengkapi profilnya. Untuk terhubung, silakan hubungi Munasifah melalui WhatsApp atau email.",
   "journeyKicker": "KELAS · MEDIA BELAJAR · PENGEMBANGAN DIRI",
-  "theme": { "accent": "#4bbfa7", "background": "#10272d" },
   "templateId": "original",
   "identityMode": "photo"
 }
