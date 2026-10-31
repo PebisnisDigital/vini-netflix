@@ -23,8 +23,8 @@ export default function ContinueWatching({ order }: { order: SectionId[] }) {
   const { pause } = useAutoRail(rail, { itemCount: cards.length, speed: 110 });
 
   return (
-    <section aria-labelledby="continue-title" className="relative z-10 -mt-10 pb-10 sm:-mt-16">
-      <div className="gutter mb-4 flex items-end justify-between">
+    <section aria-labelledby="continue-title" className="relative z-10 isolate pb-10 pt-10 sm:pt-14">
+      <div className="gutter mb-4 flex flex-wrap items-end justify-between gap-x-8 gap-y-2">
         <RevealText as="h2" text="Lanjutkan Menjelajah" className="font-sans text-lg font-semibold tracking-tight text-bone sm:text-2xl" />
         <span className="hidden text-xs text-smoke sm:block">Progres menunjukkan bagian yang sudah ditonton</span>
       </div>
@@ -47,7 +47,8 @@ export default function ContinueWatching({ order }: { order: SectionId[] }) {
                 onHoverEnd={() => setHovered(null)}
                 onFocus={() => setHovered(i)}
                 onBlur={() => setHovered(null)}
-                className="client-watch-card group relative aspect-video w-[72vw] shrink-0 snap-start overflow-visible text-left sm:w-[42vw] md:w-[30vw] lg:w-[22vw]"
+                aria-label={`${item.title}. ${item.subtitle}`}
+                className="client-watch-card group relative aspect-video w-[72vw] min-w-0 shrink-0 snap-start overflow-visible text-left sm:w-[42vw] md:w-[30vw] lg:w-[22vw]"
                 initial={false}
                 animate={{ x: shift, scale: fine && hovered === i ? 1.08 : 1, zIndex: hovered === i ? 10 : 1 }}
                 transition={{ duration: 0.5, ease: EASE, delay: 0 }}
@@ -61,10 +62,10 @@ export default function ContinueWatching({ order }: { order: SectionId[] }) {
                   </motion.div>
                   <div className="absolute inset-0 flex flex-col justify-end p-4">
                     <span className="mb-1 text-[10px] font-bold uppercase tracking-[0.3em] text-crimson-2">Episode {String(i + 1).padStart(2, '0')}</span>
-                    <span data-studio-edit={`watch:${i}:title`} className="font-display text-2xl leading-none tracking-wide text-bone transition-transform duration-500 group-hover:-translate-y-1 sm:text-3xl">
+                    <span data-studio-edit={`watch:${i}:title`} className="line-clamp-2 break-words font-display text-2xl leading-[1.07] tracking-wide text-bone transition-transform duration-500 group-hover:-translate-y-1 sm:text-3xl">
                       {item.title}
                     </span>
-                    <span data-studio-edit={`watch:${i}:subtitle`} className="mt-1 text-xs text-mist opacity-100 transition duration-500 lg:translate-y-2 lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100">
+                    <span data-studio-edit={`watch:${i}:subtitle`} className="mt-1 line-clamp-2 break-words text-xs text-mist opacity-100 transition duration-500 lg:translate-y-2 lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100">
                       {item.subtitle}
                     </span>
                   </div>
