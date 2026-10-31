@@ -36,7 +36,7 @@ export default function ProjectCard({ project, index, onOpen, duplicate = false 
                 src={project.image}
                 alt=""
                 loading="lazy"
-                className="h-full w-full object-cover object-[center_85%] opacity-90 transition-transform duration-700 group-hover:scale-[1.04]"
+                className="h-full w-full object-cover object-bottom opacity-90 transition-transform duration-700 group-hover:scale-[1.04]"
               />
             )}
             <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[#111821]/70 via-transparent to-black/10" />

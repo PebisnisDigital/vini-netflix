@@ -23,7 +23,11 @@ export default function Originals({ onOpen }: { onOpen: (p: Project) => void }) 
   const reduced = useReducedMotionPref();
   const hasWebsite = Boolean(profile.links.website);
   const slideCount = projects.length + (hasWebsite ? 1 : 0);
-  const { pause } = useAutoRail(rail, { itemCount: slideCount, speed: 110, pauseMs: 1800 });
+  const { pause } = useAutoRail(rail, {
+    itemCount: slideCount,
+    speed: profile.clientSlug === 'yantiriyantini' ? 28 : 110,
+    pauseMs: profile.clientSlug === 'yantiriyantini' ? 10000 : 1800,
+  });
 
   const scrollToSlide = useCallback((index: number, manual = false) => {
     const el = rail.current;
