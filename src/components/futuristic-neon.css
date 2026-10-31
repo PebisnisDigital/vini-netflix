@@ -110,6 +110,8 @@
 .neon-work-info { display:flex; flex-direction:column; gap:6px; padding:16px 12px 18px; }
 .neon-work-info strong { color:#edf5ff; font:800 clamp(11px,1vw,14px)/1.35 'Manrope',sans-serif; letter-spacing:-.03em; overflow-wrap:anywhere; }
 .neon-work-info small { color:#8fa8c4; font:650 9px/1.4 'Inter',sans-serif; }
+.neon-service-icon { display:grid; place-items:center; width:88px; height:88px; color:#8bf4fd; background:radial-gradient(circle,#2a88b060,#18416d26 68%,transparent 70%); border:1px solid #87eafb55; border-radius:24px; box-shadow:0 0 44px #3fc5f533; }
+@media (min-width:661px) { .neon-services .neon-work-cards { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 
 @keyframes neon-status-pulse { 0%,100% { opacity:1; box-shadow:0 0 8px #8dfde1; } 50% { opacity:.52; box-shadow:0 0 23px #8dfde1; } }
 @keyframes neon-atmosphere-drift { from { transform:translate3d(-14px,15px,0) scale(.95); } to { transform:translate3d(22px,-16px,0) scale(1.12); } }

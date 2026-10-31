@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowDownRight, ArrowUpRight, Cpu, Image as ImageIcon, Play, RadioTower, Sparkles } from 'lucide-react';
+import { ArrowDownRight, ArrowUpRight, Code2, Cpu, Image as ImageIcon, MonitorSmartphone, Package, Palette, Play, RadioTower, Sparkles } from 'lucide-react';
 import type { Project } from '../data/portfolio';
 import { usePortfolio } from '../data/PortfolioContext';
 import { useSmoothScroll } from '../hooks/smoothScroll';
@@ -14,6 +14,7 @@ export default function FuturisticNeonHero({ onPlay, onOpenProject }: {
   const { scrollTo } = useSmoothScroll();
   const noPortrait = !profile.portrait.src || profile.portrait.src === '/assets/portrait-720.webp';
   const conceptPhoto = /buatan AI|konsep|ilustrasi|bukan foto asli|fiksi/i.test(profile.portrait.alt);
+  const serviceProfile = profile.clientSlug === 'alikopi';
 
   return (
     <section id="top" className="neon-hero" aria-label={`Profil digital ${profile.displayName}`}>
@@ -21,7 +22,7 @@ export default function FuturisticNeonHero({ onPlay, onOpenProject }: {
       <div className="neon-shell">
         <div className="neon-system-line" aria-hidden="true">
           <span><RadioTower size={14} /> PERSONAL SIGNAL <b>016</b></span>
-          <span>CREATOR / BUILDER / MENTOR</span>
+          <span>{serviceProfile ? 'DESIGN / WEB / DIGITAL' : 'CREATOR / BUILDER / MENTOR'}</span>
           <span className="neon-system-status"><i /> PROFILE ONLINE</span>
         </div>
 
@@ -42,7 +43,7 @@ export default function FuturisticNeonHero({ onPlay, onOpenProject }: {
             <motion.p className="neon-bio" data-studio-edit="bio" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .75, delay: .42 }}>{profile.intro}</motion.p>
 
             <motion.div className="neon-actions" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8, delay: .55 }}>
-              <button type="button" className="neon-action-primary" onClick={() => scrollTo('#originals')}>JELAJAH KARYA <ArrowUpRight size={17} aria-hidden="true" /></button>
+              <button type="button" className="neon-action-primary" onClick={() => scrollTo('#originals')}>{serviceProfile ? 'JELAJAH LAYANAN' : 'JELAJAH KARYA'} <ArrowUpRight size={17} aria-hidden="true" /></button>
               <button type="button" className="neon-action-secondary" onClick={onPlay}><Play size={15} aria-hidden="true" /> KENALI SAYA</button>
             </motion.div>
 
@@ -75,19 +76,19 @@ export default function FuturisticNeonHero({ onPlay, onOpenProject }: {
         </div>
 
         <div className="neon-fact-bar" aria-label="Ringkasan profil">
-          <div><span>01 / PORTOFOLIO</span><strong>{String(projects.length).padStart(2, '0')} <small>KARYA</small></strong></div>
+          <div><span>{serviceProfile ? '01 / BIDANG LAYANAN' : '01 / PORTOFOLIO'}</span><strong>{String(projects.length).padStart(2, '0')} <small>{serviceProfile ? 'LAYANAN' : 'KARYA'}</small></strong></div>
           <div><span>02 / PENGALAMAN</span><strong>{String(experience.length).padStart(2, '0')} <small>PERAN</small></strong></div>
           <div><span>03 / DOMISILI</span><strong className="neon-location">{profile.location || 'Indonesia'}</strong></div>
           <button type="button" onClick={() => scrollTo('#about')}><span>LIHAT CERITA SAYA</span><ArrowDownRight size={24} aria-hidden="true" /></button>
         </div>
 
-        <div className="neon-works">
-          <div className="neon-works-head"><span className="neon-tiny-label">// SELECTED PROJECTS</span><h2>Karya nyata.<br /><em>Jejak digital.</em></h2><p>Profil yang meyakinkan lahir dari pekerjaan yang bisa dijelaskan, bukan efek visual semata.</p></div>
+        <div className={`neon-works${serviceProfile ? ' neon-services' : ''}`}>
+          <div className="neon-works-head"><span className="neon-tiny-label">{serviceProfile ? '// DIGITAL SERVICES' : '// SELECTED PROJECTS'}</span><h2>{serviceProfile ? <>Desain kreatif.<br /><em>Solusi digital.</em></> : <>Karya nyata.<br /><em>Jejak digital.</em></>}</h2><p>{serviceProfile ? 'Empat kategori layanan yang bisa Anda diskusikan sesuai kebutuhan: produk digital, grafis, website, dan aplikasi custom.' : 'Profil yang meyakinkan lahir dari pekerjaan yang bisa dijelaskan, bukan efek visual semata.'}</p></div>
           <div className="neon-work-cards">
-            {projects.slice(0, 3).map((project, index) => (
-              <button type="button" className="neon-work-card" key={project.id} onClick={() => onOpenProject(project)} aria-label={`Buka karya ${project.title}`}>
+            {projects.slice(0, serviceProfile ? 4 : 3).map((project, index) => (
+              <button type="button" className="neon-work-card" key={project.id} onClick={() => onOpenProject(project)} aria-label={`${serviceProfile ? 'Buka layanan' : 'Buka karya'} ${project.title}`}>
                 <span className="neon-work-top"><span>TRANSMISSION {String(index + 1).padStart(2, '0')}</span><ArrowUpRight size={17} aria-hidden="true" /></span>
-                <span className="neon-work-image">{project.image ? <img src={project.image} alt="" loading="lazy" decoding="async" /> : <ImageIcon size={36} aria-hidden="true" />}</span>
+                <span className="neon-work-image">{project.image ? <img src={project.image} alt="" loading="lazy" decoding="async" /> : serviceProfile ? <span className="neon-service-icon" aria-hidden="true">{index === 0 ? <Package size={43} strokeWidth={1.25} /> : index === 1 ? <Palette size={43} strokeWidth={1.25} /> : index === 2 ? <MonitorSmartphone size={43} strokeWidth={1.25} /> : <Code2 size={43} strokeWidth={1.25} />}</span> : <ImageIcon size={36} aria-hidden="true" />}</span>
                 <span className="neon-work-info"><strong>{project.title}</strong><small>{project.genre}</small></span>
               </button>
             ))}
