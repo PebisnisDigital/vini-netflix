@@ -98,6 +98,7 @@ export default function VisualCanvasTools({ content, children }: Props) {
   const [showContact, setShowContact] = useState(false);
   const [showCardDetails, setShowCardDetails] = useState(false);
   const [showColors, setShowColors] = useState(false);
+  const [showMoreTools, setShowMoreTools] = useState(false);
   const [showRecords, setShowRecords] = useState(false);
   const [recordTab, setRecordTab] = useState<'experience' | 'education' | 'highlights' | 'skills'>('experience');
   const fieldRef = useRef<HTMLTextAreaElement>(null);
@@ -225,26 +226,29 @@ export default function VisualCanvasTools({ content, children }: Props) {
       if (file) emit({ type: 'PESONAFLIX_VISUAL_FILE', ...fileTarget.current, file });
       event.currentTarget.value = '';
     }}/>
-    <div className="pointer-events-none fixed inset-x-2 top-2 z-[9990] flex justify-center">
-      <div className="pointer-events-auto flex max-w-full flex-wrap items-center justify-center gap-1.5 rounded-2xl border border-white/20 bg-[#101014]/95 p-2 text-white shadow-[0_15px_45px_rgba(0,0,0,.7)] backdrop-blur-xl">
+    <div className="pointer-events-none fixed inset-x-2 bottom-2 z-[9990] flex justify-center sm:bottom-auto sm:top-2">
+      <div className="pointer-events-auto flex max-h-[40vh] max-w-full flex-wrap items-center justify-center gap-1.5 overflow-y-auto rounded-2xl border border-white/20 bg-[#101014]/95 p-2 text-white shadow-[0_15px_45px_rgba(0,0,0,.7)] backdrop-blur-xl sm:max-h-none">
         <span className="hidden px-2 text-[10px] font-extrabold tracking-widest text-[#ff6c87] sm:inline">EDIT VISUAL</span>
         <button type="button" className={uiButton} onClick={() => pickFile(null)}>📷 Foto Utama</button>
         <button type="button" className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'add' })}>＋ Kartu</button>
-        <button type="button" className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'watch-add' })}>＋ Jelajah</button>
-        <button type="button" className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'pick-add' })}>＋ Pilihan</button>
-        <button type="button" className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'season-add' })}>＋ Musim</button>
-        <button type="button" className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'skill-category-add' })}>＋ Kategori</button>
         <button type="button" className={`${uiButton} ${showColors ? 'border-[#ff6983]' : ''}`} onClick={() => { setShowColors((v) => !v); setShowContact(false); }}>🎨 Warna</button>
         <button type="button" className={`${uiButton} ${showContact ? 'border-[#ff6983]' : ''}`} onClick={() => { setShowContact((v) => !v); setShowColors(false); }}>✎ Kontak</button>
-        <button type="button" className={`${uiButton} ${showRecords ? 'border-[#ff6983]' : ''}`} onClick={() => setShowRecords(true)}>▤ Riwayat</button>
+        <button type="button" className={`${uiButton} ${showMoreTools ? 'border-[#ff6983]' : ''}`} aria-expanded={showMoreTools} onClick={() => setShowMoreTools((value) => !value)}>Lainnya {showMoreTools ? '▴' : '▾'}</button>
+        {showMoreTools && <div className="flex w-full flex-wrap items-center justify-center gap-1.5 border-t border-white/15 pt-2">
+          <button type="button" className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'watch-add' })}>＋ Jelajah</button>
+          <button type="button" className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'pick-add' })}>＋ Pilihan</button>
+          <button type="button" className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'season-add' })}>＋ Musim</button>
+          <button type="button" className={uiButton} onClick={() => emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'skill-category-add' })}>＋ Kategori</button>
+          <button type="button" className={`${uiButton} ${showRecords ? 'border-[#ff6983]' : ''}`} onClick={() => setShowRecords(true)}>▤ Riwayat</button>
+        </div>}
       </div>
     </div>
-    {showColors && <div className="fixed right-3 top-[76px] z-[9991] w-56 rounded-2xl border border-white/20 bg-[#121218] p-4 text-white shadow-2xl">
+    {showColors && <div className="fixed bottom-[78px] right-3 z-[9991] w-56 rounded-2xl border border-white/20 bg-[#121218] p-4 text-white shadow-2xl sm:bottom-auto sm:top-[76px]">
       <p className="mb-3 text-sm font-bold">Warna Website</p>
       {(['accent', 'background'] as const).map((key) => <label key={key} className="mb-3 flex items-center justify-between gap-3 text-xs"><span>{key === 'accent' ? 'Aksen' : 'Latar'}</span><input type="color" aria-label={key === 'accent' ? 'Warna aksen' : 'Warna latar'} value={color[key]} onChange={(e) => emit({ type: 'PESONAFLIX_VISUAL_THEME', key, value: e.target.value })}/></label>)}
       <button className={uiButton} onClick={() => { emit({ type: 'PESONAFLIX_VISUAL_ACTION', action: 'reset-theme' }); setShowColors(false); }}>Warna {content.profile.templateId === 'vintage-heritage' ? 'VINTAGE HERITAGE' : content.profile.templateId === 'futuristic-neon' ? 'FUTURISTIC NEON' : content.profile.templateId === 'minimalist' ? 'MINIMALIST' : content.profile.templateId === 'documentary' ? 'DOCUMENTARY' : content.profile.templateId === 'miniature-world' ? 'MINIATURE WORLD' : content.profile.templateId === 'pixel-retro' ? 'PIXEL RETRO' : content.profile.templateId === 'paper-cut' ? 'PAPER CUT' : content.profile.templateId === 'scrapbook' ? 'SCRAPBOOK' : content.profile.templateId === 'storybook' ? 'STORYBOOK' : content.profile.templateId === 'doodle' ? 'DOODLE' : content.profile.templateId === 'editorial-premium' ? 'EDITORIAL PREMIUM' : content.profile.templateId === 'komik-pop' ? 'KOMIK POP' : content.profile.templateId === 'clay-3d' ? 'CLAY 3D' : content.profile.templateId === 'anime' ? 'ANIME' : content.profile.templateId === 'chibi-3d' || content.profile.designVariant === 'chibi-cinema' ? 'CHIBI' : 'ORIGINAL'}</button>
     </div>}
-    {showContact && <div className="fixed right-3 top-[76px] z-[9991] w-[min(340px,calc(100vw-24px))] space-y-3 rounded-2xl border border-white/20 bg-[#121218] p-4 text-white shadow-2xl">
+    {showContact && <div className="fixed bottom-[78px] right-3 z-[9991] w-[min(340px,calc(100vw-24px))] space-y-3 rounded-2xl border border-white/20 bg-[#121218] p-4 text-white shadow-2xl sm:bottom-auto sm:top-[76px]">
       <p className="text-sm font-bold">Kontak & Tautan</p>
       {([{ key: 'email', label: 'Email', value: content.profile.email }, { key: 'website', label: 'Website', value: content.profile.links.website }, { key: 'linkedin', label: 'LinkedIn', value: content.profile.links.linkedin }, { key: 'github', label: 'GitHub', value: content.profile.links.github }] as const).map(({ key, label, value: initial }) =>
         <label key={`${key}-${initial}`} className="block space-y-1 text-xs"><span>{label}</span><input className={uiInput} defaultValue={initial} onBlur={(e) => emit({ type: 'PESONAFLIX_VISUAL_TEXT', field: `contact:${key}`, value: e.target.value.trim() })} onKeyDown={(e) => { if (e.key === 'Enter') e.currentTarget.blur(); }} /></label>)}
