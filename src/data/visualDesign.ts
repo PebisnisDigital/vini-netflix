@@ -1,4 +1,5 @@
 /** Pengaturan Elementor-lite yang melekat pada satu klien, bukan pada master template. */
+import { isSafeElementHref } from './elementLinks';
 export const VISUAL_SECTIONS = [
   { id: 'top', label: 'Pembuka / Hero' },
   { id: 'continue', label: 'Lanjutkan Menjelajah' },
@@ -69,7 +70,7 @@ export function validateVisualDesign(input: unknown): string[] {
       (widget.color !== undefined && !isHex(widget.color)) ||
       (widget.fontFamily !== undefined && !validFont(widget.fontFamily)) ||
       (widget.fontSize !== undefined && !validSize(widget.fontSize)) ||
-      (widget.url !== undefined && widget.url !== '' && !/^https?:\/\//i.test(widget.url)))) errors.push('Widget teks/ikon tidak valid (maksimal 60 widget).');
+      (widget.url !== undefined && widget.url !== '' && !isSafeElementHref(widget.url)))) errors.push('Widget teks/ikon tidak valid (maksimal 60 widget).');
   }
   return errors;
 }

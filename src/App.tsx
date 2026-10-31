@@ -1,7 +1,8 @@
-import { lazy, Suspense, useCallback, useEffect, useState, type CSSProperties, type ReactNode } from 'react';
+import { lazy, Suspense, useCallback, useEffect, useState, type CSSProperties, type KeyboardEvent, type MouseEvent, type ReactNode } from 'react';
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import type { ProfileId, Project, SectionId } from './data/portfolio';
-import { effectiveTheme } from './data/clientModel';
+import { appearanceSlug, effectiveTheme } from './data/clientModel';
+import { elementKeyCandidates, isSafeElementHref } from './data/elementLinks';
 import { usePortfolio } from './data/PortfolioContext';
 import { SmoothScrollProvider, useSmoothScroll } from './hooks/smoothScroll';
 import CustomCursor from './components/CustomCursor';
@@ -54,7 +55,10 @@ function readStoredProfile(key: string, viewerProfiles: ReturnType<typeof usePor
 }
 
 export default function App({ slug, editorMode = false }: { slug: string; editorMode?: boolean }) {
-  const { profile } = usePortfolio();
+  const { profile, elementLinks } = usePortfolio();
+  // Alamat publik dapat berupa alias, sedangkan kanvas dahulu memakai slug
+  // sementara. Kelas tema khusus selalu mengikuti identitas sumber klien.
+  const clientSlug = appearanceSlug(slug, profile.clientSlug);
   const chibiCinema = profile.templateId === 'chibi-3d' || profile.designVariant === 'chibi-cinema';
   const animeCinema = profile.templateId === 'anime' || slug === 'vini4';
   const clayCinema = profile.templateId === 'clay-3d' || slug === 'vini5';
@@ -80,8 +84,36 @@ export default function App({ slug, editorMode = false }: { slug: string; editor
     '--color-crimson-2': theme.accent,
     '--client-accent': theme.accent,
   } as CSSProperties : undefined;
+
+  const followAssignedLink = (target: EventTarget | null): boolean => {
+    if (editorMode || !(target instanceof HTMLElement) || !elementLinks) return false;
+    let selected = target.closest<HTMLElement>('[data-studio-edit]');
+    while (selected) {
+      const field = selected.dataset.studioEdit || '';
+      for (const key of elementKeyCandidates(field)) {
+        const href = elementLinks[key];
+        if (!href || !isSafeElementHref(href)) continue;
+        if (href.startsWith('#')) {
+          const destination = document.getElementById(href.slice(1));
+          if (destination) destination.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          else window.location.assign(href);
+        } else if (/^https?:\/\//i.test(href)) window.open(href, '_blank', 'noopener,noreferrer');
+        else window.location.assign(href);
+        return true;
+      }
+      selected = selected.parentElement?.closest<HTMLElement>('[data-studio-edit]') ?? null;
+    }
+    return false;
+  };
+
+  const captureLinkClick = (event: MouseEvent<HTMLDivElement>) => {
+    if (followAssignedLink(event.target)) { event.preventDefault(); event.stopPropagation(); }
+  };
+  const captureLinkKey = (event: KeyboardEvent<HTMLDivElement>) => {
+    if ((event.key === 'Enter' || event.key === ' ') && followAssignedLink(event.target)) { event.preventDefault(); event.stopPropagation(); }
+  };
   return (
-    <div style={styles} className={`min-h-screen bg-ink client-portfolio${editorMode ? ' studio-canvas' : ''}${slug === 'isa' ? ' isa-light' : ''}${slug === 'vini3' ? ' chibi-theme' : ''}${animeCinema ? ' anime-theme' : ''}${chibiCinema ? ' chibi-cinema' : ''}${clayCinema ? ' clay-cinema' : ''}${comicCinema ? ' comic-cinema' : ''}${editorialCinema ? ' editorial-cinema' : ''}${doodleCinema ? ' doodle-cinema' : ''}${storybookCinema ? ' storybook-cinema' : ''}${scrapbookCinema ? ' scrapbook-cinema' : ''}${papercutCinema ? ' papercut-cinema' : ''}${pixelCinema ? ' pixel-cinema' : ''}${miniatureCinema ? ' miniature-cinema' : ''}${documentaryCinema ? ' documentary-cinema' : ''}${minimalistCinema ? ' minimalist-cinema' : ''}${futuristicNeonCinema ? ' futuristic-cinema' : ''}${vintageHeritageCinema ? ' vintage-cinema' : ''}`}>
+    <div onClickCapture={captureLinkClick} onKeyDownCapture={captureLinkKey} style={styles} className={`min-h-screen bg-ink client-portfolio${editorMode ? ' studio-canvas' : ''}${clientSlug === 'isa' ? ' isa-light' : ''}${clientSlug === 'vini3' ? ' chibi-theme' : ''}${animeCinema ? ' anime-theme' : ''}${chibiCinema ? ' chibi-cinema' : ''}${clayCinema ? ' clay-cinema' : ''}${comicCinema ? ' comic-cinema' : ''}${editorialCinema ? ' editorial-cinema' : ''}${doodleCinema ? ' doodle-cinema' : ''}${storybookCinema ? ' storybook-cinema' : ''}${scrapbookCinema ? ' scrapbook-cinema' : ''}${papercutCinema ? ' papercut-cinema' : ''}${pixelCinema ? ' pixel-cinema' : ''}${miniatureCinema ? ' miniature-cinema' : ''}${documentaryCinema ? ' documentary-cinema' : ''}${minimalistCinema ? ' minimalist-cinema' : ''}${futuristicNeonCinema ? ' futuristic-cinema' : ''}${vintageHeritageCinema ? ' vintage-cinema' : ''}`}>
       <VisualDesignStyles />
       <SmoothScrollProvider>
         <Series slug={slug} editorMode={editorMode} />

@@ -5,6 +5,7 @@ import {
 } from 'lucide-react';
 import { usePortfolio } from '../data/PortfolioContext';
 import { VISUAL_SECTIONS, type VisualFont, type VisualIcon, type VisualSectionId } from '../data/visualDesign';
+import { isElementKey, isSafeElementHref } from '../data/elementLinks';
 
 const fontStack: Record<VisualFont, string> = {
   Default: 'inherit',
@@ -33,14 +34,14 @@ const sizeOK = (input: unknown): input is number => typeof input === 'number' &&
 
 /** CSS dibatasi pada warna, font, dan ukuran terverifikasi; tidak menerima CSS bebas dari pengguna. */
 export function VisualDesignStyles() {
-  const { visualDesign } = usePortfolio();
-  if (!visualDesign) return null;
+  const { visualDesign, elementLinks } = usePortfolio();
+  if (!visualDesign && !elementLinks) return null;
   const rules: string[] = [];
   for (const section of VISUAL_SECTIONS) {
-    const color = visualDesign.sectionBackgrounds?.[section.id];
+    const color = visualDesign?.sectionBackgrounds?.[section.id];
     if (colorOK(color)) rules.push(`.client-portfolio #${section.id}{background:${color}!important;}`);
   }
-  for (const [field, style] of Object.entries(visualDesign.textStyles ?? {})) {
+  for (const [field, style] of Object.entries(visualDesign?.textStyles ?? {})) {
     if (!/^[a-z0-9:-]{1,100}$/.test(field) || !style) continue;
     const properties: string[] = [];
     if (colorOK(style.color)) properties.push(`color:${style.color}!important`);
@@ -50,6 +51,9 @@ export function VisualDesignStyles() {
       const selector = `.client-portfolio [data-studio-edit="${field}"]`;
       rules.push(`${selector},${selector} h1,${selector} h2,${selector} h3,${selector} p,${selector} span{${properties.join(';')}}`);
     }
+  }
+  for (const [field, href] of Object.entries(elementLinks ?? {})) {
+    if (isElementKey(field) && isSafeElementHref(href)) rules.push(`.client-portfolio:not(.studio-canvas) [data-studio-edit="${field}"]{cursor:pointer!important;}`);
   }
   return rules.length ? <style>{rules.join('\n')}</style> : null;
 }
@@ -76,7 +80,7 @@ export function VisualWidgets({ section }: { section: VisualSectionId }) {
         {widget.text && <span className="whitespace-pre-line">{widget.text}</span>}
       </span>;
       return <div key={widget.id} data-studio-widget={widget.id} data-studio-section={section} className="max-w-full rounded-xl border border-current/10 bg-white/5 px-4 py-3 text-bone shadow-sm transition hover:bg-white/10">
-        {widget.url && /^https?:\/\//i.test(widget.url) ? <a href={widget.url} target="_blank" rel="noopener noreferrer" className="inline-block max-w-full">{content}</a> : content}
+        {widget.url && isSafeElementHref(widget.url) ? <a href={widget.url} target={/^https?:\/\//i.test(widget.url) ? '_blank' : undefined} rel={/^https?:\/\//i.test(widget.url) ? 'noopener noreferrer' : undefined} className="inline-block max-w-full">{content}</a> : content}
       </div>;
     })}
   </div>;

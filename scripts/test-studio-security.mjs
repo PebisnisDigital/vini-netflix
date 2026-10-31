@@ -36,9 +36,20 @@ test('builder visual menerima gaya per section dan menolak CSS atau ikon berbaha
     widgets: [{ id: 'widget-hello', section: 'about', type: 'icon', icon: 'star', text: 'Halo', url: 'https://example.com' }],
   };
   assert.deepEqual(validatePublishPayload({ brief: { ...sample, visualDesign }, assets: [], mode: 'edit' }), []);
+  assert.deepEqual(validatePublishPayload({ brief: { ...sample, visualDesign: { ...visualDesign, widgets: [{ ...visualDesign.widgets[0], url: '#contact' }] } }, assets: [], mode: 'edit' }), []);
   assert.ok(validatePublishPayload({ brief: { ...sample, visualDesign: { ...visualDesign, textStyles: { name: { color: 'url(javascript:bad)' } } } }, assets: [], mode: 'edit' }).length);
+  assert.ok(validatePublishPayload({ brief: { ...sample, visualDesign: { ...visualDesign, widgets: [{ ...visualDesign.widgets[0], url: 'javascript:alert(1)' }] } }, assets: [], mode: 'edit' }).length);
   assert.ok(validatePublishPayload({ brief: { ...sample, visualDesign: { ...visualDesign, widgets: [{ ...visualDesign.widgets[0], icon: '<script>' }] } }, assets: [], mode: 'edit' }).length);
   assert.ok(validatePublishPayload({ brief: { ...sample, visualDesign: { ...visualDesign, sectionBackgrounds: { about: 'red' } } }, assets: [], mode: 'edit' }).length);
+});
+
+test('tautan gambar dan teks aman untuk seluruh template; protokol berbahaya ditolak', () => {
+  const elementLinks = { portrait: 'https://example.com', 'project:0': 'https://lpgenie.my.id/seriburempahponti', 'pick:0': '#contact', name: 'mailto:admin@example.com', 'watch:0': 'tel:+628123456789' };
+  assert.deepEqual(validatePublishPayload({ brief: { ...sample, elementLinks }, assets: [], mode: 'edit' }), []);
+  for (const href of ['javascript:alert(1)', 'data:text/html,<script>', '//contoh.test', 'https://example.com/"salah']) {
+    assert.ok(validatePublishPayload({ brief: { ...sample, elementLinks: { 'project:0': href } }, assets: [], mode: 'edit' }).length, `Tidak boleh terbit: ${href}`);
+  }
+  assert.ok(validatePublishPayload({ brief: { ...sample, elementLinks: { 'project:0::bad': 'https://example.com' } }, assets: [], mode: 'edit' }).length);
 });
 
 test('kartu jelajah boleh ditambah tetapi target dan fotonya wajib aman', () => {

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import type { ClientBrief } from '../data/clientModel';
+import { BASE_LINK_TARGETS, isElementKey, isSafeElementHref } from '../data/elementLinks';
 import {
   VISUAL_FONTS, VISUAL_ICONS, VISUAL_SECTIONS,
   type VisualDesign, type VisualFont, type VisualSectionId, type VisualWidget,
@@ -14,6 +15,9 @@ type Props = {
   selectText: (field: string) => void;
   selectedWidget: string;
   selectWidget: (id: string) => void;
+  selectedLinkTarget: string;
+  selectLinkTarget: (field: string) => void;
+  replaceImage: (field: string, file: File) => void;
 };
 
 const control = 'w-full min-w-0 rounded-lg border border-white/15 bg-[#1d1c26] px-2.5 py-2 text-[12px] text-white outline-none focus:border-pink-400';
@@ -28,15 +32,35 @@ const editableFields = [
   ['skills:heading', 'Judul keahlian'], ['skills:kicker', 'Subjudul keahlian'],
 ] as const;
 
-export default function StudioDesignSidebar({ brief, patch, activeSection, selectSection, selectedText, selectText, selectedWidget, selectWidget }: Props) {
-  const [tab, setTab] = useState<'section' | 'text' | 'widgets'>('section');
-  useEffect(() => { if (selectedWidget) setTab('widgets'); else if (selectedText) setTab('text'); }, [selectedText, selectedWidget]);
+export default function StudioDesignSidebar({ brief, patch, activeSection, selectSection, selectedText, selectText, selectedWidget, selectWidget, selectedLinkTarget, selectLinkTarget, replaceImage }: Props) {
+  const [tab, setTab] = useState<'section' | 'text' | 'widgets' | 'links'>('section');
+  useEffect(() => { if (selectedWidget) setTab('widgets'); else if (selectedText) setTab('text'); else if (selectedLinkTarget) setTab('links'); }, [selectedText, selectedWidget, selectedLinkTarget]);
+  const [linkDraft, setLinkDraft] = useState('');
   const visualDesign = brief.visualDesign ?? {};
   const save = (next: VisualDesign) => patch({ visualDesign: next });
   const backgrounds = visualDesign.sectionBackgrounds ?? {};
   const textStyles = visualDesign.textStyles ?? {};
   const widgets = visualDesign.widgets ?? [];
   const currentTextStyle = selectedText ? textStyles[selectedText] ?? {} : {};
+  const assignedLinks = brief.elementLinks ?? {};
+  const linkedValue = selectedLinkTarget ? assignedLinks[selectedLinkTarget] ?? '' : '';
+  useEffect(() => setLinkDraft(linkedValue), [selectedLinkTarget, linkedValue]);
+  const linkOptions = [
+    ...BASE_LINK_TARGETS,
+    ...brief.projects.map((project, i) => ({ id: `project:${i}`, label: `Gambar/kartu karya ${i + 1}: ${project.title || 'Tanpa judul'}` })),
+    ...(brief.watchCards ?? []).map((item, i) => ({ id: `watch:${i}`, label: `Gambar jelajah ${i + 1}: ${item.title}` })),
+    ...(brief.pickCards ?? []).map((item, i) => ({ id: `pick:${i}`, label: `Gambar pilihan ${i + 1}: ${item.title}` })),
+    ...(brief.seasons ?? []).flatMap((season, s) => season.episodes.map((episode, e) => ({ id: `episode:${s}:${e}`, label: `Gambar episode ${s + 1}.${e + 1}: ${episode.title}` }))),
+    ...(brief.highlights ?? []).map((item, i) => ({ id: `highlight:${i}`, label: `Sorotan ${i + 1}: ${item.title}` })),
+  ];
+  const imageTarget = /^(?:portrait|project:\d+|watch:\d+|pick:\d+|episode:\d+:\d+)$/.test(selectedLinkTarget);
+  const linkValid = linkDraft.trim() === '' || isSafeElementHref(linkDraft.trim());
+  const saveLink = () => {
+    if (!selectedLinkTarget || !isElementKey(selectedLinkTarget) || !linkValid) return;
+    const next = { ...assignedLinks };
+    if (linkDraft.trim()) next[selectedLinkTarget] = linkDraft.trim(); else delete next[selectedLinkTarget];
+    patch({ elementLinks: next });
+  };
 
   const updateTextStyle = (change: Partial<typeof currentTextStyle>) => {
     if (!selectedText || !/^[a-z0-9:-]{1,100}$/.test(selectedText)) return;
@@ -60,8 +84,8 @@ export default function StudioDesignSidebar({ brief, patch, activeSection, selec
 
   return <aside className="w-full shrink-0 border-b border-white/10 bg-[#14131c] p-4 text-white lg:w-[310px] lg:border-b-0 lg:border-r lg:p-5" aria-label="Panel desain visual">
     <div className="mb-4"><p className="text-[10px] font-extrabold uppercase tracking-[.22em] text-pink-400">PESONAFLIX BUILDER</p><h3 className="mt-1 text-lg font-bold">Desain Halaman</h3><p className="mt-1 text-xs leading-relaxed text-white/50">Klik teks di preview atau pilih section. Perubahan langsung terlihat.</p></div>
-    <div className="mb-4 grid grid-cols-3 gap-1 rounded-xl bg-black/30 p-1" role="tablist" aria-label="Pengaturan desain">
-      {([['section', 'Section'], ['text', 'Teks'], ['widgets', 'Elemen']] as const).map(([id, name]) => <button key={id} type="button" role="tab" aria-selected={tab === id} className={`rounded-lg px-2 py-2 text-xs font-semibold ${tab === id ? 'bg-[#c92c5c] text-white' : 'text-white/60 hover:bg-white/10'}`} onClick={() => setTab(id)}>{name}</button>)}
+    <div className="mb-4 grid grid-cols-4 gap-1 rounded-xl bg-black/30 p-1" role="tablist" aria-label="Pengaturan desain">
+      {([['section', 'Section'], ['text', 'Teks'], ['widgets', 'Elemen'], ['links', 'Link']] as const).map(([id, name]) => <button key={id} type="button" role="tab" aria-selected={tab === id} className={`rounded-lg px-1 py-2 text-[11px] font-semibold ${tab === id ? 'bg-[#c92c5c] text-white' : 'text-white/60 hover:bg-white/10'}`} onClick={() => setTab(id)}>{name}</button>)}
     </div>
     <label className={label} htmlFor="studio-section">Section yang diedit</label>
     <select id="studio-section" className={`${control} mb-5`} value={activeSection} onChange={(e) => selectSection(e.target.value as VisualSectionId)}>
@@ -94,8 +118,18 @@ export default function StudioDesignSidebar({ brief, patch, activeSection, selec
         <div><label className={label} htmlFor={`widget-text-${widget.id}`}>{widget.type === 'text' ? 'Isi teks' : 'Label ikon (opsional)'}</label><textarea id={`widget-text-${widget.id}`} rows={2} maxLength={1000} className={control} value={widget.text} onChange={(e) => updateWidget(widget.id, { text: e.target.value })}/></div>
         <div className="grid grid-cols-[44px_1fr] items-center gap-2"><input type="color" aria-label="Warna elemen" className={colorInput} value={widget.color || '#ffffff'} onChange={(e) => updateWidget(widget.id, { color: e.target.value })}/><input aria-label="Ukuran elemen dalam piksel" type="number" min={10} max={112} className={control} value={widget.fontSize || 20} onChange={(e) => { const value = Number(e.target.value); if (value >= 10 && value <= 112) updateWidget(widget.id, { fontSize: value }); }}/></div>
         <div><label className={label} htmlFor={`widget-font-${widget.id}`}>Font</label><select id={`widget-font-${widget.id}`} className={control} value={widget.fontFamily || 'Default'} onChange={(e) => updateWidget(widget.id, { fontFamily: e.target.value as VisualFont })}>{VISUAL_FONTS.map((font) => <option key={font}>{font}</option>)}</select></div>
-        <div><label className={label} htmlFor={`widget-link-${widget.id}`}>Link (opsional)</label><input id={`widget-link-${widget.id}`} className={control} type="url" placeholder="https://..." value={widget.url || ''} onChange={(e) => updateWidget(widget.id, { url: e.target.value })}/></div>
+        <div><label className={label} htmlFor={`widget-link-${widget.id}`}>Link (opsional)</label><input id={`widget-link-${widget.id}`} className={control} type="text" inputMode="url" placeholder="https://... atau #contact" value={widget.url || ''} onChange={(e) => updateWidget(widget.id, { url: e.target.value })}/>{widget.url && !isSafeElementHref(widget.url) && <p className="mt-1 text-[11px] text-amber-300">Lengkapi link dengan https://, #bagian, /halaman, mailto:, atau tel:.</p>}</div>
       </div>)}
+    </div>}
+    {tab === 'links' && <div className="space-y-4" role="tabpanel">
+      <div><label htmlFor="studio-link-target" className={label}>Elemen tujuan klik</label><select id="studio-link-target" className={control} value={selectedLinkTarget} onChange={(e) => selectLinkTarget(e.target.value)}><option value="">Pilih elemen…</option>{selectedLinkTarget && !linkOptions.some((option) => option.id === selectedLinkTarget) && <option value={selectedLinkTarget}>{selectedLinkTarget} (dipilih di kanvas)</option>}{linkOptions.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}</select></div>
+      {selectedLinkTarget ? <>
+        <div><label htmlFor="studio-element-link" className={label}>Buka ke mana saat diklik?</label><input id="studio-element-link" className={control} type="text" inputMode="url" autoComplete="off" placeholder="https://contoh.com/produk" maxLength={2048} value={linkDraft} onChange={(e) => setLinkDraft(e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') saveLink(); }}/>{!linkValid && <p className="mt-1 text-xs text-red-300">Gunakan URL https://, #bagian, /halaman, mailto:, atau tel:.</p>}</div>
+        <div className="grid grid-cols-2 gap-2"><button type="button" disabled={!linkValid} className="rounded-lg bg-pink-600 px-3 py-2 text-xs font-bold text-white disabled:opacity-40" onClick={saveLink}>Simpan Link</button><button type="button" className={smallButton} onClick={() => { patch({ elementLinks: Object.fromEntries(Object.entries(assignedLinks).filter(([key]) => key !== selectedLinkTarget)) }); setLinkDraft(''); }}>Hapus Link</button></div>
+        {linkedValue && <div className="rounded-lg border border-emerald-400/25 bg-emerald-400/10 px-3 py-2 text-xs text-emerald-100">✓ Link tersimpan untuk elemen ini. Periksa hasilnya lewat Preview Lengkap.</div>}
+        {imageTarget && <label className="flex cursor-pointer items-center justify-center rounded-lg border border-dashed border-pink-400/50 bg-pink-500/10 px-3 py-3 text-center text-xs font-bold text-pink-200 hover:bg-pink-500/20">📷 Ganti Gambar<input className="sr-only" type="file" accept="image/png,image/jpeg,image/webp,image/avif" onChange={(event) => { const file = event.currentTarget.files?.[0]; if (file) replaceImage(selectedLinkTarget, file); event.currentTarget.value = ''; }}/></label>}
+        <div className="rounded-xl bg-white/5 p-3 text-xs leading-relaxed text-white/60">Link kosong = perilaku bawaan template. Link luar dibuka di tab baru. Contoh link dalam halaman: <code>#contact</code>.</div>
+      </> : <p className="rounded-xl bg-white/5 p-3 text-xs text-white/60">Klik foto, kartu, atau tulisan di preview, lalu isi tujuan link-nya.</p>}
     </div>}
   </aside>;
 }

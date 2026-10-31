@@ -39,13 +39,14 @@
   --color-bone: #234132;
   --color-mist: #486453;
   --color-smoke: #637d6c;
-  --doodle-paper: #fff9ed;
-  background: #fff9ed;
+  /* Mengikuti warna latar dari Studio, tidak lagi terkunci ke warna CSS. */
+  --doodle-paper: var(--color-ink, #fff9ed);
+  background: var(--color-ink, #fff9ed);
   color: #234132;
 }
 .doodle-cinema.isa-light .grain { opacity: .023; }
 .doodle-cinema.isa-light header > .gutter {
-  background: #fff9edf2 !important;
+  background: color-mix(in srgb, var(--color-ink, #fff9ed) 95%, transparent) !important;
   border-bottom: 1px solid #8ca99470;
 }
 .doodle-cinema.isa-light :is(#about,#journey,#originals,#picks,#skills,#moments,#story) {

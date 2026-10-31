@@ -4,6 +4,7 @@ import { portfolioServiceCTA } from './portfolioServiceCTA';
 import { clientReferralCode, normalizeClientWhatsapp } from '../utils/clientWhatsapp.mjs';
 import { canApplyIdentityMode, canApplyTemplate, getIdentityMode, getTemplate, type IdentityMode, type TemplateId } from './templateCatalog.mjs';
 import { validateVisualDesign, type VisualDesign } from './visualDesign';
+import { validateElementLinks, type ElementLinks } from './elementLinks';
 
 /** Satu sumber data untuk setiap halaman portofolio, tanpa teks klien lain. */
 export type PortfolioContent = {
@@ -43,6 +44,7 @@ export type PortfolioContent = {
   sectionMeta: typeof vini.sectionMeta;
   watchCards?: WatchCard[];
   visualDesign?: VisualDesign;
+  elementLinks?: ElementLinks;
 };
 
 export type ClientTheme = { accent: string; background: string };
@@ -182,6 +184,7 @@ export type ClientBrief = {
   journeyKicker?: string;
   theme?: ClientTheme;
   visualDesign?: VisualDesign;
+  elementLinks?: ElementLinks;
   /** Tampilan pilihan klien, tanpa mengubah template Netflix milik klien lain. */
   designVariant?: 'chibi-cinema';
   /** ID gaya katalog Studio; status belum aktif tidak boleh diterbitkan. */
@@ -253,6 +256,11 @@ export const RESERVED_SLUGS = new Set(['vini', 'formulir', 'studio', 'checkout',
 export function normalizeSlug(value: string) {
   return value.toLowerCase().trim().normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
+/** Alias publik dan /studio/preview harus memakai tema dari klien sumber. */
+export function appearanceSlug(routeSlug: string, clientSlug?: string) {
+  return clientSlug && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(clientSlug) ? clientSlug : routeSlug;
 }
 
 function validUrl(url: string) {
@@ -340,6 +348,7 @@ export function validateBrief(value: unknown, options: { requireWhatsapp?: boole
   if (options.requireWhatsapp && !normalizeClientWhatsapp(b.whatsapp)) errors.push('Nomor WhatsApp pemilik website wajib diisi untuk tombol referral.');
   if (b.theme && (!/^#[0-9a-fA-F]{6}$/.test(b.theme.accent) || !/^#[0-9a-fA-F]{6}$/.test(b.theme.background))) errors.push('Warna tema harus menggunakan kode hex 6 digit.');
   errors.push(...validateVisualDesign(b.visualDesign));
+  errors.push(...validateElementLinks(b.elementLinks));
   if (b.designVariant !== undefined && b.designVariant !== 'chibi-cinema') errors.push('Pilihan gaya website tidak dikenal.');
   if (b.templateId !== undefined && !getTemplate(b.templateId)) errors.push('Template website tidak dikenal.');
   else if (b.templateId !== undefined && !canApplyTemplate(b.templateId)) errors.push('Template ini baru tersedia sebagai demo atau rencana. Belum dapat diterbitkan untuk klien.');
@@ -467,7 +476,7 @@ export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: 
       templateId: brief.templateId || 'original',
       identityMode: brief.identityMode || 'photo',
     },
-    projects, experience, education: (brief.education ?? []).map((e) => ({ school: e.school, degree: e.degree, place: e.place, period: e.period, score: e.score || '' })), achievements, certifications: [], skillCategories, visualDesign: brief.visualDesign,
+    projects, experience, education: (brief.education ?? []).map((e) => ({ school: e.school, degree: e.degree, place: e.place, period: e.period, score: e.score || '' })), achievements, certifications: [], skillCategories, visualDesign: brief.visualDesign, elementLinks: brief.elementLinks,
     skillEvidence: {}, skillsHeading: brief.skillsHeading, skillsAside: brief.skillsAside, skillsKicker: brief.skillsKicker, seasons, journeyHeading: brief.journeyHeading, journeyAside: brief.journeyAside, journeyKicker: brief.journeyKicker, topPicks, picksHeading: brief.picksHeading, picksKicker: brief.picksKicker, introSlides, viewerProfiles, sectionMeta, watchCards,
   };
 }

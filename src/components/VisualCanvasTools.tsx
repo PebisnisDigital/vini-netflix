@@ -196,7 +196,9 @@ export default function VisualCanvasTools({ content, children }: Props) {
       setEpisodeCard({ season, episode }); setSeasonCard(null);
       setCard(null); setWatchCard(null); setPickCard(null);
     }
-    if (field === 'portrait') { pickFile(null); return; }
+    // Memilih foto utama menampilkan panel pengaturan teks, gambar dan link.
+    // Penggantian foto tetap tersedia dari panel dan tombol Foto Utama di toolbar.
+    if (field === 'portrait') return;
     if (/^pick:\d+$/.test(field)) { setPickCard(Number(field.split(':')[1])); setCard(null); setWatchCard(null); setSeasonCard(null); setEpisodeCard(null); return; }
     if (field.startsWith('pick:')) { setPickCard(Number(field.split(':')[1])); setCard(null); setWatchCard(null); setSeasonCard(null); setEpisodeCard(null); }
     if (/^watch:\d+$/.test(field)) {

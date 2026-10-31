@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { MotionConfig } from 'framer-motion';
 import App from '../App';
 import { PortfolioProvider } from '../data/PortfolioContext';
-import { createPortfolioFromBrief, validateBrief, type PortfolioContent } from '../data/clientModel';
+import { appearanceSlug, createPortfolioFromBrief, validateBrief, type PortfolioContent } from '../data/clientModel';
 import { getDraft, preparedBrief } from '../data/studioDraft';
 import VisualCanvasTools from './VisualCanvasTools';
 
@@ -20,8 +20,11 @@ export default function StudioPreview() {
       const receive = (event: MessageEvent) => {
         if (event.origin !== location.origin || event.source !== window.parent || event.data?.type !== 'PESONAFLIX_CANVAS_UPDATE') return;
         if (event.data.content?.profile && Array.isArray(event.data.content.projects)) {
-          setContent(event.data.content as PortfolioContent);
-          setSlug('studio-canvas');
+          const portfolio = event.data.content as PortfolioContent;
+          setContent(portfolio);
+          // Gunakan identitas asli klien agar tema khusus dan gaya master
+          // pada kanvas sama persis dengan halaman yang sudah diterbitkan.
+          setSlug(appearanceSlug('studio-canvas', portfolio.profile.clientSlug));
         }
       };
       window.addEventListener('message', receive);

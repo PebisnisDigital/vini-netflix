@@ -6,7 +6,10 @@ import { readFile } from 'node:fs/promises';
 test('data Satria mengganti seluruh konten tanpa identitas klien lain', async () => {
   const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
   try {
-    const { createCanvasPortfolio, createPortfolioFromBrief, validateBrief } = await server.ssrLoadModule('/src/data/clientModel.ts');
+    const { appearanceSlug, createCanvasPortfolio, createPortfolioFromBrief, validateBrief } = await server.ssrLoadModule('/src/data/clientModel.ts');
+    assert.equal(appearanceSlug('studio-canvas', 'isa'), 'isa');
+    assert.equal(appearanceSlug('tautan-baru', 'isa'), 'isa');
+    assert.equal(appearanceSlug('studio-canvas', 'slug<>tidakvalid'), 'studio-canvas');
     const sample = {
       slug: 'satria', name: 'Satria', role: 'Fotografer', location: 'Jakarta',
       bio: 'Fotografer potret dan produk di Jakarta.', tagline: ['Fotografi potret'], interests: ['Foto'],
@@ -48,6 +51,18 @@ test('data Satria mengganti seluruh konten tanpa identitas klien lain', async ()
     assert.ok(validateBrief({ ...sample, visualDesign: { ...visualDesign, sectionBackgrounds: { about: 'red' } } }).length > 0);
     assert.ok(validateBrief({ ...sample, visualDesign: { ...visualDesign, textStyles: { name: { fontSize: 900 } } } }).length > 0);
     assert.ok(validateBrief({ ...sample, visualDesign: { ...visualDesign, widgets: [{ ...visualDesign.widgets[0], section: 'bukan-section' }] } }).length > 0);
+    const elementLinks = { portrait: 'https://example.com/tentang-saya', 'project:0': 'https://lpgenie.my.id/seriburempahponti', 'watch:0:title': '#contact', name: 'mailto:satria@example.com' };
+    assert.deepEqual(validateBrief({ ...sample, elementLinks }), []);
+    assert.deepEqual(createPortfolioFromBrief({ ...sample, elementLinks }).elementLinks, elementLinks);
+    for (const unsafe of ['javascript:alert(1)', 'data:text/html,<script>', '//contoh.test', 'https://contoh.test/"judul']) {
+      assert.ok(validateBrief({ ...sample, elementLinks: { 'project:0': unsafe } }).length > 0, `Link ${unsafe} harus ditolak`);
+    }
+    const { elementKeyCandidates, isSafeElementHref } = await server.ssrLoadModule('/src/data/elementLinks.ts');
+    assert.deepEqual(elementKeyCandidates('project:0:title'), ['project:0:title', 'project:0']);
+    assert.deepEqual(elementKeyCandidates('episode:0:1:description'), ['episode:0:1:description', 'episode:0:1']);
+    assert.equal(isSafeElementHref('tel:+628123456789'), true);
+    assert.equal(isSafeElementHref('https://contoh.com/produk'), true);
+    assert.equal(isSafeElementHref('javascript:alert(1)'), false);
     const watchCards = [{ target: 'moments', title: 'Cerita Saya', subtitle: 'Sorotan perjalanan', image: '/clients/satria/jelajah-1.webp' }];
     const withWatch = createPortfolioFromBrief({ ...sample, watchCards });
     assert.deepEqual(withWatch.watchCards, watchCards);

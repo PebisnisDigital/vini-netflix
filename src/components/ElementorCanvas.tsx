@@ -35,6 +35,7 @@ export default function ElementorCanvas({ draft, patch, changeProject, setPhoto,
   const [activeSection, setActiveSection] = useState<VisualSectionId>('top');
   const [selectedText, setSelectedText] = useState('');
   const [selectedWidget, setSelectedWidget] = useState('');
+  const [selectedLinkTarget, setSelectedLinkTarget] = useState('');
   const [photoUrls, setPhotoUrls] = useState<{ portrait: string; projects: Record<number, string>; watch: Record<number, string>; picks: Record<number, string>; episodes: Record<string, string> }>({ portrait: '', projects: {}, watch: {}, picks: {}, episodes: {} });
   const current = preparedBrief(draft);
 
@@ -81,6 +82,20 @@ export default function ElementorCanvas({ draft, patch, changeProject, setPhoto,
 
   useEffect(() => { sendCanvas(); }, [sendCanvas]);
 
+  const replaceImage = (target: string, original: File) => {
+    const { draft: state, setPhoto: photo, setWatchPhoto: watchPhoto, setPickPhoto: pickPhoto, setEpisodePhoto: episodePhoto, notice: notify } = latest.current;
+    const parts = target.split(':');
+    let kind: StudioImageKind;
+    let saveFile: (file: File) => void;
+    if (target === 'portrait') { kind = 'hero'; saveFile = (file) => photo(null, file); }
+    else if (parts[0] === 'project' && parts.length === 2 && state.brief.projects[Number(parts[1])]) { kind = 'work'; saveFile = (file) => photo(Number(parts[1]), file); }
+    else if (parts[0] === 'watch' && parts.length === 2 && Number.isInteger(Number(parts[1]))) { kind = 'card'; saveFile = (file) => watchPhoto(Number(parts[1]), file); }
+    else if (parts[0] === 'pick' && parts.length === 2 && Number.isInteger(Number(parts[1]))) { kind = 'card'; saveFile = (file) => pickPhoto(Number(parts[1]), file); }
+    else if (parts[0] === 'episode' && parts.length === 3 && Number.isInteger(Number(parts[1])) && Number.isInteger(Number(parts[2]))) { kind = 'episode'; saveFile = (file) => episodePhoto(Number(parts[1]), Number(parts[2]), file); }
+    else return;
+    void optimizeStudioImage(original, kind).then((file) => { saveFile(file); notify(`Gambar diganti · WebP ${Math.ceil(file.size / 1024)} KB`); }).catch((error: Error) => notify(error.message));
+  };
+
   useEffect(() => {
     const listener = (event: MessageEvent) => {
       if (event.origin !== location.origin || event.source !== frame.current?.contentWindow) return;
@@ -89,8 +104,11 @@ export default function ElementorCanvas({ draft, patch, changeProject, setPhoto,
       if (data.type === 'PESONAFLIX_CANVAS_READY') { sendCanvas(); return; }
       if (data.type === 'PESONAFLIX_VISUAL_SELECT') {
         if (VISUAL_SECTIONS.some((section) => section.id === data.section)) setActiveSection(data.section as VisualSectionId);
-        if (typeof data.field === 'string' && data.field !== 'portrait' && /^[a-z0-9:-]{1,100}$/.test(data.field)) { setSelectedText(data.field); setSelectedWidget(''); }
-        if (typeof data.widgetId === 'string' && /^widget-[a-z0-9-]+$/.test(data.widgetId)) { setSelectedWidget(data.widgetId); setSelectedText(''); }
+        if (typeof data.field === 'string' && /^[a-z0-9:-]{1,100}$/.test(data.field)) {
+          setSelectedLinkTarget(data.field); setSelectedWidget('');
+          setSelectedText(data.field === 'portrait' || /^(?:(?:project|watch|pick|season|highlight|skill-category):\d+|(?:episode|skill):\d+:\d+)$/.test(data.field) ? '' : data.field);
+        }
+        if (typeof data.widgetId === 'string' && /^widget-[a-z0-9-]+$/.test(data.widgetId)) { setSelectedWidget(data.widgetId); setSelectedText(''); setSelectedLinkTarget(''); }
         return;
       }
       const { draft: state, patch: apply, changeProject: applyProject, setPhoto: photo, setWatchPhoto: watchPhoto, watchAction: updateWatch, setPickPhoto: pickPhoto, pickAction: updatePick, setEpisodePhoto: episodePhoto, seasonAction: updateSeason, episodeAction: updateEpisode, reorder: move, removeProject: remove, notice: notify } = latest.current;
@@ -280,7 +298,7 @@ export default function ElementorCanvas({ draft, patch, changeProject, setPhoto,
       <div className="flex gap-1 rounded-lg bg-black/40 p-1"><button type="button" aria-pressed={device === 'desktop'} onClick={() => setDevice('desktop')} className={`rounded-md px-3 py-1.5 text-xs ${device === 'desktop' ? 'bg-white/15' : 'text-white/45'}`}>Desktop</button><button type="button" aria-pressed={device === 'mobile'} onClick={() => setDevice('mobile')} className={`rounded-md px-3 py-1.5 text-xs ${device === 'mobile' ? 'bg-white/15' : 'text-white/45'}`}>HP</button></div>
     </div>
     <div className="flex flex-col lg:flex-row">
-      <StudioDesignSidebar brief={draft.brief} patch={patch} activeSection={activeSection} selectSection={setActiveSection} selectedText={selectedText} selectText={setSelectedText} selectedWidget={selectedWidget} selectWidget={setSelectedWidget} />
+      <StudioDesignSidebar brief={draft.brief} patch={patch} activeSection={activeSection} selectSection={setActiveSection} selectedText={selectedText} selectText={setSelectedText} selectedWidget={selectedWidget} selectWidget={setSelectedWidget} selectedLinkTarget={selectedLinkTarget} selectLinkTarget={(field) => { setSelectedLinkTarget(field); setSelectedText(''); setSelectedWidget(''); }} replaceImage={replaceImage} />
       <div className="flex min-w-0 flex-1 justify-center overflow-auto bg-[#050506] p-2 sm:p-4">
         <iframe ref={frame} title="Kanvas visual portofolio Netflix" src="/studio/preview?canvas=1" onLoad={sendCanvas} className="block h-[min(84vh,980px)] min-h-[650px] shrink-0 rounded-lg border border-white/15 bg-[#07070a] shadow-2xl transition-[width] duration-300" style={{ width: device === 'mobile' ? 'min(390px, 100%)' : '100%' }} />
       </div>

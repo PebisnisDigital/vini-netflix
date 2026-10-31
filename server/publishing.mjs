@@ -10,6 +10,11 @@ const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 // Slug tetap terkunci pada milik klien dan nama file tidak boleh berisi folder.
 const pathPattern = /^public\/clients\/([a-z0-9]+(?:-[a-z0-9]+)*)\/([a-z0-9][a-z0-9._-]{0,80})\.(png|jpe?g|webp|avif)$/i;
 const urlValid = (url) => { try { return ['https:', 'http:'].includes(new URL(url).protocol); } catch { return false; } };
+const safeElementHref = (href) => {
+  if (typeof href !== 'string' || href.length > 2048 || href !== href.trim() || /[\u0000-\u001f\u007f<>"'\\]/.test(href)) return false;
+  if (/^#[a-z][a-z0-9-]*$/i.test(href) || /^mailto:[^\s@?]+@[^\s@?]+\.[a-z]{2,}(?:\?subject=[^\s]*)?$/i.test(href) || /^tel:\+?[0-9()-]{5,25}$/.test(href) || /^\/(?!\/)[a-z0-9\-\/_#?=&%.]*$/i.test(href)) return true;
+  try { const parsed = new URL(href); return ['http:', 'https:'].includes(parsed.protocol) && Boolean(parsed.hostname); } catch { return false; }
+};
 
 export function validatePublishPayload(payload) {
   const errors = [];
@@ -100,8 +105,12 @@ export function validatePublishPayload(payload) {
     else {
       if (design.sectionBackgrounds !== undefined && (!design.sectionBackgrounds || typeof design.sectionBackgrounds !== 'object' || Array.isArray(design.sectionBackgrounds) || Object.entries(design.sectionBackgrounds).some(([section, value]) => !sections.includes(section) || !color(value)))) errors.push('Warna section tidak valid.');
       if (design.textStyles !== undefined && (!design.textStyles || typeof design.textStyles !== 'object' || Array.isArray(design.textStyles) || Object.keys(design.textStyles).length > 200 || Object.entries(design.textStyles).some(([field, style]) => !/^[a-z0-9:-]{1,100}$/.test(field) || !textStyle(style)))) errors.push('Gaya tulisan tidak valid.');
-      if (design.widgets !== undefined && (!Array.isArray(design.widgets) || design.widgets.length > 60 || design.widgets.some((widget) => !widget || typeof widget.id !== 'string' || !/^[a-z0-9-]{1,64}$/.test(widget.id) || !sections.includes(widget.section) || !['text', 'icon'].includes(widget.type) || typeof widget.text !== 'string' || widget.text.length > 1000 || widget.icon !== undefined && !icons.includes(widget.icon) || !textStyle(widget) || widget.url !== undefined && widget.url !== '' && !urlValid(widget.url)))) errors.push('Widget teks/ikon tidak valid.');
+      if (design.widgets !== undefined && (!Array.isArray(design.widgets) || design.widgets.length > 60 || design.widgets.some((widget) => !widget || typeof widget.id !== 'string' || !/^[a-z0-9-]{1,64}$/.test(widget.id) || !sections.includes(widget.section) || !['text', 'icon'].includes(widget.type) || typeof widget.text !== 'string' || widget.text.length > 1000 || widget.icon !== undefined && !icons.includes(widget.icon) || !textStyle(widget) || widget.url !== undefined && widget.url !== '' && !safeElementHref(widget.url)))) errors.push('Widget teks/ikon tidak valid.');
     }
+  }
+  if (brief.elementLinks !== undefined) {
+    const links = brief.elementLinks;
+    if (!links || typeof links !== 'object' || Array.isArray(links) || Object.keys(links).length > 200 || Object.entries(links).some(([field, href]) => !/^[a-z][a-z0-9:-]{0,99}$/.test(field) || field.includes('::') || !safeElementHref(href))) errors.push('Tautan elemen tidak valid. Gunakan https://, #bagian, mailto:, tel:, atau /halaman.');
   }
   if (brief.designVariant !== undefined && brief.designVariant !== 'chibi-cinema') errors.push('Gaya website tidak dikenali.');
   if (brief.templateId !== undefined && !getTemplate(brief.templateId)) errors.push('Template website tidak dikenal.');
