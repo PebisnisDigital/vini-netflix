@@ -1,0 +1,211 @@
+{
+  "slug": "suciwijayaningsih",
+  "name": "Suci Wijayaningsih",
+  "role": "Ibu Rumah Tangga",
+  "location": "Lokasi belum dicantumkan",
+  "bio": "Assalamu'alaikum, saya Suci Wijayaningsih. Saya seorang ibu rumah tangga yang menjalani keseharian dengan berbagai peran dan cerita sederhana. Halaman ini saya jadikan ruang untuk memperkenalkan diri, menyambung silaturahmi, dan membuka percakapan yang hangat. Senang bisa berkenalan dengan Anda.",
+  "tagline": [
+    "PERKENALAN · KESEHARIAN · SILATURAHMI",
+    "Dari keseharian yang sederhana, tumbuh cerita yang bermakna."
+  ],
+  "interests": [
+    "Peran di Rumah",
+    "Cerita Keseharian",
+    "Keluarga & Kebersamaan",
+    "Silaturahmi"
+  ],
+  "photo": {
+    "src": "/clients/suciwijayaningsih/foto-profesional.webp",
+    "alt": "Potret profesional hasil pengolahan AI berdasarkan foto Suci Wijayaningsih, mengenakan hijab abu-abu taupe dan busana biru, tersenyum dengan latar transparan"
+  },
+  "email": "",
+  "whatsapp": "081359814989",
+  "links": {},
+  "experiences": [
+    {
+      "company": "Kehidupan Sehari-hari",
+      "role": "Ibu Rumah Tangga",
+      "period": "Saat ini",
+      "description": "Suci Wijayaningsih memperkenalkan peran kesehariannya sebagai ibu rumah tangga. Profil ini menjadi ruang untuk mengenal pribadi Suci dan menjalin komunikasi secara langsung."
+    }
+  ],
+  "education": [],
+  "projects": [
+    {
+      "title": "Halo, Saya Suci",
+      "year": "PERKENALAN",
+      "description": "Kenali Suci Wijayaningsih melalui perkenalan singkat tentang dirinya dan perannya sebagai ibu rumah tangga. Setiap cerita yang berharga bisa dimulai dari saling mengenal.",
+      "category": "Profil Pribadi",
+      "tags": ["Suci Wijayaningsih", "Perkenalan", "Ibu Rumah Tangga"],
+      "image": "/clients/suciwijayaningsih/foto-profesional.webp"
+    },
+    {
+      "title": "Cerita di Balik Keseharian",
+      "year": "KESEHARIAN",
+      "description": "Ada banyak hal bermakna dalam rutinitas sehari-hari. Bagian ini menjadi ruang untuk mengenalkan sisi personal, momen, dan cerita yang ingin Suci bagikan.",
+      "category": "Cerita Kehidupan",
+      "tags": ["Keseharian", "Rumah", "Cerita"]
+    },
+    {
+      "title": "Mari Saling Menyapa",
+      "year": "SILATURAHMI",
+      "description": "Untuk menyapa, berkenalan, atau melanjutkan percakapan, hubungi Suci melalui WhatsApp yang tersedia. Sebuah sapaan adalah awal yang baik untuk saling mengenal.",
+      "category": "Komunikasi",
+      "tags": ["Silaturahmi", "WhatsApp", "Perkenalan"],
+      "website": "https://wa.me/6281359814989?text=Assalamu%27alaikum%20Bu%20Suci%2C%20saya%20melihat%20halaman%20profil%20Anda%20di%20PESONAFLIX."
+    }
+  ],
+  "skills": [
+    "Ibu Rumah Tangga",
+    "Cerita Keseharian",
+    "Silaturahmi"
+  ],
+  "skillCategories": [
+    {
+      "id": "perkenalan",
+      "title": "Mengenal Suci",
+      "subtitle": "Hal-hal yang dekat dengan keseharian",
+      "skills": [
+        {
+          "name": "Ibu Rumah Tangga",
+          "mono": "IRT",
+          "note": "Peran sehari-hari",
+          "evidence": [
+            "Profesi yang disampaikan: ibu rumah tangga",
+            "Bagian dari identitas Suci Wijayaningsih"
+          ]
+        },
+        {
+          "name": "Ruang Cerita",
+          "mono": "CR",
+          "note": "Perkenalan pribadi",
+          "evidence": [
+            "Halaman ini memuat perkenalan Suci",
+            "Cerita personal lainnya dapat ditambahkan sesuai keinginan pemilik profil"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "silaturahmi",
+      "title": "Silaturahmi",
+      "subtitle": "Sebuah ruang untuk saling terhubung",
+      "skills": [
+        {
+          "name": "Mari Berkenalan",
+          "mono": "HI",
+          "note": "Kontak langsung",
+          "evidence": [
+            "WhatsApp tersedia sebagai jalur komunikasi",
+            "Pengunjung dapat menyapa dan memperkenalkan diri"
+          ]
+        }
+      ]
+    }
+  ],
+  "skillsHeading": "Sederhana, Hangat, dan Penuh Cerita",
+  "skillsAside": "Peran sebagai ibu rumah tangga adalah bagian dari keseharian Suci Wijayaningsih. Melalui halaman ini, Suci ingin menghadirkan perkenalan yang terasa dekat dan membuka kesempatan untuk tetap terhubung.",
+  "skillsKicker": "PERAN · KESEHARIAN · SILATURAHMI",
+  "highlights": [
+    {
+      "title": "Suci Wijayaningsih",
+      "description": "Perkenalan singkat tentang pribadi di balik halaman ini.",
+      "category": "PROFIL"
+    },
+    {
+      "title": "Ibu Rumah Tangga",
+      "description": "Peran keseharian yang menjadi bagian penting dari identitas Suci.",
+      "category": "KESEHARIAN"
+    },
+    {
+      "title": "Terhubung Lewat WhatsApp",
+      "description": "Ruang untuk menyapa dan menjalin silaturahmi secara langsung.",
+      "category": "KONTAK"
+    }
+  ],
+  "watchCards": [
+    {
+      "target": "about",
+      "title": "Kenali Suci",
+      "subtitle": "Perkenalan pribadi yang hangat",
+      "image": "/clients/suciwijayaningsih/foto-profesional.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Cerita Keseharian",
+      "subtitle": "Hal-hal sederhana yang bermakna"
+    },
+    {
+      "target": "journey",
+      "title": "Jejak Perkenalan",
+      "subtitle": "Awal untuk saling mengenal"
+    },
+    {
+      "target": "skills",
+      "title": "Silaturahmi",
+      "subtitle": "Mengenal peran dan tetap terhubung"
+    }
+  ],
+  "pickCards": [
+    {
+      "label": "PERKENALAN",
+      "title": "Halo, Saya Suci",
+      "detail": "Perkenalan dengan Suci Wijayaningsih dan perannya sebagai ibu rumah tangga.",
+      "image": "/clients/suciwijayaningsih/foto-profesional.webp",
+      "palette": { "from": "#454a66", "via": "#a9a2a3", "to": "#25354b", "accent": "#f1e6d6" }
+    },
+    {
+      "label": "KESEHARIAN",
+      "title": "Ruang untuk Bercerita",
+      "detail": "Menemukan arti dalam momen dan kegiatan yang mengisi hari.",
+      "palette": { "from": "#596963", "via": "#aebdb0", "to": "#334e4b", "accent": "#f1e6d6" }
+    },
+    {
+      "label": "SILATURAHMI",
+      "title": "Mari Saling Menyapa",
+      "detail": "Terhubung langsung dengan Suci lewat WhatsApp.",
+      "palette": { "from": "#68617a", "via": "#b7a5ba", "to": "#3b4157", "accent": "#fff0df" }
+    }
+  ],
+  "picksHeading": "Cerita Kecil, Makna Besar",
+  "picksKicker": "MENGENAL SUCI · KESEHARIAN · SILATURAHMI",
+  "seasons": [
+    {
+      "number": 1,
+      "title": "Salam Perkenalan",
+      "period": "Mengenal Suci",
+      "synopsis": "Suci Wijayaningsih memperkenalkan dirinya sebagai ibu rumah tangga. Halaman ini menjadi awal untuk berbagi cerita dan saling mengenal.",
+      "episodes": [
+        {
+          "title": "Halo, Saya Suci",
+          "runtime": "Profil pribadi",
+          "description": "Kenali Suci Wijayaningsih, peran kesehariannya, dan cara untuk menghubunginya secara langsung.",
+          "tags": ["Perkenalan", "Ibu Rumah Tangga"],
+          "image": "/clients/suciwijayaningsih/foto-profesional.webp",
+          "palette": { "from": "#535a72", "via": "#aca6a6", "to": "#3b4e60", "accent": "#f1e6d6" }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Cerita dan Silaturahmi",
+      "period": "Tetap terhubung",
+      "synopsis": "Keseharian menghadirkan kesempatan untuk belajar mengenal diri dan orang lain. Percakapan yang hangat dapat dimulai dari sebuah sapaan.",
+      "episodes": [
+        {
+          "title": "Berawal dari Sapaan",
+          "runtime": "Silaturahmi",
+          "description": "Hubungi Suci melalui WhatsApp untuk berkenalan, menyampaikan salam, atau melanjutkan percakapan.",
+          "tags": ["Komunikasi", "Silaturahmi"],
+          "palette": { "from": "#596b68", "via": "#a9b5ac", "to": "#455965", "accent": "#fae7d3" }
+        }
+      ]
+    }
+  ],
+  "journeyHeading": "Setiap Hari Memiliki Ceritanya Sendiri",
+  "journeyAside": "Suci Wijayaningsih menjalani perannya sebagai ibu rumah tangga, dengan keseharian yang menyimpan berbagai momen berarti. Melalui halaman ini, ia memperkenalkan diri dan membuka ruang untuk saling menyapa. Siapa pun yang ingin berkenalan atau menjalin silaturahmi dapat menghubunginya secara langsung lewat WhatsApp.",
+  "journeyKicker": "KESEHARIAN · CERITA · KEBERSAMAAN",
+  "theme": { "accent": "#b7a19a", "background": "#38536a" },
+  "templateId": "storybook",
+  "identityMode": "photo"
+}

@@ -14,7 +14,7 @@ export default function StorybookHero({ onPlay, onOpenProject }: {
   const { scrollTo } = useSmoothScroll();
   const needsArtwork = !profile.portrait.src || profile.portrait.src === '/assets/portrait-720.webp';
   const conceptArt = /buatan AI|bukan foto asli|karakter fiksi/i.test(profile.portrait.alt);
-  const initialIntroduction = profile.clientSlug === 'fitrahwati';
+  const initialIntroduction = ['fitrahwati', 'suciwijayaningsih'].includes(profile.clientSlug ?? '');
 
   return (
     <section id="top" className="storybook-hero" aria-label={`Buku cerita ${profile.displayName}`}>
