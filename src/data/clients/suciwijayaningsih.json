@@ -18,7 +18,7 @@
     "src": "/clients/suciwijayaningsih/foto-profesional.webp",
     "alt": "Potret profesional hasil pengolahan AI berdasarkan foto Suci Wijayaningsih, mengenakan hijab abu-abu taupe dan busana biru, tersenyum dengan latar transparan"
   },
-  "email": "",
+  "email": "ruangbening89@gmail.com",
   "whatsapp": "081359814989",
   "links": {},
   "experiences": [
@@ -49,9 +49,9 @@
     {
       "title": "Mari Saling Menyapa",
       "year": "SILATURAHMI",
-      "description": "Untuk menyapa, berkenalan, atau melanjutkan percakapan, hubungi Suci melalui WhatsApp yang tersedia. Sebuah sapaan adalah awal yang baik untuk saling mengenal.",
+      "description": "Untuk menyapa, berkenalan, atau melanjutkan percakapan, hubungi Suci melalui WhatsApp atau email yang tersedia. Sebuah sapaan adalah awal yang baik untuk saling mengenal.",
       "category": "Komunikasi",
-      "tags": ["Silaturahmi", "WhatsApp", "Perkenalan"],
+      "tags": ["Silaturahmi", "WhatsApp", "Email"],
       "website": "https://wa.me/6281359814989?text=Assalamu%27alaikum%20Bu%20Suci%2C%20saya%20melihat%20halaman%20profil%20Anda%20di%20PESONAFLIX."
     }
   ],
@@ -96,7 +96,7 @@
           "mono": "HI",
           "note": "Kontak langsung",
           "evidence": [
-            "WhatsApp tersedia sebagai jalur komunikasi",
+            "WhatsApp dan email tersedia sebagai jalur komunikasi",
             "Pengunjung dapat menyapa dan memperkenalkan diri"
           ]
         }
@@ -118,8 +118,8 @@
       "category": "KESEHARIAN"
     },
     {
-      "title": "Terhubung Lewat WhatsApp",
-      "description": "Ruang untuk menyapa dan menjalin silaturahmi secara langsung.",
+      "title": "Terhubung Langsung",
+      "description": "Ruang untuk menyapa melalui WhatsApp atau email.",
       "category": "KONTAK"
     }
   ],
@@ -163,7 +163,7 @@
     {
       "label": "SILATURAHMI",
       "title": "Mari Saling Menyapa",
-      "detail": "Terhubung langsung dengan Suci lewat WhatsApp.",
+      "detail": "Terhubung langsung dengan Suci lewat WhatsApp atau email.",
       "palette": { "from": "#68617a", "via": "#b7a5ba", "to": "#3b4157", "accent": "#fff0df" }
     }
   ],
@@ -195,7 +195,7 @@
         {
           "title": "Berawal dari Sapaan",
           "runtime": "Silaturahmi",
-          "description": "Hubungi Suci melalui WhatsApp untuk berkenalan, menyampaikan salam, atau melanjutkan percakapan.",
+          "description": "Hubungi Suci melalui WhatsApp atau email untuk berkenalan, menyampaikan salam, atau melanjutkan percakapan.",
           "tags": ["Komunikasi", "Silaturahmi"],
           "palette": { "from": "#596b68", "via": "#a9b5ac", "to": "#455965", "accent": "#fae7d3" }
         }
@@ -203,7 +203,7 @@
     }
   ],
   "journeyHeading": "Setiap Hari Memiliki Ceritanya Sendiri",
-  "journeyAside": "Suci Wijayaningsih menjalani perannya sebagai ibu rumah tangga, dengan keseharian yang menyimpan berbagai momen berarti. Melalui halaman ini, ia memperkenalkan diri dan membuka ruang untuk saling menyapa. Siapa pun yang ingin berkenalan atau menjalin silaturahmi dapat menghubunginya secara langsung lewat WhatsApp.",
+  "journeyAside": "Suci Wijayaningsih menjalani perannya sebagai ibu rumah tangga, dengan keseharian yang menyimpan berbagai momen berarti. Melalui halaman ini, ia memperkenalkan diri dan membuka ruang untuk saling menyapa. Siapa pun yang ingin berkenalan atau menjalin silaturahmi dapat menghubunginya secara langsung lewat WhatsApp atau email.",
   "journeyKicker": "KESEHARIAN · CERITA · KEBERSAMAAN",
   "theme": { "accent": "#b7a19a", "background": "#38536a" },
   "templateId": "storybook",
