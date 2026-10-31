@@ -5,8 +5,7 @@
   "location": "Indonesia",
   "bio": "Halo, saya AliKopi. Saya menyediakan produk digital serta layanan desain grafis, desain web, dan pembuatan aplikasi custom. Setiap kebutuhan punya tujuan yang berbeda, jadi mari mulai dari ide dan kebutuhan Anda. Hubungi saya untuk berdiskusi tentang konsep, ruang lingkup pekerjaan, pilihan solusi, dan penawaran yang sesuai.",
   "tagline": [
-    "Produk digital · Desain grafis · Desain web · Aplikasi custom",
-    "Dari ide kreatif menuju solusi digital yang sesuai kebutuhan."
+    "Produk digital · Desain grafis · Desain web · Aplikasi custom"
   ],
   "interests": [
     "Produk Digital",
@@ -36,32 +35,52 @@
       "year": "PRODUK DIGITAL",
       "description": "AliKopi menawarkan produk digital. Tanyakan jenis produk, format, manfaat penggunaan, ketentuan akses, dan harga yang tersedia agar pilihan sesuai kebutuhan Anda.",
       "category": "Produk & Kebutuhan Online",
-      "tags": ["Produk Digital", "Katalog", "Konsultasi"],
-      "website": "https://wa.me/628883385758?text=Halo%20AliKopi%2C%20saya%20ingin%20tanya%20produk%20digital."
+      "tags": [
+        "Produk Digital",
+        "Katalog",
+        "Konsultasi"
+      ],
+      "website": "https://wa.me/628883385758?text=Halo%20AliKopi%2C%20saya%20ingin%20tanya%20produk%20digital.",
+      "image": ""
     },
     {
       "title": "Desain Grafis",
       "year": "DESAIN KREATIF",
       "description": "Layanan desain grafis untuk kebutuhan visual personal maupun usaha. Ceritakan tujuan, bahan, gaya visual, serta format hasil yang dibutuhkan agar ruang lingkup dan penawaran bisa dibahas bersama.",
       "category": "Visual & Identitas",
-      "tags": ["Desain Grafis", "Materi Visual", "Kreatif"],
-      "website": "https://wa.me/628883385758?text=Halo%20AliKopi%2C%20saya%20ingin%20diskusi%20desain%20grafis."
+      "tags": [
+        "Desain Grafis",
+        "Materi Visual",
+        "Kreatif"
+      ],
+      "website": "https://wa.me/628883385758?text=Halo%20AliKopi%2C%20saya%20ingin%20diskusi%20desain%20grafis.",
+      "image": ""
     },
     {
       "title": "Desain Website",
       "year": "WEB DESIGN",
       "description": "Perancangan tampilan website untuk memperkenalkan profil, brand, atau layanan secara online. Diskusikan kebutuhan halaman, konten, fitur, serta arah visual yang diinginkan sebelum mulai.",
       "category": "Website & Pengalaman Digital",
-      "tags": ["Desain Web", "UI", "Kebutuhan Website"],
-      "website": "https://wa.me/628883385758?text=Halo%20AliKopi%2C%20saya%20ingin%20diskusi%20desain%20website."
+      "tags": [
+        "Desain Web",
+        "UI",
+        "Kebutuhan Website"
+      ],
+      "website": "https://wa.me/628883385758?text=Halo%20AliKopi%2C%20saya%20ingin%20diskusi%20desain%20website.",
+      "image": ""
     },
     {
       "title": "Aplikasi Custom",
       "year": "APLIKASI KHUSUS",
       "description": "Layanan pembuatan aplikasi yang disesuaikan dengan alur kerja dan kebutuhan pengguna. Ruang lingkup fitur, platform, jadwal pengerjaan, dan biaya ditentukan setelah diskusi kebutuhan.",
       "category": "Pengembangan Solusi Digital",
-      "tags": ["Aplikasi Custom", "Fitur Sesuai Kebutuhan", "Solusi Digital"],
-      "website": "https://wa.me/628883385758?text=Halo%20AliKopi%2C%20saya%20ingin%20diskusi%20pembuatan%20aplikasi%20custom."
+      "tags": [
+        "Aplikasi Custom",
+        "Fitur Sesuai Kebutuhan",
+        "Solusi Digital"
+      ],
+      "website": "https://wa.me/628883385758?text=Halo%20AliKopi%2C%20saya%20ingin%20diskusi%20pembuatan%20aplikasi%20custom.",
+      "image": ""
     }
   ],
   "skills": [
@@ -80,13 +99,19 @@
           "name": "Desain Grafis",
           "mono": "DG",
           "note": "Materi visual",
-          "evidence": ["Layanan desain grafis", "Kebutuhan desain dan hasil akhir didiskusikan terlebih dahulu"]
+          "evidence": [
+            "Layanan desain grafis",
+            "Kebutuhan desain dan hasil akhir didiskusikan terlebih dahulu"
+          ]
         },
         {
           "name": "Desain Web",
           "mono": "WEB",
           "note": "Tampilan website",
-          "evidence": ["Layanan desain tampilan website", "Perancangan mengikuti kebutuhan halaman dan identitas visual"]
+          "evidence": [
+            "Layanan desain tampilan website",
+            "Perancangan mengikuti kebutuhan halaman dan identitas visual"
+          ]
         }
       ]
     },
@@ -99,13 +124,19 @@
           "name": "Produk Digital",
           "mono": "PD",
           "note": "Katalog digital",
-          "evidence": ["Salah satu kategori penawaran AliKopi", "Jenis produk dan ketentuan akses dikonfirmasi sebelum membeli"]
+          "evidence": [
+            "Salah satu kategori penawaran AliKopi",
+            "Jenis produk dan ketentuan akses dikonfirmasi sebelum membeli"
+          ]
         },
         {
           "name": "Aplikasi Custom",
           "mono": "APP",
           "note": "Pengembangan sesuai kebutuhan",
-          "evidence": ["Menawarkan layanan pembuatan aplikasi custom", "Fitur, platform, dan jadwal dipetakan melalui diskusi kebutuhan"]
+          "evidence": [
+            "Menawarkan layanan pembuatan aplikasi custom",
+            "Fitur, platform, dan jadwal dipetakan melalui diskusi kebutuhan"
+          ]
         }
       ]
     }
@@ -140,22 +171,26 @@
     {
       "target": "originals",
       "title": "Jelajahi Layanan",
-      "subtitle": "Empat pilihan kebutuhan digital"
+      "subtitle": "Empat pilihan kebutuhan digital",
+      "image": ""
     },
     {
       "target": "skills",
       "title": "Fokus Keahlian",
-      "subtitle": "Grafis, web, produk, aplikasi"
+      "subtitle": "Grafis, web, produk, aplikasi",
+      "image": ""
     },
     {
       "target": "journey",
       "title": "Cara Berkolaborasi",
-      "subtitle": "Dari diskusi hingga rencana"
+      "subtitle": "Dari diskusi hingga rencana",
+      "image": ""
     },
     {
       "target": "picks",
       "title": "Pilih Kebutuhan Anda",
-      "subtitle": "Temukan titik mulai yang tepat"
+      "subtitle": "Temukan titik mulai yang tepat",
+      "image": ""
     }
   ],
   "pickCards": [
@@ -163,25 +198,49 @@
       "label": "PRODUK ONLINE",
       "title": "Produk Digital",
       "detail": "Tanyakan pilihan produk dan akses yang sesuai kebutuhan.",
-      "palette": { "from": "#092637", "via": "#167b8d", "to": "#07152b", "accent": "#76fff0" }
+      "palette": {
+        "from": "#092637",
+        "via": "#167b8d",
+        "to": "#07152b",
+        "accent": "#76fff0"
+      },
+      "image": ""
     },
     {
       "label": "DESAIN VISUAL",
       "title": "Desain Grafis",
       "detail": "Kebutuhan visual untuk personal, konten, atau bisnis.",
-      "palette": { "from": "#302058", "via": "#7257d4", "to": "#0c1a33", "accent": "#e5b3ff" }
+      "palette": {
+        "from": "#302058",
+        "via": "#7257d4",
+        "to": "#0c1a33",
+        "accent": "#e5b3ff"
+      },
+      "image": ""
     },
     {
       "label": "TAMPILAN WEBSITE",
       "title": "Desain Web",
       "detail": "Bangun konsep tampilan website yang sesuai identitas dan tujuan.",
-      "palette": { "from": "#132a4d", "via": "#2f80b0", "to": "#0b1532", "accent": "#89edff" }
+      "palette": {
+        "from": "#132a4d",
+        "via": "#2f80b0",
+        "to": "#0b1532",
+        "accent": "#89edff"
+      },
+      "image": ""
     },
     {
       "label": "PENGEMBANGAN",
       "title": "Aplikasi Custom",
       "detail": "Bicarakan alur kerja dan fitur aplikasi yang Anda perlukan.",
-      "palette": { "from": "#123b3e", "via": "#27969a", "to": "#0c1e34", "accent": "#92ffe6" }
+      "palette": {
+        "from": "#123b3e",
+        "via": "#27969a",
+        "to": "#0c1e34",
+        "accent": "#92ffe6"
+      },
+      "image": ""
     }
   ],
   "picksHeading": "Pilih Kebutuhan Digital Anda",
@@ -197,9 +256,17 @@
           "title": "Halo, Saya AliKopi",
           "runtime": "Perkenalan",
           "description": "Mengenal sosok AliKopi dan fokus pada produk digital, desain grafis, desain web, serta aplikasi custom.",
-          "tags": ["AliKopi", "Layanan Digital"],
+          "tags": [
+            "AliKopi",
+            "Layanan Digital"
+          ],
           "image": "/clients/alikopi/foto-utama.webp",
-          "palette": { "from": "#0d3347", "via": "#257f94", "to": "#0b1933", "accent": "#81f9ec" }
+          "palette": {
+            "from": "#0d3347",
+            "via": "#257f94",
+            "to": "#0b1933",
+            "accent": "#81f9ec"
+          }
         }
       ]
     },
@@ -213,15 +280,33 @@
           "title": "Produk Digital & Desain Grafis",
           "runtime": "Produk & desain",
           "description": "Cari produk digital atau diskusikan pembuatan materi visual untuk kebutuhan Anda.",
-          "tags": ["Produk Digital", "Desain Grafis"],
-          "palette": { "from": "#302258", "via": "#745ed2", "to": "#0b1734", "accent": "#d8b4ff" }
+          "tags": [
+            "Produk Digital",
+            "Desain Grafis"
+          ],
+          "palette": {
+            "from": "#302258",
+            "via": "#745ed2",
+            "to": "#0b1734",
+            "accent": "#d8b4ff"
+          },
+          "image": ""
         },
         {
           "title": "Desain Web & Aplikasi Custom",
           "runtime": "Web & aplikasi",
           "description": "Diskusikan konsep tampilan website atau kebutuhan aplikasi dengan fitur khusus.",
-          "tags": ["Desain Web", "Aplikasi Custom"],
-          "palette": { "from": "#0c3550", "via": "#288b9b", "to": "#0b1b32", "accent": "#81f9ec" }
+          "tags": [
+            "Desain Web",
+            "Aplikasi Custom"
+          ],
+          "palette": {
+            "from": "#0c3550",
+            "via": "#288b9b",
+            "to": "#0b1b32",
+            "accent": "#81f9ec"
+          },
+          "image": ""
         }
       ]
     }
@@ -229,7 +314,6 @@
   "journeyHeading": "Dari Ide ke Solusi Digital",
   "journeyAside": "AliKopi menghadirkan pilihan produk dan jasa digital untuk kebutuhan visual maupun fungsional. Sampaikan tujuan yang ingin dicapai, diskusikan pilihan layanan, lalu sepakati lingkup pekerjaan dan langkah berikutnya melalui kontak yang tersedia.",
   "journeyKicker": "KENALAN · DISKUSI · KOLABORASI",
-  "theme": { "accent": "#4bdcf2", "background": "#080b1a" },
-  "templateId": "futuristic-neon",
+  "templateId": "original",
   "identityMode": "photo"
 }
