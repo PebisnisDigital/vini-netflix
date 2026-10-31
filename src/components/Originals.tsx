@@ -105,7 +105,9 @@ export default function Originals({ onOpen }: { onOpen: (p: Project) => void }) 
           </p>
           <RevealText as="h2" text={profile.clientSlug === 'yantiriyantini' ? 'PUBLIKASI' : 'KARYA'} className="font-display text-[clamp(2.8rem,7vw,6rem)] leading-tight text-bone" />
           <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-mist">
-            {projects.map((project) => project.title).join(' · ')}. Geser kartunya untuk menjelajahi setiap cerita.
+            {profile.clientSlug === 'yantiriyantini'
+              ? 'Empat buku keperawatan anak dan dua penelitian. Geser kartu, lalu buka detail untuk membaca karya selengkapnya.'
+              : `${projects.map((project) => project.title).join(' · ')}. Geser kartunya untuk menjelajahi setiap cerita.`}
           </p>
         </div>
 

@@ -6,6 +6,64 @@ import { ProjectArt } from './Poster';
 
 export default function ProjectCard({ project, index, onOpen, duplicate = false }: { project: Project; index: number; onOpen: () => void; duplicate?: boolean }) {
   const { profile } = usePortfolio();
+  // Yanti's supplied artwork already contains publication lettering. Her titles,
+  // descriptions and controls need their own surface instead of sitting on the art.
+  if (profile.clientSlug === 'yantiriyantini') {
+    return (
+      <motion.article
+        data-studio-edit={`project:${index}`}
+        aria-hidden={duplicate}
+        className="w-[84vw] shrink-0 snap-start sm:w-[62vw] lg:w-[46vw] xl:w-[42vw]"
+        initial={false}
+      >
+        <div
+          role="button"
+          tabIndex={duplicate ? -1 : 0}
+          data-cursor="view"
+          onClick={onOpen}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
+              onOpen();
+            }
+          }}
+          aria-label={`Baca detail ${project.title}`}
+          className="focus-ring group flex h-[35rem] flex-col overflow-hidden rounded-2xl border border-white/15 bg-[#111821] shadow-[0_24px_65px_-32px_rgba(0,0,0,0.85)] transition duration-300 hover:-translate-y-1 hover:border-white/35 hover:shadow-[0_32px_70px_-26px_rgba(0,0,0,0.9)] sm:h-[34rem] lg:h-[36rem]"
+        >
+          <div className="relative h-[39%] shrink-0 overflow-hidden bg-[#153044]">
+            {project.image && (
+              <img
+                src={project.image}
+                alt=""
+                loading="lazy"
+                className="h-full w-full object-cover object-[center_85%] opacity-90 transition-transform duration-700 group-hover:scale-[1.04]"
+              />
+            )}
+            <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[#111821]/70 via-transparent to-black/10" />
+            <span data-studio-edit={`project:${index}:year`} className="absolute right-4 top-4 rounded-md border border-white/20 bg-[#07121b]/80 px-2.5 py-1 text-xs font-bold text-white backdrop-blur-sm">
+              {project.year}
+            </span>
+          </div>
+          <div className="flex min-h-0 flex-1 flex-col px-5 pb-5 pt-5 sm:px-7 sm:pb-7">
+            <p data-studio-edit={`project:${index}:category`} className="mb-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#ff849c]">
+              {project.genre}
+            </p>
+            <h3 data-studio-edit={`project:${index}:title`} className="line-clamp-3 break-words font-sans text-[clamp(1.2rem,3vw,1.85rem)] font-bold leading-[1.22] text-white">
+              {project.title}
+            </h3>
+            <p data-studio-edit={`project:${index}:description`} className="mt-3 line-clamp-3 text-[13px] leading-relaxed text-white/65 sm:text-sm">
+              {project.logline}
+            </p>
+            <div className="mt-auto pt-5">
+              <span className="inline-flex min-h-10 items-center rounded-md bg-white px-4 text-sm font-bold text-[#111821] transition group-hover:bg-[#ffe9ed]">
+                Baca Detail <span aria-hidden className="ml-2">↗</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </motion.article>
+    );
+  }
   return (
     <motion.article
       data-studio-edit={`project:${index}`}

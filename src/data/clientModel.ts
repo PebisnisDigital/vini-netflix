@@ -432,10 +432,12 @@ export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: 
   const watchCards: WatchCard[] = brief.watchCards ?? vini.viewerProfiles[0].order.map((target) => ({
     target, title: sectionMeta[target].card, subtitle: sectionMeta[target].meta, image: '',
   }));
+  const preserveAcademicTitle = brief.slug === 'yantiriyantini';
   return {
     profile: {
-      fullName: name.toUpperCase(), displayName: name, firstName: name.toUpperCase(), seriesTag: 'THE SERIES',
-      originalLabel: `KISAH ORIGINAL ${name.toUpperCase()}`, role: brief.role,
+      fullName: preserveAcademicTitle ? name : name.toUpperCase(), displayName: name,
+      firstName: preserveAcademicTitle ? name.split(',')[0].toUpperCase() : name.toUpperCase(), seriesTag: 'THE SERIES',
+      originalLabel: `KISAH ORIGINAL ${preserveAcademicTitle ? name : name.toUpperCase()}`, role: brief.role,
       tagline: tags, intro: brief.bio, location: brief.location, email: brief.email || '',
       whatsapp: brief.whatsapp || '', referralCode: clientReferralCode(brief.slug), clientSlug: brief.slug,
       links: { linkedin: brief.links?.linkedin || '', github: brief.links?.github || '', website: brief.links?.website || '' },

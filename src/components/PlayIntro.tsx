@@ -176,7 +176,7 @@ export default function PlayIntro({ onClose }: { onClose: () => void }) {
           {phase === 'end' && (
             <motion.div key="end" initial={{ opacity: 0, letterSpacing: '0.6em' }} animate={{ opacity: 1, letterSpacing: '0.2em' }} transition={{ duration: 1.2, ease: EASE }}>
               <p className="font-display text-5xl text-bone sm:text-7xl">SEDANG TAYANG</p>
-              <p className="mt-3 text-xs font-semibold tracking-[0.4em] text-mist">{profile.displayName.toUpperCase()}</p>
+              <p className="mt-3 text-xs font-semibold tracking-[0.15em] text-mist sm:tracking-[0.3em]">{profile.clientSlug === 'yantiriyantini' ? profile.displayName : profile.displayName.toUpperCase()}</p>
             </motion.div>
           )}
         </AnimatePresence>

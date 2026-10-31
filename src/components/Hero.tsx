@@ -140,6 +140,11 @@ export default function Hero({ onPlay, onResume, profileId, editorMode = false }
             <span className="shimmer-text client-name-punch">{profile.clientSlug === 'yantiriyantini' ? 'YANTI RIYANTINI' : profile.firstName}</span>
           )}
         </motion.h1>
+        {profile.clientSlug === 'yantiriyantini' && (
+          <motion.p variants={item} className="mt-2 font-sans text-[clamp(1rem,3vw,1.45rem)] font-semibold tracking-[0.02em] text-white/95">
+            {profile.displayName.split(',').slice(1).join(',').trim()}
+          </motion.p>
+        )}
         <motion.p variants={item} className="mt-1 font-sans text-sm font-bold tracking-[0.62em] text-crimson-2 sm:text-base">
           {chibi ? 'VERSI CHIBI · CERITA TEH VINI' : anime ? `ANIME EDITION · CERITA ${profile.displayName.toUpperCase()}` : profile.seriesTag}
         </motion.p>

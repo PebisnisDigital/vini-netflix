@@ -49,6 +49,12 @@
       "description": "Memimpin lingkup asuhan keperawatan; juga tercatat sebagai mitra bestari dan asesor tenaga keperawatan pada 2014–2025."
     },
     {
+      "company": "IPANI Provinsi DKI Jakarta",
+      "role": "Ketua IPANI Provinsi DKI Jakarta",
+      "period": "2006–2016",
+      "description": "Menjalankan amanah sebagai Ketua Ikatan Perawat Anak Indonesia (IPANI) Provinsi DKI Jakarta selama periode 2006–2016."
+    },
+    {
       "company": "Pelayanan Perinatal dan Anak",
       "role": "Kepala Bagian Rawat Inap Anak dan Kepala Ruangan Perinatal",
       "period": "2000–2005",
@@ -258,6 +264,7 @@
           "name": "Kepemimpinan Profesi",
           "mono": "ORG",
           "evidence": [
+            "Ketua IPANI Provinsi DKI Jakarta 2006–2016",
             "Ketua POKJA Neonatus Pengurus Pusat IPANI 2022–2027",
             "Anggota pengampu cabang disiplin ilmu pada Kolegium Keperawatan 2026"
           ]
@@ -282,6 +289,11 @@
     {
       "title": "Ketua POKJA Neonatus IPANI",
       "description": "Menjabat Ketua Kelompok Kerja Neonatus pada Pengurus Pusat Ikatan Perawat Anak Indonesia periode 2022–2027.",
+      "category": "ORGANISASI"
+    },
+    {
+      "title": "Ketua IPANI DKI Jakarta",
+      "description": "Memimpin IPANI Provinsi DKI Jakarta pada periode 2006–2016.",
       "category": "ORGANISASI"
     },
     {
@@ -502,11 +514,28 @@
     {
       "number": 3,
       "title": "Akreditasi & Organisasi",
-      "period": "2022–2027",
-      "synopsis": "Kontribusi dalam survei akreditasi dan organisasi profesi keperawatan anak.",
+      "period": "2006–2027",
+      "synopsis": "Kepemimpinan IPANI DKI Jakarta, kontribusi dalam survei akreditasi, dan penguatan organisasi profesi keperawatan anak.",
       "episodes": [
         {
           "code": "S03 E01",
+          "title": "Memimpin IPANI DKI Jakarta",
+          "description": "Ketua Ikatan Perawat Anak Indonesia (IPANI) Provinsi DKI Jakarta pada 2006–2016.",
+          "tags": [
+            "IPANI DKI Jakarta",
+            "Organisasi Profesi"
+          ],
+          "runtime": "2006–2016",
+          "image": "/clients/yantiriyantini/yanti-neonatus.webp",
+          "palette": {
+            "from": "#563025",
+            "via": "#9b5d3f",
+            "to": "#180b0c",
+            "accent": "#eac59e"
+          }
+        },
+        {
+          "code": "S03 E02",
           "title": "Surveior Akreditasi",
           "description": "Surveior LAM-KPRS sejak 2022, ditopang pelatihan surveior pada tahun yang sama.",
           "tags": [
@@ -523,7 +552,7 @@
           }
         },
         {
-          "code": "S03 E02",
+          "code": "S03 E03",
           "title": "Menguatkan Profesi",
           "description": "Ketua POKJA Neonatus Pengurus Pusat IPANI 2022–2027 dan anggota pengampu cabang disiplin ilmu keperawatan pada Kolegium Keperawatan 2026.",
           "tags": [
