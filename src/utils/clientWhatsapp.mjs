@@ -1,4 +1,4 @@
-/** Normalisasi nomor seluler Indonesia atau Singapura untuk wa.me, tanpa menebak nomor. */
+/** Normalisasi nomor seluler Indonesia, Singapura, atau Brunei untuk wa.me, tanpa menebak nomor. */
 export function normalizeClientWhatsapp(value) {
   if (typeof value !== 'string' || !/^\+?[\d\s().-]+$/.test(value.trim())) return null;
   const digits = value.replace(/\D/g, '');
@@ -6,6 +6,8 @@ export function normalizeClientWhatsapp(value) {
   if (/^628\d{8,11}$/.test(international)) return international;
   // Nomor seluler Singapura memiliki delapan digit, biasanya dimulai 8 atau 9.
   if (/^65[89]\d{7}$/.test(digits)) return digits;
+  // Nomor seluler Brunei memiliki tujuh digit, diawali 7 atau 8.
+  if (/^673[78]\d{6}$/.test(digits)) return digits;
   return null;
 }
 

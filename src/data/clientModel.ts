@@ -347,7 +347,7 @@ export function validateBrief(value: unknown, options: { requireWhatsapp?: boole
   if (b.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(b.email)) errors.push('Format email tidak valid.');
   if (b.secondaryEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(b.secondaryEmail)) errors.push('Format email kedua tidak valid.');
   if (b.whatsapp !== undefined && typeof b.whatsapp !== 'string') errors.push('Nomor WhatsApp pemilik website tidak valid.');
-  else if (b.whatsapp?.trim() && !normalizeClientWhatsapp(b.whatsapp)) errors.push('Nomor WhatsApp harus berupa nomor seluler Indonesia atau Singapura yang valid (contoh: 08..., +62..., atau +65...).');
+  else if (b.whatsapp?.trim() && !normalizeClientWhatsapp(b.whatsapp)) errors.push('Nomor WhatsApp harus berupa nomor seluler Indonesia, Singapura, atau Brunei yang valid (contoh: 08..., +62..., +65..., atau +673...).');
   if (options.requireWhatsapp && !normalizeClientWhatsapp(b.whatsapp)) errors.push('Nomor WhatsApp pemilik website wajib diisi untuk tombol referral.');
   if (b.theme && (!/^#[0-9a-fA-F]{6}$/.test(b.theme.accent) || !/^#[0-9a-fA-F]{6}$/.test(b.theme.background))) errors.push('Warna tema harus menggunakan kode hex 6 digit.');
   errors.push(...validateVisualDesign(b.visualDesign));

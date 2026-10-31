@@ -14,13 +14,14 @@ export default function MinimalistHero({ onPlay, onOpenProject }: {
   const { scrollTo } = useSmoothScroll();
   const noPortrait = !profile.portrait.src || profile.portrait.src === '/assets/portrait-720.webp';
   const conceptPhoto = /buatan AI|konsep|ilustrasi|bukan foto asli|fiksi/i.test(profile.portrait.alt);
-  const introductoryProfile = profile.clientSlug === 'ermaneffendi' || profile.clientSlug === 'heriyono';
+  const introductoryProfile = ['ermaneffendi', 'heriyono', 'muhaiminjumat'].includes(profile.clientSlug ?? '');
+  const locationKnown = Boolean(profile.location && profile.location !== 'Belum dicantumkan');
 
   return (
     <section id="top" className="minimalist-hero" aria-label={`Profil profesional ${profile.displayName}`}>
       <div className="minimalist-page-shell">
         <div className="minimalist-hero-meta" aria-hidden="true">
-          <span>PROFIL / <b>01</b></span><span>PERSONAL WORK &amp; IDENTITY</span><span>{profile.location || 'INDONESIA'}</span>
+          <span>PROFIL / <b>01</b></span><span>PERSONAL WORK &amp; IDENTITY</span><span>{locationKnown ? profile.location : 'PROFIL DIGITAL'}</span>
         </div>
 
         <div className="minimalist-hero-grid">
@@ -62,12 +63,12 @@ export default function MinimalistHero({ onPlay, onOpenProject }: {
         <div className="minimalist-facts">
           <div><strong>{String(projects.length).padStart(2, '0')}</strong><span>{introductoryProfile ? 'INFORMASI PROFIL' : 'KARYA PILIHAN'}</span></div>
           <div><strong>{String(experience.length).padStart(2, '0')}</strong><span>{introductoryProfile ? 'PROFESI' : 'PERAN & PENGALAMAN'}</span></div>
-          <div><strong>{profile.location}</strong><span>BERKARYA DARI</span></div>
+          <div><strong>{locationKnown ? profile.location : 'Terhubung Langsung'}</strong><span>{locationKnown ? 'BERKARYA DARI' : 'MELALUI KONTAK'}</span></div>
           <button type="button" onClick={() => scrollTo('#about')} aria-label="Lanjut ke cerita lengkap"><span>KENALI LEBIH DEKAT</span><ArrowDownRight size={24} aria-hidden="true" /></button>
         </div>
 
         <div className="minimalist-work-index">
-          <div className="minimalist-work-heading"><span>{introductoryProfile ? '02 / PROFIL & KONTAK' : '02 / SELECTED WORK'}</span><h2>{introductoryProfile ? 'Mari mengenal lebih dekat.' : 'Karya yang berbicara.'}</h2><p>{introductoryProfile ? 'Informasi singkat untuk mengenal Erman, memulai diskusi, dan terhubung langsung.' : 'Bukan sekadar gelar. Berikut hal yang saya kerjakan dan bisa Anda lihat lebih dekat.'}</p></div>
+          <div className="minimalist-work-heading"><span>{introductoryProfile ? '02 / PROFIL & KONTAK' : '02 / SELECTED WORK'}</span><h2>{introductoryProfile ? 'Mari mengenal lebih dekat.' : 'Karya yang berbicara.'}</h2><p>{introductoryProfile ? `Informasi singkat untuk mengenal ${profile.displayName}, memulai diskusi, dan terhubung langsung.` : 'Bukan sekadar gelar. Berikut hal yang saya kerjakan dan bisa Anda lihat lebih dekat.'}</p></div>
           <div className="minimalist-work-list">
             {projects.slice(0, 3).map((project, index) => (
               <button className="minimalist-project-row" type="button" key={project.id} onClick={() => onOpenProject(project)} aria-label={`${introductoryProfile ? 'Buka informasi' : 'Buka karya'} ${project.title}`}>
