@@ -14,6 +14,7 @@ export default function StorybookHero({ onPlay, onOpenProject }: {
   const { scrollTo } = useSmoothScroll();
   const needsArtwork = !profile.portrait.src || profile.portrait.src === '/assets/portrait-720.webp';
   const conceptArt = /buatan AI|bukan foto asli|karakter fiksi/i.test(profile.portrait.alt);
+  const initialIntroduction = profile.clientSlug === 'fitrahwati';
 
   return (
     <section id="top" className="storybook-hero" aria-label={`Buku cerita ${profile.displayName}`}>
@@ -28,7 +29,7 @@ export default function StorybookHero({ onPlay, onOpenProject }: {
             <span>BUKU 01 · HALAMAN 01</span>
           </motion.div>
           <motion.p className="storybook-prelude" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: .75, delay: .27 }}>
-            Di balik setiap karya, selalu ada cerita...
+            {initialIntroduction ? 'Setiap pribadi punya cerita yang berarti...' : 'Di balik setiap karya, selalu ada cerita...'}
           </motion.p>
           <motion.h1 data-studio-edit="name" className="storybook-name" initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .95, delay: .39, ease: [.2, .75, .2, 1] }}>
             {profile.displayName}
@@ -44,9 +45,9 @@ export default function StorybookHero({ onPlay, onOpenProject }: {
           </motion.p>
           <motion.div className="storybook-actions" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7, delay: .95 }}>
             <button className="storybook-button-read" type="button" onClick={onPlay}><Play size={14} fill="currentColor" aria-hidden="true" /> Baca Kisah</button>
-            <button className="storybook-button-works" type="button" onClick={() => scrollTo('#originals')}>Lihat Karya <ArrowUpRight size={17} aria-hidden="true" /></button>
+            <button className="storybook-button-works" type="button" onClick={() => scrollTo('#originals')}>{initialIntroduction ? 'Kenali Saya' : 'Lihat Karya'} <ArrowUpRight size={17} aria-hidden="true" /></button>
           </motion.div>
-          <div className="storybook-folio"><Feather size={18} aria-hidden="true" /><span>Ditulis lewat karya &amp; perjalanan</span><span>01</span></div>
+          <div className="storybook-folio"><Feather size={18} aria-hidden="true" /><span>{initialIntroduction ? 'Halaman perkenalan & silaturahmi' : 'Ditulis lewat karya & perjalanan'}</span><span>01</span></div>
         </div>
 
         <div className="storybook-image-page">
@@ -69,9 +70,9 @@ export default function StorybookHero({ onPlay, onOpenProject }: {
       </div>
 
       <motion.div className="storybook-chapters" initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .95, delay: 1.1 }}>
-        <div className="storybook-chapters-heading"><span>✦ BUKA BAB BERIKUTNYA</span><strong>Kisah yang sudah jadi karya</strong></div>
+        <div className="storybook-chapters-heading"><span>✦ BUKA BAB BERIKUTNYA</span><strong>{initialIntroduction ? 'Mari mulai dari perkenalan' : 'Kisah yang sudah jadi karya'}</strong></div>
         {projects.slice(0, 2).map((project, index) => (
-          <motion.button type="button" key={project.id} onClick={() => onOpenProject(project)} className={`storybook-chapter-card storybook-chapter-card-${index + 1}`} whileHover={{ y: -5, rotate: 0 }} aria-label={`Buka bab karya ${project.title}`}>
+          <motion.button type="button" key={project.id} onClick={() => onOpenProject(project)} className={`storybook-chapter-card storybook-chapter-card-${index + 1}`} whileHover={{ y: -5, rotate: 0 }} aria-label={`${initialIntroduction ? 'Buka informasi' : 'Buka bab karya'} ${project.title}`}>
             {project.image ? <img src={project.image} alt="" loading="lazy" decoding="async" /> : <span className="storybook-chapter-empty" aria-hidden="true">❦</span>}
             <span><small>BAB {String(index + 2).padStart(2, '0')}</small><strong>{project.title}</strong></span>
             <ArrowUpRight size={16} aria-hidden="true" />

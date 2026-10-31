@@ -1,0 +1,189 @@
+{
+  "slug": "fitrahwati",
+  "name": "Fitrahwati Nur",
+  "role": "Ibu Rumah Tangga",
+  "location": "Indonesia",
+  "bio": "Halo, saya Fitrahwati Nur, seorang ibu rumah tangga. Di halaman ini, saya ingin memperkenalkan diri dan membuka ruang untuk saling mengenal. Setiap hari memiliki cerita dan maknanya sendiri. Semoga halaman sederhana ini menjadi awal silaturahmi dan percakapan yang menyenangkan.",
+  "tagline": [
+    "Cerita keseharian · Perkenalan · Silaturahmi",
+    "Dari rumah, selalu ada cerita yang berarti."
+  ],
+  "interests": [
+    "Keseharian di Rumah",
+    "Cerita & Perkenalan",
+    "Silaturahmi",
+    "Ruang untuk Bertumbuh"
+  ],
+  "photo": {
+    "src": "/clients/fitrahwati/ilustrasi-fitrahwati.webp",
+    "alt": "Ilustrasi konsep buatan AI, bukan foto asli Fitrahwati Nur: sosok perempuan berhijab merah muda dengan busana krem dan senyum hangat"
+  },
+  "email": "fitrah.duri@gmail.com",
+  "whatsapp": "085246977363",
+  "links": {},
+  "experiences": [
+    {
+      "company": "Peran Keseharian",
+      "role": "Ibu Rumah Tangga",
+      "period": "Saat ini",
+      "description": "Fitrahwati memperkenalkan profesinya sebagai ibu rumah tangga. Rincian perjalanan hidup, kegiatan khusus, dan pengalaman lainnya dapat dilengkapi apabila diberikan oleh pemilik profil."
+    }
+  ],
+  "education": [],
+  "projects": [
+    {
+      "title": "Halo, Saya Fitrahwati",
+      "year": "PERKENALAN",
+      "description": "Ruang untuk mengenal Fitrahwati Nur, seorang ibu rumah tangga. Halaman ini adalah profil awal dan belum memuat dokumentasi karya atau proyek tertentu.",
+      "category": "Cerita Profil",
+      "tags": ["Perkenalan", "Ibu Rumah Tangga", "Cerita Singkat"],
+      "image": "/clients/fitrahwati/ilustrasi-fitrahwati.webp"
+    },
+    {
+      "title": "Cerita dari Rumah",
+      "year": "KESEHARIAN",
+      "description": "Peran di rumah sering kali menjadi bagian penting dari kisah seseorang. Bagian ini disiapkan untuk berbagi cerita, aktivitas, atau hal-hal yang ingin dikenalkan Fitrahwati nantinya; belum berisi kisah pribadi yang dikonfirmasi.",
+      "category": "Ruang Cerita",
+      "tags": ["Keseharian", "Peran di Rumah", "Cerita"]
+    },
+    {
+      "title": "Mari Tetap Terhubung",
+      "year": "SILATURAHMI",
+      "description": "Ingin menyapa atau menghubungi Fitrahwati? Gunakan WhatsApp atau email yang tercantum di halaman ini untuk memulai percakapan secara langsung.",
+      "category": "Kontak Personal",
+      "tags": ["Silaturahmi", "WhatsApp", "Email"],
+      "website": "https://wa.me/6285246977363?text=Halo%20Bu%20Fitrahwati%2C%20saya%20melihat%20halaman%20profil%20Anda%20di%20PESONAFLIX."
+    }
+  ],
+  "skills": [
+    "Peran Ibu Rumah Tangga",
+    "Ruang Cerita Keseharian",
+    "Silaturahmi"
+  ],
+  "skillCategories": [
+    {
+      "id": "perkenalan",
+      "title": "Hal yang Ingin Dikenalkan",
+      "subtitle": "Gambaran awal profil dan ruang cerita",
+      "skills": [
+        {
+          "name": "Ibu Rumah Tangga",
+          "mono": "IRT",
+          "note": "Peran saat ini",
+          "evidence": ["Profesi yang disampaikan: ibu rumah tangga", "Belum ada riwayat atau aktivitas khusus yang disertakan"]
+        },
+        {
+          "name": "Ruang Cerita",
+          "mono": "CR",
+          "note": "Untuk dilengkapi",
+          "evidence": ["Tempat untuk menambahkan cerita pribadi bila diinginkan", "Isi dapat diperbarui melalui PESONAFLIX Studio"]
+        }
+      ]
+    }
+  ],
+  "skillsHeading": "Cerita yang Bisa Bertumbuh",
+  "skillsAside": "Profil ini merupakan pengenalan awal. Cerita keluarga, kegiatan, hobi, bisnis, prestasi, maupun pengalaman lain belum dicantumkan karena datanya belum diberikan.",
+  "skillsKicker": "MENGENAL FITRAHWATI",
+  "highlights": [
+    {
+      "title": "Fitrahwati Nur",
+      "description": "Nama yang ingin diperkenalkan melalui halaman personal ini.",
+      "category": "PERKENALAN"
+    },
+    {
+      "title": "Ibu Rumah Tangga",
+      "description": "Peran keseharian yang menjadi identitas profesi saat ini.",
+      "category": "PROFIL"
+    },
+    {
+      "title": "Saling Terhubung",
+      "description": "WhatsApp dan email tersedia untuk memulai silaturahmi secara langsung.",
+      "category": "KONTAK"
+    }
+  ],
+  "watchCards": [
+    {
+      "target": "about",
+      "title": "Kenali Fitrahwati",
+      "subtitle": "Perkenalan singkat dari rumah",
+      "image": "/clients/fitrahwati/ilustrasi-fitrahwati.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Buka Cerita",
+      "subtitle": "Hal-hal yang ingin dikenalkan"
+    },
+    {
+      "target": "journey",
+      "title": "Halaman Cerita",
+      "subtitle": "Ruang untuk tumbuh dan berbagi"
+    },
+    {
+      "target": "skills",
+      "title": "Kenali Lebih Dekat",
+      "subtitle": "Peran, cerita, dan kontak"
+    }
+  ],
+  "pickCards": [
+    {
+      "label": "PERKENALAN",
+      "title": "Halo, Saya Fitrahwati",
+      "detail": "Berkenalan dengan Fitrahwati Nur dan peran kesehariannya.",
+      "image": "/clients/fitrahwati/ilustrasi-fitrahwati.webp",
+      "palette": { "from": "#6f5764", "via": "#c79c9f", "to": "#3b4d48", "accent": "#fff0d7" }
+    },
+    {
+      "label": "KESEHARIAN",
+      "title": "Cerita dari Rumah",
+      "detail": "Tempat untuk mengenalkan cerita dan kegiatan yang ingin dibagikan nanti.",
+      "palette": { "from": "#64776c", "via": "#bfba9c", "to": "#3e504a", "accent": "#fff0d7" }
+    },
+    {
+      "label": "SILATURAHMI",
+      "title": "Mari Saling Menyapa",
+      "detail": "Terhubung langsung melalui WhatsApp atau email.",
+      "palette": { "from": "#795d65", "via": "#b78d90", "to": "#485850", "accent": "#fff0d7" }
+    }
+  ],
+  "picksHeading": "Hal-Hal Kecil yang Berarti",
+  "picksKicker": "PROFIL · CERITA · SILATURAHMI",
+  "seasons": [
+    {
+      "number": 1,
+      "title": "Salam Perkenalan",
+      "period": "Profil singkat",
+      "synopsis": "Mengenal Fitrahwati Nur sebagai ibu rumah tangga melalui halaman personal yang sederhana dan hangat.",
+      "episodes": [
+        {
+          "title": "Halo, Saya Fitrahwati",
+          "runtime": "Perkenalan",
+          "description": "Nama, profesi, dan cara untuk mengenal Fitrahwati lebih dekat.",
+          "tags": ["Perkenalan", "Ibu Rumah Tangga"],
+          "image": "/clients/fitrahwati/ilustrasi-fitrahwati.webp",
+          "palette": { "from": "#755b65", "via": "#caa5a5", "to": "#485b52", "accent": "#f9e6cd" }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Cerita Selanjutnya",
+      "period": "Untuk dilengkapi",
+      "synopsis": "Halaman ini dapat berkembang dengan kisah, kegiatan, atau hal lain yang ingin diperkenalkan Fitrahwati nanti.",
+      "episodes": [
+        {
+          "title": "Ruang untuk Berbagi",
+          "runtime": "Langkah berikutnya",
+          "description": "Kisah dan aktivitas pribadi akan ditambahkan setelah Fitrahwati memberikan bahan serta persetujuannya.",
+          "tags": ["Cerita", "Keseharian"],
+          "palette": { "from": "#546f65", "via": "#acb8a1", "to": "#4c6258", "accent": "#f9e6cd" }
+        }
+      ]
+    }
+  ],
+  "journeyHeading": "Setiap Cerita Punya Awal",
+  "journeyAside": "Halaman ini baru memuat data dasar yang diberikan: nama, profesi, dan kontak. Ilustrasi yang tampil merupakan visual konseptual AI, bukan foto asli. Kisah dan pengalaman lain menunggu informasi langsung dari Fitrahwati.",
+  "journeyKicker": "PERKENALAN · KESEHARIAN · SELANJUTNYA",
+  "theme": { "accent": "#c88f99", "background": "#344f45" },
+  "templateId": "storybook",
+  "identityMode": "photo"
+}
