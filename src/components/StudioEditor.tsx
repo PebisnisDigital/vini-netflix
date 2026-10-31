@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { createCanvasPortfolio, effectiveTheme, findUnreplacedSushmitaExamples, normalizeSlug, validateBrief, type ClientBrief } from '../data/clientModel';
 import { clientReferralCode, normalizeClientWhatsapp } from '../utils/clientWhatsapp.mjs';
+import { isGoogleMapsUrl } from '../utils/googleMaps.mjs';
 import { deleteDraft, listDrafts, preparedBrief, saveDraft, type StudioDraft } from '../data/studioDraft';
 import { createStudioStarterBrief, findUnreplacedStudioDemoFields, isUneditedStudioStarter, withStudioDemoPreviewAssets } from '../data/studioStyleStarters';
 import { publishedClients, type PublishedClient } from '../data/studioPublished';
@@ -741,6 +742,15 @@ export default function StudioEditor() {
             </div>
             {active.brief.whatsapp && !normalizeClientWhatsapp(active.brief.whatsapp) && <p role="alert" className="mt-3 text-sm text-amber-300">Nomor WhatsApp belum valid. Periksa kembali angkanya.</p>}
             <p className="mt-3 text-xs leading-relaxed text-white/45">Kode referral ikut tercantum pada pesan WhatsApp. Komisi 50% dicatat setelah pesanan dan pembayaran diverifikasi, bukan dari jumlah klik.</p>
+          </section>
+          <section className={`${card} border-[#d6b780]/35`}>
+            <h3 className="text-lg font-extrabold">Lokasi Usaha · Google Maps</h3>
+            <p className="mt-2 text-sm leading-relaxed text-white/60">Opsional. Tempel link Google Maps untuk menampilkan peta dan tombol petunjuk arah di halaman klien. Gunakan lokasi yang memang diizinkan untuk dipublikasikan.</p>
+            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+              <Control label="Nama tempat di peta"><input className={field} placeholder="Mitra Amanah Store" value={active.brief.googleMapsLabel || ''} onChange={(e) => patch({ googleMapsLabel: e.target.value })}/></Control>
+              <Control label="Link Google Maps"><input className={field} type="url" inputMode="url" placeholder="https://www.google.com/maps/…" value={active.brief.googleMapsUrl || ''} onChange={(e) => patch({ googleMapsUrl: e.target.value })}/></Control>
+            </div>
+            {active.brief.googleMapsUrl && !isGoogleMapsUrl(active.brief.googleMapsUrl) && <p role="alert" className="mt-3 text-xs text-amber-300">Gunakan tautan Google Maps HTTPS yang valid.</p>}
           </section>
           <details className={`${card} group hidden`}><summary className="cursor-pointer text-base font-extrabold text-white">⚙ Pengaturan Detail <span className="ml-2 text-xs font-normal text-white/45">Pengalaman, pendidikan, keahlian, tautan, dan data tambahan</span></summary><div className="space-y-5 pt-6">
           <section className={card}><h3 className="mb-5 text-xl font-extrabold">01 · Profil & Redaksi</h3><div className="grid gap-4 sm:grid-cols-2">

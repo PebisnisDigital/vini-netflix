@@ -3,7 +3,7 @@
   "name": "Mas'uddin",
   "role": "Penyedia Laptop Second Berkualitas · MITRA AMANAH",
   "location": "Bangil, Pasuruan, Jawa Timur",
-  "bio": "Assalamu'alaikum, saya Mas'uddin. Saya menjalankan usaha di bidang penyedia laptop second berkualitas melalui MITRA AMANAH. Saat ini saya bersama keluarga menetap di Kota Bangil, Pasuruan, Jawa Timur. Semasa muda, saya pernah bermukim di Kotamobagu dan Manado, Sulawesi Utara. Melalui halaman ini, saya memperkenalkan bidang usaha laptop second dan membuka ruang untuk bertanya tentang kebutuhan, spesifikasi, kondisi, serta pilihan unit yang tersedia. Silakan hubungi saya secara langsung melalui WhatsApp atau email.",
+  "bio": "Assalamu'alaikum, saya Mas'uddin. Saya menjalankan usaha sebagai penyedia laptop second berkualitas melalui MITRA AMANAH. Saya juga bergerak di bidang produk digital, produk kasur kesehatan, serta agen travel umrah dan haji. Saat ini saya bersama keluarga menetap di Kota Bangil, Pasuruan, Jawa Timur. Semasa muda, saya pernah bermukim di Kotamobagu dan Manado, Sulawesi Utara. Melalui halaman ini, Anda dapat mengenal bidang usaha saya dan bertanya tentang pilihan produk serta layanan yang tersedia. Silakan hubungi saya melalui WhatsApp atau email.",
   "tagline": [
     "MITRA AMANAH · LAPTOP SECOND BERKUALITAS",
     "Menyediakan laptop second berkualitas untuk kebutuhan Anda."
@@ -12,7 +12,10 @@
     "Laptop Second Berkualitas",
     "Kebutuhan Laptop",
     "Spesifikasi & Kondisi Unit",
-    "Informasi Ketersediaan"
+    "Informasi Ketersediaan",
+    "Produk Digital",
+    "Produk Kasur Kesehatan",
+    "Agen Travel Umrah & Haji"
   ],
   "photo": {
     "src": "/clients/abufawwaz/foto-utama.webp",
@@ -20,13 +23,15 @@
   },
   "email": "amanahdigitalpartner@gmail.com",
   "whatsapp": "0812-4919-6000",
+  "googleMapsUrl": "https://www.google.com/maps/search/Mitra%20Amanah%20Store/@-7.6009,112.7911,17z?hl=id",
+  "googleMapsLabel": "Mitra Amanah Store",
   "links": {},
   "experiences": [
     {
       "company": "MITRA AMANAH",
       "role": "Penyedia Laptop Second Berkualitas",
       "period": "Bidang usaha saat ini",
-      "description": "Mas'uddin menjalankan usaha penyediaan laptop second berkualitas. Untuk mengetahui kondisi unit, spesifikasi, pilihan yang tersedia, dan harga terbaru, silakan hubungi Mas'uddin secara langsung."
+      "description": "Mas'uddin menjalankan usaha penyediaan laptop second berkualitas sebagai fokus utama. MITRA AMANAH juga memperkenalkan produk digital, kasur kesehatan, serta layanan agen travel umrah dan haji. Rincian produk, harga, dan layanan dikonfirmasi langsung."
     }
   ],
   "education": [],
@@ -56,13 +61,43 @@
       "category": "Informasi Laptop",
       "tags": ["Kebutuhan Laptop", "Spesifikasi", "Konsultasi"],
       "website": "https://wa.me/6281249196000?text=Assalamu%27alaikum%20Pak%20Mas%27uddin%2C%20saya%20ingin%20konsultasi%20kebutuhan%20laptop%20second."
+    },
+    {
+      "title": "Produk Digital",
+      "year": "PRODUK DIGITAL",
+      "description": "Selain laptop second, MITRA AMANAH juga bergerak dalam penyediaan produk digital. Tanyakan jenis produk, cara memperoleh, dan ketentuan akses yang tersedia secara langsung kepada Mas'uddin.",
+      "category": "Produk Digital",
+      "tags": ["Produk Digital", "Kebutuhan Online", "MITRA AMANAH"],
+      "website": "https://wa.me/6281249196000?text=Assalamu%27alaikum%20Pak%20Mas%27uddin%2C%20saya%20ingin%20tanya%20produk%20digital.",
+      "image": "/clients/abufawwaz/produk-digital.webp"
+    },
+    {
+      "title": "Produk Kasur Kesehatan",
+      "year": "PRODUK RUMAH TANGGA",
+      "description": "MITRA AMANAH juga memperkenalkan produk kasur kesehatan. Silakan tanyakan pilihan ukuran, bahan, spesifikasi, dan harga. Informasi manfaat produk mengikuti penjelasan resmi produk yang tersedia.",
+      "category": "Kasur Kesehatan",
+      "tags": ["Kasur Kesehatan", "Produk Rumah Tangga", "Informasi Produk"],
+      "website": "https://wa.me/6281249196000?text=Assalamu%27alaikum%20Pak%20Mas%27uddin%2C%20saya%20ingin%20tanya%20produk%20kasur%20kesehatan.",
+      "image": "/clients/abufawwaz/kasur-kesehatan.webp"
+    },
+    {
+      "title": "Agen Travel Umrah & Haji",
+      "year": "PERJALANAN IBADAH",
+      "description": "Mas'uddin juga memperkenalkan perannya sebagai agen travel umrah dan haji. Tanyakan informasi program, penyelenggara, izin, jadwal, persyaratan, dan biaya secara langsung sebelum mengambil keputusan.",
+      "category": "Agen Travel Ibadah",
+      "tags": ["Umrah", "Haji", "Informasi Travel"],
+      "website": "https://wa.me/6281249196000?text=Assalamu%27alaikum%20Pak%20Mas%27uddin%2C%20saya%20ingin%20tanya%20layanan%20travel%20umrah%20dan%20haji.",
+      "image": "/clients/abufawwaz/travel-umrah-haji.webp"
     }
   ],
   "skills": [
     "Penyedia Laptop Second",
     "Informasi Kondisi & Spesifikasi",
     "Pilihan Laptop Sesuai Kebutuhan",
-    "Komunikasi Pelanggan"
+    "Komunikasi Pelanggan",
+    "Produk Digital",
+    "Informasi Kasur Kesehatan",
+    "Agen Travel Umrah & Haji"
   ],
   "skillCategories": [
     {
@@ -96,10 +131,49 @@
           "evidence": ["Kegiatan usaha yang diperkenalkan berfokus pada laptop second", "Contoh unit dapat diminta langsung melalui WhatsApp"]
         }
       ]
+    },
+    {
+      "id": "produk-digital",
+      "title": "Produk Digital",
+      "subtitle": "Pilihan kebutuhan digital",
+      "skills": [
+        {
+          "name": "Penyediaan Produk Digital",
+          "mono": "DG",
+          "note": "Bidang usaha tambahan",
+          "evidence": ["Lini usaha produk digital MITRA AMANAH", "Jenis produk dan ketentuan akses ditanyakan langsung"]
+        }
+      ]
+    },
+    {
+      "id": "kasur-kesehatan",
+      "title": "Kasur Kesehatan",
+      "subtitle": "Produk kebutuhan rumah dan istirahat",
+      "skills": [
+        {
+          "name": "Informasi Produk Kasur Kesehatan",
+          "mono": "KS",
+          "note": "Bidang usaha tambahan",
+          "evidence": ["Lini usaha produk kasur kesehatan", "Ukuran, bahan, harga, serta manfaat perlu dikonfirmasi dari produk resmi"]
+        }
+      ]
+    },
+    {
+      "id": "travel-ibadah",
+      "title": "Agen Travel Umrah & Haji",
+      "subtitle": "Informasi perjalanan ibadah",
+      "skills": [
+        {
+          "name": "Informasi Travel Umrah & Haji",
+          "mono": "UH",
+          "note": "Bidang layanan tambahan",
+          "evidence": ["Peran yang diperkenalkan: agen travel umrah dan haji", "Penyelenggara, izin, dan rincian program dikonfirmasi sebelum pemesanan"]
+        }
+      ]
     }
   ],
-  "skillsHeading": "Laptop Second, Fokus Usaha Saya",
-  "skillsAside": "Melalui MITRA AMANAH, Mas'uddin memperkenalkan usaha penyedia laptop second berkualitas. Informasi detail mengenai merek, spesifikasi, kondisi, ketersediaan, garansi apabila ada, serta harga perlu dikonfirmasi langsung sebelum transaksi.",
+  "skillsHeading": "Bidang Usaha MITRA AMANAH",
+  "skillsAside": "Laptop second berkualitas menjadi fokus utama usaha Mas'uddin. Tiga bidang tambahan yang juga dapat ditanyakan ialah produk digital, kasur kesehatan, dan layanan agen travel umrah serta haji. Informasi stok, harga, ketentuan, izin, dan rincian layanan perlu dikonfirmasi langsung sebelum bertransaksi.",
   "skillsKicker": "BIDANG USAHA / LAPTOP SECOND",
   "highlights": [
     {
@@ -116,6 +190,11 @@
       "title": "Menetap di Bangil, Pasuruan",
       "description": "Kini tinggal bersama keluarga di Bangil, Jawa Timur; semasa muda pernah bermukim di Kotamobagu dan Manado, Sulawesi Utara.",
       "category": "CERITA PRIBADI"
+    },
+    {
+      "title": "Produk & Layanan Lainnya",
+      "description": "Produk digital, kasur kesehatan, dan agen travel umrah & haji melengkapi fokus usaha laptop second.",
+      "category": "LINI USAHA"
     }
   ],
   "watchCards": [
@@ -142,6 +221,12 @@
       "title": "Cerita Perjalanan",
       "subtitle": "Kotamobagu, Manado, lalu Bangil",
       "image": "/clients/abufawwaz/abu-fawwaz-faceless.webp"
+    },
+    {
+      "target": "picks",
+      "title": "Pilihan Produk & Layanan",
+      "subtitle": "Digital, kasur kesehatan, travel ibadah",
+      "image": "/clients/abufawwaz/produk-digital.webp"
     }
   ],
   "pickCards": [
@@ -164,10 +249,31 @@
       "title": "Cari Laptop Sesuai Kebutuhan",
       "detail": "Sampaikan kebutuhan Anda melalui kontak Mas'uddin.",
       "palette": { "from": "#3c4135", "via": "#a99c7b", "to": "#1e211a", "accent": "#f4deb7" }
+    },
+    {
+      "label": "PRODUK DIGITAL",
+      "title": "Produk Digital",
+      "detail": "Tanyakan pilihan produk digital dan cara mendapatkannya.",
+      "image": "/clients/abufawwaz/produk-digital.webp",
+      "palette": { "from": "#173d35", "via": "#557f71", "to": "#101c1a", "accent": "#d6b475" }
+    },
+    {
+      "label": "KASUR KESEHATAN",
+      "title": "Kasur Kesehatan",
+      "detail": "Cari informasi ukuran, bahan, dan produk yang tersedia.",
+      "image": "/clients/abufawwaz/kasur-kesehatan.webp",
+      "palette": { "from": "#4d4b35", "via": "#94856b", "to": "#26241e", "accent": "#ead6aa" }
+    },
+    {
+      "label": "TRAVEL IBADAH",
+      "title": "Umrah & Haji",
+      "detail": "Tanyakan informasi program dan penyelenggara perjalanan.",
+      "image": "/clients/abufawwaz/travel-umrah-haji.webp",
+      "palette": { "from": "#1e382c", "via": "#97784b", "to": "#111a14", "accent": "#edc983" }
     }
   ],
-  "picksHeading": "Kenali Pilihan Laptop Second",
-  "picksKicker": "LAPTOP SECOND · KARYA LAPTOP · KONSULTASI",
+  "picksHeading": "Pilihan Usaha MITRA AMANAH",
+  "picksKicker": "LAPTOP · DIGITAL · KASUR KESEHATAN · TRAVEL IBADAH",
   "seasons": [
     {
       "number": 1,
@@ -205,6 +311,38 @@
           "tags": ["Laptop Second", "MITRA AMANAH"],
           "image": "/clients/abufawwaz/laptop-second.webp",
           "palette": { "from": "#1b332b", "via": "#4c6653", "to": "#101712", "accent": "#dcc492" }
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Produk & Layanan Lainnya",
+      "period": "Bidang usaha tambahan",
+      "synopsis": "Selain laptop second, Mas'uddin juga memperkenalkan produk digital, kasur kesehatan, dan peran sebagai agen travel umrah serta haji.",
+      "episodes": [
+        {
+          "title": "Produk Digital",
+          "runtime": "Produk",
+          "description": "Kebutuhan produk digital dapat ditanyakan sesuai pilihan dan ketentuan yang tersedia.",
+          "tags": ["Produk Digital", "MITRA AMANAH"],
+          "image": "/clients/abufawwaz/produk-digital.webp",
+          "palette": { "from": "#173d35", "via": "#557f71", "to": "#101c1a", "accent": "#d6b475" }
+        },
+        {
+          "title": "Kasur Kesehatan",
+          "runtime": "Produk",
+          "description": "Mengenal kategori kasur kesehatan dan cara meminta rincian ukuran, bahan, serta harga.",
+          "tags": ["Kasur Kesehatan", "Rumah Tangga"],
+          "image": "/clients/abufawwaz/kasur-kesehatan.webp",
+          "palette": { "from": "#4d4b35", "via": "#94856b", "to": "#26241e", "accent": "#ead6aa" }
+        },
+        {
+          "title": "Agen Travel Umrah & Haji",
+          "runtime": "Layanan",
+          "description": "Tanyakan informasi perjalanan ibadah, penyelenggara, izin, dan program yang tersedia langsung kepada Mas'uddin.",
+          "tags": ["Umrah", "Haji", "Travel"],
+          "image": "/clients/abufawwaz/travel-umrah-haji.webp",
+          "palette": { "from": "#1e382c", "via": "#97784b", "to": "#111a14", "accent": "#edc983" }
         }
       ]
     }

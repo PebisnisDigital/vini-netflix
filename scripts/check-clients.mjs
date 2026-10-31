@@ -1,6 +1,7 @@
 import { readdir, readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { normalizeClientWhatsapp } from '../src/utils/clientWhatsapp.mjs';
+import { isGoogleMapsUrl } from '../src/utils/googleMaps.mjs';
 import { validateClientAliasRegistry } from '../src/data/clientAliases.mjs';
 
 const root = process.cwd();
@@ -116,6 +117,8 @@ for (const file of files) {
   for (const key of ['picksHeading', 'picksKicker']) if (brief[key] !== undefined) checkString(brief[key], key, slug);
   if (brief.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(brief.email)) errors.push(`${slug}: email tidak valid.`);
   if (brief.whatsapp !== undefined && !normalizeClientWhatsapp(brief.whatsapp)) errors.push(`${slug}: WhatsApp pemilik website tidak valid.`);
+  if (brief.googleMapsUrl && !isGoogleMapsUrl(brief.googleMapsUrl)) errors.push(`${slug}: tautan Google Maps tidak valid.`);
+  if (brief.googleMapsLabel !== undefined && (typeof brief.googleMapsLabel !== 'string' || brief.googleMapsLabel.length > 100)) errors.push(`${slug}: label Google Maps terlalu panjang.`);
   for (const [name, url] of Object.entries(brief.links ?? {})) if (url && !/^https?:\/\//.test(url)) errors.push(`${slug}: link ${name} harus https://.`);
   await checkImage(brief.photo?.src, slug, 'foto utama');
 }

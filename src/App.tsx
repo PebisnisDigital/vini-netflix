@@ -35,6 +35,7 @@ import Skills from './components/Skills';
 import Achievements from './components/Achievements';
 import ResumeSection from './components/ResumeViewer';
 import FinalCTA from './components/FinalCTA';
+import ClientLocationMap from './components/ClientLocationMap';
 import { VisualDesignStyles, VisualWidgets } from './components/VisualDesignLayer';
 import { EASE } from './components/fx';
 
@@ -263,6 +264,7 @@ function Series({ slug, editorMode }: { slug: string; editorMode: boolean }) {
                 <VisualWidgets section={id} />
               </Scene>
             ))}
+            {profile.googleMapsUrl && <ClientLocationMap />}
             <FinalCTA onReplay={() => setStage('opening')} />
             <VisualWidgets section="contact" />
           </main>

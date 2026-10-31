@@ -2,6 +2,7 @@ import * as vini from './portfolio';
 import * as sushmita from './sushmitaOriginal';
 import { portfolioServiceCTA } from './portfolioServiceCTA';
 import { clientReferralCode, normalizeClientWhatsapp } from '../utils/clientWhatsapp.mjs';
+import { isGoogleMapsUrl } from '../utils/googleMaps.mjs';
 import { canApplyIdentityMode, canApplyTemplate, getIdentityMode, getTemplate, type IdentityMode, type TemplateId } from './templateCatalog.mjs';
 import { validateVisualDesign, type VisualDesign } from './visualDesign';
 import { validateElementLinks, type ElementLinks } from './elementLinks';
@@ -19,6 +20,8 @@ export type PortfolioContent = {
     templateId?: TemplateId;
     identityMode?: IdentityMode;
     whatsapp?: string;
+    googleMapsUrl?: string;
+    googleMapsLabel?: string;
     referralCode?: string;
     clientSlug?: string;
     socialLinks?: { label: string; url: string }[];
@@ -166,6 +169,8 @@ export type ClientBrief = {
   email?: string;
   secondaryEmail?: string;
   whatsapp?: string;
+  googleMapsUrl?: string;
+  googleMapsLabel?: string;
   links?: { website?: string; linkedin?: string; github?: string; facebook?: string; instagram?: string; tiktok?: string; threads?: string; youtube?: string };
   experiences: { company: string; role: string; period: string; description: string }[];
   education?: { school: string; degree: string; place: string; period: string; score?: string }[];
@@ -349,6 +354,8 @@ export function validateBrief(value: unknown, options: { requireWhatsapp?: boole
   if (b.whatsapp !== undefined && typeof b.whatsapp !== 'string') errors.push('Nomor WhatsApp pemilik website tidak valid.');
   else if (b.whatsapp?.trim() && !normalizeClientWhatsapp(b.whatsapp)) errors.push('Nomor WhatsApp harus berupa nomor seluler Indonesia, Singapura, atau Brunei yang valid (contoh: 08..., +62..., +65..., atau +673...).');
   if (options.requireWhatsapp && !normalizeClientWhatsapp(b.whatsapp)) errors.push('Nomor WhatsApp pemilik website wajib diisi untuk tombol referral.');
+  if (b.googleMapsUrl && !isGoogleMapsUrl(b.googleMapsUrl)) errors.push('Tautan lokasi harus berupa link HTTPS Google Maps yang valid.');
+  if (b.googleMapsLabel !== undefined && (typeof b.googleMapsLabel !== 'string' || b.googleMapsLabel.length > 100)) errors.push('Nama tempat Google Maps maksimal 100 karakter.');
   if (b.theme && (!/^#[0-9a-fA-F]{6}$/.test(b.theme.accent) || !/^#[0-9a-fA-F]{6}$/.test(b.theme.background))) errors.push('Warna tema harus menggunakan kode hex 6 digit.');
   errors.push(...validateVisualDesign(b.visualDesign));
   errors.push(...validateElementLinks(b.elementLinks));
@@ -456,6 +463,7 @@ export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: 
       originalLabel: `KISAH ORIGINAL ${preserveAcademicTitle ? name : name.toUpperCase()}`, role: brief.role,
       tagline: tags, intro: brief.bio, location: brief.location, email: brief.email || '', secondaryEmail: brief.secondaryEmail || '',
       whatsapp: brief.whatsapp || '', referralCode: clientReferralCode(brief.slug), clientSlug: brief.slug,
+      googleMapsUrl: brief.googleMapsUrl || '', googleMapsLabel: brief.googleMapsLabel || '',
       links: { linkedin: brief.links?.linkedin || '', github: brief.links?.github || '', website: brief.links?.website || '' },
       resumePdf: '', portrait: { src: brief.photo.src, srcSet: brief.photo.srcSet || '', alt: brief.photo.alt || `Foto ${name}` },
       interests: brief.interests, heroMeta: [brief.location, brief.role, `${projects.length} Karya`],
