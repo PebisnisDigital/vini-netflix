@@ -1,0 +1,227 @@
+{
+  "slug": "ningrum",
+  "name": "Ningrum",
+  "role": "Ibu Rumah Tangga",
+  "location": "Profil Personal · Terhubung Online",
+  "bio": "Halo, saya Ningrum, seorang ibu rumah tangga. Melalui halaman ini saya ingin memperkenalkan diri secara sederhana, berbagi gambaran tentang peran saya dalam keseharian, dan membuka ruang silaturahmi. Terima kasih sudah berkunjung—jika ingin menyapa atau berkenalan lebih jauh, silakan hubungi saya melalui kontak yang tersedia.",
+  "tagline": [
+    "Di Balik Keseharian, Ada Cerita yang Berarti"
+  ],
+  "interests": [
+    "Rumah & Keluarga",
+    "Keseharian",
+    "Silaturahmi",
+    "Cerita Personal"
+  ],
+  "photo": {
+    "src": "/clients/ningrum/foto-profesional.webp",
+    "alt": "Potret profesional close-up Ningrum mengenakan niqab hitam dan kacamata, dengan latar transparan"
+  },
+  "email": "blog.bundaningrum@gmail.com",
+  "whatsapp": "0817287612",
+  "links": {},
+  "experiences": [
+    {
+      "company": "Rumah & Keluarga",
+      "role": "Ibu Rumah Tangga",
+      "period": "Peran saat ini",
+      "description": "Ningrum memperkenalkan diri dengan profesi ibu rumah tangga. Halaman ini berfokus pada profil personal dan komunikasi; kegiatan, riwayat kerja, maupun pencapaian khusus belum dirinci."
+    }
+  ],
+  "education": [],
+  "projects": [
+    {
+      "title": "Kenalan dengan Ningrum",
+      "year": "PERKENALAN",
+      "description": "Sebuah ruang sederhana untuk mengenal Ningrum sebagai pribadi dan ibu rumah tangga. Cerita ini menjadi awal perkenalan, bukan daftar karya atau pengalaman profesional yang belum diberikan.",
+      "category": "Profil Personal",
+      "tags": ["Ningrum", "Perkenalan", "Profil"],
+      "image": "/clients/ningrum/foto-profesional.webp"
+    },
+    {
+      "title": "Kehangatan Rumah",
+      "year": "KESEHARIAN",
+      "description": "Rumah dan keluarga menjadi konteks peran Ningrum sebagai ibu rumah tangga. Bagian ini menghadirkan suasana keseharian dengan ilustrasi visual; bukan foto dokumentasi rumah atau aktivitas pribadi Ningrum.",
+      "category": "Rumah & Keluarga",
+      "tags": ["Rumah", "Keluarga", "Keseharian"],
+      "image": "/clients/ningrum/kehangatan-rumah.webp"
+    },
+    {
+      "title": "Mari Terhubung",
+      "year": "SILATURAHMI",
+      "description": "Ingin menyampaikan salam, bertanya, atau berkenalan lebih jauh? Hubungi Ningrum melalui WhatsApp atau email. Nomor dan alamat email yang tercantum mengikuti data yang diberikan untuk profil ini.",
+      "category": "Kontak & Komunikasi",
+      "tags": ["WhatsApp", "Email", "Silaturahmi"],
+      "website": "https://wa.me/62817287612?text=Assalamualaikum%20Bu%20Ningrum%2C%20saya%20melihat%20website%20profil%20Ibu%20dan%20ingin%20berkenalan.",
+      "image": "/clients/ningrum/momen-keseharian.webp"
+    }
+  ],
+  "skills": [
+    "Peran Ibu Rumah Tangga",
+    "Rumah & Keluarga",
+    "Keseharian",
+    "Komunikasi Personal"
+  ],
+  "skillCategories": [
+    {
+      "id": "peran",
+      "title": "Peran & Keseharian",
+      "subtitle": "Cerita tentang identitas dan ruang kehidupan",
+      "skills": [
+        {
+          "name": "Ibu Rumah Tangga",
+          "mono": "IRT",
+          "note": "Profesi yang dicantumkan",
+          "evidence": [
+            "Ningrum memperkenalkan diri sebagai ibu rumah tangga",
+            "Belum ada rincian kegiatan khusus atau portofolio tambahan"
+          ]
+        },
+        {
+          "name": "Rumah & Keluarga",
+          "mono": "RUM",
+          "note": "Konteks keseharian",
+          "evidence": [
+            "Tema umum yang dekat dengan peran ibu rumah tangga",
+            "Gambar suasana rumah pada halaman bersifat ilustratif"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "komunikasi",
+      "title": "Mari Berkenalan",
+      "subtitle": "Sebuah sapaan dapat membuka cerita baru",
+      "skills": [
+        {
+          "name": "Terhubung lewat WhatsApp",
+          "mono": "WA",
+          "note": "Kontak langsung",
+          "evidence": [
+            "Nomor WhatsApp tersedia pada profil",
+            "Pertanyaan dan perkenalan bisa disampaikan langsung"
+          ]
+        },
+        {
+          "name": "Terhubung lewat Email",
+          "mono": "@",
+          "note": "Kontak alternatif",
+          "evidence": [
+            "Email: blog.bundaningrum@gmail.com",
+            "Komunikasi dapat dimulai sesuai kenyamanan pengunjung"
+          ]
+        }
+      ]
+    }
+  ],
+  "skillsHeading": "Hal-Hal Sederhana yang Bermakna",
+  "skillsAside": "Profil Ningrum berfokus pada perkenalan sebagai ibu rumah tangga dan kemudahan untuk terhubung. Ilustrasi interior rumah dan meja keluarga pada halaman ini dibuat sebagai elemen visual, bukan dokumentasi kegiatan atau tempat tinggal Ningrum.",
+  "skillsKicker": "RUMAH · KELUARGA · SILATURAHMI",
+  "highlights": [
+    {
+      "title": "Kenalan dengan Ningrum",
+      "description": "Satu ruang untuk mengenal profil personal dan menyampaikan salam.",
+      "category": "PROFIL PERSONAL"
+    },
+    {
+      "title": "Ibu Rumah Tangga",
+      "description": "Profesi yang menjadi bagian utama dalam perkenalan Ningrum.",
+      "category": "PERAN"
+    },
+    {
+      "title": "Terhubung Langsung",
+      "description": "WhatsApp dan email disediakan untuk memudahkan komunikasi.",
+      "category": "KONTAK"
+    }
+  ],
+  "watchCards": [
+    {
+      "target": "about",
+      "title": "Kenali Ningrum",
+      "subtitle": "Sebuah perkenalan personal",
+      "image": "/clients/ningrum/foto-profesional.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Ruang Cerita",
+      "subtitle": "Keseharian, rumah, dan keluarga",
+      "image": "/clients/ningrum/kehangatan-rumah.webp"
+    },
+    {
+      "target": "journey",
+      "title": "Perjalanan Sehari-hari",
+      "subtitle": "Mengenal peran dan cerita",
+      "image": "/clients/ningrum/momen-keseharian.webp"
+    },
+    {
+      "target": "skills",
+      "title": "Tentang Peran",
+      "subtitle": "Hal sederhana yang bermakna",
+      "image": "/clients/ningrum/kehangatan-rumah.webp"
+    },
+    {
+      "target": "picks",
+      "title": "Mari Terhubung",
+      "subtitle": "Kenalan lewat WhatsApp atau email",
+      "image": "/clients/ningrum/momen-keseharian.webp"
+    }
+  ],
+  "pickCards": [
+    {
+      "label": "RUMAH & KELUARGA",
+      "title": "Kehangatan Rumah",
+      "detail": "Sebuah ilustrasi suasana rumah sebagai bagian dari kisah keseharian.",
+      "image": "/clients/ningrum/kehangatan-rumah.webp",
+      "palette": {"from": "#3b2427", "via": "#88665c", "to": "#1d1720", "accent": "#efc7a7"}
+    },
+    {
+      "label": "SILATURAHMI",
+      "title": "Awali dengan Sapaan",
+      "detail": "Hubungi Ningrum secara langsung untuk berkenalan lebih jauh.",
+      "image": "/clients/ningrum/momen-keseharian.webp",
+      "palette": {"from": "#3a2936", "via": "#9d6668", "to": "#211923", "accent": "#f7d7bc"}
+    }
+  ],
+  "picksHeading": "Setiap Cerita Dimulai dari Hal Sederhana",
+  "picksKicker": "RUMAH · HANGAT · TERHUBUNG",
+  "seasons": [
+    {
+      "number": 1,
+      "title": "Mengenal Ningrum",
+      "period": "Profil & Perkenalan",
+      "synopsis": "Sebuah pengantar singkat tentang Ningrum dan perannya sebagai ibu rumah tangga.",
+      "episodes": [
+        {
+          "title": "Halo, Saya Ningrum",
+          "runtime": "Perkenalan",
+          "description": "Mengenal Ningrum melalui informasi profil dan cara menghubunginya. Detail lain dapat ditambahkan jika diberikan kemudian.",
+          "tags": ["Ningrum", "Profil", "Perkenalan"],
+          "image": "/clients/ningrum/foto-profesional.webp",
+          "palette": {"from": "#31212d", "via": "#ad747c", "to": "#16101a", "accent": "#f3c8bd"}
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Ruang Keseharian",
+      "period": "Rumah & Keluarga",
+      "synopsis": "Tema yang dekat dengan peran ibu rumah tangga, disajikan dengan gambar suasana rumah yang bersifat ilustratif.",
+      "episodes": [
+        {
+          "title": "Cerita dari Rumah",
+          "runtime": "Keseharian",
+          "description": "Rumah dan keluarga menjadi tema visual yang mengiringi perkenalan Ningrum. Bagian ini tidak mengklaim aktivitas atau prestasi tertentu.",
+          "tags": ["Rumah", "Keluarga", "Keseharian"],
+          "image": "/clients/ningrum/kehangatan-rumah.webp",
+          "palette": {"from": "#49352e", "via": "#ab8573", "to": "#23191a", "accent": "#f0d6b1"}
+        }
+      ]
+    }
+  ],
+  "journeyHeading": "Sehari-hari Punya Ceritanya Sendiri",
+  "journeyAside": "Ningrum memperkenalkan diri sebagai ibu rumah tangga. Halaman ini menjadi tempat awal untuk saling mengenal dan terhubung melalui WhatsApp 0817287612 atau email blog.bundaningrum@gmail.com. Detail aktivitas dan pengalaman pribadi dapat dilengkapi bila Ningrum berkenan membagikannya.",
+  "journeyKicker": "PERKENALAN · KESEHARIAN · SILATURAHMI",
+  "theme": {"accent": "#e9a3a9", "background": "#130e17"},
+  "templateId": "original",
+  "identityMode": "photo"
+}
