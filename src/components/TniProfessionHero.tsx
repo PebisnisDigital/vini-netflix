@@ -16,7 +16,7 @@ export default function TniProfessionHero({ onPlay, onOpenProject }: {
   const { profile, projects, experience } = usePortfolio();
   const { scrollTo } = useSmoothScroll();
   const hasPortrait = Boolean(profile.portrait.src && profile.portrait.src !== '/assets/portrait-720.webp');
-  const isDemo = profile.clientSlug === 'contoh-tni';
+  const isDemo = profile.clientSlug === 'contoh-tni' || profile.displayName === 'Profil TNI Demo';
 
   return (
     <section id="top" className="tni-hero" aria-label={`Profil profesi ${profile.displayName}`}>

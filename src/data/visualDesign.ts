@@ -14,7 +14,7 @@ export const VISUAL_SECTIONS = [
 ] as const;
 
 export type VisualSectionId = (typeof VISUAL_SECTIONS)[number]['id'];
-export const VISUAL_FONTS = ['Default', 'Inter', 'Nunito Sans', 'Playfair Display', 'Poppins', 'Montserrat', 'Caveat', 'Bebas Neue', 'Georgia'] as const;
+export const VISUAL_FONTS = ['Default', 'Inter', 'Nunito Sans', 'Playfair Display', 'Poppins', 'Montserrat', 'Caveat', 'Bebas Neue', 'Barlow Condensed', 'Georgia'] as const;
 export type VisualFont = (typeof VISUAL_FONTS)[number];
 export const VISUAL_ICONS = ['star', 'heart', 'award', 'book-open', 'graduation-cap', 'briefcase-business', 'mail', 'phone', 'globe', 'map-pin', 'leaf', 'check-circle', 'lightbulb', 'sparkles', 'users', 'instagram', 'facebook', 'youtube', 'music-2'] as const;
 export type VisualIcon = (typeof VISUAL_ICONS)[number];
