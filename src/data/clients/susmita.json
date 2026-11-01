@@ -440,5 +440,12 @@
   "journeyAside": "Perjalanan saya tidak selalu lurus. Ada masa mengajar, pindah kota, mendampingi orang tua, dan membesarkan anak. Setelah kembali ke dunia pendidikan, saya menemukan ruang baru lewat PPA, EOA, STIFIn, serta usaha. Sekarang saya belajar AI. Prinsip saya tetap sama: terus belajar, bertumbuh, berbagi manfaat, dan produktif dalam setiap fase kehidupan.",
   "journeyKicker": "PENDIDIKAN · KELUARGA · KOMUNITAS · MASA DEPAN",
   "templateId": "original",
-  "identityMode": "photo"
+  "identityMode": "photo",
+  "visualDesign": {
+    "textStyles": {
+      "name": {
+        "fontSize": 47
+      }
+    }
+  }
 }
