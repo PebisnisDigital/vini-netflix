@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { effectiveTheme } from '../data/clientModel';
 import type { ClientBrief } from '../data/clientModel';
 import { BASE_LINK_TARGETS, isElementKey, isSafeElementHref } from '../data/elementLinks';
 import {
@@ -39,6 +40,7 @@ export default function StudioDesignSidebar({ brief, patch, activeSection, selec
   const visualDesign = brief.visualDesign ?? {};
   const save = (next: VisualDesign) => patch({ visualDesign: next });
   const backgrounds = visualDesign.sectionBackgrounds ?? {};
+  const defaultSectionBackground = activeSection === 'top' ? effectiveTheme(brief).background : '#15151d';
   const textStyles = visualDesign.textStyles ?? {};
   const widgets = visualDesign.widgets ?? [];
   const currentTextStyle = selectedText ? textStyles[selectedText] ?? {} : {};
@@ -93,7 +95,7 @@ export default function StudioDesignSidebar({ brief, patch, activeSection, selec
     </select>
 
     {tab === 'section' && <div className="space-y-4" role="tabpanel">
-      <div><span className={label}>Warna latar section</span><div className="flex items-center gap-2"><input type="color" className={colorInput} aria-label="Pilih warna latar section" value={backgrounds[activeSection] || '#15151d'} onChange={(e) => save({ ...visualDesign, sectionBackgrounds: { ...backgrounds, [activeSection]: e.target.value } })}/><input key={`${activeSection}-${backgrounds[activeSection] || ''}`} className={control} aria-label="Kode warna latar section" defaultValue={backgrounds[activeSection] || ''} placeholder="#15151d" maxLength={7} onBlur={(e) => { if (/^#[0-9a-fA-F]{6}$/.test(e.target.value)) save({ ...visualDesign, sectionBackgrounds: { ...backgrounds, [activeSection]: e.target.value } }); }} onKeyDown={(e) => { if (e.key === 'Enter') e.currentTarget.blur(); }}/></div></div>
+      <div><span className={label}>Warna latar section</span><div className="flex items-center gap-2"><input type="color" className={colorInput} aria-label="Pilih warna latar section" value={backgrounds[activeSection] || defaultSectionBackground} onChange={(e) => save({ ...visualDesign, sectionBackgrounds: { ...backgrounds, [activeSection]: e.target.value } })}/><input key={`${activeSection}-${backgrounds[activeSection] || ''}-${defaultSectionBackground}`} className={control} aria-label="Kode warna latar section" defaultValue={backgrounds[activeSection] || defaultSectionBackground} placeholder={defaultSectionBackground} maxLength={7} onBlur={(e) => { if (/^#[0-9a-fA-F]{6}$/.test(e.target.value)) save({ ...visualDesign, sectionBackgrounds: { ...backgrounds, [activeSection]: e.target.value } }); }} onKeyDown={(e) => { if (e.key === 'Enter') e.currentTarget.blur(); }}/></div></div>
       <button type="button" className={smallButton} onClick={() => { const next = { ...backgrounds }; delete next[activeSection]; save({ ...visualDesign, sectionBackgrounds: next }); }}>↺ Kembalikan latar bawaan</button>
       <div className="rounded-xl bg-white/5 p-3 text-xs leading-relaxed text-white/60">Ganti latar bagian ini saja. Bagian lain dan halaman klien lain tetap aman.</div>
       <div className="grid grid-cols-2 gap-2"><button type="button" className={smallButton} onClick={() => addWidget('text')}>＋ Tambah Teks</button><button type="button" className={smallButton} onClick={() => addWidget('icon')}>＋ Tambah Ikon</button></div>

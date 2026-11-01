@@ -1,0 +1,44 @@
+{
+  "slug": "contoh-tni",
+  "name": "Profil TNI Demo",
+  "role": "Contoh Website Profesi TNI",
+  "location": "Indonesia",
+  "bio": "Ini adalah contoh tampilan website personal untuk profesi TNI. Seluruh nama, pengalaman, kegiatan, dan gambar pada halaman ini merupakan konten demonstrasi desain, bukan profil personel, catatan dinas, atau dokumentasi resmi.",
+  "tagline": ["LORENG NUSANTARA", "Disiplin. Dedikasi. Cerita perjalanan yang layak dikenang.", "TEMA PROFESI · DEMONSTRASI DESAIN"],
+  "interests": ["Perjalanan Profesi", "Pengembangan Diri", "Pengabdian Masyarakat"],
+  "photo": { "src": "/clients/contoh-tni/potret-ilustrasi.webp", "alt": "Ilustrasi digital fiksi figur berseragam loreng terinspirasi referensi warna, tanpa atribut pangkat atau kesatuan resmi; bukan personel nyata" },
+  "experiences": [
+    { "company": "Isi Riwayat Profesi", "role": "Contoh posisi atau penugasan", "period": "Tahun mulai–selesai", "description": "Ganti dengan riwayat yang boleh dipublikasikan dan telah diperiksa pemilik profil." },
+    { "company": "Isi Pendidikan atau Pengembangan", "role": "Contoh pendidikan", "period": "Tahun", "description": "Cantumkan hanya pendidikan, pelatihan, dan pencapaian yang benar-benar dapat diverifikasi." }
+  ],
+  "projects": [
+    { "title": "Perjalanan Pengabdian", "year": "CONTOH", "description": "Area untuk menceritakan pengalaman dan perjalanan profesi yang diizinkan untuk ditampilkan secara publik.", "category": "Riwayat", "tags": ["Data Contoh", "Perjalanan"], "image": "/clients/contoh-tni/kisah-contoh.webp" },
+    { "title": "Pengembangan Diri", "year": "CONTOH", "description": "Area untuk menampilkan pengalaman belajar dan kegiatan pengembangan kemampuan secara faktual.", "category": "Pendidikan", "tags": ["Data Contoh", "Pembelajaran"], "image": "/clients/contoh-tni/kisah-contoh.webp" },
+    { "title": "Kegiatan Sosial", "year": "CONTOH", "description": "Area untuk dokumentasi kegiatan sosial yang dapat dibagikan dengan izin terkait.", "category": "Kegiatan", "tags": ["Data Contoh", "Masyarakat"], "image": "/clients/contoh-tni/kisah-contoh.webp" }
+  ],
+  "skills": ["Disiplin", "Komunikasi", "Kerja Tim", "Pengembangan Diri", "Kepemimpinan", "Kegiatan Sosial"],
+  "skillsHeading": "Kompetensi & Pengalaman",
+  "skillsAside": "Tuliskan hanya kemampuan yang benar-benar dimiliki pemilik profil.",
+  "skillsKicker": "BIDANG PENGEMBANGAN",
+  "highlights": [
+    { "title": "Riwayat yang Terverifikasi", "description": "Bagian untuk menampilkan riwayat faktual yang disetujui pemilik profil.", "category": "KONTEN CONTOH" },
+    { "title": "Belajar dan Bertumbuh", "description": "Bagian untuk pendidikan dan pengembangan diri yang dapat dipublikasikan.", "category": "KONTEN CONTOH" },
+    { "title": "Cerita Pengabdian", "description": "Bagian untuk pengalaman sosial dan kegiatan yang sudah mendapatkan izin publikasi.", "category": "KONTEN CONTOH" }
+  ],
+  "watchCards": [
+    { "target": "about", "title": "Tentang Profil", "subtitle": "Cerita diri", "image": "/clients/contoh-tni/potret-ilustrasi.webp" },
+    { "target": "originals", "title": "Rekam Jejak", "subtitle": "Cerita dan karya", "image": "/clients/contoh-tni/kisah-contoh.webp" },
+    { "target": "journey", "title": "Perjalanan", "subtitle": "Riwayat profesi", "image": "/clients/contoh-tni/kisah-contoh.webp" },
+    { "target": "skills", "title": "Kompetensi", "subtitle": "Bidang keahlian", "image": "/clients/contoh-tni/kisah-contoh.webp" },
+    { "target": "picks", "title": "Sorotan", "subtitle": "Pilihan cerita", "image": "/clients/contoh-tni/kisah-contoh.webp" },
+    { "target": "moments", "title": "Momen", "subtitle": "Catatan perjalanan", "image": "/clients/contoh-tni/kisah-contoh.webp" },
+    { "target": "story", "title": "Hubungi", "subtitle": "Koneksi personal", "image": "/clients/contoh-tni/potret-ilustrasi.webp" }
+  ],
+  "picksHeading": "Cerita Pilihan",
+  "picksKicker": "PORTOFOLIO",
+  "journeyHeading": "Perjalanan Profesi",
+  "journeyKicker": "RIWAYAT & PENGALAMAN",
+  "journeyAside": "Ganti semua contoh dengan data yang faktual dan diizinkan untuk dipublikasikan.",
+  "templateId": "tni-nusantara",
+  "identityMode": "photo"
+}

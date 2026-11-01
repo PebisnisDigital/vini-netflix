@@ -16,6 +16,7 @@ const fontStack: Record<VisualFont, string> = {
   Montserrat: 'Montserrat, sans-serif',
   Caveat: 'Caveat, cursive',
   'Bebas Neue': '"Bebas Neue", sans-serif',
+  'Barlow Condensed': '"Barlow Condensed", "Arial Narrow", sans-serif',
   Georgia: 'Georgia, serif',
 };
 

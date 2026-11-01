@@ -17,6 +17,7 @@ import documentary from './clients/vini14.json';
 import minimalist from './clients/vini15.json';
 import futuristic from './clients/vini16.json';
 import vintage from './clients/vini17.json';
+import tni from './clients/contoh-tni.json';
 
 /** Satu sumber untuk demo publik dan contoh awal masing-masing gaya Studio. */
 const demoByStyle: Record<Exclude<TemplateId, 'original'>, ClientBrief> = {
@@ -35,6 +36,7 @@ const demoByStyle: Record<Exclude<TemplateId, 'original'>, ClientBrief> = {
   minimalist: minimalist as ClientBrief,
   'futuristic-neon': futuristic as ClientBrief,
   'vintage-heritage': vintage as ClientBrief,
+  'tni-nusantara': tni as ClientBrief,
 };
 
 export function getStudioDemoBrief(templateId: TemplateId): ClientBrief | null {

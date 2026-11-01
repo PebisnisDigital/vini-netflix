@@ -1,11 +1,11 @@
-export type TemplateId = 'original' | 'chibi-3d' | 'anime' | 'clay-3d' | 'komik-pop' | 'doodle' | 'storybook' | 'scrapbook' | 'paper-cut' | 'pixel-retro' | 'miniature-world' | 'editorial-premium' | 'documentary' | 'minimalist' | 'futuristic-neon' | 'vintage-heritage';
+export type TemplateId = 'original' | 'chibi-3d' | 'anime' | 'clay-3d' | 'komik-pop' | 'doodle' | 'storybook' | 'scrapbook' | 'paper-cut' | 'pixel-retro' | 'miniature-world' | 'editorial-premium' | 'documentary' | 'minimalist' | 'futuristic-neon' | 'vintage-heritage' | 'tni-nusantara';
 export type IdentityMode = 'photo' | 'avatar' | 'faceless';
 export type TemplateStatus = 'available' | 'demo' | 'planned';
 
 export type TemplateDefinition = {
   id: TemplateId;
   name: string;
-  family: 'Sinematik' | 'Ceria' | 'Bercerita' | 'Profesional';
+  family: 'Sinematik' | 'Ceria' | 'Bercerita' | 'Profesional' | 'Profesi';
   status: TemplateStatus;
   audience: string;
   description: string;

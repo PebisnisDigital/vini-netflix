@@ -14,8 +14,12 @@ type Props = {
 export default function StudioTemplateGallery({ selectedTemplateId, identityMode, onApplyTemplate, onApplyIdentity, onEditWebsite }: Props) {
   const active = templateCatalog.find((item) => item.id === selectedTemplateId);
   const [newlySelectedId, setNewlySelectedId] = useState<TemplateId | null>(null);
+  const [galleryTab, setGalleryTab] = useState<'kreatif' | 'profesi'>(selectedTemplateId === 'tni-nusantara' ? 'profesi' : 'kreatif');
   const dialogRef = useRef<HTMLDivElement>(null);
   const newlySelected = templateCatalog.find((item) => item.id === newlySelectedId);
+  const creativeCount = templateCatalog.filter((item) => item.family !== 'Profesi').length;
+  const professionCount = templateCatalog.length - creativeCount;
+  const visibleTemplates = templateCatalog.filter((item) => galleryTab === 'profesi' ? item.family === 'Profesi' : item.family !== 'Profesi');
 
   useEffect(() => {
     if (!newlySelectedId) return;
@@ -55,7 +59,7 @@ export default function StudioTemplateGallery({ selectedTemplateId, identityMode
         <div>
           <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#ff7294]">PESONAFLIX STUDIO · TEMPLATE</p>
           <h3 className="mt-1 text-xl font-black tracking-tight sm:text-2xl">Pilih Gaya Website</h3>
-          <p className="mt-1 text-xs text-white/50">16 gaya siap pakai · Pilih, lihat demo, lalu edit.</p>
+          <p className="mt-1 text-xs text-white/50">{templateCatalog.length} gaya siap pakai · Pilih, lihat demo, lalu edit.</p>
         </div>
         <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[11px] font-semibold text-white/60">{templateCatalog.length} gaya</span>
       </div>
@@ -73,8 +77,13 @@ export default function StudioTemplateGallery({ selectedTemplateId, identityMode
         </button>
       </div>
 
-      <div className="grid grid-cols-2 gap-2.5 md:grid-cols-3 lg:grid-cols-5 lg:gap-3" aria-label="16 pilihan gaya website">
-        {templateCatalog.map((item) => {
+      <div className="flex flex-wrap gap-2 rounded-xl border border-white/10 bg-black/20 p-1.5" role="group" aria-label="Kategori gaya website">
+        <button type="button" aria-pressed={galleryTab === 'kreatif'} onClick={() => setGalleryTab('kreatif')} className={`min-h-10 flex-1 rounded-lg px-4 text-xs font-extrabold transition-colors sm:flex-none ${galleryTab === 'kreatif' ? 'bg-[#ed335f] text-white' : 'bg-white/[0.04] text-white/65 hover:bg-white/10'}`}>Gaya Kreatif <span className="ml-1 opacity-70">({creativeCount})</span></button>
+        <button type="button" aria-pressed={galleryTab === 'profesi'} onClick={() => setGalleryTab('profesi')} className={`min-h-10 flex-1 rounded-lg px-4 text-xs font-extrabold transition-colors sm:flex-none ${galleryTab === 'profesi' ? 'bg-[#ed335f] text-white' : 'bg-white/[0.04] text-white/65 hover:bg-white/10'}`}>Gaya Profesi <span className="ml-1 opacity-70">({professionCount})</span></button>
+      </div>
+
+      <div className="grid grid-cols-2 gap-2.5 md:grid-cols-3 lg:grid-cols-5 lg:gap-3" aria-label={`${visibleTemplates.length} pilihan gaya ${galleryTab === 'profesi' ? 'profesi' : 'kreatif'}`}>
+        {visibleTemplates.map((item) => {
           const applied = selectedTemplateId === item.id;
           const available = canApplyTemplate(item.id);
           const startColor = item.colors[0];
@@ -88,6 +97,7 @@ export default function StudioTemplateGallery({ selectedTemplateId, identityMode
               <div className="relative flex h-[84px] min-w-0 flex-col justify-between overflow-hidden p-2.5 sm:h-[90px]" style={{ background: `linear-gradient(140deg, ${item.colors[0]} 5%, ${item.colors[1]} 76%, ${item.colors[2]})` }}>
                 <div aria-hidden="true" className="pointer-events-none absolute -right-5 -top-7 h-20 w-20 rounded-full border-[10px] border-white/20" />
                 <div aria-hidden="true" className="pointer-events-none absolute right-10 top-5 h-8 w-8 rotate-12 rounded-lg border-[3px] border-white/15" />
+                {item.id === 'tni-nusantara' && <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-40" style={{ background: 'repeating-linear-gradient(136deg, transparent 0 18px, #203b2b 19px 35px, #7c8a67 36px 49px, transparent 50px 68px)' }} />}
                 <div className="relative flex items-start justify-between gap-1">
                   <span className="max-w-[78%] truncate rounded-full border border-white/20 bg-black/25 px-2 py-0.5 text-[9px] font-bold text-white/90 backdrop-blur-sm">{item.family}</span>
                   {applied && <CheckCircle2 size={15} className="shrink-0 text-white drop-shadow-md" aria-label="Gaya aktif" />}

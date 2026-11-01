@@ -1,5 +1,9 @@
 # PESONAFLIX — fondasi 16 gaya + mode identitas
 
+## Penambahan kategori profesi (November 2026)
+
+Studio sekarang memisahkan **16 Gaya Kreatif** yang sudah ada dari **Gaya Profesi**. Gaya profesi pertama ialah `tni-nusantara` (TNI · LORENG NUSANTARA), dengan contoh publik `/contoh-tni`. Desain memakai palet hijau loreng, emas, dan efek gerak sinematik; semua foto dan data pada demo adalah fiksi. Klien baru harus mengganti foto, nama, kontak, riwayat, serta kegiatan dengan informasi yang benar dan berizin. Tidak ada pangkat, lambang satuan, atau prestasi resmi yang dibuat otomatis.
+
 ## Prinsip
 
 - Satu Studio dan satu data klien; gaya, aset, dan mode wajah adalah konfigurasi yang berbeda.
