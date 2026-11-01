@@ -2,10 +2,19 @@
   "slug": "susmita",
   "name": "SUSMITA SH, S.Ag",
   "role": "Ibu Rumah Tangga",
-  "location": "Pendidikan · Keluarga · Komunitas · Usaha Digital",
+  "location": "Pendidikan · Keluarga · Usaha Digital",
   "bio": "Saya Susmita, seorang ibu rumah tangga yang pernah menapaki dunia pendidikan sebagai pengajar SMP, SMA, SMK, serta Matematika SD. Perjalanan keluarga membawa saya mengenal dunia komunitas, pendampingan, STIFIn, dan usaha. Kini saya terus belajar tentang produk digital dan Artificial Intelligence (AI), dengan harapan dapat tetap produktif dari rumah serta berbagi manfaat bagi orang lain.",
-  "tagline": ["Terus Belajar, Bertumbuh, dan Berbagi Manfaat"],
-  "interests": ["Pendidikan & Matematika", "Keluarga", "Pengembangan Diri", "Komunitas PPA & EOA", "STIFIn", "Produk Digital & AI"],
+  "tagline": [
+    "Terus Belajar, Bertumbuh, dan Berbagi Manfaat"
+  ],
+  "interests": [
+    "Pendidikan & Matematika",
+    "Keluarga",
+    "Pengembangan Diri",
+    "Komunitas PPA & EOA",
+    "STIFIn",
+    "Produk Digital & AI"
+  ],
   "photo": {
     "src": "/clients/susmita/foto-profesional.webp",
     "alt": "Potret profesional Susmita mengenakan hijab abu-abu dan kacamata, close-up dengan latar transparan"
@@ -58,7 +67,12 @@
       "year": "PENDIDIKAN",
       "description": "Perjalanan mengajar berawal sejak selesai SMA, berlanjut di SMP dan SMA sambil kuliah, kemudian di SMK. Setelah jeda untuk keluarga, saya kembali berbagi ilmu melalui bimbingan belajar dan les privat Matematika SD.",
       "category": "Pendidikan & Pengajaran",
-      "tags": ["SMP", "SMA", "SMK", "Matematika SD"],
+      "tags": [
+        "SMP",
+        "SMA",
+        "SMK",
+        "Matematika SD"
+      ],
       "image": "/clients/susmita/perjalanan-pendidikan.webp"
     },
     {
@@ -66,7 +80,12 @@
       "year": "PPA · EOA",
       "description": "Lingkungan PPA mempertemukan saya dengan pembelajaran pengembangan diri dan keluarga. Amanah di BM EOA CLUB serta perjalanan EOA GOLD/EMD menjadi ruang bagi saya untuk mendampingi, melayani, dan terus bertumbuh.",
       "category": "Komunitas & Pendampingan",
-      "tags": ["PPA", "EOA CLUB", "EMD", "Pelayanan"],
+      "tags": [
+        "PPA",
+        "EOA CLUB",
+        "EMD",
+        "Pelayanan"
+      ],
       "image": "/clients/susmita/komunitas-bermakna.webp"
     },
     {
@@ -74,7 +93,11 @@
       "year": "PENGEMBANGAN DIRI",
       "description": "Minat terhadap pengembangan potensi manusia membawa saya mengikuti rangkaian pelatihan STIFIn hingga memiliki lisensi sebagai Promotor STIFIn. Proses ini menambah perspektif saya tentang pembelajaran dan pengenalan potensi diri.",
       "category": "STIFIn",
-      "tags": ["Promotor STIFIn", "Pelatihan", "Potensi Diri"],
+      "tags": [
+        "Promotor STIFIn",
+        "Pelatihan",
+        "Potensi Diri"
+      ],
       "image": "/clients/susmita/komunitas-bermakna.webp"
     },
     {
@@ -82,11 +105,23 @@
       "year": "BELAJAR DIGITAL",
       "description": "Setelah mencoba usaha buku dan herbal, saya kini mulai mempelajari produk digital berbasis Artificial Intelligence (AI). Langkah ini masih merupakan proses belajar untuk membangun aktivitas yang bermanfaat dan fleksibel dari rumah.",
       "category": "Produk Digital & AI",
-      "tags": ["AI", "Produk Digital", "Belajar Sepanjang Hayat"],
+      "tags": [
+        "AI",
+        "Produk Digital",
+        "Belajar Sepanjang Hayat"
+      ],
       "image": "/clients/susmita/belajar-ai.webp"
     }
   ],
-  "skills": ["Pengajaran SMP & SMA", "Pengajaran SMK", "Matematika SD", "Pendampingan Komunitas", "Promotor STIFIn", "Penjualan Buku & Herbal", "Pembelajaran AI"],
+  "skills": [
+    "Pengajaran SMP & SMA",
+    "Pengajaran SMK",
+    "Matematika SD",
+    "Pendampingan Komunitas",
+    "Promotor STIFIn",
+    "Penjualan Buku & Herbal",
+    "Pembelajaran AI"
+  ],
   "skillCategories": [
     {
       "id": "pendidikan",
@@ -97,13 +132,19 @@
           "name": "Pengajaran Sekolah Menengah",
           "mono": "SMP",
           "note": "Pernah mengajar SMP, SMA, dan SMK",
-          "evidence": ["Dipercaya mengajar sambil menempuh pendidikan tinggi", "Melanjutkan pengalaman mengajar di SMK setelah menikah"]
+          "evidence": [
+            "Dipercaya mengajar sambil menempuh pendidikan tinggi",
+            "Melanjutkan pengalaman mengajar di SMK setelah menikah"
+          ]
         },
         {
           "name": "Pendampingan Belajar Matematika",
           "mono": "MTK",
           "note": "Bimbingan belajar dan les privat SD",
-          "evidence": ["Pernah mengajar Matematika SD di lembaga bimbingan belajar", "Memberikan les privat Matematika tingkat SD"]
+          "evidence": [
+            "Pernah mengajar Matematika SD di lembaga bimbingan belajar",
+            "Memberikan les privat Matematika tingkat SD"
+          ]
         }
       ]
     },
@@ -116,13 +157,19 @@
           "name": "Pendampingan Komunitas PPA & EOA",
           "mono": "EOA",
           "note": "Pelayanan dan kegiatan komunitas",
-          "evidence": ["Pernah menerima amanah sebagai BM EOA CLUB", "Masih aktif dalam lingkungan EMD/EOA Miracle Distributor"]
+          "evidence": [
+            "Pernah menerima amanah sebagai BM EOA CLUB",
+            "Masih aktif dalam lingkungan EMD/EOA Miracle Distributor"
+          ]
         },
         {
           "name": "Promotor STIFIn",
           "mono": "STF",
           "note": "Mengikuti pelatihan dan memperoleh lisensi",
-          "evidence": ["Mengikuti berbagai pelatihan STIFIn", "Memperoleh lisensi sebagai Promotor STIFIn"]
+          "evidence": [
+            "Mengikuti berbagai pelatihan STIFIn",
+            "Memperoleh lisensi sebagai Promotor STIFIn"
+          ]
         }
       ]
     },
@@ -135,13 +182,19 @@
           "name": "Aktivitas Penjualan Produk",
           "mono": "USH",
           "note": "Buku dan produk herbal",
-          "evidence": ["Pernah menjual buku PPA dan buku tentang emas", "Pernah menjadi stokis produk herbal HNI-HPAI"]
+          "evidence": [
+            "Pernah menjual buku PPA dan buku tentang emas",
+            "Pernah menjadi stokis produk herbal HNI-HPAI"
+          ]
         },
         {
           "name": "Belajar Produk Digital Berbasis AI",
           "mono": "AI",
           "note": "Sedang dalam proses eksplorasi",
-          "evidence": ["Mulai mempelajari produk digital berbasis AI", "Ingin mengembangkan aktivitas produktif yang fleksibel dari rumah"]
+          "evidence": [
+            "Mulai mempelajari produk digital berbasis AI",
+            "Ingin mengembangkan aktivitas produktif yang fleksibel dari rumah"
+          ]
         }
       ]
     }
@@ -167,11 +220,36 @@
     }
   ],
   "watchCards": [
-    { "target": "about", "title": "Kenali Susmita", "subtitle": "Ibu, pembelajar, dan pendamping", "image": "/clients/susmita/foto-profesional.webp" },
-    { "target": "journey", "title": "Perjalanan Hidup", "subtitle": "Pendidikan hingga dunia digital", "image": "/clients/susmita/perjalanan-pendidikan.webp" },
-    { "target": "originals", "title": "Aktivitas & Peran", "subtitle": "Pendidikan, komunitas, dan STIFIn", "image": "/clients/susmita/komunitas-bermakna.webp" },
-    { "target": "skills", "title": "Pengalaman Saya", "subtitle": "Dari mengajar ke AI", "image": "/clients/susmita/belajar-ai.webp" },
-    { "target": "picks", "title": "Fase Bermakna", "subtitle": "Tiga ruang untuk bertumbuh", "image": "/clients/susmita/komunitas-bermakna.webp" }
+    {
+      "target": "about",
+      "title": "Kenali Susmita",
+      "subtitle": "Ibu, pembelajar, dan pendamping",
+      "image": "/clients/susmita/foto-profesional.webp"
+    },
+    {
+      "target": "journey",
+      "title": "Perjalanan Hidup",
+      "subtitle": "Pendidikan hingga dunia digital",
+      "image": "/clients/susmita/perjalanan-pendidikan.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Aktivitas & Peran",
+      "subtitle": "Pendidikan, komunitas, dan STIFIn",
+      "image": "/clients/susmita/komunitas-bermakna.webp"
+    },
+    {
+      "target": "skills",
+      "title": "Pengalaman Saya",
+      "subtitle": "Dari mengajar ke AI",
+      "image": "/clients/susmita/belajar-ai.webp"
+    },
+    {
+      "target": "picks",
+      "title": "Fase Bermakna",
+      "subtitle": "Tiga ruang untuk bertumbuh",
+      "image": "/clients/susmita/komunitas-bermakna.webp"
+    }
   ],
   "pickCards": [
     {
@@ -179,21 +257,36 @@
       "title": "Pendidikan",
       "detail": "Tempat saya belajar arti berbagi ilmu dan mendampingi orang lain.",
       "image": "/clients/susmita/perjalanan-pendidikan.webp",
-      "palette": { "from": "#2d251f", "via": "#765137", "to": "#130f11", "accent": "#eec99d" }
+      "palette": {
+        "from": "#2d251f",
+        "via": "#765137",
+        "to": "#130f11",
+        "accent": "#eec99d"
+      }
     },
     {
       "label": "RUANG BERTUMBUH",
       "title": "Komunitas",
       "detail": "Lingkungan belajar, pelayanan, dan pengembangan potensi diri.",
       "image": "/clients/susmita/komunitas-bermakna.webp",
-      "palette": { "from": "#30302a", "via": "#756344", "to": "#151315", "accent": "#e5c9a0" }
+      "palette": {
+        "from": "#30302a",
+        "via": "#756344",
+        "to": "#151315",
+        "accent": "#e5c9a0"
+      }
     },
     {
       "label": "BABAK BERIKUTNYA",
       "title": "Digital & AI",
       "detail": "Berani menjadi pemula lagi demi membuka peluang yang selaras dengan keluarga.",
       "image": "/clients/susmita/belajar-ai.webp",
-      "palette": { "from": "#1c2529", "via": "#685540", "to": "#0d1119", "accent": "#f0d4a4" }
+      "palette": {
+        "from": "#1c2529",
+        "via": "#685540",
+        "to": "#0d1119",
+        "accent": "#f0d4a4"
+      }
     }
   ],
   "picksHeading": "Setiap Fase Membentuk Saya",
@@ -209,25 +302,52 @@
           "title": "Dipercaya Mengajar Sejak Lulus SMA",
           "runtime": "Awal perjalanan",
           "description": "Saya mengajar di SMA yang pernah menjadi tempat belajar saya sambil kuliah, sekaligus mendapat kepercayaan mengajar di SMP dalam kompleks yang sama.",
-          "tags": ["SMA", "SMP", "Kuliah"],
+          "tags": [
+            "SMA",
+            "SMP",
+            "Kuliah"
+          ],
           "image": "/clients/susmita/perjalanan-pendidikan.webp",
-          "palette": { "from": "#2d251f", "via": "#765137", "to": "#130f11", "accent": "#eec99d" }
+          "palette": {
+            "from": "#2d251f",
+            "via": "#765137",
+            "to": "#130f11",
+            "accent": "#eec99d"
+          }
         },
         {
           "title": "Pindah Kota, Lalu Memilih Keluarga",
           "runtime": "Setelah menikah",
           "description": "Setelah wisuda dan menikah, saya mengikuti suami pindah kota dan mengajar di SMK. Ketika ayah sakit, saya memilih pulang ke daerah asal untuk mendampingi keluarga.",
-          "tags": ["SMK", "Keluarga", "Prioritas"],
+          "tags": [
+            "SMK",
+            "Keluarga",
+            "Prioritas"
+          ],
           "image": "/clients/susmita/perjalanan-pendidikan.webp",
-          "palette": { "from": "#392b27", "via": "#8b6349", "to": "#1b1315", "accent": "#f0d0ac" }
+          "palette": {
+            "from": "#392b27",
+            "via": "#8b6349",
+            "to": "#1b1315",
+            "accent": "#f0d0ac"
+          }
         },
         {
           "title": "Kembali Mengajar Matematika SD",
           "runtime": "Setelah masa jeda",
           "description": "Saya kembali mengajar di lembaga bimbingan belajar dan memberikan les privat Matematika SD, dengan ritme yang lebih sesuai ketika anak-anak masih kecil.",
-          "tags": ["Matematika", "Bimbel", "Les Privat"],
+          "tags": [
+            "Matematika",
+            "Bimbel",
+            "Les Privat"
+          ],
           "image": "/clients/susmita/perjalanan-pendidikan.webp",
-          "palette": { "from": "#2d251f", "via": "#765137", "to": "#130f11", "accent": "#eec99d" }
+          "palette": {
+            "from": "#2d251f",
+            "via": "#765137",
+            "to": "#130f11",
+            "accent": "#eec99d"
+          }
         }
       ]
     },
@@ -241,17 +361,35 @@
           "title": "Menemukan Ruang Belajar di PPA",
           "runtime": "Perjalanan komunitas",
           "description": "Melalui komunitas PPA saya mengenal aktivitas pengembangan diri dan keluarga. Kemudian saya mendapat amanah sebagai BM EOA CLUB dan bergabung dalam EOA GOLD, kini dikenal sebagai EMD/EOA Miracle Distributor.",
-          "tags": ["PPA", "EOA CLUB", "EMD"],
+          "tags": [
+            "PPA",
+            "EOA CLUB",
+            "EMD"
+          ],
           "image": "/clients/susmita/komunitas-bermakna.webp",
-          "palette": { "from": "#30302a", "via": "#756344", "to": "#151315", "accent": "#e5c9a0" }
+          "palette": {
+            "from": "#30302a",
+            "via": "#756344",
+            "to": "#151315",
+            "accent": "#e5c9a0"
+          }
         },
         {
           "title": "Belajar Memahami Potensi Manusia",
           "runtime": "Pelatihan STIFIn",
           "description": "Ketertarikan pada potensi manusia membawa saya mengikuti berbagai pelatihan hingga memperoleh lisensi Promotor STIFIn. Hingga sekarang saya masih berkegiatan dalam pendampingan dan pelayanan di lingkungan komunitas.",
-          "tags": ["STIFIn", "Pengembangan Diri", "Pelayanan"],
+          "tags": [
+            "STIFIn",
+            "Pengembangan Diri",
+            "Pelayanan"
+          ],
           "image": "/clients/susmita/komunitas-bermakna.webp",
-          "palette": { "from": "#30302a", "via": "#756344", "to": "#151315", "accent": "#e5c9a0" }
+          "palette": {
+            "from": "#30302a",
+            "via": "#756344",
+            "to": "#151315",
+            "accent": "#e5c9a0"
+          }
         }
       ]
     },
@@ -265,17 +403,35 @@
           "title": "Menjajal Peluang Usaha",
           "runtime": "Pengalaman usaha",
           "description": "Saya pernah menjual buku-buku PPA, buku tentang emas, dan menjadi stokis produk herbal HNI-HPAI. Setiap aktivitas mengajarkan pelayanan, kemandirian, dan keberanian untuk mencoba.",
-          "tags": ["Buku", "Emas", "HNI-HPAI"],
+          "tags": [
+            "Buku",
+            "Emas",
+            "HNI-HPAI"
+          ],
           "image": "/clients/susmita/komunitas-bermakna.webp",
-          "palette": { "from": "#38291e", "via": "#84613f", "to": "#17121a", "accent": "#e9c89b" }
+          "palette": {
+            "from": "#38291e",
+            "via": "#84613f",
+            "to": "#17121a",
+            "accent": "#e9c89b"
+          }
         },
         {
           "title": "Menjadi Pemula Lagi di Dunia AI",
           "runtime": "Fokus belajar saat ini",
           "description": "Kini saya mulai mempelajari produk digital berbasis Artificial Intelligence untuk memperluas wawasan dan menjajaki aktivitas yang fleksibel dari rumah, selaras dengan keluarga dan nilai kehidupan.",
-          "tags": ["AI", "Produk Digital", "Belajar"],
+          "tags": [
+            "AI",
+            "Produk Digital",
+            "Belajar"
+          ],
           "image": "/clients/susmita/belajar-ai.webp",
-          "palette": { "from": "#1c2529", "via": "#685540", "to": "#0d1119", "accent": "#f0d4a4" }
+          "palette": {
+            "from": "#1c2529",
+            "via": "#685540",
+            "to": "#0d1119",
+            "accent": "#f0d4a4"
+          }
         }
       ]
     }
@@ -283,7 +439,6 @@
   "journeyHeading": "Bukan Satu Profesi, Melainkan Banyak Babak Kehidupan",
   "journeyAside": "Perjalanan saya tidak selalu lurus. Ada masa mengajar, pindah kota, mendampingi orang tua, dan membesarkan anak. Setelah kembali ke dunia pendidikan, saya menemukan ruang baru lewat PPA, EOA, STIFIn, serta usaha. Sekarang saya belajar AI. Prinsip saya tetap sama: terus belajar, bertumbuh, berbagi manfaat, dan produktif dalam setiap fase kehidupan.",
   "journeyKicker": "PENDIDIKAN · KELUARGA · KOMUNITAS · MASA DEPAN",
-  "theme": { "accent": "#d8ad78", "background": "#130f12" },
   "templateId": "original",
   "identityMode": "photo"
 }
