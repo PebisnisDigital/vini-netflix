@@ -1,0 +1,236 @@
+{
+  "slug": "purwantodjokolelono",
+  "name": "Purwanto Djokolelono",
+  "role": "Digital Marketing & Digital Printing Consultant",
+  "location": "Konsultasi via WhatsApp",
+  "bio": "Halo, saya Purwanto Djokolelono. Saya berfokus pada konsultasi digital marketing dan digital printing. Melalui komunikasi yang terarah, saya mengajak Anda membahas tujuan promosi, kebutuhan media, dan pilihan pendekatan yang sesuai—baik untuk menjangkau audiens secara digital maupun menyiapkan materi cetak yang tepat.",
+  "tagline": [
+    "Strategi Promosi Digital · Solusi Media Cetak"
+  ],
+  "interests": [
+    "Digital Marketing",
+    "Digital Printing",
+    "Strategi Komunikasi",
+    "Media Promosi"
+  ],
+  "photo": {
+    "src": "/clients/purwantodjokolelono/foto-profesional.webp",
+    "alt": "Potret profesional close-up Purwanto Djokolelono berkacamata, mengenakan blazer gelap dan kemeja terang, dengan latar transparan"
+  },
+  "email": "purjokole888@gmail.com",
+  "whatsapp": "085959802224",
+  "links": {},
+  "experiences": [
+    {
+      "company": "Konsultasi Digital Marketing & Digital Printing",
+      "role": "Digital Marketing & Digital Printing Consultant",
+      "period": "Fokus profesional saat ini",
+      "description": "Membuka ruang konsultasi mengenai kebutuhan pemasaran digital, pemilihan media promosi, serta pertimbangan produk dan proses digital printing. Lingkup pendampingan dan rincian layanan didiskusikan terlebih dahulu."
+    }
+  ],
+  "education": [],
+  "projects": [
+    {
+      "title": "Konsultasi Digital Marketing",
+      "year": "DIGITAL STRATEGY",
+      "description": "Diskusi untuk memetakan tujuan pemasaran, profil audiens, pesan promosi, serta pilihan kanal digital yang relevan. Sampaikan kondisi dan kebutuhan usaha agar arah konsultasi dapat dibahas lebih spesifik.",
+      "category": "Pemasaran Digital",
+      "tags": ["Strategi Digital", "Audiens", "Promosi Online"],
+      "website": "https://wa.me/6285959802224?text=Halo%20Pak%20Purwanto%2C%20saya%20ingin%20berkonsultasi%20tentang%20digital%20marketing.",
+      "image": "/clients/purwantodjokolelono/digital-marketing.webp"
+    },
+    {
+      "title": "Konsultasi Digital Printing",
+      "year": "PRINT CONSULTING",
+      "description": "Diskusikan kebutuhan media cetak, ukuran, bahan, warna, jumlah, dan finishing agar spesifikasi lebih jelas sebelum menentukan langkah produksi. Pilihan dan penawaran disesuaikan dengan kebutuhan yang disampaikan.",
+      "category": "Media Cetak",
+      "tags": ["Digital Printing", "Material Cetak", "Finishing"],
+      "website": "https://wa.me/6285959802224?text=Halo%20Pak%20Purwanto%2C%20saya%20ingin%20berkonsultasi%20tentang%20digital%20printing.",
+      "image": "/clients/purwantodjokolelono/digital-printing.webp"
+    },
+    {
+      "title": "Promosi Digital & Cetak Terpadu",
+      "year": "CROSS-CHANNEL",
+      "description": "Pertimbangkan cara menyelaraskan materi promosi di kanal digital dan media cetak agar pesan, tampilan, serta tujuan komunikasi tetap konsisten. Ruang lingkup kolaborasi dapat dibicarakan langsung.",
+      "category": "Konsultasi Media Promosi",
+      "tags": ["Komunikasi Brand", "Online & Offline", "Konsultasi"],
+      "website": "https://wa.me/6285959802224?text=Halo%20Pak%20Purwanto%2C%20saya%20ingin%20mendiskusikan%20promosi%20digital%20dan%20media%20cetak.",
+      "image": "/clients/purwantodjokolelono/digital-marketing.webp"
+    }
+  ],
+  "skills": [
+    "Konsultasi Digital Marketing",
+    "Konsultasi Digital Printing",
+    "Perencanaan Media Promosi",
+    "Komunikasi Online & Cetak"
+  ],
+  "skillCategories": [
+    {
+      "id": "marketing",
+      "title": "Konsultasi Pemasaran Digital",
+      "subtitle": "Mulai dari tujuan sampai arah komunikasi",
+      "skills": [
+        {
+          "name": "Strategi Pemasaran Digital",
+          "mono": "DM",
+          "note": "Tujuan & audiens",
+          "evidence": [
+            "Fokus profesi sebagai konsultan digital marketing",
+            "Pembahasan diarahkan pada kebutuhan dan tujuan promosi"
+          ]
+        },
+        {
+          "name": "Perencanaan Media Online",
+          "mono": "WEB",
+          "note": "Pesan & kanal",
+          "evidence": [
+            "Diskusi pilihan kanal untuk menjangkau audiens",
+            "Rencana menyesuaikan konteks dan sasaran komunikasi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "printing",
+      "title": "Konsultasi Media Cetak",
+      "subtitle": "Spesifikasi cetak yang disesuaikan dengan kebutuhan",
+      "skills": [
+        {
+          "name": "Digital Printing",
+          "mono": "DP",
+          "note": "Pilihan media cetak",
+          "evidence": [
+            "Fokus profesi sebagai konsultan digital printing",
+            "Pembahasan meliputi kebutuhan produk dan hasil cetak"
+          ]
+        },
+        {
+          "name": "Arahan Spesifikasi Cetak",
+          "mono": "CMYK",
+          "note": "Bahan, ukuran & finishing",
+          "evidence": [
+            "Bahan, jumlah, dan spesifikasi perlu disesuaikan dengan kebutuhan",
+            "Detail hasil dan penawaran dibicarakan saat konsultasi"
+          ]
+        }
+      ]
+    }
+  ],
+  "skillsHeading": "Dua Fokus, Satu Tujuan Komunikasi",
+  "skillsAside": "Dari gagasan promosi online hingga media cetak, Purwanto membuka ruang diskusi untuk merancang arah yang sesuai kebutuhan. Materi visual pada halaman ini adalah ilustrasi bidang konsultasi, bukan dokumentasi pekerjaan atau hasil proyek yang telah diselesaikan.",
+  "skillsKicker": "DIGITAL MARKETING · DIGITAL PRINTING",
+  "highlights": [
+    {
+      "title": "2 Bidang Konsultasi",
+      "description": "Digital marketing dan digital printing menjadi dua fokus profesional Purwanto.",
+      "category": "FOKUS LAYANAN"
+    },
+    {
+      "title": "Online & Offline",
+      "description": "Bahas pendekatan komunikasi yang mempertemukan kebutuhan promosi digital dan media cetak.",
+      "category": "MEDIA PROMOSI"
+    },
+    {
+      "title": "Konsultasi Langsung",
+      "description": "Sampaikan kebutuhan dan pertanyaan Anda melalui WhatsApp atau email yang tersedia.",
+      "category": "HUBUNGI PURWANTO"
+    }
+  ],
+  "watchCards": [
+    {
+      "target": "about",
+      "title": "Kenali Purwanto",
+      "subtitle": "Konsultan pemasaran dan percetakan digital",
+      "image": "/clients/purwantodjokolelono/foto-profesional.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Jelajahi Layanan",
+      "subtitle": "Strategi pemasaran dan media cetak",
+      "image": "/clients/purwantodjokolelono/digital-marketing.webp"
+    },
+    {
+      "target": "skills",
+      "title": "Bidang Konsultasi",
+      "subtitle": "Dua ranah, satu arah komunikasi",
+      "image": "/clients/purwantodjokolelono/digital-printing.webp"
+    },
+    {
+      "target": "journey",
+      "title": "Mulai Diskusi",
+      "subtitle": "Dari kebutuhan menuju pilihan media",
+      "image": "/clients/purwantodjokolelono/digital-marketing.webp"
+    },
+    {
+      "target": "picks",
+      "title": "Pilihan Konsultasi",
+      "subtitle": "Mulai dari tujuan yang ingin dicapai",
+      "image": "/clients/purwantodjokolelono/digital-printing.webp"
+    }
+  ],
+  "pickCards": [
+    {
+      "label": "STRATEGI DIGITAL",
+      "title": "Digital Marketing",
+      "detail": "Diskusikan audiens, tujuan, pesan, dan pilihan kanal digital.",
+      "palette": {"from": "#0b1935", "via": "#235477", "to": "#080f1f", "accent": "#edbf77"},
+      "image": "/clients/purwantodjokolelono/digital-marketing.webp"
+    },
+    {
+      "label": "PRODUKSI CETAK",
+      "title": "Digital Printing",
+      "detail": "Tentukan kebutuhan media, bahan, ukuran, dan finishing.",
+      "palette": {"from": "#281b21", "via": "#815243", "to": "#0c1827", "accent": "#f0c48d"},
+      "image": "/clients/purwantodjokolelono/digital-printing.webp"
+    },
+    {
+      "label": "KOMUNIKASI BRAND",
+      "title": "Digital & Cetak",
+      "detail": "Selaraskan pesan promosi lintas kanal sesuai kebutuhan.",
+      "palette": {"from": "#092d37", "via": "#387c86", "to": "#101422", "accent": "#d7e2a5"},
+      "image": "/clients/purwantodjokolelono/digital-marketing.webp"
+    }
+  ],
+  "picksHeading": "Temukan Arah Promosi Anda",
+  "picksKicker": "KONSULTASI · STRATEGI · MEDIA",
+  "seasons": [
+    {
+      "number": 1,
+      "title": "Digital Marketing",
+      "period": "Pemasaran & Komunikasi Online",
+      "synopsis": "Pahami tujuan dan kebutuhan promosi digital Anda, lalu bicarakan pilihan arah komunikasi serta kanal yang relevan.",
+      "episodes": [
+        {
+          "title": "Mulai dari Tujuan",
+          "runtime": "Konsultasi Strategi",
+          "description": "Sampaikan produk atau layanan, sasaran audiens, dan tujuan promosi sebagai titik awal diskusi digital marketing.",
+          "tags": ["Tujuan", "Audiens", "Digital Marketing"],
+          "image": "/clients/purwantodjokolelono/digital-marketing.webp",
+          "palette": {"from": "#0b1935", "via": "#235477", "to": "#080f1f", "accent": "#edbf77"}
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Digital Printing",
+      "period": "Media & Hasil Cetak",
+      "synopsis": "Rincikan tujuan penggunaan media cetak untuk membantu menentukan format dan spesifikasi yang lebih tepat.",
+      "episodes": [
+        {
+          "title": "Dari Desain ke Media Cetak",
+          "runtime": "Konsultasi Printing",
+          "description": "Diskusikan kebutuhan ukuran, bahan, warna, jumlah, dan finishing sesuai penggunaan yang direncanakan.",
+          "tags": ["Media Cetak", "Spesifikasi", "Digital Printing"],
+          "image": "/clients/purwantodjokolelono/digital-printing.webp",
+          "palette": {"from": "#281b21", "via": "#815243", "to": "#0c1827", "accent": "#f0c48d"}
+        }
+      ]
+    }
+  ],
+  "journeyHeading": "Komunikasi yang Baik Dimulai dari Kebutuhan",
+  "journeyAside": "Purwanto Djokolelono hadir sebagai konsultan digital marketing dan digital printing. Ceritakan tujuan, jenis media, audiens, serta kebutuhan proyek Anda; pembahasan selanjutnya dapat dilakukan melalui WhatsApp 0859 5980 2224 atau email purjokole888@gmail.com.",
+  "journeyKicker": "PERKENALAN · KONSULTASI · ARAH SOLUSI",
+  "theme": {"accent": "#eac38b", "background": "#0b1422"},
+  "templateId": "original",
+  "identityMode": "photo"
+}
