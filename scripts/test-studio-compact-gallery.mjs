@@ -10,6 +10,7 @@ test('studio memisahkan gaya kreatif dan profesi dalam grid ringkas lima kolom d
   assert.match(source, /visibleTemplates\.map\(\(item\) =>/);
   assert.match(source, /Gaya Kreatif/);
   assert.match(source, /Gaya Profesi/);
+  assert.match(editorSource, /templateCatalog\.length\} Gaya/);
   assert.doesNotMatch(source, /selectedTemplateId === 'chibi-3d' &&/);
   assert.match(source, /onClick=\{onEditWebsite\}/);
   assert.match(source, /onClick=\{\(\) => selectTemplate\(item\.id\)\}/);
