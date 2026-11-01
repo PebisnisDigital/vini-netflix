@@ -71,13 +71,14 @@ export default function Hero({ onPlay, onResume, profileId, editorMode = false }
         <span className="light-streak left-[55%] top-[44%] w-[30vw]" style={{ animationDelay: '5.2s' }} />
       </div>
 
-      {/* portrait */}
+      {/* Keep the portrait tied to the viewport, not to the section's variable height.
+          Long client names and biographies can make the copy taller than one screen. */}
       <motion.div
-        className={`absolute inset-x-0 top-12 z-[2] flex h-[64svh] items-end justify-center sm:h-[70svh] lg:bottom-0 lg:left-auto lg:right-[3vw] lg:top-20 lg:h-auto lg:w-[54vw] xl:right-[6vw] xl:w-[48vw] ${profile.clientSlug === 'isa' || profile.clientSlug === 'yantiriyantini' ? 'lg:items-start' : ''}`}
+        className="absolute inset-x-0 top-12 z-[2] flex h-[64svh] items-end justify-center sm:h-[70svh] lg:bottom-auto lg:left-auto lg:right-[3vw] lg:top-20 lg:h-[calc(100svh-5rem)] lg:w-[54vw] lg:items-start xl:right-[6vw] xl:w-[48vw]"
         style={{ y: imgY, scale: imgScale, opacity: fade }}
       >
         <motion.div
-          className="relative h-full w-full lg:h-[86vh]"
+          className="relative h-full w-full"
           style={{ rotateY: imgRotY, rotateX: imgRotX, x: imgShiftX, transformPerspective: 1200 }}
           initial={{ clipPath: 'inset(100% -30% -10% -30%)', opacity: 0 }}
           animate={{ clipPath: 'inset(-30% -30% -10% -30%)', opacity: 1 }}
