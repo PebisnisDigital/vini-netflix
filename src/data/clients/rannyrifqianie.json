@@ -1,0 +1,229 @@
+{
+  "slug": "rannyrifqianie",
+  "name": "Ranny Rifqianie",
+  "role": "Education Growth Facilitator · Brainevo Fingerprint Practitioner",
+  "location": "Jatiasih · Bekasi Selatan, Jawa Barat",
+  "bio": "Halo, saya Ranny Rifqianie. Saya berfokus pada pendampingan proses bertumbuh dalam pendidikan sebagai Education Growth Facilitator dan menjalankan peran sebagai Brainevo Fingerprint Practitioner. Melalui komunikasi yang hangat dan terbuka, saya mengajak Anda mengenali kebutuhan, mendiskusikan tujuan pengembangan, dan mendapatkan informasi yang jelas sebelum memilih layanan.",
+  "tagline": [
+    "Mendampingi Proses Belajar, Bertumbuh, dan Mengenal Diri"
+  ],
+  "interests": [
+    "Pertumbuhan Pendidikan",
+    "Pendampingan Belajar",
+    "Brainevo Fingerprint",
+    "Komunikasi & Pengembangan Diri"
+  ],
+  "photo": {
+    "src": "/clients/rannyrifqianie/foto-profesional.webp",
+    "alt": "Potret profesional close-up Ranny Rifqianie dengan hijab peach-beige, blazer senada, dan latar transparan"
+  },
+  "email": "ranny.taufiq@gmail.com",
+  "whatsapp": "08159257778",
+  "links": {},
+  "experiences": [
+    {
+      "company": "Pendampingan Pendidikan & Layanan Brainevo",
+      "role": "Education Growth Facilitator · Brainevo Fingerprint Practitioner",
+      "period": "Fokus profesional saat ini",
+      "description": "Memperkenalkan dua fokus profesional: fasilitasi pertumbuhan pendidikan dan layanan Brainevo Fingerprint. Informasi metode, tahapan sesi, biaya, serta jadwal dapat ditanyakan secara langsung."
+    }
+  ],
+  "education": [],
+  "projects": [
+    {
+      "title": "Education Growth Facilitation",
+      "year": "EDUCATION GROWTH",
+      "description": "Ruang diskusi dan pendampingan untuk merumuskan kebutuhan serta tujuan pertumbuhan dalam proses pendidikan. Tanyakan pendekatan, bentuk sesi, dan sasaran layanan yang tersedia agar sesuai dengan situasi Anda.",
+      "category": "Fasilitasi Pengembangan Pendidikan",
+      "tags": ["Education Growth", "Pendampingan", "Tujuan Belajar"],
+      "website": "https://wa.me/628159257778?text=Halo%20Bu%20Ranny%2C%20saya%20ingin%20menanyakan%20layanan%20Education%20Growth%20Facilitator.",
+      "image": "/clients/rannyrifqianie/education-growth.webp"
+    },
+    {
+      "title": "Brainevo Fingerprint",
+      "year": "PRACTITIONER",
+      "description": "Informasi mengenai layanan dan proses sesi Brainevo Fingerprint dapat didiskusikan langsung dengan Ranny. Pendekatan berbasis sidik jari tidak boleh dipahami sebagai diagnosis medis, tes IQ, atau penentu bakat dan masa depan seseorang secara pasti.",
+      "category": "Informasi & Konsultasi Brainevo",
+      "tags": ["Brainevo", "Fingerprint", "Tanya Layanan"],
+      "website": "https://wa.me/628159257778?text=Halo%20Bu%20Ranny%2C%20saya%20ingin%20mengetahui%20informasi%20layanan%20Brainevo%20Fingerprint.",
+      "image": "/clients/rannyrifqianie/brainevo-fingerprint.webp"
+    },
+    {
+      "title": "Konsultasi Awal & Informasi Sesi",
+      "year": "HUBUNGI RANNY",
+      "description": "Tanyakan pilihan layanan, alur konsultasi, ketersediaan jadwal, dan biaya sebelum menentukan langkah berikutnya. Alamat yang diberikan: Tiara Residence Blok B15, Jln. Wibawa Mukti II, Jatiasih - Bekasi Selatan, Jawa Barat. Harap konfirmasi terlebih dahulu jika ingin bertemu.",
+      "category": "Komunikasi & Informasi",
+      "tags": ["WhatsApp", "Jadwal", "Informasi Lokasi"],
+      "website": "https://wa.me/628159257778?text=Halo%20Bu%20Ranny%2C%20saya%20ingin%20menanyakan%20pilihan%20layanan%20dan%20jadwal%20konsultasi.",
+      "image": "/clients/rannyrifqianie/education-growth.webp"
+    }
+  ],
+  "skills": [
+    "Education Growth Facilitation",
+    "Brainevo Fingerprint Practice",
+    "Diskusi Kebutuhan Belajar",
+    "Komunikasi Konsultasi"
+  ],
+  "skillCategories": [
+    {
+      "id": "growth",
+      "title": "Pendampingan Pertumbuhan Pendidikan",
+      "subtitle": "Memulai percakapan tentang tujuan dan kebutuhan belajar",
+      "skills": [
+        {
+          "name": "Education Growth Facilitator",
+          "mono": "EGF",
+          "note": "Pertumbuhan & pendidikan",
+          "evidence": [
+            "Salah satu fokus profesi Ranny Rifqianie",
+            "Informasi bentuk pendampingan dibicarakan sesuai kebutuhan"
+          ]
+        },
+        {
+          "name": "Diskusi Arah Pengembangan",
+          "mono": "EDU",
+          "note": "Tujuan & langkah awal",
+          "evidence": [
+            "Membuka ruang percakapan tentang kebutuhan pendidikan",
+            "Pendekatan dan tahapan layanan dikonfirmasi secara langsung"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "brainevo",
+      "title": "Informasi Layanan Brainevo",
+      "subtitle": "Mengenal proses layanan dengan penjelasan yang proporsional",
+      "skills": [
+        {
+          "name": "Brainevo Fingerprint Practitioner",
+          "mono": "BF",
+          "note": "Layanan Brainevo",
+          "evidence": [
+            "Fokus profesi yang dicantumkan Ranny",
+            "Metode dan tahap sesi perlu ditanyakan langsung"
+          ]
+        },
+        {
+          "name": "Penjelasan Layanan & Batasannya",
+          "mono": "INFO",
+          "note": "Informasi sebelum sesi",
+          "evidence": [
+            "Calon klien dapat bertanya tentang tujuan dan tata cara layanan",
+            "Tidak disajikan sebagai diagnosis atau prediksi kemampuan pasti"
+          ]
+        }
+      ]
+    }
+  ],
+  "skillsHeading": "Mendampingi Tumbuh, Membuka Ruang Diskusi",
+  "skillsAside": "Ranny memperkenalkan layanan fasilitasi pertumbuhan pendidikan dan Brainevo Fingerprint. Pastikan informasi pendekatan, manfaat, keterbatasan, dan detail sesi dipahami sebelum mengikuti layanan. Visual kategori di halaman ini bersifat ilustratif, bukan dokumentasi kegiatan sebenarnya.",
+  "skillsKicker": "EDUCATION GROWTH · BRAINEVO FINGERPRINT",
+  "highlights": [
+    {
+      "title": "2 Fokus Profesional",
+      "description": "Education Growth Facilitator dan Brainevo Fingerprint Practitioner dalam satu profil.",
+      "category": "BIDANG LAYANAN"
+    },
+    {
+      "title": "Diskusi Sebelum Sesi",
+      "description": "Tanyakan metode, alur, jadwal, dan biaya agar dapat mempertimbangkan layanan dengan jelas.",
+      "category": "INFORMASI LAYANAN"
+    },
+    {
+      "title": "Kontak di Bekasi",
+      "description": "Alamat: Tiara Residence Blok B15, Jln. Wibawa Mukti II, Jatiasih - Bekasi Selatan, Jawa Barat. Pertemuan perlu dikonfirmasi terlebih dahulu.",
+      "category": "ALAMAT & KOMUNIKASI"
+    }
+  ],
+  "watchCards": [
+    {
+      "target": "about",
+      "title": "Kenali Ranny",
+      "subtitle": "Fasilitator dan praktisi Brainevo",
+      "image": "/clients/rannyrifqianie/foto-profesional.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Layanan & Informasi",
+      "subtitle": "Education Growth dan Brainevo",
+      "image": "/clients/rannyrifqianie/education-growth.webp"
+    },
+    {
+      "target": "skills",
+      "title": "Dua Fokus Ranny",
+      "subtitle": "Kenali pendekatan dan batasannya",
+      "image": "/clients/rannyrifqianie/brainevo-fingerprint.webp"
+    },
+    {
+      "target": "journey",
+      "title": "Mulai Percakapan",
+      "subtitle": "Tanyakan informasi layanan",
+      "image": "/clients/rannyrifqianie/education-growth.webp"
+    },
+    {
+      "target": "picks",
+      "title": "Pilih Kebutuhan Anda",
+      "subtitle": "Mulai dari topik yang relevan",
+      "image": "/clients/rannyrifqianie/brainevo-fingerprint.webp"
+    }
+  ],
+  "pickCards": [
+    {
+      "label": "PENDAMPINGAN PENDIDIKAN",
+      "title": "Education Growth",
+      "detail": "Diskusikan kebutuhan dan tujuan pertumbuhan dalam pendidikan.",
+      "palette": {"from": "#29342d", "via": "#637b64", "to": "#101821", "accent": "#eed4a7"},
+      "image": "/clients/rannyrifqianie/education-growth.webp"
+    },
+    {
+      "label": "INFORMASI SESI",
+      "title": "Brainevo Fingerprint",
+      "detail": "Pelajari proses layanan dan batasan penggunaannya sebelum sesi.",
+      "palette": {"from": "#271529", "via": "#5f3a57", "to": "#160f21", "accent": "#eec5b2"},
+      "image": "/clients/rannyrifqianie/brainevo-fingerprint.webp"
+    }
+  ],
+  "picksHeading": "Kenali Layanan Ranny",
+  "picksKicker": "BELAJAR · BERTUMBUH · BERDISKUSI",
+  "seasons": [
+    {
+      "number": 1,
+      "title": "Education Growth",
+      "period": "Pendampingan Pendidikan",
+      "synopsis": "Pertumbuhan pendidikan dimulai dari mengenali kebutuhan dan membicarakan tujuan. Kenali pilihan sesi bersama Ranny.",
+      "episodes": [
+        {
+          "title": "Mulai dari Tujuan Belajar",
+          "runtime": "Informasi Pendampingan",
+          "description": "Tanyakan bentuk fasilitasi, sasaran pendampingan, dan langkah awal untuk kebutuhan pendidikan yang ingin didiskusikan.",
+          "tags": ["Education Growth", "Belajar", "Pendampingan"],
+          "image": "/clients/rannyrifqianie/education-growth.webp",
+          "palette": {"from": "#29342d", "via": "#637b64", "to": "#101821", "accent": "#eed4a7"}
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Brainevo Fingerprint",
+      "period": "Pengenalan Layanan",
+      "synopsis": "Dapatkan informasi langsung mengenai proses dan batasan layanan Brainevo Fingerprint, tanpa menganggapnya sebagai alat diagnosis atau prediksi pasti.",
+      "episodes": [
+        {
+          "title": "Mengenal Sesi Brainevo",
+          "runtime": "Tanya Layanan",
+          "description": "Diskusikan metode, alur sesi, biaya, serta hal-hal yang perlu dipahami sebelum menggunakan layanan.",
+          "tags": ["Brainevo", "Fingerprint", "Informasi"],
+          "image": "/clients/rannyrifqianie/brainevo-fingerprint.webp",
+          "palette": {"from": "#271529", "via": "#5f3a57", "to": "#160f21", "accent": "#eec5b2"}
+        }
+      ]
+    }
+  ],
+  "journeyHeading": "Setiap Proses Bertumbuh Dimulai dari Percakapan",
+  "journeyAside": "Ranny Rifqianie dapat dihubungi melalui WhatsApp 0815 9257 778 atau email ranny.taufiq@gmail.com untuk menanyakan layanan, jadwal, dan prosedur. Alamat yang disampaikan: Tiara Residence Blok B15, Jln. Wibawa Mukti II, Jatiasih - Bekasi Selatan, Jawa Barat. Silakan konfirmasi sebelum berkunjung.",
+  "journeyKicker": "KENALAN · TANYA LAYANAN · RENCANAKAN LANGKAH",
+  "theme": {"accent": "#f0cbb2", "background": "#1a1520"},
+  "templateId": "original",
+  "identityMode": "photo"
+}
