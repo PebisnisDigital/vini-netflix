@@ -19,10 +19,17 @@ export function renderClientHtml(template, { name, bio, photo }) {
   const noscript = isElectronicTiger
     ? 'Electronic Tiger Creative Studio portfolio. Enable JavaScript to explore our creative worlds.'
     : `Portofolio ${name}. Aktifkan JavaScript untuk menjelajahinya.`;
+  // The studio has its own identity mark; keep the PESONAFLIX favicon for other clients.
+  const brandedTemplate = isElectronicTiger
+    ? template.replace(
+      /<link\s+rel="icon"\s+type="image\/svg\+xml"\s+href="\/favicon\.svg"\s*\/>/i,
+      '<link rel="icon" type="image/png" href="/clients/noahinna/et-favicon.png" />',
+    )
+    : template;
   return replaceMeta(
     replaceMeta(
       replaceMeta(
-        template
+        brandedTemplate
           .replace(/<title>[^<]*<\/title>/i, `<title>${escapeHtml(title)}</title>`)
           .replace(/<noscript>[^<]*<\/noscript>/i, `<noscript>${escapeHtml(noscript)}</noscript>`)
           .replace(/<link\s+rel="preload"\s+as="image"\s+href="\/assets\/teh-vini-720.webp"[^>]*>/i, ''),

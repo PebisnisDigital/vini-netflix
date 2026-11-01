@@ -16,8 +16,8 @@
     "Storytelling & Digital Innovation"
   ],
   "photo": {
-    "src": "/clients/noahinna/studio-identity-founder.webp",
-    "alt": "Electronic Tiger Creative Studio illustrated brand artwork"
+    "src": "/clients/noahinna/team-nur-ain-transparent.webp",
+    "alt": "Electronic Tiger Creative Studio illustrated logo featuring Nur Ain Hassan"
   },
   "email": "theelectronictiger@gmail.com",
   "whatsapp": "+6593433749",
@@ -100,7 +100,7 @@
       "description": "Founder and Director of Electronic Tiger Creative Studio. Illustrated studio artwork supplied for the team gallery.",
       "category": "Our Team",
       "tags": ["Founder", "Director"],
-      "image": "/clients/noahinna/studio-identity-founder.webp"
+      "image": "/clients/noahinna/team-nur-ain-transparent.webp"
     },
     {
       "title": "Nur Laila Hassan",
@@ -108,7 +108,7 @@
       "description": "Producer and Production Manager at Electronic Tiger Creative Studio. Illustrated studio artwork supplied for the team gallery.",
       "category": "Our Team",
       "tags": ["Producer", "Production Manager"],
-      "image": "/clients/noahinna/studio-identity-producer.webp"
+      "image": "/clients/noahinna/team-nur-laila-transparent.webp"
     },
     {
       "title": "Nur Hayati Hassan",
@@ -116,7 +116,7 @@
       "description": "General Manager at Electronic Tiger Creative Studio. Illustrated studio artwork supplied for the team gallery.",
       "category": "Our Team",
       "tags": ["General Manager"],
-      "image": "/clients/noahinna/studio-identity-manager.webp"
+      "image": "/clients/noahinna/team-nur-hayati-transparent.webp"
     }
   ],
   "skills": [
@@ -177,7 +177,7 @@
     }
   ],
   "watchCards": [
-    { "target": "about", "title": "About Our Studio", "subtitle": "Our creative philosophy", "image": "/clients/noahinna/studio-identity-founder.webp" },
+    { "target": "about", "title": "About Our Studio", "subtitle": "Our creative philosophy", "image": "/clients/noahinna/team-nur-ain-transparent.webp" },
     { "target": "originals", "title": "Our Portfolio", "subtitle": "Three creative worlds", "image": "/clients/noahinna/noah-inna-brand.webp" },
     { "target": "journey", "title": "Our Brands", "subtitle": "Explore the stories", "image": "/clients/noahinna/evan-ai-brand.webp" },
     { "target": "skills", "title": "Our Creative Practice", "subtitle": "Ideas made real", "image": "/clients/noahinna/obsidian-ai-brand.webp" }

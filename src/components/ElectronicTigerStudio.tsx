@@ -230,7 +230,7 @@ export default function ElectronicTigerStudio({ editorMode = false }: { editorMo
               {team.map((member, i) => <motion.div key={member.id} className="et-team-card"
                 initial={editorMode ? false : { opacity: 0, y: 26 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.55, delay: i * 0.1 }}>
                 <div className="et-team-art" data-studio-edit={`project:${projects.indexOf(member)}`}>
-                  {member.image && <StudioImage src={member.image} alt={`Illustrated studio artwork accompanying ${member.title}`}/>}
+                  {member.image && <StudioImage src={member.image} alt={`Illustrated portrait of ${member.title}`}/>}
                   <span className="et-team-number">0{i + 1}</span>
                 </div>
                 <div className="et-team-info">
