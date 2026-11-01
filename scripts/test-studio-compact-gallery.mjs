@@ -5,10 +5,11 @@ import { test } from 'node:test';
 const source = readFileSync(new URL('../src/components/StudioTemplateGallery.tsx', import.meta.url), 'utf8');
 const editorSource = readFileSync(new URL('../src/components/StudioEditor.tsx', import.meta.url), 'utf8');
 
-test('studio menampilkan seluruh gaya dalam satu grid ringkas lima kolom di desktop', () => {
+test('studio memisahkan gaya kreatif dan profesi dalam grid ringkas lima kolom di desktop', () => {
   assert.match(source, /grid-cols-2[^"\n]*md:grid-cols-3[^"\n]*lg:grid-cols-5/);
-  assert.match(source, /templateCatalog\.map\(\(item\) =>/);
-  assert.doesNotMatch(source, /templateCatalog\.filter\(\(item\) => item\.family/);
+  assert.match(source, /visibleTemplates\.map\(\(item\) =>/);
+  assert.match(source, /Gaya Kreatif/);
+  assert.match(source, /Gaya Profesi/);
   assert.doesNotMatch(source, /selectedTemplateId === 'chibi-3d' &&/);
   assert.match(source, /onClick=\{onEditWebsite\}/);
   assert.match(source, /onClick=\{\(\) => selectTemplate\(item\.id\)\}/);

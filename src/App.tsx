@@ -24,6 +24,7 @@ import DocumentaryHero from './components/DocumentaryHero';
 import MinimalistHero from './components/MinimalistHero';
 import FuturisticNeonHero from './components/FuturisticNeonHero';
 import VintageHeritageHero from './components/VintageHeritageHero';
+import TniProfessionHero from './components/TniProfessionHero';
 import CinematicHeroMotion from './components/CinematicHeroMotion';
 import ContinueWatching from './components/ContinueWatching';
 import Scene from './components/Scene';
@@ -82,9 +83,10 @@ export default function App({ slug, editorMode = false }: { slug: string; editor
   const minimalistCinema = profile.templateId === 'minimalist' || slug === 'vini15';
   const futuristicNeonCinema = profile.templateId === 'futuristic-neon' || slug === 'vini16';
   const vintageHeritageCinema = profile.templateId === 'vintage-heritage' || slug === 'vini17';
+  const tniCinema = profile.templateId === 'tni-nusantara';
   // Warna CHIBI bawaan tidak disimpan ke data: ketika berganti gaya,
   // pilihan warna khusus dan warna asli klien tetap aman.
-  const theme = profile.theme || chibiCinema || animeCinema || clayCinema || comicCinema || editorialCinema || doodleCinema || storybookCinema || scrapbookCinema || papercutCinema || pixelCinema || miniatureCinema || documentaryCinema || minimalistCinema || futuristicNeonCinema || vintageHeritageCinema ? effectiveTheme(profile) : undefined;
+  const theme = profile.theme || chibiCinema || animeCinema || clayCinema || comicCinema || editorialCinema || doodleCinema || storybookCinema || scrapbookCinema || papercutCinema || pixelCinema || miniatureCinema || documentaryCinema || minimalistCinema || futuristicNeonCinema || vintageHeritageCinema || tniCinema ? effectiveTheme(profile) : undefined;
   const styles = theme ? {
     '--color-ink': theme.background,
     '--color-ink-2': theme.background,
@@ -121,7 +123,7 @@ export default function App({ slug, editorMode = false }: { slug: string; editor
     if ((event.key === 'Enter' || event.key === ' ') && followAssignedLink(event.target)) { event.preventDefault(); event.stopPropagation(); }
   };
   return (
-    <div onClickCapture={captureLinkClick} onKeyDownCapture={captureLinkKey} style={styles} className={`min-h-screen bg-ink client-portfolio${editorMode ? ' studio-canvas' : ''}${clientSlug === 'isa' ? ' isa-light' : ''}${clientSlug === 'noahinna' ? ' noahinna-clay' : ''}${clientSlug === 'yudhaandaka' ? ' yudhaandaka-executive' : ''}${clientSlug === 'ninikwardhani' ? ' ninikwardhani-elegant' : ''}${clientSlug === 'vini3' ? ' chibi-theme' : ''}${animeCinema ? ' anime-theme' : ''}${chibiCinema ? ' chibi-cinema' : ''}${clayCinema ? ' clay-cinema' : ''}${comicCinema ? ' comic-cinema' : ''}${editorialCinema ? ' editorial-cinema' : ''}${doodleCinema ? ' doodle-cinema' : ''}${storybookCinema ? ' storybook-cinema' : ''}${scrapbookCinema ? ' scrapbook-cinema' : ''}${papercutCinema ? ' papercut-cinema' : ''}${pixelCinema ? ' pixel-cinema' : ''}${miniatureCinema ? ' miniature-cinema' : ''}${documentaryCinema ? ' documentary-cinema' : ''}${minimalistCinema ? ' minimalist-cinema' : ''}${futuristicNeonCinema ? ' futuristic-cinema' : ''}${vintageHeritageCinema ? ' vintage-cinema' : ''}`}>
+    <div onClickCapture={captureLinkClick} onKeyDownCapture={captureLinkKey} style={styles} className={`min-h-screen bg-ink client-portfolio${editorMode ? ' studio-canvas' : ''}${clientSlug === 'isa' ? ' isa-light' : ''}${clientSlug === 'noahinna' ? ' noahinna-clay' : ''}${clientSlug === 'yudhaandaka' ? ' yudhaandaka-executive' : ''}${clientSlug === 'ninikwardhani' ? ' ninikwardhani-elegant' : ''}${clientSlug === 'vini3' ? ' chibi-theme' : ''}${animeCinema ? ' anime-theme' : ''}${chibiCinema ? ' chibi-cinema' : ''}${clayCinema ? ' clay-cinema' : ''}${comicCinema ? ' comic-cinema' : ''}${editorialCinema ? ' editorial-cinema' : ''}${doodleCinema ? ' doodle-cinema' : ''}${storybookCinema ? ' storybook-cinema' : ''}${scrapbookCinema ? ' scrapbook-cinema' : ''}${papercutCinema ? ' papercut-cinema' : ''}${pixelCinema ? ' pixel-cinema' : ''}${miniatureCinema ? ' miniature-cinema' : ''}${documentaryCinema ? ' documentary-cinema' : ''}${minimalistCinema ? ' minimalist-cinema' : ''}${futuristicNeonCinema ? ' futuristic-cinema' : ''}${vintageHeritageCinema ? ' vintage-cinema' : ''}${tniCinema ? ' tni-cinema' : ''}`}>
       <VisualDesignStyles />
       <SmoothScrollProvider>
         <Series slug={slug} editorMode={editorMode} />
@@ -147,9 +149,10 @@ function Series({ slug, editorMode }: { slug: string; editorMode: boolean }) {
   const minimalistCinema = profile.templateId === 'minimalist' || slug === 'vini15';
   const futuristicNeonCinema = profile.templateId === 'futuristic-neon' || slug === 'vini16';
   const vintageHeritageCinema = profile.templateId === 'vintage-heritage' || slug === 'vini17';
+  const tniCinema = profile.templateId === 'tni-nusantara';
   const storageKey = `personal-netflix-profile-${slug}`;
   const stored = readStoredProfile(storageKey, viewerProfiles);
-  const [stage, setStage] = useState<Stage>(slug === 'vini3' || animeCinema || clayCinema || comicCinema || editorialCinema || doodleCinema || storybookCinema || scrapbookCinema || papercutCinema || pixelCinema || miniatureCinema || documentaryCinema || minimalistCinema || futuristicNeonCinema || vintageHeritageCinema || editorMode || stored || chibiCinema ? 'home' : 'opening');
+  const [stage, setStage] = useState<Stage>(slug === 'vini3' || animeCinema || clayCinema || comicCinema || editorialCinema || doodleCinema || storybookCinema || scrapbookCinema || papercutCinema || pixelCinema || miniatureCinema || documentaryCinema || minimalistCinema || futuristicNeonCinema || vintageHeritageCinema || tniCinema || editorMode || stored || chibiCinema ? 'home' : 'opening');
   const [profileId, setProfileId] = useState<ProfileId>(stored ?? 'vini');
   const [playing, setPlaying] = useState(false);
   const [project, setProject] = useState<Project | null>(null);
@@ -212,7 +215,7 @@ function Series({ slug, editorMode }: { slug: string; editorMode: boolean }) {
     story: <ResumeSection onView={() => setResumeOpen(true)} />,
   };
 
-  const customCinema = chibiCinema || clayCinema || comicCinema || editorialCinema || doodleCinema || storybookCinema || scrapbookCinema || papercutCinema || pixelCinema || miniatureCinema || documentaryCinema || minimalistCinema || futuristicNeonCinema || vintageHeritageCinema;
+  const customCinema = chibiCinema || clayCinema || comicCinema || editorialCinema || doodleCinema || storybookCinema || scrapbookCinema || papercutCinema || pixelCinema || miniatureCinema || documentaryCinema || minimalistCinema || futuristicNeonCinema || vintageHeritageCinema || tniCinema;
   const customHero = chibiCinema ? (
     <ChibiHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
   ) : clayCinema ? (
@@ -241,6 +244,8 @@ function Series({ slug, editorMode }: { slug: string; editorMode: boolean }) {
     <FuturisticNeonHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
   ) : vintageHeritageCinema ? (
     <VintageHeritageHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
+  ) : tniCinema ? (
+    <TniProfessionHero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onOpenProject={setProject} />
   ) : null;
 
   return (

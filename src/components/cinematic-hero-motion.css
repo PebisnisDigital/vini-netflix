@@ -17,7 +17,8 @@
   .documentary-film-image,
   .minimalist-photo-frame,
   .neon-visual,
-  .heritage-portrait-column
+  .heritage-portrait-column,
+  .tni-portrait-frame
 ) {
   translate: var(--cinema-photo-x, 0px) var(--cinema-photo-y, 0px);
   scale: var(--cinema-photo-scale, 1);
@@ -38,7 +39,8 @@
   .documentary-feature-copy,
   .minimalist-copy,
   .neon-copy,
-  .heritage-story-column
+  .heritage-story-column,
+  .tni-copy
 ) {
   translate: var(--cinema-copy-x, 0px) var(--cinema-copy-y, 0px);
   will-change: translate;
