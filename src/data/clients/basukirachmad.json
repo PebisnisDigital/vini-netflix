@@ -1,6 +1,6 @@
 {
   "slug": "basukirachmad",
-  "name": "Basuki Rachmad Effendi",
+  "name": "Basuki R. Effendi",
   "role": "Reseller Pembelajaran Online & Produk Digital PLR",
   "location": "Layanan Online · Konsultasi via WhatsApp",
   "bio": "Halo, saya Basuki Rachmad Effendi. Saya membantu Anda menemukan pilihan produk belajar online untuk kebutuhan akademik maupun nonakademik, serta produk digital PLR. Mari diskusikan jenis materi, tujuan belajar, format produk, akses, dan ketentuan lisensinya agar pilihan yang diambil sesuai kebutuhan Anda.",
@@ -15,7 +15,7 @@
   ],
   "photo": {
     "src": "/clients/basukirachmad/foto-profesional.webp",
-    "alt": "Potret profesional close-up Basuki Rachmad Effendi mengenakan jas abu-abu, kemeja putih, dan dasi biru tua dengan latar transparan"
+    "alt": "Foto Basuki R. Effendi"
   },
   "email": "basukiwijaya2702@gmail.com",
   "whatsapp": "081330388199",
@@ -35,7 +35,11 @@
       "year": "BELAJAR ONLINE",
       "description": "Jelajahi pilihan materi pembelajaran online yang berkaitan dengan kebutuhan akademik. Silakan hubungi Basuki untuk mengetahui judul, jenjang, format, harga, dan ketentuan akses produk yang tersedia.",
       "category": "Pembelajaran Akademik",
-      "tags": ["Akademik", "Materi Online", "Katalog Belajar"],
+      "tags": [
+        "Akademik",
+        "Materi Online",
+        "Katalog Belajar"
+      ],
       "website": "https://wa.me/6281330388199?text=Halo%20Pak%20Basuki%2C%20saya%20ingin%20mengetahui%20katalog%20produk%20belajar%20akademik.",
       "image": "/clients/basukirachmad/pembelajaran-akademik.webp"
     },
@@ -44,7 +48,11 @@
       "year": "PENGEMBANGAN DIRI",
       "description": "Temukan pilihan belajar di luar materi akademik sesuai minat dan tujuan pribadi. Tanyakan kategori, isi materi, format pembelajaran, serta informasi pembeliannya langsung melalui WhatsApp.",
       "category": "Pembelajaran Nonakademik",
-      "tags": ["Nonakademik", "Minat & Keterampilan", "Pembelajaran Online"],
+      "tags": [
+        "Nonakademik",
+        "Minat & Keterampilan",
+        "Pembelajaran Online"
+      ],
       "website": "https://wa.me/6281330388199?text=Halo%20Pak%20Basuki%2C%20saya%20ingin%20mengetahui%20produk%20belajar%20nonakademik.",
       "image": "/clients/basukirachmad/pembelajaran-nonakademik.webp"
     },
@@ -53,7 +61,11 @@
       "year": "DIGITAL PRODUCTS",
       "description": "Tanyakan pilihan produk digital dengan skema PLR (Private Label Rights). Hak mengedit, menggunakan, atau menjual ulang bergantung pada ketentuan lisensi masing-masing produk; pastikan detail izin sebelum membeli.",
       "category": "Produk Digital & Lisensi",
-      "tags": ["PLR", "Produk Digital", "Lisensi Produk"],
+      "tags": [
+        "PLR",
+        "Produk Digital",
+        "Lisensi Produk"
+      ],
       "website": "https://wa.me/6281330388199?text=Halo%20Pak%20Basuki%2C%20saya%20ingin%20menanyakan%20katalog%20dan%20lisensi%20produk%20digital%20PLR.",
       "image": "/clients/basukirachmad/produk-digital-plr.webp"
     },
@@ -62,7 +74,11 @@
       "year": "WHATSAPP UTAMA",
       "description": "Hubungi WhatsApp utama di 0813 3038 8199 untuk meminta daftar produk, detail akses, harga terkini, dan petunjuk pembelian.",
       "category": "Kontak Langsung",
-      "tags": ["WhatsApp", "Konsultasi", "Pemesanan"],
+      "tags": [
+        "WhatsApp",
+        "Konsultasi",
+        "Pemesanan"
+      ],
       "website": "https://wa.me/6281330388199?text=Halo%20Pak%20Basuki%2C%20saya%20ingin%20bertanya%20tentang%20produk%20yang%20tersedia.",
       "image": "/clients/basukirachmad/pembelajaran-akademik.webp"
     },
@@ -71,7 +87,10 @@
       "year": "0813 3315 499",
       "description": "Anda juga dapat menghubungi Basuki melalui nomor alternatif 0813 3315 499 untuk pertanyaan mengenai produk belajar online dan PLR.",
       "category": "Kontak Alternatif",
-      "tags": ["WhatsApp Kedua", "Info Produk"],
+      "tags": [
+        "WhatsApp Kedua",
+        "Info Produk"
+      ],
       "website": "https://wa.me/628133315499?text=Halo%20Pak%20Basuki%2C%20saya%20ingin%20bertanya%20tentang%20produk%20belajar%20online%20dan%20PLR.",
       "image": "/clients/basukirachmad/produk-digital-plr.webp"
     }
@@ -191,21 +210,36 @@
       "label": "BELAJAR ONLINE",
       "title": "Akademik",
       "detail": "Tanyakan materi, jenjang, dan format belajar yang tersedia.",
-      "palette": {"from": "#0b1932", "via": "#285278", "to": "#050b17", "accent": "#f1c783"},
+      "palette": {
+        "from": "#0b1932",
+        "via": "#285278",
+        "to": "#050b17",
+        "accent": "#f1c783"
+      },
       "image": "/clients/basukirachmad/pembelajaran-akademik.webp"
     },
     {
       "label": "MINAT & KETERAMPILAN",
       "title": "Nonakademik",
       "detail": "Jelajahi pilihan belajar sesuai minat dan tujuan personal.",
-      "palette": {"from": "#301b29", "via": "#7b4952", "to": "#150e21", "accent": "#f5c990"},
+      "palette": {
+        "from": "#301b29",
+        "via": "#7b4952",
+        "to": "#150e21",
+        "accent": "#f5c990"
+      },
       "image": "/clients/basukirachmad/pembelajaran-nonakademik.webp"
     },
     {
       "label": "PRODUK DIGITAL",
       "title": "Digital PLR",
       "detail": "Pahami isi dan ketentuan lisensi produk digital.",
-      "palette": {"from": "#0d292e", "via": "#1d7777", "to": "#06161e", "accent": "#ecc48d"},
+      "palette": {
+        "from": "#0d292e",
+        "via": "#1d7777",
+        "to": "#06161e",
+        "accent": "#ecc48d"
+      },
       "image": "/clients/basukirachmad/produk-digital-plr.webp"
     }
   ],
@@ -222,9 +256,18 @@
           "title": "Temukan Pilihan Akademik",
           "runtime": "Informasi Katalog",
           "description": "Hubungi Basuki untuk menanyakan pilihan produk akademik, format belajar, ketentuan akses, dan harga.",
-          "tags": ["Akademik", "Online", "Katalog"],
+          "tags": [
+            "Akademik",
+            "Online",
+            "Katalog"
+          ],
           "image": "/clients/basukirachmad/pembelajaran-akademik.webp",
-          "palette": {"from": "#0b1932", "via": "#285278", "to": "#050b17", "accent": "#f1c783"}
+          "palette": {
+            "from": "#0b1932",
+            "via": "#285278",
+            "to": "#050b17",
+            "accent": "#f1c783"
+          }
         }
       ]
     },
@@ -238,9 +281,18 @@
           "title": "Eksplorasi Minat Baru",
           "runtime": "Informasi Katalog",
           "description": "Diskusikan tujuan dan minat Anda untuk menemukan opsi materi nonakademik yang relevan.",
-          "tags": ["Nonakademik", "Minat", "Belajar Online"],
+          "tags": [
+            "Nonakademik",
+            "Minat",
+            "Belajar Online"
+          ],
           "image": "/clients/basukirachmad/pembelajaran-nonakademik.webp",
-          "palette": {"from": "#301b29", "via": "#7b4952", "to": "#150e21", "accent": "#f5c990"}
+          "palette": {
+            "from": "#301b29",
+            "via": "#7b4952",
+            "to": "#150e21",
+            "accent": "#f5c990"
+          }
         }
       ]
     },
@@ -254,9 +306,18 @@
           "title": "Kenali Produk & Lisensi PLR",
           "runtime": "Informasi Produk",
           "description": "Tanyakan katalog produk digital dan periksa hak penggunaan, edit, distribusi, atau jual ulang sesuai lisensi produk.",
-          "tags": ["PLR", "Produk Digital", "Lisensi"],
+          "tags": [
+            "PLR",
+            "Produk Digital",
+            "Lisensi"
+          ],
           "image": "/clients/basukirachmad/produk-digital-plr.webp",
-          "palette": {"from": "#0d292e", "via": "#1d7777", "to": "#06161e", "accent": "#ecc48d"}
+          "palette": {
+            "from": "#0d292e",
+            "via": "#1d7777",
+            "to": "#06161e",
+            "accent": "#ecc48d"
+          }
         }
       ]
     }
@@ -264,7 +325,6 @@
   "journeyHeading": "Pilihan Belajar Dimulai dari Kebutuhan",
   "journeyAside": "Sampaikan tujuan atau jenis materi yang dicari, lalu minta katalog yang tersedia melalui WhatsApp. Periksa deskripsi produk, harga, akses pembelajaran, serta ketentuan lisensi untuk produk PLR. Kontak utama: 0813 3038 8199. Kontak alternatif: 0813 3315 499.",
   "journeyKicker": "KENALI KEBUTUHAN · TANYA KATALOG · PILIH PRODUK",
-  "theme": {"accent": "#e6c78e", "background": "#0a1520"},
   "templateId": "original",
   "identityMode": "photo"
 }
