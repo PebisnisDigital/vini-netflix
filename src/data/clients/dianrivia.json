@@ -1,0 +1,163 @@
+{
+  "slug": "dianrivia",
+  "name": "Dian Rivia",
+  "role": "Memorial Director · AlAzhar Memorial Garden",
+  "location": "Indonesia · Terhubung Online",
+  "bio": "Halo, saya Dian Rivia, Memorial Director di AlAzhar Memorial Garden. Saya memahami bahwa pembicaraan tentang tempat peristirahatan terakhir keluarga adalah hal yang personal dan memerlukan pertimbangan matang. Melalui halaman ini, Anda dapat mengenal peran saya dan menghubungi saya secara langsung untuk menanyakan informasi yang dibutuhkan, dengan tenang dan tanpa terburu-buru.",
+  "tagline": ["MENGENAL DIAN RIVIA", "INFORMASI MEMORIAL DENGAN HATI"],
+  "interests": ["Informasi Memorial", "Komunikasi Personal", "Ruang Konsultasi Awal", "Keluarga"],
+  "photo": {
+    "src": "/clients/dianrivia/foto-profesional.webp",
+    "alt": "Potret profesional Dian Rivia, berhijab biru muda, berkacamata, mengenakan blazer abu-abu dengan latar transparan"
+  },
+  "email": "dianiradiva@gmail.com",
+  "secondaryEmail": "diva@gmail.com",
+  "whatsapp": "087885107747",
+  "links": {},
+  "experiences": [
+    {
+      "company": "AlAzhar Memorial Garden",
+      "role": "Memorial Director",
+      "period": "Saat ini",
+      "description": "Dian memperkenalkan perannya sebagai Memorial Director di AlAzhar Memorial Garden. Untuk informasi layanan, prosedur, pilihan, dan biaya terbaru, silakan menghubungi Dian secara langsung."
+    }
+  ],
+  "education": [],
+  "projects": [
+    {
+      "title": "Mengenal Peran Memorial Director",
+      "year": "PROFIL PROFESIONAL",
+      "description": "Dian Rivia memperkenalkan diri sebagai Memorial Director di AlAzhar Memorial Garden. Halaman ini menjadi titik awal bagi keluarga yang ingin mengenal narahubung dan bertanya seputar informasi memorial.",
+      "category": "Profil & Peran",
+      "tags": ["Dian Rivia", "Memorial Director", "AlAzhar Memorial Garden"],
+      "image": "/clients/dianrivia/foto-profesional.webp"
+    },
+    {
+      "title": "Ruang Bertanya untuk Keluarga",
+      "year": "INFORMASI AWAL",
+      "description": "Setiap keluarga memiliki kebutuhan dan pertanyaan yang berbeda. Mulailah dengan menyampaikan kebutuhan Anda; informasi mengenai pilihan layanan, syarat, ketersediaan, serta biaya dapat dikonfirmasi langsung kepada Dian.",
+      "category": "Informasi Memorial",
+      "tags": ["Keluarga", "Informasi Awal", "Percakapan Personal"]
+    },
+    {
+      "title": "Terhubung dengan Dian",
+      "year": "KONTAK LANGSUNG",
+      "description": "Ada yang ingin ditanyakan? Hubungi Dian Rivia lewat WhatsApp untuk memulai percakapan. Anda juga dapat mengirim pesan melalui email yang tersedia pada profil.",
+      "category": "Kontak & Komunikasi",
+      "tags": ["WhatsApp", "Email", "Hubungi Dian"],
+      "website": "https://wa.me/6287885107747?text=Assalamu%27alaikum%20Bu%20Dian%2C%20saya%20melihat%20profil%20Ibu%20di%20PESONAFLIX%20dan%20ingin%20bertanya%20tentang%20informasi%20memorial."
+    }
+  ],
+  "skills": ["Profil Memorial Director", "Informasi Awal Memorial", "Komunikasi dengan Keluarga"],
+  "skillCategories": [
+    {
+      "id": "peran",
+      "title": "Peran Profesional",
+      "subtitle": "Kenali bidang yang Dian perkenalkan",
+      "skills": [
+        {
+          "name": "Memorial Director",
+          "mono": "MD",
+          "note": "Profesi Dian Rivia",
+          "evidence": ["Peran yang disampaikan: Memorial Director", "Instansi: AlAzhar Memorial Garden"]
+        },
+        {
+          "name": "Informasi Memorial",
+          "mono": "INFO",
+          "note": "Topik percakapan awal",
+          "evidence": ["Tanyakan pilihan layanan dan prosedur secara langsung", "Detail resmi, ketersediaan, dan harga perlu dikonfirmasi"]
+        }
+      ]
+    },
+    {
+      "id": "komunikasi",
+      "title": "Mari Terhubung",
+      "subtitle": "Pertanyaan yang penting layak mendapat ruang",
+      "skills": [
+        {
+          "name": "Tanya via WhatsApp",
+          "mono": "WA",
+          "note": "Kontak langsung Dian",
+          "evidence": ["Nomor kontak: 0878 8510 7747", "Sampaikan kebutuhan dan pertanyaan Anda"]
+        },
+        {
+          "name": "Kirim Email",
+          "mono": "@",
+          "note": "Alternatif komunikasi",
+          "evidence": ["dianiradiva@gmail.com", "diva@gmail.com"]
+        }
+      ]
+    }
+  ],
+  "skillsHeading": "Ruang Informasi yang Lebih Personal",
+  "skillsAside": "Halaman ini memperkenalkan peran Dian Rivia sebagai Memorial Director di AlAzhar Memorial Garden. Informasi teknis tentang layanan, legalitas, harga, atau ketersediaan tidak dicantumkan karena perlu dikonfirmasi kepada pihak terkait secara langsung.",
+  "skillsKicker": "PROFIL · INFORMASI MEMORIAL · KONTAK",
+  "highlights": [
+    { "title": "Dian Rivia", "description": "Narahubung profesional yang dapat Anda kenali melalui profil ini.", "category": "PROFIL" },
+    { "title": "Memorial Director", "description": "Peran Dian di AlAzhar Memorial Garden.", "category": "PROFESI" },
+    { "title": "Terhubung Langsung", "description": "Sampaikan pertanyaan melalui WhatsApp atau email.", "category": "KOMUNIKASI" }
+  ],
+  "watchCards": [
+    { "target": "about", "title": "Kenali Dian Rivia", "subtitle": "Profil dan peran profesional", "image": "/clients/dianrivia/foto-profesional.webp" },
+    { "target": "originals", "title": "Tentang Memorial", "subtitle": "Informasi awal untuk keluarga" },
+    { "target": "journey", "title": "Perjalanan Profesional", "subtitle": "Mengenal peran Dian" },
+    { "target": "skills", "title": "Ruang Informasi", "subtitle": "Apa yang bisa ditanyakan?" },
+    { "target": "picks", "title": "Hubungi Dian", "subtitle": "Mulai percakapan langsung" }
+  ],
+  "pickCards": [
+    {
+      "label": "PROFIL PROFESIONAL",
+      "title": "Sosok di Balik Peran",
+      "detail": "Mengenal Dian Rivia sebagai Memorial Director di AlAzhar Memorial Garden.",
+      "image": "/clients/dianrivia/foto-profesional.webp",
+      "palette": { "from": "#0b2422", "via": "#365a52", "to": "#101a1c", "accent": "#d5be8d" }
+    },
+    {
+      "label": "RUANG BERTANYA",
+      "title": "Mulai dengan Percakapan",
+      "detail": "Tanyakan informasi yang Anda perlukan. Dian dapat dihubungi melalui WhatsApp atau email.",
+      "palette": { "from": "#1a2923", "via": "#6d7560", "to": "#101c1c", "accent": "#e0cba7" }
+    }
+  ],
+  "picksHeading": "Lebih Dekat dengan Dian",
+  "picksKicker": "PERAN PROFESIONAL · RUANG BERTANYA · KOMUNIKASI",
+  "seasons": [
+    {
+      "number": 1,
+      "title": "Mengenal Dian Rivia",
+      "period": "Profil Profesional",
+      "synopsis": "Perkenalan dengan Dian Rivia dan perannya sebagai Memorial Director di AlAzhar Memorial Garden.",
+      "episodes": [
+        {
+          "title": "Sosok di Balik Profesi",
+          "runtime": "Perkenalan",
+          "description": "Dian memperkenalkan dirinya sebagai Memorial Director. Pelajari perannya secara singkat dan temukan jalur komunikasi yang tersedia.",
+          "tags": ["Dian Rivia", "Memorial Director", "Profil"],
+          "image": "/clients/dianrivia/foto-profesional.webp",
+          "palette": { "from": "#0a2320", "via": "#31584d", "to": "#10191c", "accent": "#d8c39b" }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Percakapan yang Bermakna",
+      "period": "Informasi & Kontak",
+      "synopsis": "Setiap pertanyaan tentang kebutuhan keluarga dapat dimulai dari komunikasi langsung.",
+      "episodes": [
+        {
+          "title": "Tanyakan dengan Tenang",
+          "runtime": "Hubungi Langsung",
+          "description": "Untuk informasi layanan, pilihan, prosedur, dan biaya, tanyakan detailnya kepada Dian agar mendapat keterangan yang sesuai dengan kebutuhan Anda.",
+          "tags": ["Informasi Memorial", "Keluarga", "WhatsApp"],
+          "palette": { "from": "#1b2c28", "via": "#65715f", "to": "#0e1e1b", "accent": "#e2c9a2" }
+        }
+      ]
+    }
+  ],
+  "journeyHeading": "Berawal dari Sebuah Percakapan",
+  "journeyAside": "Dian Rivia memperkenalkan diri sebagai Memorial Director di AlAzhar Memorial Garden. Untuk memulai percakapan, hubungi WhatsApp 0878 8510 7747 atau email dianiradiva@gmail.com. Alamat email tambahan yang disampaikan: diva@gmail.com. Rincian layanan dan persyaratan perlu dikonfirmasi langsung.",
+  "journeyKicker": "MEMORIAL DIRECTOR · ALAZHAR MEMORIAL GARDEN · HUBUNGI DIAN",
+  "theme": { "accent": "#d5be8d", "background": "#0a1919" },
+  "templateId": "original",
+  "identityMode": "photo"
+}
