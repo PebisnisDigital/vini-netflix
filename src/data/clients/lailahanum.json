@@ -1,0 +1,210 @@
+{
+  "slug": "lailahanum",
+  "name": "Laila Hanum",
+  "role": "Ibu Bekerja",
+  "location": "Indonesia · Terhubung Online",
+  "bio": "Halo, saya Laila Hanum, seorang ibu bekerja. Ada banyak cerita di balik hari-hari yang saya jalani, dari tanggung jawab pekerjaan hingga peran saya sebagai ibu. Lewat halaman ini, saya ingin memperkenalkan diri dengan lebih dekat dan membuka ruang untuk saling menyapa. Senang sekali Anda berkunjung!",
+  "tagline": [
+    "CERITA SEORANG IBU BEKERJA"
+  ],
+  "interests": [
+    "Peran Ibu Bekerja",
+    "Cerita Keseharian",
+    "Ruang Perkenalan",
+    "Silaturahmi"
+  ],
+  "photo": {
+    "src": "/clients/lailahanum/foto-profesional.webp",
+    "alt": "Potret studio profesional Laila Hanum, berhijab abu-abu, berkacamata, dan mengenakan blazer navy dengan latar transparan"
+  },
+  "email": "hanumnies@gmail.com",
+  "whatsapp": "085319448337",
+  "links": {},
+  "experiences": [],
+  "education": [],
+  "projects": [
+    {
+      "title": "Kenali Laila Hanum",
+      "year": "PERKENALAN",
+      "description": "Mengenal Laila Hanum sebagai pribadi dan ibu bekerja. Profil ini menjadi pintu awal untuk saling mengenal; detail tempat kerja, jabatan, serta riwayat pengalaman belum dicantumkan.",
+      "category": "Profil Personal",
+      "tags": ["Laila Hanum", "Perkenalan", "Profil"],
+      "image": "/clients/lailahanum/foto-profesional.webp"
+    },
+    {
+      "title": "Cerita Ibu Bekerja",
+      "year": "KESEHARIAN",
+      "description": "Menjalani peran sebagai ibu sekaligus bekerja adalah bagian dari identitas yang ingin Laila perkenalkan. Setiap hari memiliki cerita tersendiri; rincian aktivitas pribadi dan pekerjaan akan ditambahkan sesuai informasi dari Laila.",
+      "category": "Peran & Keseharian",
+      "tags": ["Ibu Bekerja", "Keseharian", "Cerita Personal"]
+    },
+    {
+      "title": "Mari Terhubung",
+      "year": "KONTAK",
+      "description": "Punya pesan, ingin bertanya, atau sekadar menyapa? Hubungi Laila Hanum langsung lewat WhatsApp. Email juga tersedia sebagai jalur komunikasi alternatif.",
+      "category": "Kontak & Silaturahmi",
+      "tags": ["WhatsApp", "Email", "Silaturahmi"],
+      "website": "https://wa.me/6285319448337?text=Halo%20Bu%20Laila%2C%20saya%20melihat%20website%20profil%20Ibu%20dan%20ingin%20berkenalan."
+    }
+  ],
+  "skills": [
+    "Peran Ibu Bekerja",
+    "Komunikasi Personal"
+  ],
+  "skillCategories": [
+    {
+      "id": "profil",
+      "title": "Mengenal Laila",
+      "subtitle": "Dua sisi keseharian dalam satu cerita personal",
+      "skills": [
+        {
+          "name": "Ibu Bekerja",
+          "mono": "IBU",
+          "note": "Peran yang diperkenalkan",
+          "evidence": [
+            "Laila memperkenalkan diri sebagai ibu bekerja",
+            "Bidang pekerjaan dan jabatan belum diberikan"
+          ]
+        },
+        {
+          "name": "Cerita Keseharian",
+          "mono": "CER",
+          "note": "Ruang cerita personal",
+          "evidence": [
+            "Profil ini menjadi tempat memperkenalkan diri",
+            "Detail cerita dapat dilengkapi langsung oleh Laila"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "terhubung",
+      "title": "Mari Berkenalan",
+      "subtitle": "Percakapan yang hangat dimulai dari sapaan",
+      "skills": [
+        {
+          "name": "Hubungi via WhatsApp",
+          "mono": "WA",
+          "note": "Kontak langsung",
+          "evidence": [
+            "Nomor WhatsApp tersedia pada profil",
+            "Pengunjung dapat menyapa Laila secara langsung"
+          ]
+        },
+        {
+          "name": "Kirim Email",
+          "mono": "@",
+          "note": "Kontak alternatif",
+          "evidence": [
+            "Email: hanumnies@gmail.com",
+            "Komunikasi dapat dimulai melalui email"
+          ]
+        }
+      ]
+    }
+  ],
+  "skillsHeading": "Satu Sosok, Banyak Cerita",
+  "skillsAside": "Laila Hanum memperkenalkan dirinya sebagai ibu bekerja. Halaman ini sengaja berfokus pada identitas dan komunikasi personal, tanpa mengarang rincian pekerjaan, keahlian, atau pencapaian yang belum dibagikan.",
+  "skillsKicker": "IBU BEKERJA · CERITA PERSONAL · SILATURAHMI",
+  "highlights": [
+    {
+      "title": "Laila Hanum",
+      "description": "Sebuah perkenalan hangat melalui profil personal.",
+      "category": "PROFIL"
+    },
+    {
+      "title": "Ibu Bekerja",
+      "description": "Peran utama yang ingin Laila kenalkan kepada pengunjung.",
+      "category": "PERAN"
+    },
+    {
+      "title": "Terhubung Langsung",
+      "description": "WhatsApp dan email tersedia untuk memulai percakapan.",
+      "category": "KOMUNIKASI"
+    }
+  ],
+  "watchCards": [
+    {
+      "target": "about",
+      "title": "Kenalan dengan Laila",
+      "subtitle": "Cerita singkat tentang diri",
+      "image": "/clients/lailahanum/foto-profesional.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Ruang Cerita",
+      "subtitle": "Peran dan keseharian ibu bekerja"
+    },
+    {
+      "target": "journey",
+      "title": "Perjalanan Personal",
+      "subtitle": "Setiap hari punya ceritanya"
+    },
+    {
+      "target": "skills",
+      "title": "Mengenal Peran",
+      "subtitle": "Tentang sosok Laila"
+    },
+    {
+      "target": "picks",
+      "title": "Mari Terhubung",
+      "subtitle": "Sapa Laila secara langsung"
+    }
+  ],
+  "pickCards": [
+    {
+      "label": "PROFIL PERSONAL",
+      "title": "Sosok di Balik Cerita",
+      "detail": "Kenali Laila Hanum, seorang ibu bekerja yang membuka ruang perkenalan melalui website ini.",
+      "image": "/clients/lailahanum/foto-profesional.webp",
+      "palette": {"from": "#182638", "via": "#53667b", "to": "#10141f", "accent": "#e8c7b3"}
+    },
+    {
+      "label": "SILATURAHMI",
+      "title": "Mulai dengan Sapaan",
+      "detail": "WhatsApp dan email memudahkan Anda terhubung langsung dengan Laila.",
+      "palette": {"from": "#292331", "via": "#8b6877", "to": "#151722", "accent": "#f0c9af"}
+    }
+  ],
+  "picksHeading": "Lebih Dekat dengan Laila",
+  "picksKicker": "KENALAN · BERBAGI CERITA · TERHUBUNG",
+  "seasons": [
+    {
+      "number": 1,
+      "title": "Halo, Saya Laila",
+      "period": "Profil & Perkenalan",
+      "synopsis": "Sebuah awal untuk mengenal Laila Hanum dan perannya sebagai ibu bekerja.",
+      "episodes": [
+        {
+          "title": "Kenalan dengan Laila",
+          "runtime": "Perkenalan",
+          "description": "Laila Hanum memperkenalkan diri sebagai ibu bekerja. Cerita mengenai pekerjaan dan pengalaman lebih rinci dapat ditambahkan kemudian.",
+          "tags": ["Laila Hanum", "Ibu Bekerja", "Perkenalan"],
+          "image": "/clients/lailahanum/foto-profesional.webp",
+          "palette": {"from": "#1a2a3e", "via": "#657d91", "to": "#0e1623", "accent": "#e4bfa7"}
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Ruang Cerita & Komunikasi",
+      "period": "Keseharian & Silaturahmi",
+      "synopsis": "Identitas sebagai ibu bekerja menjadi titik awal untuk berbagi cerita dan membuka komunikasi.",
+      "episodes": [
+        {
+          "title": "Mari Saling Menyapa",
+          "runtime": "Berlanjut",
+          "description": "Kunjungan ke profil ini dapat menjadi awal pertemanan atau percakapan baru. Hubungi Laila lewat WhatsApp atau email untuk berkenalan.",
+          "tags": ["Komunikasi", "Silaturahmi", "Keseharian"],
+          "palette": {"from": "#32283a", "via": "#896c7f", "to": "#161a27", "accent": "#e9c3ae"}
+        }
+      ]
+    }
+  ],
+  "journeyHeading": "Di Balik Setiap Hari, Ada Cerita",
+  "journeyAside": "Laila Hanum adalah ibu bekerja yang ingin memperkenalkan dirinya melalui halaman personal ini. Untuk menyapa, silakan hubungi WhatsApp 0853 1944 8337 atau email hanumnies@gmail.com. Informasi tempat kerja, jabatan, maupun riwayat pendidikan belum diberikan.",
+  "journeyKicker": "PERKENALAN · KESEHARIAN · KOMUNIKASI",
+  "theme": {"accent": "#ddb9a1", "background": "#0e1725"},
+  "templateId": "original",
+  "identityMode": "photo"
+}
