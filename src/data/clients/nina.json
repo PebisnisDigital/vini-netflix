@@ -4,8 +4,16 @@
   "role": "Ibu Rumah Tangga",
   "location": "Ruang Personal · Online",
   "bio": "Halo, saya Nina, seorang ibu rumah tangga. Halaman ini adalah ruang perkenalan saya—tempat untuk saling mengenal dan memulai percakapan. Saya memilih tampil tanpa foto pribadi. Kalau ingin menyapa, silakan hubungi saya melalui kontak yang tersedia.",
-  "tagline": ["Sebuah Nama, Sebuah Cerita", "Perkenalan sederhana, tanpa perlu menampilkan wajah."],
-  "interests": ["Perkenalan Personal", "Keseharian", "Ruang Cerita", "Silaturahmi"],
+  "tagline": [
+    "Sebuah Nama",
+    "Sebuah Cerita"
+  ],
+  "interests": [
+    "Perkenalan Personal",
+    "Keseharian",
+    "Ruang Cerita",
+    "Silaturahmi"
+  ],
   "photo": {
     "src": "/clients/nina/identitas-nina.webp",
     "alt": "Grafis identitas Nina berupa inisial N dan motif botani; tanpa foto atau ilustrasi wajah"
@@ -28,7 +36,11 @@
       "year": "PERKENALAN",
       "description": "Mengenal Nina melalui halaman personal yang tetap menjaga privasi foto. Profil ini mengutamakan cerita singkat, peran keseharian, dan cara terhubung.",
       "category": "Profil Personal",
-      "tags": ["Perkenalan", "Nina", "Privasi"],
+      "tags": [
+        "Perkenalan",
+        "Nina",
+        "Privasi"
+      ],
       "image": "/clients/nina/identitas-nina.webp"
     },
     {
@@ -36,18 +48,32 @@
       "year": "KESEHARIAN",
       "description": "Nina menjalani perannya sebagai ibu rumah tangga. Bagian ini menjadi ruang yang bisa diisi cerita, kegiatan, atau momen pilihan Nina di kemudian hari.",
       "category": "Ruang Cerita",
-      "tags": ["Keseharian", "Ibu Rumah Tangga", "Cerita"]
+      "tags": [
+        "Keseharian",
+        "Ibu Rumah Tangga",
+        "Cerita"
+      ],
+      "image": ""
     },
     {
       "title": "Mari Berkenalan",
       "year": "TERHUBUNG",
       "description": "Punya pesan untuk Nina? Mulai percakapan langsung melalui WhatsApp. Email juga tersedia untuk mengirim salam atau pertanyaan.",
       "category": "Kontak Personal",
-      "tags": ["WhatsApp", "Email", "Silaturahmi"],
-      "website": "https://wa.me/6281288624309?text=Halo%20Bu%20Nina%2C%20saya%20melihat%20profil%20Ibu%20di%20PESONAFLIX."
+      "tags": [
+        "WhatsApp",
+        "Email",
+        "Silaturahmi"
+      ],
+      "website": "https://wa.me/6281288624309?text=Halo%20Bu%20Nina%2C%20saya%20melihat%20profil%20Ibu%20di%20PESONAFLIX.",
+      "image": ""
     }
   ],
-  "skills": ["Peran Ibu Rumah Tangga", "Ruang Cerita", "Komunikasi Personal"],
+  "skills": [
+    "Peran Ibu Rumah Tangga",
+    "Ruang Cerita",
+    "Komunikasi Personal"
+  ],
   "skillCategories": [
     {
       "id": "profil",
@@ -58,13 +84,19 @@
           "name": "Ibu Rumah Tangga",
           "mono": "IRT",
           "note": "Peran saat ini",
-          "evidence": ["Profesi yang dicantumkan Nina", "Rincian pengalaman lain belum dibagikan"]
+          "evidence": [
+            "Profesi yang dicantumkan Nina",
+            "Rincian pengalaman lain belum dibagikan"
+          ]
         },
         {
           "name": "Menjaga Privasi",
           "mono": "N",
           "note": "Pilihan tampilan personal",
-          "evidence": ["Tidak menggunakan foto pribadi", "Visual situs memakai grafis inisial, bukan potret seseorang"]
+          "evidence": [
+            "Tidak menggunakan foto pribadi",
+            "Visual situs memakai grafis inisial, bukan potret seseorang"
+          ]
         }
       ]
     },
@@ -77,13 +109,19 @@
           "name": "WhatsApp",
           "mono": "WA",
           "note": "Kirim pesan langsung",
-          "evidence": ["Tombol WhatsApp mengarah ke nomor Nina", "Mulai percakapan dengan sebuah sapaan"]
+          "evidence": [
+            "Tombol WhatsApp mengarah ke nomor Nina",
+            "Mulai percakapan dengan sebuah sapaan"
+          ]
         },
         {
           "name": "Email",
           "mono": "@",
           "note": "Kontak alternatif",
-          "evidence": ["Alamat email tersedia pada profil", "Bisa digunakan untuk mengirim pesan secara tertulis"]
+          "evidence": [
+            "Alamat email tersedia pada profil",
+            "Bisa digunakan untuk mengirim pesan secara tertulis"
+          ]
         }
       ]
     }
@@ -92,16 +130,53 @@
   "skillsAside": "Tidak semua cerita harus diawali foto. Nina memilih memperkenalkan diri melalui nama, peran keseharian, dan ruang untuk berkomunikasi. Halaman ini sengaja tidak memuat potret atau wajah rekaan.",
   "skillsKicker": "PROFIL · PRIVASI · KONTAK",
   "highlights": [
-    { "title": "Nina", "description": "Identitas personal yang diperkenalkan melalui halaman ini.", "category": "PERKENALAN" },
-    { "title": "Ibu Rumah Tangga", "description": "Peran keseharian yang Nina pilih untuk ditampilkan.", "category": "PROFIL" },
-    { "title": "Tanpa Foto Pribadi", "description": "Inisial dekoratif menggantikan foto dan menjaga pilihan privasi Nina.", "category": "PRIVASI" }
+    {
+      "title": "Nina",
+      "description": "Identitas personal yang diperkenalkan melalui halaman ini.",
+      "category": "PERKENALAN"
+    },
+    {
+      "title": "Ibu Rumah Tangga",
+      "description": "Peran keseharian yang Nina pilih untuk ditampilkan.",
+      "category": "PROFIL"
+    },
+    {
+      "title": "Tanpa Foto Pribadi",
+      "description": "Inisial dekoratif menggantikan foto dan menjaga pilihan privasi Nina.",
+      "category": "PRIVASI"
+    }
   ],
   "watchCards": [
-    { "target": "about", "title": "Kenalan dengan Nina", "subtitle": "Sebuah perkenalan personal", "image": "/clients/nina/identitas-nina.webp" },
-    { "target": "originals", "title": "Buka Ruang Cerita", "subtitle": "Peran dan keseharian" },
-    { "target": "journey", "title": "Cerita Sederhana", "subtitle": "Perjalanan yang bisa dilengkapi" },
-    { "target": "skills", "title": "Pilihan Nina", "subtitle": "Profil dan privasi" },
-    { "target": "picks", "title": "Sampaikan Salam", "subtitle": "Terhubung langsung" }
+    {
+      "target": "about",
+      "title": "Kenalan dengan Nina",
+      "subtitle": "Sebuah perkenalan personal",
+      "image": "/clients/nina/identitas-nina.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Buka Ruang Cerita",
+      "subtitle": "Peran dan keseharian",
+      "image": ""
+    },
+    {
+      "target": "journey",
+      "title": "Cerita Sederhana",
+      "subtitle": "Perjalanan yang bisa dilengkapi",
+      "image": ""
+    },
+    {
+      "target": "skills",
+      "title": "Pilihan Nina",
+      "subtitle": "Profil dan privasi",
+      "image": ""
+    },
+    {
+      "target": "picks",
+      "title": "Sampaikan Salam",
+      "subtitle": "Terhubung langsung",
+      "image": ""
+    }
   ],
   "pickCards": [
     {
@@ -109,13 +184,24 @@
       "title": "Siapa Nina?",
       "detail": "Seorang ibu rumah tangga yang hadir lewat cerita, bukan foto.",
       "image": "/clients/nina/identitas-nina.webp",
-      "palette": { "from": "#241a2d", "via": "#a36b83", "to": "#1a1724", "accent": "#f4d9c7" }
+      "palette": {
+        "from": "#241a2d",
+        "via": "#a36b83",
+        "to": "#1a1724",
+        "accent": "#f4d9c7"
+      }
     },
     {
       "label": "TETAP TERHUBUNG",
       "title": "Mulai Percakapan",
       "detail": "Sapa Nina melalui WhatsApp atau email yang tersedia.",
-      "palette": { "from": "#372331", "via": "#946b77", "to": "#211923", "accent": "#f5d5ba" }
+      "palette": {
+        "from": "#372331",
+        "via": "#946b77",
+        "to": "#211923",
+        "accent": "#f5d5ba"
+      },
+      "image": ""
     }
   ],
   "picksHeading": "Tak Perlu Foto untuk Memulai Cerita",
@@ -131,9 +217,18 @@
           "title": "Halo, Nina di Sini",
           "runtime": "Perkenalan",
           "description": "Nina hadir dengan identitas visual berbentuk inisial dan informasi profil yang dipilih untuk dibagikan.",
-          "tags": ["Profil", "Nina", "Privasi"],
+          "tags": [
+            "Profil",
+            "Nina",
+            "Privasi"
+          ],
           "image": "/clients/nina/identitas-nina.webp",
-          "palette": { "from": "#372438", "via": "#af8395", "to": "#1c1724", "accent": "#f4ddc6" }
+          "palette": {
+            "from": "#372438",
+            "via": "#af8395",
+            "to": "#1c1724",
+            "accent": "#f4ddc6"
+          }
         }
       ]
     },
@@ -147,8 +242,18 @@
           "title": "Sebuah Sapaan",
           "runtime": "Terhubung",
           "description": "WhatsApp dan email dapat dipakai untuk memulai komunikasi langsung dengan Nina.",
-          "tags": ["WhatsApp", "Email", "Komunikasi"],
-          "palette": { "from": "#352336", "via": "#8d6b8b", "to": "#1b1726", "accent": "#edcbb8" }
+          "tags": [
+            "WhatsApp",
+            "Email",
+            "Komunikasi"
+          ],
+          "palette": {
+            "from": "#352336",
+            "via": "#8d6b8b",
+            "to": "#1b1726",
+            "accent": "#edcbb8"
+          },
+          "image": ""
         }
       ]
     }
@@ -156,6 +261,5 @@
   "journeyHeading": "Perkenalan, dengan Cara Nina",
   "journeyAside": "Nina memilih hadir tanpa foto pribadi. Di halaman ini, nama, peran sebagai ibu rumah tangga, dan kontaknya menjadi titik awal untuk berkenalan. Jika suatu saat Nina ingin membagikan cerita lain, ruang ini siap diisi sesuai pilihannya.",
   "journeyKicker": "PERKENALAN · KESEHARIAN · PRIVASI",
-  "theme": { "accent": "#d7a0ae", "background": "#181320" },
   "templateId": "original"
 }
