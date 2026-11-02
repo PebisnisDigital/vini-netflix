@@ -21,10 +21,6 @@
   "email": "maszen29@gmail.com",
   "whatsapp": "08131502025",
   "links": {},
-  "theme": {
-    "accent": "#78d9b4",
-    "background": "#071711"
-  },
   "experiences": [
     {
       "company": "Bidang Pengembangan Web",
@@ -40,7 +36,11 @@
       "year": "WEB",
       "description": "Ruang perkenalan bidang web development: bagaimana sebuah kebutuhan digital dapat diterjemahkan menjadi website yang berguna. Bagian ini menjelaskan ranah profesi, bukan mengklaim portofolio proyek tertentu.",
       "category": "Web Development",
-      "tags": ["Website", "Pengembangan Web", "Solusi Digital"],
+      "tags": [
+        "Website",
+        "Pengembangan Web",
+        "Solusi Digital"
+      ],
       "image": "/clients/zainulhaq/ruang-developer.webp"
     },
     {
@@ -48,7 +48,11 @@
       "year": "DESIGN & BUILD",
       "description": "Website bukan hanya soal kode. Struktur, tampilan, dan kemudahan penggunaan juga perlu dipikirkan. Ini merupakan gambaran proses pengembangan web; detail keahlian dan proyek Zainul dapat ditambahkan setelah dikonfirmasi.",
       "category": "Website Experience",
-      "tags": ["Tampilan Web", "Responsif", "Pengalaman Pengguna"],
+      "tags": [
+        "Tampilan Web",
+        "Responsif",
+        "Pengalaman Pengguna"
+      ],
       "image": "/clients/zainulhaq/ruang-developer.webp"
     },
     {
@@ -56,7 +60,11 @@
       "year": "CONNECT",
       "description": "Punya ide website atau ingin menjajaki kolaborasi? Sampaikan kebutuhan Anda langsung kepada Zainul melalui WhatsApp untuk mengetahui kecocokan dan ruang lingkup pengerjaannya.",
       "category": "Komunikasi & Kolaborasi",
-      "tags": ["Konsultasi Awal", "Website", "Kolaborasi"],
+      "tags": [
+        "Konsultasi Awal",
+        "Website",
+        "Kolaborasi"
+      ],
       "website": "https://wa.me/628131502025?text=Halo%20Pak%20Zainul%2C%20saya%20melihat%20profil%20Bapak%20di%20PESONAFLIX%20dan%20ingin%20berdiskusi%20tentang%20website.",
       "image": "/clients/zainulhaq/foto-profesional.webp"
     }
@@ -176,21 +184,36 @@
       "title": "Dari Ide ke Web",
       "detail": "Setiap website dimulai dari kebutuhan. Kenali bidang pengembangan web yang menjadi profesi Zainul.",
       "image": "/clients/zainulhaq/ruang-developer.webp",
-      "palette": { "from": "#061a14", "via": "#145441", "to": "#07100f", "accent": "#78d9b4" }
+      "palette": {
+        "from": "#061a14",
+        "via": "#145441",
+        "to": "#07100f",
+        "accent": "#78d9b4"
+      }
     },
     {
       "label": "PENGEMBANGAN DIGITAL",
       "title": "Ruang Developer",
       "detail": "Tempat ide, struktur, dan teknologi bertemu dalam sebuah pengalaman digital.",
       "image": "/clients/zainulhaq/ruang-developer.webp",
-      "palette": { "from": "#0a1e22", "via": "#1e4754", "to": "#061012", "accent": "#78d9b4" }
+      "palette": {
+        "from": "#0a1e22",
+        "via": "#1e4754",
+        "to": "#061012",
+        "accent": "#78d9b4"
+      }
     },
     {
       "label": "LET'S CONNECT",
       "title": "Bicarakan Ide Anda",
       "detail": "Tanyakan langsung kepada Zainul tentang kebutuhan website atau peluang bekerja sama.",
       "image": "/clients/zainulhaq/foto-profesional.webp",
-      "palette": { "from": "#10231a", "via": "#396b4b", "to": "#09150e", "accent": "#78d9b4" }
+      "palette": {
+        "from": "#10231a",
+        "via": "#396b4b",
+        "to": "#09150e",
+        "accent": "#78d9b4"
+      }
     }
   ],
   "picksHeading": "Build Something Useful",
@@ -206,9 +229,18 @@
           "title": "Halo, Saya Zainul Haq",
           "runtime": "Perkenalan",
           "description": "Saya Zainul Haq. Web development adalah bidang profesi saya, dan halaman ini menjadi ruang untuk mengenal saya serta membuka komunikasi.",
-          "tags": ["Zainul Haq", "Web Developer", "Profil"],
+          "tags": [
+            "Zainul Haq",
+            "Web Developer",
+            "Profil"
+          ],
           "image": "/clients/zainulhaq/foto-profesional.webp",
-          "palette": { "from": "#071711", "via": "#1b624a", "to": "#08120e", "accent": "#78d9b4" }
+          "palette": {
+            "from": "#071711",
+            "via": "#1b624a",
+            "to": "#08120e",
+            "accent": "#78d9b4"
+          }
         }
       ]
     },
@@ -222,9 +254,18 @@
           "title": "Membangun untuk Web",
           "runtime": "Bidang Kerja",
           "description": "Pengembangan web menyatukan kebutuhan pengguna, struktur digital, dan implementasi teknis. Untuk mengetahui layanan dan teknologi yang saya gunakan, silakan hubungi saya.",
-          "tags": ["Website", "Web Development", "Digital"],
+          "tags": [
+            "Website",
+            "Web Development",
+            "Digital"
+          ],
           "image": "/clients/zainulhaq/ruang-developer.webp",
-          "palette": { "from": "#071d18", "via": "#265a49", "to": "#080e10", "accent": "#78d9b4" }
+          "palette": {
+            "from": "#071d18",
+            "via": "#265a49",
+            "to": "#080e10",
+            "accent": "#78d9b4"
+          }
         }
       ]
     },
@@ -238,9 +279,18 @@
           "title": "Ceritakan Ide Anda",
           "runtime": "Hubungi Saya",
           "description": "Punya kebutuhan website? Kirim pesan melalui WhatsApp atau email. Kita bisa mulai dari diskusi sederhana tentang apa yang ingin diwujudkan.",
-          "tags": ["Diskusi", "Kolaborasi", "Kontak"],
+          "tags": [
+            "Diskusi",
+            "Kolaborasi",
+            "Kontak"
+          ],
           "image": "/clients/zainulhaq/ruang-developer.webp",
-          "palette": { "from": "#0b2221", "via": "#256b65", "to": "#071310", "accent": "#78d9b4" }
+          "palette": {
+            "from": "#0b2221",
+            "via": "#256b65",
+            "to": "#071310",
+            "accent": "#78d9b4"
+          }
         }
       ]
     }
