@@ -1,0 +1,224 @@
+{
+  "slug": "syaifullah",
+  "name": "Syaifullah",
+  "role": "Terapis",
+  "location": "Indonesia",
+  "bio": "Halo, saya Syaifullah. Saya berprofesi sebagai terapis. Melalui halaman ini, saya ingin memperkenalkan diri dan membuka ruang komunikasi bagi Anda yang ingin mengetahui layanan yang saya tawarkan. Untuk jenis terapi, lokasi praktik, ketersediaan jadwal, dan informasi lainnya, silakan hubungi saya secara langsung melalui WhatsApp. Senang bisa berkenalan dengan Anda.",
+  "tagline": [
+    "MENGENAL TERAPIS DI BALIK LAYANAN",
+    "KENALI · TANYAKAN · TERHUBUNG"
+  ],
+  "interests": [
+    "Profesi Terapis",
+    "Informasi Layanan",
+    "Komunikasi Personal",
+    "Pertanyaan & Jadwal"
+  ],
+  "photo": {
+    "src": "/clients/syaifullah/foto-profesional.webp",
+    "alt": "Potret profesional Syaifullah, berkacamata, berambut pendek, berjanggut, dan mengenakan baju marun dengan latar transparan"
+  },
+  "email": "syaifullahmewengkang@gmail.com",
+  "whatsapp": "082319859066",
+  "links": {},
+  "experiences": [],
+  "education": [],
+  "projects": [
+    {
+      "title": "Mengenal Syaifullah",
+      "year": "PROFIL",
+      "description": "Berkenalan dengan Syaifullah, seorang terapis. Di sini Anda dapat mengenal identitas profesionalnya dan mengetahui cara menghubunginya secara langsung.",
+      "category": "Profil Profesional",
+      "tags": ["Syaifullah", "Terapis", "Perkenalan"],
+      "image": "/clients/syaifullah/foto-profesional.webp"
+    },
+    {
+      "title": "Kenali Layanan Terapi",
+      "year": "LAYANAN",
+      "description": "Butuh informasi lebih lengkap? Tanyakan jenis terapi yang tersedia, lokasi layanan, proses pemesanan, dan hal-hal yang perlu disiapkan sebelum membuat janji. Rincian layanan dikonfirmasi langsung oleh Syaifullah.",
+      "category": "Informasi Layanan",
+      "tags": ["Jenis Layanan", "Lokasi", "Informasi"]
+    },
+    {
+      "title": "Tanyakan Jadwal",
+      "year": "KONTAK",
+      "description": "Sampaikan pertanyaan atau permintaan informasi jadwal melalui WhatsApp. Anda juga dapat mengirim email sebagai jalur kontak alternatif.",
+      "category": "Hubungi Langsung",
+      "tags": ["WhatsApp", "Jadwal", "Email"],
+      "website": "https://wa.me/6282319859066?text=Halo%20Pak%20Syaifullah%2C%20saya%20melihat%20profil%20PESONAFLIX%20dan%20ingin%20bertanya%20tentang%20layanan%20terapi%20serta%20jadwal."
+    }
+  ],
+  "skills": [
+    "Profesi Terapis",
+    "Informasi Layanan",
+    "Komunikasi Klien"
+  ],
+  "skillCategories": [
+    {
+      "id": "profesi",
+      "title": "Mengenal Profesi",
+      "subtitle": "Informasi awal sebelum menghubungi terapis",
+      "skills": [
+        {
+          "name": "Terapis",
+          "mono": "TR",
+          "note": "Profesi yang diperkenalkan",
+          "evidence": [
+            "Syaifullah memperkenalkan profesinya sebagai terapis",
+            "Jenis dan cakupan terapi dapat dikonfirmasi secara langsung"
+          ]
+        },
+        {
+          "name": "Informasi Layanan",
+          "mono": "INFO",
+          "note": "Tanyakan sebelum membuat janji",
+          "evidence": [
+            "Informasi lokasi dan jadwal belum dicantumkan",
+            "Silakan menghubungi kontak resmi untuk detail layanan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "komunikasi",
+      "title": "Mari Terhubung",
+      "subtitle": "Mulai dari pertanyaan yang ingin Anda sampaikan",
+      "skills": [
+        {
+          "name": "Hubungi via WhatsApp",
+          "mono": "WA",
+          "note": "Kontak langsung Syaifullah",
+          "evidence": [
+            "Nomor WhatsApp resmi tertera pada halaman ini",
+            "Tanyakan layanan dan ketersediaan jadwal"
+          ]
+        },
+        {
+          "name": "Kirim Email",
+          "mono": "@",
+          "note": "Komunikasi alternatif",
+          "evidence": [
+            "Email: syaifullahmewengkang@gmail.com"
+          ]
+        }
+      ]
+    }
+  ],
+  "skillsHeading": "Sebelum Bertemu, Mari Berkenalan",
+  "skillsAside": "Halaman ini memuat identitas dan kontak Syaifullah sebagai terapis. Jenis terapi, kualifikasi, tempat praktik, dan jadwal belum disampaikan; seluruh detail tersebut dapat ditanyakan langsung tanpa asumsi atau janji hasil terapi.",
+  "skillsKicker": "PROFIL · INFORMASI LAYANAN · KONTAK",
+  "highlights": [
+    {
+      "title": "Syaifullah",
+      "description": "Profil profesional dan perkenalan sebagai terapis.",
+      "category": "PROFIL"
+    },
+    {
+      "title": "Informasi Layanan",
+      "description": "Tanyakan jenis terapi serta lokasi layanan secara langsung.",
+      "category": "LAYANAN"
+    },
+    {
+      "title": "Terhubung Langsung",
+      "description": "WhatsApp dan email untuk pertanyaan serta jadwal.",
+      "category": "KONTAK"
+    }
+  ],
+  "watchCards": [
+    {
+      "target": "about",
+      "title": "Kenali Syaifullah",
+      "subtitle": "Perkenalan profesional",
+      "image": "/clients/syaifullah/foto-profesional.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Informasi Layanan",
+      "subtitle": "Apa yang perlu ditanyakan?"
+    },
+    {
+      "target": "journey",
+      "title": "Jelajahi Profil",
+      "subtitle": "Dari perkenalan ke komunikasi"
+    },
+    {
+      "target": "skills",
+      "title": "Sebelum Membuat Janji",
+      "subtitle": "Kenali jalur komunikasi"
+    },
+    {
+      "target": "picks",
+      "title": "Mari Terhubung",
+      "subtitle": "Hubungi Syaifullah"
+    }
+  ],
+  "pickCards": [
+    {
+      "label": "PROFIL PROFESIONAL",
+      "title": "Syaifullah, Terapis",
+      "detail": "Berkenalan dengan sosok di balik layanan terapi.",
+      "image": "/clients/syaifullah/foto-profesional.webp",
+      "palette": {"from": "#112825", "via": "#31524a", "to": "#090f10", "accent": "#e8c99b"}
+    },
+    {
+      "label": "INFORMASI LAYANAN",
+      "title": "Tanyakan Lebih Dulu",
+      "detail": "Ketahui jenis terapi, lokasi, dan jadwal yang tersedia dari sumbernya langsung.",
+      "palette": {"from": "#352028", "via": "#76424a", "to": "#160e14", "accent": "#f1cc9d"}
+    },
+    {
+      "label": "KONTAK",
+      "title": "Buka Percakapan",
+      "detail": "Sampaikan pertanyaan Anda melalui WhatsApp atau email.",
+      "palette": {"from": "#193333", "via": "#46665b", "to": "#101a1a", "accent": "#d6c4a4"}
+    }
+  ],
+  "picksHeading": "Mengenal, Sebelum Menentukan",
+  "picksKicker": "PROFIL · PERTANYAAN · KOMUNIKASI",
+  "seasons": [
+    {
+      "number": 1,
+      "title": "Mengenal Syaifullah",
+      "period": "Profil Profesional",
+      "synopsis": "Syaifullah memperkenalkan dirinya sebagai terapis dan membuka ruang komunikasi bagi pengunjung.",
+      "episodes": [
+        {
+          "title": "Halo, Saya Syaifullah",
+          "runtime": "Perkenalan",
+          "description": "Kenali Syaifullah melalui profil singkat dan informasi kontak yang tersedia.",
+          "tags": ["Syaifullah", "Terapis", "Profil"],
+          "image": "/clients/syaifullah/foto-profesional.webp",
+          "palette": {"from": "#16352f", "via": "#5f7763", "to": "#0c1514", "accent": "#e9c79c"}
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Dari Pertanyaan ke Janji",
+      "period": "Informasi Layanan",
+      "synopsis": "Pertanyaan tentang jenis terapi, lokasi praktik, dan jadwal dapat disampaikan langsung kepada Syaifullah.",
+      "episodes": [
+        {
+          "title": "Tanyakan Layanan",
+          "runtime": "Informasi",
+          "description": "Hubungi Syaifullah untuk memastikan rincian layanan terapi yang tersedia sebelum menentukan langkah berikutnya.",
+          "tags": ["Layanan", "Informasi", "Pertanyaan"],
+          "palette": {"from": "#41252b", "via": "#80505a", "to": "#1b1217", "accent": "#eec6a0"}
+        },
+        {
+          "title": "Hubungi dan Atur Jadwal",
+          "runtime": "Kontak",
+          "description": "WhatsApp menjadi jalur komunikasi utama untuk bertanya dan mengonfirmasi ketersediaan jadwal.",
+          "tags": ["WhatsApp", "Jadwal", "Kontak"],
+          "palette": {"from": "#173a35", "via": "#537267", "to": "#101b1b", "accent": "#e9d0ac"}
+        }
+      ]
+    }
+  ],
+  "journeyHeading": "Setiap Perkenalan Punya Awal",
+  "journeyAside": "Syaifullah adalah seorang terapis. Untuk informasi tentang layanan, lokasi, kualifikasi, dan jadwal, silakan menghubungi WhatsApp 0823 1985 9066 atau email syaifullahmewengkang@gmail.com.",
+  "journeyKicker": "PERKENALAN · LAYANAN · JADWAL",
+  "theme": {"accent": "#e0b982", "background": "#0c1515"},
+  "templateId": "original",
+  "identityMode": "photo"
+}
