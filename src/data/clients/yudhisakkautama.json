@@ -4,7 +4,9 @@
   "role": "Geopreneur · Mining Exploration · HSE",
   "location": "Indonesia",
   "bio": "Saya Yudhi Sakkautama, seorang geopreneur yang bergerak di persimpangan eksplorasi geologi, keselamatan kerja, manajemen proyek, dan inovasi digital. Perjalanan profesional saya dibentuk oleh pengalaman lapangan, kerja bersama beragam tim, dan keinginan untuk terus mengubah pengetahuan menjadi solusi yang bermanfaat. Halaman ini adalah ruang untuk berbagi sudut pandang, dokumentasi, serta hal-hal yang saya pelajari sepanjang perjalanan—dengan sisi personal yang tetap menjadi bagian dari cerita.",
-  "tagline": ["Exploring Ideas, Building Knowledge, Creating Impact."],
+  "tagline": [
+    "Exploring Ideas, Building Knowledge, Creating Impact."
+  ],
   "interests": [
     "Mining & Exploration",
     "HSE & Safety Management",
@@ -47,7 +49,11 @@
       "year": "DOKUMENTASI",
       "description": "Potret Yudhi di lanskap bebatuan, sebuah pengingat bahwa observasi lapangan dan rasa ingin tahu terhadap bumi menjadi bagian penting dari perjalanan seorang geopreneur. Lokasi dan konteks kegiatan belum dicantumkan.",
       "category": "Field Notes · Geology",
-      "tags": ["Geologi", "Alam", "Pengamatan Lapangan"],
+      "tags": [
+        "Geologi",
+        "Alam",
+        "Pengamatan Lapangan"
+      ],
       "image": "/clients/yudhisakkautama/jelajah-geologi.webp"
     },
     {
@@ -55,7 +61,11 @@
       "year": "DOKUMENTASI",
       "description": "Dokumentasi visual Yudhi bersama lembar korelasi stratigrafi. Foto ini menggambarkan kedekatan dengan pembacaan data geologi; rincian pekerjaan dan peran dalam dokumen belum disertakan.",
       "category": "Geology · Technical Documents",
-      "tags": ["Stratigrafi", "Data Teknis", "Interpretasi Geologi"],
+      "tags": [
+        "Stratigrafi",
+        "Data Teknis",
+        "Interpretasi Geologi"
+      ],
       "image": "/clients/yudhisakkautama/grafik-stratigrafi.webp"
     },
     {
@@ -63,7 +73,11 @@
       "year": "VISUAL KONSEP",
       "description": "Ilustrasi berbantuan AI yang menampilkan sosok Yudhi dengan pakaian keselamatan di area alat berat. Digunakan untuk menggambarkan tema operasi lapangan, bukan dokumentasi atau bukti keterlibatan dalam proyek tertentu.",
       "category": "Mining Exploration · Ilustrasi AI",
-      "tags": ["Ilustrasi AI", "Keselamatan", "Eksplorasi"],
+      "tags": [
+        "Ilustrasi AI",
+        "Keselamatan",
+        "Eksplorasi"
+      ],
       "image": "/clients/yudhisakkautama/ilustrasi-operasi-lapangan-ai.webp"
     },
     {
@@ -71,7 +85,11 @@
       "year": "MOMEN PERSONAL",
       "description": "Kolase foto Yudhi di depan komputer, ditemani seekor kucing. Sisi hangat dari aktivitas digital dan keseharian di luar formalitas pekerjaan.",
       "category": "Digital Life · Personal Notes",
-      "tags": ["Aktivitas Digital", "Keseharian", "Kucing"],
+      "tags": [
+        "Aktivitas Digital",
+        "Keseharian",
+        "Kucing"
+      ],
       "image": "/clients/yudhisakkautama/aktivitas-digital-kucing.webp"
     },
     {
@@ -79,7 +97,11 @@
       "year": "ARSIP PERSONAL",
       "description": "Potret kasual Yudhi mengenakan penutup kepala dan rompi merah. Sebuah dokumentasi personal yang melengkapi sisi profesionalnya.",
       "category": "Portrait · Personal Archive",
-      "tags": ["Potret", "Keseharian", "Arsip"],
+      "tags": [
+        "Potret",
+        "Keseharian",
+        "Arsip"
+      ],
       "image": "/clients/yudhisakkautama/potret-dokumentasi-topi.webp"
     },
     {
@@ -87,7 +109,11 @@
       "year": "ARSIP PERSONAL",
       "description": "Potret sehari-hari dengan rompi merah, memperlihatkan Yudhi dalam suasana sederhana di luar citra formal profesional.",
       "category": "Portrait · Personal Archive",
-      "tags": ["Potret", "Keseharian", "Arsip"],
+      "tags": [
+        "Potret",
+        "Keseharian",
+        "Arsip"
+      ],
       "image": "/clients/yudhisakkautama/potret-dokumentasi-merah.webp"
     },
     {
@@ -95,7 +121,11 @@
       "year": "MOMEN PERSONAL",
       "description": "Dokumentasi Yudhi bersama sepeda gunung. Aktivitas di luar pekerjaan menjadi ruang menyegarkan pikiran sebelum kembali menghadapi tantangan baru.",
       "category": "Lifestyle · Cycling",
-      "tags": ["Bersepeda", "Aktivitas Luar Ruang", "Keseimbangan"],
+      "tags": [
+        "Bersepeda",
+        "Aktivitas Luar Ruang",
+        "Keseimbangan"
+      ],
       "image": "/clients/yudhisakkautama/bersepeda.webp"
     },
     {
@@ -103,7 +133,11 @@
       "year": "MOMEN PERSONAL",
       "description": "Foto kebersamaan Yudhi dengan sosok terdekat dan kucing kesayangan dalam suasana hangat. Ditampilkan sebagai bagian dari arsip personal yang diberikan untuk profil ini.",
       "category": "Life Beyond Work",
-      "tags": ["Kebersamaan", "Keluarga", "Kucing"],
+      "tags": [
+        "Kebersamaan",
+        "Keluarga",
+        "Kucing"
+      ],
       "image": "/clients/yudhisakkautama/keluarga-kucing.webp"
     },
     {
@@ -111,19 +145,46 @@
       "year": "MOMEN PERSONAL",
       "description": "Potret berdua dengan suasana hangat dan latar berwarna emas. Kedekatan personal memberi keseimbangan pada perjalanan kerja yang dinamis.",
       "category": "Life Beyond Work",
-      "tags": ["Personal", "Kebersamaan", "Refleksi"],
+      "tags": [
+        "Personal",
+        "Kebersamaan",
+        "Refleksi"
+      ],
       "image": "/clients/yudhisakkautama/momen-keluarga.webp"
     }
   ],
-  "skills": ["Mining & Exploration", "HSE & Safety", "Project Management", "GIS", "Digital Innovation", "Field Observation"],
+  "skills": [
+    "Mining & Exploration",
+    "HSE & Safety",
+    "Project Management",
+    "GIS",
+    "Digital Innovation",
+    "Field Observation"
+  ],
   "skillCategories": [
     {
       "id": "mining",
       "title": "Mining & Exploration",
       "subtitle": "Dari observasi hingga operasi eksplorasi",
       "skills": [
-        { "name": "Eksplorasi Geologi", "mono": "GEO", "note": "Bidang utama dalam panduan profil", "evidence": ["Geologi dan eksplorasi mineral serta batubara", "Kegiatan observasi dan pengolahan data lapangan"] },
-        { "name": "Operasi Eksplorasi", "mono": "EXP", "note": "Pemahaman dinamika pekerjaan lapangan", "evidence": ["Pemboran dan pelaksanaan operasi eksplorasi", "Kolaborasi lapangan dan dokumentasi teknis"] }
+        {
+          "name": "Eksplorasi Geologi",
+          "mono": "GEO",
+          "note": "Bidang utama dalam panduan profil",
+          "evidence": [
+            "Geologi dan eksplorasi mineral serta batubara",
+            "Kegiatan observasi dan pengolahan data lapangan"
+          ]
+        },
+        {
+          "name": "Operasi Eksplorasi",
+          "mono": "EXP",
+          "note": "Pemahaman dinamika pekerjaan lapangan",
+          "evidence": [
+            "Pemboran dan pelaksanaan operasi eksplorasi",
+            "Kolaborasi lapangan dan dokumentasi teknis"
+          ]
+        }
       ]
     },
     {
@@ -131,7 +192,15 @@
       "title": "HSE & Safety",
       "subtitle": "Keselamatan sebagai bagian dari proses kerja",
       "skills": [
-        { "name": "Keselamatan Pertambangan", "mono": "HSE", "note": "Ruang pengalaman HSE yang diperkenalkan", "evidence": ["Sistem keselamatan pertambangan dan pengelolaan risiko", "Kerangka SMKP Minerba disebut dalam panduan sebagai bidang relevan"] }
+        {
+          "name": "Keselamatan Pertambangan",
+          "mono": "HSE",
+          "note": "Ruang pengalaman HSE yang diperkenalkan",
+          "evidence": [
+            "Sistem keselamatan pertambangan dan pengelolaan risiko",
+            "Kerangka SMKP Minerba disebut dalam panduan sebagai bidang relevan"
+          ]
+        }
       ]
     },
     {
@@ -139,7 +208,15 @@
       "title": "Project Management",
       "subtitle": "Menyatukan rencana, orang, dan operasi",
       "skills": [
-        { "name": "Project & Operations", "mono": "PM", "note": "Perencanaan dan pengendalian kerja", "evidence": ["Perencanaan, eksekusi, dan kontrol operasional", "Pendekatan kolaboratif untuk pengelolaan proyek"] }
+        {
+          "name": "Project & Operations",
+          "mono": "PM",
+          "note": "Perencanaan dan pengendalian kerja",
+          "evidence": [
+            "Perencanaan, eksekusi, dan kontrol operasional",
+            "Pendekatan kolaboratif untuk pengelolaan proyek"
+          ]
+        }
       ]
     },
     {
@@ -147,7 +224,15 @@
       "title": "Digital Innovation",
       "subtitle": "Membawa perspektif lapangan ke teknologi",
       "skills": [
-        { "name": "GIS & Survey Technology", "mono": "GIS", "note": "Bidang teknologi yang diperkenalkan", "evidence": ["Sistem informasi geografis dan teknologi survei", "Ketertarikan pada digitalisasi dan solusi berbasis data"] }
+        {
+          "name": "GIS & Survey Technology",
+          "mono": "GIS",
+          "note": "Bidang teknologi yang diperkenalkan",
+          "evidence": [
+            "Sistem informasi geografis dan teknologi survei",
+            "Ketertarikan pada digitalisasi dan solusi berbasis data"
+          ]
+        }
       ]
     }
   ],
@@ -155,21 +240,91 @@
   "skillsAside": "Eksplorasi mengajarkan cara membaca bumi. HSE menjaga manusia yang bekerja di atasnya. Manajemen proyek menyatukan langkah; inovasi digital membuka cara kerja baru. Rincian sertifikasi, proyek, dan hasil implementasi akan dilengkapi berdasarkan dokumen terverifikasi.",
   "skillsKicker": "EXPLORATION · SAFETY · PEOPLE · TECHNOLOGY",
   "highlights": [
-    { "title": "Field Experience", "description": "Perspektif lapangan menjadi fondasi cara melihat masalah dan mengambil keputusan.", "category": "EXPLORATION" },
-    { "title": "Safety Mindset", "description": "Keselamatan dan pengelolaan risiko dibahas sebagai bagian penting dari pekerjaan.", "category": "HSE" },
-    { "title": "Digital Curiosity", "description": "Menghubungkan dunia geologi, pekerjaan lapangan, dan teknologi digital.", "category": "INNOVATION" }
+    {
+      "title": "Field Experience",
+      "description": "Perspektif lapangan menjadi fondasi cara melihat masalah dan mengambil keputusan.",
+      "category": "EXPLORATION"
+    },
+    {
+      "title": "Safety Mindset",
+      "description": "Keselamatan dan pengelolaan risiko dibahas sebagai bagian penting dari pekerjaan.",
+      "category": "HSE"
+    },
+    {
+      "title": "Digital Curiosity",
+      "description": "Menghubungkan dunia geologi, pekerjaan lapangan, dan teknologi digital.",
+      "category": "INNOVATION"
+    }
   ],
   "watchCards": [
-    { "target": "about", "title": "Tentang Yudhi", "subtitle": "Cerita dan filosofi profesional", "image": "/clients/yudhisakkautama/foto-profesional.webp" },
-    { "target": "originals", "title": "Foto & Dokumentasi", "subtitle": "Jejak lapangan dan sisi personal", "image": "/clients/yudhisakkautama/jelajah-geologi.webp" },
-    { "target": "skills", "title": "Area Keahlian", "subtitle": "Eksplorasi, HSE, proyek, digital", "image": "/clients/yudhisakkautama/grafik-stratigrafi.webp" },
-    { "target": "journey", "title": "Bab Perjalanan", "subtitle": "Pekerjaan hingga refleksi personal", "image": "/clients/yudhisakkautama/ilustrasi-operasi-lapangan-ai.webp" },
-    { "target": "picks", "title": "Perspektif Yudhi", "subtitle": "Topik yang dekat dengan keseharian", "image": "/clients/yudhisakkautama/aktivitas-digital-kucing.webp" }
+    {
+      "target": "about",
+      "title": "Tentang Yudhi",
+      "subtitle": "Cerita dan filosofi profesional",
+      "image": "/clients/yudhisakkautama/foto-profesional.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Foto & Dokumentasi",
+      "subtitle": "Jejak lapangan dan sisi personal",
+      "image": "/clients/yudhisakkautama/jelajah-geologi.webp"
+    },
+    {
+      "target": "skills",
+      "title": "Area Keahlian",
+      "subtitle": "Eksplorasi, HSE, proyek, digital",
+      "image": "/clients/yudhisakkautama/grafik-stratigrafi.webp"
+    },
+    {
+      "target": "journey",
+      "title": "Bab Perjalanan",
+      "subtitle": "Pekerjaan hingga refleksi personal",
+      "image": "/clients/yudhisakkautama/ilustrasi-operasi-lapangan-ai.webp"
+    },
+    {
+      "target": "picks",
+      "title": "Perspektif Yudhi",
+      "subtitle": "Topik yang dekat dengan keseharian",
+      "image": "/clients/yudhisakkautama/aktivitas-digital-kucing.webp"
+    }
   ],
   "pickCards": [
-    { "label": "FIELD NOTES", "title": "Di Antara Batuan dan Data", "detail": "Mengamati kondisi alam dan menghubungkannya dengan catatan teknis geologi.", "image": "/clients/yudhisakkautama/jelajah-geologi.webp", "palette": { "from": "#172d34", "via": "#66795d", "to": "#101d28", "accent": "#e0c9a1" } },
-    { "label": "TECHNICAL LENS", "title": "Belajar dari Data Stratigrafi", "detail": "Dari dokumentasi dan pengamatan menuju pemahaman yang bisa dibagikan.", "image": "/clients/yudhisakkautama/grafik-stratigrafi.webp", "palette": { "from": "#1b293a", "via": "#596d73", "to": "#111b27", "accent": "#e2d3b4" } },
-    { "label": "LIFE BEYOND WORK", "title": "Ada Kehidupan di Luar Proyek", "detail": "Momen bersepeda, bekerja dari rumah, dan menikmati kebersamaan.", "image": "/clients/yudhisakkautama/bersepeda.webp", "palette": { "from": "#19362d", "via": "#5f785b", "to": "#0e1f22", "accent": "#f1d5a5" } }
+    {
+      "label": "FIELD NOTES",
+      "title": "Di Antara Batuan dan Data",
+      "detail": "Mengamati kondisi alam dan menghubungkannya dengan catatan teknis geologi.",
+      "image": "/clients/yudhisakkautama/jelajah-geologi.webp",
+      "palette": {
+        "from": "#172d34",
+        "via": "#66795d",
+        "to": "#101d28",
+        "accent": "#e0c9a1"
+      }
+    },
+    {
+      "label": "TECHNICAL LENS",
+      "title": "Belajar dari Data Stratigrafi",
+      "detail": "Dari dokumentasi dan pengamatan menuju pemahaman yang bisa dibagikan.",
+      "image": "/clients/yudhisakkautama/grafik-stratigrafi.webp",
+      "palette": {
+        "from": "#1b293a",
+        "via": "#596d73",
+        "to": "#111b27",
+        "accent": "#e2d3b4"
+      }
+    },
+    {
+      "label": "LIFE BEYOND WORK",
+      "title": "Ada Kehidupan di Luar Proyek",
+      "detail": "Momen bersepeda, bekerja dari rumah, dan menikmati kebersamaan.",
+      "image": "/clients/yudhisakkautama/bersepeda.webp",
+      "palette": {
+        "from": "#19362d",
+        "via": "#5f785b",
+        "to": "#0e1f22",
+        "accent": "#f1d5a5"
+      }
+    }
   ],
   "picksHeading": "Catatan dari Lapangan dan Kehidupan",
   "picksKicker": "OBSERVE · LEARN · SHARE",
@@ -180,8 +335,38 @@
       "period": "Eksplorasi dan Pengamatan",
       "synopsis": "Catatan visual tentang pengamatan bentang alam, informasi stratigrafi, serta konteks pekerjaan eksplorasi.",
       "episodes": [
-        { "title": "Jelajah Geologi", "runtime": "Field Notes", "description": "Foto Yudhi di kawasan bebatuan. Menjaga rasa ingin tahu akan alam dan geologi.", "tags": ["Geologi", "Observasi"], "image": "/clients/yudhisakkautama/jelajah-geologi.webp", "palette": { "from": "#203e35", "via": "#728071", "to": "#15292b", "accent": "#d9c89c" } },
-        { "title": "Di Balik Lembar Stratigrafi", "runtime": "Technical Notes", "description": "Dokumentasi bersama lembar korelasi stratigrafi. Detail tugas aktual masih bisa ditambahkan.", "tags": ["Stratigrafi", "Dokumentasi"], "image": "/clients/yudhisakkautama/grafik-stratigrafi.webp", "palette": { "from": "#2b3946", "via": "#7d9ca1", "to": "#101b27", "accent": "#dec592" } }
+        {
+          "title": "Jelajah Geologi",
+          "runtime": "Field Notes",
+          "description": "Foto Yudhi di kawasan bebatuan. Menjaga rasa ingin tahu akan alam dan geologi.",
+          "tags": [
+            "Geologi",
+            "Observasi"
+          ],
+          "image": "/clients/yudhisakkautama/jelajah-geologi.webp",
+          "palette": {
+            "from": "#203e35",
+            "via": "#728071",
+            "to": "#15292b",
+            "accent": "#d9c89c"
+          }
+        },
+        {
+          "title": "Di Balik Lembar Stratigrafi",
+          "runtime": "Technical Notes",
+          "description": "Dokumentasi bersama lembar korelasi stratigrafi. Detail tugas aktual masih bisa ditambahkan.",
+          "tags": [
+            "Stratigrafi",
+            "Dokumentasi"
+          ],
+          "image": "/clients/yudhisakkautama/grafik-stratigrafi.webp",
+          "palette": {
+            "from": "#2b3946",
+            "via": "#7d9ca1",
+            "to": "#101b27",
+            "accent": "#dec592"
+          }
+        }
       ]
     },
     {
@@ -190,8 +375,38 @@
       "period": "Profesional & Digital",
       "synopsis": "Pertemuan antara praktik keselamatan, kerja proyek, dan teknologi yang membantu membaca situasi.",
       "episodes": [
-        { "title": "Bayangan Aktivitas Tambang", "runtime": "AI Concept", "description": "Visual konsep AI tentang operasi lapangan; bukan foto proyek sebenarnya.", "tags": ["Ilustrasi AI", "HSE"], "image": "/clients/yudhisakkautama/ilustrasi-operasi-lapangan-ai.webp", "palette": { "from": "#333829", "via": "#af9248", "to": "#101b25", "accent": "#f2db99" } },
-        { "title": "Ruang Kerja Digital", "runtime": "Personal Notes", "description": "Kolase aktivitas di depan komputer bersama kucing; gambaran hangat kegiatan di luar lapangan.", "tags": ["Digital", "Personal"], "image": "/clients/yudhisakkautama/aktivitas-digital-kucing.webp", "palette": { "from": "#242c3a", "via": "#657b82", "to": "#141c29", "accent": "#e6cdac" } }
+        {
+          "title": "Bayangan Aktivitas Tambang",
+          "runtime": "AI Concept",
+          "description": "Visual konsep AI tentang operasi lapangan; bukan foto proyek sebenarnya.",
+          "tags": [
+            "Ilustrasi AI",
+            "HSE"
+          ],
+          "image": "/clients/yudhisakkautama/ilustrasi-operasi-lapangan-ai.webp",
+          "palette": {
+            "from": "#333829",
+            "via": "#af9248",
+            "to": "#101b25",
+            "accent": "#f2db99"
+          }
+        },
+        {
+          "title": "Ruang Kerja Digital",
+          "runtime": "Personal Notes",
+          "description": "Kolase aktivitas di depan komputer bersama kucing; gambaran hangat kegiatan di luar lapangan.",
+          "tags": [
+            "Digital",
+            "Personal"
+          ],
+          "image": "/clients/yudhisakkautama/aktivitas-digital-kucing.webp",
+          "palette": {
+            "from": "#242c3a",
+            "via": "#657b82",
+            "to": "#141c29",
+            "accent": "#e6cdac"
+          }
+        }
       ]
     },
     {
@@ -200,15 +415,44 @@
       "period": "Personal & Homey",
       "synopsis": "Keseimbangan melalui aktivitas luar ruang, momen bersama orang terdekat, dan potret keseharian.",
       "episodes": [
-        { "title": "Bersepeda untuk Menyegarkan Pikiran", "runtime": "Personal", "description": "Sebuah potret Yudhi dan sepeda gunung dalam aktivitas di luar pekerjaan.", "tags": ["Bersepeda", "Outdoor"], "image": "/clients/yudhisakkautama/bersepeda.webp", "palette": { "from": "#183831", "via": "#618779", "to": "#152729", "accent": "#efd8a4" } },
-        { "title": "Kehangatan Kebersamaan", "runtime": "Personal", "description": "Momen yang memperlihatkan sisi hangat dan personal Yudhi bersama orang terdekat dan kucing.", "tags": ["Keluarga", "Kebersamaan"], "image": "/clients/yudhisakkautama/keluarga-kucing.webp", "palette": { "from": "#463326", "via": "#ad8952", "to": "#221e22", "accent": "#f4dfb2" } }
+        {
+          "title": "Bersepeda untuk Menyegarkan Pikiran",
+          "runtime": "Personal",
+          "description": "Sebuah potret Yudhi dan sepeda gunung dalam aktivitas di luar pekerjaan.",
+          "tags": [
+            "Bersepeda",
+            "Outdoor"
+          ],
+          "image": "/clients/yudhisakkautama/bersepeda.webp",
+          "palette": {
+            "from": "#183831",
+            "via": "#618779",
+            "to": "#152729",
+            "accent": "#efd8a4"
+          }
+        },
+        {
+          "title": "Kehangatan Kebersamaan",
+          "runtime": "Personal",
+          "description": "Momen yang memperlihatkan sisi hangat dan personal Yudhi bersama orang terdekat dan kucing.",
+          "tags": [
+            "Keluarga",
+            "Kebersamaan"
+          ],
+          "image": "/clients/yudhisakkautama/keluarga-kucing.webp",
+          "palette": {
+            "from": "#463326",
+            "via": "#ad8952",
+            "to": "#221e22",
+            "accent": "#f4dfb2"
+          }
+        }
       ]
     }
   ],
   "journeyHeading": "A Journey Beyond Job Titles",
   "journeyAside": "Perjalanan profesional tidak harus dirangkum sebagai daftar jabatan. Bagi Yudhi, pengalaman lapangan, pemahaman keselamatan, pertemuan dengan teknologi, dan ruang untuk keluarga ikut membentuk cerita. Halaman ini memisahkan dokumentasi aktual dari ilustrasi AI dan ide proyek yang masih memerlukan verifikasi.",
   "journeyKicker": "FIELD EXPERIENCE · KNOWLEDGE · PERSONAL MOMENTS",
-  "theme": { "accent": "#d9bc86", "background": "#102536" },
-  "templateId": "editorial-premium",
+  "templateId": "original",
   "identityMode": "photo"
 }
