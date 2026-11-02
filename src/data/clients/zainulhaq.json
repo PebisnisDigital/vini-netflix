@@ -1,0 +1,253 @@
+{
+  "slug": "zainulhaq",
+  "name": "Zainul Haq",
+  "role": "Web Developer",
+  "location": "Indonesia · Terhubung Secara Online",
+  "bio": "Halo, saya Zainul Haq, seorang web developer. Saya berkecimpung di dunia pengembangan website, tempat ide dan kebutuhan digital bertemu dengan teknologi. Melalui halaman ini, Anda bisa mengenal bidang profesi saya dan menghubungi saya untuk membicarakan kebutuhan website atau peluang kolaborasi.",
+  "tagline": [
+    "Dari Ide Menjadi Pengalaman Digital",
+    "Let's Build Something Useful"
+  ],
+  "interests": [
+    "Web Development",
+    "Website & Aplikasi Web",
+    "Pengalaman Pengguna",
+    "Kolaborasi Digital"
+  ],
+  "photo": {
+    "src": "/clients/zainulhaq/foto-profesional.webp",
+    "alt": "Potret profesional close-up Zainul Haq memakai peci putih, blazer hijau tua dan kaus putih, dengan latar transparan"
+  },
+  "email": "maszen29@gmail.com",
+  "whatsapp": "08131502025",
+  "links": {},
+  "theme": {
+    "accent": "#78d9b4",
+    "background": "#071711"
+  },
+  "experiences": [
+    {
+      "company": "Bidang Pengembangan Web",
+      "role": "Web Developer",
+      "period": "Profesi saat ini",
+      "description": "Zainul memperkenalkan profesinya sebagai web developer. Informasi perusahaan, masa kerja, teknologi yang dikuasai, dan hasil proyek spesifik belum disampaikan dan dapat dilengkapi kemudian."
+    }
+  ],
+  "education": [],
+  "projects": [
+    {
+      "title": "Pengembangan Website",
+      "year": "WEB",
+      "description": "Ruang perkenalan bidang web development: bagaimana sebuah kebutuhan digital dapat diterjemahkan menjadi website yang berguna. Bagian ini menjelaskan ranah profesi, bukan mengklaim portofolio proyek tertentu.",
+      "category": "Web Development",
+      "tags": ["Website", "Pengembangan Web", "Solusi Digital"],
+      "image": "/clients/zainulhaq/ruang-developer.webp"
+    },
+    {
+      "title": "Pengalaman Digital",
+      "year": "DESIGN & BUILD",
+      "description": "Website bukan hanya soal kode. Struktur, tampilan, dan kemudahan penggunaan juga perlu dipikirkan. Ini merupakan gambaran proses pengembangan web; detail keahlian dan proyek Zainul dapat ditambahkan setelah dikonfirmasi.",
+      "category": "Website Experience",
+      "tags": ["Tampilan Web", "Responsif", "Pengalaman Pengguna"],
+      "image": "/clients/zainulhaq/ruang-developer.webp"
+    },
+    {
+      "title": "Diskusikan Website Anda",
+      "year": "CONNECT",
+      "description": "Punya ide website atau ingin menjajaki kolaborasi? Sampaikan kebutuhan Anda langsung kepada Zainul melalui WhatsApp untuk mengetahui kecocokan dan ruang lingkup pengerjaannya.",
+      "category": "Komunikasi & Kolaborasi",
+      "tags": ["Konsultasi Awal", "Website", "Kolaborasi"],
+      "website": "https://wa.me/628131502025?text=Halo%20Pak%20Zainul%2C%20saya%20melihat%20profil%20Bapak%20di%20PESONAFLIX%20dan%20ingin%20berdiskusi%20tentang%20website.",
+      "image": "/clients/zainulhaq/foto-profesional.webp"
+    }
+  ],
+  "skills": [
+    "Web Development",
+    "Website",
+    "Pengembangan Digital"
+  ],
+  "skillCategories": [
+    {
+      "id": "pengembangan-web",
+      "title": "Dunia Web Development",
+      "subtitle": "Bidang profesi Zainul Haq",
+      "skills": [
+        {
+          "name": "Web Developer",
+          "mono": "WEB",
+          "note": "Profesi yang disampaikan",
+          "evidence": [
+            "Zainul memperkenalkan diri sebagai web developer",
+            "Stack teknologi dan contoh proyek belum dicantumkan"
+          ]
+        },
+        {
+          "name": "Pengembangan Website",
+          "mono": "CODE",
+          "note": "Ruang kerja web developer",
+          "evidence": [
+            "Pengembangan website berkaitan dengan profesi web developer",
+            "Layanan dan cakupan pengerjaan dapat dikonfirmasi langsung"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "komunikasi",
+      "title": "Terhubung & Berkolaborasi",
+      "subtitle": "Mulai percakapan tentang kebutuhan digital",
+      "skills": [
+        {
+          "name": "Diskusi Proyek",
+          "mono": "IDE",
+          "note": "Komunikasi awal",
+          "evidence": [
+            "Kontak WhatsApp tersedia pada profil",
+            "Bisa digunakan untuk menanyakan kesesuaian kebutuhan website"
+          ]
+        },
+        {
+          "name": "Email Profesional",
+          "mono": "@",
+          "note": "Alternatif saluran kontak",
+          "evidence": [
+            "Email yang diberikan: maszen29@gmail.com",
+            "Dapat digunakan untuk korespondensi tertulis"
+          ]
+        }
+      ]
+    }
+  ],
+  "skillsHeading": "Website, Ide, dan Eksekusi",
+  "skillsAside": "Zainul Haq berprofesi sebagai web developer. Halaman ini menjadi tempat perkenalan sekaligus titik awal percakapan tentang kebutuhan digital. Detail tools, pengalaman kerja, dan portofolio nyata dapat ditambahkan ketika datanya tersedia.",
+  "skillsKicker": "WEB DEVELOPMENT · DIGITAL · CONNECT",
+  "highlights": [
+    {
+      "title": "Web Developer",
+      "description": "Profesi utama yang diperkenalkan Zainul Haq.",
+      "category": "PROFIL PROFESIONAL"
+    },
+    {
+      "title": "Dunia Website",
+      "description": "Ruang untuk mengenal bidang pengembangan website.",
+      "category": "BIDANG PROFESI"
+    },
+    {
+      "title": "Terbuka untuk Diskusi",
+      "description": "Hubungi langsung melalui WhatsApp atau email untuk membicarakan kebutuhan digital.",
+      "category": "KONTAK"
+    }
+  ],
+  "watchCards": [
+    {
+      "target": "about",
+      "title": "Kenali Zainul",
+      "subtitle": "Profil web developer",
+      "image": "/clients/zainulhaq/foto-profesional.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Dunia Website",
+      "subtitle": "Ide dan pengembangan",
+      "image": "/clients/zainulhaq/ruang-developer.webp"
+    },
+    {
+      "target": "journey",
+      "title": "Cerita Profesi",
+      "subtitle": "Web development",
+      "image": "/clients/zainulhaq/ruang-developer.webp"
+    },
+    {
+      "target": "skills",
+      "title": "Fokus Digital",
+      "subtitle": "Bidang dan komunikasi",
+      "image": "/clients/zainulhaq/ruang-developer.webp"
+    },
+    {
+      "target": "picks",
+      "title": "Mari Terhubung",
+      "subtitle": "WhatsApp atau email",
+      "image": "/clients/zainulhaq/foto-profesional.webp"
+    }
+  ],
+  "pickCards": [
+    {
+      "label": "WEB DEVELOPER",
+      "title": "Dari Ide ke Web",
+      "detail": "Setiap website dimulai dari kebutuhan. Kenali bidang pengembangan web yang menjadi profesi Zainul.",
+      "image": "/clients/zainulhaq/ruang-developer.webp",
+      "palette": { "from": "#061a14", "via": "#145441", "to": "#07100f", "accent": "#78d9b4" }
+    },
+    {
+      "label": "PENGEMBANGAN DIGITAL",
+      "title": "Ruang Developer",
+      "detail": "Tempat ide, struktur, dan teknologi bertemu dalam sebuah pengalaman digital.",
+      "image": "/clients/zainulhaq/ruang-developer.webp",
+      "palette": { "from": "#0a1e22", "via": "#1e4754", "to": "#061012", "accent": "#78d9b4" }
+    },
+    {
+      "label": "LET'S CONNECT",
+      "title": "Bicarakan Ide Anda",
+      "detail": "Tanyakan langsung kepada Zainul tentang kebutuhan website atau peluang bekerja sama.",
+      "image": "/clients/zainulhaq/foto-profesional.webp",
+      "palette": { "from": "#10231a", "via": "#396b4b", "to": "#09150e", "accent": "#78d9b4" }
+    }
+  ],
+  "picksHeading": "Build Something Useful",
+  "picksKicker": "IDE · WEBSITE · KOLABORASI",
+  "seasons": [
+    {
+      "number": 1,
+      "title": "Kenalan dengan Zainul",
+      "period": "Profil Digital",
+      "synopsis": "Perkenalan dengan Zainul Haq dan profesinya sebagai web developer.",
+      "episodes": [
+        {
+          "title": "Halo, Saya Zainul Haq",
+          "runtime": "Perkenalan",
+          "description": "Saya Zainul Haq. Web development adalah bidang profesi saya, dan halaman ini menjadi ruang untuk mengenal saya serta membuka komunikasi.",
+          "tags": ["Zainul Haq", "Web Developer", "Profil"],
+          "image": "/clients/zainulhaq/foto-profesional.webp",
+          "palette": { "from": "#071711", "via": "#1b624a", "to": "#08120e", "accent": "#78d9b4" }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Dunia Web Development",
+      "period": "Bidang Profesi",
+      "synopsis": "Mengenal ruang kerja web developer tanpa mengklaim proyek yang belum disampaikan.",
+      "episodes": [
+        {
+          "title": "Membangun untuk Web",
+          "runtime": "Bidang Kerja",
+          "description": "Pengembangan web menyatukan kebutuhan pengguna, struktur digital, dan implementasi teknis. Untuk mengetahui layanan dan teknologi yang saya gunakan, silakan hubungi saya.",
+          "tags": ["Website", "Web Development", "Digital"],
+          "image": "/clients/zainulhaq/ruang-developer.webp",
+          "palette": { "from": "#071d18", "via": "#265a49", "to": "#080e10", "accent": "#78d9b4" }
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Mulai Berkolaborasi",
+      "period": "Langkah Selanjutnya",
+      "synopsis": "Ruang untuk memulai percakapan mengenai website atau kerja sama.",
+      "episodes": [
+        {
+          "title": "Ceritakan Ide Anda",
+          "runtime": "Hubungi Saya",
+          "description": "Punya kebutuhan website? Kirim pesan melalui WhatsApp atau email. Kita bisa mulai dari diskusi sederhana tentang apa yang ingin diwujudkan.",
+          "tags": ["Diskusi", "Kolaborasi", "Kontak"],
+          "image": "/clients/zainulhaq/ruang-developer.webp",
+          "palette": { "from": "#0b2221", "via": "#256b65", "to": "#071310", "accent": "#78d9b4" }
+        }
+      ]
+    }
+  ],
+  "journeyHeading": "Perjalanan Seorang Web Developer",
+  "journeyAside": "Zainul memperkenalkan bidang profesi web development dan membuka ruang bagi kebutuhan website maupun kolaborasi. Riwayat kerja, pendidikan, serta proyek dapat diperluas setelah beliau memberikan informasi tambahan.",
+  "journeyKicker": "PROFIL · WEB · KOLABORASI",
+  "templateId": "original",
+  "identityMode": "photo"
+}
