@@ -6,9 +6,11 @@ import { ProjectArt } from './Poster';
 
 export default function ProjectCard({ project, index, onOpen, duplicate = false }: { project: Project; index: number; onOpen: () => void; duplicate?: boolean }) {
   const { profile } = usePortfolio();
+  const isDian = profile.clientSlug === 'dianrivia';
   // Yanti's supplied artwork already contains publication lettering. Her titles,
   // descriptions and controls need their own surface instead of sitting on the art.
-  if (profile.clientSlug === 'yantiriyantini') {
+  if (profile.clientSlug === 'yantiriyantini' || isDian) {
+    const isBrochure = isDian && /tipe kavling|materi edukasi|profil memorial garden|peta & fasilitas/i.test(project.genre);
     return (
       <motion.article
         data-studio-edit={`project:${index}`}
@@ -27,16 +29,16 @@ export default function ProjectCard({ project, index, onOpen, duplicate = false 
               onOpen();
             }
           }}
-          aria-label={`Baca detail ${project.title}`}
+          aria-label={`Lihat detail ${project.title}`}
           className="focus-ring group flex h-[35rem] flex-col overflow-hidden rounded-2xl border border-white/15 bg-[#111821] shadow-[0_24px_65px_-32px_rgba(0,0,0,0.85)] transition duration-300 hover:-translate-y-1 hover:border-white/35 hover:shadow-[0_32px_70px_-26px_rgba(0,0,0,0.9)] sm:h-[34rem] lg:h-[36rem]"
         >
-          <div className="relative h-[39%] shrink-0 overflow-hidden bg-[#153044]">
+          <div className={`relative h-[47%] shrink-0 overflow-hidden ${isDian && isBrochure ? 'bg-[#eff5f4]' : 'bg-[#153044]'}`}>
             {project.image && (
               <img
                 src={project.image}
                 alt=""
                 loading="lazy"
-                className="h-full w-full object-cover object-bottom opacity-90 transition-transform duration-700 group-hover:scale-[1.04]"
+                className={`h-full w-full ${isBrochure ? 'object-contain' : 'object-cover object-center'} opacity-95 transition-transform duration-700 group-hover:scale-[1.04]`}
               />
             )}
             <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[#111821]/70 via-transparent to-black/10" />
@@ -56,7 +58,7 @@ export default function ProjectCard({ project, index, onOpen, duplicate = false 
             </p>
             <div className="mt-auto pt-5">
               <span className="inline-flex min-h-10 items-center rounded-md bg-white px-4 text-sm font-bold text-[#111821] transition group-hover:bg-[#ffe9ed]">
-                Baca Detail <span aria-hidden className="ml-2">↗</span>
+                {isDian ? 'Lihat Foto' : 'Baca Detail'} <span aria-hidden className="ml-2">↗</span>
               </span>
             </div>
           </div>

@@ -3,15 +3,15 @@
   "name": "Dian Rivia",
   "role": "Memorial Director · AlAzhar Memorial Garden",
   "location": "Indonesia · Terhubung Online",
-  "bio": "Halo, saya Dian Rivia, Memorial Director di AlAzhar Memorial Garden. Saya memahami bahwa pembicaraan tentang tempat peristirahatan terakhir keluarga adalah hal yang personal dan memerlukan pertimbangan matang. Melalui halaman ini, Anda dapat mengenal peran saya dan menghubungi saya secara langsung untuk menanyakan informasi yang dibutuhkan, dengan tenang dan tanpa terburu-buru.",
+  "bio": "Halo, saya Dian Rivia, Memorial Director di AlAzhar Memorial Garden. Saya memahami bahwa membicarakan tempat peristirahatan terakhir keluarga memerlukan ketenangan, kejelasan, dan empati. Di sini saya berbagi gambaran lokasi, fasilitas, pilihan kavling, serta dokumentasi kegiatan dan pelayanan. Untuk detail terkini, mari berbincang langsung tanpa terburu-buru.",
   "tagline": [
     "INFORMASI MEMORIAL DENGAN HATI"
   ],
   "interests": [
     "Informasi Memorial",
-    "Komunikasi Personal",
-    "Ruang Konsultasi Awal",
-    "Keluarga"
+    "Fasilitas Al Azhar",
+    "Pilihan Kavling",
+    "Pendampingan Keluarga"
   ],
   "photo": {
     "src": "/clients/dianrivia/foto-profesional.webp",
@@ -26,59 +26,127 @@
       "company": "AlAzhar Memorial Garden",
       "role": "Memorial Director",
       "period": "Saat ini",
-      "description": "Dian memperkenalkan perannya sebagai Memorial Director di AlAzhar Memorial Garden. Untuk informasi layanan, prosedur, pilihan, dan biaya terbaru, silakan menghubungi Dian secara langsung."
+      "description": "Membantu keluarga memperoleh penjelasan awal mengenai Al Azhar Memorial Garden melalui materi lokasi, fasilitas, tipe kavling, dan informasi prosedur. Ketersediaan serta biaya terbaru dikonfirmasi langsung."
     }
   ],
   "education": [],
   "projects": [
     {
-      "title": "Mengenal Peran Memorial Director",
-      "year": "PROFIL PROFESIONAL",
-      "description": "Dian Rivia memperkenalkan diri sebagai Memorial Director di AlAzhar Memorial Garden. Halaman ini menjadi titik awal bagi keluarga yang ingin mengenal narahubung dan bertanya seputar informasi memorial.",
-      "category": "Profil & Peran",
-      "tags": [
-        "Dian Rivia",
-        "Memorial Director",
-        "AlAzhar Memorial Garden"
-      ],
-      "image": "/clients/dianrivia/foto-profesional.webp"
+      "title": "Sekilas Al Azhar Memorial Garden",
+      "year": "MENGENAL LOKASI",
+      "description": "Materi pengenalan Al Azhar Memorial Garden dengan foto udara kawasan taman pemakaman dan penjelasan fasilitas. Lokasinya berada di Karawang, Jawa Barat.",
+      "category": "Profil Memorial Garden",
+      "tags": ["Al Azhar Memorial Garden", "Karawang", "Gambaran Kawasan"],
+      "image": "/clients/dianrivia/sekilas-al-azhar.webp"
     },
     {
-      "title": "Ruang Bertanya untuk Keluarga",
-      "year": "INFORMASI AWAL",
-      "description": "Setiap keluarga memiliki kebutuhan dan pertanyaan yang berbeda. Mulailah dengan menyampaikan kebutuhan Anda; informasi mengenai pilihan layanan, syarat, ketersediaan, serta biaya dapat dikonfirmasi langsung kepada Dian.",
-      "category": "Informasi Memorial",
-      "tags": [
-        "Keluarga",
-        "Informasi Awal",
-        "Percakapan Personal"
-      ],
-      "image": ""
+      "title": "Peta Area & Zona",
+      "year": "SITE MAP",
+      "description": "Peta kawasan yang memperlihatkan pembagian zona pemakaman serta lokasi fasilitas seperti hall, musala, toilet, dan lounge. Nama dan posisi zona dapat dilihat pada gambar utuh.",
+      "category": "Peta & Fasilitas",
+      "tags": ["Peta Kawasan", "Zona Pemakaman", "Fasilitas"],
+      "image": "/clients/dianrivia/peta-area-memorial.webp"
     },
     {
-      "title": "Terhubung dengan Dian",
-      "year": "KONTAK LANGSUNG",
-      "description": "Ada yang ingin ditanyakan? Hubungi Dian Rivia lewat WhatsApp untuk memulai percakapan. Anda juga dapat mengirim pesan melalui email yang tersedia pada profil.",
-      "category": "Kontak & Komunikasi",
-      "tags": [
-        "WhatsApp",
-        "Email",
-        "Hubungi Dian"
-      ],
-      "website": "https://wa.me/6287885107747?text=Assalamu%27alaikum%20Bu%20Dian%2C%20saya%20melihat%20profil%20Ibu%20di%20PESONAFLIX%20dan%20ingin%20bertanya%20tentang%20informasi%20memorial.",
-      "image": ""
+      "title": "Fasilitas untuk Keluarga",
+      "year": "FASILITAS",
+      "description": "Dokumentasi ruang serbaguna, tenda dan kursi, area parkir, penanda zona, penyiraman taman, jalan kawasan, dan jalur pejalan kaki.",
+      "category": "Peta & Fasilitas",
+      "tags": ["Ruang Serbaguna", "Area Parkir", "Walkway"],
+      "image": "/clients/dianrivia/fasilitas-memorial.webp"
+    },
+    {
+      "title": "Tipe Kavling Single & Double",
+      "year": "REFERENSI KAVLING",
+      "description": "Materi tipe Single, Double, Double Varian B dan D, Super Double, serta Family A. Ukuran dan kapasitas pada brosur merupakan bahan informasi yang perlu dikonfirmasi kembali sebelum memilih.",
+      "category": "Tipe Kavling",
+      "tags": ["Single", "Double", "Pilihan Kavling"],
+      "image": "/clients/dianrivia/tipe-kavling-individual.webp"
+    },
+    {
+      "title": "Tipe Kavling Keluarga",
+      "year": "REFERENSI KAVLING",
+      "description": "Brosur pilihan Super Family, Royal Family, dan Paket Keluarga. Rincian kapasitas, luas, dan ketersediaan sebaiknya ditanyakan langsung kepada Dian.",
+      "category": "Tipe Kavling",
+      "tags": ["Super Family", "Royal Family", "Paket Keluarga"],
+      "image": "/clients/dianrivia/tipe-kavling-keluarga.webp"
+    },
+    {
+      "title": "Pelayanan Saat Prosesi",
+      "year": "DOKUMENTASI",
+      "description": "Dokumentasi pelaksanaan prosesi pemakaman pada siang hari dengan petugas dan keluarga di area tenda. Ditampilkan sebagai gambaran suasana pelayanan.",
+      "category": "Dokumentasi Prosesi",
+      "tags": ["Prosesi", "Pelayanan", "Keluarga"],
+      "image": "/clients/dianrivia/prosesi-pemakaman-siang.webp"
+    },
+    {
+      "title": "Persiapan di Area Pemakaman",
+      "year": "DOKUMENTASI",
+      "description": "Suasana persiapan di area pemakaman dengan petugas serta fasilitas tenda yang disediakan untuk keluarga dan tamu.",
+      "category": "Dokumentasi Prosesi",
+      "tags": ["Persiapan", "Area Pemakaman", "Petugas"],
+      "image": "/clients/dianrivia/persiapan-pemakaman.webp"
+    },
+    {
+      "title": "Prosesi pada Malam Hari",
+      "year": "DOKUMENTASI",
+      "description": "Gambaran pelaksanaan prosesi pada malam hari ketika petugas bekerja di area pemakaman dan keluarga menunggu di tempat yang disiapkan.",
+      "category": "Dokumentasi Prosesi",
+      "tags": ["Prosesi Malam", "Petugas", "Keluarga"],
+      "image": "/clients/dianrivia/prosesi-pemakaman-malam.webp"
+    },
+    {
+      "title": "Keluarga & Pendampingan Malam",
+      "year": "DOKUMENTASI",
+      "description": "Dokumentasi suasana malam dengan tempat duduk keluarga serta tim yang menjalankan prosesi secara tertib.",
+      "category": "Dokumentasi Prosesi",
+      "tags": ["Suasana Malam", "Pendampingan", "Fasilitas Tenda"],
+      "image": "/clients/dianrivia/pendampingan-pemakaman-malam.webp"
+    },
+    {
+      "title": "Pertemuan di Area Memorial",
+      "year": "DOKUMENTASI KEGIATAN",
+      "description": "Foto kegiatan pertemuan di ruang terbuka kawasan memorial. Dokumentasi ini memberi gambaran suasana kunjungan kelompok.",
+      "category": "Kegiatan & Kebersamaan",
+      "tags": ["Pertemuan", "Kunjungan", "Kebersamaan"],
+      "image": "/clients/dianrivia/pertemuan-lapangan.webp"
+    },
+    {
+      "title": "Kebersamaan Komunitas AMG PRO",
+      "year": "DOKUMENTASI KEGIATAN",
+      "description": "Foto kebersamaan peserta dalam kegiatan yang menampilkan identitas AMG PRO. Informasi kegiatan dapat ditanyakan lebih lanjut kepada Dian.",
+      "category": "Kegiatan & Kebersamaan",
+      "tags": ["AMG PRO", "Komunitas", "Kebersamaan"],
+      "image": "/clients/dianrivia/kegiatan-amg-pro.webp"
+    },
+    {
+      "title": "Momen Kebersamaan Perjalanan",
+      "year": "DOKUMENTASI KEGIATAN",
+      "description": "Foto kelompok dalam suasana perjalanan bersama. Ditampilkan sebagai dokumentasi kebersamaan, tanpa mengaitkan lokasi perjalanan dengan fasilitas memorial.",
+      "category": "Kegiatan & Kebersamaan",
+      "tags": ["Perjalanan", "Komunitas", "Kebersamaan"],
+      "image": "/clients/dianrivia/kebersamaan-komunitas.webp"
+    },
+    {
+      "title": "Mengapa Perencanaan Itu Penting",
+      "year": "BAHAN INFORMASI",
+      "description": "Materi pengantar tentang perencanaan tempat pemakaman, termasuk kutipan QS Al-Ankabut ayat 57. Statistik yang tercantum pada brosur merupakan kutipan materi lama, bukan data ketersediaan terkini.",
+      "category": "Materi Edukasi",
+      "tags": ["Perencanaan", "Informasi Awal", "Bahan Bacaan"],
+      "image": "/clients/dianrivia/materi-latar-belakang.webp"
     }
   ],
   "skills": [
     "Profil Memorial Director",
-    "Informasi Awal Memorial",
+    "Informasi Lokasi & Fasilitas",
+    "Pengenalan Tipe Kavling",
     "Komunikasi dengan Keluarga"
   ],
   "skillCategories": [
     {
       "id": "peran",
-      "title": "Peran Profesional",
-      "subtitle": "Kenali bidang yang Dian perkenalkan",
+      "title": "Informasi Memorial",
+      "subtitle": "Kenali lokasi dan pilihan yang tersedia dalam materi",
       "skills": [
         {
           "name": "Memorial Director",
@@ -90,12 +158,21 @@
           ]
         },
         {
-          "name": "Informasi Memorial",
-          "mono": "INFO",
-          "note": "Topik percakapan awal",
+          "name": "Lokasi & Fasilitas",
+          "mono": "LOK",
+          "note": "Peta kawasan dan fasilitas penunjang",
           "evidence": [
-            "Tanyakan pilihan layanan dan prosedur secara langsung",
-            "Detail resmi, ketersediaan, dan harga perlu dikonfirmasi"
+            "Materi peta zona, ruang serbaguna, musala, dan jalur pejalan kaki",
+            "Kunjungan dan detail fasilitas perlu dikonfirmasi secara langsung"
+          ]
+        },
+        {
+          "name": "Pilihan Tipe Kavling",
+          "mono": "KAV",
+          "note": "Referensi brosur yang dibagikan",
+          "evidence": [
+            "Materi Single, Double, Family, Super Family, dan Royal Family",
+            "Ukuran, kapasitas, harga, dan ketersediaan dapat berubah"
           ]
         }
       ]
@@ -126,24 +203,24 @@
       ]
     }
   ],
-  "skillsHeading": "Ruang Informasi yang Lebih Personal",
-  "skillsAside": "Halaman ini memperkenalkan peran Dian Rivia sebagai Memorial Director di AlAzhar Memorial Garden. Informasi teknis tentang layanan, legalitas, harga, atau ketersediaan tidak dicantumkan karena perlu dikonfirmasi kepada pihak terkait secara langsung.",
-  "skillsKicker": "PROFIL · INFORMASI MEMORIAL · KONTAK",
+  "skillsHeading": "Kenali Pilihan dengan Tenang",
+  "skillsAside": "Foto dan brosur di halaman ini merupakan bahan pengenalan Al Azhar Memorial Garden. Untuk ketentuan, spesifikasi kavling, legalitas, harga, dan ketersediaan terkini, silakan verifikasi langsung melalui Dian dan pihak pengelola.",
+  "skillsKicker": "PETA · FASILITAS · KAVLING · KONTAK",
   "highlights": [
     {
+      "title": "Lokasi & Fasilitas",
+      "description": "Lihat peta, fasilitas, dan suasana Al Azhar Memorial Garden.",
+      "category": "LOKASI"
+    },
+    {
+      "title": "Pilihan Kavling",
+      "description": "Kenali referensi tipe dari materi yang tersedia.",
+      "category": "INFORMASI"
+    },
+    {
       "title": "Dian Rivia",
-      "description": "Narahubung profesional yang dapat Anda kenali melalui profil ini.",
-      "category": "PROFIL"
-    },
-    {
-      "title": "Memorial Director",
-      "description": "Peran Dian di AlAzhar Memorial Garden.",
-      "category": "PROFESI"
-    },
-    {
-      "title": "Terhubung Langsung",
-      "description": "Sampaikan pertanyaan melalui WhatsApp atau email.",
-      "category": "KOMUNIKASI"
+      "description": "Bicarakan kebutuhan keluarga melalui WhatsApp atau email.",
+      "category": "KONTAK"
     }
   ],
   "watchCards": [
@@ -155,35 +232,35 @@
     },
     {
       "target": "originals",
-      "title": "Tentang Memorial",
-      "subtitle": "Informasi awal untuk keluarga",
-      "image": ""
+      "title": "Galeri Al Azhar",
+      "subtitle": "13 foto dan materi informasi",
+      "image": "/clients/dianrivia/sekilas-al-azhar.webp"
     },
     {
       "target": "journey",
-      "title": "Perjalanan Profesional",
-      "subtitle": "Mengenal peran Dian",
-      "image": ""
+      "title": "Jelajahi Informasi",
+      "subtitle": "Lokasi, kavling, dan kegiatan",
+      "image": "/clients/dianrivia/fasilitas-memorial.webp"
     },
     {
       "target": "skills",
-      "title": "Ruang Informasi",
-      "subtitle": "Apa yang bisa ditanyakan?",
-      "image": ""
+      "title": "Pilihan Kavling",
+      "subtitle": "Tipe dan referensi brosur",
+      "image": "/clients/dianrivia/tipe-kavling-keluarga.webp"
     },
     {
       "target": "picks",
-      "title": "Hubungi Dian",
-      "subtitle": "Mulai percakapan langsung",
-      "image": ""
+      "title": "Pendampingan Keluarga",
+      "subtitle": "Mengenal layanan dan kontak",
+      "image": "/clients/dianrivia/prosesi-pemakaman-siang.webp"
     }
   ],
   "pickCards": [
     {
-      "label": "PROFIL PROFESIONAL",
-      "title": "Sosok di Balik Peran",
-      "detail": "Mengenal Dian Rivia sebagai Memorial Director di AlAzhar Memorial Garden.",
-      "image": "/clients/dianrivia/foto-profesional.webp",
+      "label": "MENGENAL LOKASI",
+      "title": "Taman Memorial yang Tertata",
+      "detail": "Sekilas kawasan Al Azhar Memorial Garden di Karawang dan fasilitas yang diperkenalkan dalam materi.",
+      "image": "/clients/dianrivia/sekilas-al-azhar.webp",
       "palette": {
         "from": "#0b2422",
         "via": "#365a52",
@@ -192,75 +269,187 @@
       }
     },
     {
-      "label": "RUANG BERTANYA",
-      "title": "Mulai dengan Percakapan",
-      "detail": "Tanyakan informasi yang Anda perlukan. Dian dapat dihubungi melalui WhatsApp atau email.",
+      "label": "PILIHAN KAVLING",
+      "title": "Mengenali Kebutuhan Keluarga",
+      "detail": "Lihat perbedaan tipe kavling pada materi sebelum menanyakan ketersediaan dan ketentuannya.",
+      "image": "/clients/dianrivia/tipe-kavling-individual.webp",
       "palette": {
         "from": "#1a2923",
         "via": "#6d7560",
         "to": "#101c1c",
         "accent": "#e0cba7"
-      },
-      "image": ""
+      }
+    },
+    {
+      "label": "PELAYANAN KELUARGA",
+      "title": "Kehadiran di Saat Penting",
+      "detail": "Dokumentasi suasana prosesi dan fasilitas pendukung bagi keluarga.",
+      "image": "/clients/dianrivia/prosesi-pemakaman-siang.webp",
+      "palette": {
+        "from": "#14242d",
+        "via": "#356176",
+        "to": "#0f1820",
+        "accent": "#c3dce4"
+      }
+    },
+    {
+      "label": "KONTAK PERSONAL",
+      "title": "Bertanya kepada Dian",
+      "detail": "Bicarakan kebutuhan keluarga dengan Dian melalui jalur kontak yang tersedia.",
+      "image": "/clients/dianrivia/foto-profesional.webp",
+      "palette": {
+        "from": "#0b2422",
+        "via": "#365a52",
+        "to": "#101a1c",
+        "accent": "#d5be8d"
+      }
     }
   ],
-  "picksHeading": "Lebih Dekat dengan Dian",
-  "picksKicker": "PERAN PROFESIONAL · RUANG BERTANYA · KOMUNIKASI",
+  "picksHeading": "Yang Perlu Dikenal Keluarga",
+  "picksKicker": "KAWASAN · PILIHAN · LAYANAN · KONSULTASI",
   "seasons": [
     {
       "number": 1,
-      "title": "Mengenal Dian Rivia",
-      "period": "Profil Profesional",
-      "synopsis": "Perkenalan dengan Dian Rivia dan perannya sebagai Memorial Director di AlAzhar Memorial Garden.",
+      "title": "Lokasi & Fasilitas",
+      "period": "Mengenal Al Azhar",
+      "synopsis": "Mulai dari gambaran kawasan, peta area, sampai fasilitas penunjang untuk keluarga.",
       "episodes": [
         {
-          "title": "Sosok di Balik Profesi",
-          "runtime": "Perkenalan",
-          "description": "Dian memperkenalkan dirinya sebagai Memorial Director. Pelajari perannya secara singkat dan temukan jalur komunikasi yang tersedia.",
-          "tags": [
-            "Dian Rivia",
-            "Memorial Director",
-            "Profil"
-          ],
-          "image": "/clients/dianrivia/foto-profesional.webp",
+          "title": "Sekilas Kawasan Memorial",
+          "runtime": "Gambaran Lokasi",
+          "description": "Lihat materi pengenalan dan foto udara Al Azhar Memorial Garden di Karawang.",
+          "tags": ["Gambaran Kawasan", "Karawang", "Al Azhar"],
+          "image": "/clients/dianrivia/sekilas-al-azhar.webp",
           "palette": {
             "from": "#0a2320",
             "via": "#31584d",
             "to": "#10191c",
             "accent": "#d8c39b"
           }
+        },
+        {
+          "title": "Peta Pembagian Zona",
+          "runtime": "Peta Area",
+          "description": "Kenali pembagian zona dan lokasi fasilitas pada peta kawasan.",
+          "tags": ["Peta", "Zona", "Fasilitas"],
+          "image": "/clients/dianrivia/peta-area-memorial.webp",
+          "palette": { "from": "#0d2c22", "via": "#326a52", "to": "#0f1d19", "accent": "#d7c188" }
+        },
+        {
+          "title": "Fasilitas Penunjang",
+          "runtime": "Galeri Fasilitas",
+          "description": "Ruang serbaguna, area parkir, jalur berjalan, dan fasilitas lain dalam brosur.",
+          "tags": ["Hall", "Walkway", "Area Parkir"],
+          "image": "/clients/dianrivia/fasilitas-memorial.webp",
+          "palette": { "from": "#183744", "via": "#476c75", "to": "#101c24", "accent": "#e6d2a3" }
         }
       ]
     },
     {
       "number": 2,
-      "title": "Percakapan yang Bermakna",
-      "period": "Informasi & Kontak",
-      "synopsis": "Setiap pertanyaan tentang kebutuhan keluarga dapat dimulai dari komunikasi langsung.",
+      "title": "Referensi Tipe Kavling",
+      "period": "Pilihan & Pertimbangan",
+      "synopsis": "Gambaran tipe kavling individual dan keluarga dari brosur. Ketersediaan, spesifikasi, dan harga terkini perlu dikonfirmasi kepada Dian.",
       "episodes": [
         {
-          "title": "Tanyakan dengan Tenang",
-          "runtime": "Hubungi Langsung",
-          "description": "Untuk informasi layanan, pilihan, prosedur, dan biaya, tanyakan detailnya kepada Dian agar mendapat keterangan yang sesuai dengan kebutuhan Anda.",
-          "tags": [
-            "Informasi Memorial",
-            "Keluarga",
-            "WhatsApp"
-          ],
+          "title": "Single, Double & Family",
+          "runtime": "Referensi Tipe",
+          "description": "Lihat ragam ukuran dan kapasitas yang tercantum dalam materi tipe Single, Double, dan Family.",
+          "tags": ["Single", "Double", "Family"],
           "palette": {
             "from": "#1b2c28",
             "via": "#65715f",
             "to": "#0e1e1b",
             "accent": "#e2c9a2"
           },
-          "image": ""
+          "image": "/clients/dianrivia/tipe-kavling-individual.webp"
+        },
+        {
+          "title": "Super Family & Royal Family",
+          "runtime": "Kavling Keluarga",
+          "description": "Materi pilihan untuk keluarga dengan beragam ukuran dan kapasitas.",
+          "tags": ["Super Family", "Royal Family", "Paket Keluarga"],
+          "palette": { "from": "#1b2f30", "via": "#4f777a", "to": "#101c20", "accent": "#d4c597" },
+          "image": "/clients/dianrivia/tipe-kavling-keluarga.webp"
+        },
+        {
+          "title": "Mengenal Perencanaan Memorial",
+          "runtime": "Materi Pengantar",
+          "description": "Bahan bacaan mengenai pentingnya perencanaan, dengan statistik pada brosur yang bukan data terkini.",
+          "tags": ["Perencanaan", "Keluarga", "Informasi"],
+          "palette": { "from": "#1d2538", "via": "#394f73", "to": "#101722", "accent": "#e4c893" },
+          "image": "/clients/dianrivia/materi-latar-belakang.webp"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Suasana Pelayanan",
+      "period": "Dokumentasi Prosesi",
+      "synopsis": "Dokumentasi petugas, tenda, dan suasana keluarga saat prosesi. Ditampilkan dengan hormat sebagai gambaran pelayanan.",
+      "episodes": [
+        {
+          "title": "Prosesi Siang Hari",
+          "runtime": "Dokumentasi",
+          "description": "Suasana prosesi pemakaman yang memperlihatkan petugas dan area tenda untuk keluarga.",
+          "tags": ["Prosesi", "Petugas", "Siang"],
+          "palette": { "from": "#132f2b", "via": "#3f7168", "to": "#0d1b1a", "accent": "#d4dcb3" },
+          "image": "/clients/dianrivia/prosesi-pemakaman-siang.webp"
+        },
+        {
+          "title": "Persiapan di Area Pemakaman",
+          "runtime": "Dokumentasi",
+          "description": "Tim dan fasilitas tenda dalam suasana persiapan untuk prosesi.",
+          "tags": ["Persiapan", "Keluarga", "Fasilitas"],
+          "palette": { "from": "#182d35", "via": "#416876", "to": "#0d1820", "accent": "#c0dce5" },
+          "image": "/clients/dianrivia/persiapan-pemakaman.webp"
+        },
+        {
+          "title": "Layanan di Malam Hari",
+          "runtime": "Dokumentasi",
+          "description": "Kehadiran petugas dan keluarga dalam dokumentasi prosesi malam.",
+          "tags": ["Prosesi Malam", "Petugas", "Keluarga"],
+          "palette": { "from": "#101b2c", "via": "#2a486a", "to": "#0c111d", "accent": "#c8d8ec" },
+          "image": "/clients/dianrivia/prosesi-pemakaman-malam.webp"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Kegiatan & Kebersamaan",
+      "period": "Dokumentasi Komunitas",
+      "synopsis": "Kumpulan foto pertemuan, kegiatan, dan perjalanan bersama yang dibagikan sebagai dokumentasi kebersamaan.",
+      "episodes": [
+        {
+          "title": "Pertemuan di Area Memorial",
+          "runtime": "Dokumentasi",
+          "description": "Suasana pertemuan kelompok di area terbuka.",
+          "tags": ["Pertemuan", "Kegiatan", "Kebersamaan"],
+          "palette": { "from": "#142c28", "via": "#42766b", "to": "#111e20", "accent": "#e2cba3" },
+          "image": "/clients/dianrivia/pertemuan-lapangan.webp"
+        },
+        {
+          "title": "Kegiatan AMG PRO",
+          "runtime": "Dokumentasi",
+          "description": "Foto kebersamaan kelompok dengan identitas AMG PRO di lokasi kegiatan.",
+          "tags": ["AMG PRO", "Komunitas", "Kegiatan"],
+          "palette": { "from": "#172b3e", "via": "#385f89", "to": "#101a28", "accent": "#d9ccaa" },
+          "image": "/clients/dianrivia/kegiatan-amg-pro.webp"
+        },
+        {
+          "title": "Momen Perjalanan Bersama",
+          "runtime": "Dokumentasi",
+          "description": "Kenangan kebersamaan rombongan saat perjalanan; lokasi pada foto tidak terkait dengan lokasi memorial.",
+          "tags": ["Perjalanan", "Kebersamaan", "Komunitas"],
+          "palette": { "from": "#24283d", "via": "#666685", "to": "#171725", "accent": "#eee0bb" },
+          "image": "/clients/dianrivia/kebersamaan-komunitas.webp"
         }
       ]
     }
   ],
-  "journeyHeading": "Berawal dari Sebuah Percakapan",
-  "journeyAside": "Dian Rivia memperkenalkan diri sebagai Memorial Director di AlAzhar Memorial Garden. Untuk memulai percakapan, hubungi WhatsApp 0878 8510 7747 atau email dianiradiva@gmail.com. Alamat email tambahan yang disampaikan: diva@gmail.com. Rincian layanan dan persyaratan perlu dikonfirmasi langsung.",
-  "journeyKicker": "MEMORIAL DIRECTOR · ALAZHAR MEMORIAL GARDEN · HUBUNGI DIAN",
+  "journeyHeading": "Cerita di Balik Setiap Foto",
+  "journeyAside": "Empat bagian untuk menjelajahi kawasan, fasilitas, tipe kavling, prosesi, dan kebersamaan. Seluruh materi bersifat pengenalan; hubungi Dian untuk informasi resmi dan terkini.",
+  "journeyKicker": "LOKASI · KAVLING · PELAYANAN · KEBERSAMAAN",
   "templateId": "original",
   "identityMode": "photo"
 }

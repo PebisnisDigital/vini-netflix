@@ -10,7 +10,7 @@ export default function Seasons() {
   const isaProductUrl = profile.clientSlug === 'isa'
     ? projects.find((project) => project.title === 'Seribu Rempah')?.github
     : undefined;
-  const [active, setActive] = useState(Math.max(0, seasons.length - 2));
+  const [active, setActive] = useState(profile.clientSlug === 'dianrivia' ? 0 : Math.max(0, seasons.length - 2));
   // Klien baru bisa memiliki lebih sedikit musim daripada portfolio master.
   // Clamp indeks saat data canvas diganti agar tidak merender season undefined.
   const activeIndex = Math.min(Math.max(0, active), Math.max(0, seasons.length - 1));
