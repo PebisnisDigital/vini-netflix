@@ -1,0 +1,274 @@
+{
+  "slug": "susilopurnomo",
+  "name": "Susilo Purnomo",
+  "role": "Online Entrepreneur, Content Creator & Influencer",
+  "location": "Ruang Digital · Terhubung Secara Online",
+  "bio": "Halo, saya Susilo Purnomo. Saya bergerak di dunia bisnis online, pembuatan konten, dan influencer. Bagi saya, konten bukan sekadar unggahan—ia bisa membuka percakapan, mempertemukan ide, dan menjadi awal kolaborasi. Selamat datang di ruang digital saya. Mari berkenalan, bertukar gagasan, dan tumbuh bersama.",
+  "tagline": [
+    "Grow Together, Go Further",
+    "Create Valuable Content. Share Positive Impact."
+  ],
+  "interests": [
+    "Online Entrepreneurship",
+    "Content Creation",
+    "Digital Branding",
+    "Community & Collaboration"
+  ],
+  "photo": {
+    "src": "/clients/susilopurnomo/foto-profesional.webp",
+    "alt": "Foto profesional Susilo Purnomo dengan kemeja hitam, rambut hitam beruban, kumis dan janggut, berlatar transparan"
+  },
+  "email": "susilo.purnomo@gmail.com",
+  "whatsapp": "085742022311",
+  "links": {},
+  "theme": {
+    "accent": "#ffcc39",
+    "background": "#071426"
+  },
+  "experiences": [
+    {
+      "company": "Aktivitas Profesional",
+      "role": "Online Entrepreneur",
+      "period": "Bidang yang Ditekuni",
+      "description": "Bergerak dalam kewirausahaan berbasis online. Profil ini memperkenalkan bidang aktivitasnya; detail bisnis dan portofolio dapat ditambahkan setelah tersedia informasi lebih lanjut."
+    },
+    {
+      "company": "Kreasi Konten Digital",
+      "role": "Content Creator",
+      "period": "Bidang yang Ditekuni",
+      "description": "Menekuni ranah pembuatan konten digital dan komunikasi melalui media online, dengan semangat menghadirkan konten yang bernilai bagi audiens."
+    },
+    {
+      "company": "Jejaring Digital",
+      "role": "Influencer",
+      "period": "Bidang yang Ditekuni",
+      "description": "Memperkenalkan perannya sebagai influencer dan membuka kesempatan untuk terhubung serta membicarakan potensi kolaborasi."
+    }
+  ],
+  "education": [],
+  "projects": [
+    {
+      "title": "Konten yang Bernilai",
+      "year": "CONTENT",
+      "description": "Ruang untuk mengenal fokus Susilo Purnomo sebagai content creator: ide, pesan, dan cerita yang dibagikan melalui kanal digital. Contoh karya dan tautan akun resmi dapat dilengkapi di tahap berikutnya.",
+      "category": "Content Creation",
+      "tags": ["Konten Digital", "Kreativitas", "Audiens"],
+      "image": "/clients/susilopurnomo/studio-kreator.webp"
+    },
+    {
+      "title": "Jalur Bisnis Online",
+      "year": "BUSINESS",
+      "description": "Mengenal sisi entrepreneurship dari perjalanan profesional Susilo. Bagian ini menampilkan fokus bisnis online tanpa mengklaim produk, omzet, atau pencapaian yang belum disampaikan.",
+      "category": "Online Entrepreneurship",
+      "tags": ["Bisnis Online", "Digital", "Entrepreneurship"],
+      "image": "/clients/susilopurnomo/studio-kreator.webp"
+    },
+    {
+      "title": "Kolaborasi & Komunitas",
+      "year": "CONNECT",
+      "description": "Ide besar sering lahir dari percakapan sederhana. Mari terhubung untuk berdiskusi tentang konten, bisnis online, atau peluang kerja sama yang relevan.",
+      "category": "Influencer & Networking",
+      "tags": ["Kolaborasi", "Komunitas", "Koneksi"],
+      "website": "https://wa.me/6285742022311?text=Halo%20Pak%20Susilo%2C%20saya%20melihat%20profil%20Bapak%20di%20PESONAFLIX%20dan%20ingin%20berkenalan.",
+      "image": "/clients/susilopurnomo/foto-profesional.webp"
+    }
+  ],
+  "skills": [
+    "Bisnis Online",
+    "Kreasi Konten Digital",
+    "Personal Branding",
+    "Kolaborasi Digital"
+  ],
+  "skillCategories": [
+    {
+      "id": "bisnis-digital",
+      "title": "Bisnis & Peluang Online",
+      "subtitle": "Sisi entrepreneur dalam profil Susilo",
+      "skills": [
+        {
+          "name": "Online Entrepreneurship",
+          "mono": "BIZ",
+          "note": "Bidang profesi yang disebutkan",
+          "evidence": [
+            "Susilo Purnomo memperkenalkan diri sebagai online entrepreneur",
+            "Informasi produk dan unit bisnis spesifik belum dicantumkan"
+          ]
+        },
+        {
+          "name": "Digital Branding",
+          "mono": "BRAND",
+          "note": "Topik yang relevan dengan bisnis online",
+          "evidence": [
+            "Branding digital menjadi salah satu tema yang diperkenalkan dalam profil ini",
+            "Detail proyek dapat ditambahkan melalui Studio"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "konten-dan-pengaruh",
+      "title": "Konten & Pengaruh",
+      "subtitle": "Kreativitas, pesan, dan interaksi audiens",
+      "skills": [
+        {
+          "name": "Content Creation",
+          "mono": "PLAY",
+          "note": "Profesi content creator",
+          "evidence": [
+            "Susilo Purnomo memperkenalkan diri sebagai content creator",
+            "Portofolio video dan akun media sosial belum disertakan"
+          ]
+        },
+        {
+          "name": "Influencer",
+          "mono": "SOCIAL",
+          "note": "Profesi di ruang digital",
+          "evidence": [
+            "Influencer merupakan salah satu profesi yang disampaikan",
+            "Peluang kolaborasi dapat dibicarakan melalui kontak resmi"
+          ]
+        }
+      ]
+    }
+  ],
+  "skillsHeading": "Ide, Konten, dan Koneksi",
+  "skillsAside": "Tiga peran Susilo Purnomo—online entrepreneur, content creator, dan influencer—bertemu di dunia digital. Profil ini menyorot bidang yang beliau tekuni. Portofolio terperinci, akun sosial, dan hasil kerja dapat dilengkapi setelah dikonfirmasi langsung.",
+  "skillsKicker": "BUSINESS · CONTENT · INFLUENCE",
+  "highlights": [
+    {
+      "title": "Online Entrepreneur",
+      "description": "Memperkenalkan aktivitas profesional di bidang kewirausahaan online.",
+      "category": "BISNIS DIGITAL"
+    },
+    {
+      "title": "Content Creator",
+      "description": "Menekuni pembuatan konten serta komunikasi melalui media digital.",
+      "category": "KREASI KONTEN"
+    },
+    {
+      "title": "Influencer",
+      "description": "Membuka ruang pertemuan dengan audiens dan calon kolaborator.",
+      "category": "KONEKSI"
+    }
+  ],
+  "watchCards": [
+    {
+      "target": "about",
+      "title": "Kenali Susilo",
+      "subtitle": "Cerita dan perkenalan",
+      "image": "/clients/susilopurnomo/foto-profesional.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Ruang Kreator",
+      "subtitle": "Konten, bisnis, kolaborasi",
+      "image": "/clients/susilopurnomo/studio-kreator.webp"
+    },
+    {
+      "target": "journey",
+      "title": "Tiga Peran",
+      "subtitle": "Entrepreneur · Creator · Influencer",
+      "image": "/clients/susilopurnomo/studio-kreator.webp"
+    },
+    {
+      "target": "skills",
+      "title": "Dunia Digital",
+      "subtitle": "Bidang yang ditekuni",
+      "image": "/clients/susilopurnomo/studio-kreator.webp"
+    },
+    {
+      "target": "picks",
+      "title": "Mulai Terhubung",
+      "subtitle": "WhatsApp atau email",
+      "image": "/clients/susilopurnomo/foto-profesional.webp"
+    }
+  ],
+  "pickCards": [
+    {
+      "label": "ONLINE ENTREPRENEUR",
+      "title": "Jelajahi Peluang",
+      "detail": "Bisnis online membuka ruang untuk mengembangkan ide dan menjangkau pasar digital.",
+      "image": "/clients/susilopurnomo/studio-kreator.webp",
+      "palette": { "from": "#08152d", "via": "#174a75", "to": "#071021", "accent": "#ffcc39" }
+    },
+    {
+      "label": "CONTENT CREATOR",
+      "title": "Cerita yang Berarti",
+      "detail": "Kreativitas dimulai dari pesan yang ingin disampaikan kepada audiens.",
+      "image": "/clients/susilopurnomo/studio-kreator.webp",
+      "palette": { "from": "#1c1226", "via": "#5f3459", "to": "#080e20", "accent": "#ffca56" }
+    },
+    {
+      "label": "LET'S CONNECT",
+      "title": "Grow Together",
+      "detail": "Ingin berdiskusi atau memperkenalkan peluang kolaborasi? Hubungi Susilo secara langsung.",
+      "image": "/clients/susilopurnomo/foto-profesional.webp",
+      "palette": { "from": "#0b2636", "via": "#246a76", "to": "#081221", "accent": "#ffcc39" }
+    }
+  ],
+  "picksHeading": "Grow Together, Go Further",
+  "picksKicker": "IDE · KONTEN · KOLABORASI",
+  "seasons": [
+    {
+      "number": 1,
+      "title": "Kenalan dengan Susilo",
+      "period": "Profil Digital",
+      "synopsis": "Perkenalan dengan Susilo Purnomo dan tiga bidang profesionalnya.",
+      "episodes": [
+        {
+          "title": "Halo, Saya Susilo Purnomo",
+          "runtime": "Perkenalan",
+          "description": "Saya Susilo Purnomo—online entrepreneur, content creator, dan influencer. Saya senang membuka ruang untuk ide, percakapan, dan koneksi baru melalui dunia digital.",
+          "tags": ["Susilo Purnomo", "Profil", "Digital"],
+          "image": "/clients/susilopurnomo/foto-profesional.webp",
+          "palette": { "from": "#071426", "via": "#1f537b", "to": "#091323", "accent": "#ffcc39" }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Bisnis dan Konten",
+      "period": "Dunia Digital",
+      "synopsis": "Dua ruang aktivitas yang sama-sama membutuhkan ide dan komunikasi.",
+      "episodes": [
+        {
+          "title": "Entrepreneurship Online",
+          "runtime": "Bisnis",
+          "description": "Bisnis online adalah salah satu fokus profesional saya. Melalui halaman ini, kita bisa mulai mengenal bidang yang saya tekuni dan membuka percakapan seputar peluang digital.",
+          "tags": ["Bisnis Online", "Entrepreneur", "Digital"],
+          "image": "/clients/susilopurnomo/studio-kreator.webp",
+          "palette": { "from": "#08152d", "via": "#174a75", "to": "#071021", "accent": "#ffcc39" }
+        },
+        {
+          "title": "Create Valuable Content",
+          "runtime": "Konten",
+          "description": "Sebagai content creator, saya tertarik dengan kekuatan sebuah cerita. Konten yang baik dapat menjadi awal percakapan dan menciptakan hubungan dengan audiens.",
+          "tags": ["Content Creator", "Storytelling", "Audience"],
+          "image": "/clients/susilopurnomo/studio-kreator.webp",
+          "palette": { "from": "#1c1226", "via": "#5f3459", "to": "#080e20", "accent": "#ffca56" }
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Grow Together",
+      "period": "Koneksi & Kolaborasi",
+      "synopsis": "Ruang untuk bertemu, berdiskusi, dan tumbuh bersama.",
+      "episodes": [
+        {
+          "title": "Mari Terhubung",
+          "runtime": "Kolaborasi",
+          "description": "Punya gagasan tentang bisnis digital, konten, atau kolaborasi? Saya membuka kesempatan untuk berdiskusi lebih lanjut lewat WhatsApp maupun email.",
+          "tags": ["Kolaborasi", "Komunitas", "WhatsApp"],
+          "image": "/clients/susilopurnomo/foto-profesional.webp",
+          "palette": { "from": "#0b2636", "via": "#246a76", "to": "#081221", "accent": "#ffcc39" }
+        }
+      ]
+    }
+  ],
+  "journeyHeading": "Satu Orang, Tiga Ruang Kreatif",
+  "journeyAside": "Susilo Purnomo memperkenalkan tiga profesinya: online entrepreneur, content creator, dan influencer. Garis waktu, nama usaha, daftar akun, dan pencapaian belum disediakan, sehingga halaman ini berfokus pada bidang profesional dan cara menghubungi beliau.",
+  "journeyKicker": "ENTREPRENEUR · CREATOR · INFLUENCER",
+  "templateId": "original",
+  "identityMode": "photo"
+}
