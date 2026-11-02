@@ -1,0 +1,235 @@
+{
+  "slug": "ekasyafriana",
+  "name": "Eka Syafriana",
+  "role": "Pengajar · Owner Usaha Produk Herbalife",
+  "location": "Pendidikan · Usaha Wellness",
+  "bio": "Halo, saya Eka Syafriana. Saya menjalani peran sebagai pengajar sekaligus mengelola usaha produk Herbalife. Lewat halaman ini, saya ingin memperkenalkan dua bidang yang menjadi aktivitas profesional saya: berbagi ilmu dan melayani pertanyaan seputar produk wellness. Senang bisa terhubung dengan Anda—silakan hubungi saya untuk berkenalan atau bertanya lebih lanjut.",
+  "tagline": [
+    "Berbagi Ilmu, Membangun Koneksi"
+  ],
+  "interests": [
+    "Pendidikan",
+    "Pengajaran",
+    "Usaha Produk Herbalife",
+    "Wellness",
+    "Komunikasi & Pelayanan"
+  ],
+  "photo": {
+    "src": "/clients/ekasyafriana/foto-profesional.webp",
+    "alt": "Potret studio profesional Eka Syafriana berkacamata, mengenakan hijab dan blazer marun, dengan latar transparan"
+  },
+  "email": "Ekabelsyrumi@gmail.com",
+  "whatsapp": "082353599789",
+  "links": {},
+  "experiences": [
+    {
+      "company": "Bidang Pendidikan",
+      "role": "Pengajar",
+      "period": "Peran profesional saat ini",
+      "description": "Eka memperkenalkan diri sebagai pengajar. Detail lembaga, mata pelajaran, serta jenjang pendidikan belum dicantumkan dan dapat dilengkapi setelah mendapat informasi langsung dari Eka."
+    },
+    {
+      "company": "Usaha Mandiri Produk Herbalife",
+      "role": "Pemilik Usaha Produk Herbalife",
+      "period": "Peran usaha saat ini",
+      "description": "Selain mengajar, Eka mengelola usaha yang berhubungan dengan produk Herbalife. Untuk informasi jenis produk, ketersediaan, harga, dan panduan sesuai label resmi, pengunjung dapat menghubungi Eka langsung."
+    }
+  ],
+  "education": [],
+  "projects": [
+    {
+      "title": "Ruang Belajar Bersama Eka",
+      "year": "PENDIDIKAN",
+      "description": "Kenali Eka dari perannya sebagai pengajar. Halaman ini menjadi pintu awal untuk komunikasi terkait kegiatan belajar dan pengajaran; informasi program atau jadwal dapat ditanyakan langsung.",
+      "category": "Pendidikan & Pengajaran",
+      "tags": ["Pengajar", "Pendidikan", "Belajar"],
+      "image": "/clients/ekasyafriana/ruang-pendidikan.webp"
+    },
+    {
+      "title": "Mengenal Usaha Produk Herbalife",
+      "year": "WELLNESS",
+      "description": "Eka juga menjalankan usaha produk Herbalife. Bila ingin mengetahui pilihan produk, komposisi, harga, atau informasi penggunaan sesuai label, mulailah dengan bertanya langsung. Gambar pendamping merupakan ilustrasi wellness, bukan foto produk yang dijual.",
+      "category": "Usaha Produk Wellness",
+      "tags": ["Herbalife", "Informasi Produk", "Wellness"],
+      "image": "/clients/ekasyafriana/wellness-botanical.webp"
+    },
+    {
+      "title": "Terhubung dengan Eka",
+      "year": "KONTAK",
+      "description": "Ada pertanyaan soal pengajaran atau ingin mengenal usaha Eka? Sampaikan pesan melalui WhatsApp. Untuk komunikasi tertulis, email juga tersedia pada profil ini.",
+      "category": "Komunikasi Langsung",
+      "tags": ["WhatsApp", "Email", "Tanya Eka"],
+      "website": "https://wa.me/6282353599789?text=Halo%20Bu%20Eka%2C%20saya%20melihat%20profil%20PESONAFLIX%20Ibu%20dan%20ingin%20bertanya.",
+      "image": "/clients/ekasyafriana/foto-profesional.webp"
+    }
+  ],
+  "skills": [
+    "Pengajaran",
+    "Komunikasi Edukatif",
+    "Usaha Produk Herbalife",
+    "Informasi Produk",
+    "Pelayanan Pelanggan"
+  ],
+  "skillCategories": [
+    {
+      "id": "pendidikan",
+      "title": "Ruang Pendidikan",
+      "subtitle": "Mengenal Eka sebagai pengajar",
+      "skills": [
+        {
+          "name": "Pengajaran",
+          "mono": "EDU",
+          "note": "Peran profesional yang disebutkan Eka",
+          "evidence": [
+            "Eka memperkenalkan profesinya sebagai pengajar",
+            "Detail lembaga, jenjang, dan mata pelajaran belum disampaikan"
+          ]
+        },
+        {
+          "name": "Komunikasi Seputar Belajar",
+          "mono": "BEL",
+          "note": "Pintu percakapan pendidikan",
+          "evidence": [
+            "Pengunjung dapat menghubungi Eka tentang aktivitas pengajaran",
+            "Informasi program dan jadwal dikonfirmasi langsung dengan Eka"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "usaha",
+      "title": "Usaha & Wellness",
+      "subtitle": "Informasi produk melalui kontak langsung",
+      "skills": [
+        {
+          "name": "Usaha Produk Herbalife",
+          "mono": "HLF",
+          "note": "Kegiatan usaha yang disebutkan Eka",
+          "evidence": [
+            "Eka menyampaikan bahwa ia mengelola usaha produk Herbalife",
+            "Ketersediaan dan harga produk perlu dikonfirmasi langsung"
+          ]
+        },
+        {
+          "name": "Informasi Produk Wellness",
+          "mono": "WLN",
+          "note": "Tanya produk dan informasi resmi",
+          "evidence": [
+            "Pertanyaan mengenai jenis serta komposisi produk dapat disampaikan lewat WhatsApp",
+            "Informasi konsumsi mengacu pada label resmi, bukan janji hasil kesehatan"
+          ]
+        }
+      ]
+    }
+  ],
+  "skillsHeading": "Dua Peran, Satu Profil",
+  "skillsAside": "Dunia pendidikan dan kegiatan usaha menjadi dua sisi profil profesional Eka. Halaman ini memudahkan pengunjung mengenal perannya, melihat fokus aktivitasnya, dan memulai percakapan. Informasi rinci tentang lembaga pengajaran maupun katalog produk dapat ditambahkan setelah dikonfirmasi.",
+  "skillsKicker": "PENDIDIKAN · USAHA · WELLNESS",
+  "highlights": [
+    {
+      "title": "Pengajar",
+      "description": "Peran di bidang pendidikan menjadi bagian utama dari identitas profesional Eka.",
+      "category": "PENDIDIKAN"
+    },
+    {
+      "title": "Owner Usaha Produk Herbalife",
+      "description": "Kegiatan usaha wellness yang dapat dikenali dan ditanyakan melalui kontak langsung.",
+      "category": "USAHA"
+    },
+    {
+      "title": "Mudah Dihubungi",
+      "description": "Tersedia WhatsApp dan email untuk pertanyaan, perkenalan, atau komunikasi lebih lanjut.",
+      "category": "KONTAK"
+    }
+  ],
+  "watchCards": [
+    {
+      "target": "about",
+      "title": "Kenali Eka",
+      "subtitle": "Profil dan dua peran profesional",
+      "image": "/clients/ekasyafriana/foto-profesional.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Ruang Pendidikan",
+      "subtitle": "Berbagi ilmu lewat pengajaran",
+      "image": "/clients/ekasyafriana/ruang-pendidikan.webp"
+    },
+    {
+      "target": "journey",
+      "title": "Perjalanan Profesional",
+      "subtitle": "Mengajar dan menjalankan usaha",
+      "image": "/clients/ekasyafriana/ruang-pendidikan.webp"
+    },
+    {
+      "target": "skills",
+      "title": "Usaha Wellness",
+      "subtitle": "Mengenal kegiatan usaha Eka",
+      "image": "/clients/ekasyafriana/wellness-botanical.webp"
+    },
+    {
+      "target": "picks",
+      "title": "Hubungi Eka",
+      "subtitle": "Mulai percakapan lewat WhatsApp",
+      "image": "/clients/ekasyafriana/foto-profesional.webp"
+    }
+  ],
+  "pickCards": [
+    {
+      "label": "PENDIDIKAN",
+      "title": "Temui Sosok Pengajar",
+      "detail": "Kenali peran Eka dalam dunia pengajaran dan hubungi untuk informasi kegiatan belajar.",
+      "image": "/clients/ekasyafriana/ruang-pendidikan.webp",
+      "palette": {"from": "#17291f", "via": "#6e9a7a", "to": "#0e1d17", "accent": "#d6e7c5"}
+    },
+    {
+      "label": "USAHA WELLNESS",
+      "title": "Kenali Usaha Eka",
+      "detail": "Tanyakan informasi produk Herbalife, pilihan yang tersedia, serta hal-hal yang perlu diketahui.",
+      "image": "/clients/ekasyafriana/wellness-botanical.webp",
+      "palette": {"from": "#14271d", "via": "#476a4b", "to": "#112017", "accent": "#b8d99d"}
+    }
+  ],
+  "picksHeading": "Dua Topik untuk Memulai Percakapan",
+  "picksKicker": "BELAJAR · MENGENAL PRODUK · TERHUBUNG",
+  "seasons": [
+    {
+      "number": 1,
+      "title": "Peran dalam Pendidikan",
+      "period": "Profil Profesional",
+      "synopsis": "Eka memperkenalkan profesinya sebagai pengajar dan membuka ruang komunikasi tentang aktivitas pendidikan.",
+      "episodes": [
+        {
+          "title": "Berbagi Ilmu",
+          "runtime": "Pendidikan",
+          "description": "Peran Eka sebagai pengajar menjadi salah satu bagian penting dari profilnya. Informasi lembaga serta bidang ajar dapat dilengkapi kemudian.",
+          "tags": ["Mengajar", "Pendidikan", "Profil"],
+          "image": "/clients/ekasyafriana/ruang-pendidikan.webp",
+          "palette": {"from": "#14261f", "via": "#658776", "to": "#101c18", "accent": "#d0e6bb"}
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Langkah dalam Usaha",
+      "period": "Produk Herbalife",
+      "synopsis": "Selain di dunia pendidikan, Eka menjalankan usaha produk Herbalife dan siap dihubungi untuk pertanyaan awal.",
+      "episodes": [
+        {
+          "title": "Mengenal Produk",
+          "runtime": "Wellness",
+          "description": "Pengunjung dapat menanyakan informasi produk dan ketersediaan. Penggunaan produk perlu mengikuti informasi resmi pada kemasan dan pertimbangan kesehatan pribadi.",
+          "tags": ["Herbalife", "Produk", "Informasi"],
+          "image": "/clients/ekasyafriana/wellness-botanical.webp",
+          "palette": {"from": "#1c3023", "via": "#618b4c", "to": "#102018", "accent": "#d9e7a7"}
+        }
+      ]
+    }
+  ],
+  "journeyHeading": "Berbagi Pengetahuan, Menjalankan Usaha",
+  "journeyAside": "Eka Syafriana memperkenalkan dirinya sebagai pengajar dan pemilik usaha produk Herbalife. Profil ini memuat informasi yang telah disampaikan, tanpa menambahkan riwayat pendidikan, prestasi, atau klaim kesehatan yang belum dikonfirmasi. Hubungi Eka lewat WhatsApp untuk informasi lebih lanjut.",
+  "journeyKicker": "MENGAJAR · BERUSAHA · TERHUBUNG",
+  "theme": {"accent": "#a9d189", "background": "#101b18"},
+  "templateId": "original",
+  "identityMode": "photo"
+}
