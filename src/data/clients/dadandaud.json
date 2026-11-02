@@ -1,0 +1,258 @@
+{
+  "slug": "dadandaud",
+  "name": "Dadan Daud",
+  "role": "Guru Sosiologi & Tim BK MAN 2 Cirebon",
+  "location": "MAN 2 Cirebon · Cirebon, Jawa Barat",
+  "bio": "Halo, saya Dadan Daud. Saya berprofesi sebagai Guru Sosiologi sekaligus bagian dari tim Bimbingan dan Konseling (BK) di MAN 2 Cirebon. Bagi saya, pendidikan bukan hanya tentang memahami pelajaran, tetapi juga tentang memahami manusia dan lingkungan sosialnya. Selamat datang di ruang profil saya—tempat untuk mengenal bidang yang saya tekuni dan membuka komunikasi dengan lebih dekat.",
+  "tagline": [
+    "Memahami Masyarakat, Mendampingi Generasi"
+  ],
+  "interests": [
+    "Sosiologi",
+    "Bimbingan & Konseling",
+    "Pendidikan Madrasah",
+    "Perkembangan Peserta Didik"
+  ],
+  "photo": {
+    "src": "/clients/dadandaud/foto-profesional.webp",
+    "alt": "Potret profesional Dadan Daud mengenakan peci, jas navy, dan kemeja batik biru; latar transparan"
+  },
+  "email": "sosioman2@gmail.com",
+  "whatsapp": "081214041089",
+  "links": {},
+  "theme": {
+    "accent": "#e2b46d",
+    "background": "#0a1625"
+  },
+  "experiences": [
+    {
+      "company": "MAN 2 Cirebon",
+      "role": "Guru Sosiologi",
+      "period": "Peran saat ini",
+      "description": "Mengajar mata pelajaran Sosiologi. Bidang ini mengajak peserta didik mempelajari hubungan sosial, masyarakat, dan kehidupan bersama."
+    },
+    {
+      "company": "MAN 2 Cirebon",
+      "role": "Tim Bimbingan dan Konseling (BK)",
+      "period": "Peran saat ini",
+      "description": "Menjadi bagian dari tim BK di lingkungan madrasah. Peran ini berhubungan dengan dukungan dan pendampingan peserta didik dalam perjalanan pendidikannya."
+    }
+  ],
+  "education": [],
+  "projects": [
+    {
+      "title": "Belajar Sosiologi",
+      "year": "SOSIOLOGI",
+      "description": "Mengenal bidang Sosiologi yang diajarkan Pak Dadan: cara memahami interaksi sosial, masyarakat, dan berbagai fenomena dalam kehidupan sehari-hari. Bagian ini merupakan gambaran bidang tugas, bukan daftar program khusus yang telah diselenggarakan.",
+      "category": "Bidang Pengajaran",
+      "tags": ["Sosiologi", "Masyarakat", "Interaksi Sosial"],
+      "image": "/clients/dadandaud/ruang-pendampingan.webp"
+    },
+    {
+      "title": "Ruang Bimbingan & Konseling",
+      "year": "BIMBINGAN",
+      "description": "Sebagai bagian dari tim BK MAN 2 Cirebon, Pak Dadan juga berada dalam ruang pendidikan yang berkaitan dengan perhatian, komunikasi, dan pendampingan peserta didik. Visual ruang yang ditampilkan adalah ilustrasi, bukan foto fasilitas madrasah.",
+      "category": "Pendampingan Siswa",
+      "tags": ["BK", "Peserta Didik", "Komunikasi"],
+      "image": "/clients/dadandaud/ruang-pendampingan.webp"
+    },
+    {
+      "title": "Berkenalan dengan Pak Dadan",
+      "year": "PROFIL",
+      "description": "Dadan Daud memperkenalkan dua peran utamanya dalam dunia pendidikan di MAN 2 Cirebon. Untuk berkomunikasi secara langsung, gunakan kontak WhatsApp atau email yang tercantum pada halaman ini.",
+      "category": "Profil Profesional",
+      "tags": ["Dadan Daud", "MAN 2 Cirebon", "Kontak"],
+      "website": "https://wa.me/6281214041089?text=Assalamualaikum%20Pak%20Dadan%2C%20saya%20melihat%20profil%20Bapak%20di%20PESONAFLIX.",
+      "image": "/clients/dadandaud/foto-profesional.webp"
+    }
+  ],
+  "skills": [
+    "Pengajaran Sosiologi",
+    "Bimbingan dan Konseling",
+    "Komunikasi Pendidikan"
+  ],
+  "skillCategories": [
+    {
+      "id": "pendidikan-sosiologi",
+      "title": "Dunia Sosiologi",
+      "subtitle": "Bidang pengajaran Pak Dadan",
+      "skills": [
+        {
+          "name": "Guru Sosiologi",
+          "mono": "SOS",
+          "note": "Mata pelajaran yang diampu",
+          "evidence": [
+            "Berprofesi sebagai Guru Sosiologi",
+            "Bertugas di MAN 2 Cirebon"
+          ]
+        },
+        {
+          "name": "Pemahaman Sosial",
+          "mono": "SOC",
+          "note": "Fokus bidang ilmu",
+          "evidence": [
+            "Sosiologi mempelajari masyarakat dan interaksi sosial",
+            "Topik yang terkait dengan bidang pengajaran beliau"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bimbingan-komunikasi",
+      "title": "Bimbingan dan Komunikasi",
+      "subtitle": "Peran pendampingan di madrasah",
+      "skills": [
+        {
+          "name": "Tim BK",
+          "mono": "BK",
+          "note": "Bagian dari tim BK MAN 2 Cirebon",
+          "evidence": [
+            "Tercatat dalam profil sebagai anggota tim BK",
+            "Berada dalam lingkungan pendampingan peserta didik"
+          ]
+        },
+        {
+          "name": "Komunikasi Langsung",
+          "mono": "WA",
+          "note": "WhatsApp dan email",
+          "evidence": [
+            "Kontak WhatsApp: 081214041089",
+            "Email: sosioman2@gmail.com"
+          ]
+        }
+      ]
+    }
+  ],
+  "skillsHeading": "Dua Peran, Satu Semangat Pendidikan",
+  "skillsAside": "Di MAN 2 Cirebon, Dadan Daud memperkenalkan perannya sebagai Guru Sosiologi dan bagian dari tim BK. Keduanya bersinggungan dengan pemahaman terhadap manusia, hubungan sosial, dan proses pendidikan. Rincian program, prestasi, serta riwayat pendidikan dapat ditambahkan ketika tersedia data langsung dari beliau.",
+  "skillsKicker": "SOSIOLOGI · BIMBINGAN KONSELING",
+  "highlights": [
+    {
+      "title": "Guru Sosiologi",
+      "description": "Mengampu bidang Sosiologi di MAN 2 Cirebon.",
+      "category": "PENGAJARAN"
+    },
+    {
+      "title": "Tim BK",
+      "description": "Bagian dari tim Bimbingan dan Konseling MAN 2 Cirebon.",
+      "category": "PENDAMPINGAN"
+    },
+    {
+      "title": "Mari Terhubung",
+      "description": "Tersedia saluran WhatsApp dan email untuk komunikasi langsung.",
+      "category": "KONTAK"
+    }
+  ],
+  "watchCards": [
+    {
+      "target": "about",
+      "title": "Kenali Pak Dadan",
+      "subtitle": "Profil profesional",
+      "image": "/clients/dadandaud/foto-profesional.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Dunia Sosiologi",
+      "subtitle": "Memahami kehidupan sosial",
+      "image": "/clients/dadandaud/ruang-pendampingan.webp"
+    },
+    {
+      "target": "journey",
+      "title": "Peran di Madrasah",
+      "subtitle": "Sosiologi dan tim BK",
+      "image": "/clients/dadandaud/ruang-pendampingan.webp"
+    },
+    {
+      "target": "skills",
+      "title": "Bidang Pendidikan",
+      "subtitle": "Dua fokus profesi",
+      "image": "/clients/dadandaud/ruang-pendampingan.webp"
+    },
+    {
+      "target": "picks",
+      "title": "Sapa Pak Dadan",
+      "subtitle": "WhatsApp dan email",
+      "image": "/clients/dadandaud/foto-profesional.webp"
+    }
+  ],
+  "pickCards": [
+    {
+      "label": "PROFIL PENDIDIK",
+      "title": "Dadan Daud",
+      "detail": "Guru Sosiologi dan bagian dari tim Bimbingan dan Konseling MAN 2 Cirebon.",
+      "image": "/clients/dadandaud/foto-profesional.webp",
+      "palette": { "from": "#101d33", "via": "#2b4b67", "to": "#090f20", "accent": "#e2b46d" }
+    },
+    {
+      "label": "RUANG PENDIDIKAN",
+      "title": "Sosiologi & BK",
+      "detail": "Dua bidang kerja yang sama-sama berhubungan dengan manusia, pembelajaran, dan pendampingan.",
+      "image": "/clients/dadandaud/ruang-pendampingan.webp",
+      "palette": { "from": "#253143", "via": "#6f5640", "to": "#14212a", "accent": "#ecc487" }
+    },
+    {
+      "label": "HUBUNGI LANGSUNG",
+      "title": "Mari Berdiskusi",
+      "detail": "Mulai percakapan dengan Pak Dadan melalui WhatsApp atau kirim email.",
+      "image": "/clients/dadandaud/ruang-pendampingan.webp",
+      "palette": { "from": "#0d2634", "via": "#395c67", "to": "#10202c", "accent": "#e2b46d" }
+    }
+  ],
+  "picksHeading": "Belajar, Memahami, Mendampingi",
+  "picksKicker": "PROFIL · SOSIOLOGI · BIMBINGAN",
+  "seasons": [
+    {
+      "number": 1,
+      "title": "Mengenal Dadan Daud",
+      "period": "Profil Pendidik",
+      "synopsis": "Perkenalan Dadan Daud dan dua bidang profesinya di MAN 2 Cirebon.",
+      "episodes": [
+        {
+          "title": "Halo, Saya Dadan",
+          "runtime": "Perkenalan",
+          "description": "Saya Dadan Daud. Saat ini saya berprofesi sebagai Guru Sosiologi dan bagian dari tim BK di MAN 2 Cirebon. Melalui halaman ini, mari berkenalan dengan bidang pendidikan yang saya tekuni.",
+          "tags": ["Dadan Daud", "Guru", "MAN 2 Cirebon"],
+          "image": "/clients/dadandaud/foto-profesional.webp",
+          "palette": { "from": "#101d33", "via": "#2b4b67", "to": "#090f20", "accent": "#e2b46d" }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Mengenal Bidang Pengajaran",
+      "period": "Sosiologi",
+      "synopsis": "Sosiologi mengajak kita membaca masyarakat dan hubungan antarmanusia.",
+      "episodes": [
+        {
+          "title": "Melihat Masyarakat Lebih Dekat",
+          "runtime": "Sosiologi",
+          "description": "Dalam ilmu Sosiologi, interaksi sosial dan perubahan dalam masyarakat menjadi bahan pembelajaran. Bidang inilah yang saya ampu sebagai guru di madrasah.",
+          "tags": ["Sosiologi", "Interaksi Sosial", "Masyarakat"],
+          "image": "/clients/dadandaud/ruang-pendampingan.webp",
+          "palette": { "from": "#253143", "via": "#6f5640", "to": "#14212a", "accent": "#ecc487" }
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Ruang Pendampingan",
+      "period": "Bimbingan dan Konseling",
+      "synopsis": "Peran Dadan sebagai bagian dari tim BK di lingkungan MAN 2 Cirebon.",
+      "episodes": [
+        {
+          "title": "Mengenal Peran Tim BK",
+          "runtime": "Pendampingan",
+          "description": "Selain mengajar Sosiologi, saya juga menjadi bagian dari tim BK. Dalam dunia pendidikan, pendampingan dan komunikasi merupakan bagian penting dari ruang tumbuh peserta didik.",
+          "tags": ["Tim BK", "Pendampingan", "Pendidikan"],
+          "image": "/clients/dadandaud/ruang-pendampingan.webp",
+          "palette": { "from": "#0d2634", "via": "#395c67", "to": "#10202c", "accent": "#e2b46d" }
+        }
+      ]
+    }
+  ],
+  "journeyHeading": "Mengajar Ilmu Sosial, Hadir dalam Pendampingan",
+  "journeyAside": "Profil ini menampilkan dua peran Dadan Daud yang sudah dikonfirmasi: Guru Sosiologi dan tim BK MAN 2 Cirebon. Belum ada rincian tahun mengajar, pendidikan formal, maupun daftar kegiatan khusus, sehingga bagian perjalanan berfokus pada bidang kerja yang memang telah disampaikan.",
+  "journeyKicker": "SOSIOLOGI · MADRASAH · BIMBINGAN",
+  "templateId": "original",
+  "identityMode": "photo"
+}
