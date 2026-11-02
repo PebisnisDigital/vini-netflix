@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">Identitas visual Nina</title>
+  <desc id="desc">Ilustrasi tipografi abstrak dengan huruf N, lingkaran, dan ranting botani. Tidak menampilkan foto atau wajah.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#1b1725"/>
+      <stop offset=".52" stop-color="#3f2a3a"/>
+      <stop offset="1" stop-color="#19151f"/>
+    </linearGradient>
+    <radialGradient id="halo">
+      <stop stop-color="#d7a4a3" stop-opacity=".35"/>
+      <stop offset=".62" stop-color="#aa788c" stop-opacity=".13"/>
+      <stop offset="1" stop-color="#aa788c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#f8e1c2"/>
+      <stop offset=".55" stop-color="#dcb598"/>
+      <stop offset="1" stop-color="#bd8292"/>
+    </linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="32"/></filter>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+  <circle cx="536" cy="425" r="420" fill="url(#halo)"/>
+  <circle cx="515" cy="448" r="342" fill="none" stroke="#f0c9ad" stroke-opacity=".18" stroke-width="2"/>
+  <circle cx="515" cy="448" r="297" fill="none" stroke="#f0c9ad" stroke-opacity=".28" stroke-width="1"/>
+  <circle cx="515" cy="448" r="267" fill="none" stroke="#f0c9ad" stroke-opacity=".08" stroke-width="30"/>
+  <ellipse cx="512" cy="780" rx="270" ry="45" fill="#e7aab5" opacity=".15" filter="url(#blur)"/>
+  <path d="M206 770C272 690 264 610 243 524M243 524c-44 4-72-27-79-67 47-3 76 16 79 67Zm5 78c50-20 81-57 88-99-51 13-78 45-88 99Zm-17 53c-47-5-81-42-90-86 51 2 80 26 90 86Zm-3 43c39-29 78-33 120-17-32 35-71 45-120 17Z" fill="#a78d8e" fill-opacity=".6" stroke="#d9b2a5" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M810 757c-53-96-34-174-2-252M808 505c43 14 73-8 91-48-45-13-78 3-91 48Zm-19 76c-48-31-68-69-66-111 47 23 68 62 66 111Zm9 61c48 4 88-24 109-65-50-11-87 13-109 65Zm15 49c-36-35-74-46-118-38 26 41 63 58 118 38Z" fill="#c5929b" fill-opacity=".46" stroke="#e4bcae" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M306 274c64-66 141-104 230-108M707 265c-40-50-90-78-144-92" fill="none" stroke="url(#gold)" stroke-opacity=".55" stroke-width="3" stroke-linecap="round"/>
+  <g fill="#f3dfcf"><circle cx="319" cy="259" r="5" opacity=".7"/><circle cx="722" cy="285" r="4" opacity=".55"/><circle cx="692" cy="691" r="3" opacity=".65"/></g>
+  <text x="512" y="588" fill="url(#gold)" font-size="414" font-family="DejaVu Serif, Georgia, serif" text-anchor="middle" font-weight="400">N</text>
+  <line x1="368" x2="656" y1="679" y2="679" stroke="#f5deca" stroke-opacity=".56" stroke-width="1"/>
+  <text x="512" y="742" fill="#f8e8d8" font-size="39" font-family="DejaVu Sans, Arial, sans-serif" letter-spacing="18" text-anchor="middle">NINA</text>
+  <text x="512" y="805" fill="#d9b9ae" font-size="16" font-family="DejaVu Sans, Arial, sans-serif" letter-spacing="6" text-anchor="middle">CERITA PERSONAL</text>
+  <rect x="29" y="29" width="966" height="966" rx="32" fill="none" stroke="#e8c3ae" stroke-opacity=".23" stroke-width="2"/>
+</svg>
