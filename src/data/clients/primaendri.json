@@ -29,7 +29,11 @@
       "year": "PERKENALAN",
       "description": "Prima Endri Rakhmayani memperkenalkan dirinya sebagai ibu rumah tangga dan penulis. Ini adalah profil personal, bukan daftar buku atau publikasi yang telah terbit.",
       "category": "Profil Personal",
-      "tags": ["Prima Endri", "Ibu Rumah Tangga", "Penulis"],
+      "tags": [
+        "Prima Endri",
+        "Ibu Rumah Tangga",
+        "Penulis"
+      ],
       "image": "/clients/primaendri/foto-profesional.webp"
     },
     {
@@ -37,7 +41,11 @@
       "year": "MENULIS",
       "description": "Sebuah ruang untuk mengenalkan sisi kepenulisan Prima. Judul karya, genre tulisan, dan tautan publikasi bisa ditambahkan setelah informasinya tersedia.",
       "category": "Ruang Menulis",
-      "tags": ["Menulis", "Kata", "Gagasan"],
+      "tags": [
+        "Menulis",
+        "Kata",
+        "Gagasan"
+      ],
       "image": "/clients/primaendri/ruang-menulis.webp"
     },
     {
@@ -45,7 +53,11 @@
       "year": "KESEHARIAN",
       "description": "Dua identitas yang Prima sampaikan—ibu rumah tangga dan penulis—menjadi awal perkenalan. Cerita personal lainnya dapat ditambahkan sesuai pilihannya.",
       "category": "Peran & Cerita",
-      "tags": ["Rumah", "Keseharian", "Cerita Personal"],
+      "tags": [
+        "Rumah",
+        "Keseharian",
+        "Cerita Personal"
+      ],
       "image": "/clients/primaendri/lembar-cerita.webp"
     },
     {
@@ -53,12 +65,20 @@
       "year": "TERHUBUNG",
       "description": "Ingin menyapa Prima atau bertanya tentang tulisannya? Kirim pesan langsung melalui WhatsApp. Email juga tersedia di profil ini.",
       "category": "Kontak Personal",
-      "tags": ["WhatsApp", "Email", "Silaturahmi"],
+      "tags": [
+        "WhatsApp",
+        "Email",
+        "Silaturahmi"
+      ],
       "website": "https://wa.me/6282230567712?text=Halo%20Bu%20Prima%2C%20saya%20melihat%20profil%20Ibu%20di%20PESONAFLIX.",
       "image": "/clients/primaendri/ruang-menulis.webp"
     }
   ],
-  "skills": ["Menulis", "Peran Ibu Rumah Tangga", "Komunikasi Personal"],
+  "skills": [
+    "Menulis",
+    "Peran Ibu Rumah Tangga",
+    "Komunikasi Personal"
+  ],
   "skillCategories": [
     {
       "id": "dua-peran",
@@ -169,14 +189,24 @@
       "title": "Ruang Seorang Penulis",
       "detail": "Mengenal sisi kepenulisan Prima, dengan ruang untuk menambahkan karya pilihan di kemudian hari.",
       "image": "/clients/primaendri/ruang-menulis.webp",
-      "palette": {"from": "#291622", "via": "#946e57", "to": "#100d14", "accent": "#f0c89e"}
+      "palette": {
+        "from": "#291622",
+        "via": "#946e57",
+        "to": "#100d14",
+        "accent": "#f0c89e"
+      }
     },
     {
       "label": "CERITA PERSONAL",
       "title": "Keseharian Punya Kisah",
       "detail": "Ada peran ibu rumah tangga di samping identitas sebagai penulis. Keduanya hadir dalam satu ruang perkenalan.",
       "image": "/clients/primaendri/lembar-cerita.webp",
-      "palette": {"from": "#28121d", "via": "#795247", "to": "#100c11", "accent": "#efc9a5"}
+      "palette": {
+        "from": "#28121d",
+        "via": "#795247",
+        "to": "#100c11",
+        "accent": "#efc9a5"
+      }
     }
   ],
   "picksHeading": "Kisah yang Bisa Kita Kenali",
@@ -192,9 +222,18 @@
           "title": "Halo, Saya Prima",
           "runtime": "Perkenalan",
           "description": "Prima memperkenalkan namanya, peran sebagai ibu rumah tangga, dan identitas sebagai penulis. Cerita lain dapat dilengkapi langsung oleh Prima.",
-          "tags": ["Prima Endri", "Perkenalan", "Dua Peran"],
+          "tags": [
+            "Prima Endri",
+            "Perkenalan",
+            "Dua Peran"
+          ],
           "image": "/clients/primaendri/foto-profesional.webp",
-          "palette": {"from": "#26151e", "via": "#ab7f69", "to": "#100b13", "accent": "#f2d0af"}
+          "palette": {
+            "from": "#26151e",
+            "via": "#ab7f69",
+            "to": "#100b13",
+            "accent": "#f2d0af"
+          }
         }
       ]
     },
@@ -208,17 +247,35 @@
           "title": "Halaman yang Menanti Cerita",
           "runtime": "Terbuka",
           "description": "Halaman ini menjadi tempat memperkenalkan sisi penulis. Informasi buku atau tulisan terbit belum dicantumkan dan dapat dilengkapi nanti.",
-          "tags": ["Menulis", "Karya", "Ruang Cerita"],
+          "tags": [
+            "Menulis",
+            "Karya",
+            "Ruang Cerita"
+          ],
           "image": "/clients/primaendri/ruang-menulis.webp",
-          "palette": {"from": "#321a24", "via": "#b18561", "to": "#120d15", "accent": "#ffe0b6"}
+          "palette": {
+            "from": "#321a24",
+            "via": "#b18561",
+            "to": "#120d15",
+            "accent": "#ffe0b6"
+          }
         },
         {
           "title": "Percakapan Pertama",
           "runtime": "Terhubung",
           "description": "Pengunjung bisa menyapa Prima melalui WhatsApp atau email untuk membuka percakapan.",
-          "tags": ["WhatsApp", "Email", "Silaturahmi"],
+          "tags": [
+            "WhatsApp",
+            "Email",
+            "Silaturahmi"
+          ],
           "image": "/clients/primaendri/lembar-cerita.webp",
-          "palette": {"from": "#361822", "via": "#886044", "to": "#130d14", "accent": "#f1cba3"}
+          "palette": {
+            "from": "#361822",
+            "via": "#886044",
+            "to": "#130d14",
+            "accent": "#f1cba3"
+          }
         }
       ]
     }
@@ -226,7 +283,13 @@
   "journeyHeading": "Setiap Orang Memiliki Halamannya",
   "journeyAside": "Prima Endri Rakhmayani hadir sebagai ibu rumah tangga dan penulis. Halaman ini memulai ceritanya dengan informasi yang telah dibagikan, tanpa menambahkan buku terbit atau pencapaian yang belum dikonfirmasi. Jika ingin berkenalan, hubungi Prima langsung melalui WhatsApp atau email.",
   "journeyKicker": "PERKENALAN · KATA · KESEHARIAN",
-  "theme": {"accent": "#e9bf93", "background": "#130d14"},
-  "templateId": "editorial-premium",
-  "identityMode": "photo"
+  "templateId": "original",
+  "identityMode": "photo",
+  "visualDesign": {
+    "textStyles": {
+      "name": {
+        "fontSize": 42
+      }
+    }
+  }
 }
