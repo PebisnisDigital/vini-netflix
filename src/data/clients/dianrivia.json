@@ -40,11 +40,11 @@
       "image": "/clients/dianrivia/sekilas-al-azhar.webp"
     },
     {
-      "title": "Peta Area & Zona",
+      "title": "Siteplan Kawasan 25 Hektare",
       "year": "SITE MAP",
-      "description": "Peta kawasan yang memperlihatkan pembagian zona pemakaman serta lokasi fasilitas seperti hall, musala, toilet, dan lounge. Nama dan posisi zona dapat dilihat pada gambar utuh.",
+      "description": "Siteplan keseluruhan Al Azhar Memorial Garden seluas 25 hektare, sesuai keterangan pada materi yang dibagikan. Peta menunjukkan pembagian zona pemakaman serta fasilitas seperti hall, musala, toilet, dan lounge.",
       "category": "Peta & Fasilitas",
-      "tags": ["Peta Kawasan", "Zona Pemakaman", "Fasilitas"],
+      "tags": ["25 Hektare", "Zona Pemakaman", "Fasilitas"],
       "image": "/clients/dianrivia/peta-area-memorial.webp"
     },
     {
@@ -72,19 +72,19 @@
       "image": "/clients/dianrivia/tipe-kavling-keluarga.webp"
     },
     {
-      "title": "Pelayanan Saat Prosesi",
-      "year": "DOKUMENTASI",
-      "description": "Dokumentasi pelaksanaan prosesi pemakaman pada siang hari dengan petugas dan keluarga di area tenda. Ditampilkan sebagai gambaran suasana pelayanan.",
+      "title": "Prosesi Pemakaman Masa COVID",
+      "year": "DOKUMENTASI COVID",
+      "description": "Dokumentasi prosesi pemakaman pada masa COVID, dengan petugas mengenakan alat pelindung diri dan keluarga berada di area yang disiapkan. Foto ini merupakan dokumentasi kegiatan, bukan panduan prosedur saat ini.",
       "category": "Dokumentasi Prosesi",
-      "tags": ["Prosesi", "Pelayanan", "Keluarga"],
+      "tags": ["Pemakaman COVID", "Petugas APD", "Keluarga"],
       "image": "/clients/dianrivia/prosesi-pemakaman-siang.webp"
     },
     {
-      "title": "Persiapan di Area Pemakaman",
-      "year": "DOKUMENTASI",
-      "description": "Suasana persiapan di area pemakaman dengan petugas serta fasilitas tenda yang disediakan untuk keluarga dan tamu.",
+      "title": "Persiapan Pemakaman Masa COVID",
+      "year": "DOKUMENTASI COVID",
+      "description": "Foto petugas dengan alat pelindung diri di kawasan pemakaman pada masa COVID, disertai fasilitas tenda bagi keluarga dan tamu.",
       "category": "Dokumentasi Prosesi",
-      "tags": ["Persiapan", "Area Pemakaman", "Petugas"],
+      "tags": ["Pemakaman COVID", "Persiapan", "Petugas APD"],
       "image": "/clients/dianrivia/persiapan-pemakaman.webp"
     },
     {
@@ -104,25 +104,25 @@
       "image": "/clients/dianrivia/pendampingan-pemakaman-malam.webp"
     },
     {
-      "title": "Pertemuan di Area Memorial",
-      "year": "DOKUMENTASI KEGIATAN",
-      "description": "Foto kegiatan pertemuan di ruang terbuka kawasan memorial. Dokumentasi ini memberi gambaran suasana kunjungan kelompok.",
-      "category": "Kegiatan & Kebersamaan",
-      "tags": ["Pertemuan", "Kunjungan", "Kebersamaan"],
+      "title": "Training Calon Memorial Partner",
+      "year": "KEGIATAN TRAINING",
+      "description": "Dokumentasi kegiatan training calon mitra atau memorial partner Al Azhar Memorial Garden, sesuai keterangan foto yang dibagikan.",
+      "category": "Training & Kegiatan",
+      "tags": ["Training", "Calon Mitra", "Memorial Partner"],
       "image": "/clients/dianrivia/pertemuan-lapangan.webp"
     },
     {
-      "title": "Kebersamaan Komunitas AMG PRO",
+      "title": "Kegiatan Bersama AMG PRO",
       "year": "DOKUMENTASI KEGIATAN",
-      "description": "Foto kebersamaan peserta dalam kegiatan yang menampilkan identitas AMG PRO. Informasi kegiatan dapat ditanyakan lebih lanjut kepada Dian.",
+      "description": "Salah satu foto dokumentasi kegiatan dan kebersamaan peserta yang menampilkan identitas AMG PRO.",
       "category": "Kegiatan & Kebersamaan",
       "tags": ["AMG PRO", "Komunitas", "Kebersamaan"],
       "image": "/clients/dianrivia/kegiatan-amg-pro.webp"
     },
     {
-      "title": "Momen Kebersamaan Perjalanan",
-      "year": "DOKUMENTASI KEGIATAN",
-      "description": "Foto kelompok dalam suasana perjalanan bersama. Ditampilkan sebagai dokumentasi kebersamaan, tanpa mengaitkan lokasi perjalanan dengan fasilitas memorial.",
+      "title": "Perjalanan Bersama ke Luar Negeri",
+      "year": "DOKUMENTASI PERJALANAN",
+      "description": "Dokumentasi kebersamaan dalam perjalanan ke luar negeri, sesuai keterangan pengirim foto. Lokasi perjalanan ini bukan bagian dari Al Azhar Memorial Garden.",
       "category": "Kegiatan & Kebersamaan",
       "tags": ["Perjalanan", "Komunitas", "Kebersamaan"],
       "image": "/clients/dianrivia/kebersamaan-komunitas.webp"
@@ -208,8 +208,8 @@
   "skillsKicker": "PETA · FASILITAS · KAVLING · KONTAK",
   "highlights": [
     {
-      "title": "Lokasi & Fasilitas",
-      "description": "Lihat peta, fasilitas, dan suasana Al Azhar Memorial Garden.",
+      "title": "Siteplan 25 Hektare",
+      "description": "Lihat pembagian zona, fasilitas, dan kawasan pada siteplan yang dibagikan.",
       "category": "LOKASI"
     },
     {
@@ -250,8 +250,8 @@
     },
     {
       "target": "picks",
-      "title": "Pendampingan Keluarga",
-      "subtitle": "Mengenal layanan dan kontak",
+      "title": "Dokumentasi Prosesi",
+      "subtitle": "Pemakaman malam dan masa COVID",
       "image": "/clients/dianrivia/prosesi-pemakaman-siang.webp"
     }
   ],
@@ -282,8 +282,8 @@
     },
     {
       "label": "PELAYANAN KELUARGA",
-      "title": "Kehadiran di Saat Penting",
-      "detail": "Dokumentasi suasana prosesi dan fasilitas pendukung bagi keluarga.",
+      "title": "Dokumentasi yang Bermakna",
+      "detail": "Foto prosesi pemakaman pada masa COVID; dokumentasi historis, bukan gambaran protokol saat ini.",
       "image": "/clients/dianrivia/prosesi-pemakaman-siang.webp",
       "palette": {
         "from": "#14242d",
@@ -328,10 +328,10 @@
           }
         },
         {
-          "title": "Peta Pembagian Zona",
+          "title": "Siteplan Seluas 25 Hektare",
           "runtime": "Peta Area",
-          "description": "Kenali pembagian zona dan lokasi fasilitas pada peta kawasan.",
-          "tags": ["Peta", "Zona", "Fasilitas"],
+          "description": "Siteplan keseluruhan lokasi seluas 25 hektare, meliputi pembagian zona dan fasilitas penunjang.",
+          "tags": ["25 Hektare", "Zona", "Fasilitas"],
           "image": "/clients/dianrivia/peta-area-memorial.webp",
           "palette": { "from": "#0d2c22", "via": "#326a52", "to": "#0f1d19", "accent": "#d7c188" }
         },
@@ -386,21 +386,21 @@
       "number": 3,
       "title": "Suasana Pelayanan",
       "period": "Dokumentasi Prosesi",
-      "synopsis": "Dokumentasi petugas, tenda, dan suasana keluarga saat prosesi. Ditampilkan dengan hormat sebagai gambaran pelayanan.",
+      "synopsis": "Dokumentasi prosesi pemakaman malam hari dan pemakaman masa COVID, sesuai keterangan foto yang dibagikan.",
       "episodes": [
         {
-          "title": "Prosesi Siang Hari",
-          "runtime": "Dokumentasi",
-          "description": "Suasana prosesi pemakaman yang memperlihatkan petugas dan area tenda untuk keluarga.",
-          "tags": ["Prosesi", "Petugas", "Siang"],
+          "title": "Pemakaman Masa COVID",
+          "runtime": "Dokumentasi COVID",
+          "description": "Suasana prosesi masa COVID dengan petugas beralat pelindung diri dan area tenda untuk keluarga.",
+          "tags": ["Pemakaman COVID", "Petugas APD", "Keluarga"],
           "palette": { "from": "#132f2b", "via": "#3f7168", "to": "#0d1b1a", "accent": "#d4dcb3" },
           "image": "/clients/dianrivia/prosesi-pemakaman-siang.webp"
         },
         {
-          "title": "Persiapan di Area Pemakaman",
-          "runtime": "Dokumentasi",
-          "description": "Tim dan fasilitas tenda dalam suasana persiapan untuk prosesi.",
-          "tags": ["Persiapan", "Keluarga", "Fasilitas"],
+          "title": "Persiapan Saat COVID",
+          "runtime": "Dokumentasi COVID",
+          "description": "Petugas dengan alat pelindung diri dan fasilitas tenda dalam dokumentasi masa COVID.",
+          "tags": ["APD", "Keluarga", "Fasilitas"],
           "palette": { "from": "#182d35", "via": "#416876", "to": "#0d1820", "accent": "#c0dce5" },
           "image": "/clients/dianrivia/persiapan-pemakaman.webp"
         },
@@ -421,10 +421,10 @@
       "synopsis": "Kumpulan foto pertemuan, kegiatan, dan perjalanan bersama yang dibagikan sebagai dokumentasi kebersamaan.",
       "episodes": [
         {
-          "title": "Pertemuan di Area Memorial",
-          "runtime": "Dokumentasi",
-          "description": "Suasana pertemuan kelompok di area terbuka.",
-          "tags": ["Pertemuan", "Kegiatan", "Kebersamaan"],
+          "title": "Training Calon Memorial Partner",
+          "runtime": "Kegiatan Training",
+          "description": "Dokumentasi pelatihan bagi calon mitra atau memorial partner.",
+          "tags": ["Training", "Calon Mitra", "Memorial Partner"],
           "palette": { "from": "#142c28", "via": "#42766b", "to": "#111e20", "accent": "#e2cba3" },
           "image": "/clients/dianrivia/pertemuan-lapangan.webp"
         },
@@ -437,10 +437,10 @@
           "image": "/clients/dianrivia/kegiatan-amg-pro.webp"
         },
         {
-          "title": "Momen Perjalanan Bersama",
-          "runtime": "Dokumentasi",
-          "description": "Kenangan kebersamaan rombongan saat perjalanan; lokasi pada foto tidak terkait dengan lokasi memorial.",
-          "tags": ["Perjalanan", "Kebersamaan", "Komunitas"],
+          "title": "Perjalanan ke Luar Negeri",
+          "runtime": "Dokumentasi Perjalanan",
+          "description": "Foto kebersamaan rombongan dalam perjalanan ke luar negeri, terpisah dari lokasi memorial.",
+          "tags": ["Luar Negeri", "Kebersamaan", "Komunitas"],
           "palette": { "from": "#24283d", "via": "#666685", "to": "#171725", "accent": "#eee0bb" },
           "image": "/clients/dianrivia/kebersamaan-komunitas.webp"
         }
