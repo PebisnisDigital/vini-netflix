@@ -42,7 +42,11 @@
       "year": "PENDIDIKAN",
       "description": "Kenali Eka dari perannya sebagai pengajar. Halaman ini menjadi pintu awal untuk komunikasi terkait kegiatan belajar dan pengajaran; informasi program atau jadwal dapat ditanyakan langsung.",
       "category": "Pendidikan & Pengajaran",
-      "tags": ["Pengajar", "Pendidikan", "Belajar"],
+      "tags": [
+        "Pengajar",
+        "Pendidikan",
+        "Belajar"
+      ],
       "image": "/clients/ekasyafriana/ruang-pendidikan.webp"
     },
     {
@@ -50,7 +54,11 @@
       "year": "WELLNESS",
       "description": "Eka juga menjalankan usaha produk Herbalife. Bila ingin mengetahui pilihan produk, komposisi, harga, atau informasi penggunaan sesuai label, mulailah dengan bertanya langsung. Gambar pendamping merupakan ilustrasi wellness, bukan foto produk yang dijual.",
       "category": "Usaha Produk Wellness",
-      "tags": ["Herbalife", "Informasi Produk", "Wellness"],
+      "tags": [
+        "Herbalife",
+        "Informasi Produk",
+        "Wellness"
+      ],
       "image": "/clients/ekasyafriana/wellness-botanical.webp"
     },
     {
@@ -58,7 +66,11 @@
       "year": "KONTAK",
       "description": "Ada pertanyaan soal pengajaran atau ingin mengenal usaha Eka? Sampaikan pesan melalui WhatsApp. Untuk komunikasi tertulis, email juga tersedia pada profil ini.",
       "category": "Komunikasi Langsung",
-      "tags": ["WhatsApp", "Email", "Tanya Eka"],
+      "tags": [
+        "WhatsApp",
+        "Email",
+        "Tanya Eka"
+      ],
       "website": "https://wa.me/6282353599789?text=Halo%20Bu%20Eka%2C%20saya%20melihat%20profil%20PESONAFLIX%20Ibu%20dan%20ingin%20bertanya.",
       "image": "/clients/ekasyafriana/foto-profesional.webp"
     }
@@ -180,14 +192,24 @@
       "title": "Temui Sosok Pengajar",
       "detail": "Kenali peran Eka dalam dunia pengajaran dan hubungi untuk informasi kegiatan belajar.",
       "image": "/clients/ekasyafriana/ruang-pendidikan.webp",
-      "palette": {"from": "#17291f", "via": "#6e9a7a", "to": "#0e1d17", "accent": "#d6e7c5"}
+      "palette": {
+        "from": "#17291f",
+        "via": "#6e9a7a",
+        "to": "#0e1d17",
+        "accent": "#d6e7c5"
+      }
     },
     {
       "label": "USAHA WELLNESS",
       "title": "Kenali Usaha Eka",
       "detail": "Tanyakan informasi produk Herbalife, pilihan yang tersedia, serta hal-hal yang perlu diketahui.",
       "image": "/clients/ekasyafriana/wellness-botanical.webp",
-      "palette": {"from": "#14271d", "via": "#476a4b", "to": "#112017", "accent": "#b8d99d"}
+      "palette": {
+        "from": "#14271d",
+        "via": "#476a4b",
+        "to": "#112017",
+        "accent": "#b8d99d"
+      }
     }
   ],
   "picksHeading": "Dua Topik untuk Memulai Percakapan",
@@ -203,9 +225,18 @@
           "title": "Berbagi Ilmu",
           "runtime": "Pendidikan",
           "description": "Peran Eka sebagai pengajar menjadi salah satu bagian penting dari profilnya. Informasi lembaga serta bidang ajar dapat dilengkapi kemudian.",
-          "tags": ["Mengajar", "Pendidikan", "Profil"],
+          "tags": [
+            "Mengajar",
+            "Pendidikan",
+            "Profil"
+          ],
           "image": "/clients/ekasyafriana/ruang-pendidikan.webp",
-          "palette": {"from": "#14261f", "via": "#658776", "to": "#101c18", "accent": "#d0e6bb"}
+          "palette": {
+            "from": "#14261f",
+            "via": "#658776",
+            "to": "#101c18",
+            "accent": "#d0e6bb"
+          }
         }
       ]
     },
@@ -219,9 +250,18 @@
           "title": "Mengenal Produk",
           "runtime": "Wellness",
           "description": "Pengunjung dapat menanyakan informasi produk dan ketersediaan. Penggunaan produk perlu mengikuti informasi resmi pada kemasan dan pertimbangan kesehatan pribadi.",
-          "tags": ["Herbalife", "Produk", "Informasi"],
+          "tags": [
+            "Herbalife",
+            "Produk",
+            "Informasi"
+          ],
           "image": "/clients/ekasyafriana/wellness-botanical.webp",
-          "palette": {"from": "#1c3023", "via": "#618b4c", "to": "#102018", "accent": "#d9e7a7"}
+          "palette": {
+            "from": "#1c3023",
+            "via": "#618b4c",
+            "to": "#102018",
+            "accent": "#d9e7a7"
+          }
         }
       ]
     }
@@ -229,7 +269,6 @@
   "journeyHeading": "Berbagi Pengetahuan, Menjalankan Usaha",
   "journeyAside": "Eka Syafriana memperkenalkan dirinya sebagai pengajar dan pemilik usaha produk Herbalife. Profil ini memuat informasi yang telah disampaikan, tanpa menambahkan riwayat pendidikan, prestasi, atau klaim kesehatan yang belum dikonfirmasi. Hubungi Eka lewat WhatsApp untuk informasi lebih lanjut.",
   "journeyKicker": "MENGAJAR · BERUSAHA · TERHUBUNG",
-  "theme": {"accent": "#a9d189", "background": "#101b18"},
   "templateId": "original",
   "identityMode": "photo"
 }
