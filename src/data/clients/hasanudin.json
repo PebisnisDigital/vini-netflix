@@ -1,0 +1,217 @@
+{
+  "slug": "hasanudin",
+  "name": "Hasanudin, S.Pd.I",
+  "role": "Guru",
+  "location": "Indonesia · Dunia Pendidikan",
+  "bio": "Assalamu'alaikum, saya Hasanudin, S.Pd.I, seorang guru. Selamat datang di halaman perkenalan profesional saya. Di sini Anda dapat mengenal identitas saya, bidang profesi yang saya jalani, dan menghubungi saya secara langsung. Informasi sekolah, mata pelajaran, pengalaman mengajar, serta kegiatan pendidikan dapat dilengkapi pada pembaruan berikutnya.",
+  "tagline": [
+    "Mengajar dengan Hati, Terus Belajar Setiap Hari",
+    "GURU · PENDIDIKAN · SILATURAHMI"
+  ],
+  "interests": [
+    "Pendidikan",
+    "Pengajaran",
+    "Pembelajaran Sepanjang Hayat",
+    "Komunikasi Pendidikan"
+  ],
+  "photo": {
+    "src": "/clients/hasanudin/foto-profesional.webp",
+    "alt": "Potret profesional close-up Hasanudin, S.Pd.I, mengenakan jas hitam, kemeja putih, dan dasi merah dengan latar transparan"
+  },
+  "email": "hasanudinqiya@gmail.com",
+  "secondaryEmail": "hasan86@gmail.com",
+  "whatsapp": "085692102468",
+  "secondaryWhatsapp": "085711168118",
+  "links": {},
+  "theme": {
+    "accent": "#d8b575",
+    "background": "#0c1726"
+  },
+  "experiences": [
+    {
+      "company": "Dunia Pendidikan",
+      "role": "Guru",
+      "period": "Profesi saat ini",
+      "description": "Hasanudin memperkenalkan dirinya sebagai guru. Nama instansi, mata pelajaran, jenjang mengajar, dan riwayat tugas belum disampaikan untuk dicantumkan di halaman ini."
+    }
+  ],
+  "education": [],
+  "projects": [
+    {
+      "title": "Kenali Hasanudin, S.Pd.I",
+      "year": "PROFIL",
+      "description": "Perkenalan dengan Hasanudin, S.Pd.I, seorang guru. Gelar akademik ditulis sesuai informasi yang diberikan. Riwayat kampus, sekolah, dan bidang studi tidak ditambahkan sebelum dikonfirmasi.",
+      "category": "Profil Profesional",
+      "tags": ["Hasanudin", "Guru", "S.Pd.I"],
+      "image": "/clients/hasanudin/foto-profesional.webp"
+    },
+    {
+      "title": "Ruang Pendidikan",
+      "year": "PENDIDIKAN",
+      "description": "Dunia pendidikan menjadi bagian dari profesi Hasanudin. Halaman ini dapat berkembang menjadi ruang berbagi perjalanan mengajar, kegiatan pembelajaran, dan karya pendidikan setelah materi tersedia.",
+      "category": "Dunia Pendidikan",
+      "tags": ["Pendidikan", "Pengajaran", "Ruang Belajar"],
+      "image": ""
+    },
+    {
+      "title": "WhatsApp Alternatif",
+      "year": "KONTAK",
+      "description": "Anda juga dapat menghubungi Hasanudin melalui nomor WhatsApp kedua: 0857-111-68-118. Dua alamat email tersedia untuk korespondensi tertulis.",
+      "category": "Komunikasi Langsung",
+      "tags": ["WhatsApp Kedua", "Email", "Silaturahmi"],
+      "website": "https://wa.me/6285711168118?text=Assalamu%27alaikum%20Pak%20Hasanudin%2C%20saya%20melihat%20profil%20Bapak%20di%20PESONAFLIX.",
+      "image": ""
+    }
+  ],
+  "skills": ["Profesi Guru", "Dunia Pendidikan", "Komunikasi Pendidikan"],
+  "skillCategories": [
+    {
+      "id": "pendidikan",
+      "title": "Bidang Profesi",
+      "subtitle": "Perkenalan Hasanudin dalam dunia pendidikan",
+      "skills": [
+        {
+          "name": "Profesi Guru",
+          "mono": "GRU",
+          "note": "Identitas profesional",
+          "evidence": [
+            "Profesi yang disampaikan: Guru",
+            "Jenjang dan mata pelajaran belum diinformasikan"
+          ]
+        },
+        {
+          "name": "Gelar S.Pd.I",
+          "mono": "SPdI",
+          "note": "Gelar yang dicantumkan pada nama",
+          "evidence": [
+            "Nama lengkap: Hasanudin, S.Pd.I",
+            "Nama perguruan tinggi belum disampaikan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kontak",
+      "title": "Mari Terhubung",
+      "subtitle": "Dua nomor WhatsApp dan dua alamat email",
+      "skills": [
+        {
+          "name": "WhatsApp",
+          "mono": "WA",
+          "note": "Dua saluran komunikasi",
+          "evidence": ["0856-9210-2468", "0857-111-68-118"]
+        },
+        {
+          "name": "Email",
+          "mono": "@",
+          "note": "Korespondensi tertulis",
+          "evidence": ["hasanudinqiya@gmail.com", "hasan86@gmail.com"]
+        }
+      ]
+    }
+  ],
+  "skillsHeading": "Mengenal Sosok Pendidik",
+  "skillsAside": "Hasanudin, S.Pd.I memperkenalkan dirinya sebagai guru. Informasi yang ditampilkan berdasarkan data yang tersedia; sekolah, bidang studi, aktivitas mengajar, dan karya dapat ditambahkan ketika beliau membagikan rinciannya.",
+  "skillsKicker": "GURU · PENDIDIKAN · KOMUNIKASI",
+  "highlights": [
+    {
+      "title": "Hasanudin, S.Pd.I",
+      "description": "Identitas profesional pemilik halaman.",
+      "category": "PROFIL"
+    },
+    {
+      "title": "Guru",
+      "description": "Profesi utama yang diperkenalkan dalam halaman ini.",
+      "category": "PENDIDIKAN"
+    },
+    {
+      "title": "Dua Jalur Kontak",
+      "description": "Dua WhatsApp dan dua email untuk terhubung langsung.",
+      "category": "KONTAK"
+    }
+  ],
+  "watchCards": [
+    { "target": "about", "title": "Kenali Pak Hasanudin", "subtitle": "Profil seorang guru", "image": "/clients/hasanudin/foto-profesional.webp" },
+    { "target": "originals", "title": "Ruang Pendidikan", "subtitle": "Profesi dan pembelajaran", "image": "" },
+    { "target": "journey", "title": "Cerita Profesional", "subtitle": "Perkenalan dan perjalanan", "image": "" },
+    { "target": "skills", "title": "Bidang Profesi", "subtitle": "Pendidikan dan komunikasi", "image": "" },
+    { "target": "picks", "title": "Mari Terhubung", "subtitle": "WhatsApp dan email", "image": "/clients/hasanudin/foto-profesional.webp" }
+  ],
+  "pickCards": [
+    {
+      "label": "PROFIL PROFESIONAL",
+      "title": "Hasanudin, S.Pd.I",
+      "detail": "Mengenal Hasanudin dan identitas profesionalnya sebagai guru.",
+      "image": "/clients/hasanudin/foto-profesional.webp",
+      "palette": { "from": "#0d2033", "via": "#34516a", "to": "#0a1320", "accent": "#d8b575" }
+    },
+    {
+      "label": "DUNIA PENDIDIKAN",
+      "title": "Ruang Belajar",
+      "detail": "Pengantar dunia pendidikan yang menjadi bidang profesi beliau.",
+      "image": "",
+      "palette": { "from": "#142b34", "via": "#36616c", "to": "#0a1723", "accent": "#d8b575" }
+    },
+    {
+      "label": "TERHUBUNG",
+      "title": "Sapa Pak Hasanudin",
+      "detail": "Mulai percakapan lewat nomor WhatsApp yang tersedia atau kirim email.",
+      "image": "/clients/hasanudin/foto-profesional.webp",
+      "palette": { "from": "#25203b", "via": "#57436a", "to": "#101325", "accent": "#d8b575" }
+    }
+  ],
+  "picksHeading": "Profil, Pendidikan, dan Silaturahmi",
+  "picksKicker": "PERKENALAN · PROFESI · KONTAK",
+  "seasons": [
+    {
+      "number": 1,
+      "title": "Perkenalan",
+      "period": "Profil Personal",
+      "synopsis": "Mengenal Hasanudin, S.Pd.I sebagai seorang guru.",
+      "episodes": [
+        {
+          "title": "Halo, Saya Hasanudin",
+          "runtime": "Perkenalan",
+          "description": "Assalamu'alaikum, saya Hasanudin, S.Pd.I. Saya seorang guru dan senang bisa berkenalan dengan Anda melalui halaman ini.",
+          "tags": ["Hasanudin", "Guru", "Profil"],
+          "image": "/clients/hasanudin/foto-profesional.webp",
+          "palette": { "from": "#0d2033", "via": "#34516a", "to": "#0a1320", "accent": "#d8b575" }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Dunia Pendidikan",
+      "period": "Profesi Guru",
+      "synopsis": "Profesi guru sebagai bagian dari perjalanan Hasanudin.",
+      "episodes": [
+        {
+          "title": "Profesi yang Saya Jalani",
+          "runtime": "Pendidikan",
+          "description": "Saya memperkenalkan diri sebagai guru. Informasi sekolah, jenjang, dan mata pelajaran akan dilengkapi setelah tersedia.",
+          "tags": ["Guru", "Pendidikan", "Pengajaran"],
+          "palette": { "from": "#142b34", "via": "#36616c", "to": "#0a1723", "accent": "#d8b575" }
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Mari Terhubung",
+      "period": "Langkah Berikutnya",
+      "synopsis": "Membuka komunikasi dengan kontak yang telah disediakan.",
+      "episodes": [
+        {
+          "title": "Lanjutkan Percakapan",
+          "runtime": "Kontak",
+          "description": "Hubungi saya melalui WhatsApp 0856-9210-2468 atau 0857-111-68-118. Untuk pesan tertulis, tersedia hasanudinqiya@gmail.com dan hasan86@gmail.com.",
+          "tags": ["WhatsApp", "Email", "Silaturahmi"],
+          "image": "/clients/hasanudin/foto-profesional.webp",
+          "palette": { "from": "#25203b", "via": "#57436a", "to": "#101325", "accent": "#d8b575" }
+        }
+      ]
+    }
+  ],
+  "journeyHeading": "Tiga Episode Perkenalan",
+  "journeyAside": "Profil ini merupakan awal cerita profesional Hasanudin. Kisah mengajar dan karya dapat terus bertambah seiring informasi yang dibagikan.",
+  "journeyKicker": "PERKENALAN · GURU · KONTAK"
+}

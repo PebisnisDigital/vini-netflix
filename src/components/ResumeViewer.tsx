@@ -112,6 +112,7 @@ export function ResumeSheet() {
             ? <SocialIconLinks links={profile.socialLinks || []} className="mt-3 sm:justify-end" />
             : profile.socialLinks?.map(({ label, url }) => <a key={label} href={url} target="_blank" rel="noopener noreferrer" className="block hover:text-bone">{label} ↗</a>)}
           {profile.whatsapp && <a href={`https://wa.me/${profile.whatsapp.replace(/\D/g, '').replace(/^0/, '62')}`} target="_blank" rel="noopener noreferrer" className="block hover:text-bone">WhatsApp ↗</a>}
+          {profile.secondaryWhatsapp && <a href={`https://wa.me/${profile.secondaryWhatsapp.replace(/\D/g, '').replace(/^0/, '62')}`} target="_blank" rel="noopener noreferrer" className="block hover:text-bone">WhatsApp kedua ↗</a>}
         </div>
       </header>
 
