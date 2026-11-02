@@ -91,3 +91,42 @@ Screenshots were reviewed interactively in the browser session; no screenshot fi
 - **Intentional adaptation:** fully readable Indonesian personal-branding copy remains connected to the existing Netflix-style profile, episode rails, and original work, while vivid chibi imagery stays limited to `/vini2`.
 - **Unchanged routes:** existing `/vini`, `/iis`, `/citra`, and Studio are handled by their original variants; no global style changes.
 - **Production verification:** pending merge and post-merge smoke check of the public domain.
+
+---
+
+## Klien `/zainulhaq2` — PT Amarta Prima Persada replica
+
+**Final result: passed** (2 November 2026)
+
+### Reference and implementation
+
+- **Source of visual truth:** `https://amartaprimapersada.com/`, inspected at desktop and mobile widths including the full desktop page.
+- **Production route:** `https://pesonaflix.vercel.app/zainulhaq2` (with a second language at `/zainulhaq2/en/index.html`).
+- **Implementation:** faithfully adapted the original HTML, CSS, animations, typography, mobile menu, FAQs, rental fleet cards and original image assets into isolated `public/zainulhaq2` files. Local relative paths, language switching and contact targets were made compatible with the nested route.
+- **Authorized contact change:** all WhatsApp destinations, contact text, telephone links and structured data now use `+62 852-2200-5585` / `628522005585`.
+
+### Functional and fidelity checks
+
+| Check | Result | Evidence |
+| --- | --- | --- |
+| Desktop visual | PASS | Original and implementation hero, navigation, typography, vehicle carousel, floating WhatsApp button and section hierarchy inspected in browser. |
+| Mobile visual | PASS | 390px viewport inspected; responsive 36px heading and off-canvas navigation render. |
+| Mobile navigation | PASS | Menu button reveals Tentang, Armada, Skema Sewa, FAQ, Kontak and ID/EN language controls. |
+| FAQ | PASS | FAQ accordion opens on interaction. |
+| Indonesian production route | PASS | Public `/zainulhaq2` opens correct Amarta page with correct H1 and title; no `/index.html` suffix necessary. |
+| English production route | PASS | Public `/zainulhaq2/en/index.html` opens English title and heading. |
+| WhatsApp | PASS | All inspected live Indonesian and English `wa.me` links use `628522005585`; the prior number is not displayed. |
+| Images | PASS | All 14 vendored WebP assets validated locally and included in the production build; 15 page images reference nested local assets. |
+| External dependencies | PASS | Swiper, GSAP and AOS vendored under the nested route; original Google Fonts request retained. |
+| Browser errors | PASS | Live Indonesian and English browser JavaScript error logs were empty. |
+| Regression | PASS | `npm run verify` passed 13 suites and Vite production build completed. Existing PESONAFLIX clients kept unchanged. |
+| Deployment | PASS | GitHub main commit `17591cac01f64bf1f067fef681cdd38c7f82d7dc` built and deployed to Vercel production with READY status and `pesonaflix.vercel.app` alias. |
+
+### Fidelity surfaces and release gate
+
+- **Typography:** original Poppins/Inter styling and heading hierarchy retained.
+- **Spacing / colors:** original section rhythm, dark navy/gold hero, white backgrounds and card layouts retained.
+- **Images:** original logo and vehicle/fleet imagery served from the isolated project route.
+- **Content:** original bilingual copy, fleet, FAQ and contact-form structure retained; only contact data and nested URLs adapted.
+- **P0/P1/P2 issues:** none identified in production smoke checks.
+- **Release:** production alias and both language routes verified publicly.
