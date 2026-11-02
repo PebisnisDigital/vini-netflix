@@ -1,0 +1,226 @@
+{
+  "slug": "dienmahmudin",
+  "name": "Dien Mahmudin",
+  "role": "Guru",
+  "location": "Indonesia · Dunia Pendidikan",
+  "bio": "Halo, saya Dien Mahmudin, seorang guru. Selamat datang di ruang perkenalan digital saya. Di sini, Anda bisa mengenal peran saya dalam dunia pendidikan, melihat sisi profesi yang saya jalani, dan terhubung secara langsung. Untuk berbincang atau menanyakan informasi lebih lanjut, silakan sapa saya melalui WhatsApp atau email.",
+  "tagline": ["Ruang Belajar dan Cerita Seorang Guru"],
+  "interests": ["Pendidikan", "Pengajaran", "Ruang Belajar", "Komunikasi Pendidikan"],
+  "photo": {
+    "src": "/clients/dienmahmudin/foto-profesional.webp",
+    "alt": "Potret profesional close-up Dien Mahmudin, mengenakan jas navy, kacamata, dan penutup kepala bermotif biru-putih; latar transparan"
+  },
+  "email": "dienmahmudin86@gmail.com",
+  "whatsapp": "087887807771",
+  "links": {},
+  "experiences": [
+    {
+      "company": "Dunia Pendidikan",
+      "role": "Guru",
+      "period": "Profesi saat ini",
+      "description": "Dien memperkenalkan profesinya sebagai guru. Rincian sekolah, bidang studi, jenjang, dan riwayat mengajar dapat ditambahkan setelah beliau membagikannya."
+    }
+  ],
+  "education": [],
+  "projects": [
+    {
+      "title": "Mengenal Dien Mahmudin",
+      "year": "PROFIL",
+      "description": "Perkenalan singkat dengan Dien Mahmudin, seorang guru. Halaman ini menjadi pintu awal untuk mengenal identitas profesional dan menghubungi beliau secara langsung.",
+      "category": "Profil Profesional",
+      "tags": ["Dien Mahmudin", "Guru", "Perkenalan"],
+      "image": "/clients/dienmahmudin/foto-profesional.webp"
+    },
+    {
+      "title": "Ruang Pendidikan",
+      "year": "PENDIDIKAN",
+      "description": "Sebuah ruang untuk memperkenalkan dunia pendidikan yang menjadi bagian dari profesi Dien. Visual kelas pada kartu ini adalah ilustrasi, bukan dokumentasi sekolah atau tempat beliau mengajar.",
+      "category": "Dunia Pendidikan",
+      "tags": ["Pendidikan", "Pengajaran", "Ruang Belajar"],
+      "image": "/clients/dienmahmudin/ruang-pendidikan.webp"
+    },
+    {
+      "title": "Mari Terhubung",
+      "year": "KONTAK",
+      "description": "Ingin menyapa Pak Dien atau bertanya mengenai aktivitas beliau? Mulai percakapan lewat WhatsApp. Email juga tersedia sebagai jalur komunikasi tertulis.",
+      "category": "Komunikasi Langsung",
+      "tags": ["WhatsApp", "Email", "Silaturahmi"],
+      "website": "https://wa.me/6287887807771?text=Halo%20Pak%20Dien%2C%20saya%20melihat%20profil%20Bapak%20di%20PESONAFLIX.",
+      "image": "/clients/dienmahmudin/ruang-pendidikan.webp"
+    }
+  ],
+  "skills": ["Pengajaran", "Dunia Pendidikan", "Komunikasi Pendidikan"],
+  "skillCategories": [
+    {
+      "id": "profesi-guru",
+      "title": "Mengenal Profesi",
+      "subtitle": "Peran yang diperkenalkan Dien",
+      "skills": [
+        {
+          "name": "Guru",
+          "mono": "GRU",
+          "note": "Identitas profesional",
+          "evidence": ["Profesi yang disampaikan: Guru", "Jenjang sekolah dan mata pelajaran belum dicantumkan"]
+        },
+        {
+          "name": "Dunia Pendidikan",
+          "mono": "EDU",
+          "note": "Ruang perkenalan bidang kerja",
+          "evidence": ["Pendidikan adalah bidang profesi Dien", "Aktivitas spesifik dapat ditambahkan pada pembaruan profil"]
+        }
+      ]
+    },
+    {
+      "id": "kontak",
+      "title": "Tetap Terhubung",
+      "subtitle": "Saluran untuk berkomunikasi langsung",
+      "skills": [
+        {
+          "name": "WhatsApp",
+          "mono": "WA",
+          "note": "Percakapan langsung",
+          "evidence": ["Nomor WhatsApp disediakan pada profil", "Pengunjung dapat mengirim sapaan atau pertanyaan"]
+        },
+        {
+          "name": "Email",
+          "mono": "@",
+          "note": "Korespondensi tertulis",
+          "evidence": ["Alamat email resmi profil: dienmahmudin86@gmail.com", "Dapat digunakan untuk mengirim pesan tertulis"]
+        }
+      ]
+    }
+  ],
+  "skillsHeading": "Berkenalan dengan Sosok Guru",
+  "skillsAside": "Dien Mahmudin memperkenalkan dirinya sebagai guru. Profil ini menampilkan informasi yang telah disampaikan, beserta cara untuk terhubung. Riwayat pendidikan, sekolah, mata pelajaran, dan karya dapat diperluas ketika data tambahan tersedia.",
+  "skillsKicker": "GURU · PENDIDIKAN · KOMUNIKASI",
+  "highlights": [
+    {
+      "title": "Dien Mahmudin",
+      "description": "Identitas personal dan profesional pemilik halaman ini.",
+      "category": "PROFIL"
+    },
+    {
+      "title": "Guru",
+      "description": "Profesi yang menjadi fokus utama perkenalan Dien.",
+      "category": "PENDIDIKAN"
+    },
+    {
+      "title": "Mudah Dihubungi",
+      "description": "Tersedia kontak WhatsApp dan email untuk membuka percakapan.",
+      "category": "KONTAK"
+    }
+  ],
+  "watchCards": [
+    {
+      "target": "about",
+      "title": "Kenali Pak Dien",
+      "subtitle": "Profil seorang guru",
+      "image": "/clients/dienmahmudin/foto-profesional.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Ruang Pendidikan",
+      "subtitle": "Profesi dan ruang belajar",
+      "image": "/clients/dienmahmudin/ruang-pendidikan.webp"
+    },
+    {
+      "target": "journey",
+      "title": "Cerita Profesional",
+      "subtitle": "Mengenal perjalanan profesi",
+      "image": "/clients/dienmahmudin/ruang-pendidikan.webp"
+    },
+    {
+      "target": "skills",
+      "title": "Bidang & Kontak",
+      "subtitle": "Pendidikan dan komunikasi",
+      "image": "/clients/dienmahmudin/ruang-pendidikan.webp"
+    },
+    {
+      "target": "picks",
+      "title": "Sapa Pak Dien",
+      "subtitle": "Hubungi secara langsung",
+      "image": "/clients/dienmahmudin/foto-profesional.webp"
+    }
+  ],
+  "pickCards": [
+    {
+      "label": "PROFIL PROFESIONAL",
+      "title": "Dien Mahmudin",
+      "detail": "Kenali sosok Dien dan perannya sebagai guru melalui profil personal ini.",
+      "image": "/clients/dienmahmudin/foto-profesional.webp",
+      "palette": {"from": "#0f1c33", "via": "#2f4f73", "to": "#09101f", "accent": "#e7c486"}
+    },
+    {
+      "label": "DUNIA PENDIDIKAN",
+      "title": "Ruang Belajar",
+      "detail": "Jelajahi perkenalan profesi guru dalam nuansa pendidikan. Visual kelas bersifat ilustratif.",
+      "image": "/clients/dienmahmudin/ruang-pendidikan.webp",
+      "palette": {"from": "#172a39", "via": "#56717a", "to": "#101b26", "accent": "#f0cb86"}
+    },
+    {
+      "label": "TERHUBUNG",
+      "title": "Mulai Percakapan",
+      "detail": "Sampaikan pesan kepada Pak Dien melalui WhatsApp atau email.",
+      "image": "/clients/dienmahmudin/ruang-pendidikan.webp",
+      "palette": {"from": "#102433", "via": "#36596b", "to": "#0a1422", "accent": "#e7c486"}
+    }
+  ],
+  "picksHeading": "Cerita, Pendidikan, dan Percakapan",
+  "picksKicker": "PROFIL · PENDIDIKAN · KONTAK",
+  "seasons": [
+    {
+      "number": 1,
+      "title": "Mengenal Dien Mahmudin",
+      "period": "Profil Personal",
+      "synopsis": "Perkenalan Dien Mahmudin sebagai seorang guru dan pemilik halaman personal ini.",
+      "episodes": [
+        {
+          "title": "Halo, Saya Dien",
+          "runtime": "Perkenalan",
+          "description": "Saya Dien Mahmudin, seorang guru. Ruang ini saya siapkan untuk memperkenalkan diri dan membuka komunikasi dengan siapa saja yang ingin terhubung.",
+          "tags": ["Dien Mahmudin", "Guru", "Profil"],
+          "image": "/clients/dienmahmudin/foto-profesional.webp",
+          "palette": {"from": "#0f1c33", "via": "#2f4f73", "to": "#09101f", "accent": "#e7c486"}
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Dunia Pendidikan",
+      "period": "Profesi Guru",
+      "synopsis": "Pendidikan menjadi bidang utama yang dikenalkan Dien. Detail pengalaman mengajar dapat dilengkapi sesuai informasi beliau.",
+      "episodes": [
+        {
+          "title": "Profesi yang Saya Jalani",
+          "runtime": "Pendidikan",
+          "description": "Sebagai seorang guru, saya hadir dalam dunia pendidikan. Halaman ini menjadi awal untuk berbagi cerita seputar profesi tersebut, tanpa menyebut sekolah atau mata pelajaran yang belum dikonfirmasi.",
+          "tags": ["Guru", "Pengajaran", "Pendidikan"],
+          "image": "/clients/dienmahmudin/ruang-pendidikan.webp",
+          "palette": {"from": "#172a39", "via": "#56717a", "to": "#101b26", "accent": "#f0cb86"}
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Tetap Terhubung",
+      "period": "Komunikasi",
+      "synopsis": "Mari membuka ruang komunikasi melalui kanal kontak Dien yang tersedia.",
+      "episodes": [
+        {
+          "title": "Sampaikan Salam",
+          "runtime": "WhatsApp & Email",
+          "description": "Punya pertanyaan atau ingin berkenalan? Silakan hubungi Dien lewat WhatsApp atau email yang tertera pada halaman ini.",
+          "tags": ["WhatsApp", "Email", "Silaturahmi"],
+          "image": "/clients/dienmahmudin/ruang-pendidikan.webp",
+          "palette": {"from": "#102433", "via": "#36596b", "to": "#0a1422", "accent": "#e7c486"}
+        }
+      ]
+    }
+  ],
+  "journeyHeading": "Cerita Seorang Guru",
+  "journeyAside": "Profil ini dimulai dari satu informasi penting: Dien Mahmudin berprofesi sebagai guru. Ruang perjalanan akan dapat dikembangkan dengan informasi sekolah, pengalaman, kegiatan, atau karya yang ingin dibagikan kemudian. Untuk saat ini, pengunjung bisa mengenal Dien dan menghubunginya secara langsung.",
+  "journeyKicker": "KENAL · PENDIDIKAN · TERHUBUNG",
+  "theme": {"accent": "#e7c486", "background": "#0b1424"},
+  "templateId": "original",
+  "identityMode": "photo"
+}
