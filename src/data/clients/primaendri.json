@@ -1,0 +1,232 @@
+{
+  "slug": "primaendri",
+  "name": "Prima Endri Rakhmayani",
+  "role": "Ibu Rumah Tangga & Penulis",
+  "location": "Indonesia · Terhubung Online",
+  "bio": "Halo, saya Prima Endri Rakhmayani, seorang ibu rumah tangga sekaligus penulis. Bagi saya, ruang keluarga dan ruang kata sama-sama layak mendapat tempat. Halaman ini adalah pintu perkenalan: tentang dua peran yang saya jalani dan kesempatan untuk saling menyapa. Selamat datang di ruang cerita saya.",
+  "tagline": [
+    "Di Antara Rumah",
+    "dan Rangkaian Kata"
+  ],
+  "interests": [
+    "Menulis",
+    "Cerita dan Gagasan",
+    "Peran Ibu Rumah Tangga",
+    "Ruang Perkenalan"
+  ],
+  "photo": {
+    "src": "/clients/primaendri/foto-profesional.webp",
+    "alt": "Potret profesional close-up Prima Endri Rakhmayani mengenakan hijab krem, berlatar transparan"
+  },
+  "email": "prima.endri@gmail.com",
+  "whatsapp": "082230567712",
+  "links": {},
+  "experiences": [],
+  "education": [],
+  "projects": [
+    {
+      "title": "Kenali Prima Endri",
+      "year": "PERKENALAN",
+      "description": "Prima Endri Rakhmayani memperkenalkan dirinya sebagai ibu rumah tangga dan penulis. Ini adalah profil personal, bukan daftar buku atau publikasi yang telah terbit.",
+      "category": "Profil Personal",
+      "tags": ["Prima Endri", "Ibu Rumah Tangga", "Penulis"],
+      "image": "/clients/primaendri/foto-profesional.webp"
+    },
+    {
+      "title": "Ruang untuk Kata",
+      "year": "MENULIS",
+      "description": "Sebuah ruang untuk mengenalkan sisi kepenulisan Prima. Judul karya, genre tulisan, dan tautan publikasi bisa ditambahkan setelah informasinya tersedia.",
+      "category": "Ruang Menulis",
+      "tags": ["Menulis", "Kata", "Gagasan"],
+      "image": "/clients/primaendri/ruang-menulis.webp"
+    },
+    {
+      "title": "Cerita di Balik Keseharian",
+      "year": "KESEHARIAN",
+      "description": "Dua identitas yang Prima sampaikan—ibu rumah tangga dan penulis—menjadi awal perkenalan. Cerita personal lainnya dapat ditambahkan sesuai pilihannya.",
+      "category": "Peran & Cerita",
+      "tags": ["Rumah", "Keseharian", "Cerita Personal"],
+      "image": "/clients/primaendri/lembar-cerita.webp"
+    },
+    {
+      "title": "Mulai Sebuah Percakapan",
+      "year": "TERHUBUNG",
+      "description": "Ingin menyapa Prima atau bertanya tentang tulisannya? Kirim pesan langsung melalui WhatsApp. Email juga tersedia di profil ini.",
+      "category": "Kontak Personal",
+      "tags": ["WhatsApp", "Email", "Silaturahmi"],
+      "website": "https://wa.me/6282230567712?text=Halo%20Bu%20Prima%2C%20saya%20melihat%20profil%20Ibu%20di%20PESONAFLIX.",
+      "image": "/clients/primaendri/ruang-menulis.webp"
+    }
+  ],
+  "skills": ["Menulis", "Peran Ibu Rumah Tangga", "Komunikasi Personal"],
+  "skillCategories": [
+    {
+      "id": "dua-peran",
+      "title": "Dua Peran, Satu Cerita",
+      "subtitle": "Identitas yang Prima pilih untuk diperkenalkan",
+      "skills": [
+        {
+          "name": "Penulis",
+          "mono": "KATA",
+          "note": "Profesi yang diperkenalkan",
+          "evidence": [
+            "Prima memperkenalkan dirinya sebagai penulis",
+            "Daftar karya dan genre tulisan belum disampaikan"
+          ]
+        },
+        {
+          "name": "Ibu Rumah Tangga",
+          "mono": "IRT",
+          "note": "Peran keseharian",
+          "evidence": [
+            "Prima mencantumkan ibu rumah tangga sebagai profesinya",
+            "Rincian perjalanan personal belum dicantumkan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "komunikasi",
+      "title": "Buka Percakapan",
+      "subtitle": "Sapa Prima lewat jalur kontak yang tersedia",
+      "skills": [
+        {
+          "name": "WhatsApp",
+          "mono": "WA",
+          "note": "Pesan langsung",
+          "evidence": [
+            "Nomor WhatsApp tersedia di profil",
+            "Pengunjung dapat mengirim sapaan secara langsung"
+          ]
+        },
+        {
+          "name": "Email",
+          "mono": "@",
+          "note": "Korespondensi tertulis",
+          "evidence": [
+            "Email: prima.endri@gmail.com",
+            "Tersedia sebagai alternatif komunikasi"
+          ]
+        }
+      ]
+    }
+  ],
+  "skillsHeading": "Dari Keseharian hingga Halaman Tulisan",
+  "skillsAside": "Profil ini menyorot dua peran yang Prima sampaikan: ibu rumah tangga dan penulis. Judul buku, penerbit, penghargaan, dan pengalaman spesifik belum ditampilkan karena belum ada data yang diberikan.",
+  "skillsKicker": "PENULIS · IBU RUMAH TANGGA · TERHUBUNG",
+  "highlights": [
+    {
+      "title": "Prima Endri Rakhmayani",
+      "description": "Sebuah perkenalan personal yang hangat.",
+      "category": "PROFIL"
+    },
+    {
+      "title": "Penulis",
+      "description": "Sisi kepenulisan sebagai bagian dari identitas Prima.",
+      "category": "KATA"
+    },
+    {
+      "title": "Ibu Rumah Tangga",
+      "description": "Peran keseharian yang turut membentuk ceritanya.",
+      "category": "PERAN"
+    }
+  ],
+  "watchCards": [
+    {
+      "target": "about",
+      "title": "Kenali Prima",
+      "subtitle": "Ibu rumah tangga dan penulis",
+      "image": "/clients/primaendri/foto-profesional.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Ruang Kata",
+      "subtitle": "Tentang sisi kepenulisan",
+      "image": "/clients/primaendri/ruang-menulis.webp"
+    },
+    {
+      "target": "journey",
+      "title": "Lembar Cerita",
+      "subtitle": "Perkenalan dua peran",
+      "image": "/clients/primaendri/lembar-cerita.webp"
+    },
+    {
+      "target": "skills",
+      "title": "Dua Sisi Prima",
+      "subtitle": "Peran dan komunikasi",
+      "image": "/clients/primaendri/ruang-menulis.webp"
+    },
+    {
+      "target": "picks",
+      "title": "Sapa Prima",
+      "subtitle": "Mari terhubung langsung",
+      "image": "/clients/primaendri/lembar-cerita.webp"
+    }
+  ],
+  "pickCards": [
+    {
+      "label": "DI BALIK KATA",
+      "title": "Ruang Seorang Penulis",
+      "detail": "Mengenal sisi kepenulisan Prima, dengan ruang untuk menambahkan karya pilihan di kemudian hari.",
+      "image": "/clients/primaendri/ruang-menulis.webp",
+      "palette": {"from": "#291622", "via": "#946e57", "to": "#100d14", "accent": "#f0c89e"}
+    },
+    {
+      "label": "CERITA PERSONAL",
+      "title": "Keseharian Punya Kisah",
+      "detail": "Ada peran ibu rumah tangga di samping identitas sebagai penulis. Keduanya hadir dalam satu ruang perkenalan.",
+      "image": "/clients/primaendri/lembar-cerita.webp",
+      "palette": {"from": "#28121d", "via": "#795247", "to": "#100c11", "accent": "#efc9a5"}
+    }
+  ],
+  "picksHeading": "Kisah yang Bisa Kita Kenali",
+  "picksKicker": "KATA · KESEHARIAN · SAPAAN",
+  "seasons": [
+    {
+      "number": 1,
+      "title": "Mengenal Prima",
+      "period": "Profil & Dua Peran",
+      "synopsis": "Sebuah perkenalan tentang Prima Endri Rakhmayani sebagai ibu rumah tangga sekaligus penulis.",
+      "episodes": [
+        {
+          "title": "Halo, Saya Prima",
+          "runtime": "Perkenalan",
+          "description": "Prima memperkenalkan namanya, peran sebagai ibu rumah tangga, dan identitas sebagai penulis. Cerita lain dapat dilengkapi langsung oleh Prima.",
+          "tags": ["Prima Endri", "Perkenalan", "Dua Peran"],
+          "image": "/clients/primaendri/foto-profesional.webp",
+          "palette": {"from": "#26151e", "via": "#ab7f69", "to": "#100b13", "accent": "#f2d0af"}
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Ruang untuk Menulis",
+      "period": "Kata & Komunikasi",
+      "synopsis": "Ruang kepenulisan dan kontak yang dapat terus berkembang seiring informasi baru dari Prima.",
+      "episodes": [
+        {
+          "title": "Halaman yang Menanti Cerita",
+          "runtime": "Terbuka",
+          "description": "Halaman ini menjadi tempat memperkenalkan sisi penulis. Informasi buku atau tulisan terbit belum dicantumkan dan dapat dilengkapi nanti.",
+          "tags": ["Menulis", "Karya", "Ruang Cerita"],
+          "image": "/clients/primaendri/ruang-menulis.webp",
+          "palette": {"from": "#321a24", "via": "#b18561", "to": "#120d15", "accent": "#ffe0b6"}
+        },
+        {
+          "title": "Percakapan Pertama",
+          "runtime": "Terhubung",
+          "description": "Pengunjung bisa menyapa Prima melalui WhatsApp atau email untuk membuka percakapan.",
+          "tags": ["WhatsApp", "Email", "Silaturahmi"],
+          "image": "/clients/primaendri/lembar-cerita.webp",
+          "palette": {"from": "#361822", "via": "#886044", "to": "#130d14", "accent": "#f1cba3"}
+        }
+      ]
+    }
+  ],
+  "journeyHeading": "Setiap Orang Memiliki Halamannya",
+  "journeyAside": "Prima Endri Rakhmayani hadir sebagai ibu rumah tangga dan penulis. Halaman ini memulai ceritanya dengan informasi yang telah dibagikan, tanpa menambahkan buku terbit atau pencapaian yang belum dikonfirmasi. Jika ingin berkenalan, hubungi Prima langsung melalui WhatsApp atau email.",
+  "journeyKicker": "PERKENALAN · KATA · KESEHARIAN",
+  "theme": {"accent": "#e9bf93", "background": "#130d14"},
+  "templateId": "editorial-premium",
+  "identityMode": "photo"
+}
