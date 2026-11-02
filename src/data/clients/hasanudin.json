@@ -23,10 +23,6 @@
   "whatsapp": "085692102468",
   "secondaryWhatsapp": "085711168118",
   "links": {},
-  "theme": {
-    "accent": "#d8b575",
-    "background": "#0c1726"
-  },
   "experiences": [
     {
       "company": "Dunia Pendidikan",
@@ -42,7 +38,11 @@
       "year": "PROFIL",
       "description": "Perkenalan dengan Hasanudin, S.Pd.I, seorang guru. Gelar akademik ditulis sesuai informasi yang diberikan. Riwayat kampus, sekolah, dan bidang studi tidak ditambahkan sebelum dikonfirmasi.",
       "category": "Profil Profesional",
-      "tags": ["Hasanudin", "Guru", "S.Pd.I"],
+      "tags": [
+        "Hasanudin",
+        "Guru",
+        "S.Pd.I"
+      ],
       "image": "/clients/hasanudin/foto-profesional.webp"
     },
     {
@@ -50,7 +50,11 @@
       "year": "PENDIDIKAN",
       "description": "Dunia pendidikan menjadi bagian dari profesi Hasanudin. Halaman ini dapat berkembang menjadi ruang berbagi perjalanan mengajar, kegiatan pembelajaran, dan karya pendidikan setelah materi tersedia.",
       "category": "Dunia Pendidikan",
-      "tags": ["Pendidikan", "Pengajaran", "Ruang Belajar"],
+      "tags": [
+        "Pendidikan",
+        "Pengajaran",
+        "Ruang Belajar"
+      ],
       "image": ""
     },
     {
@@ -58,12 +62,20 @@
       "year": "KONTAK",
       "description": "Anda juga dapat menghubungi Hasanudin melalui nomor WhatsApp kedua: 0857-111-68-118. Dua alamat email tersedia untuk korespondensi tertulis.",
       "category": "Komunikasi Langsung",
-      "tags": ["WhatsApp Kedua", "Email", "Silaturahmi"],
+      "tags": [
+        "WhatsApp Kedua",
+        "Email",
+        "Silaturahmi"
+      ],
       "website": "https://wa.me/6285711168118?text=Assalamu%27alaikum%20Pak%20Hasanudin%2C%20saya%20melihat%20profil%20Bapak%20di%20PESONAFLIX.",
       "image": ""
     }
   ],
-  "skills": ["Profesi Guru", "Dunia Pendidikan", "Komunikasi Pendidikan"],
+  "skills": [
+    "Profesi Guru",
+    "Dunia Pendidikan",
+    "Komunikasi Pendidikan"
+  ],
   "skillCategories": [
     {
       "id": "pendidikan",
@@ -99,13 +111,19 @@
           "name": "WhatsApp",
           "mono": "WA",
           "note": "Dua saluran komunikasi",
-          "evidence": ["0856-9210-2468", "0857-111-68-118"]
+          "evidence": [
+            "0856-9210-2468",
+            "0857-111-68-118"
+          ]
         },
         {
           "name": "Email",
           "mono": "@",
           "note": "Korespondensi tertulis",
-          "evidence": ["hasanudinqiya@gmail.com", "hasan86@gmail.com"]
+          "evidence": [
+            "hasanudinqiya@gmail.com",
+            "hasan86@gmail.com"
+          ]
         }
       ]
     }
@@ -131,11 +149,36 @@
     }
   ],
   "watchCards": [
-    { "target": "about", "title": "Kenali Pak Hasanudin", "subtitle": "Profil seorang guru", "image": "/clients/hasanudin/foto-profesional.webp" },
-    { "target": "originals", "title": "Ruang Pendidikan", "subtitle": "Profesi dan pembelajaran", "image": "" },
-    { "target": "journey", "title": "Cerita Profesional", "subtitle": "Perkenalan dan perjalanan", "image": "" },
-    { "target": "skills", "title": "Bidang Profesi", "subtitle": "Pendidikan dan komunikasi", "image": "" },
-    { "target": "picks", "title": "Mari Terhubung", "subtitle": "WhatsApp dan email", "image": "/clients/hasanudin/foto-profesional.webp" }
+    {
+      "target": "about",
+      "title": "Kenali Pak Hasanudin",
+      "subtitle": "Profil seorang guru",
+      "image": "/clients/hasanudin/foto-profesional.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Ruang Pendidikan",
+      "subtitle": "Profesi dan pembelajaran",
+      "image": ""
+    },
+    {
+      "target": "journey",
+      "title": "Cerita Profesional",
+      "subtitle": "Perkenalan dan perjalanan",
+      "image": ""
+    },
+    {
+      "target": "skills",
+      "title": "Bidang Profesi",
+      "subtitle": "Pendidikan dan komunikasi",
+      "image": ""
+    },
+    {
+      "target": "picks",
+      "title": "Mari Terhubung",
+      "subtitle": "WhatsApp dan email",
+      "image": "/clients/hasanudin/foto-profesional.webp"
+    }
   ],
   "pickCards": [
     {
@@ -143,21 +186,36 @@
       "title": "Hasanudin, S.Pd.I",
       "detail": "Mengenal Hasanudin dan identitas profesionalnya sebagai guru.",
       "image": "/clients/hasanudin/foto-profesional.webp",
-      "palette": { "from": "#0d2033", "via": "#34516a", "to": "#0a1320", "accent": "#d8b575" }
+      "palette": {
+        "from": "#0d2033",
+        "via": "#34516a",
+        "to": "#0a1320",
+        "accent": "#d8b575"
+      }
     },
     {
       "label": "DUNIA PENDIDIKAN",
       "title": "Ruang Belajar",
       "detail": "Pengantar dunia pendidikan yang menjadi bidang profesi beliau.",
       "image": "",
-      "palette": { "from": "#142b34", "via": "#36616c", "to": "#0a1723", "accent": "#d8b575" }
+      "palette": {
+        "from": "#142b34",
+        "via": "#36616c",
+        "to": "#0a1723",
+        "accent": "#d8b575"
+      }
     },
     {
       "label": "TERHUBUNG",
       "title": "Sapa Pak Hasanudin",
       "detail": "Mulai percakapan lewat nomor WhatsApp yang tersedia atau kirim email.",
       "image": "/clients/hasanudin/foto-profesional.webp",
-      "palette": { "from": "#25203b", "via": "#57436a", "to": "#101325", "accent": "#d8b575" }
+      "palette": {
+        "from": "#25203b",
+        "via": "#57436a",
+        "to": "#101325",
+        "accent": "#d8b575"
+      }
     }
   ],
   "picksHeading": "Profil, Pendidikan, dan Silaturahmi",
@@ -173,9 +231,18 @@
           "title": "Halo, Saya Hasanudin",
           "runtime": "Perkenalan",
           "description": "Assalamu'alaikum, saya Hasanudin, S.Pd.I. Saya seorang guru dan senang bisa berkenalan dengan Anda melalui halaman ini.",
-          "tags": ["Hasanudin", "Guru", "Profil"],
+          "tags": [
+            "Hasanudin",
+            "Guru",
+            "Profil"
+          ],
           "image": "/clients/hasanudin/foto-profesional.webp",
-          "palette": { "from": "#0d2033", "via": "#34516a", "to": "#0a1320", "accent": "#d8b575" }
+          "palette": {
+            "from": "#0d2033",
+            "via": "#34516a",
+            "to": "#0a1320",
+            "accent": "#d8b575"
+          }
         }
       ]
     },
@@ -189,8 +256,18 @@
           "title": "Profesi yang Saya Jalani",
           "runtime": "Pendidikan",
           "description": "Saya memperkenalkan diri sebagai guru. Informasi sekolah, jenjang, dan mata pelajaran akan dilengkapi setelah tersedia.",
-          "tags": ["Guru", "Pendidikan", "Pengajaran"],
-          "palette": { "from": "#142b34", "via": "#36616c", "to": "#0a1723", "accent": "#d8b575" }
+          "tags": [
+            "Guru",
+            "Pendidikan",
+            "Pengajaran"
+          ],
+          "palette": {
+            "from": "#142b34",
+            "via": "#36616c",
+            "to": "#0a1723",
+            "accent": "#d8b575"
+          },
+          "image": ""
         }
       ]
     },
@@ -204,14 +281,30 @@
           "title": "Lanjutkan Percakapan",
           "runtime": "Kontak",
           "description": "Hubungi saya melalui WhatsApp 0856-9210-2468 atau 0857-111-68-118. Untuk pesan tertulis, tersedia hasanudinqiya@gmail.com dan hasan86@gmail.com.",
-          "tags": ["WhatsApp", "Email", "Silaturahmi"],
+          "tags": [
+            "WhatsApp",
+            "Email",
+            "Silaturahmi"
+          ],
           "image": "/clients/hasanudin/foto-profesional.webp",
-          "palette": { "from": "#25203b", "via": "#57436a", "to": "#101325", "accent": "#d8b575" }
+          "palette": {
+            "from": "#25203b",
+            "via": "#57436a",
+            "to": "#101325",
+            "accent": "#d8b575"
+          }
         }
       ]
     }
   ],
   "journeyHeading": "Tiga Episode Perkenalan",
   "journeyAside": "Profil ini merupakan awal cerita profesional Hasanudin. Kisah mengajar dan karya dapat terus bertambah seiring informasi yang dibagikan.",
-  "journeyKicker": "PERKENALAN · GURU · KONTAK"
+  "journeyKicker": "PERKENALAN · GURU · KONTAK",
+  "visualDesign": {
+    "textStyles": {
+      "name": {
+        "fontSize": 47
+      }
+    }
+  }
 }
