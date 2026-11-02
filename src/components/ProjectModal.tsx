@@ -14,6 +14,7 @@ const block = {
 export default function ProjectModal({ project, onClose, onSwitch }: { project: Project; onClose: () => void; onSwitch: (p: Project) => void }) {
   const { projects, profile } = usePortfolio();
   const isNoahInna = profile.clientSlug === 'noahinna';
+  const isYudhi = profile.clientSlug === 'yudhisakkautama';
   const videoSource = /\.mp4(?:\?|$)/i.test(project.github ?? '') ? project.github : null;
   const isDocumentImage = Boolean(project.image && /sertifikat|piagam/i.test(project.genre));
   useScrollLock(true);
@@ -72,7 +73,7 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
             </button>
             <div className="absolute inset-x-0 bottom-0 px-5 pb-6 sm:px-10">
               <motion.p className="mb-2 flex items-center gap-2 text-[11px] font-bold tracking-[0.34em] text-bone/80" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
-                <span className="font-display text-xl tracking-normal text-crimson-2">{isNoahInna ? 'N' : 'V'}</span> {isNoahInna ? 'CREATIVE WORK' : 'ORISINAL'}
+                <span className="font-display text-xl tracking-normal text-crimson-2">{isNoahInna ? 'N' : isYudhi ? 'Y' : 'V'}</span> {isYudhi ? 'PHOTO NOTES' : isNoahInna ? 'CREATIVE WORK' : 'ORISINAL'}
               </motion.p>
               <motion.h2
                 id={`title-${project.id}-modal`}
@@ -95,6 +96,15 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
             <motion.p variants={block} className="mt-4 max-w-3xl text-lg leading-relaxed text-bone sm:text-xl">
               {project.logline}
             </motion.p>
+
+            {isYudhi && project.image && (
+              <motion.figure variants={block} className="mt-8 overflow-hidden rounded-xl border border-white/15 bg-[#e8e5dd] p-3 sm:p-5">
+                <a href={project.image} target="_blank" rel="noreferrer" aria-label={`Buka foto utuh ${project.title}`}>
+                  <img src={project.image} alt={project.title} loading="lazy" decoding="async" className="mx-auto max-h-[78vh] w-full object-contain" />
+                </a>
+                <figcaption className="mt-3 text-center text-xs text-[#324454]">Buka foto dalam ukuran penuh</figcaption>
+              </motion.figure>
+            )}
 
             {videoSource && (
               <motion.div variants={block} className="mt-8 overflow-hidden rounded-xl border border-white/15 bg-black/40 p-3 sm:p-5">
@@ -154,7 +164,7 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
 
             <div className="mt-12 grid gap-10 lg:grid-cols-[3fr_2fr]">
               <motion.section variants={block}>
-                <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">{isNoahInna ? 'Creative Notes' : 'Kontribusi Saya'}</h3>
+                <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">{isYudhi ? 'Catatan Foto' : isNoahInna ? 'Creative Notes' : 'Kontribusi Saya'}</h3>
                 <ul className="space-y-4">
                   {project.build.map((b) => (
                     <li key={b} className="flex gap-3 text-[15px] leading-relaxed text-bone/85">
@@ -166,7 +176,7 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
               </motion.section>
               <div className="space-y-10">
                 <motion.section variants={block}>
-                  <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">{isNoahInna ? 'Format & Themes' : 'Teknologi'}</h3>
+                  <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">{isYudhi ? 'Topik' : isNoahInna ? 'Format & Themes' : 'Teknologi'}</h3>
                   <div className="flex flex-wrap gap-2">
                     {project.stack.map((t) => (
                       <span key={t} className="glass rounded-full px-3 py-1.5 text-sm font-medium text-bone">
@@ -176,7 +186,7 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
                   </div>
                 </motion.section>
                 <motion.section variants={block}>
-                  <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">{isNoahInna ? 'Highlights' : 'Fitur Utama'}</h3>
+                  <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">{isYudhi ? 'Sorotan' : isNoahInna ? 'Highlights' : 'Fitur Utama'}</h3>
                   <ul className="space-y-2.5">
                     {project.features.map((f) => (
                       <li key={f} className="flex items-start gap-3 text-sm text-bone/85">
@@ -191,7 +201,7 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
 
             {/* more like this */}
             <motion.section variants={block} className="mt-14 border-t border-white/10 pt-8">
-              <h3 className="mb-4 font-sans text-lg font-semibold text-bone">Karya Orisinal Lainnya</h3>
+              <h3 className="mb-4 font-sans text-lg font-semibold text-bone">{isYudhi ? 'Foto Lainnya' : 'Karya Orisinal Lainnya'}</h3>
               <div className="grid gap-4 sm:grid-cols-2">
                 {more.map((p) => (
                   <button

@@ -14,6 +14,7 @@ import ProjectCard from './ProjectCard';
  */
 export default function Originals({ onOpen }: { onOpen: (p: Project) => void }) {
   const { profile, projects } = usePortfolio();
+  const isYudhi = profile.clientSlug === 'yudhisakkautama';
   const rail = useRef<HTMLDivElement>(null);
   const currentIndex = useRef(0);
   const pointer = useRef<{ id: number; x: number; left: number; dragged: boolean } | null>(null);
@@ -105,11 +106,13 @@ export default function Originals({ onOpen }: { onOpen: (p: Project) => void }) 
       <div className="gutter mb-7 flex flex-wrap items-end justify-between gap-6 sm:mb-9">
         <div>
           <p className="mb-3 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.32em] text-crimson-2">
-            <span className="h-px w-8 bg-crimson-2" /> {projects.length} {profile.clientSlug === 'noahinna' ? 'Creative Formats' : profile.clientSlug === 'isa' ? 'Materi Pilihan' : profile.clientSlug === 'yantiriyantini' ? 'Buku & Penelitian' : 'Karya Orisinal'} · {profile.clientSlug === 'yantiriyantini' ? '2010–2026' : projects[0].year}
+            <span className="h-px w-8 bg-crimson-2" /> {projects.length} {isYudhi ? 'Foto & Dokumentasi' : profile.clientSlug === 'noahinna' ? 'Creative Formats' : profile.clientSlug === 'isa' ? 'Materi Pilihan' : profile.clientSlug === 'yantiriyantini' ? 'Buku & Penelitian' : 'Karya Orisinal'} · {isYudhi ? 'Arsip pilihan' : profile.clientSlug === 'yantiriyantini' ? '2010–2026' : projects[0].year}
           </p>
-          <RevealText as="h2" text={profile.clientSlug === 'noahinna' ? 'THE WORK' : profile.clientSlug === 'yantiriyantini' ? 'PUBLIKASI' : 'KARYA'} className="font-display text-[clamp(2.8rem,7vw,6rem)] leading-tight text-bone" />
+          <RevealText as="h2" text={isYudhi ? 'GALERI FOTO' : profile.clientSlug === 'noahinna' ? 'THE WORK' : profile.clientSlug === 'yantiriyantini' ? 'PUBLIKASI' : 'KARYA'} className="font-display text-[clamp(2.8rem,7vw,6rem)] leading-tight text-bone" />
           <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-mist">
-            {profile.clientSlug === 'noahinna'
+            {isYudhi
+              ? 'Sembilan foto kiriman: dokumentasi geologi, pengolahan data, aktivitas digital, potret, dan kebersamaan. Klik kartu untuk membuka foto utuh beserta ceritanya. Visual operasi tambang merupakan ilustrasi AI.'
+              : profile.clientSlug === 'noahinna'
               ? 'Music-led videos, handcrafted 3D clay visuals, one educational tutorial and one explainer. Explore the cards to discover each format.'
               : profile.clientSlug === 'yantiriyantini'
               ? 'Empat buku keperawatan anak dan dua penelitian. Geser kartu, lalu buka detail untuk membaca karya selengkapnya.'
