@@ -82,9 +82,17 @@ async function updateInternalLinks(directory) {
         // Query strings and prefilled WhatsApp messages encode spaces.
         .replace(/Payung(?:\+|%20)Madinah/gi, 'AZURA')
         .replace(/AZURA\s+Umroh\s+&(?:amp;)?\s*Haji\s+Official/gi, 'AZURA Tour & Travel')
-        // Update original-site links without changing mailto addresses.
+        .replace(/(<span class="bp">AZURA<\/span>)\s*Umroh\s+&(?:amp;)?\s*Haji\s+Official/gi, '$1 Tour &amp; Travel')
+        // Old recruitment email must not receive AZURA-branded applications.
+        .replace(/mailto:payungmadinah\.recruitment@gmail\.com(?:\?[^"'<\s]*)?/gi, 'https://wa.me/6285222005585?text=Assalamualaikum%2C%20saya%20ingin%20bertanya%20tentang%20karir%20AZURA')
+        .replace(/payungmadinah\.recruitment@gmail\.com/gi, '+62 852-2200-5585')
+        .replace(/Kirim CV & lamaran \(PDF\) ke/gi, 'Informasi lamaran melalui WhatsApp')
+        .replace(/Kirim CV dan lamaran \(PDF\) ke/gi, 'Tanyakan lamaran melalui WhatsApp')
+        .replace(/Salin alamat email rekrutmen/gi, 'Salin nomor WhatsApp AZURA')
+        // Update old public links without changing unrelated email domains.
         .replace(/https?:\/\/(?:www\.)?payungmadinah\.id/gi, 'https://pesonaflix.vercel.app/azura')
         .replace(/https%3A%2F%2F(?:www\.)?payungmadinah\.id/gi, 'https%3A%2F%2Fpesonaflix.vercel.app%2Fazura')
+        .replace(/(?:www\.)?payungmadinah\.id/gi, 'pesonaflix.vercel.app/azura')
         // A path slash followed by "payungmadinah" is a route, not a domain.
         .replace(/\/payungmadinah(?=\/|[?#"'\s<]|$)/gi, '/azura')
         .replaceAll('/azura/images/microsites/paket-umroh/logo.webp', '/azura/images/brand/azura-logo.webp')
@@ -99,6 +107,7 @@ async function updateInternalLinks(directory) {
       if (entry.name.endsWith('.html')) {
         // The reference site's social accounts do not belong to AZURA.
         updated = updated.replace(/<meta\s+name="twitter:(?:site|creator)"\s+content="@payungmadinah"\s*\/?\s*>/gi, '');
+        updated = updated.replace(/@payungmadinah/gi, 'kanal resmi AZURA (segera hadir)');
         // Social screenshots contain account names and follower counts from
         // the old brand; replace them with non-claiming AZURA visual panels.
         updated = updated.replace(/<img\b[^>]*src="\/azura\/images\/socials\/([^"/]+)"[^>]*>/gi, (_, filename) => {
