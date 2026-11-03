@@ -130,3 +130,33 @@ Screenshots were reviewed interactively in the browser session; no screenshot fi
 - **Content:** original bilingual copy, fleet, FAQ and contact-form structure retained; only contact data and nested URLs adapted.
 - **P0/P1/P2 issues:** none identified in production smoke checks.
 - **Release:** production alias and both language routes verified publicly.
+
+---
+
+## Klien `/asriwahyuni` — editorial personal-brand homepage
+
+**Final result: passed** (3 November 2026; local design and interaction verification)
+
+### Reference and implementation
+
+- **Source of visual truth:** screenshot homepage supplied by Teh Vini on 3 November 2026 (cream rounded card, landscape portrait, oversized `Creativity. Business. Opportunities.`, black full-width CTA, and `About Me` below).
+- **Implementation route:** `/asriwahyuni` only; custom `AsriLifestylePage` and scoped stylesheet; no global style changes to other PESONAFLIX profiles.
+- **Image:** AI-assisted editorial landscape portrait of Ayu, `public/clients/asriwahyuni/hero-editorial.webp` (1400×788), alongside existing transparent original portrait on About Me.
+- **Copy:** short homepage description matches the supplied reference, while the client's complete About Me, beRAni, culinary business, and three BNSP certification fields remain accessible below.
+
+### Visual and functional checks
+
+| Check | Result | Evidence |
+| --- | --- | --- |
+| Desktop hero | PASS | Cloud-browser screenshot on local preview at ~1363px showed balanced landscape portrait, light-cream card, large dark typography, and consistent horizontal spacing. |
+| Mobile hero | PASS | 390px CSS viewport rendered in a real browser iframe, visually checked against the supplied screenshot: top brand label, landscape photo, two-line main headline, role, description, full-width dark CTA, then About Me. |
+| Mobile About Me | PASS | Browser screenshot at 390px showed clean single-column layout, readable headings, original transparent portrait, and full story content without sideways clipping. |
+| Mobile navigation | PASS | Menu expanded to four anchors; tapping About Me navigated to `#about` and collapsed the menu. |
+| Primary CTA | PASS | Browser click navigated to `#about`. |
+| Contact links | PASS | Accessibility tree confirmed WhatsApp `628116359997` and `mailto:footageayu@gmail.com`. |
+| Studio integration | PASS | Editable name, portrait, headline, role, description, About Me, and work-card fields retain `data-studio-edit` hooks for the visual editor. |
+| Asset format | PASS | Landscape image exported to WebP; original transparent portrait remains a WebP. |
+| Regression | PASS | `npm run build` generated all existing client pages successfully. |
+
+- **P0/P1/P2 issues:** none found in the inspected desktop and 390px mobile surfaces.
+- **Production release:** tracked separately via GitHub/Vercel deployment; QA above refers to the local browser preview before publishing.
