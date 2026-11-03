@@ -1,0 +1,68 @@
+[
+  {
+    "name": "payungmadinah-01.tar.gz",
+    "files": 1,
+    "bytes": 4747102,
+    "sha256": "f86324e599a560f035599e5ae0a17a5cd6c4e78b68f39e358b078511eb8cebaf"
+  },
+  {
+    "name": "payungmadinah-02.tar.gz",
+    "files": 1,
+    "bytes": 4738921,
+    "sha256": "d024d71884a62f7e858ca169fd754367004e7fae54ac0a618150bf8f0660cf72"
+  },
+  {
+    "name": "payungmadinah-03.tar.gz",
+    "files": 13,
+    "bytes": 3817400,
+    "sha256": "14fc5a9668758c94c012bb47d320fddc76a1f0a424c438857159e862aad727fa"
+  },
+  {
+    "name": "payungmadinah-04.tar.gz",
+    "files": 15,
+    "bytes": 3833178,
+    "sha256": "b822d707792e373c10f5604eaafa676817449e48d2b4f1067e478ed8ed38a23b"
+  },
+  {
+    "name": "payungmadinah-05.tar.gz",
+    "files": 18,
+    "bytes": 3672548,
+    "sha256": "7dbd975290a3549ea93de5240c38f4d9ca4e9cf4471db0e76edd8dd6d2396847"
+  },
+  {
+    "name": "payungmadinah-06.tar.gz",
+    "files": 22,
+    "bytes": 3803285,
+    "sha256": "93f9ec51ffb9a066967324908b630623ccdaa37f05376d42d331f9ee0e216bfc"
+  },
+  {
+    "name": "payungmadinah-07.tar.gz",
+    "files": 28,
+    "bytes": 3763348,
+    "sha256": "a4b181c598989de35e0c999e8482a9e8e6042ca156f24e43f305775c0d7eb632"
+  },
+  {
+    "name": "payungmadinah-08.tar.gz",
+    "files": 36,
+    "bytes": 2779319,
+    "sha256": "eaf8fbfbce20e45a7b333255f4d19dbfa2cf6b16cdf734222ba04984116451c6"
+  },
+  {
+    "name": "payungmadinah-09.tar.gz",
+    "files": 45,
+    "bytes": 2744271,
+    "sha256": "2507de52a8465cdd10b3b2259f0e5accfeb57edbb001efbf37b1cf0df970d8bf"
+  },
+  {
+    "name": "payungmadinah-10.tar.gz",
+    "files": 104,
+    "bytes": 2727966,
+    "sha256": "8b01a8c8f40d9d343fc7f07c93cf9cdfa62f673f06a85b293b51f9a21ff0b792"
+  },
+  {
+    "name": "payungmadinah-11.tar.gz",
+    "files": 41,
+    "bytes": 301855,
+    "sha256": "58df846df47d051b4b82f8b9b244b11df38428e9983a7003195d0d1f9c67f5a3"
+  }
+]
