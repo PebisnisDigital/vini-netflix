@@ -49,6 +49,16 @@ await Promise.all([
   // The source banners contain the former brand name baked into their pixels.
   copyFile(join(brandingDir, 'banner-desktop.webp'), join(targetDir, 'images/microsites/paket-umroh/banner-desktop.webp')),
   copyFile(join(brandingDir, 'banner-mobile.webp'), join(targetDir, 'images/microsites/paket-umroh/banner-mobile.webp')),
+  // These source promotional pictures had the former company logo and name
+  // embedded in the image itself, beyond any HTML replacement.
+  ...['usp-kantor.webp', 'usp-kantor-m.webp', 'usp-manasik.webp',
+    'usp-manasik-m.webp', 'usp-persiapan.webp', 'usp-perlengkapan.webp',
+    'usp-perlengkapan-m.webp', 'usp-tim.webp'].map(name =>
+    copyFile(join(brandingDir, name), join(targetDir, 'images/microsites/paket-umroh', name))),
+  // The questions microsite repeats three of those original promotional images.
+  copyFile(join(brandingDir, 'usp-perlengkapan-m.webp'), join(targetDir, 'images/microsites/tanyacs/banner-1.webp')),
+  copyFile(join(brandingDir, 'usp-kantor-m.webp'), join(targetDir, 'images/microsites/tanyacs/banner-3.webp')),
+  copyFile(join(brandingDir, 'usp-manasik-m.webp'), join(targetDir, 'images/microsites/tanyacs/banner-5.webp')),
 ]);
 const textExtensions = new Set(['.html', '.css', '.js', '.json', '.svg', '.xml', '.txt', '.webmanifest']);
 // Source site colors are replaced only where they are part of the original
@@ -105,6 +115,9 @@ async function updateInternalLinks(directory) {
         updated = updated.replace(/#[0-9a-f]{6}\b/gi, color => palette.get(color.toLowerCase()) ?? color);
       }
       if (entry.name.endsWith('.html')) {
+        // A historical event photo still shows the former operator's backdrop
+        // and permit details; it must not be relabelled as an AZURA event.
+        updated = updated.replace(/<li class="slide mslide">\s*<img[^>]*\/azura\/images\/microsites\/paket-umroh\/manasik-backdrop\.webp[\s\S]*?<\/li>/gi, '');
         // The reference site's social accounts do not belong to AZURA.
         updated = updated.replace(/<meta\s+name="twitter:(?:site|creator)"\s+content="@payungmadinah"\s*\/?\s*>/gi, '');
         updated = updated.replace(/@payungmadinah/gi, 'kanal resmi AZURA (segera hadir)');
@@ -114,6 +127,10 @@ async function updateInternalLinks(directory) {
           const platform = ({'sosialmedia.jpg': 'Kanal Digital', 'instagram.jpg': 'Instagram', 'tiktok.jpg': 'TikTok', '1.png': 'Facebook', '2.png': 'LinkedIn', '3.png': 'Threads'})[filename] || 'Media Sosial';
           return `<div class="azura-social-visual"><img loading="lazy" src="/azura/images/brand/azura-logo.webp" alt="Logo AZURA Tour & Travel"><span>${platform} — segera hadir</span></div>`;
         });
+        // Old social contest screenshots name an unrelated account. Display a
+        // neutral channel panel instead of implying the campaign is live.
+        updated = updated.replace(/<img\b[^>]*src="\/azura\/images\/campaign\/umroh_gratis_ajak_threads\.jpg"[^>]*>/gi,
+          '<div class="azura-social-visual"><img src="/azura/images/brand/azura-logo.webp" alt="AZURA Tour & Travel"><span>Informasi program melalui WhatsApp AZURA</span></div>');
         if (path.endsWith('/sosial-media/index.html')) {
           updated = updated
             .replace(/<title>[^<]*<\/title>/i, '<title>Sosial Media | AZURA Tour & Travel</title>')
