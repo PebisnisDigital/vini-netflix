@@ -5,6 +5,8 @@
     { "source": "/studio", "destination": "/studio/index.html" },
     { "source": "/studio/preview", "destination": "/studio/preview/index.html" },
     { "source": "/formulir", "destination": "/formulir/index.html" },
+    { "source": "/HijamaTeam", "destination": "/HijamaTeam/index.html" },
+    { "source": "/hijamateam", "destination": "/HijamaTeam/index.html" },
     {
       "source": "/vini",
       "destination": "/vini/index.html"
@@ -12,10 +14,6 @@
     {
       "source": "/ElectronicTigerCreativeStudio",
       "destination": "/electronictigercreativestudio/index.html"
-    },
-    {
-      "source": "/HijamaTeam",
-      "destination": "/hijamateam/index.html"
     },
     { "source": "/:slug([a-z0-9-]+)", "destination": "/:slug/index.html" }
   ]

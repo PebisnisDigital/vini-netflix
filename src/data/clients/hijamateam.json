@@ -63,7 +63,7 @@
     { "title": "Lelaki & Wanita", "description": "Terapis dan bilik rawatan berasingan mengikut pelanggan.", "category": "PERKHIDMATAN" },
     { "title": "Jarum Sekali Guna", "description": "Menurut maklumat yang diterbitkan HijamaTeam, lancet baharu digunakan bagi setiap sesi.", "category": "KEBERSIHAN" }
   ],
-  "theme": { "accent": "#d6aa71", "background": "#102b25" },
+  "theme": { "accent": "#a7251b", "background": "#470e0b" },
   "templateId": "original",
   "identityMode": "photo"
 }

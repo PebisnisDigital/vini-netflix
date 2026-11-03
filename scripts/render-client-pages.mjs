@@ -27,8 +27,9 @@ export function renderClientHtml(template, { name, bio, photo }) {
   const brandedTemplate = isHijamaTeam
     ? template.replace(
       /<link\s+rel="icon"\s+type="image\/svg\+xml"\s+href="\/favicon\.svg"\s*\/>/i,
-      '<link rel="icon" type="image/svg+xml" href="/clients/hijamateam/favicon.svg" />',
+      '<link rel="icon" type="image/png" sizes="256x256" href="/clients/hijamateam/favicon-merah.png" />',
     ).replace('<html lang="id">', '<html lang="ms">')
+      .replace(/<meta name="theme-color" content="[^"]+"\s*\/>/i, '<meta name="theme-color" content="#741910" />')
     : isElectronicTiger
     ? template.replace(
       /<link\s+rel="icon"\s+type="image\/svg\+xml"\s+href="\/favicon\.svg"\s*\/>/i,
@@ -47,7 +48,7 @@ export function renderClientHtml(template, { name, bio, photo }) {
       'property', 'og:title', title,
     ),
     'property', 'og:description', description,
-  ).replace('</head>', `<meta property="og:image" content="${escapeHtml((process.env.PUBLIC_SITE_ORIGIN || 'https://pesonaflix.vercel.app') + photo.src)}" /></head>`);
+  ).replace('</head>', `<meta property="og:image" content="${escapeHtml((process.env.PUBLIC_SITE_ORIGIN || 'https://pesonaflix.vercel.app') + (isHijamaTeam ? '/clients/hijamateam/logo-rasmi.webp' : photo.src))}" /></head>`);
 }
 
 async function main() {
@@ -71,6 +72,29 @@ async function main() {
     await mkdir(directory, { recursive: true });
     await writeFile(path.join(directory, 'index.html'), renderClientHtml(template, brief));
   }
+  const hijamaTitle = 'HIJAMATEAM | Bekam Darah di Bukit Panjang, Singapura Sejak 2009';
+  const hijamaDescription = 'HIJAMATEAM di Bukit Panjang, Singapura sejak 2009. Maklumat perkhidmatan bekam darah, proses, kebersihan, keselamatan, pusat ilmu dan janji temu WhatsApp.';
+  const hijamaHtml = replaceMeta(replaceMeta(replaceMeta(
+    template
+      .replace(/<html lang="[^"]+">/i, '<html lang="ms">')
+      .replace(/<meta name="theme-color" content="[^"]+"\s*\/>/i, '<meta name="theme-color" content="#741910" />')
+      .replace(/<title>[^<]*<\/title>/i, `<title>${escapeHtml(hijamaTitle)}</title>`)
+      .replace(/<noscript>[^<]*<\/noscript>/i, `<noscript>${escapeHtml('HIJAMATEAM. Maklumat bekam darah di Bukit Panjang sejak 2009. Hubungi Nur Ain di +65 8956 7799 untuk pertanyaan dan janji temu.')}</noscript>`)
+      .replace(/<link\s+rel="preload"\s+as="image"\s+href="\/assets\/teh-vini-720.webp"[^>]*>/i, '')
+      .replace(/<link\s+rel="icon"\s+type="image\/svg\+xml"\s+href="\/favicon\.svg"\s*\/>/i, '<link rel="icon" type="image/png" sizes="256x256" href="/clients/hijamateam/favicon-merah.png" />'),
+    'name', 'description', hijamaDescription),
+    'property', 'og:title', hijamaTitle),
+    'property', 'og:description', hijamaDescription)
+    .replace('</head>', `<meta property="og:type" content="website" /><meta property="og:locale" content="ms_SG" /><meta property="og:image" content="https://pesonaflix.vercel.app/clients/hijamateam/logo-rasmi.webp" /><link rel="canonical" href="https://pesonaflix.vercel.app/HijamaTeam" /><meta name="robots" content="index,follow" /><script type="application/ld+json">${JSON.stringify({
+      '@context': 'https://schema.org', '@type': 'LocalBusiness', name: 'HIJAMATEAM',
+      description: hijamaDescription, foundingDate: '2009', telephone: '+6589567799',
+      url: 'https://pesonaflix.vercel.app/HijamaTeam',
+      address: { '@type': 'PostalAddress', streetAddress: 'Block 429 Bukit Panjang Ring Road #07-715', addressLocality: 'Singapore', postalCode: '670429', addressCountry: 'SG' },
+      openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'], opens: '09:00', closes: '20:00' }],
+      sameAs: ['https://www.youtube.com/@hijamateam','https://www.facebook.com/ainhassan/']
+    })}</script></head>`);
+  await mkdir(path.join(dist, 'HijamaTeam'), { recursive: true });
+  await writeFile(path.join(dist, 'HijamaTeam/index.html'), hijamaHtml);
   const intake = renderClientHtml(template, {
     name: 'Formulir Klien — PESONAFLIX',
     bio: 'Isi data dan unggah foto untuk pembuatan website portofolio PESONAFLIX.',
@@ -91,7 +115,7 @@ async function main() {
   await mkdir(path.join(dist, 'studio', 'preview'), { recursive: true });
   await writeFile(path.join(dist, 'studio/index.html'), studio);
   await writeFile(path.join(dist, 'studio/preview/index.html'), studio);
-  console.log(`✅ Checkout, pesanan, Studio, Preview, ${files.length} halaman klien dan ${Object.keys(registry.aliasToSource).length} link khusus disiapkan.`);
+  console.log(`✅ Checkout, pesanan, Studio, Preview, HIJAMATEAM, ${files.length} halaman klien dan ${Object.keys(registry.aliasToSource).length} link khusus disiapkan.`);
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) await main();
