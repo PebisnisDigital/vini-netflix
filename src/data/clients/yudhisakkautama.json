@@ -1,9 +1,9 @@
 {
   "slug": "yudhisakkautama",
   "name": "Yudhi Sakkautama",
-  "role": "Geopreneur · Geologist · Geophysics · QHSE",
+  "role": "Geopreneur · COO Sunarie Pusaka · Geologist",
   "location": "Bekasi, Jawa Barat",
-  "bio": "Saya Yudhi Sakkautama, geolog lulusan Universitas Padjadjaran yang berkecimpung dalam eksplorasi geologi, geofisika, GIS, dan keselamatan kerja sejak 1997. Perjalanan karier saya membawa saya dari pekerjaan geologi lapangan di Sumatra dan Kalimantan, manajemen proyek software dan GIS, hingga eksplorasi batubara serta keselamatan radiasi di PT Minelog Services Indonesia. Di luar dunia teknis, saya juga pernah mengembangkan usaha kuliner Dapoer Andrisa. Inilah kisah seorang geopreneur yang senang menghubungkan pengetahuan, teknologi, dan peluang.",
+  "bio": "Saya Yudhi Sakkautama, geopreneur dan geolog lulusan Universitas Padjadjaran. Sejak 1997, perjalanan saya membentang dari eksplorasi geologi di Sumatra dan Kalimantan, pengembangan software dan GIS, hingga geofisika serta keselamatan kerja di Minelog Services Indonesia. Saat ini saya berlabuh di Sunarie Pusaka sebagai Chief Operating Officer (COO), membawa pengalaman lintas bidang ke pengelolaan operasional dan kolaborasi. Di luar pekerjaan teknis, saya juga pernah mengembangkan usaha kuliner Dapoer Andrisa.",
   "tagline": [
     "Geologist forever, and a joyful foodpreneur."
   ],
@@ -25,6 +25,12 @@
     "linkedin": "https://www.linkedin.com/in/yudhisakkautama"
   },
   "experiences": [
+    {
+      "company": "Sunarie Pusaka",
+      "role": "Chief Operating Officer (COO)",
+      "period": "Saat ini",
+      "description": "Saat ini berkiprah sebagai Chief Operating Officer (COO) di Sunarie Pusaka. Posisi terbaru ini disampaikan langsung oleh Yudhi sebagai pembaruan perjalanan profesionalnya."
+    },
     {
       "company": "PT Minelog Services Indonesia",
       "role": "Senior Geologist, Senior Geophysicist & HSE / Radiation Safety",
@@ -175,13 +181,10 @@
     },
     {
       "title": "Sunarie Pusaka",
-      "year": "AFILIASI",
-      "description": "Salah satu tautan perusahaan yang dibagikan Yudhi untuk ditampilkan di jejaring profesionalnya. Detail hubungan dan peran spesifik belum dicantumkan.",
+      "year": "PERUSAHAAN SAAT INI",
+      "description": "Tempat Yudhi saat ini berkiprah sebagai Chief Operating Officer (COO). Kunjungi situs Sunarie Pusaka untuk mengenal informasi perusahaan lebih lanjut.",
       "category": "Jejaring & Afiliasi",
-      "tags": [
-        "Perusahaan",
-        "Jejaring Profesional"
-      ],
+      "tags": ["Chief Operating Officer", "Operasional", "Jejaring Profesional"],
       "website": "https://sunariepusaka.id/",
       "image": ""
     },
@@ -190,11 +193,7 @@
       "year": "AFILIASI",
       "description": "Layanan eksplorasi, geologi, geofisika, dan konsultansi pertambangan. Yudhi tercantum pada laman tim ahli Minelog sebagai Geophysics and QHSE Advisor, PPR.",
       "category": "Jejaring & Afiliasi",
-      "tags": [
-        "Geologi",
-        "Geofisika",
-        "QHSE"
-      ],
+      "tags": ["Geologi", "Geofisika", "QHSE"],
       "website": "https://minelog-services.com/",
       "image": ""
     },
@@ -203,10 +202,7 @@
       "year": "AFILIASI",
       "description": "Tautan Smart Resources yang dibagikan Yudhi sebagai bagian dari jejaring perusahaan dan inisiatifnya. Peran spesifik belum dicantumkan.",
       "category": "Jejaring & Afiliasi",
-      "tags": [
-        "Perusahaan",
-        "Jejaring Profesional"
-      ],
+      "tags": ["Perusahaan", "Jejaring Profesional"],
       "website": "https://smart-resources.id/",
       "image": ""
     },
@@ -215,11 +211,7 @@
       "year": "AFILIASI",
       "description": "Pranala ke Spatialize, platform dan produk teknologi spasial. Ditampilkan sebagai tautan jejaring yang dibagikan Yudhi tanpa menyatakan posisi atau kepemilikan tertentu.",
       "category": "Jejaring & Afiliasi",
-      "tags": [
-        "Spatial",
-        "Software",
-        "Teknologi"
-      ],
+      "tags": ["Spatial", "Software", "Teknologi"],
       "website": "https://spatialize.dev/",
       "image": ""
     },
@@ -228,11 +220,7 @@
       "year": "AFILIASI",
       "description": "Pranala menuju layanan teknologi geospasial dan WebGIS Indonesia yang dibagikan Yudhi untuk profil profesionalnya.",
       "category": "Jejaring & Afiliasi",
-      "tags": [
-        "GIS",
-        "Geospasial",
-        "Teknologi"
-      ],
+      "tags": ["GIS", "Geospasial", "Teknologi"],
       "website": "https://webgis.co.id/",
       "image": ""
     },
@@ -241,11 +229,7 @@
       "year": "INISIATIF USAHA",
       "description": "Usaha kuliner rumahan yang pernah dikembangkan Yudhi. Menurut profil LinkedIn, Dapoer Andrisa melayani produk kue rumahan dan sistem pre-order pada periode 2020–2025.",
       "category": "Jejaring & Afiliasi",
-      "tags": [
-        "Foodpreneur",
-        "Kuliner",
-        "Wirausaha"
-      ],
+      "tags": ["Foodpreneur", "Kuliner", "Wirausaha"],
       "website": "https://msha.ke/dapoerandrisa/",
       "image": ""
     }
@@ -334,7 +318,7 @@
     }
   ],
   "skillsHeading": "Geologi, Keselamatan, dan Teknologi",
-  "skillsAside": "Karier Yudhi mempertemukan tiga dunia: geologi dan geofisika untuk memahami kondisi bumi; QHSE serta proteksi radiasi untuk menjaga keselamatan; GIS dan manajemen proyek software untuk mengolah informasi menjadi sistem kerja. Profil ini merangkum pengalaman yang tercantum di LinkedIn publik dan laman ahli Minelog, tanpa menyatakan sertifikasi lama sebagai lisensi yang masih aktif.",
+  "skillsAside": "Saat ini Yudhi berkiprah sebagai COO di Sunarie Pusaka, dengan bekal pengalaman lintas geologi, geofisika, QHSE, GIS, dan manajemen proyek software. Riwayat sebelumnya dirangkum dari LinkedIn publik dan laman ahli Minelog; jabatan COO merupakan pembaruan yang disampaikan langsung oleh Yudhi.",
   "skillsKicker": "GEOLOGY · GEOPHYSICS · QHSE · GIS",
   "highlights": [
     {
@@ -549,7 +533,7 @@
     }
   ],
   "journeyHeading": "Dari Geologi ke Geopreneur",
-  "journeyAside": "Dari survei dan geologi lapangan sejak 1997, pengelolaan proyek software/GIS pada 2000–2011, hingga pekerjaan geofisika dan keselamatan di Minelog, perjalanan Yudhi tidak berjalan di satu jalur saja. Dapoer Andrisa menambah bab kewirausahaan kuliner. Foto di halaman ini merupakan dokumentasi pribadi, kecuali ilustrasi operasi tambang yang ditandai sebagai karya berbantuan AI.",
+  "journeyAside": "Dari survei dan geologi lapangan sejak 1997, pengelolaan proyek software/GIS pada 2000–2011, hingga pekerjaan geofisika dan keselamatan di Minelog, perjalanan Yudhi tidak berjalan di satu jalur saja. Kini ia berlabuh di Sunarie Pusaka sebagai COO. Dapoer Andrisa juga menambah bab kewirausahaan kuliner. Foto di halaman ini merupakan dokumentasi pribadi, kecuali ilustrasi operasi tambang yang ditandai sebagai karya berbantuan AI.",
   "journeyKicker": "GEOLOGY · DIGITAL SYSTEMS · SAFETY · FOODPRENEURSHIP",
   "templateId": "original",
   "identityMode": "photo",
