@@ -56,20 +56,28 @@
       "image": "/clients/dianrivia/fasilitas-memorial.webp"
     },
     {
-      "title": "Tipe Kavling Single & Double",
+      "title": "Tipe Kavling Single",
       "year": "REFERENSI KAVLING",
-      "description": "Materi tipe Single, Double, Double Varian B dan D, Super Double, serta Family A. Ukuran dan kapasitas pada brosur merupakan bahan informasi yang perlu dikonfirmasi kembali sebelum memilih.",
+      "description": "Brosur Single: ukuran 1,5 × 3 meter (4,5 m²), peruntukan 1 lubang, dan walkway 0,9 meter. Buka gambar untuk melihat foto dan spesifikasi lengkap. Ketersediaan serta ketentuan terbaru perlu dikonfirmasi langsung.",
       "category": "Tipe Kavling",
-      "tags": ["Single", "Double", "Pilihan Kavling"],
-      "image": "/clients/dianrivia/tipe-kavling-individual.webp"
+      "tags": ["Single", "1 Lubang", "4,5 m²"],
+      "image": "/clients/dianrivia/kavling-single.webp"
     },
     {
-      "title": "Tipe Kavling Keluarga",
+      "title": "Tipe Kavling Double",
       "year": "REFERENSI KAVLING",
-      "description": "Brosur pilihan Super Family, Royal Family, dan Paket Keluarga. Rincian kapasitas, luas, dan ketersediaan sebaiknya ditanyakan langsung kepada Dian.",
+      "description": "Brosur Double: ukuran 3,5 × 3,9 meter (13,65 m²), kapasitas maksimal 2 lubang, dan walkway 1,2 meter. Buka gambar untuk melihat foto dan spesifikasi lengkap. Ketersediaan serta ketentuan terbaru perlu dikonfirmasi langsung.",
       "category": "Tipe Kavling",
-      "tags": ["Super Family", "Royal Family", "Paket Keluarga"],
-      "image": "/clients/dianrivia/tipe-kavling-keluarga.webp"
+      "tags": ["Double", "2 Lubang", "13,65 m²"],
+      "image": "/clients/dianrivia/kavling-double.webp"
+    },
+    {
+      "title": "Tipe Kavling Family (A)",
+      "year": "REFERENSI KAVLING",
+      "description": "Brosur Family (A): ukuran 3,5 × 7,5 meter (26,25 m²), kapasitas maksimal 4 lubang, dan walkway 1,2 meter. Buka gambar untuk melihat foto dan spesifikasi lengkap. Ketersediaan serta ketentuan terbaru perlu dikonfirmasi langsung.",
+      "category": "Tipe Kavling",
+      "tags": ["Family (A)", "4 Lubang", "26,25 m²"],
+      "image": "/clients/dianrivia/kavling-family-a.webp"
     },
     {
       "title": "Prosesi Pemakaman Masa COVID",
@@ -171,7 +179,7 @@
           "mono": "KAV",
           "note": "Referensi brosur yang dibagikan",
           "evidence": [
-            "Materi Single, Double, Family, Super Family, dan Royal Family",
+            "Poster baru untuk Single, Double, dan Family (A)",
             "Ukuran, kapasitas, harga, dan ketersediaan dapat berubah"
           ]
         }
@@ -233,7 +241,7 @@
     {
       "target": "originals",
       "title": "Galeri Al Azhar",
-      "subtitle": "13 foto dan materi informasi",
+      "subtitle": "14 foto dan materi informasi",
       "image": "/clients/dianrivia/sekilas-al-azhar.webp"
     },
     {
@@ -245,8 +253,8 @@
     {
       "target": "skills",
       "title": "Pilihan Kavling",
-      "subtitle": "Tipe dan referensi brosur",
-      "image": "/clients/dianrivia/tipe-kavling-keluarga.webp"
+      "subtitle": "Single, Double, dan Family (A)",
+      "image": "/clients/dianrivia/kavling-family-a.webp"
     },
     {
       "target": "picks",
@@ -272,7 +280,7 @@
       "label": "PILIHAN KAVLING",
       "title": "Mengenali Kebutuhan Keluarga",
       "detail": "Lihat perbedaan tipe kavling pada materi sebelum menanyakan ketersediaan dan ketentuannya.",
-      "image": "/clients/dianrivia/tipe-kavling-individual.webp",
+      "image": "/clients/dianrivia/kavling-single.webp",
       "palette": {
         "from": "#1a2923",
         "via": "#6d7560",
@@ -349,28 +357,36 @@
       "number": 2,
       "title": "Referensi Tipe Kavling",
       "period": "Pilihan & Pertimbangan",
-      "synopsis": "Gambaran tipe kavling individual dan keluarga dari brosur. Ketersediaan, spesifikasi, dan harga terkini perlu dikonfirmasi kepada Dian.",
+      "synopsis": "Tiga poster kavling Single, Double, dan Family (A), lengkap dengan ukuran dan kapasitas pada brosur. Ketersediaan, spesifikasi, dan harga terkini perlu dikonfirmasi kepada Dian.",
       "episodes": [
         {
-          "title": "Single, Double & Family",
-          "runtime": "Referensi Tipe",
-          "description": "Lihat ragam ukuran dan kapasitas yang tercantum dalam materi tipe Single, Double, dan Family.",
-          "tags": ["Single", "Double", "Family"],
+          "title": "Kavling Single",
+          "runtime": "1 Lubang · 4,5 m²",
+          "description": "Ukuran 1,5 × 3 meter, peruntukan 1 lubang, walkway 0,9 meter sesuai poster. Klik untuk melihat brosur utuh.",
+          "tags": ["Single", "1 Lubang", "Walkway 0,9 m"],
           "palette": {
             "from": "#1b2c28",
             "via": "#65715f",
             "to": "#0e1e1b",
             "accent": "#e2c9a2"
           },
-          "image": "/clients/dianrivia/tipe-kavling-individual.webp"
+          "image": "/clients/dianrivia/kavling-single.webp"
         },
         {
-          "title": "Super Family & Royal Family",
-          "runtime": "Kavling Keluarga",
-          "description": "Materi pilihan untuk keluarga dengan beragam ukuran dan kapasitas.",
-          "tags": ["Super Family", "Royal Family", "Paket Keluarga"],
+          "title": "Kavling Double",
+          "runtime": "2 Lubang · 13,65 m²",
+          "description": "Ukuran 3,5 × 3,9 meter, kapasitas maksimal 2 lubang, walkway 1,2 meter sesuai poster. Klik untuk melihat brosur utuh.",
+          "tags": ["Double", "2 Lubang", "Walkway 1,2 m"],
           "palette": { "from": "#1b2f30", "via": "#4f777a", "to": "#101c20", "accent": "#d4c597" },
-          "image": "/clients/dianrivia/tipe-kavling-keluarga.webp"
+          "image": "/clients/dianrivia/kavling-double.webp"
+        },
+        {
+          "title": "Kavling Family (A)",
+          "runtime": "4 Lubang · 26,25 m²",
+          "description": "Ukuran 3,5 × 7,5 meter, kapasitas maksimal 4 lubang, walkway 1,2 meter sesuai poster. Klik untuk melihat brosur utuh.",
+          "tags": ["Family (A)", "4 Lubang", "Walkway 1,2 m"],
+          "palette": { "from": "#192c3c", "via": "#395a83", "to": "#101d30", "accent": "#e2c58d" },
+          "image": "/clients/dianrivia/kavling-family-a.webp"
         },
         {
           "title": "Mengenal Perencanaan Memorial",
