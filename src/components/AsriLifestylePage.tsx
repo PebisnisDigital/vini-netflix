@@ -14,6 +14,22 @@ const focusAreas: { number: string; projectIndex: number; heading: string; categ
 ];
 
 const skills = ['Digital Marketing', 'Pendamping UMKM', 'MICE'];
+const evidenceBase = '/clients/asriwahyuni/';
+
+const expertiseAreas = [
+  { title: 'Digital Marketing', description: 'Strategi media sosial, pengembangan konten, pemasaran digital, dan komunikasi brand.', image: `${evidenceBase}founder-community.webp`, position: '20% 23%' },
+  { title: 'Content Creation', description: 'Travel, food, lifestyle, storytelling, dan proses produksi konten.', image: `${evidenceBase}behind-scenes.webp`, position: '52% 47%' },
+  { title: 'UMKM Development', description: 'Pendampingan, edukasi pemasaran, dan pengembangan potensi usaha UMKM.', image: `${evidenceBase}narasumber-umkm.webp`, position: '48% 34%' },
+  { title: 'Business & MICE', description: 'Pengembangan kemitraan, networking, komunitas, dan peluang kolaborasi di bidang event.', image: `${evidenceBase}komunitas-instagram.webp`, position: '50% 80%' },
+];
+
+const proofGallery = [
+  { label: 'CONTENT CREATION', title: 'Di Balik Proses Produksi', description: 'Dokumentasi Ayu berkegiatan di depan laptop saat proses pengambilan gambar.', image: `${evidenceBase}behind-scenes.webp`, alt: 'Ayu bekerja di laptop bersama anak dan kru kamera saat pembuatan konten.' },
+  { label: 'MEDIA COVERAGE', title: 'Liputan 9 Juta Views', description: 'Cuplikan artikel 23 Januari 2026 tentang tayangan konten keluarga Ayu.', image: `${evidenceBase}media-9-juta-views.webp`, alt: 'Cuplikan artikel media mengenai Asri Wahyuni dan capaian 9 juta views konten keluarga.' },
+  { label: 'COMMUNITY BUILDING', title: 'Tiga Komunitas Perempuan', description: 'Poster komunitas yang dibagikan Ayu: AWC, Rumah Kawan Bunda, dan Wanita Cerdas Tangerang.', image: `${evidenceBase}founder-community.webp`, alt: 'Poster founder tiga komunitas perempuan beserta identitas dan akun media sosialnya.' },
+  { label: 'UMKM DEVELOPMENT', title: 'Narasumber Pengembangan Usaha', description: 'Sertifikat kegiatan pengembangan usaha kelompok perempuan dari Pemerintah Kota Tangerang.', image: `${evidenceBase}narasumber-umkm.webp`, alt: 'Sertifikat Pemerintah Kota Tangerang untuk Asri Wahyuni sebagai narasumber pengembangan usaha kelompok perempuan.' },
+  { label: 'SOCIAL COMMUNITY', title: 'Jejak Komunitas di Media Sosial', description: 'Dokumentasi akun komunitas dan kegiatan yang dibagikan Ayu.', image: `${evidenceBase}komunitas-instagram.webp`, alt: 'Tangkapan layar akun Instagram About Woman Community, Rumah Kawan Bunda, dan Wanita Cerdas Tangerang.' },
+];
 
 export default function AsriLifestylePage({ editorMode = false }: { editorMode?: boolean }) {
   const { profile, projects } = usePortfolio();
@@ -30,6 +46,7 @@ export default function AsriLifestylePage({ editorMode = false }: { editorMode?:
         <a href="#about">About Me</a>
         <a href="#work">What I Do</a>
         <a href="#expertise">Expertise</a>
+        <a href="#proof">Highlights</a>
         <a href="#contact">Contact</a>
       </nav>
       <button className="ayu-menu-toggle" type="button" aria-label={menuOpen ? 'Tutup navigasi' : 'Buka navigasi'} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
@@ -37,7 +54,7 @@ export default function AsriLifestylePage({ editorMode = false }: { editorMode?:
       </button>
     </header>
     {menuOpen && <nav className="ayu-mobile-nav ayu-container" aria-label="Navigasi seluler">
-      {[['About Me', '#about'], ['What I Do', '#work'], ['Expertise', '#expertise'], ['Contact', '#contact']].map(([label, href]) => <a key={href} href={href} onClick={() => setMenuOpen(false)}>{label}<ArrowUpRight size={16} /></a>)}
+      {[['About Me', '#about'], ['What I Do', '#work'], ['Expertise', '#expertise'], ['Highlights', '#proof'], ['Contact', '#contact']].map(([label, href]) => <a key={href} href={href} onClick={() => setMenuOpen(false)}>{label}<ArrowUpRight size={16} /></a>)}
     </nav>}
 
     <main>
@@ -93,16 +110,34 @@ export default function AsriLifestylePage({ editorMode = false }: { editorMode?:
       </section>
 
       <section className="ayu-section ayu-container ayu-expertise" id="expertise" aria-labelledby="ayu-expertise-heading">
-        <div className="ayu-section-title"><span className="ayu-section-count">04 / EXPERTISE</span><h2 id="ayu-expertise-heading">Always learning.<br /><em>Always growing.</em></h2></div>
-        <div className="ayu-expertise-grid">
+        <div className="ayu-section-title"><span className="ayu-section-count">04 / PROFESSIONAL EXPERTISE</span><h2 id="ayu-expertise-heading">Professional <em>Expertise.</em></h2><p>Bidang yang Ayu tekuni dan tawarkan untuk kolaborasi.</p></div>
+        <div className="ayu-expertise-list">
+          {expertiseAreas.map(area => <article className="ayu-expertise-item" key={area.title}>
+            <a className="ayu-expertise-thumbnail" href={area.image} target="_blank" rel="noopener noreferrer" aria-label={`Lihat dokumentasi ${area.title}`} title={`Lihat dokumentasi ${area.title}`}><img src={area.image} alt={`Dokumentasi bidang ${area.title} Ayu`} style={{ objectPosition: area.position }} loading="lazy" /></a>
+            <div><h3>{area.title}</h3><p>{area.description}</p></div>
+          </article>)}
+        </div>
+        <div className="ayu-expertise-grid ayu-expertise-bottom">
           <div><p className="ayu-expertise-lead">Lebih dari satu tahun di dunia bisnis dan digital marketing.</p><p>Pengalaman dan sertifikasi kompetensi menjadi bekal Ayu untuk mengembangkan karya, usaha, dan peluang kolaborasi.</p></div>
           <div className="ayu-cert-list"><div className="ayu-cert-title">SERTIFIKASI KOMPETENSI BNSP</div>{skills.map((skill, i) => <div className="ayu-cert-row" key={skill}><span>0{i + 1}</span><strong>{skill}</strong><CheckCircle2 size={20} aria-hidden="true" /></div>)}</div>
         </div>
       </section>
 
+      <section className="ayu-section ayu-proof" id="proof" aria-labelledby="ayu-proof-heading">
+        <div className="ayu-container">
+          <div className="ayu-section-title"><span className="ayu-section-count">05 / REAL MOMENTS</span><h2 id="ayu-proof-heading">Business & <em>Ventures.</em></h2><p>Dokumentasi langsung dari perjalanan konten, komunitas, dan pengembangan usaha Ayu. Ketuk gambar untuk melihat versi lengkapnya.</p></div>
+          <div className="ayu-proof-grid">
+            {proofGallery.map((proof, index) => <a className={`ayu-proof-card${index === 0 ? ' ayu-proof-card--featured' : ''}`} href={proof.image} target="_blank" rel="noopener noreferrer" key={proof.title} aria-label={`Buka foto: ${proof.title}`}>
+              <div className="ayu-proof-photo"><img src={proof.image} alt={proof.alt} loading="lazy" /></div>
+              <div className="ayu-proof-content"><span>{proof.label}</span><h3>{proof.title}</h3><p>{proof.description}</p><span className="ayu-proof-open">Lihat foto <ArrowUpRight size={16} aria-hidden="true" /></span></div>
+            </a>)}
+          </div>
+        </div>
+      </section>
+
       <section className="ayu-contact" id="contact" aria-labelledby="ayu-contact-heading">
         <div className="ayu-container ayu-contact-grid">
-          <div><span className="ayu-small-label">05 / LET'S CONNECT</span><h2 id="ayu-contact-heading">Good ideas<br />start with <em>hello.</em></h2><p>Punya ide konten, ingin berdiskusi tentang beRAni, atau melihat peluang kolaborasi? Ceritakan ke Ayu.</p></div>
+          <div><span className="ayu-small-label">06 / LET'S CONNECT</span><h2 id="ayu-contact-heading">Good ideas<br />start with <em>hello.</em></h2><p>Punya ide konten, ingin berdiskusi tentang beRAni, atau melihat peluang kolaborasi? Ceritakan ke Ayu.</p></div>
           <div className="ayu-contact-actions">{contactUrl && <a href={contactUrl} target="_blank" rel="noopener noreferrer"><MessageCircle size={22} /> Chat via WhatsApp <ArrowRight size={19} /></a>}{profile.email && <a href={`mailto:${profile.email}`}><Mail size={22} /> {profile.email} <ArrowUpRight size={19} /></a>}</div>
         </div>
       </section>

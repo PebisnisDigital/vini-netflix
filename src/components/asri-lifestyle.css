@@ -65,6 +65,14 @@
 .ayu-work-card h3 { margin: 22px 0 14px; font-size: clamp(24px, 2.6vw, 32px); letter-spacing: -.05em; line-height: 1.15; }
 .ayu-work-card p { margin: 0 0 30px; font-size: 15px; color: #62594f; line-height: 1.7; }
 .ayu-work-card a { display: flex; gap: 10px; align-items: center; width: fit-content; margin-top: auto; font-size: 13px; font-weight: 800; border-bottom: 1px solid currentColor; padding-bottom: 4px; }
+.ayu-expertise-list { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 29px 48px; margin-bottom: 78px; }
+.ayu-expertise-item { display: grid; grid-template-columns: 132px minmax(0,1fr); align-items: center; gap: 22px; padding-bottom: 26px; border-bottom: 1px solid var(--ayu-line); }
+.ayu-expertise-thumbnail { display: block; aspect-ratio: 1; border-radius: 17px; overflow: hidden; background: #e6dfd7; }
+.ayu-expertise-thumbnail img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .25s ease; }
+.ayu-expertise-thumbnail:hover img { transform: scale(1.05); }
+.ayu-expertise-item h3 { margin: 0 0 9px; font-size: clamp(20px, 2.1vw, 27px); font-weight: 800; line-height: 1.2; letter-spacing: -.045em; }
+.ayu-expertise-item p { margin: 0; color: #665d55; font-size: clamp(15px, 1.35vw, 17px); line-height: 1.5; }
+.ayu-expertise-bottom { border-top: 1px solid #d8cec4; padding-top: 45px; }
 .ayu-expertise-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(40px, 10vw, 130px); }
 .ayu-expertise-grid > div:first-child { max-width: 380px; }
 .ayu-expertise-lead { margin: 0 0 19px; font-size: clamp(22px, 2.5vw, 31px); line-height: 1.35; font-weight: 750; letter-spacing: -.04em; }
@@ -75,6 +83,23 @@
 .ayu-cert-row span { font-size: 12px; font-weight: 700; color: #aa9683; }
 .ayu-cert-row strong { flex: 1; font-size: clamp(17px, 2vw, 23px); letter-spacing: -.04em; }
 .ayu-cert-row svg { color: #8f7965; }
+.ayu-proof { background: #f6f3ef; }
+.ayu-proof-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 19px; }
+.ayu-proof-card { display: flex; flex-direction: column; min-width: 0; border: 1px solid #e0d7cc; border-radius: 19px; overflow: hidden; background: #fff; transition: box-shadow .2s ease, transform .2s ease; }
+.ayu-proof-card:hover { box-shadow: 0 15px 28px rgba(50,38,25,.09); transform: translateY(-3px); }
+.ayu-proof-card--featured { grid-column: span 2; }
+.ayu-proof-photo { height: 225px; overflow: hidden; background: #e4ded6; }
+.ayu-proof-card--featured .ayu-proof-photo { height: 280px; }
+.ayu-proof-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
+.ayu-proof-card:nth-child(2) img { object-position: 50% 14%; }
+.ayu-proof-card:nth-child(3) img { object-position: 50% 22%; }
+.ayu-proof-card:nth-child(4) img { object-position: 50% 43%; }
+.ayu-proof-card:nth-child(5) img { object-position: 50% 13%; }
+.ayu-proof-content { display: flex; flex-direction: column; flex: 1; padding: 25px; }
+.ayu-proof-content > span:first-child { font-size: 10px; font-weight: 800; letter-spacing: .12em; color: #967c68; }
+.ayu-proof-content h3 { margin: 12px 0; font-size: clamp(22px, 2.4vw, 31px); letter-spacing: -.05em; line-height: 1.2; }
+.ayu-proof-content p { margin: 0 0 23px; color: #655a50; font-size: 15px; line-height: 1.65; }
+.ayu-proof-open { display: inline-flex; align-items: center; gap: 6px; margin-top: auto; font-size: 13px; font-weight: 800; }
 .ayu-contact { background: #332d2a; color: #f8f4f0; padding-block: 95px; scroll-margin-top: 10px; }
 .ayu-contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; }
 .ayu-contact .ayu-small-label { color: #c0a48b; }
@@ -109,6 +134,7 @@
   .ayu-section { padding-block: 58px; }
   .ayu-section-title { margin-bottom: 32px; }
   .ayu-section-title h2 { font-size: 37px; }
+  .ayu-expertise .ayu-section-title h2 { font-size: clamp(27px, 7.9vw, 34px); }
   .ayu-about-grid, .ayu-expertise-grid, .ayu-contact-grid { grid-template-columns: 1fr; gap: 31px; }
   .ayu-about-intro h3 { font-size: 30px; max-width: 510px; }
   .ayu-about-portrait { height: 305px; margin-top: 21px; }
@@ -118,6 +144,17 @@
   .ayu-work-image { height: 210px; }
   .ayu-work-card-content { padding: 24px; }
   .ayu-work-card h3 { margin-top: 18px; }
+  .ayu-expertise-list { grid-template-columns: 1fr; gap: 21px; margin-bottom: 48px; }
+  .ayu-expertise-item { grid-template-columns: 104px minmax(0,1fr); gap: 17px; padding-bottom: 21px; }
+  .ayu-expertise-thumbnail { border-radius: 14px; }
+  .ayu-expertise-item h3 { font-size: 19px; margin-bottom: 7px; }
+  .ayu-expertise-item p { font-size: 14px; line-height: 1.55; }
+  .ayu-expertise-bottom { padding-top: 34px; }
+  .ayu-proof-grid { grid-template-columns: 1fr; gap: 15px; }
+  .ayu-proof-card--featured { grid-column: span 1; }
+  .ayu-proof-photo, .ayu-proof-card--featured .ayu-proof-photo { height: 235px; }
+  .ayu-proof-content { padding: 22px; }
+  .ayu-proof-content h3 { font-size: 25px; }
   .ayu-contact { padding-block: 65px; }
   .ayu-contact h2 { font-size: 46px; }
   .ayu-contact-actions a { padding: 19px; font-size: 15px; }
