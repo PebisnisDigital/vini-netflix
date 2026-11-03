@@ -1,0 +1,69 @@
+{
+  "slug": "hijamateam",
+  "name": "HijamaTeam",
+  "role": "Perkhidmatan Bekam Darah · Pusat Ilmu Bekam",
+  "location": "Bukit Panjang, Singapura",
+  "bio": "HijamaTeam ialah jenama perkhidmatan bekam darah di Singapura yang diasaskan oleh pasukan bapa dan anak, Hassan Bin Sulaiman dan Nur Ain Binte Hassan. Kami telah menyediakan perkhidmatan sejak tahun 2009, dengan sesi untuk lelaki dan wanita di bilik berasingan. Kami juga berkongsi pengetahuan tentang amalan bekam, persediaan dan penjagaan selepas rawatan. Hubungi Nur Ain untuk pertanyaan atau membuat janji temu.",
+  "tagline": [
+    "TRADISI BEKAM. PENDEKATAN PENUH PERHATIAN.",
+    "KENALI · FAHAMI · BUAT JANJI TEMU"
+  ],
+  "interests": ["Bekam Darah", "Pendidikan Bekam", "Kebersihan Peralatan", "Perkhidmatan Lelaki & Wanita"],
+  "photo": {
+    "src": "/clients/hijamateam/hero.webp",
+    "alt": "Visual ilustrasi peralatan bekam tradisional dengan cawan kaca dan pam di atas dulang kayu; bukan foto bilik rawatan sebenar"
+  },
+  "whatsapp": "+6589567799",
+  "links": {
+    "website": "https://hijamateam.wordpress.com/",
+    "facebook": "https://www.facebook.com/ainhassan/",
+    "youtube": "https://www.youtube.com/@hijamateam"
+  },
+  "experiences": [
+    {
+      "company": "HijamaTeam · Singapura",
+      "role": "Perkhidmatan Bekam Darah",
+      "period": "Sejak 2009",
+      "description": "Rawatan bekam darah untuk lelaki dan wanita serta perkongsian maklumat pendidikan berkaitan prosedur, kebersihan dan persediaan rawatan."
+    }
+  ],
+  "projects": [
+    {
+      "title": "Bekam Setengah Badan",
+      "year": "RAWATAN",
+      "description": "Pilihan sesi yang memfokuskan kawasan belakang badan. Sila hubungi pasukan kami untuk mengetahui prosedur, kesesuaian dan harga terkini.",
+      "category": "Perkhidmatan Bekam",
+      "tags": ["Bekam", "Setengah Badan", "Janji Temu"]
+    },
+    {
+      "title": "Bekam Setengah Badan & Tangan",
+      "year": "RAWATAN",
+      "description": "Pilihan sesi yang merangkumi bahagian belakang badan dan tangan. Keperluan setiap individu dibincangkan terlebih dahulu sebelum temu janji.",
+      "category": "Perkhidmatan Bekam",
+      "tags": ["Bekam", "Tangan", "Janji Temu"]
+    },
+    {
+      "title": "Bekam Badan & Kaki",
+      "year": "RAWATAN",
+      "description": "Pilihan sesi yang lebih menyeluruh merangkumi badan dan kaki. Dapatkan maklumat tentang tempoh, harga dan persediaan secara langsung melalui WhatsApp.",
+      "category": "Perkhidmatan Bekam",
+      "tags": ["Bekam", "Kaki", "Janji Temu"]
+    },
+    {
+      "title": "Pusat Ilmu Bekam",
+      "year": "PENDIDIKAN",
+      "description": "Maklumat asas tentang bekam darah, langkah kebersihan, persediaan serta soalan lazim. Kandungan adalah untuk pendidikan dan tidak menggantikan nasihat perubatan.",
+      "category": "Pengetahuan",
+      "tags": ["FAQ", "Pendidikan", "Keselamatan"]
+    }
+  ],
+  "skills": ["Bekam Darah", "Maklumat Prosedur", "Kebersihan Peralatan", "Pendidikan Bekam"],
+  "highlights": [
+    { "title": "Sejak 2009", "description": "Menjalankan perkhidmatan bekam darah di Singapura.", "category": "PENGALAMAN" },
+    { "title": "Lelaki & Wanita", "description": "Terapis dan bilik rawatan berasingan mengikut pelanggan.", "category": "PERKHIDMATAN" },
+    { "title": "Jarum Sekali Guna", "description": "Menurut maklumat yang diterbitkan HijamaTeam, lancet baharu digunakan bagi setiap sesi.", "category": "KEBERSIHAN" }
+  ],
+  "theme": { "accent": "#d6aa71", "background": "#102b25" },
+  "templateId": "original",
+  "identityMode": "photo"
+}

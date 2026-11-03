@@ -12,15 +12,24 @@ function replaceMeta(html, attr, key, value) {
 
 export function renderClientHtml(template, { name, bio, photo }) {
   const isElectronicTiger = name === 'Electronic Tiger Creative Studio';
-  const title = isElectronicTiger ? 'Electronic Tiger Creative Studio — Ideas Into Creations' : `${name} — THE SERIES`;
-  const description = isElectronicTiger
-    ? 'Electronic Tiger Creative Studio creates original brands, meaningful stories, Islamic children’s entertainment, personal development media, and cinematic AI films.'
-    : bio;
-  const noscript = isElectronicTiger
-    ? 'Electronic Tiger Creative Studio portfolio. Enable JavaScript to explore our creative worlds.'
+  const isHijamaTeam = name === 'HijamaTeam';
+  const title = isHijamaTeam ? 'HijamaTeam — Perkhidmatan Bekam Darah di Singapura'
+    : isElectronicTiger ? 'Electronic Tiger Creative Studio — Ideas Into Creations' : `${name} — THE SERIES`;
+  const description = isHijamaTeam
+    ? 'HijamaTeam menyediakan perkhidmatan bekam darah di Bukit Panjang, Singapura sejak 2009. Ketahui pilihan rawatan, pusat ilmu bekam dan hubungi Nur Ain untuk janji temu.'
+    : isElectronicTiger
+      ? 'Electronic Tiger Creative Studio creates original brands, meaningful stories, Islamic children’s entertainment, personal development media, and cinematic AI films.'
+      : bio;
+  const noscript = isHijamaTeam ? 'HijamaTeam — sila aktifkan JavaScript untuk melayari laman rasmi kami.'
+    : isElectronicTiger ? 'Electronic Tiger Creative Studio portfolio. Enable JavaScript to explore our creative worlds.'
     : `Portofolio ${name}. Aktifkan JavaScript untuk menjelajahinya.`;
   // The studio has its own identity mark; keep the PESONAFLIX favicon for other clients.
-  const brandedTemplate = isElectronicTiger
+  const brandedTemplate = isHijamaTeam
+    ? template.replace(
+      /<link\s+rel="icon"\s+type="image\/svg\+xml"\s+href="\/favicon\.svg"\s*\/>/i,
+      '<link rel="icon" type="image/svg+xml" href="/clients/hijamateam/favicon.svg" />',
+    ).replace('<html lang="id">', '<html lang="ms">')
+    : isElectronicTiger
     ? template.replace(
       /<link\s+rel="icon"\s+type="image\/svg\+xml"\s+href="\/favicon\.svg"\s*\/>/i,
       '<link rel="icon" type="image/png" href="/clients/noahinna/et-favicon.png" />',

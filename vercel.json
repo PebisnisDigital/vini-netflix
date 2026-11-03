@@ -13,6 +13,10 @@
       "source": "/ElectronicTigerCreativeStudio",
       "destination": "/electronictigercreativestudio/index.html"
     },
+    {
+      "source": "/HijamaTeam",
+      "destination": "/hijamateam/index.html"
+    },
     { "source": "/:slug([a-z0-9-]+)", "destination": "/:slug/index.html" }
   ]
 }
