@@ -36,6 +36,7 @@ function fieldValue(content: PortfolioContent, field: string): string {
     location: profile.location,
     tagline: profile.tagline.join(' • '),
     bio: profile.intro,
+    aboutme: profile.aboutMe || profile.intro,
     interests: profile.interests.join('\n'),
     'picks:heading': content.picksHeading || `Pilihan ${profile.displayName}`,
     'picks:kicker': content.picksKicker || `${content.topPicks.length} Sorotan · perjalanan & karya`,
@@ -118,7 +119,7 @@ export default function VisualCanvasTools({ content, children }: Props) {
       height: Math.min(190, Math.max(48, rect.height + 12)),
       fontSize: computed.fontSize, fontWeight: computed.fontWeight,
       textAlign: computed.textAlign === 'center' ? 'center' : computed.textAlign === 'right' ? 'right' : 'left',
-      multiline: ['bio', 'interests', 'tagline', 'journey:aside', 'skills:aside'].includes(field) || field.endsWith(':description') || field.endsWith(':subtitle') || field.endsWith(':detail') || field.endsWith(':synopsis') || field.endsWith(':tags') || field.endsWith(':evidence'),
+      multiline: ['bio', 'aboutme', 'interests', 'tagline', 'journey:aside', 'skills:aside'].includes(field) || field.endsWith(':description') || field.endsWith(':subtitle') || field.endsWith(':detail') || field.endsWith(':synopsis') || field.endsWith(':tags') || field.endsWith(':evidence'),
     };
     activeBox.current = edit;
     setBox(edit); setValue(edit.value);

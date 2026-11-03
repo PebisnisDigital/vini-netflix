@@ -10,6 +10,7 @@ import { validateElementLinks, type ElementLinks } from './elementLinks';
 /** Satu sumber data untuk setiap halaman portofolio, tanpa teks klien lain. */
 export type PortfolioContent = {
   profile: typeof vini.profile & {
+    aboutMe?: string;
     secondaryEmail?: string;
     heroMeta?: string[];
     floating?: { text: string; sub: string }[];
@@ -167,6 +168,8 @@ export type ClientBrief = {
   role: string;
   location: string;
   bio: string;
+  /** Cerita lengkap untuk bagian Tentang Saya; bio tetap ringkas di hero. */
+  aboutMe?: string;
   tagline: string[];
   interests: string[];
   photo: { src: string; alt: string; srcSet?: string };
@@ -470,6 +473,7 @@ export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: 
       firstName: hasanudinName || (preserveAcademicTitle ? name.split(',')[0].toUpperCase() : name.toUpperCase()), seriesTag: 'THE SERIES',
       originalLabel: `KISAH ORIGINAL ${hasanudinName || (preserveAcademicTitle ? name : name.toUpperCase())}`, role: brief.role,
       tagline: tags, intro: brief.bio, location: brief.location, email: brief.email || '', secondaryEmail: brief.secondaryEmail || '',
+      aboutMe: brief.aboutMe,
       whatsapp: brief.whatsapp || '', secondaryWhatsapp: brief.secondaryWhatsapp || '', referralCode: clientReferralCode(brief.slug), clientSlug: brief.slug,
       googleMapsUrl: brief.googleMapsUrl || '', googleMapsLabel: brief.googleMapsLabel || '',
       links: { linkedin: brief.links?.linkedin || '', github: brief.links?.github || '', website: brief.links?.website || '' },
