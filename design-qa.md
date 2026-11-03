@@ -235,3 +235,14 @@ Screenshots were reviewed interactively in the browser session; no screenshot fi
 - **Portrait:** crop the genuine submitted outdoor stairway JPG at `340×340+300+520`, preserve the photographic pixels of the actual person, mask the surrounding scene to transparency without generative reconstruction, and export a close-up `800×800` RGBA WebP at **25,622 bytes** (< 50 KB). The low-resolution original is intentionally not facially retouched, so facial features and clothes remain recognizably untouched.
 - **Scope:** changes are specific to Asri's JSON, binary portrait, original-route conditional, documentary expertise component and Asri modal image behavior. Other client assets and templates stay as before.
 - **Verification:** local `npm run verify` passed (full test suite, 53 client pages, Vite build). Deployment and mobile browser checks should be recorded after the PR is merged.
+
+---
+
+## Klien `/asriwahyuni` — genuine full-photo square crop (supersedes cutout)
+
+**User correction** (3 November 2026): The previous close-up cutout makes Ayu's face appear soft/pixelated when shown large. Keep the *entire original photographic subject and staircase background*; change only the crop boundaries to a square.
+
+- **Source:** the originally supplied 960×1280 outdoor-stairway JPG, unchanged facial details, clothing, lighting and surroundings.
+- **Crop:** 960×960 at original coordinates `0,320` (full original horizontal resolution, **no enlargement**, head through shoes visible).
+- **Export:** WebP 960×960, 178,906 bytes at the selected quality. This intentionally exceeds the old 50 KB portrait target to honor the client's newer and higher-priority request for sharpness. No transparent mask or generated subject.
+- **Implementation:** replace only `public/clients/asriwahyuni/foto-profesional.webp` and correct its alt text; the original Netflix layout, copy and all nine projects remain unchanged.
