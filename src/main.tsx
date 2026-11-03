@@ -43,12 +43,16 @@ async function start() {
       return;
     }
     const electronicTiger = client.content.profile.clientSlug === 'electronictigercreativestudio';
-    document.title = electronicTiger
-      ? 'Electronic Tiger Creative Studio — Ideas Into Creations'
+    const hijamaTeam = client.content.profile.clientSlug === 'hijamateam';
+    document.title = hijamaTeam ? 'HijamaTeam — Perkhidmatan Bekam Darah di Singapura'
+      : electronicTiger ? 'Electronic Tiger Creative Studio — Ideas Into Creations'
       : `${client.content.profile.displayName} — THE SERIES`;
-    const metaDescription = electronicTiger
-      ? 'Electronic Tiger Creative Studio creates original brands, meaningful stories, Islamic children’s entertainment, personal development media, and cinematic AI films.'
-      : client.content.profile.intro;
+    const metaDescription = hijamaTeam
+      ? 'HijamaTeam menyediakan perkhidmatan bekam darah di Bukit Panjang, Singapura sejak 2009. Ketahui jenis rawatan, pusat ilmu bekam dan hubungi Nur Ain untuk janji temu.'
+      : electronicTiger
+        ? 'Electronic Tiger Creative Studio creates original brands, meaningful stories, Islamic children’s entertainment, personal development media, and cinematic AI films.'
+        : client.content.profile.intro;
+    document.documentElement.lang = hijamaTeam ? 'ms' : 'id';
     const description = document.querySelector('meta[name="description"]');
     description?.setAttribute('content', metaDescription);
     document.querySelector('meta[property="og:title"]')?.setAttribute('content', document.title);

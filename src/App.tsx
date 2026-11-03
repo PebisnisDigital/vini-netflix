@@ -33,6 +33,7 @@ import Seasons from './components/Seasons';
 import Originals from './components/Originals';
 import MunasifahShowcase from './components/MunasifahShowcase';
 import ElectronicTigerStudio from './components/ElectronicTigerStudio';
+import HijamaTeamSite from './components/HijamaTeamSite';
 import TopPicks from './components/TopPicks';
 import Skills from './components/Skills';
 import Achievements from './components/Achievements';
@@ -64,6 +65,9 @@ export default function App({ slug, editorMode = false }: { slug: string; editor
   // the same CMS data source and editable project/image fields.
   if (profile.clientSlug === 'noahinna' || profile.clientSlug === 'electronictigercreativestudio') {
     return <ElectronicTigerStudio editorMode={editorMode} />;
+  }
+  if (profile.clientSlug === 'hijamateam') {
+    return <HijamaTeamSite editorMode={editorMode} />;
   }
   // Alamat publik dapat berupa alias, sedangkan kanvas dahulu memakai slug
   // sementara. Kelas tema khusus selalu mengikuti identitas sumber klien.
