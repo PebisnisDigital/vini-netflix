@@ -14,6 +14,29 @@ const NINIK_UMROH_POSTERS: Record<string, string> = {
   Majol: '/clients/ninikwardhani/majol-hotel.webp',
 };
 
+const NINIK_PAYMENT_POSTERS: Record<string, { src: string; alt: string; caption: string }> = {
+  Cash: {
+    src: '/clients/ninikwardhani/cash-alur-pendaftaran.webp',
+    alt: 'Poster alur pendaftaran Umroh, booking tempat dan pelunasan Samira Travel',
+    caption: 'Alur booking & pelunasan',
+  },
+  Tabungan: {
+    src: '/clients/ninikwardhani/tabungan-umroh.webp',
+    alt: 'Poster program Tabungan Umroh Samira Travel',
+    caption: 'Program Tabungan Umroh',
+  },
+  'Umroh dulu, bayar belakangan': {
+    src: '/clients/ninikwardhani/bayar-belakangan.webp',
+    alt: 'Poster Umroh dulu bayar belakangan bersama Samira Travel',
+    caption: 'Berangkat dulu, bayar setelah pulang',
+  },
+  'DP Rp1.500.000': {
+    src: '/clients/ninikwardhani/dp-perlengkapan.webp',
+    alt: 'Poster perlengkapan Umroh dengan uang muka Rp1,5 juta',
+    caption: 'Rincian perlengkapan DP Rp1,5 juta',
+  },
+};
+
 export default function Skills() {
   const { skillCategories, skillsHeading, skillsAside, skillsKicker, profile } = usePortfolio();
   const [cat, setCat] = useState(0);
@@ -77,7 +100,9 @@ function SkillCard({ skill, hue, categoryIndex, skillIndex }: { skill: Skill; hu
   const { skillEvidence, profile } = usePortfolio();
   const [open, setOpen] = useState(false);
   const [showPoster, setShowPoster] = useState(false);
-  const poster = profile.clientSlug === 'ninikwardhani' ? NINIK_UMROH_POSTERS[skill.name] : undefined;
+  const paymentPoster = profile.clientSlug === 'ninikwardhani' ? NINIK_PAYMENT_POSTERS[skill.name] : undefined;
+  const poster = profile.clientSlug === 'ninikwardhani' ? (NINIK_UMROH_POSTERS[skill.name] ?? paymentPoster?.src) : undefined;
+  const posterAlt = paymentPoster?.alt ?? `Informasi hotel Paket ${skill.name} Samira Travel`;
   const evidence = skill.evidence ?? skillEvidence[skill.name];
 
   useEffect(() => {
@@ -97,7 +122,7 @@ function SkillCard({ skill, hue, categoryIndex, skillIndex }: { skill: Skill; hu
       onHoverStart={() => { if (!poster) setOpen(true); }}
       onHoverEnd={() => { if (!poster) setOpen(false); }}
       onClick={() => poster ? setShowPoster(true) : setOpen((o) => !o)}
-      aria-label={poster ? `Lihat poster hotel Paket ${skill.name}` : undefined}
+      aria-label={poster ? `Lihat poster ${skill.name}` : undefined}
       aria-expanded={poster ? showPoster : open}
       variants={{
         hidden: { opacity: 0, y: 24, scale: 0.94, filter: 'blur(6px)' },
@@ -110,7 +135,7 @@ function SkillCard({ skill, hue, categoryIndex, skillIndex }: { skill: Skill; hu
     >
       <div aria-hidden className="absolute -right-10 -top-10 h-32 w-32 rounded-full opacity-0 blur-2xl transition duration-500 group-hover:opacity-60" style={{ background: hue }} />
       {poster ? (
-        <img src={poster} alt={`Informasi hotel Paket ${skill.name} Samira Travel`} loading="lazy" decoding="async" className="relative block h-auto w-full rounded-lg object-contain shadow-sm" />
+        <img src={poster} alt={posterAlt} loading="lazy" decoding="async" className="relative block h-auto w-full rounded-lg object-contain shadow-sm" />
       ) : (
       <motion.span
         className="relative flex h-12 w-12 items-center justify-center rounded-lg font-display text-2xl tracking-wide"
@@ -130,6 +155,9 @@ function SkillCard({ skill, hue, categoryIndex, skillIndex }: { skill: Skill; hu
           </span>
         )}
       </span>
+      {paymentPoster && (
+        <span className="relative mt-1 px-1 pb-1 text-[11px] leading-snug text-mist">{paymentPoster.caption}</span>
+      )}
       <AnimatePresence initial={false}>
         {!poster && open && evidence && (
           <motion.span
@@ -148,7 +176,7 @@ function SkillCard({ skill, hue, categoryIndex, skillIndex }: { skill: Skill; hu
       <div
         role="dialog"
         aria-modal="true"
-        aria-label={`Poster hotel Paket ${skill.name}`}
+        aria-label={`Poster ${skill.name}`}
         className="fixed inset-0 z-[9999] flex items-center justify-center bg-slate-950/90 p-4"
         onClick={() => setShowPoster(false)}
       >
@@ -157,7 +185,7 @@ function SkillCard({ skill, hue, categoryIndex, skillIndex }: { skill: Skill; hu
         </button>
         <img
           src={poster}
-          alt={`Informasi hotel Paket ${skill.name} Samira Travel`}
+          alt={posterAlt}
           className="max-h-[88vh] w-[92vw] max-w-[560px] rounded-lg object-contain shadow-2xl"
           onClick={(event) => event.stopPropagation()}
         />
