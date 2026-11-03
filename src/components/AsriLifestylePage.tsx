@@ -17,16 +17,16 @@ const skills = ['Digital Marketing', 'Pendamping UMKM', 'MICE'];
 const evidenceBase = '/clients/asriwahyuni/';
 
 const expertiseAreas = [
-  { title: 'Digital Marketing', description: 'Strategi media sosial, pengembangan konten, pemasaran digital, dan komunikasi brand.', image: `${evidenceBase}founder-community.webp`, position: '20% 23%' },
-  { title: 'Content Creation', description: 'Travel, food, lifestyle, storytelling, dan proses produksi konten.', image: `${evidenceBase}behind-scenes.webp`, position: '52% 47%' },
+  { title: 'Digital Marketing', description: 'Strategi media sosial, pengembangan konten, pemasaran digital, dan komunikasi brand.', image: `${evidenceBase}behind-scenes.webp`, position: '48% 48%' },
+  { title: 'Content Creation', description: 'Travel, food, lifestyle, storytelling, dan proses produksi konten.', image: `${evidenceBase}media-9-juta-views.webp`, position: '50% 24%' },
   { title: 'UMKM Development', description: 'Pendampingan, edukasi pemasaran, dan pengembangan potensi usaha UMKM.', image: `${evidenceBase}narasumber-umkm.webp`, position: '48% 34%' },
-  { title: 'Business & MICE', description: 'Pengembangan kemitraan, networking, komunitas, dan peluang kolaborasi di bidang event.', image: `${evidenceBase}komunitas-instagram.webp`, position: '50% 80%' },
+  { title: 'Business & MICE', description: 'Pengembangan kemitraan, networking, komunitas, dan peluang kolaborasi di bidang event.', image: `${evidenceBase}founder-community.webp`, position: '19% 26%' },
 ];
 
 const proofGallery = [
-  { label: 'CONTENT CREATION', title: 'Di Balik Proses Produksi', description: 'Dokumentasi Ayu berkegiatan di depan laptop saat proses pengambilan gambar.', image: `${evidenceBase}behind-scenes.webp`, alt: 'Ayu bekerja di laptop bersama anak dan kru kamera saat pembuatan konten.' },
-  { label: 'MEDIA COVERAGE', title: 'Liputan 9 Juta Views', description: 'Cuplikan artikel 23 Januari 2026 tentang tayangan konten keluarga Ayu.', image: `${evidenceBase}media-9-juta-views.webp`, alt: 'Cuplikan artikel media mengenai Asri Wahyuni dan capaian 9 juta views konten keluarga.' },
-  { label: 'COMMUNITY BUILDING', title: 'Tiga Komunitas Perempuan', description: 'Poster komunitas yang dibagikan Ayu: AWC, Rumah Kawan Bunda, dan Wanita Cerdas Tangerang.', image: `${evidenceBase}founder-community.webp`, alt: 'Poster founder tiga komunitas perempuan beserta identitas dan akun media sosialnya.' },
+  { label: 'DIGITAL MARKETING', title: 'Di Balik Proses Produksi', description: 'Dokumentasi Ayu berkegiatan di depan laptop saat proses pengambilan gambar.', image: `${evidenceBase}behind-scenes.webp`, alt: 'Ayu bekerja di laptop bersama anak dan kru kamera saat pembuatan konten.' },
+  { label: 'CONTENT CREATION', title: 'Liputan 9 Juta Views', description: 'Cuplikan artikel 23 Januari 2026 tentang tayangan konten keluarga Ayu.', image: `${evidenceBase}media-9-juta-views.webp`, alt: 'Cuplikan artikel media mengenai Asri Wahyuni dan capaian 9 juta views konten keluarga.' },
+  { label: 'BUSINESS & MICE', title: 'Tiga Komunitas Perempuan', description: 'Poster komunitas yang dibagikan Ayu: AWC, Rumah Kawan Bunda, dan Wanita Cerdas Tangerang.', image: `${evidenceBase}founder-community.webp`, alt: 'Poster tiga komunitas perempuan yang menampilkan wajah Ayu, identitas komunitas, dan akun media sosialnya.' },
   { label: 'UMKM DEVELOPMENT', title: 'Narasumber Pengembangan Usaha', description: 'Sertifikat kegiatan pengembangan usaha kelompok perempuan dari Pemerintah Kota Tangerang.', image: `${evidenceBase}narasumber-umkm.webp`, alt: 'Sertifikat Pemerintah Kota Tangerang untuk Asri Wahyuni sebagai narasumber pengembangan usaha kelompok perempuan.' },
   { label: 'SOCIAL COMMUNITY', title: 'Jejak Komunitas di Media Sosial', description: 'Dokumentasi akun komunitas dan kegiatan yang dibagikan Ayu.', image: `${evidenceBase}komunitas-instagram.webp`, alt: 'Tangkapan layar akun Instagram About Woman Community, Rumah Kawan Bunda, dan Wanita Cerdas Tangerang.' },
 ];
@@ -62,7 +62,7 @@ export default function AsriLifestylePage({ editorMode = false }: { editorMode?:
         <div className="ayu-hero-inner">
           <div className="ayu-hero-label"><span data-studio-edit="name">{profile.displayName.toUpperCase()}.</span><span>PERSONAL BRAND</span></div>
           <div className="ayu-hero-image-wrap">
-            <img data-studio-edit="portrait" src={photo} alt={profile.portrait.alt} className="ayu-hero-image" fetchPriority="high" />
+            <img data-studio-edit="portrait" src={photo} alt={photo === visualHero ? 'Asri Wahyuni (Ayu) berkacamata dan berhijab navy dalam suasana ruang kerja profesional' : profile.portrait.alt} className="ayu-hero-image" fetchPriority="high" />
           </div>
           <div className="ayu-hero-content">
             <div className="ayu-hero-number">01 / HOME</div>
