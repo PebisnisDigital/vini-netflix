@@ -207,3 +207,17 @@ Screenshots were reviewed interactively in the browser session; no screenshot fi
 - **Live mobile QA:** browser screenshot at the 390px iframe viewport confirms all four expertise images in corrected rows, clear text and dividers, responsive hero, and working `#expertise` navigation. No horizontal overflow observed.
 - **Scope:** original photography and press clipping remain attributed only to the materials supplied by the user. No changes to other client pages.
 - **Production release:** verify after GitHub merge and Vercel READY deployment.
+
+---
+
+## Klien `/asriwahyuni` — final correction: only original photo, no AI-modified model
+
+**Visual asset QA: passed** (3 November 2026)
+
+- **Latest client instruction supersedes earlier AI portrait request.** The actual user-provided 960×1280 stairway photo is the only source for the subject Ayu in the portrait, hero and community poster. No generative face replacement, skin alteration, garment replacement, or subject reconstruction is present in these three assets.
+- **Portrait:** lossless-coordinate crop of original source at `300×300+305+500`, then resized to 800×800 WebP (39 KB). Source natural staircase background retained because user explicitly asked to change only zoom/crop; not transparent.
+- **Hero:** original source crop `530×298+200+505`, resized to landscape WebP. No fake office or AI subject; copy explicitly states it is an unmodified person in the supplied photo.
+- **Community/MICE poster:** restored original supplied poster and mechanically covered the unrelated model with a rectangular crop (`300×555+310+525`) of the actual stairway photo. Three community logos, account screenshots and business-vision copy remain in the poster.
+- **Preview checks:** source-vs-final image side-by-side inspected; original face/hijab/denim preserved. Caution: close crop magnifies modest source resolution, so the actual photo looks softer than a regenerated AI portrait; preserving identity is intentional.
+- **Other photos:** original digital marketing, content creation, UMKM supporting images and link mapping remain unchanged.
+- **Release:** production deployment must be checked after GitHub merge.

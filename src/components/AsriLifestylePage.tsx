@@ -62,7 +62,7 @@ export default function AsriLifestylePage({ editorMode = false }: { editorMode?:
         <div className="ayu-hero-inner">
           <div className="ayu-hero-label"><span data-studio-edit="name">{profile.displayName.toUpperCase()}.</span><span>PERSONAL BRAND</span></div>
           <div className="ayu-hero-image-wrap">
-            <img data-studio-edit="portrait" src={photo} alt={photo === visualHero ? 'Asri Wahyuni (Ayu) berkacamata dan berhijab navy dalam suasana ruang kerja profesional' : profile.portrait.alt} className="ayu-hero-image" fetchPriority="high" />
+            <img data-studio-edit="portrait" src={photo} alt={photo === visualHero ? 'Foto asli Asri Wahyuni (Ayu) mengenakan hijab navy dan kemeja denim di tangga, dipotong lebih dekat' : profile.portrait.alt} className="ayu-hero-image" fetchPriority="high" />
           </div>
           <div className="ayu-hero-content">
             <div className="ayu-hero-number">01 / HOME</div>
@@ -70,7 +70,7 @@ export default function AsriLifestylePage({ editorMode = false }: { editorMode?:
             <p className="ayu-hero-role" data-studio-edit="role">{profile.role}</p>
             <p className="ayu-hero-copy" data-studio-edit="bio">{profile.intro}</p>
             <a className="ayu-primary-button" href="#about">EXPLORE MY PROFILE <ArrowDown size={21} aria-hidden="true" /></a>
-            <p className="ayu-image-note">Visual konseptual berbantuan AI</p>
+            <p className="ayu-image-note">Foto asli Asri Wahyuni · tanpa perubahan wajah</p>
           </div>
         </div>
       </section>
