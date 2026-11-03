@@ -160,3 +160,37 @@ Screenshots were reviewed interactively in the browser session; no screenshot fi
 
 - **P0/P1/P2 issues:** none found in the inspected desktop and 390px mobile surfaces.
 - **Production release:** tracked separately via GitHub/Vercel deployment; QA above refers to the local browser preview before publishing.
+
+---
+
+## Klien `/asriwahyuni` — expertise photographs and supporting documentation
+
+**Final result: passed** (3 November 2026; browser-rendered desktop and mobile preview)
+
+### Comparison targets
+
+- **Visual reference:** user-supplied screenshot `upload/WhatsApp Image 2026-11-03 at 13.45.55 (1).jpeg`, 610×1356 pixels, depicting four expertise rows with left-aligned rounded thumbnails, right-side labels and descriptions, followed by Business & Ventures.
+- **User assets:** actual filming photo, media article screenshot, founder-of-communities poster, Tangerang government certificate, and community Instagram screenshots supplied in this turn. Each converted to a WebP in `public/clients/asriwahyuni`.
+- **Implementation:** local cloud-browser capture of `/asriwahyuni#expertise` at a 390×850 CSS-pixel iframe viewport (device scale 1), displayed within a desktop browser stage; additional desktop screenshot at approximately 1363×900 CSS pixels. Captures were visually inspected in the browser session and not exported to disk.
+- **Normalization:** reference screenshot includes Android and ChatGPT chrome; comparison restricted to the page-owned section content. Image design, section order, and copy matched rather than reproducing device chrome.
+- **State:** default light theme, four expertise images loaded, certification list, scrollable Business & Ventures gallery, and functional image links; after navigation from the mobile menu.
+
+### Visual QA, iteration and interaction checks
+
+| Surface | Result | Evidence / comparison |
+| --- | --- | --- |
+| Typography | PASS | Professional Expertise heading, four bold labels, quieter supporting text; mobile headline reduced from 37px two-line wrapping to ~31px one line to match the reference. |
+| Spacing and layout | PASS | 390px browser screenshot shows 104px rounded square thumbnails on the left and consistent text groups on the right, separated by fine rules without horizontal clipping. Desktop uses a legible two-column grid. |
+| Colors and tokens | PASS | Existing cream, taupe, charcoal and white editorial palette retained; no unrelated client styling changed. |
+| Image quality and relevance | PASS | Source photos not replaced by stock images; filming photo under Content Creation, social/community poster under Digital Marketing, actual government certificate under UMKM Development, Instagram community screenshot under Business & MICE. All galleries link to full WebP versions. |
+| Content | PASS | Expertise copy corresponds to four headings in source; gallery describes supplied media article, community poster, narasumber certificate, on-set photo, and community accounts without claiming independent verification of the screenshot content. |
+| Mobile navigation | PASS | Browser menu exposes Expertise and Highlights; selecting Expertise updates iframe location to `#expertise` and closes menu. |
+| Gallery | PASS | Browser screenshots show filming and media article cards; image lazy loading resolved after scroll and rendered crisp text/imagery. |
+| Build regression | PASS | `npm run build` succeeded across all 53 client configs; this revision only adds scoped Ayu styles and assets. |
+
+### Findings and fixes
+
+- **[P2, fixed]** Mobile expertise heading initially wrapped into two lines, unlike the screenshot. Reduced only that section's mobile title size; post-fix browser screenshot shows one-line `Professional Expertise.` at 390px.
+- **P0/P1/P2 remaining:** none observed in checked page regions.
+- **P3:** proof cards are intentionally larger than the screenshot's thumbnail-only section, to keep article and certificate evidence accessible and readable.
+- **Production release:** confirm separately after merge and production deployment.
