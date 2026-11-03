@@ -23,7 +23,7 @@ the original archive names remain unchanged for checksum integrity.
 `npm run build` first runs `scripts/unpack-payungmadinah.mjs` to verify and
 unpack `payungmadinah-bundles/*.tar.gz`, then rename the generated directory to
 `public/azura/`, update internal links and brand names, and inject
-`branding/azura/theme.css` with the new logo assets. Vite then copies these pages
+`branding/azura/theme.css` with the new logo and corrected hero-banner assets. Vite then copies these pages
 into `dist/azura/` with all other client routes.
 
 The archives are checked with SHA-256 against the committed manifest, and

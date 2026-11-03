@@ -46,6 +46,9 @@ await Promise.all([
   copyFile(join(brandingDir, 'logo.webp'), join(brandTargetDir, 'azura-logo.webp')),
   copyFile(join(brandingDir, 'icon.webp'), join(brandTargetDir, 'azura-icon.webp')),
   copyFile(join(brandingDir, 'theme.css'), join(brandTargetDir, 'azura-theme.css')),
+  // The source banners contain the former brand name baked into their pixels.
+  copyFile(join(brandingDir, 'banner-desktop.webp'), join(targetDir, 'images/microsites/paket-umroh/banner-desktop.webp')),
+  copyFile(join(brandingDir, 'banner-mobile.webp'), join(targetDir, 'images/microsites/paket-umroh/banner-mobile.webp')),
 ]);
 const textExtensions = new Set(['.html', '.css', '.js', '.json', '.svg', '.xml', '.txt', '.webmanifest']);
 // Source site colors are replaced only where they are part of the original
@@ -61,6 +64,7 @@ const palette = new Map(Object.entries({
   '#4b5058': '#6F4E37', '#6b6258': '#6F4E37',
 }));
 let updatedFiles = 0;
+const legacySocialAnchor = /<a\b(?=[^>]*href="[^"]*(?:instagram\.com\/payungmadinah|youtube\.com\/@payungmadinah|tiktok\.com\/@payungmadinah|threads\.com\/@payungmadinah|linkedin\.com\/company\/payungmadinahtour|facebook\.com\/profile\.php\?id(?:=|&#x3D;)100093536076397)[^"]*")[^>]*>[\s\S]*?<\/a>/gi;
 async function updateInternalLinks(directory) {
   for (const entry of await readdir(directory, {withFileTypes: true})) {
     const path = join(directory, entry.name);
@@ -68,11 +72,16 @@ async function updateInternalLinks(directory) {
       await updateInternalLinks(path);
     } else if (entry.isFile() && [...textExtensions].some(ext => entry.name.endsWith(ext))) {
       const current = await readFile(path, 'utf8');
-      let updated = current
+      // Remove the reference company's social destinations before translating
+      // the brand, so we never fabricate social accounts under the AZURA name.
+      let updated = (entry.name.endsWith('.html') ? current.replace(legacySocialAnchor, '') : current)
         // The actual name changes everywhere, including metadata and JSON-LD.
         .replace(/Payung(?:\s|&nbsp;)+Madinah\s+Umroh\s+&(?:amp;)?\s*Haji\s+Official/gi, 'AZURA Tour & Travel')
         .replace(/Payung(?:\s|&nbsp;)+Madinah/gi, 'AZURA')
         .replace(/PayungMadinah/g, 'AZURA')
+        // Query strings and prefilled WhatsApp messages encode spaces.
+        .replace(/Payung(?:\+|%20)Madinah/gi, 'AZURA')
+        .replace(/AZURA\s+Umroh\s+&(?:amp;)?\s*Haji\s+Official/gi, 'AZURA Tour & Travel')
         // Update original-site links without changing mailto addresses.
         .replace(/https?:\/\/(?:www\.)?payungmadinah\.id/gi, 'https://pesonaflix.vercel.app/azura')
         .replace(/https%3A%2F%2F(?:www\.)?payungmadinah\.id/gi, 'https%3A%2F%2Fpesonaflix.vercel.app%2Fazura')
@@ -82,13 +91,25 @@ async function updateInternalLinks(directory) {
         .replaceAll('/azura/images/microsites/tanyacs/logo.webp', '/azura/images/brand/azura-logo.webp')
         .replaceAll('/azura/images/logo-main.svg?v2.0', '/azura/images/brand/azura-logo.webp')
         .replaceAll('/azura/images/favicon.png', '/azura/images/brand/azura-icon.webp')
-        .replaceAll('/azura/images/apple-touchs.png', '/azura/images/brand/azura-icon.webp');
+        .replaceAll('/azura/images/apple-touchs.png', '/azura/images/brand/azura-icon.webp')
+        .replaceAll('/azura/images/apple-touch-icon-180.png', '/azura/images/brand/azura-icon.webp');
       if (entry.name.endsWith('.html') || entry.name.endsWith('.css')) {
         updated = updated.replace(/#[0-9a-f]{6}\b/gi, color => palette.get(color.toLowerCase()) ?? color);
       }
       if (entry.name.endsWith('.html')) {
         // The reference site's social accounts do not belong to AZURA.
         updated = updated.replace(/<meta\s+name="twitter:(?:site|creator)"\s+content="@payungmadinah"\s*\/?\s*>/gi, '');
+        // Social screenshots contain account names and follower counts from
+        // the old brand; replace them with non-claiming AZURA visual panels.
+        updated = updated.replace(/<img\b[^>]*src="\/azura\/images\/socials\/([^"/]+)"[^>]*>/gi, (_, filename) => {
+          const platform = ({'sosialmedia.jpg': 'Kanal Digital', 'instagram.jpg': 'Instagram', 'tiktok.jpg': 'TikTok', '1.png': 'Facebook', '2.png': 'LinkedIn', '3.png': 'Threads'})[filename] || 'Media Sosial';
+          return `<div class="azura-social-visual"><img loading="lazy" src="/azura/images/brand/azura-logo.webp" alt="Logo AZURA Tour & Travel"><span>${platform} — segera hadir</span></div>`;
+        });
+        if (path.endsWith('/sosial-media/index.html')) {
+          updated = updated
+            .replace(/<title>[^<]*<\/title>/i, '<title>Sosial Media | AZURA Tour & Travel</title>')
+            .replace(/Ikuti perjalanan, informasi, dan inspirasi spiritual terbaru langsung dari sosial media resmi kami\./gi, 'Kanal sosial resmi AZURA akan diumumkan segera. Untuk informasi saat ini, hubungi tim kami melalui WhatsApp.');
+        }
         updated = updated.replace(/<\/head>/i, '<link rel="stylesheet" href="/azura/images/brand/azura-theme.css"></head>');
       }
       if (updated !== current) {
