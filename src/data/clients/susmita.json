@@ -3,7 +3,7 @@
   "name": "SUSMITA SH, S.Ag",
   "role": "Ibu Rumah Tangga",
   "location": "Pendidikan · Keluarga · Usaha Digital",
-  "bio": "Saya Susmita, seorang ibu rumah tangga yang pernah menapaki dunia pendidikan sebagai pengajar SMP, SMA, SMK, serta Matematika SD. Perjalanan keluarga membawa saya mengenal dunia komunitas, pendampingan, STIFIn, dan usaha. Kini saya terus belajar tentang produk digital dan Artificial Intelligence (AI), dengan harapan dapat tetap produktif dari rumah serta berbagi manfaat bagi orang lain.",
+  "bio": "Saya Susmita, seorang ibu rumah tangga yang memulai perjalanan sebagai pengajar KMM dan SMP Muhammadiyah sambil kuliah Pendidikan Agama Islam di Fakultas Tarbiyah UMSB. Saya kemudian mengajar di SMK Muhammadiyah serta mendampingi belajar Matematika SD. Setelah perjalanan bersama keluarga, komunitas Tauhid PPA, EOA, dan STIFIn, kini saya terus mempelajari produk digital berbasis AI agar dapat produktif dari rumah dan berbagi manfaat.",
   "tagline": [
     "Terus Belajar, Bertumbuh, dan Berbagi Manfaat"
   ],
@@ -24,16 +24,16 @@
   "links": {},
   "experiences": [
     {
-      "company": "Lingkungan Pendidikan SMP & SMA",
-      "role": "Pengajar SMP dan SMA",
+      "company": "KMM / Kulliyatul Muballighien Muhammadiyah & SMP Muhammadiyah",
+      "role": "Pengajar KMM dan SMP Muhammadiyah",
       "period": "Awal perjalanan profesional",
-      "description": "Setelah lulus SMA, saya dipercaya oleh para guru untuk mengajar di sekolah yang sama sambil melanjutkan pendidikan tinggi di lingkungan kampus dalam kompleks tersebut. Saya juga mengajar di SMP yang berada dalam kompleks yang sama."
+      "description": "Setelah menyelesaikan KMM / Kulliyatul Muballighien Muhammadiyah (setara SMU), saya dipercaya guru-guru untuk mengajar di KMM sambil kuliah jurusan Pendidikan Agama Islam, Fakultas Tarbiyah UMSB, di lingkungan kompleks yang sama. Saya juga dipercaya mengajar di SMP Muhammadiyah dalam kompleks tersebut."
     },
     {
-      "company": "Sekolah Menengah Kejuruan",
-      "role": "Pengajar SMK",
+      "company": "SMK Muhammadiyah",
+      "role": "Pengajar SMK Muhammadiyah",
       "period": "Setelah menikah dan pindah kota",
-      "description": "Saya kembali mengajar setelah menikah dan mengikuti suami pindah kota. Aktivitas ini kemudian terhenti ketika ayah sakit dan saya memilih pulang untuk mendampingi keluarga."
+      "description": "Setelah menyelesaikan kuliah dan wisuda, saya menikah, mengikuti suami pindah ke kota lain, dan melanjutkan kegiatan mengajar di SMK Muhammadiyah. Ketika ayah sakit, saya memutuskan pulang ke daerah asal sehingga aktivitas mengajar harus terhenti."
     },
     {
       "company": "Lembaga Bimbingan Belajar & Les Privat",
@@ -42,10 +42,10 @@
       "description": "Saya mengajar Matematika tingkat SD di lembaga bimbingan belajar dan memberikan les privat. Pilihan ini memungkinkan saya tetap berbagi ilmu sambil memberi perhatian kepada anak-anak yang ketika itu masih kecil."
     },
     {
-      "company": "PPA · EOA CLUB · EOA GOLD / EMD",
-      "role": "Pendampingan & Pelayanan Komunitas",
+      "company": "PPA (Pola Pertolongan Allah) · EOA CLUB · EOA MIRACLE GOLD",
+      "role": "Branch Manager EOA CLUB & EOA MIRACLE GOLD",
       "period": "Perjalanan komunitas hingga kini",
-      "description": "Di lingkungan PPA saya belajar dan bertumbuh bersama komunitas pengembangan diri dan keluarga. Saya mendapat amanah sebagai BM EOA CLUB, bergabung dalam EOA GOLD yang kini dikenal sebagai EMD/EOA Miracle Distributor, dan masih menjalankan aktivitas pendampingan serta pelayanan."
+      "description": "Setelah pindah ke kota berikutnya, saya bergabung dengan komunitas Tauhid PPA (Pola Pertolongan Allah), tempat saya belajar, bertumbuh, dan beraktivitas. Saya kemudian mendapat amanah sebagai Branch Manager EOA CLUB dan EOA MIRACLE GOLD. Hingga kini saya masih menjalankan pendampingan dan pelayanan dalam lingkungan entitas tersebut."
     },
     {
       "company": "STIFIn",
@@ -57,20 +57,33 @@
       "company": "Usaha Mandiri & Pembelajaran Digital",
       "role": "Penjualan Produk & Pembelajar AI",
       "period": "Perjalanan usaha dan fokus saat ini",
-      "description": "Saya pernah menjual buku-buku PPA, buku tentang emas, dan produk herbal HNI-HPAI sebagai stokis. Saat ini saya mulai mempelajari produk digital berbasis AI untuk mengembangkan diri dan menjajaki peluang usaha yang fleksibel dari rumah."
+      "description": "Saya pernah menjual buku-buku PPA, buku tentang emas, serta beberapa produk herbal. Saya juga mulai belajar produk digital dan belakangan lebih banyak mempelajari produk digital berbasis Artificial Intelligence (AI) untuk pengembangan diri serta peluang usaha fleksibel dari rumah."
     }
   ],
-  "education": [],
+  "education": [
+    {
+      "school": "KMM / Kulliyatul Muballighien Muhammadiyah",
+      "degree": "Pendidikan setara SMU",
+      "place": "Kompleks pendidikan Muhammadiyah",
+      "period": "Pendidikan menengah"
+    },
+    {
+      "school": "UMSB · Fakultas Tarbiyah",
+      "degree": "Pendidikan Agama Islam (S.Ag)",
+      "place": "Kompleks yang sama dengan KMM",
+      "period": "Sambil mengajar di KMM dan SMP Muhammadiyah"
+    }
+  ],
   "projects": [
     {
       "title": "Jejak Pengabdian di Dunia Pendidikan",
       "year": "PENDIDIKAN",
-      "description": "Perjalanan mengajar berawal sejak selesai SMA, berlanjut di SMP dan SMA sambil kuliah, kemudian di SMK. Setelah jeda untuk keluarga, saya kembali berbagi ilmu melalui bimbingan belajar dan les privat Matematika SD.",
+      "description": "Setelah menamatkan KMM (setara SMU), saya dipercaya mengajar di KMM dan SMP Muhammadiyah sambil kuliah Pendidikan Agama Islam di Fakultas Tarbiyah UMSB. Setelah menikah saya mengajar di SMK Muhammadiyah. Seusai jeda untuk keluarga, saya kembali mengajar Matematika SD di bimbingan belajar dan les privat.",
       "category": "Pendidikan & Pengajaran",
       "tags": [
-        "SMP",
-        "SMA",
-        "SMK",
+        "KMM",
+        "SMP Muhammadiyah",
+        "SMK Muhammadiyah",
         "Matematika SD"
       ],
       "image": "/clients/susmita/perjalanan-pendidikan.webp"
@@ -78,12 +91,12 @@
     {
       "title": "Bertumbuh Bersama Komunitas",
       "year": "PPA · EOA",
-      "description": "Lingkungan PPA mempertemukan saya dengan pembelajaran pengembangan diri dan keluarga. Amanah di BM EOA CLUB serta perjalanan EOA GOLD/EMD menjadi ruang bagi saya untuk mendampingi, melayani, dan terus bertumbuh.",
+      "description": "Setelah pindah kota berikutnya, saya bergabung di komunitas Tauhid PPA (Pola Pertolongan Allah). Saya mendapat amanah sebagai Branch Manager EOA CLUB dan EOA MIRACLE GOLD. Aktivitas pendampingan dan pelayanan dalam lingkungan tersebut berlanjut hingga kini.",
       "category": "Komunitas & Pendampingan",
       "tags": [
         "PPA",
         "EOA CLUB",
-        "EMD",
+        "EOA MIRACLE GOLD",
         "Pelayanan"
       ],
       "image": "/clients/susmita/komunitas-bermakna.webp"
@@ -114,8 +127,8 @@
     }
   ],
   "skills": [
-    "Pengajaran SMP & SMA",
-    "Pengajaran SMK",
+    "Pengajaran KMM & SMP Muhammadiyah",
+    "Pengajaran SMK Muhammadiyah",
     "Matematika SD",
     "Pendampingan Komunitas",
     "Promotor STIFIn",
@@ -131,10 +144,10 @@
         {
           "name": "Pengajaran Sekolah Menengah",
           "mono": "SMP",
-          "note": "Pernah mengajar SMP, SMA, dan SMK",
+          "note": "Pernah mengajar di KMM, SMP Muhammadiyah, dan SMK Muhammadiyah",
           "evidence": [
-            "Dipercaya mengajar sambil menempuh pendidikan tinggi",
-            "Melanjutkan pengalaman mengajar di SMK setelah menikah"
+            "Dipercaya mengajar di KMM dan SMP Muhammadiyah sambil kuliah Pendidikan Agama Islam, Fakultas Tarbiyah UMSB",
+            "Melanjutkan pengalaman mengajar di SMK Muhammadiyah setelah menikah"
           ]
         },
         {
@@ -158,8 +171,8 @@
           "mono": "EOA",
           "note": "Pelayanan dan kegiatan komunitas",
           "evidence": [
-            "Pernah menerima amanah sebagai BM EOA CLUB",
-            "Masih aktif dalam lingkungan EMD/EOA Miracle Distributor"
+            "Bergabung di komunitas Tauhid PPA (Pola Pertolongan Allah) setelah pindah kota",
+            "Mendapat amanah sebagai Branch Manager EOA CLUB dan EOA MIRACLE GOLD; masih aktif mendampingi dan melayani"
           ]
         },
         {
@@ -184,7 +197,7 @@
           "note": "Buku dan produk herbal",
           "evidence": [
             "Pernah menjual buku PPA dan buku tentang emas",
-            "Pernah menjadi stokis produk herbal HNI-HPAI"
+            "Pernah mengembangkan penjualan beberapa produk herbal"
           ]
         },
         {
@@ -204,8 +217,8 @@
   "skillsKicker": "PENDIDIKAN · KELUARGA · KOMUNITAS · DIGITAL",
   "highlights": [
     {
-      "title": "Pengalaman di 4 Jenjang",
-      "description": "Pernah mengajar di SMP, SMA, SMK, dan Matematika SD melalui bimbingan belajar atau les privat.",
+      "title": "Jejak di Dunia Pendidikan",
+      "description": "Pernah mengajar di KMM, SMP Muhammadiyah, SMK Muhammadiyah, serta Matematika SD melalui bimbingan belajar dan les privat.",
       "category": "PENDIDIKAN"
     },
     {
@@ -296,16 +309,16 @@
       "number": 1,
       "title": "Berawal dari Ruang Kelas",
       "period": "Pendidikan & Pengajaran",
-      "synopsis": "Kepercayaan untuk mengajar sejak lulus SMA menjadi awal perjalanan panjang bersama dunia pendidikan.",
+      "synopsis": "Kepercayaan untuk mengajar setelah lulus KMM, sambil kuliah Pendidikan Agama Islam di UMSB, menjadi awal perjalanan saya di dunia pendidikan.",
       "episodes": [
         {
-          "title": "Dipercaya Mengajar Sejak Lulus SMA",
+          "title": "Dipercaya Mengajar Setelah Lulus KMM",
           "runtime": "Awal perjalanan",
-          "description": "Saya mengajar di SMA yang pernah menjadi tempat belajar saya sambil kuliah, sekaligus mendapat kepercayaan mengajar di SMP dalam kompleks yang sama.",
+          "description": "Setelah lulus KMM / Kulliyatul Muballighien Muhammadiyah (setara SMU), saya dipercaya mengajar di KMM dan SMP Muhammadiyah sambil kuliah Pendidikan Agama Islam di Fakultas Tarbiyah UMSB dalam kompleks yang sama.",
           "tags": [
-            "SMA",
-            "SMP",
-            "Kuliah"
+            "KMM",
+            "SMP Muhammadiyah",
+            "Fakultas Tarbiyah UMSB"
           ],
           "image": "/clients/susmita/perjalanan-pendidikan.webp",
           "palette": {
@@ -318,9 +331,9 @@
         {
           "title": "Pindah Kota, Lalu Memilih Keluarga",
           "runtime": "Setelah menikah",
-          "description": "Setelah wisuda dan menikah, saya mengikuti suami pindah kota dan mengajar di SMK. Ketika ayah sakit, saya memilih pulang ke daerah asal untuk mendampingi keluarga.",
+          "description": "Setelah kuliah dan wisuda, saya menikah, mengikuti suami pindah kota, lalu mengajar di SMK Muhammadiyah. Ketika ayah sakit, saya memutuskan pulang ke daerah asal sehingga aktivitas mengajar terhenti.",
           "tags": [
-            "SMK",
+            "SMK Muhammadiyah",
             "Keluarga",
             "Prioritas"
           ],
@@ -355,16 +368,16 @@
       "number": 2,
       "title": "Tumbuh di Tengah Komunitas",
       "period": "PPA · EOA · STIFIn",
-      "synopsis": "Kesempatan untuk belajar, mengambil amanah, dan membantu sesama lewat komunitas pengembangan diri serta keluarga.",
+      "synopsis": "Setelah pindah ke kota berikutnya, saya belajar dalam komunitas Tauhid PPA dan mendapat amanah di EOA, sambil mengembangkan pemahaman tentang potensi diri.",
       "episodes": [
         {
           "title": "Menemukan Ruang Belajar di PPA",
           "runtime": "Perjalanan komunitas",
-          "description": "Melalui komunitas PPA saya mengenal aktivitas pengembangan diri dan keluarga. Kemudian saya mendapat amanah sebagai BM EOA CLUB dan bergabung dalam EOA GOLD, kini dikenal sebagai EMD/EOA Miracle Distributor.",
+          "description": "Setelah pindah ke kota berikutnya, saya bergabung di komunitas Tauhid PPA (Pola Pertolongan Allah). Saya lalu mendapat amanah sebagai Branch Manager EOA CLUB dan EOA MIRACLE GOLD, serta masih aktif dalam pendampingan dan pelayanan di lingkungan entitas tersebut.",
           "tags": [
             "PPA",
             "EOA CLUB",
-            "EMD"
+            "EOA MIRACLE GOLD"
           ],
           "image": "/clients/susmita/komunitas-bermakna.webp",
           "palette": {
@@ -402,11 +415,11 @@
         {
           "title": "Menjajal Peluang Usaha",
           "runtime": "Pengalaman usaha",
-          "description": "Saya pernah menjual buku-buku PPA, buku tentang emas, dan menjadi stokis produk herbal HNI-HPAI. Setiap aktivitas mengajarkan pelayanan, kemandirian, dan keberanian untuk mencoba.",
+          "description": "Saya pernah menjual buku-buku PPA, buku tentang emas, serta beberapa produk herbal, lalu mulai belajar dunia produk digital. Setiap aktivitas mengajarkan pelayanan, kemandirian, dan keberanian untuk mencoba.",
           "tags": [
             "Buku",
             "Emas",
-            "HNI-HPAI"
+            "Produk Herbal"
           ],
           "image": "/clients/susmita/komunitas-bermakna.webp",
           "palette": {
@@ -437,7 +450,7 @@
     }
   ],
   "journeyHeading": "Bukan Satu Profesi, Melainkan Banyak Babak Kehidupan",
-  "journeyAside": "Perjalanan saya tidak selalu lurus. Ada masa mengajar, pindah kota, mendampingi orang tua, dan membesarkan anak. Setelah kembali ke dunia pendidikan, saya menemukan ruang baru lewat PPA, EOA, STIFIn, serta usaha. Sekarang saya belajar AI. Prinsip saya tetap sama: terus belajar, bertumbuh, berbagi manfaat, dan produktif dalam setiap fase kehidupan.",
+  "journeyAside": "Perjalanan saya dimulai dari KMM dan SMP Muhammadiyah sambil kuliah Pendidikan Agama Islam di Fakultas Tarbiyah UMSB, berlanjut mengajar di SMK Muhammadiyah. Saat ayah sakit, saya pulang ke daerah asal; setelah jeda untuk keluarga, saya kembali mengajar Matematika SD di bimbingan belajar dan les privat. Pindah kota berikutnya mempertemukan saya dengan komunitas Tauhid PPA (Pola Pertolongan Allah), amanah Branch Manager EOA CLUB dan EOA MIRACLE GOLD, serta pelatihan hingga berlisensi Promotor STIFIn. Saya juga pernah menjual buku dan produk herbal, lalu mulai belajar produk digital dan AI. Bagi saya setiap fase adalah proses belajar: pendidikan mengajarkan berbagi ilmu, komunitas mengajarkan kolaborasi, dan usaha mengajarkan kemandirian, pelayanan, serta adaptasi. Saya ingin tetap produktif dari rumah, bermanfaat bagi orang lain, dan selaras dengan nilai keluarga. Prinsip saya: terus belajar, bertumbuh, berbagi manfaat, dan produktif dalam setiap fase kehidupan.",
   "journeyKicker": "PENDIDIKAN · KELUARGA · KOMUNITAS · MASA DEPAN",
   "templateId": "original",
   "identityMode": "photo",
