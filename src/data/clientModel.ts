@@ -462,11 +462,13 @@ export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: 
     target, title: sectionMeta[target].card, subtitle: sectionMeta[target].meta, image: '',
   }));
   const preserveAcademicTitle = brief.slug === 'yantiriyantini';
+  // Keep the academic suffix's case (S.Pd.I) while the hero name stays uppercase.
+  const hasanudinName = brief.slug === 'hasanudin' ? name.replace(/^Hasanudin(?=,)/i, 'HASANUDIN') : null;
   return {
     profile: {
-      fullName: preserveAcademicTitle ? name : name.toUpperCase(), displayName: name,
-      firstName: preserveAcademicTitle ? name.split(',')[0].toUpperCase() : name.toUpperCase(), seriesTag: 'THE SERIES',
-      originalLabel: `KISAH ORIGINAL ${preserveAcademicTitle ? name : name.toUpperCase()}`, role: brief.role,
+      fullName: hasanudinName || (preserveAcademicTitle ? name : name.toUpperCase()), displayName: name,
+      firstName: hasanudinName || (preserveAcademicTitle ? name.split(',')[0].toUpperCase() : name.toUpperCase()), seriesTag: 'THE SERIES',
+      originalLabel: `KISAH ORIGINAL ${hasanudinName || (preserveAcademicTitle ? name : name.toUpperCase())}`, role: brief.role,
       tagline: tags, intro: brief.bio, location: brief.location, email: brief.email || '', secondaryEmail: brief.secondaryEmail || '',
       whatsapp: brief.whatsapp || '', secondaryWhatsapp: brief.secondaryWhatsapp || '', referralCode: clientReferralCode(brief.slug), clientSlug: brief.slug,
       googleMapsUrl: brief.googleMapsUrl || '', googleMapsLabel: brief.googleMapsLabel || '',

@@ -1,18 +1,19 @@
 {
   "slug": "hasanudin",
   "name": "Hasanudin, S.Pd.I",
-  "role": "Guru",
-  "location": "Indonesia · Dunia Pendidikan",
-  "bio": "Assalamu'alaikum, saya Hasanudin, S.Pd.I, seorang guru. Selamat datang di halaman perkenalan profesional saya. Di sini Anda dapat mengenal identitas saya, bidang profesi yang saya jalani, dan menghubungi saya secara langsung. Informasi sekolah, mata pelajaran, pengalaman mengajar, serta kegiatan pendidikan dapat dilengkapi pada pembaruan berikutnya.",
+  "role": "Guru Les & Privat SD–SMP",
+  "location": "Indonesia · Les Privat & Home Visit",
+  "bio": "Assalamu'alaikum, saya Hasanudin, S.Pd.I. Saya memiliki pengalaman mengajar dari tingkat SD hingga SMK/sederajat, kurang lebih sejak 2010 sampai 2026. Saat ini saya menawarkan les atau privat untuk siswa SD dan SMP dalam mata pelajaran Bahasa Inggris, Matematika, serta mengaji Al-Qur'an menggunakan metode Ummi. Pembelajaran juga bisa melalui home visit sesuai kesepakatan. Silakan hubungi saya untuk berdiskusi mengenai kebutuhan belajar.",
   "tagline": [
-    "Mengajar dengan Hati, Terus Belajar Setiap Hari",
-    "GURU · PENDIDIKAN · SILATURAHMI"
+    "Pendamping Belajar SD & SMP",
+    "BAHASA INGGRIS · MATEMATIKA · AL-QUR'AN"
   ],
   "interests": [
-    "Pendidikan",
-    "Pengajaran",
-    "Pembelajaran Sepanjang Hayat",
-    "Komunikasi Pendidikan"
+    "Les Privat SD & SMP",
+    "Bahasa Inggris",
+    "Matematika",
+    "Mengaji Al-Qur'an Metode Ummi",
+    "Home Visit"
   ],
   "photo": {
     "src": "/clients/hasanudin/foto-profesional.webp",
@@ -23,12 +24,22 @@
   "whatsapp": "085692102468",
   "secondaryWhatsapp": "085711168118",
   "links": {},
+  "theme": {
+    "accent": "#d8b575",
+    "background": "#0c1726"
+  },
   "experiences": [
     {
-      "company": "Dunia Pendidikan",
-      "role": "Guru",
-      "period": "Profesi saat ini",
-      "description": "Hasanudin memperkenalkan dirinya sebagai guru. Nama instansi, mata pelajaran, jenjang mengajar, dan riwayat tugas belum disampaikan untuk dicantumkan di halaman ini."
+      "company": "Pengalaman di Dunia Pendidikan",
+      "role": "Pengajar SD hingga SMK/Sederajat",
+      "period": "Sekitar 2010–2026",
+      "description": "Memiliki pengalaman mengajar di berbagai jenjang, mulai SD hingga SMK/sederajat, dalam rentang kurang lebih tahun 2010 sampai 2026. Rincian nama sekolah dan penugasan tidak dicantumkan karena belum disampaikan."
+    },
+    {
+      "company": "Les dan Bimbingan Privat",
+      "role": "Guru Les Privat SD & SMP",
+      "period": "Layanan saat ini",
+      "description": "Mendampingi belajar Bahasa Inggris, Matematika, serta mengaji Al-Qur'an menggunakan metode Ummi untuk siswa SD dan SMP. Tersedia pilihan home visit sesuai kesepakatan."
     }
   ],
   "education": [],
@@ -36,69 +47,72 @@
     {
       "title": "Kenali Hasanudin, S.Pd.I",
       "year": "PROFIL",
-      "description": "Perkenalan dengan Hasanudin, S.Pd.I, seorang guru. Gelar akademik ditulis sesuai informasi yang diberikan. Riwayat kampus, sekolah, dan bidang studi tidak ditambahkan sebelum dikonfirmasi.",
+      "description": "Kenali Hasanudin, S.Pd.I, guru dengan pengalaman mengajar dari tingkat SD hingga SMK/sederajat sejak sekitar 2010 hingga 2026, kini juga membuka layanan les privat untuk SD dan SMP.",
       "category": "Profil Profesional",
-      "tags": [
-        "Hasanudin",
-        "Guru",
-        "S.Pd.I"
-      ],
+      "tags": ["Hasanudin", "Guru", "S.Pd.I"],
       "image": "/clients/hasanudin/foto-profesional.webp"
     },
     {
-      "title": "Ruang Pendidikan",
-      "year": "PENDIDIKAN",
-      "description": "Dunia pendidikan menjadi bagian dari profesi Hasanudin. Halaman ini dapat berkembang menjadi ruang berbagi perjalanan mengajar, kegiatan pembelajaran, dan karya pendidikan setelah materi tersedia.",
-      "category": "Dunia Pendidikan",
-      "tags": [
-        "Pendidikan",
-        "Pengajaran",
-        "Ruang Belajar"
-      ],
+      "title": "Les Privat SD & SMP",
+      "year": "LAYANAN BELAJAR",
+      "description": "Bimbingan belajar Bahasa Inggris dan Matematika untuk siswa SD maupun SMP, serta mengaji Al-Qur'an menggunakan metode Ummi. Pilihan pertemuan home visit dapat dibicarakan langsung.",
+      "category": "Les & Privat",
+      "tags": ["Bahasa Inggris", "Matematika", "Metode Ummi", "Home Visit"],
       "image": ""
     },
     {
-      "title": "WhatsApp Alternatif",
-      "year": "KONTAK",
-      "description": "Anda juga dapat menghubungi Hasanudin melalui nomor WhatsApp kedua: 0857-111-68-118. Dua alamat email tersedia untuk korespondensi tertulis.",
-      "category": "Komunikasi Langsung",
-      "tags": [
-        "WhatsApp Kedua",
-        "Email",
-        "Silaturahmi"
-      ],
+      "title": "Tanyakan Les & Home Visit",
+      "year": "KONTAK & JADWAL",
+      "description": "Ingin berdiskusi tentang kebutuhan belajar, jadwal, atau opsi home visit? Hubungi Hasanudin melalui WhatsApp, termasuk nomor alternatif 0857-111-68-118. Detail waktu dan lokasi disepakati langsung.",
+      "category": "Informasi Pendaftaran",
+      "tags": ["WhatsApp Kedua", "Les Privat", "Home Visit"],
       "website": "https://wa.me/6285711168118?text=Assalamu%27alaikum%20Pak%20Hasanudin%2C%20saya%20melihat%20profil%20Bapak%20di%20PESONAFLIX.",
       "image": ""
     }
   ],
-  "skills": [
-    "Profesi Guru",
-    "Dunia Pendidikan",
-    "Komunikasi Pendidikan"
-  ],
+  "skills": ["Les Privat SD–SMP", "Bahasa Inggris", "Matematika", "Mengaji Al-Qur'an Metode Ummi", "Home Visit"],
   "skillCategories": [
     {
       "id": "pendidikan",
-      "title": "Bidang Profesi",
-      "subtitle": "Perkenalan Hasanudin dalam dunia pendidikan",
+      "title": "Bidang Bimbingan Belajar",
+      "subtitle": "Pelajaran dan pendampingan untuk SD serta SMP",
       "skills": [
         {
-          "name": "Profesi Guru",
-          "mono": "GRU",
-          "note": "Identitas profesional",
+          "name": "Bahasa Inggris",
+          "mono": "ENG",
+          "note": "Les privat SD & SMP",
           "evidence": [
-            "Profesi yang disampaikan: Guru",
-            "Jenjang dan mata pelajaran belum diinformasikan"
+            "Mata pelajaran yang tersedia: Bahasa Inggris",
+            "Sasaran les atau privat: siswa SD dan SMP"
           ]
         },
         {
-          "name": "Gelar S.Pd.I",
-          "mono": "SPdI",
-          "note": "Gelar yang dicantumkan pada nama",
+          "name": "Matematika",
+          "mono": "MTK",
+          "note": "Les privat SD & SMP",
           "evidence": [
-            "Nama lengkap: Hasanudin, S.Pd.I",
-            "Nama perguruan tinggi belum disampaikan"
+            "Mata pelajaran yang tersedia: Matematika",
+            "Sasaran les atau privat: siswa SD dan SMP"
           ]
+        }
+      ]
+    },
+    {
+      "id": "mengaji-home-visit",
+      "title": "Mengaji & Pendampingan",
+      "subtitle": "Belajar Al-Qur'an dan opsi belajar di rumah",
+      "skills": [
+        {
+          "name": "Mengaji Metode Ummi",
+          "mono": "UMMI",
+          "note": "Bimbingan membaca Al-Qur'an",
+          "evidence": ["Mengaji Al-Qur'an menggunakan metode Ummi", "Termasuk dalam layanan les privat SD dan SMP"]
+        },
+        {
+          "name": "Home Visit",
+          "mono": "HOME",
+          "note": "Opsi pertemuan privat",
+          "evidence": ["Bisa home visit", "Waktu dan lokasi pertemuan mengikuti kesepakatan"]
         }
       ]
     },
@@ -111,26 +125,20 @@
           "name": "WhatsApp",
           "mono": "WA",
           "note": "Dua saluran komunikasi",
-          "evidence": [
-            "0856-9210-2468",
-            "0857-111-68-118"
-          ]
+          "evidence": ["0856-9210-2468", "0857-111-68-118"]
         },
         {
           "name": "Email",
           "mono": "@",
           "note": "Korespondensi tertulis",
-          "evidence": [
-            "hasanudinqiya@gmail.com",
-            "hasan86@gmail.com"
-          ]
+          "evidence": ["hasanudinqiya@gmail.com", "hasan86@gmail.com"]
         }
       ]
     }
   ],
-  "skillsHeading": "Mengenal Sosok Pendidik",
-  "skillsAside": "Hasanudin, S.Pd.I memperkenalkan dirinya sebagai guru. Informasi yang ditampilkan berdasarkan data yang tersedia; sekolah, bidang studi, aktivitas mengajar, dan karya dapat ditambahkan ketika beliau membagikan rinciannya.",
-  "skillsKicker": "GURU · PENDIDIKAN · KOMUNIKASI",
+  "skillsHeading": "Belajar Apa Bersama Pak Hasanudin?",
+  "skillsAside": "Hasanudin, S.Pd.I memiliki pengalaman mengajar dari SD hingga SMK/sederajat selama kurang lebih 2010–2026. Layanan les dan privatnya ditujukan bagi siswa SD dan SMP: Bahasa Inggris, Matematika, serta mengaji Al-Qur'an metode Ummi. Home visit bisa dibicarakan secara langsung.",
+  "skillsKicker": "SD–SMP · BAHASA INGGRIS · MATEMATIKA · UMMI",
   "highlights": [
     {
       "title": "Hasanudin, S.Pd.I",
@@ -138,88 +146,48 @@
       "category": "PROFIL"
     },
     {
-      "title": "Guru",
-      "description": "Profesi utama yang diperkenalkan dalam halaman ini.",
-      "category": "PENDIDIKAN"
+      "title": "Pengalaman 2010–2026",
+      "description": "Pengalaman mengajar dari SD hingga SMK/sederajat, kurang lebih 16 tahun.",
+      "category": "PENGALAMAN"
     },
     {
-      "title": "Dua Jalur Kontak",
-      "description": "Dua WhatsApp dan dua email untuk terhubung langsung.",
-      "category": "KONTAK"
+      "title": "Les Privat & Home Visit",
+      "description": "Bimbingan SD–SMP untuk Bahasa Inggris, Matematika, dan mengaji Al-Qur'an metode Ummi.",
+      "category": "LAYANAN"
     }
   ],
   "watchCards": [
-    {
-      "target": "about",
-      "title": "Kenali Pak Hasanudin",
-      "subtitle": "Profil seorang guru",
-      "image": "/clients/hasanudin/foto-profesional.webp"
-    },
-    {
-      "target": "originals",
-      "title": "Ruang Pendidikan",
-      "subtitle": "Profesi dan pembelajaran",
-      "image": ""
-    },
-    {
-      "target": "journey",
-      "title": "Cerita Profesional",
-      "subtitle": "Perkenalan dan perjalanan",
-      "image": ""
-    },
-    {
-      "target": "skills",
-      "title": "Bidang Profesi",
-      "subtitle": "Pendidikan dan komunikasi",
-      "image": ""
-    },
-    {
-      "target": "picks",
-      "title": "Mari Terhubung",
-      "subtitle": "WhatsApp dan email",
-      "image": "/clients/hasanudin/foto-profesional.webp"
-    }
+    { "target": "about", "title": "Kenali Pak Hasanudin", "subtitle": "Profil seorang guru", "image": "/clients/hasanudin/foto-profesional.webp" },
+    { "target": "originals", "title": "Layanan Les Privat", "subtitle": "Mata pelajaran dan home visit", "image": "" },
+    { "target": "journey", "title": "Perjalanan Mengajar", "subtitle": "Sekitar 2010–2026", "image": "" },
+    { "target": "skills", "title": "Belajar Bersama", "subtitle": "Inggris, Matematika, mengaji", "image": "" },
+    { "target": "picks", "title": "Tanyakan Jadwal", "subtitle": "Hubungi via WhatsApp", "image": "/clients/hasanudin/foto-profesional.webp" }
   ],
   "pickCards": [
     {
       "label": "PROFIL PROFESIONAL",
       "title": "Hasanudin, S.Pd.I",
-      "detail": "Mengenal Hasanudin dan identitas profesionalnya sebagai guru.",
+      "detail": "Guru berpengalaman mengajar SD hingga SMK/sederajat, kurang lebih sejak 2010 sampai 2026.",
       "image": "/clients/hasanudin/foto-profesional.webp",
-      "palette": {
-        "from": "#0d2033",
-        "via": "#34516a",
-        "to": "#0a1320",
-        "accent": "#d8b575"
-      }
+      "palette": { "from": "#0d2033", "via": "#34516a", "to": "#0a1320", "accent": "#d8b575" }
     },
     {
-      "label": "DUNIA PENDIDIKAN",
-      "title": "Ruang Belajar",
-      "detail": "Pengantar dunia pendidikan yang menjadi bidang profesi beliau.",
+      "label": "LES PRIVAT SD & SMP",
+      "title": "Inggris & Matematika",
+      "detail": "Bimbingan Bahasa Inggris dan Matematika; juga tersedia mengaji Al-Qur'an dengan metode Ummi.",
       "image": "",
-      "palette": {
-        "from": "#142b34",
-        "via": "#36616c",
-        "to": "#0a1723",
-        "accent": "#d8b575"
-      }
+      "palette": { "from": "#142b34", "via": "#36616c", "to": "#0a1723", "accent": "#d8b575" }
     },
     {
-      "label": "TERHUBUNG",
-      "title": "Sapa Pak Hasanudin",
-      "detail": "Mulai percakapan lewat nomor WhatsApp yang tersedia atau kirim email.",
+      "label": "HOME VISIT",
+      "title": "Belajar di Rumah",
+      "detail": "Tanyakan pilihan home visit, kebutuhan belajar, serta jadwal melalui WhatsApp.",
       "image": "/clients/hasanudin/foto-profesional.webp",
-      "palette": {
-        "from": "#25203b",
-        "via": "#57436a",
-        "to": "#101325",
-        "accent": "#d8b575"
-      }
+      "palette": { "from": "#25203b", "via": "#57436a", "to": "#101325", "accent": "#d8b575" }
     }
   ],
-  "picksHeading": "Profil, Pendidikan, dan Silaturahmi",
-  "picksKicker": "PERKENALAN · PROFESI · KONTAK",
+  "picksHeading": "Pilihan Belajar Bersama Hasanudin",
+  "picksKicker": "LES PRIVAT · METODE UMMI · HOME VISIT",
   "seasons": [
     {
       "number": 1,
@@ -231,43 +199,31 @@
           "title": "Halo, Saya Hasanudin",
           "runtime": "Perkenalan",
           "description": "Assalamu'alaikum, saya Hasanudin, S.Pd.I. Saya seorang guru dan senang bisa berkenalan dengan Anda melalui halaman ini.",
-          "tags": [
-            "Hasanudin",
-            "Guru",
-            "Profil"
-          ],
+          "tags": ["Hasanudin", "Guru", "Profil"],
           "image": "/clients/hasanudin/foto-profesional.webp",
-          "palette": {
-            "from": "#0d2033",
-            "via": "#34516a",
-            "to": "#0a1320",
-            "accent": "#d8b575"
-          }
+          "palette": { "from": "#0d2033", "via": "#34516a", "to": "#0a1320", "accent": "#d8b575" }
         }
       ]
     },
     {
       "number": 2,
       "title": "Dunia Pendidikan",
-      "period": "Profesi Guru",
-      "synopsis": "Profesi guru sebagai bagian dari perjalanan Hasanudin.",
+      "period": "Pengalaman Sekitar 2010–2026",
+      "synopsis": "Pengalaman mengajar Hasanudin mencakup jenjang SD hingga SMK/sederajat sejak sekitar 2010 sampai 2026.",
       "episodes": [
         {
-          "title": "Profesi yang Saya Jalani",
-          "runtime": "Pendidikan",
-          "description": "Saya memperkenalkan diri sebagai guru. Informasi sekolah, jenjang, dan mata pelajaran akan dilengkapi setelah tersedia.",
-          "tags": [
-            "Guru",
-            "Pendidikan",
-            "Pengajaran"
-          ],
-          "palette": {
-            "from": "#142b34",
-            "via": "#36616c",
-            "to": "#0a1723",
-            "accent": "#d8b575"
-          },
-          "image": ""
+          "title": "Dari SD hingga SMK",
+          "runtime": "2010–2026",
+          "description": "Saya memiliki pengalaman mengajar dari tingkat SD, SMP, hingga SMK/sederajat, kurang lebih sejak tahun 2010 sampai 2026.",
+          "tags": ["SD–SMK", "Pengalaman", "2010–2026"],
+          "palette": { "from": "#142b34", "via": "#36616c", "to": "#0a1723", "accent": "#d8b575" }
+        },
+        {
+          "title": "Les Privat SD & SMP",
+          "runtime": "Layanan Saat Ini",
+          "description": "Saya menerima les atau privat Bahasa Inggris, Matematika, dan mengaji Al-Qur'an dengan metode Ummi untuk siswa SD dan SMP. Tersedia pilihan home visit sesuai kesepakatan.",
+          "tags": ["Bahasa Inggris", "Matematika", "Metode Ummi", "Home Visit"],
+          "palette": { "from": "#142b34", "via": "#36616c", "to": "#0a1723", "accent": "#d8b575" }
         }
       ]
     },
@@ -281,30 +237,14 @@
           "title": "Lanjutkan Percakapan",
           "runtime": "Kontak",
           "description": "Hubungi saya melalui WhatsApp 0856-9210-2468 atau 0857-111-68-118. Untuk pesan tertulis, tersedia hasanudinqiya@gmail.com dan hasan86@gmail.com.",
-          "tags": [
-            "WhatsApp",
-            "Email",
-            "Silaturahmi"
-          ],
+          "tags": ["WhatsApp", "Email", "Silaturahmi"],
           "image": "/clients/hasanudin/foto-profesional.webp",
-          "palette": {
-            "from": "#25203b",
-            "via": "#57436a",
-            "to": "#101325",
-            "accent": "#d8b575"
-          }
+          "palette": { "from": "#25203b", "via": "#57436a", "to": "#101325", "accent": "#d8b575" }
         }
       ]
     }
   ],
-  "journeyHeading": "Tiga Episode Perkenalan",
-  "journeyAside": "Profil ini merupakan awal cerita profesional Hasanudin. Kisah mengajar dan karya dapat terus bertambah seiring informasi yang dibagikan.",
-  "journeyKicker": "PERKENALAN · GURU · KONTAK",
-  "visualDesign": {
-    "textStyles": {
-      "name": {
-        "fontSize": 47
-      }
-    }
-  }
+  "journeyHeading": "Perjalanan Mengajar & Bimbingan",
+  "journeyAside": "Dari pengalaman mengajar lintas jenjang sejak sekitar 2010 hingga layanan les privat SD–SMP, Hasanudin kini juga menawarkan bimbingan Bahasa Inggris, Matematika, mengaji metode Ummi, dan home visit.",
+  "journeyKicker": "2010–2026 · SD–SMK · LES PRIVAT"
 }
