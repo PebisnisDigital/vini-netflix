@@ -3,6 +3,8 @@
 This client website is mounted at `/azura` within the existing
 PESONAFLIX Vite/Vercel project. The original owner approved replication.
 The former `/payungmadinah` links permanently redirect to `/azura`.
+The public brand name, logo, favicon and color scheme are AZURA Tour & Travel;
+the original archive names remain unchanged for checksum integrity.
 
 - Homepage plus 39 linked information, catalogue, campaign and article pages.
 - WhatsApp buttons and all detected customer-service WhatsApp numbers have
@@ -20,7 +22,8 @@ The former `/payungmadinah` links permanently redirect to `/azura`.
 
 `npm run build` first runs `scripts/unpack-payungmadinah.mjs` to verify and
 unpack `payungmadinah-bundles/*.tar.gz`, then rename the generated directory to
-`public/azura/` and update internal site links. Vite then copies these pages
+`public/azura/`, update internal links and brand names, and inject
+`branding/azura/theme.css` with the new logo assets. Vite then copies these pages
 into `dist/azura/` with all other client routes.
 
 The archives are checked with SHA-256 against the committed manifest, and

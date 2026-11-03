@@ -1,0 +1,97 @@
+/* AZURA Tour & Travel — brand palette supplied November 2026.
+   Applied to every mirrored page at build time, after the source styles. */
+:root {
+  --azura-gold: #D4AF37;
+  --azura-deep-gold: #B8860B;
+  --azura-brown: #6F4E37;
+  --azura-warm-brown: #A67C52;
+  --azura-cream: #FAF4E6;
+  --azura-beige: #E6D5B8;
+  --azura-charcoal: #2E2A24;
+  --canvas: var(--azura-cream);
+  --canvas-2: var(--azura-beige);
+  --panel: #fffaf0;
+  --panel-2: var(--azura-cream);
+  --ink: var(--azura-charcoal);
+  --accent: var(--azura-gold);
+  --accent-hover: var(--azura-deep-gold);
+  --accent-text: var(--azura-brown);
+  --accent-muted: rgba(212, 175, 55, .22);
+  --brand-gold: var(--azura-gold);
+  --dawn: var(--azura-warm-brown);
+  --text-primary: var(--azura-charcoal);
+  --text-secondary: var(--azura-brown);
+  --line: rgba(111, 78, 55, .16);
+  --line-strong: rgba(184, 134, 11, .65);
+  --wa: var(--azura-gold);
+}
+
+html { background-color: var(--azura-cream); }
+body { color: var(--azura-charcoal); }
+::selection { background: var(--azura-gold); color: var(--azura-charcoal); }
+
+/* A full-width logo replaces the old separate mark + brand-name text. */
+.pm-brand { gap: 0 !important; }
+.pm-brand__text { display: none !important; }
+.pm-brand .pm-brand__mark,
+.navbar-brand .pm-brand__mark {
+  width: 168px !important;
+  height: 76px !important;
+  max-width: 100% !important;
+  object-fit: contain !important;
+}
+.pm-brand--lg .pm-brand__mark {
+  width: 220px !important;
+  height: 106px !important;
+}
+.navbar-brand.pm-brand,
+.pm-brand--ondark {
+  padding: 4px 11px !important;
+  border-radius: 12px;
+  background: rgba(250, 244, 230, .96);
+  box-shadow: 0 8px 28px rgba(46, 42, 36, .14);
+}
+
+/* Reference combination: gold WhatsApp CTA, brown package CTA, soft outline. */
+.btn-gold, .btn-wa, .btn-primary,
+a.btn-gold, a.btn-wa, button.btn-gold,
+.pm-btn-primary {
+  color: var(--azura-charcoal) !important;
+  background: linear-gradient(115deg, var(--azura-deep-gold), var(--azura-gold) 58%, #ebc45e) !important;
+  border-color: var(--azura-deep-gold) !important;
+  box-shadow: 0 10px 25px -12px rgba(111, 78, 55, .38);
+}
+.btn-gold:hover, .btn-wa:hover, .btn-primary:hover,
+.pm-btn-primary:hover {
+  background: var(--azura-deep-gold) !important;
+  color: #fff !important;
+}
+.btn-ghost, .btn-outline-primary, .pm-btn-outline {
+  color: var(--azura-brown) !important;
+  border-color: var(--azura-warm-brown) !important;
+  background: rgba(250, 244, 230, .83) !important;
+}
+.btn-ghost:hover, .btn-outline-primary:hover, .pm-btn-outline:hover {
+  color: #fff !important;
+  background: var(--azura-brown) !important;
+}
+.section__container--dark-deep, footer.bg-dark {
+  background-color: var(--azura-charcoal) !important;
+}
+/* Don't send visitors to the previous brand's social media accounts. */
+a[href*="@payungmadinah"],
+a[href*="payungmadinahtour"],
+a[href*="payungmadinah.id"] { display: none !important; }
+
+@media (max-width: 767px) {
+  .pm-brand .pm-brand__mark,
+  .navbar-brand .pm-brand__mark {
+    width: 126px !important;
+    height: 59px !important;
+  }
+  .pm-brand--lg .pm-brand__mark {
+    width: 174px !important;
+    height: 84px !important;
+  }
+  .navbar-brand.pm-brand { padding: 2px 7px !important; }
+}

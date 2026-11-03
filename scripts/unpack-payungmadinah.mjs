@@ -1,5 +1,5 @@
 import {existsSync} from 'node:fs';
-import {mkdir, readFile, readdir, rename, rm, writeFile} from 'node:fs/promises';
+import {copyFile, mkdir, readFile, readdir, rename, rm, writeFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
 import {dirname, join, resolve} from 'node:path';
@@ -12,6 +12,7 @@ const bundleDir = join(root, 'payungmadinah-bundles');
 const manifestFile = join(bundleDir, 'manifest.json');
 const legacyDir = join(root, 'public/payungmadinah');
 const targetDir = join(root, 'public/azura');
+const brandingDir = join(root, 'branding/azura');
 if (!existsSync(manifestFile)) {
   if (!existsSync(join(targetDir, 'index.html'))) {
     throw new Error('Payung Madinah files and archive manifest are both missing');
@@ -39,7 +40,26 @@ for (const bundle of bundles) {
 // Replacing it makes repeated local builds deterministic.
 await rm(targetDir, {recursive: true, force: true});
 await rename(legacyDir, targetDir);
+const brandTargetDir = join(targetDir, 'images/brand');
+await mkdir(brandTargetDir, {recursive: true});
+await Promise.all([
+  copyFile(join(brandingDir, 'logo.webp'), join(brandTargetDir, 'azura-logo.webp')),
+  copyFile(join(brandingDir, 'icon.webp'), join(brandTargetDir, 'azura-icon.webp')),
+  copyFile(join(brandingDir, 'theme.css'), join(brandTargetDir, 'azura-theme.css')),
+]);
 const textExtensions = new Set(['.html', '.css', '.js', '.json', '.svg', '.xml', '.txt', '.webmanifest']);
+// Source site colors are replaced only where they are part of the original
+// styling. Airline marks, photos, and other third-party assets stay intact.
+const palette = new Map(Object.entries({
+  '#b19167': '#D4AF37', '#c9a35f': '#D4AF37', '#d8bd94': '#D4AF37',
+  '#b8924c': '#B8860B', '#b8955b': '#B8860B', '#a5855d': '#B8860B',
+  '#9b7653': '#A67C52', '#8a6d3b': '#6F4E37', '#6f5d4f': '#6F4E37',
+  '#faf7f1': '#FAF4E6', '#faf7f2': '#FAF4E6', '#fbf9f6': '#FAF4E6',
+  '#fcfbf9': '#FAF4E6', '#f1ebdf': '#E6D5B8', '#ece7df': '#E6D5B8',
+  '#e5dcd2': '#E6D5B8', '#f2ece3': '#E6D5B8',
+  '#141416': '#2E2A24', '#1f2430': '#2E2A24', '#2b3035': '#2E2A24',
+  '#4b5058': '#6F4E37', '#6b6258': '#6F4E37',
+}));
 let updatedFiles = 0;
 async function updateInternalLinks(directory) {
   for (const entry of await readdir(directory, {withFileTypes: true})) {
@@ -48,7 +68,29 @@ async function updateInternalLinks(directory) {
       await updateInternalLinks(path);
     } else if (entry.isFile() && [...textExtensions].some(ext => entry.name.endsWith(ext))) {
       const current = await readFile(path, 'utf8');
-      const updated = current.replaceAll('/payungmadinah', '/azura');
+      let updated = current
+        // The actual name changes everywhere, including metadata and JSON-LD.
+        .replace(/Payung(?:\s|&nbsp;)+Madinah\s+Umroh\s+&(?:amp;)?\s*Haji\s+Official/gi, 'AZURA Tour & Travel')
+        .replace(/Payung(?:\s|&nbsp;)+Madinah/gi, 'AZURA')
+        .replace(/PayungMadinah/g, 'AZURA')
+        // Update original-site links without changing mailto addresses.
+        .replace(/https?:\/\/(?:www\.)?payungmadinah\.id/gi, 'https://pesonaflix.vercel.app/azura')
+        .replace(/https%3A%2F%2F(?:www\.)?payungmadinah\.id/gi, 'https%3A%2F%2Fpesonaflix.vercel.app%2Fazura')
+        // A path slash followed by "payungmadinah" is a route, not a domain.
+        .replace(/\/payungmadinah(?=\/|[?#"'\s<]|$)/gi, '/azura')
+        .replaceAll('/azura/images/microsites/paket-umroh/logo.webp', '/azura/images/brand/azura-logo.webp')
+        .replaceAll('/azura/images/microsites/tanyacs/logo.webp', '/azura/images/brand/azura-logo.webp')
+        .replaceAll('/azura/images/logo-main.svg?v2.0', '/azura/images/brand/azura-logo.webp')
+        .replaceAll('/azura/images/favicon.png', '/azura/images/brand/azura-icon.webp')
+        .replaceAll('/azura/images/apple-touchs.png', '/azura/images/brand/azura-icon.webp');
+      if (entry.name.endsWith('.html') || entry.name.endsWith('.css')) {
+        updated = updated.replace(/#[0-9a-f]{6}\b/gi, color => palette.get(color.toLowerCase()) ?? color);
+      }
+      if (entry.name.endsWith('.html')) {
+        // The reference site's social accounts do not belong to AZURA.
+        updated = updated.replace(/<meta\s+name="twitter:(?:site|creator)"\s+content="@payungmadinah"\s*\/?\s*>/gi, '');
+        updated = updated.replace(/<\/head>/i, '<link rel="stylesheet" href="/azura/images/brand/azura-theme.css"></head>');
+      }
       if (updated !== current) {
         await writeFile(path, updated);
         updatedFiles++;
