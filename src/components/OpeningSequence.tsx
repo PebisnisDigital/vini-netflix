@@ -19,6 +19,7 @@ const TIMELINE = [
 
 export default function OpeningSequence({ onDone }: { onDone: () => void }) {
   const { profile } = usePortfolio();
+  const isNinikTravel = profile.clientSlug === 'ninikwardhani';
   const reduced = useReducedMotionPref();
   const [beat, setBeat] = useState(reduced ? 6 : 0);
 
@@ -38,21 +39,21 @@ export default function OpeningSequence({ onDone }: { onDone: () => void }) {
 
   return (
     <motion.div
-      className="fixed inset-0 z-[120] overflow-hidden bg-black"
+      className={`fixed inset-0 z-[120] overflow-hidden ${isNinikTravel ? "bg-[#f6fbff]" : "bg-black"}`}
       exit={{ opacity: 0, scale: 1.04, filter: 'blur(12px)' }}
       transition={{ duration: 0.9, ease: EASE }}
       role="dialog"
       aria-label="Pembukaan serial"
     >
       {/* letterbox bars */}
-      <motion.div className="absolute inset-x-0 top-0 z-30 h-[7vh] bg-black" initial={{ y: 0 }} animate={{ y: beat >= 6 ? '-100%' : 0 }} transition={{ duration: 1.2, ease: EASE }} />
-      <motion.div className="absolute inset-x-0 bottom-0 z-30 h-[7vh] bg-black" initial={{ y: 0 }} animate={{ y: beat >= 6 ? '100%' : 0 }} transition={{ duration: 1.2, ease: EASE }} />
+      <motion.div className={`absolute inset-x-0 top-0 z-30 h-[7vh] ${isNinikTravel ? "bg-[#0c4b98]" : "bg-black"}`} initial={{ y: 0 }} animate={{ y: beat >= 6 ? '-100%' : 0 }} transition={{ duration: 1.2, ease: EASE }} />
+      <motion.div className={`absolute inset-x-0 bottom-0 z-30 h-[7vh] ${isNinikTravel ? "bg-[#0c4b98]" : "bg-black"}`} initial={{ y: 0 }} animate={{ y: beat >= 6 ? '100%' : 0 }} transition={{ duration: 1.2, ease: EASE }} />
 
       {/* projector flicker light */}
       <motion.div
         aria-hidden
         className="absolute inset-0"
-        style={{ background: 'radial-gradient(60% 50% at 50% 55%, rgba(229,19,43,0.22), transparent 70%)' }}
+        style={{ background: isNinikTravel ? 'radial-gradient(60% 50% at 50% 55%, rgba(80,166,229,0.24), transparent 70%)' : 'radial-gradient(60% 50% at 50% 55%, rgba(229,19,43,0.22), transparent 70%)' }}
         initial={{ opacity: 0 }}
         animate={{ opacity: beat >= 2 ? [0, 0.9, 0.5, 1] : 0 }}
         transition={{ duration: 1.4 }}
@@ -97,7 +98,7 @@ export default function OpeningSequence({ onDone }: { onDone: () => void }) {
 
         />
       </motion.div>
-      <div aria-hidden className="absolute inset-0 z-[1] bg-[radial-gradient(70%_60%_at_50%_40%,transparent_30%,rgba(0,0,0,0.85)_100%)]" />
+      <div aria-hidden className={`absolute inset-0 z-[1] ${isNinikTravel ? "bg-[radial-gradient(70%_60%_at_50%_40%,transparent_30%,rgba(214,237,251,0.80)_100%)]" : "bg-[radial-gradient(70%_60%_at_50%_40%,transparent_30%,rgba(0,0,0,0.85)_100%)]"}`} />
 
       {/* title */}
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 text-center">
@@ -137,7 +138,7 @@ export default function OpeningSequence({ onDone }: { onDone: () => void }) {
               data-cursor="play"
               onClick={onDone}
               tabIndex={beat >= 6 ? 0 : -1}
-              className="group flex items-center gap-3 rounded-full bg-bone px-9 py-4 font-sans text-base font-bold tracking-wide text-ink shadow-[0_0_60px_rgba(229,19,43,0.45)] transition hover:bg-white"
+              className={`group flex items-center gap-3 rounded-full bg-bone px-9 py-4 font-sans text-base font-bold tracking-wide text-ink transition hover:bg-white ${isNinikTravel ? "shadow-[0_0_60px_rgba(13,92,181,0.28)]" : "shadow-[0_0_60px_rgba(229,19,43,0.45)]"}`}
             >
               <span className="text-lg transition-transform group-hover:scale-125">▶</span> PUTAR
             </button>
@@ -148,7 +149,7 @@ export default function OpeningSequence({ onDone }: { onDone: () => void }) {
       <button
         type="button"
         onClick={onDone}
-        className="absolute right-4 top-[calc(7vh+12px)] z-40 rounded-full border border-white/20 px-4 py-2 font-sans text-[11px] font-semibold tracking-[0.2em] text-mist transition hover:border-white/60 hover:text-bone"
+        className={`absolute right-4 top-[calc(7vh+12px)] z-40 rounded-full border px-4 py-2 font-sans text-[11px] font-semibold tracking-[0.2em] text-mist transition hover:text-bone ${isNinikTravel ? "border-blue-300 hover:border-blue-500" : "border-white/20 hover:border-white/60"}`}
       >
         LEWATI INTRO
       </button>

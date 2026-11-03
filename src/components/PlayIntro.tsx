@@ -13,6 +13,7 @@ const SLIDE_MS = 3600;
  */
 export default function PlayIntro({ onClose }: { onClose: () => void }) {
   const { introSlides, profile } = usePortfolio();
+  const isNinikTravel = profile.clientSlug === 'ninikwardhani';
   useScrollLock(true);
   const reduced = useReducedMotionPref();
   const [phase, setPhase] = useState<'zoom' | 'reel' | 'end'>(reduced ? 'reel' : 'zoom');
@@ -84,7 +85,7 @@ export default function PlayIntro({ onClose }: { onClose: () => void }) {
 
   return (
     <motion.div
-      className="fixed inset-0 z-[130] overflow-hidden bg-black"
+      className={`fixed inset-0 z-[130] overflow-hidden ${isNinikTravel ? "bg-[#eef8ff]" : "bg-black"}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, filter: 'blur(10px)' }}
@@ -109,13 +110,13 @@ export default function PlayIntro({ onClose }: { onClose: () => void }) {
           className="h-[88vh] w-auto max-w-none object-contain [mask-image:linear-gradient(to_bottom,black_60%,transparent)]"
         />
       </motion.div>
-      <div aria-hidden className="absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_45%,rgba(120,10,25,0.35),transparent_70%)]" />
+      <div aria-hidden className={`absolute inset-0 ${isNinikTravel ? "bg-[radial-gradient(60%_60%_at_50%_45%,rgba(55,150,225,0.22),transparent_70%)]" : "bg-[radial-gradient(60%_60%_at_50%_45%,rgba(120,10,25,0.35),transparent_70%)]"}`} />
 
       {/* progress bars */}
       {phase !== 'zoom' && (
         <div className="absolute inset-x-0 top-0 z-20 flex gap-1.5 px-4 pt-4 sm:px-10 sm:pt-6">
           {introSlides.map((s, i) => (
-            <div key={s.kicker} className="h-[3px] flex-1 overflow-hidden rounded bg-white/15">
+            <div key={s.kicker} className={`h-[3px] flex-1 overflow-hidden rounded ${isNinikTravel ? "bg-blue-700/15" : "bg-white/15"}`}>
               <motion.div
                 className="h-full origin-left bg-bone"
                 style={{ scaleX: i === index && phase === 'reel' ? progress : i < index || phase === 'end' ? 1 : 0 }}

@@ -86,7 +86,7 @@ export default function Hero({ onPlay, onResume, profileId, editorMode = false }
           transition={{ duration: 1.6, ease: EASE, delay: 0.1 }}
         >
           {/* rim light ring */}
-          <div aria-hidden className="absolute bottom-[8%] left-1/2 h-[78%] w-[78%] -translate-x-1/2 rounded-full border border-crimson-2/20 shadow-[0_0_120px_rgba(229,19,43,0.35),inset_0_0_80px_rgba(229,19,43,0.18)]" />
+          <div aria-hidden className={`absolute bottom-[8%] left-1/2 h-[78%] w-[78%] -translate-x-1/2 rounded-full border border-crimson-2/20 ${isNinikTravel ? "shadow-[0_0_120px_rgba(26,119,210,0.22),inset_0_0_80px_rgba(83,170,231,0.14)]" : "shadow-[0_0_120px_rgba(229,19,43,0.35),inset_0_0_80px_rgba(229,19,43,0.18)]"}`} />
           <div className="client-portrait-cinema absolute inset-0">
             {needsAnimeArtwork ? (
               <div data-studio-edit="portrait" className="anime-art-placeholder" role="img" aria-label="Area ilustrasi anime klien. Unggah karakter melalui Foto Utama di editor.">
@@ -110,7 +110,7 @@ export default function Hero({ onPlay, onResume, profileId, editorMode = false }
             )}
           </div>
           {/* crimson rim light on the image edge */}
-          <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_80%_30%,rgba(255,61,90,0.16),transparent_70%)] mix-blend-screen" />
+          <div aria-hidden className={`pointer-events-none absolute inset-0 mix-blend-screen ${isNinikTravel ? "bg-[radial-gradient(60%_50%_at_80%_30%,rgba(65,158,224,0.16),transparent_70%)]" : "bg-[radial-gradient(60%_50%_at_80%_30%,rgba(255,61,90,0.16),transparent_70%)]"}`} />
 
           {/* floating UI chips */}
           {floating.map((f, i) => (

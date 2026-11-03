@@ -10,7 +10,7 @@ export function ProfileAvatar({ id, size = 'lg' }: { id: ProfileId; size?: 'sm' 
   const box = size === 'lg' ? 'h-24 w-24 sm:h-32 sm:w-32 md:h-36 md:w-36 rounded-xl' : 'h-8 w-8 rounded-md';
   if (id === 'vini') {
     return (
-      <span className={`relative block overflow-hidden ${box}`} style={{ background: 'radial-gradient(circle at 50% 30%, #7a0f24, #1a0509)' }}>
+      <span className={`relative block overflow-hidden ${box}`} style={{ background: profile.clientSlug === 'ninikwardhani' ? 'radial-gradient(circle at 50% 30%, #7dc6f5, #10589f)' : 'radial-gradient(circle at 50% 30%, #7a0f24, #1a0509)' }}>
         <img src={profile.portrait.src} alt="" className="absolute inset-x-0 bottom-0 mx-auto h-[115%] w-auto max-w-none -translate-x-[3%] object-contain object-bottom" />
       </span>
     );
@@ -18,7 +18,7 @@ export function ProfileAvatar({ id, size = 'lg' }: { id: ProfileId; size?: 'sm' 
   const glyph = { recruiter: 'M', developer: 'AI', creative: '✦' }[id];
   return (
     <span
-      className={`relative flex items-center justify-center overflow-hidden font-display text-bone ${box}`}
+      className={`relative flex items-center justify-center overflow-hidden font-display ${profile.clientSlug === "ninikwardhani" ? "text-white" : "text-bone"} ${box}`}
       style={{ background: `linear-gradient(145deg, ${p.color}, #0b0b10 120%)` }}
     >
       <span className={size === 'lg' ? 'text-4xl sm:text-5xl' : 'text-sm'}>{glyph}</span>
@@ -28,6 +28,7 @@ export function ProfileAvatar({ id, size = 'lg' }: { id: ProfileId; size?: 'sm' 
 
 export default function ProfileSelector({ onPick }: { onPick: (id: ProfileId) => void }) {
   const { profile, viewerProfiles } = usePortfolio();
+  const isNinikTravel = profile.clientSlug === 'ninikwardhani';
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onPick('vini');
@@ -46,7 +47,7 @@ export default function ProfileSelector({ onPick }: { onPick: (id: ProfileId) =>
       role="dialog"
       aria-label="Siapa yang menonton?"
     >
-      <div aria-hidden className="absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_0%,rgba(229,19,43,0.14),transparent_70%)]" />
+      <div aria-hidden className={`absolute inset-0 ${isNinikTravel ? "bg-[radial-gradient(60%_50%_at_50%_0%,rgba(49,149,225,0.18),transparent_70%)]" : "bg-[radial-gradient(60%_50%_at_50%_0%,rgba(229,19,43,0.14),transparent_70%)]"}`} />
       <motion.h2
         className="relative mb-10 text-center font-sans text-3xl font-medium tracking-tight text-bone sm:text-5xl"
         initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }}
