@@ -1,4 +1,8 @@
 {
+  "redirects": [
+    { "source": "/payungmadinah", "destination": "/azura", "permanent": true },
+    { "source": "/payungmadinah/:path*", "destination": "/azura/:path*", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/checkout", "destination": "/checkout/index.html" },
     { "source": "/pesanan", "destination": "/pesanan/index.html" },
@@ -7,9 +11,10 @@
     { "source": "/formulir", "destination": "/formulir/index.html" },
     { "source": "/HijamaTeam", "destination": "/HijamaTeam/index.html" },
     { "source": "/hijamateam", "destination": "/HijamaTeam/index.html" },
-    { "source": "/payungmadinah/", "destination": "/payungmadinah/index.html" },
-    { "source": "/payungmadinah/:section(berita|umroh)/:slug", "destination": "/payungmadinah/:section/:slug/index.html" },
-    { "source": "/payungmadinah/:section(umroh|sosial-media|berita|karir|tentang-kami|kontak|faq|umroh-gratis|doorprizemanasik|cerita-inspiratif|galeri|tanyaumrohhaji|tanyacs|syarat-ketentuan|kebijakan-privasi|visa)", "destination": "/payungmadinah/:section/index.html" },
+    { "source": "/azura", "destination": "/azura/index.html" },
+    { "source": "/azura/", "destination": "/azura/index.html" },
+    { "source": "/azura/:section(berita|umroh)/:slug", "destination": "/azura/:section/:slug/index.html" },
+    { "source": "/azura/:section(umroh|sosial-media|berita|karir|tentang-kami|kontak|faq|umroh-gratis|doorprizemanasik|cerita-inspiratif|galeri|tanyaumrohhaji|tanyacs|syarat-ketentuan|kebijakan-privasi|visa)", "destination": "/azura/:section/index.html" },
     {
       "source": "/vini",
       "destination": "/vini/index.html"

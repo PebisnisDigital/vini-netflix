@@ -1,7 +1,8 @@
 # Payung Madinah — authorized website mirror
 
-This client website is mounted at `/payungmadinah` within the existing
+This client website is mounted at `/azura` within the existing
 PESONAFLIX Vite/Vercel project. The original owner approved replication.
+The former `/payungmadinah` links permanently redirect to `/azura`.
 
 - Homepage plus 39 linked information, catalogue, campaign and article pages.
 - WhatsApp buttons and all detected customer-service WhatsApp numbers have
@@ -18,11 +19,12 @@ PESONAFLIX Vite/Vercel project. The original owner approved replication.
 ## Build
 
 `npm run build` first runs `scripts/unpack-payungmadinah.mjs` to verify and
-unpack `payungmadinah-bundles/*.tar.gz` into `public/payungmadinah/`. Vite then
-copies these pages into `dist/payungmadinah/` with all other client routes.
+unpack `payungmadinah-bundles/*.tar.gz`, then rename the generated directory to
+`public/azura/` and update internal site links. Vite then copies these pages
+into `dist/azura/` with all other client routes.
 
 The archives are checked with SHA-256 against the committed manifest, and
-their paths are restricted to the `payungmadinah/` directory.
+their paths are restricted to the `payungmadinah/` directory within the archives.
 
 Updates to the mirrored site should be prepared and visually verified in a
 separate prototype, then the bundles should be regenerated and committed.
