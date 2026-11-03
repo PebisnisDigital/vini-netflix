@@ -5,6 +5,7 @@ import { EASE, SectionHeading, Tilt } from './fx';
 export default function About() {
   const { profile, seasons } = usePortfolio();
   const isNoahInna = profile.clientSlug === 'noahinna';
+  const fullAbout = profile.aboutMe?.trim();
   const facts = profile.aboutFacts || [
     { k: 'Peran', v: profile.role, s: 'Aktivitas utama' },
     { k: 'Asal', v: profile.location, s: 'Lokasi' },
@@ -47,16 +48,20 @@ export default function About() {
         </motion.div>
 
         <div>
-          <motion.p
-            data-studio-edit="bio"
-            className="max-w-3xl font-sans text-[clamp(1.15rem,2.1vw,1.65rem)] font-medium leading-[1.55] tracking-normal text-bone"
+          <motion.div
+            data-studio-edit={fullAbout ? 'aboutme' : 'bio'}
+            className={fullAbout
+              ? 'max-w-3xl space-y-4 font-sans text-[clamp(1rem,1.5vw,1.18rem)] font-medium leading-[1.7] tracking-normal text-bone/90'
+              : 'max-w-3xl font-sans text-[clamp(1.15rem,2.1vw,1.65rem)] font-medium leading-[1.55] tracking-normal text-bone'}
             initial={{ opacity: 0, y: 24, filter: 'blur(8px)' }}
             whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: EASE }}
           >
-            “{profile.intro}”
-          </motion.p>
+            {fullAbout ? fullAbout.split(/\n\s*\n/).map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            )) : <>“{profile.intro}”</>}
+          </motion.div>
           <p data-studio-edit="name" className="mt-4 text-sm text-mist">— {profile.fullName}</p>
 
           <motion.dl

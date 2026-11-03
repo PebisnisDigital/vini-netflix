@@ -1,0 +1,322 @@
+{
+  "slug": "asriwahyuni",
+  "name": "Asri Wahyuni",
+  "role": "Content Creator Lifestyle & Entrepreneur",
+  "location": "Indonesia · Travel · Food · Lifestyle",
+  "bio": "Hai, salam kenal! Saya Ayu, seorang content creator lifestyle dan entrepreneur. Saya berbagi cerita seputar travelling, kuliner, lifestyle, dan kehidupan sebagai ibu; sambil mengembangkan jasa optimasi media sosial beRAni serta usaha kuliner. Saya percaya kreativitas bisa membuka koneksi dan peluang baru.",
+  "aboutMe": "Hai 🤗 salam kenal.\n\nSaya Ayu, seorang Content Creator dan Entrepreneur yang memiliki ketertarikan pada dunia digital, travel, food, lifestyle, dan pengembangan bisnis.\n\nSaya menjadikan travelling, kuliner, lifestyle, dan kehidupan sebagai ibu menjadi konten yang inspiratif dan bernilai. Inilah dunia yang saya sebut sebagai konten kreator lifestyle.\n\nDi sisi lain, saya juga aktif membangun bisnis di bidang jasa optimasi media sosial dengan nama brand beRAni serta mengembangkan usaha kuliner.\n\nDengan pengalaman di dunia bisnis dan digital marketing selama lebih dari satu tahun, serta sertifikasi kompetensi BNSP di bidang Digital Marketing, Pendamping UMKM, dan MICE, saya terus memperluas wawasan dan peluang kolaborasi.\n\nBagi saya, kreativitas bukan hanya tentang menghasilkan karya, tetapi juga tentang membangun koneksi, menciptakan peluang, dan memberikan nilai bagi orang lain.\n\nSaya percaya bahwa setiap perjalanan adalah kesempatan untuk belajar, bertumbuh, dan membangun sesuatu yang lebih besar.",
+  "tagline": [
+    "AYU · TRAVEL · FOOD · LIFESTYLE",
+    "Berkarya, Terhubung, dan Bertumbuh"
+  ],
+  "interests": [
+    "Travel & Eksplorasi",
+    "Kuliner",
+    "Lifestyle Ibu",
+    "Digital Marketing",
+    "Pengembangan Bisnis",
+    "Kolaborasi Kreatif"
+  ],
+  "photo": {
+    "src": "/clients/asriwahyuni/foto-profesional.webp",
+    "alt": "Potret profesional Asri Wahyuni (Ayu) berkacamata, mengenakan hijab bermotif navy dan kemeja denim biru, dengan latar transparan"
+  },
+  "email": "footageayu@gmail.com",
+  "whatsapp": "08116359997",
+  "links": {},
+  "experiences": [
+    {
+      "company": "Konten Kreator Lifestyle",
+      "role": "Content Creator",
+      "period": "Aktif saat ini",
+      "description": "Mengangkat cerita travelling, kuliner, lifestyle, dan kehidupan sebagai ibu menjadi konten yang inspiratif dan bernilai."
+    },
+    {
+      "company": "beRAni",
+      "role": "Pengusaha · Jasa Optimasi Media Sosial",
+      "period": "Usaha yang sedang dikembangkan",
+      "description": "Membangun brand beRAni di bidang jasa optimasi media sosial. Detail layanan dan kebutuhan kerja sama dapat dibicarakan langsung bersama Ayu."
+    },
+    {
+      "company": "Usaha Kuliner",
+      "role": "Entrepreneur",
+      "period": "Usaha yang sedang dikembangkan",
+      "description": "Mengembangkan usaha kuliner sebagai bagian dari perjalanan bisnis dan eksplorasi peluang baru."
+    }
+  ],
+  "education": [],
+  "projects": [
+    {
+      "title": "Travel & Lifestyle Stories",
+      "year": "CONTENT CREATION",
+      "description": "Cerita perjalanan, pengalaman menjelajah tempat baru, dan momen lifestyle dari sudut pandang Ayu. Konten diarahkan agar pengalaman sehari-hari menjadi inspirasi yang dekat dengan audiens.",
+      "category": "Travel & Lifestyle",
+      "tags": ["Travelling", "Lifestyle", "Cerita Perjalanan"],
+      "image": "/clients/asriwahyuni/momen-travel.webp"
+    },
+    {
+      "title": "Food & Everyday Moments",
+      "year": "LIFESTYLE CONTENT",
+      "description": "Eksplorasi kuliner, pengalaman makan, dan cerita keseharian sebagai ibu yang diolah menjadi ide konten lifestyle bernilai.",
+      "category": "Food & Daily Life",
+      "tags": ["Kuliner", "Kehidupan Ibu", "Storytelling"]
+    },
+    {
+      "title": "beRAni · Optimasi Media Sosial",
+      "year": "SOCIAL MEDIA SERVICES",
+      "description": "beRAni adalah brand jasa optimasi media sosial yang sedang Ayu bangun. Tanyakan ruang lingkup layanan dan peluang kerja sama langsung melalui WhatsApp.",
+      "category": "Jasa Digital",
+      "tags": ["beRAni", "Media Sosial", "Digital Marketing"],
+      "website": "https://wa.me/628116359997?text=Halo%20Ayu%2C%20saya%20tertarik%20berdiskusi%20tentang%20jasa%20optimasi%20media%20sosial%20beRAni."
+    },
+    {
+      "title": "Menumbuhkan Usaha Kuliner",
+      "year": "ENTREPRENEURSHIP",
+      "description": "Selain konten digital dan beRAni, Ayu juga mengembangkan bisnis di bidang kuliner. Ruang kolaborasi dan informasi usaha dapat ditanyakan langsung kepada Ayu.",
+      "category": "Pengembangan Usaha",
+      "tags": ["Kuliner", "Entrepreneur", "Bisnis"]
+    }
+  ],
+  "skills": [
+    "Lifestyle Content Creation",
+    "Travel & Food Storytelling",
+    "Digital Marketing",
+    "Optimasi Media Sosial",
+    "Pendampingan UMKM",
+    "MICE",
+    "Pengembangan Bisnis"
+  ],
+  "skillCategories": [
+    {
+      "id": "konten",
+      "title": "Konten & Storytelling",
+      "subtitle": "Cerita personal yang dekat dengan keseharian audiens",
+      "skills": [
+        {
+          "name": "Lifestyle Content Creator",
+          "mono": "LIFE",
+          "note": "Travel, food, dan kehidupan ibu",
+          "evidence": [
+            "Mengolah perjalanan dan kuliner menjadi konten inspiratif",
+            "Mengangkat lifestyle serta keseharian sebagai ibu"
+          ]
+        },
+        {
+          "name": "Storytelling Digital",
+          "mono": "STORY",
+          "note": "Cerita yang bernilai",
+          "evidence": [
+            "Menyampaikan pengalaman sehari-hari lewat konten",
+            "Berfokus pada koneksi dan nilai bagi audiens"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bisnis",
+      "title": "Bisnis & Media Sosial",
+      "subtitle": "Dari layanan digital hingga eksplorasi usaha kuliner",
+      "skills": [
+        {
+          "name": "Optimasi Media Sosial · beRAni",
+          "mono": "BRN",
+          "note": "Brand jasa digital",
+          "evidence": [
+            "Membangun brand beRAni untuk jasa optimasi media sosial",
+            "Berpengalaman lebih dari satu tahun di dunia bisnis dan digital marketing"
+          ]
+        },
+        {
+          "name": "Pengembangan Usaha Kuliner",
+          "mono": "FOOD",
+          "note": "Entrepreneurship",
+          "evidence": [
+            "Aktif mengembangkan usaha di bidang kuliner",
+            "Terbuka untuk peluang koneksi dan kolaborasi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kompetensi",
+      "title": "Kompetensi Tersertifikasi",
+      "subtitle": "Sertifikasi kompetensi BNSP yang disebutkan Ayu",
+      "skills": [
+        {
+          "name": "Digital Marketing · BNSP",
+          "mono": "DM",
+          "note": "Sertifikasi kompetensi",
+          "evidence": ["Sertifikasi kompetensi BNSP di bidang Digital Marketing"]
+        },
+        {
+          "name": "Pendamping UMKM · BNSP",
+          "mono": "UMKM",
+          "note": "Sertifikasi kompetensi",
+          "evidence": ["Sertifikasi kompetensi BNSP di bidang Pendamping UMKM"]
+        },
+        {
+          "name": "MICE · BNSP",
+          "mono": "MICE",
+          "note": "Sertifikasi kompetensi",
+          "evidence": ["Sertifikasi kompetensi BNSP di bidang MICE"]
+        }
+      ]
+    }
+  ],
+  "skillsHeading": "Kreatif di Konten, Aktif di Bisnis",
+  "skillsAside": "Ayu menggabungkan content creation, pengembangan usaha, dan kompetensi digital marketing. Sertifikasi BNSP yang disebutkan mencakup Digital Marketing, Pendamping UMKM, serta MICE. Untuk detail layanan beRAni atau kolaborasi, hubungi Ayu secara langsung.",
+  "skillsKicker": "CONTENT CREATOR · ENTREPRENEUR · SERTIFIKASI BNSP",
+  "highlights": [
+    {
+      "title": "Content Creator Lifestyle",
+      "description": "Berbagi konten travel, food, lifestyle, dan cerita kehidupan sebagai ibu.",
+      "category": "KREATIVITAS"
+    },
+    {
+      "title": "Founder Brand beRAni",
+      "description": "Membangun jasa optimasi media sosial untuk membuka peluang kolaborasi digital.",
+      "category": "BISNIS"
+    },
+    {
+      "title": "3 Bidang Sertifikasi BNSP",
+      "description": "Digital Marketing, Pendamping UMKM, dan MICE sesuai informasi yang disampaikan Ayu.",
+      "category": "KOMPETENSI"
+    }
+  ],
+  "watchCards": [
+    {
+      "target": "about",
+      "title": "Kenalan dengan Ayu",
+      "subtitle": "Cerita personal & perjalanan kreatif",
+      "image": "/clients/asriwahyuni/foto-profesional.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Travel, Food & Lifestyle",
+      "subtitle": "Ruang konten Ayu",
+      "image": "/clients/asriwahyuni/momen-travel.webp"
+    },
+    {
+      "target": "skills",
+      "title": "beRAni & Kompetensi",
+      "subtitle": "Optimasi media sosial dan sertifikasi"
+    },
+    {
+      "target": "journey",
+      "title": "Perjalanan Ayu",
+      "subtitle": "Berkarya, berbisnis, bertumbuh",
+      "image": "/clients/asriwahyuni/momen-travel.webp"
+    },
+    {
+      "target": "picks",
+      "title": "Ayo Berkolaborasi",
+      "subtitle": "Temukan peluang kerja bersama Ayu"
+    }
+  ],
+  "pickCards": [
+    {
+      "label": "TRAVEL & LIFE",
+      "title": "Cerita dari Perjalanan",
+      "detail": "Travelling adalah ruang belajar dan sumber inspirasi untuk konten lifestyle.",
+      "image": "/clients/asriwahyuni/momen-travel.webp",
+      "palette": {"from": "#103143", "via": "#467a86", "to": "#0c1a2c", "accent": "#f7c58f"}
+    },
+    {
+      "label": "DIGITAL BUSINESS",
+      "title": "Kenali beRAni",
+      "detail": "Brand jasa optimasi media sosial yang Ayu kembangkan untuk ruang diskusi dan kolaborasi.",
+      "palette": {"from": "#3f2032", "via": "#ad6275", "to": "#18273a", "accent": "#ffd1ac"}
+    },
+    {
+      "label": "KOMPETENSI",
+      "title": "Sertifikasi BNSP",
+      "detail": "Digital Marketing, Pendamping UMKM, dan MICE menjadi bagian dari bekal profesional Ayu.",
+      "palette": {"from": "#172e37", "via": "#558477", "to": "#112131", "accent": "#d8ca9f"}
+    },
+    {
+      "label": "KOLABORASI",
+      "title": "Kreativitas Jadi Koneksi",
+      "detail": "Ayu terbuka untuk percakapan seputar konten, bisnis, layanan digital, dan peluang bersama.",
+      "image": "/clients/asriwahyuni/foto-profesional.webp",
+      "palette": {"from": "#382c4a", "via": "#a27881", "to": "#13273a", "accent": "#f7c48f"}
+    }
+  ],
+  "picksHeading": "Cerita, Bisnis, dan Kolaborasi",
+  "picksKicker": "LIFESTYLE · beRAni · PELUANG BARU",
+  "seasons": [
+    {
+      "number": 1,
+      "title": "Cerita Lifestyle",
+      "period": "Travel · Food · Kehidupan Ibu",
+      "synopsis": "Cerita Ayu dimulai dari hal-hal yang dekat dengan kehidupan: perjalanan, rasa, dan momen keseharian.",
+      "episodes": [
+        {
+          "title": "Setiap Perjalanan Punya Cerita",
+          "runtime": "Travel",
+          "description": "Ayu menjadikan travelling sebagai sumber ide konten yang inspiratif dan bernilai.",
+          "tags": ["Travel", "Lifestyle", "Inspirasi"],
+          "image": "/clients/asriwahyuni/momen-travel.webp",
+          "palette": {"from": "#103143", "via": "#467a86", "to": "#0c1a2c", "accent": "#f7c58f"}
+        },
+        {
+          "title": "Food & Daily Life",
+          "runtime": "Lifestyle",
+          "description": "Kuliner, lifestyle, serta kehidupan sebagai ibu menjadi bagian dari cerita kreatif Ayu.",
+          "tags": ["Food", "Ibu", "Cerita"],
+          "palette": {"from": "#4b2b34", "via": "#b67e61", "to": "#21253b", "accent": "#ffdbaf"}
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Bisnis & Digital",
+      "period": "beRAni · Kuliner",
+      "synopsis": "Di luar produksi konten, Ayu aktif mengembangkan jasa digital dan usaha kuliner.",
+      "episodes": [
+        {
+          "title": "Lahirnya beRAni",
+          "runtime": "Jasa Digital",
+          "description": "Membangun beRAni sebagai brand di bidang jasa optimasi media sosial.",
+          "tags": ["beRAni", "Media Sosial", "Bisnis"],
+          "palette": {"from": "#3f2032", "via": "#ad6275", "to": "#18273a", "accent": "#ffd1ac"}
+        },
+        {
+          "title": "Mengeksplorasi Dunia Kuliner",
+          "runtime": "Entrepreneur",
+          "description": "Mengembangkan usaha kuliner dan terus belajar melihat peluang bisnis baru.",
+          "tags": ["Kuliner", "Usaha", "Peluang"],
+          "palette": {"from": "#51402d", "via": "#a77e55", "to": "#252f35", "accent": "#f4d2a1"}
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Terus Bertumbuh",
+      "period": "Kompetensi · Kolaborasi",
+      "synopsis": "Pengalaman bisnis, digital marketing, dan sertifikasi kompetensi menjadi bekal Ayu untuk terus belajar serta membuka koneksi.",
+      "episodes": [
+        {
+          "title": "Bekal Kompetensi BNSP",
+          "runtime": "Sertifikasi",
+          "description": "Ayu memiliki sertifikasi kompetensi BNSP di bidang Digital Marketing, Pendamping UMKM, dan MICE.",
+          "tags": ["BNSP", "Digital Marketing", "UMKM", "MICE"],
+          "palette": {"from": "#17363a", "via": "#6b9a8b", "to": "#0f2431", "accent": "#e3d2a4"}
+        },
+        {
+          "title": "Koneksi Membuka Peluang",
+          "runtime": "Berlanjut",
+          "description": "Bagi Ayu, kreativitas berarti membangun koneksi, menciptakan peluang, dan memberi nilai bagi orang lain.",
+          "tags": ["Kolaborasi", "Koneksi", "Pertumbuhan"],
+          "image": "/clients/asriwahyuni/foto-profesional.webp",
+          "palette": {"from": "#382c4a", "via": "#a27881", "to": "#13273a", "accent": "#f7c48f"}
+        }
+      ]
+    }
+  ],
+  "journeyHeading": "Setiap Perjalanan Adalah Kesempatan",
+  "journeyAside": "Dari cerita perjalanan dan lifestyle, Ayu memperluas langkahnya ke beRAni, usaha kuliner, serta pengembangan kompetensi. Setiap bab membuka ruang belajar dan kolaborasi baru.",
+  "journeyKicker": "BERKARYA · BERBISNIS · BERTUMBUH",
+  "theme": {"accent": "#f1b68d", "background": "#0d1824"},
+  "templateId": "original",
+  "identityMode": "photo"
+}

@@ -119,6 +119,7 @@ export default function ElementorCanvas({ draft, patch, changeProject, setPhoto,
           const replacingSample = state.mode === 'create' && state.brief.name === 'Sushmita Dasari' && value !== 'Sushmita Dasari';
           apply({ name: value, slug: state.brief.slug || normalizeSlug(value), photo: { ...state.brief.photo, alt: `Foto ${value}` }, ...(replacingSample ? { email: '', links: { website: '', linkedin: '', github: '' } } : {}) });
         } else if (field === 'role' || field === 'location' || field === 'bio') apply({ [field]: value });
+        else if (field === 'aboutme') apply({ aboutMe: value });
         else if (field === 'tagline' || field === 'interests') apply({ [field]: splitItems(value) });
         else if (field.startsWith('project:')) {
           const [, position, property] = field.split(':');
