@@ -102,14 +102,14 @@
       "image": "/clients/yudhisakkautama/ilustrasi-operasi-lapangan-ai.webp"
     },
     {
-      "title": "Di Balik Layar Digital",
+      "title": "Di Balik Layar Digital bersama Bolu",
       "year": "MOMEN PERSONAL",
-      "description": "Kolase foto Yudhi di depan komputer, ditemani seekor kucing. Sisi hangat dari aktivitas digital dan keseharian di luar formalitas pekerjaan.",
+      "description": "Kolase foto Yudhi di depan komputer ditemani Bolu, kucing putih kesayangannya. Sisi hangat dari aktivitas digital dan keseharian di luar formalitas pekerjaan.",
       "category": "Digital Life · Personal Notes",
       "tags": [
         "Aktivitas Digital",
         "Keseharian",
-        "Kucing"
+        "Bolu"
       ],
       "image": "/clients/yudhisakkautama/aktivitas-digital-kucing.webp"
     },
@@ -150,14 +150,14 @@
       "image": "/clients/yudhisakkautama/bersepeda.webp"
     },
     {
-      "title": "Kebersamaan yang Berarti",
+      "title": "Momen Hangat bersama Bolu",
       "year": "MOMEN PERSONAL",
-      "description": "Foto kebersamaan Yudhi dengan sosok terdekat dan kucing kesayangan dalam suasana hangat. Ditampilkan sebagai bagian dari arsip personal yang diberikan untuk profil ini.",
+      "description": "Foto kebersamaan Yudhi dengan sosok terdekat dan Bolu, kucing putih kesayangannya, dalam suasana hangat. Sebuah momen personal yang melengkapi cerita di luar pekerjaan.",
       "category": "Life Beyond Work",
       "tags": [
         "Kebersamaan",
         "Keluarga",
-        "Kucing"
+        "Bolu"
       ],
       "image": "/clients/yudhisakkautama/keluarga-kucing.webp"
     },
@@ -353,7 +353,7 @@
     {
       "target": "picks",
       "title": "Perspektif Yudhi",
-      "subtitle": "Topik yang dekat dengan keseharian",
+      "subtitle": "Cerita lapangan, keseharian, dan Bolu",
       "image": "/clients/yudhisakkautama/aktivitas-digital-kucing.webp"
     }
   ],
@@ -385,7 +385,7 @@
     {
       "label": "LIFE BEYOND WORK",
       "title": "Ada Kehidupan di Luar Proyek",
-      "detail": "Momen bersepeda, bekerja dari rumah, dan menikmati kebersamaan.",
+      "detail": "Momen bersepeda, bekerja dari rumah ditemani Bolu si kucing putih, dan menikmati kebersamaan.",
       "image": "/clients/yudhisakkautama/bersepeda.webp",
       "palette": {
         "from": "#19362d",
@@ -463,7 +463,7 @@
         {
           "title": "Ruang Kerja Digital",
           "runtime": "Personal Notes",
-          "description": "Kolase aktivitas di depan komputer bersama kucing; gambaran hangat kegiatan di luar lapangan.",
+          "description": "Kolase aktivitas di depan komputer bersama Bolu, kucing putih kesayangan Yudhi; gambaran hangat kegiatan di luar lapangan.",
           "tags": [
             "Digital",
             "Personal"
@@ -503,10 +503,11 @@
         {
           "title": "Kehangatan Kebersamaan",
           "runtime": "Personal",
-          "description": "Momen yang memperlihatkan sisi hangat dan personal Yudhi bersama orang terdekat dan kucing.",
+          "description": "Momen yang memperlihatkan sisi hangat Yudhi bersama orang terdekat dan Bolu, kucing putih kesayangannya.",
           "tags": [
             "Keluarga",
-            "Kebersamaan"
+            "Kebersamaan",
+            "Bolu"
           ],
           "image": "/clients/yudhisakkautama/keluarga-kucing.webp",
           "palette": {
