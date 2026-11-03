@@ -21,8 +21,6 @@ export default function Skills() {
   const category = skillCategories[activeIndex];
   const hue = profile.clientSlug === 'ninikwardhani' ? ['#1268bd', '#0a4f9d', '#c59a37'][activeIndex % 3] : HUES[activeIndex % HUES.length];
 
-  const hasUmrohPosters = profile.clientSlug === 'ninikwardhani' && category?.skills.some((s) => s.name in NINIK_UMROH_POSTERS);
-
   if (!category) return null;
 
   return (
@@ -62,7 +60,7 @@ export default function Skills() {
               >
                 <span data-studio-edit={`skill-category:${activeIndex}:title`} className="font-semibold text-bone">{category.title}</span> — <span data-studio-edit={`skill-category:${activeIndex}:subtitle`}>{category.subtitle}</span>
               </motion.p>
-              <div className={`grid grid-cols-2 gap-3 ${hasUmrohPosters ? "" : "sm:grid-cols-3 xl:grid-cols-4"}`}>
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-4">
                 {category.skills.map((s, i) => (
                   <SkillCard key={`${category.id}-${i}`} skill={s} hue={hue} categoryIndex={activeIndex} skillIndex={i} />
                 ))}
