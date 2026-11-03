@@ -57,7 +57,7 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
           exit={{ opacity: 0, y: 30, transition: { duration: 0.3 } }}
         >
           {/* billboard */}
-          <div className="relative h-[52vh] min-h-[340px] overflow-hidden sm:rounded-t-2xl">
+          <div className="client-project-modal-billboard relative h-[52vh] min-h-[340px] overflow-hidden sm:rounded-t-2xl">
             <motion.div layoutId={`art-${project.id}`} className="absolute inset-0" transition={{ duration: 0.7, ease: EASE }}>
               <ProjectArt project={project} />
             </motion.div>

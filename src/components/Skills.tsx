@@ -11,7 +11,7 @@ export default function Skills() {
   const [cat, setCat] = useState(0);
   const activeIndex = Math.min(cat, Math.max(0, skillCategories.length - 1));
   const category = skillCategories[activeIndex];
-  const hue = HUES[activeIndex % HUES.length];
+  const hue = profile.clientSlug === 'ninikwardhani' ? ['#1268bd', '#0a4f9d', '#c59a37'][activeIndex % 3] : HUES[activeIndex % HUES.length];
 
   if (!category) return null;
 

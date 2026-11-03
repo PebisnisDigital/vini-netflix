@@ -17,6 +17,7 @@ const item = {
 export default function Hero({ onPlay, onResume, profileId, editorMode = false }: { onPlay: () => void; onResume: () => void; profileId: ProfileId; editorMode?: boolean }) {
   const { profile, projects } = usePortfolio();
   const chibi = profile.clientSlug === 'vini3';
+  const isNinikTravel = profile.clientSlug === 'ninikwardhani';
   const anime = profile.templateId === 'anime' || profile.clientSlug === 'vini4';
   const needsAnimeArtwork = profile.templateId === 'anime' && profile.portrait.src === '/assets/portrait-720.webp';
   const ref = useRef<HTMLElement>(null);
@@ -61,8 +62,8 @@ export default function Hero({ onPlay, onResume, profileId, editorMode = false }
     >
       {/* atmosphere */}
       <motion.div aria-hidden className="absolute inset-0" style={{ x: glowX }}>
-        <div className="absolute right-[-10%] top-[-10%] h-[90vh] w-[80vw] rounded-full bg-[radial-gradient(closest-side,rgba(229,19,43,0.38),rgba(229,19,43,0.08)_55%,transparent)] blur-2xl lg:right-[-4%] lg:w-[60vw]" />
-        <div className="absolute bottom-[-20%] left-[-10%] h-[70vh] w-[60vw] rounded-full bg-[radial-gradient(closest-side,rgba(90,20,120,0.25),transparent)] blur-2xl" />
+        <div className={`absolute right-[-10%] top-[-10%] h-[90vh] w-[80vw] rounded-full blur-2xl lg:right-[-4%] lg:w-[60vw] ${isNinikTravel ? "bg-[radial-gradient(closest-side,rgba(57,154,224,0.22),rgba(57,154,224,0.06)_55%,transparent)]" : "bg-[radial-gradient(closest-side,rgba(229,19,43,0.38),rgba(229,19,43,0.08)_55%,transparent)]"}`} />
+        <div className={`absolute bottom-[-20%] left-[-10%] h-[70vh] w-[60vw] rounded-full blur-2xl ${isNinikTravel ? "bg-[radial-gradient(closest-side,rgba(181,221,250,0.45),transparent)]" : "bg-[radial-gradient(closest-side,rgba(90,20,120,0.25),transparent)]"}`} />
       </motion.div>
       <Particles className="z-[1]" />
       <div aria-hidden className="absolute inset-0 z-[1] overflow-hidden">
@@ -120,7 +121,7 @@ export default function Hero({ onPlay, onResume, profileId, editorMode = false }
 
       {/* readability gradients */}
       <div aria-hidden className="absolute inset-x-0 top-[40svh] z-[3] h-[36svh] bg-gradient-to-b from-transparent via-ink/70 to-ink lg:hidden" />
-      <div aria-hidden className="absolute inset-0 z-[3] hidden bg-[linear-gradient(90deg,var(--color-ink)_0%,rgba(7,7,10,0.7)_32%,transparent_58%)] lg:block" />
+      <div aria-hidden className={`absolute inset-0 z-[3] hidden lg:block ${isNinikTravel ? "bg-[linear-gradient(90deg,#f6fbff_0%,rgba(246,251,255,0.90)_38%,transparent_74%)]" : "bg-[linear-gradient(90deg,var(--color-ink)_0%,rgba(7,7,10,0.7)_32%,transparent_58%)]"}`} />
       <div aria-hidden className="absolute inset-x-0 bottom-0 z-[3] h-48 bg-gradient-to-t from-ink to-transparent" />
 
       {/* copy */}

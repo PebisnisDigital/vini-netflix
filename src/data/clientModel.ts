@@ -384,6 +384,13 @@ const palettes: vini.Palette[] = [
   { from: '#28160b', via: '#76552b', to: '#0b0808', accent: '#ffbd6f' },
 ];
 
+const ninikBluePalettes: vini.Palette[] = [
+  { from: '#0b3d83', via: '#1e78ca', to: '#061e4a', accent: '#e0b352' },
+  { from: '#0a528f', via: '#2a93db', to: '#07305f', accent: '#f0c465' },
+  { from: '#123c80', via: '#3885c4', to: '#071d4b', accent: '#ddaa42' },
+  { from: '#0a3470', via: '#2675bb', to: '#061a3a', accent: '#e7ba55' },
+];
+
 export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: boolean } = {}): PortfolioContent {
   const errors = options.draft ? [] : validateBrief(brief);
   if (errors.length) throw new Error(`Data ${brief.slug || 'klien'} belum siap: ${errors.join(' ')}`);
@@ -393,7 +400,7 @@ export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: 
     id: `${i + 1}-${normalizeSlug(p.title)}`, title: p.title, image: p.image, year: p.year || 'Karya', genre: p.category || 'Portofolio',
     logline: p.description, stack: p.tags ?? [], build: [p.description],
     features: (p.tags?.length ? p.tags : [p.category || 'Karya']).filter(Boolean), metrics: [],
-    github: p.website, palette: { ...palettes[i % palettes.length], accent: brief.theme?.accent || palettes[i % palettes.length].accent }, motif: (['shield', 'flow', 'tenants'] as const)[i % 3],
+    github: p.website, palette: brief.slug === 'ninikwardhani' ? ninikBluePalettes[i % ninikBluePalettes.length] : { ...palettes[i % palettes.length], accent: brief.theme?.accent || palettes[i % palettes.length].accent }, motif: (['shield', 'flow', 'tenants'] as const)[i % 3],
   }));
   const experience: vini.Experience[] = brief.experiences.map((e) => ({
     company: e.company, role: e.role, period: e.period, place: brief.location, points: [e.description],
@@ -461,6 +468,11 @@ export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: 
     skills: { ...vini.sectionMeta.skills, meta: `${skillCategories.length} Bidang` },
     moments: { ...vini.sectionMeta.moments, meta: `${achievements.length} Sorotan` },
   };
+  if (brief.slug === 'ninikwardhani') {
+    (Object.keys(sectionMeta) as Array<keyof typeof sectionMeta>).forEach((key, index) => {
+      sectionMeta[key] = { ...sectionMeta[key], palette: ninikBluePalettes[index % ninikBluePalettes.length] };
+    });
+  }
   const watchCards: WatchCard[] = brief.watchCards ?? vini.viewerProfiles[0].order.map((target) => ({
     target, title: sectionMeta[target].card, subtitle: sectionMeta[target].meta, image: '',
   }));

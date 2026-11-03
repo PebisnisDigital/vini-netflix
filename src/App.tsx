@@ -96,9 +96,16 @@ export default function App({ slug, editorMode = false }: { slug: string; editor
   // Warna CHIBI bawaan tidak disimpan ke data: ketika berganti gaya,
   // pilihan warna khusus dan warna asli klien tetap aman.
   const theme = profile.theme || chibiCinema || animeCinema || clayCinema || comicCinema || editorialCinema || doodleCinema || storybookCinema || scrapbookCinema || papercutCinema || pixelCinema || miniatureCinema || documentaryCinema || minimalistCinema || futuristicNeonCinema || vintageHeritageCinema || tniCinema ? effectiveTheme(profile) : undefined;
+  const isNinikTravel = clientSlug === 'ninikwardhani';
   const styles = theme ? {
     '--color-ink': theme.background,
-    '--color-ink-2': theme.background,
+    '--color-ink-2': isNinikTravel ? '#eaf4ff' : theme.background,
+    ...(isNinikTravel ? {
+      '--color-ink-3': '#dcecff',
+      '--color-bone': '#103461',
+      '--color-mist': '#45698f',
+      '--color-smoke': '#5d7da0',
+    } : {}),
     '--color-crimson': theme.accent,
     '--color-crimson-2': theme.accent,
     '--client-accent': theme.accent,

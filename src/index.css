@@ -556,3 +556,81 @@ a:focus-visible {
   .anime-theme .anime-art-character,
   .anime-theme .anime-art-moon { animation: none; }
 }
+
+
+/* Ninik Wardhani · Samira Travel — white-blue identity inspired by the client's reference. */
+.ninikwardhani-elegant {
+  color-scheme: light;
+  background: linear-gradient(180deg, #f5fbff 0%, #ffffff 36%, #eef7ff 72%, #f8fcff 100%);
+}
+.ninikwardhani-elegant .grain { opacity: .022; }
+.ninikwardhani-elegant header .bg-gradient-to-b {
+  background-image: linear-gradient(to bottom, rgba(247, 252, 255, .97), rgba(247, 252, 255, .05));
+}
+.ninikwardhani-elegant .glass {
+  background: linear-gradient(150deg, rgba(255,255,255,.91), rgba(224,240,255,.75));
+  border-color: rgba(13, 94, 183, .21);
+  box-shadow: 0 8px 28px rgba(19, 92, 169, .07);
+}
+.ninikwardhani-elegant .shimmer-text {
+  background: linear-gradient(95deg, #06376f 0%, #0d5aaf 42%, #258bde 54%, #06376f 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.ninikwardhani-elegant .text-outline {
+  -webkit-text-stroke: 2px rgba(17, 92, 171, .32);
+}
+.ninikwardhani-elegant .light-streak {
+  background: linear-gradient(90deg, transparent, rgba(25, 121, 210, .68), transparent);
+}
+.ninikwardhani-elegant #top .client-hero-play-pulse {
+  color: #fff;
+  background: linear-gradient(110deg, #0a51a6, #197ad0);
+  box-shadow: 0 14px 35px rgba(9, 83, 164, .22);
+}
+.ninikwardhani-elegant .client-hero-now-playing { color: #164c8c; }
+.ninikwardhani-elegant .client-now-playing-track { background-color: rgba(18, 103, 190, .14); }
+.ninikwardhani-elegant .client-portrait-cinema img {
+  filter: drop-shadow(0 23px 32px rgba(19, 70, 128, .20));
+}
+.ninikwardhani-elegant .client-about-photo-card > div:first-child {
+  background: radial-gradient(75% 70% at 50% 25%, #88c7f4, #245c9f 64%, #082b60) !important;
+}
+.ninikwardhani-elegant .client-about-photo-card [class*="text-bone"] { color: #fff; }
+
+/* Poster artwork retains white lettering over deep-blue cards. */
+.ninikwardhani-elegant .client-project-card [class*="text-bone"],
+.ninikwardhani-elegant .client-watch-card [class*="text-bone"],
+.ninikwardhani-elegant .client-pick-card [class*="text-bone"],
+.ninikwardhani-elegant .client-achievement-card [class*="text-bone"],
+.ninikwardhani-elegant .client-project-modal-billboard [class*="text-bone"],
+.ninikwardhani-elegant .client-episode-card .aspect-video [class*="text-bone"] {
+  color: #f9fcff;
+}
+.ninikwardhani-elegant .client-project-card [class*="text-mist"],
+.ninikwardhani-elegant .client-watch-card [class*="text-mist"],
+.ninikwardhani-elegant .client-pick-card [class*="text-mist"] {
+  color: #d6eaff;
+}
+.ninikwardhani-elegant .client-project-card .bg-bone {
+  background-color: #fff;
+}
+.ninikwardhani-elegant .client-project-card .text-ink {
+  color: #0b4d96;
+}
+.ninikwardhani-elegant .client-episode-card .aspect-video .bg-black\/50 { color: #fff; }
+.ninikwardhani-elegant .client-project-modal-billboard > .bg-gradient-to-t {
+  background-image: linear-gradient(to top, rgba(5, 29, 69, .99), rgba(6, 48, 99, .15) 70%, transparent);
+}
+.ninikwardhani-elegant .client-achievement-card {
+  background: radial-gradient(120% 80% at 50% 0%, #176fc2, #0b4084 58%, #061e49);
+  border-color: rgba(225, 182, 88, .35);
+}
+.ninikwardhani-elegant #contact > div:first-child {
+  background: radial-gradient(65% 55% at 50% 60%, rgba(69, 164, 236, .19), transparent 75%);
+}
+.ninikwardhani-elegant .client-cta-pulse {
+  box-shadow: 0 15px 42px rgba(12, 99, 188, .25);
+}

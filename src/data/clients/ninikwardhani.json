@@ -325,10 +325,10 @@
       "title": "Safara",
       "detail": "Paket Umroh Ekonomi",
       "palette": {
-        "from": "#243b34",
-        "via": "#85785c",
-        "to": "#101d1a",
-        "accent": "#edcc8b"
+        "from": "#0b3d83",
+        "via": "#1e78ca",
+        "to": "#061e4a",
+        "accent": "#e0b352"
       },
       "image": ""
     },
@@ -337,10 +337,10 @@
       "title": "Safawi",
       "detail": "Paket Umroh Premium",
       "palette": {
-        "from": "#3a3325",
-        "via": "#a88e67",
-        "to": "#151910",
-        "accent": "#f4dba3"
+        "from": "#0a528f",
+        "via": "#2a93db",
+        "to": "#07305f",
+        "accent": "#f0c465"
       },
       "image": ""
     },
@@ -349,10 +349,10 @@
       "title": "Sukari",
       "detail": "Paket Umroh VIP",
       "palette": {
-        "from": "#3b463d",
-        "via": "#b8a489",
-        "to": "#26352d",
-        "accent": "#f5dba7"
+        "from": "#123c80",
+        "via": "#3885c4",
+        "to": "#071d4b",
+        "accent": "#ddaa42"
       },
       "image": ""
     },
@@ -361,10 +361,10 @@
       "title": "Majol",
       "detail": "Paket Umroh VVIP",
       "palette": {
-        "from": "#2f3c38",
-        "via": "#7f9787",
-        "to": "#1b2623",
-        "accent": "#e4d4af"
+        "from": "#0a3470",
+        "via": "#2675bb",
+        "to": "#061a3a",
+        "accent": "#e7ba55"
       },
       "image": ""
     },
@@ -373,10 +373,10 @@
       "title": "ONH Plus",
       "detail": "Informasi program Haji ONH Plus",
       "palette": {
-        "from": "#3a3325",
-        "via": "#a88e67",
-        "to": "#151910",
-        "accent": "#f4dba3"
+        "from": "#0b3d83",
+        "via": "#1e78ca",
+        "to": "#061e4a",
+        "accent": "#e0b352"
       },
       "image": ""
     },
@@ -385,10 +385,10 @@
       "title": "Furoda",
       "detail": "Informasi program Haji Furoda",
       "palette": {
-        "from": "#243b34",
-        "via": "#85785c",
-        "to": "#101d1a",
-        "accent": "#edcc8b"
+        "from": "#0a528f",
+        "via": "#2a93db",
+        "to": "#07305f",
+        "accent": "#f0c465"
       },
       "image": ""
     },
@@ -397,10 +397,10 @@
       "title": "3 Sistem",
       "detail": "Cash · Tabungan · Umroh dulu bayar belakangan",
       "palette": {
-        "from": "#3b463d",
-        "via": "#b8a489",
-        "to": "#26352d",
-        "accent": "#f5dba7"
+        "from": "#123c80",
+        "via": "#3885c4",
+        "to": "#071d4b",
+        "accent": "#ddaa42"
       },
       "image": ""
     },
@@ -409,10 +409,10 @@
       "title": "DP Rp1,5 Juta",
       "detail": "Sudah mendapatkan perlengkapan umroh",
       "palette": {
-        "from": "#2f3c38",
-        "via": "#7f9787",
-        "to": "#1b2623",
-        "accent": "#e4d4af"
+        "from": "#0a3470",
+        "via": "#2675bb",
+        "to": "#061a3a",
+        "accent": "#e7ba55"
       },
       "image": ""
     }
@@ -436,10 +436,10 @@
           ],
           "image": "/clients/ninikwardhani/foto-utama.webp",
           "palette": {
-            "from": "#27382e",
-            "via": "#9a896c",
-            "to": "#15211a",
-            "accent": "#ead2a2"
+            "from": "#0b3d83",
+            "via": "#1e78ca",
+            "to": "#061e4a",
+            "accent": "#e0b352"
           }
         }
       ]
@@ -461,10 +461,10 @@
             "Majol"
           ],
           "palette": {
-            "from": "#243b34",
-            "via": "#85785c",
-            "to": "#101d1a",
-            "accent": "#edcc8b"
+            "from": "#0b3d83",
+            "via": "#1e78ca",
+            "to": "#061e4a",
+            "accent": "#e0b352"
           },
           "image": ""
         },
@@ -477,10 +477,10 @@
             "Haji Furoda"
           ],
           "palette": {
-            "from": "#3a3325",
-            "via": "#a88e67",
-            "to": "#151910",
-            "accent": "#f4dba3"
+            "from": "#0a528f",
+            "via": "#2a93db",
+            "to": "#07305f",
+            "accent": "#f0c465"
           },
           "image": ""
         },
@@ -494,10 +494,10 @@
             "Bayar Belakangan"
           ],
           "palette": {
-            "from": "#3b463d",
-            "via": "#b8a489",
-            "to": "#26352d",
-            "accent": "#f5dba7"
+            "from": "#123c80",
+            "via": "#3885c4",
+            "to": "#071d4b",
+            "accent": "#ddaa42"
           },
           "image": ""
         },
@@ -510,10 +510,10 @@
             "Perlengkapan Umroh"
           ],
           "palette": {
-            "from": "#2f3c38",
-            "via": "#7f9787",
-            "to": "#1b2623",
-            "accent": "#e4d4af"
+            "from": "#0a3470",
+            "via": "#2675bb",
+            "to": "#061a3a",
+            "accent": "#e7ba55"
           },
           "image": ""
         }
@@ -524,8 +524,8 @@
   "journeyAside": "Tentukan paket Umroh atau program Haji, pilih sistem pembayaran, lalu konsultasikan syarat pendaftaran. DP umroh Rp1,5 juta sudah mendapatkan perlengkapan umroh; rincian mengikuti ketentuan resmi.",
   "journeyKicker": "PAKET · PEMBAYARAN · DP PENDAFTARAN",
   "theme": {
-    "accent": "#ddb780",
-    "background": "#0d0c0c"
+    "accent": "#0b64bd",
+    "background": "#f6fbff"
   },
   "templateId": "original",
   "identityMode": "photo"
