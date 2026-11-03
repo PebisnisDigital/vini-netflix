@@ -194,3 +194,16 @@ Screenshots were reviewed interactively in the browser session; no screenshot fi
 - **P0/P1/P2 remaining:** none observed in checked page regions.
 - **P3:** proof cards are intentionally larger than the screenshot's thumbnail-only section, to keep article and certificate evidence accessible and readable.
 - **Production release:** confirm separately after merge and production deployment.
+
+---
+
+## Klien `/asriwahyuni` — identity fidelity and corrected expertise mapping
+
+**Final result: passed** (3 November 2026; 390px cloud-browser mobile preview)
+
+- **User correction:** previous category photographs were misplaced. Use filming/laptop behind-the-scenes photo for **Digital Marketing**, original news article screenshot about 9 million views for **Content Creation**, government certificate for **UMKM Development**, and founder-of-three-communities poster for **Business & MICE**.
+- **Identity source:** original user-submitted photo of Ayu on an outdoor staircase, wearing glasses and a patterned navy hijab. Generated 1:1 head-and-shoulders transparent WebP (`800×800`, `45,272 bytes`) and a consistent landscape editorial hero; AI-rendered hero labeled as a conceptual visual.
+- **MICE poster:** corrected model face to the recognizable features of the user-provided Ayu reference while retaining the original three community names and branding; exported readable poster WebP (`1,050×1,149`).
+- **Live mobile QA:** browser screenshot at the 390px iframe viewport confirms all four expertise images in corrected rows, clear text and dividers, responsive hero, and working `#expertise` navigation. No horizontal overflow observed.
+- **Scope:** original photography and press clipping remain attributed only to the materials supplied by the user. No changes to other client pages.
+- **Production release:** verify after GitHub merge and Vercel READY deployment.
