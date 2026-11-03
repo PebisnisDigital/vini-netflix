@@ -7,7 +7,7 @@ import { EASE, SectionHeading } from './fx';
 const HUES = ['#ff3d5a', '#4cc9ff', '#46e3a8', '#ffb547', '#b98bff', '#ff8a5c', '#7ee0ff'];
 
 export default function Skills() {
-  const { skillCategories, skillsHeading, skillsAside, skillsKicker } = usePortfolio();
+  const { skillCategories, skillsHeading, skillsAside, skillsKicker, profile } = usePortfolio();
   const [cat, setCat] = useState(0);
   const activeIndex = Math.min(cat, Math.max(0, skillCategories.length - 1));
   const category = skillCategories[activeIndex];
@@ -36,7 +36,7 @@ export default function Skills() {
               {i === activeIndex && <motion.span layoutId="skill-bar" className="absolute bottom-2 left-0 top-2 hidden w-[3px] rounded lg:block" style={{ background: hue }} />}
               <span className="relative block font-display text-2xl tracking-wide lg:text-3xl">{c.title}</span>
               <span className="relative hidden text-xs text-smoke lg:block">
-                {c.skills.length} keahlian · {c.subtitle}
+                {c.skills.length} {profile.clientSlug === 'ninikwardhani' ? 'pilihan' : 'keahlian'} · {c.subtitle}
               </span>
             </button>
           ))}
