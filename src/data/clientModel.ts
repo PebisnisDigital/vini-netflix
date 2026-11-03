@@ -453,8 +453,8 @@ export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: 
     ...vini.sectionMeta,
     about: { ...vini.sectionMeta.about, meta: `Kenalan dengan ${name}` },
     journey: { ...vini.sectionMeta.journey, meta: `${seasons.length} Musim · ${seasons.reduce((n, s) => n + s.episodes.length, 0)} Episode` },
-    originals: { ...vini.sectionMeta.originals, meta: `${projects.length} Karya Pilihan` },
-    picks: { ...vini.sectionMeta.picks, card: 'Pilihan Karya', meta: `${topPicks.length} sorotan` },
+    originals: { ...vini.sectionMeta.originals, card: brief.slug === 'ninikwardhani' ? 'Paket & Layanan' : vini.sectionMeta.originals.card, meta: brief.slug === 'ninikwardhani' ? `${projects.length} Paket & Layanan` : `${projects.length} Karya Pilihan` },
+    picks: { ...vini.sectionMeta.picks, card: brief.slug === 'ninikwardhani' ? 'Pilihan Paket' : 'Pilihan Karya', meta: `${topPicks.length} sorotan` },
     skills: { ...vini.sectionMeta.skills, meta: `${skillCategories.length} Bidang` },
     moments: { ...vini.sectionMeta.moments, meta: `${achievements.length} Sorotan` },
   };
@@ -474,7 +474,7 @@ export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: 
       googleMapsUrl: brief.googleMapsUrl || '', googleMapsLabel: brief.googleMapsLabel || '',
       links: { linkedin: brief.links?.linkedin || '', github: brief.links?.github || '', website: brief.links?.website || '' },
       resumePdf: '', portrait: { src: brief.photo.src, srcSet: brief.photo.srcSet || '', alt: brief.photo.alt || `Foto ${name}` },
-      interests: brief.interests, heroMeta: [brief.location, brief.role, `${projects.length} Karya`],
+      interests: brief.interests, heroMeta: [brief.location, brief.role, brief.slug === 'ninikwardhani' ? `${projects.length} Paket & Layanan` : `${projects.length} Karya`],
       floating: projects.slice(0, 3).map((p) => ({ text: p.title, sub: p.genre })),
       aboutFacts: [
         { k: 'Peran', v: brief.role, s: 'Aktivitas utama' },
