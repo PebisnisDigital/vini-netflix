@@ -13,9 +13,12 @@ import ProjectCard from './ProjectCard';
  * could leave the third card cut off when vertical scroll was interrupted.
  */
 export default function Originals({ onOpen }: { onOpen: (p: Project) => void }) {
-  const { profile, projects } = usePortfolio();
+  const { profile, projects: allProjects } = usePortfolio();
   const isYudhi = profile.clientSlug === 'yudhisakkautama';
   const isDian = profile.clientSlug === 'dianrivia';
+  // Entri tautan afiliasi tetap tersimpan sebagai proyek yang dapat diedit di Studio,
+  // tetapi ditampilkan dalam seksi tautan tersendiri agar galeri foto tidak tercampur.
+  const projects = isYudhi ? allProjects.filter((project) => project.genre !== 'Jejaring & Afiliasi') : allProjects;
   const rail = useRef<HTMLDivElement>(null);
   const currentIndex = useRef(0);
   const pointer = useRef<{ id: number; x: number; left: number; dragged: boolean } | null>(null);

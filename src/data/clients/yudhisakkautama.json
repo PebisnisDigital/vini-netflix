@@ -1,48 +1,69 @@
 {
   "slug": "yudhisakkautama",
   "name": "Yudhi Sakkautama",
-  "role": "Geopreneur · Mining Exploration · HSE",
-  "location": "Indonesia",
-  "bio": "Saya Yudhi Sakkautama, seorang geopreneur yang bergerak di persimpangan eksplorasi geologi, keselamatan kerja, manajemen proyek, dan inovasi digital. Perjalanan profesional saya dibentuk oleh pengalaman lapangan, kerja bersama beragam tim, dan keinginan untuk terus mengubah pengetahuan menjadi solusi yang bermanfaat. Halaman ini adalah ruang untuk berbagi sudut pandang, dokumentasi, serta hal-hal yang saya pelajari sepanjang perjalanan—dengan sisi personal yang tetap menjadi bagian dari cerita.",
+  "role": "Geopreneur · Geologist · Geophysics · QHSE",
+  "location": "Bekasi, Jawa Barat",
+  "bio": "Saya Yudhi Sakkautama, geolog lulusan Universitas Padjadjaran yang berkecimpung dalam eksplorasi geologi, geofisika, GIS, dan keselamatan kerja sejak 1997. Perjalanan karier saya membawa saya dari pekerjaan geologi lapangan di Sumatra dan Kalimantan, manajemen proyek software dan GIS, hingga eksplorasi batubara serta keselamatan radiasi di PT Minelog Services Indonesia. Di luar dunia teknis, saya juga pernah mengembangkan usaha kuliner Dapoer Andrisa. Inilah kisah seorang geopreneur yang senang menghubungkan pengetahuan, teknologi, dan peluang.",
   "tagline": [
-    "Exploring Ideas, Building Knowledge, Creating Impact."
+    "Geologist forever, and a joyful foodpreneur."
   ],
   "interests": [
-    "Mining & Exploration",
-    "HSE & Safety Management",
-    "Project & Operational Management",
-    "GIS & Digital Innovation",
-    "Geology & Field Observation",
-    "Personal Notes & Reflections"
+    "Geology & Geophysics",
+    "GIS & Spatial Technology",
+    "QHSE & Radiation Safety",
+    "Software Project Management",
+    "Food Entrepreneurship",
+    "Field Exploration & Collaboration"
   ],
   "photo": {
-    "src": "/clients/yudhisakkautama/foto-profesional.webp",
-    "alt": "Potret profesional Yudhi Sakkautama hasil olahan AI dari foto referensi, memakai blazer navy dan kemeja putih pada latar transparan"
+    "src": "/clients/yudhisakkautama/foto-casual-rompi-merah.webp",
+    "alt": "Potret kasual Yudhi Sakkautama mengenakan rompi merah dan kaus oranye, diolah dari foto pribadinya dengan latar transparan"
   },
   "email": "yudhi.hs@gmail.com",
   "whatsapp": "081362333050",
-  "links": {},
+  "links": {
+    "linkedin": "https://www.linkedin.com/in/yudhisakkautama"
+  },
   "experiences": [
     {
-      "company": "Mining & Mineral Exploration",
-      "role": "Eksplorasi Geologi dan Operasional Lapangan",
-      "period": "Ruang pengalaman profesional",
-      "description": "Lingkup yang diperkenalkan dalam panduan profil Yudhi meliputi eksplorasi mineral dan batubara, geologi, pemboran, serta dinamika operasi di lapangan. Rincian nama proyek, posisi, dan tahun dapat ditambahkan setelah dikonfirmasi."
+      "company": "PT Minelog Services Indonesia",
+      "role": "Senior Geologist, Senior Geophysicist & HSE / Radiation Safety",
+      "period": "2012 – sekarang (profil LinkedIn)",
+      "description": "Terlibat dalam eksplorasi batubara, pekerjaan geofisika, interpretasi data geologi, GIS, dan pengelolaan aspek keselamatan. Profil publik juga mencatat tanggung jawab HSE Section Head dan Radiation Safety Officer sejak 2017, termasuk prosedur keselamatan dan kepatuhan proteksi radiasi."
     },
     {
-      "company": "HSE & Mining Safety",
-      "role": "Keselamatan Kerja dan Tata Kelola Risiko",
-      "period": "Ruang kompetensi",
-      "description": "Ketertarikan dan pengalaman profesional seputar keselamatan pertambangan, manajemen risiko, serta sistem keselamatan. Detail implementasi atau sertifikasi ditampilkan setelah ada dokumen pendukung."
+      "company": "PT Mahesa Sapta Dasa",
+      "role": "Senior HSE Advisor",
+      "period": "2021 – 2024",
+      "description": "Memberikan pendampingan keselamatan proyek, penyusunan safety plan, pengelolaan CSMS, monitoring, dan audit keselamatan kerja."
     },
     {
-      "company": "Project Management & Digital Solutions",
-      "role": "Pengelolaan Proyek dan Inovasi Digital",
-      "period": "Ruang pengembangan",
-      "description": "Menghubungkan perencanaan dan kontrol operasional dengan teknologi survei, GIS, dan pendekatan digital. Informasi hasil proyek spesifik menunggu verifikasi kontribusi aktual."
+      "company": "Dapoer Andrisa",
+      "role": "Owner · Foodpreneur",
+      "period": "2020 – 2025",
+      "description": "Mengembangkan usaha kuliner rumahan dengan produk kue dan pesanan pre-order. Sisi kewirausahaan yang melengkapi pengalaman panjang di bidang kebumian dan teknologi."
+    },
+    {
+      "company": "PT Sigma Delta Duta Nusantara",
+      "role": "Project Manager · Software & GIS",
+      "period": "2000 – 2011",
+      "description": "Mengelola proyek pengembangan perangkat lunak dan GIS, termasuk sistem HRIS serta solusi pelacakan kendaraan berbasis GPS/AVL."
+    },
+    {
+      "company": "Proyek Geologi & GIS",
+      "role": "Geologist / GIS Specialist",
+      "period": "1997 – 2000",
+      "description": "Pengalaman awal di bidang pemetaan, survei, dan geologi lapangan, termasuk pekerjaan di wilayah Sumatra dan Kalimantan."
     }
   ],
-  "education": [],
+  "education": [
+    {
+      "school": "Universitas Padjadjaran",
+      "degree": "Geological and Earth Sciences / Geosciences",
+      "place": "Bandung, Jawa Barat",
+      "period": "1991 – 1997"
+    }
+  ],
   "projects": [
     {
       "title": "Membaca Bentang Alam",
@@ -151,38 +172,86 @@
         "Refleksi"
       ],
       "image": "/clients/yudhisakkautama/momen-keluarga.webp"
+    },
+    {
+      "title": "Sunarie Pusaka",
+      "year": "AFILIASI",
+      "description": "Salah satu tautan perusahaan yang dibagikan Yudhi untuk ditampilkan di jejaring profesionalnya. Detail hubungan dan peran spesifik belum dicantumkan.",
+      "category": "Jejaring & Afiliasi",
+      "tags": ["Perusahaan", "Jejaring Profesional"],
+      "website": "https://sunariepusaka.id/"
+    },
+    {
+      "title": "Minelog Services Indonesia",
+      "year": "AFILIASI",
+      "description": "Layanan eksplorasi, geologi, geofisika, dan konsultansi pertambangan. Yudhi tercantum pada laman tim ahli Minelog sebagai Geophysics and QHSE Advisor, PPR.",
+      "category": "Jejaring & Afiliasi",
+      "tags": ["Geologi", "Geofisika", "QHSE"],
+      "website": "https://minelog-services.com/"
+    },
+    {
+      "title": "Smart Resources",
+      "year": "AFILIASI",
+      "description": "Tautan Smart Resources yang dibagikan Yudhi sebagai bagian dari jejaring perusahaan dan inisiatifnya. Peran spesifik belum dicantumkan.",
+      "category": "Jejaring & Afiliasi",
+      "tags": ["Perusahaan", "Jejaring Profesional"],
+      "website": "https://smart-resources.id/"
+    },
+    {
+      "title": "Spatialize",
+      "year": "AFILIASI",
+      "description": "Pranala ke Spatialize, platform dan produk teknologi spasial. Ditampilkan sebagai tautan jejaring yang dibagikan Yudhi tanpa menyatakan posisi atau kepemilikan tertentu.",
+      "category": "Jejaring & Afiliasi",
+      "tags": ["Spatial", "Software", "Teknologi"],
+      "website": "https://spatialize.dev/"
+    },
+    {
+      "title": "WebGIS Indonesia",
+      "year": "AFILIASI",
+      "description": "Pranala menuju layanan teknologi geospasial dan WebGIS Indonesia yang dibagikan Yudhi untuk profil profesionalnya.",
+      "category": "Jejaring & Afiliasi",
+      "tags": ["GIS", "Geospasial", "Teknologi"],
+      "website": "https://webgis.co.id/"
+    },
+    {
+      "title": "Dapoer Andrisa",
+      "year": "INISIATIF USAHA",
+      "description": "Usaha kuliner rumahan yang pernah dikembangkan Yudhi. Menurut profil LinkedIn, Dapoer Andrisa melayani produk kue rumahan dan sistem pre-order pada periode 2020–2025.",
+      "category": "Jejaring & Afiliasi",
+      "tags": ["Foodpreneur", "Kuliner", "Wirausaha"],
+      "website": "https://msha.ke/dapoerandrisa/"
     }
   ],
   "skills": [
-    "Mining & Exploration",
-    "HSE & Safety",
-    "Project Management",
-    "GIS",
-    "Digital Innovation",
-    "Field Observation"
+    "Coal Exploration & Geology",
+    "Applied Geophysics",
+    "QHSE & Radiation Protection",
+    "GIS & Spatial Technology",
+    "Software Project Management",
+    "Entrepreneurship"
   ],
   "skillCategories": [
     {
       "id": "mining",
       "title": "Mining & Exploration",
-      "subtitle": "Dari observasi hingga operasi eksplorasi",
+      "subtitle": "Geologi lapangan, eksplorasi batubara, dan geofisika",
       "skills": [
         {
-          "name": "Eksplorasi Geologi",
+          "name": "Geologi & Eksplorasi Batubara",
           "mono": "GEO",
-          "note": "Bidang utama dalam panduan profil",
+          "note": "PT Minelog Services Indonesia",
           "evidence": [
-            "Geologi dan eksplorasi mineral serta batubara",
-            "Kegiatan observasi dan pengolahan data lapangan"
+            "Senior Geologist Coal Exploration sejak 2012 menurut LinkedIn",
+            "Pemetaan, pengamatan lapangan, dan interpretasi data geologi"
           ]
         },
         {
-          "name": "Operasi Eksplorasi",
+          "name": "Geofisika Terapan",
           "mono": "EXP",
-          "note": "Pemahaman dinamika pekerjaan lapangan",
+          "note": "Senior Geophysicist sejak 2014",
           "evidence": [
-            "Pemboran dan pelaksanaan operasi eksplorasi",
-            "Kolaborasi lapangan dan dokumentasi teknis"
+            "Pekerjaan geofisika dan pengelolaan data teknis lapangan",
+            "Kolaborasi lintas-disiplin antara geologi dan geofisika"
           ]
         }
       ]
@@ -190,15 +259,15 @@
     {
       "id": "hse",
       "title": "HSE & Safety",
-      "subtitle": "Keselamatan sebagai bagian dari proses kerja",
+      "subtitle": "Keselamatan kerja, pengawasan risiko, dan proteksi radiasi",
       "skills": [
         {
-          "name": "Keselamatan Pertambangan",
+          "name": "HSE & Radiation Safety",
           "mono": "HSE",
-          "note": "Ruang pengalaman HSE yang diperkenalkan",
+          "note": "Pengalaman HSE dan proteksi radiasi",
           "evidence": [
-            "Sistem keselamatan pertambangan dan pengelolaan risiko",
-            "Kerangka SMKP Minerba disebut dalam panduan sebagai bidang relevan"
+            "HSE Section Head / Radiation Safety Officer di Minelog menurut LinkedIn",
+            "Penyusunan prosedur kerja, monitoring, dan kepatuhan keselamatan radiasi"
           ]
         }
       ]
@@ -206,15 +275,15 @@
     {
       "id": "project",
       "title": "Project Management",
-      "subtitle": "Menyatukan rencana, orang, dan operasi",
+      "subtitle": "Manajemen proyek IT, sistem informasi, dan tim",
       "skills": [
         {
-          "name": "Project & Operations",
+          "name": "Software Project Management",
           "mono": "PM",
-          "note": "Perencanaan dan pengendalian kerja",
+          "note": "PT Sigma Delta Duta Nusantara, 2000–2011",
           "evidence": [
-            "Perencanaan, eksekusi, dan kontrol operasional",
-            "Pendekatan kolaboratif untuk pengelolaan proyek"
+            "Mengelola proyek sistem HRIS dan solusi GPS/AVL",
+            "Koordinasi kebutuhan pengguna, tim, dan pengembangan software/GIS"
           ]
         }
       ]
@@ -222,37 +291,37 @@
     {
       "id": "digital",
       "title": "Digital Innovation",
-      "subtitle": "Membawa perspektif lapangan ke teknologi",
+      "subtitle": "Pemanfaatan data spasial dan sistem geoinformasi",
       "skills": [
         {
-          "name": "GIS & Survey Technology",
+          "name": "GIS & Spatial Solutions",
           "mono": "GIS",
-          "note": "Bidang teknologi yang diperkenalkan",
+          "note": "Berpengalaman sejak awal karier",
           "evidence": [
-            "Sistem informasi geografis dan teknologi survei",
-            "Ketertarikan pada digitalisasi dan solusi berbasis data"
+            "Geologist / GIS Specialist pada proyek di Sumatra dan Kalimantan",
+            "Penerapan GIS dalam pekerjaan geologi dan pengembangan sistem digital"
           ]
         }
       ]
     }
   ],
-  "skillsHeading": "Empat Bidang, Satu Perspektif",
-  "skillsAside": "Eksplorasi mengajarkan cara membaca bumi. HSE menjaga manusia yang bekerja di atasnya. Manajemen proyek menyatukan langkah; inovasi digital membuka cara kerja baru. Rincian sertifikasi, proyek, dan hasil implementasi akan dilengkapi berdasarkan dokumen terverifikasi.",
-  "skillsKicker": "EXPLORATION · SAFETY · PEOPLE · TECHNOLOGY",
+  "skillsHeading": "Geologi, Keselamatan, dan Teknologi",
+  "skillsAside": "Karier Yudhi mempertemukan tiga dunia: geologi dan geofisika untuk memahami kondisi bumi; QHSE serta proteksi radiasi untuk menjaga keselamatan; GIS dan manajemen proyek software untuk mengolah informasi menjadi sistem kerja. Profil ini merangkum pengalaman yang tercantum di LinkedIn publik dan laman ahli Minelog, tanpa menyatakan sertifikasi lama sebagai lisensi yang masih aktif.",
+  "skillsKicker": "GEOLOGY · GEOPHYSICS · QHSE · GIS",
   "highlights": [
     {
-      "title": "Field Experience",
-      "description": "Perspektif lapangan menjadi fondasi cara melihat masalah dan mengambil keputusan.",
+      "title": "Geology & Geophysics",
+      "description": "Berpengalaman di proyek geologi sejak 1997 dan berperan sebagai Senior Geologist serta Senior Geophysicist di Minelog.",
       "category": "EXPLORATION"
     },
     {
-      "title": "Safety Mindset",
-      "description": "Keselamatan dan pengelolaan risiko dibahas sebagai bagian penting dari pekerjaan.",
+      "title": "QHSE & Proteksi Radiasi",
+      "description": "Mengelola keselamatan kerja, prosedur, pengawasan risiko, dan aspek proteksi radiasi dalam operasi geofisika.",
       "category": "HSE"
     },
     {
-      "title": "Digital Curiosity",
-      "description": "Menghubungkan dunia geologi, pekerjaan lapangan, dan teknologi digital.",
+      "title": "GIS & Software Projects",
+      "description": "Pernah memimpin proyek sistem HRIS dan GPS/AVL serta membawa pengalaman GIS ke pekerjaan lapangan.",
       "category": "INNOVATION"
     }
   ],
@@ -261,7 +330,7 @@
       "target": "about",
       "title": "Tentang Yudhi",
       "subtitle": "Cerita dan filosofi profesional",
-      "image": "/clients/yudhisakkautama/foto-profesional.webp"
+      "image": "/clients/yudhisakkautama/foto-casual-rompi-merah.webp"
     },
     {
       "target": "originals",
@@ -331,9 +400,9 @@
   "seasons": [
     {
       "number": 1,
-      "title": "Melihat Bumi Lebih Dekat",
-      "period": "Eksplorasi dan Pengamatan",
-      "synopsis": "Catatan visual tentang pengamatan bentang alam, informasi stratigrafi, serta konteks pekerjaan eksplorasi.",
+      "title": "Awal Sebagai Geolog",
+      "period": "1997 – eksplorasi dan pemetaan",
+      "synopsis": "Berangkat dari studi kebumian di Universitas Padjadjaran, Yudhi menjalani pekerjaan geologi/GIS di Sumatra dan Kalimantan. Foto lanskap serta data stratigrafi menjadi jendela visual menuju dunia kerjanya.",
       "episodes": [
         {
           "title": "Jelajah Geologi",
@@ -371,9 +440,9 @@
     },
     {
       "number": 2,
-      "title": "Keselamatan, Manusia, Teknologi",
-      "period": "Profesional & Digital",
-      "synopsis": "Pertemuan antara praktik keselamatan, kerja proyek, dan teknologi yang membantu membaca situasi.",
+      "title": "Dari GIS ke Geofisika & QHSE",
+      "period": "2000 – sekarang (profil publik)",
+      "synopsis": "Setelah mengelola proyek software/GIS pada 2000–2011, Yudhi berkiprah di Minelog pada eksplorasi batubara, geofisika, dan HSE, termasuk pengelolaan keselamatan radiasi. Ilustrasi operasi tambang di episode ini adalah visual AI.",
       "episodes": [
         {
           "title": "Bayangan Aktivitas Tambang",
@@ -411,9 +480,9 @@
     },
     {
       "number": 3,
-      "title": "Di Luar Jam Kerja",
-      "period": "Personal & Homey",
-      "synopsis": "Keseimbangan melalui aktivitas luar ruang, momen bersama orang terdekat, dan potret keseharian.",
+      "title": "Geopreneur di Luar Proyek",
+      "period": "Kewirausahaan & keseharian",
+      "synopsis": "Sisi lain Yudhi: pernah menjalankan Dapoer Andrisa pada 2020–2025, menikmati bersepeda, aktivitas digital, serta momen kebersamaan bersama orang-orang terdekat.",
       "episodes": [
         {
           "title": "Bersepeda untuk Menyegarkan Pikiran",
@@ -450,9 +519,9 @@
       ]
     }
   ],
-  "journeyHeading": "A Journey Beyond Job Titles",
-  "journeyAside": "Perjalanan profesional tidak harus dirangkum sebagai daftar jabatan. Bagi Yudhi, pengalaman lapangan, pemahaman keselamatan, pertemuan dengan teknologi, dan ruang untuk keluarga ikut membentuk cerita. Halaman ini memisahkan dokumentasi aktual dari ilustrasi AI dan ide proyek yang masih memerlukan verifikasi.",
-  "journeyKicker": "FIELD EXPERIENCE · KNOWLEDGE · PERSONAL MOMENTS",
+  "journeyHeading": "Dari Geologi ke Geopreneur",
+  "journeyAside": "Dari survei dan geologi lapangan sejak 1997, pengelolaan proyek software/GIS pada 2000–2011, hingga pekerjaan geofisika dan keselamatan di Minelog, perjalanan Yudhi tidak berjalan di satu jalur saja. Dapoer Andrisa menambah bab kewirausahaan kuliner. Foto di halaman ini merupakan dokumentasi pribadi, kecuali ilustrasi operasi tambang yang ditandai sebagai karya berbantuan AI.",
+  "journeyKicker": "GEOLOGY · DIGITAL SYSTEMS · SAFETY · FOODPRENEURSHIP",
   "templateId": "original",
   "identityMode": "photo"
 }

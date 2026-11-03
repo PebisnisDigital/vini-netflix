@@ -40,6 +40,7 @@ import Achievements from './components/Achievements';
 import ResumeSection from './components/ResumeViewer';
 import FinalCTA from './components/FinalCTA';
 import ClientLocationMap from './components/ClientLocationMap';
+import YudhiAffiliations from './components/YudhiAffiliations';
 import { VisualDesignStyles, VisualWidgets } from './components/VisualDesignLayer';
 import { EASE } from './components/fx';
 
@@ -274,6 +275,7 @@ function Series({ slug, editorMode }: { slug: string; editorMode: boolean }) {
             <VisualWidgets section="top" />
             <ContinueWatching order={order} />
             <VisualWidgets section="continue" />
+            {profile.clientSlug === 'yudhisakkautama' && <YudhiAffiliations />}
             {order.map((id) => (
               <Scene key={id} id={id} className={id === 'originals' ? '!py-0 sm:!py-0' : ''}>
                 {sections[id]}
