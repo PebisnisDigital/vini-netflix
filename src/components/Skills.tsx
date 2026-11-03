@@ -158,7 +158,7 @@ function SkillCard({ skill, hue, categoryIndex, skillIndex }: { skill: Skill; hu
         <img
           src={poster}
           alt={`Informasi hotel Paket ${skill.name} Samira Travel`}
-          className="max-h-[88vh] max-w-full rounded-lg object-contain shadow-2xl"
+          className="max-h-[88vh] w-[92vw] max-w-[560px] rounded-lg object-contain shadow-2xl"
           onClick={(event) => event.stopPropagation()}
         />
       </div>,
