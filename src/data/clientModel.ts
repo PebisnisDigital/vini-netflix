@@ -444,7 +444,7 @@ export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: 
   const introSlides: vini.IntroSlide[] = [
     { kicker: 'Kenalan', title: `Halo, Saya ${name}`, lines: [brief.role, brief.location], chips: tags.slice(0, 3) },
     { kicker: 'Cerita saya', title: 'Perjalanan Saya', lines: [brief.bio], chips: brief.interests.slice(0, 3) },
-    ...projects.slice(0, 4).map((p) => ({ kicker: 'Karya', title: p.title, lines: [p.logline], chips: p.stack.slice(0, 3) })),
+    ...(brief.slug === 'ninikwardhani' ? [] : projects.slice(0, 4).map((p) => ({ kicker: 'Karya', title: p.title, lines: [p.logline], chips: p.stack.slice(0, 3) }))),
   ];
   const viewerProfiles: typeof vini.viewerProfiles = vini.viewerProfiles.map((p) => p.id === 'vini'
     ? { ...p, name, blurb: 'Tonton semua ceritanya' }
@@ -474,8 +474,10 @@ export function createPortfolioFromBrief(brief: ClientBrief, options: { draft?: 
       googleMapsUrl: brief.googleMapsUrl || '', googleMapsLabel: brief.googleMapsLabel || '',
       links: { linkedin: brief.links?.linkedin || '', github: brief.links?.github || '', website: brief.links?.website || '' },
       resumePdf: '', portrait: { src: brief.photo.src, srcSet: brief.photo.srcSet || '', alt: brief.photo.alt || `Foto ${name}` },
-      interests: brief.interests, heroMeta: [brief.location, brief.role, brief.slug === 'ninikwardhani' ? `${projects.length} Paket & Layanan` : `${projects.length} Karya`],
-      floating: projects.slice(0, 3).map((p) => ({ text: p.title, sub: p.genre })),
+      interests: brief.interests, heroMeta: [brief.location, brief.role, brief.slug === 'ninikwardhani' ? 'Konsultasi Calon Jamaah' : `${projects.length} Karya`],
+      floating: brief.slug === 'ninikwardhani'
+        ? [{ text: 'Mitra Samira Travel', sub: 'Umrah & Haji Khusus' }, { text: 'Konsultasi Jamaah', sub: 'Melalui WhatsApp' }, { text: 'Persiapan Ibadah', sub: 'Informasi Perjalanan' }]
+        : projects.slice(0, 3).map((p) => ({ text: p.title, sub: p.genre })),
       aboutFacts: [
         { k: 'Peran', v: brief.role, s: 'Aktivitas utama' },
         { k: 'Karya', v: String(projects.length), s: 'Karya dan inisiatif' },
