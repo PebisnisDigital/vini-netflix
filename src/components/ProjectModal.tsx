@@ -16,8 +16,9 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
   const isNoahInna = profile.clientSlug === 'noahinna';
   const isYudhi = profile.clientSlug === 'yudhisakkautama';
   const isDian = profile.clientSlug === 'dianrivia';
+  const isAsri = profile.clientSlug === 'asriwahyuni';
   const videoSource = /\.mp4(?:\?|$)/i.test(project.github ?? '') ? project.github : null;
-  const isDocumentImage = Boolean(project.image && /sertifikat|piagam/i.test(project.genre));
+  const isDocumentImage = Boolean(!isAsri && project.image && /sertifikat|piagam/i.test(project.genre));
   useScrollLock(true);
   const scroller = useRef<HTMLDivElement>(null);
   const closeBtn = useRef<HTMLButtonElement>(null);
@@ -98,12 +99,12 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
               {project.logline}
             </motion.p>
 
-            {(isYudhi || isDian) && project.image && (
+            {(isYudhi || isDian || isAsri) && project.image && (
               <motion.figure variants={block} className="mt-8 overflow-hidden rounded-xl border border-white/15 bg-[#e8e5dd] p-3 sm:p-5">
                 <a href={project.image} target="_blank" rel="noreferrer" aria-label={`Buka foto utuh ${project.title}`}>
                   <img src={project.image} alt={project.title} loading="lazy" decoding="async" className="mx-auto max-h-[78vh] w-full object-contain" />
                 </a>
-                <figcaption className="mt-3 text-center text-xs text-[#324454]">Klik gambar untuk membuka ukuran penuh{isDian ? ' · Materi dan dokumentasi yang dibagikan' : ''}</figcaption>
+                <figcaption className="mt-3 text-center text-xs text-[#324454]">Klik gambar untuk membuka ukuran penuh{isDian || isAsri ? ' · Materi dan dokumentasi yang dibagikan' : ''}</figcaption>
               </motion.figure>
             )}
 
@@ -202,7 +203,7 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
 
             {/* more like this */}
             <motion.section variants={block} className="mt-14 border-t border-white/10 pt-8">
-              <h3 className="mb-4 font-sans text-lg font-semibold text-bone">{isYudhi || isDian ? 'Foto Lainnya' : 'Karya Orisinal Lainnya'}</h3>
+              <h3 className="mb-4 font-sans text-lg font-semibold text-bone">{isYudhi || isDian || isAsri ? 'Foto & Karya Lainnya' : 'Karya Orisinal Lainnya'}</h3>
               <div className="grid gap-4 sm:grid-cols-2">
                 {more.map((p) => (
                   <button

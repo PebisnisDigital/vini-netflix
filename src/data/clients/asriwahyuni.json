@@ -19,7 +19,7 @@
   ],
   "photo": {
     "src": "/clients/asriwahyuni/foto-profesional.webp",
-    "alt": "Foto asli Asri Wahyuni (Ayu) dari lokasi tangga, dipotong close-up persegi dengan kacamata, hijab navy bermotif, dan kemeja denim biru tetap seperti aslinya"
+    "alt": "Foto asli Asri Wahyuni (Ayu), close-up 1:1 berlatar transparan, dengan wajah, kacamata, hijab navy bermotif, dan kemeja denim biru yang tidak diubah"
   },
   "email": "footageayu@gmail.com",
   "whatsapp": "08116359997",
@@ -75,6 +75,46 @@
       "description": "Selain konten digital dan beRAni, Ayu juga mengembangkan bisnis di bidang kuliner. Ruang kolaborasi dan informasi usaha dapat ditanyakan langsung kepada Ayu.",
       "category": "Pengembangan Usaha",
       "tags": ["Kuliner", "Entrepreneur", "Bisnis"]
+    },
+    {
+      "title": "Di Balik Proses Produksi",
+      "year": "DIGITAL MARKETING",
+      "description": "Dokumentasi Ayu berkegiatan di depan laptop saat proses pengambilan gambar.",
+      "category": "Dokumentasi Digital Marketing",
+      "tags": ["Produksi Konten", "Digital Marketing", "Behind the Scenes"],
+      "image": "/clients/asriwahyuni/behind-scenes.webp"
+    },
+    {
+      "title": "Liputan 9 Juta Views",
+      "year": "CONTENT CREATION",
+      "description": "Cuplikan artikel 23 Januari 2026 tentang tayangan konten keluarga Ayu.",
+      "category": "Pemberitaan & Pencapaian Konten",
+      "tags": ["Konten Keluarga", "Media", "9 Juta Views"],
+      "image": "/clients/asriwahyuni/media-9-juta-views.webp"
+    },
+    {
+      "title": "Tiga Komunitas Perempuan",
+      "year": "BUSINESS & MICE",
+      "description": "Poster komunitas yang dibagikan Ayu: AWC, Rumah Kawan Bunda, dan Wanita Cerdas Tangerang.",
+      "category": "Komunitas & Kolaborasi",
+      "tags": ["About Woman Community", "Rumah Kawan Bunda", "Wanita Cerdas Tangerang"],
+      "image": "/clients/asriwahyuni/founder-community.webp"
+    },
+    {
+      "title": "Narasumber Pengembangan Usaha",
+      "year": "UMKM DEVELOPMENT",
+      "description": "Sertifikat kegiatan pengembangan usaha kelompok perempuan dari Pemerintah Kota Tangerang.",
+      "category": "Sertifikat Narasumber UMKM",
+      "tags": ["UMKM", "Narasumber", "Pemberdayaan Perempuan"],
+      "image": "/clients/asriwahyuni/narasumber-umkm.webp"
+    },
+    {
+      "title": "Jejak Komunitas di Media Sosial",
+      "year": "SOCIAL COMMUNITY",
+      "description": "Dokumentasi akun komunitas dan kegiatan yang dibagikan Ayu.",
+      "category": "Komunitas Digital",
+      "tags": ["Media Sosial", "Komunitas", "Kolaborasi"],
+      "image": "/clients/asriwahyuni/komunitas-instagram.webp"
     }
   ],
   "skills": [
@@ -316,7 +356,6 @@
   "journeyHeading": "Setiap Perjalanan Adalah Kesempatan",
   "journeyAside": "Dari cerita perjalanan dan lifestyle, Ayu memperluas langkahnya ke beRAni, usaha kuliner, serta pengembangan kompetensi. Setiap bab membuka ruang belajar dan kolaborasi baru.",
   "journeyKicker": "BERKARYA · BERBISNIS · BERTUMBUH",
-  "theme": {"accent": "#f1b68d", "background": "#0d1824"},
   "templateId": "original",
   "identityMode": "photo"
 }
