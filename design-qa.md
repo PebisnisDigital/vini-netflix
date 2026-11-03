@@ -221,3 +221,17 @@ Screenshots were reviewed interactively in the browser session; no screenshot fi
 - **Preview checks:** source-vs-final image side-by-side inspected; original face/hijab/denim preserved. Caution: close crop magnifies modest source resolution, so the actual photo looks softer than a regenerated AI portrait; preserving identity is intentional.
 - **Other photos:** original digital marketing, content creation, UMKM supporting images and link mapping remain unchanged.
 - **Release:** production deployment must be checked after GitHub merge.
+
+---
+
+## Klien `/asriwahyuni` — switch to ORIGINAL Netflix template
+
+**Latest client brief** (3 November 2026; supersedes previous editorial-style design and prior portrait background decision)
+
+- **Template:** remove the dedicated `AsriLifestylePage` rendering override; render the shared PESONAFLIX ORIGINAL Netflix experience with its default cinematic black-and-red theme, native hero, episodes, skill tabs and horizontal artwork rail. The Studio preview uses the same route and profile data.
+- **Copy:** retain the client's full seven-paragraph `aboutMe`, original headline, roles, biographical summary, skill descriptions, beRAni, and food business descriptions from `asriwahyuni.json`.
+- **Projects:** preserve the original four creative/business project cards and migrate all five previous documentary proof cards (on-set film crew, 9-million-view media clipping, three female communities, UMKM speaker certificate, and community Instagram snapshots) into the Netflix projects carousel. Each image-bearing project exposes a full-size image in its modal.
+- **Expertise:** preserve the four named expertise areas and their exact descriptions as dark Netflix-styled documentary cards after the original skills interface. Photo mapping matches the client's latest correction.
+- **Portrait:** crop the genuine submitted outdoor stairway JPG at `340×340+300+520`, preserve the photographic pixels of the actual person, mask the surrounding scene to transparency without generative reconstruction, and export a close-up `800×800` RGBA WebP at **25,622 bytes** (< 50 KB). The low-resolution original is intentionally not facially retouched, so facial features and clothes remain recognizably untouched.
+- **Scope:** changes are specific to Asri's JSON, binary portrait, original-route conditional, documentary expertise component and Asri modal image behavior. Other client assets and templates stay as before.
+- **Verification:** local `npm run verify` passed (full test suite, 53 client pages, Vite build). Deployment and mobile browser checks should be recorded after the PR is merged.

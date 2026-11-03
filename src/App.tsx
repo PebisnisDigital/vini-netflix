@@ -34,7 +34,7 @@ import Originals from './components/Originals';
 import MunasifahShowcase from './components/MunasifahShowcase';
 import ElectronicTigerStudio from './components/ElectronicTigerStudio';
 import HijamaTeamSite from './components/HijamaTeamSite';
-import AsriLifestylePage from './components/AsriLifestylePage';
+import AsriNetflixExpertise from './components/AsriNetflixExpertise';
 import TopPicks from './components/TopPicks';
 import Skills from './components/Skills';
 import Achievements from './components/Achievements';
@@ -70,9 +70,6 @@ export default function App({ slug, editorMode = false }: { slug: string; editor
   }
   if (profile.clientSlug === 'hijamateam') {
     return <HijamaTeamSite editorMode={editorMode} />;
-  }
-  if (profile.clientSlug === 'asriwahyuni') {
-    return <AsriLifestylePage editorMode={editorMode} />;
   }
   // Alamat publik dapat berupa alias, sedangkan kanvas dahulu memakai slug
   // sementara. Kelas tema khusus selalu mengikuti identitas sumber klien.
@@ -226,7 +223,7 @@ function Series({ slug, editorMode }: { slug: string; editorMode: boolean }) {
     journey: <Seasons />,
     originals: profile.clientSlug === 'munasifah' ? <MunasifahShowcase onOpen={openProject} /> : <Originals onOpen={openProject} />,
     picks: <TopPicks />,
-    skills: <Skills />,
+    skills: <><Skills />{profile.clientSlug === 'asriwahyuni' && <AsriNetflixExpertise />}</>,
     moments: <Achievements />,
     story: <ResumeSection onView={() => setResumeOpen(true)} />,
   };
