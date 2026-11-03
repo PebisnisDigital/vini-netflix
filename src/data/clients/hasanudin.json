@@ -49,7 +49,11 @@
       "year": "PROFIL",
       "description": "Kenali Hasanudin, S.Pd.I, guru dengan pengalaman mengajar dari tingkat SD hingga SMK/sederajat sejak sekitar 2010 hingga 2026, kini juga membuka layanan les privat untuk SD dan SMP.",
       "category": "Profil Profesional",
-      "tags": ["Hasanudin", "Guru", "S.Pd.I"],
+      "tags": [
+        "Hasanudin",
+        "Guru",
+        "S.Pd.I"
+      ],
       "image": "/clients/hasanudin/foto-profesional.webp"
     },
     {
@@ -57,7 +61,12 @@
       "year": "LAYANAN BELAJAR",
       "description": "Bimbingan belajar Bahasa Inggris dan Matematika untuk siswa SD maupun SMP, serta mengaji Al-Qur'an menggunakan metode Ummi. Pilihan pertemuan home visit dapat dibicarakan langsung.",
       "category": "Les & Privat",
-      "tags": ["Bahasa Inggris", "Matematika", "Metode Ummi", "Home Visit"],
+      "tags": [
+        "Bahasa Inggris",
+        "Matematika",
+        "Metode Ummi",
+        "Home Visit"
+      ],
       "image": ""
     },
     {
@@ -65,12 +74,22 @@
       "year": "KONTAK & JADWAL",
       "description": "Ingin berdiskusi tentang kebutuhan belajar, jadwal, atau opsi home visit? Hubungi Hasanudin melalui WhatsApp, termasuk nomor alternatif 0857-111-68-118. Detail waktu dan lokasi disepakati langsung.",
       "category": "Informasi Pendaftaran",
-      "tags": ["WhatsApp Kedua", "Les Privat", "Home Visit"],
+      "tags": [
+        "WhatsApp Kedua",
+        "Les Privat",
+        "Home Visit"
+      ],
       "website": "https://wa.me/6285711168118?text=Assalamu%27alaikum%20Pak%20Hasanudin%2C%20saya%20melihat%20profil%20Bapak%20di%20PESONAFLIX.",
       "image": ""
     }
   ],
-  "skills": ["Les Privat SD–SMP", "Bahasa Inggris", "Matematika", "Mengaji Al-Qur'an Metode Ummi", "Home Visit"],
+  "skills": [
+    "Les Privat SD–SMP",
+    "Bahasa Inggris",
+    "Matematika",
+    "Mengaji Al-Qur'an Metode Ummi",
+    "Home Visit"
+  ],
   "skillCategories": [
     {
       "id": "pendidikan",
@@ -106,13 +125,19 @@
           "name": "Mengaji Metode Ummi",
           "mono": "UMMI",
           "note": "Bimbingan membaca Al-Qur'an",
-          "evidence": ["Mengaji Al-Qur'an menggunakan metode Ummi", "Termasuk dalam layanan les privat SD dan SMP"]
+          "evidence": [
+            "Mengaji Al-Qur'an menggunakan metode Ummi",
+            "Termasuk dalam layanan les privat SD dan SMP"
+          ]
         },
         {
           "name": "Home Visit",
           "mono": "HOME",
           "note": "Opsi pertemuan privat",
-          "evidence": ["Bisa home visit", "Waktu dan lokasi pertemuan mengikuti kesepakatan"]
+          "evidence": [
+            "Bisa home visit",
+            "Waktu dan lokasi pertemuan mengikuti kesepakatan"
+          ]
         }
       ]
     },
@@ -125,13 +150,19 @@
           "name": "WhatsApp",
           "mono": "WA",
           "note": "Dua saluran komunikasi",
-          "evidence": ["0856-9210-2468", "0857-111-68-118"]
+          "evidence": [
+            "0856-9210-2468",
+            "0857-111-68-118"
+          ]
         },
         {
           "name": "Email",
           "mono": "@",
           "note": "Korespondensi tertulis",
-          "evidence": ["hasanudinqiya@gmail.com", "hasan86@gmail.com"]
+          "evidence": [
+            "hasanudinqiya@gmail.com",
+            "hasan86@gmail.com"
+          ]
         }
       ]
     }
@@ -157,11 +188,36 @@
     }
   ],
   "watchCards": [
-    { "target": "about", "title": "Kenali Pak Hasanudin", "subtitle": "Profil seorang guru", "image": "/clients/hasanudin/foto-profesional.webp" },
-    { "target": "originals", "title": "Layanan Les Privat", "subtitle": "Mata pelajaran dan home visit", "image": "" },
-    { "target": "journey", "title": "Perjalanan Mengajar", "subtitle": "Sekitar 2010–2026", "image": "" },
-    { "target": "skills", "title": "Belajar Bersama", "subtitle": "Inggris, Matematika, mengaji", "image": "" },
-    { "target": "picks", "title": "Tanyakan Jadwal", "subtitle": "Hubungi via WhatsApp", "image": "/clients/hasanudin/foto-profesional.webp" }
+    {
+      "target": "about",
+      "title": "Kenali Pak Hasanudin",
+      "subtitle": "Profil seorang guru",
+      "image": "/clients/hasanudin/foto-profesional.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Layanan Les Privat",
+      "subtitle": "Mata pelajaran dan home visit",
+      "image": ""
+    },
+    {
+      "target": "journey",
+      "title": "Perjalanan Mengajar",
+      "subtitle": "Sekitar 2010–2026",
+      "image": ""
+    },
+    {
+      "target": "skills",
+      "title": "Belajar Bersama",
+      "subtitle": "Inggris, Matematika, mengaji",
+      "image": ""
+    },
+    {
+      "target": "picks",
+      "title": "Tanyakan Jadwal",
+      "subtitle": "Hubungi via WhatsApp",
+      "image": "/clients/hasanudin/foto-profesional.webp"
+    }
   ],
   "pickCards": [
     {
@@ -169,21 +225,36 @@
       "title": "Hasanudin, S.Pd.I",
       "detail": "Guru berpengalaman mengajar SD hingga SMK/sederajat, kurang lebih sejak 2010 sampai 2026.",
       "image": "/clients/hasanudin/foto-profesional.webp",
-      "palette": { "from": "#0d2033", "via": "#34516a", "to": "#0a1320", "accent": "#d8b575" }
+      "palette": {
+        "from": "#0d2033",
+        "via": "#34516a",
+        "to": "#0a1320",
+        "accent": "#d8b575"
+      }
     },
     {
       "label": "LES PRIVAT SD & SMP",
       "title": "Inggris & Matematika",
       "detail": "Bimbingan Bahasa Inggris dan Matematika; juga tersedia mengaji Al-Qur'an dengan metode Ummi.",
       "image": "",
-      "palette": { "from": "#142b34", "via": "#36616c", "to": "#0a1723", "accent": "#d8b575" }
+      "palette": {
+        "from": "#142b34",
+        "via": "#36616c",
+        "to": "#0a1723",
+        "accent": "#d8b575"
+      }
     },
     {
       "label": "HOME VISIT",
       "title": "Belajar di Rumah",
       "detail": "Tanyakan pilihan home visit, kebutuhan belajar, serta jadwal melalui WhatsApp.",
       "image": "/clients/hasanudin/foto-profesional.webp",
-      "palette": { "from": "#25203b", "via": "#57436a", "to": "#101325", "accent": "#d8b575" }
+      "palette": {
+        "from": "#25203b",
+        "via": "#57436a",
+        "to": "#101325",
+        "accent": "#d8b575"
+      }
     }
   ],
   "picksHeading": "Pilihan Belajar Bersama Hasanudin",
@@ -199,9 +270,18 @@
           "title": "Halo, Saya Hasanudin",
           "runtime": "Perkenalan",
           "description": "Assalamu'alaikum, saya Hasanudin, S.Pd.I. Saya seorang guru dan senang bisa berkenalan dengan Anda melalui halaman ini.",
-          "tags": ["Hasanudin", "Guru", "Profil"],
+          "tags": [
+            "Hasanudin",
+            "Guru",
+            "Profil"
+          ],
           "image": "/clients/hasanudin/foto-profesional.webp",
-          "palette": { "from": "#0d2033", "via": "#34516a", "to": "#0a1320", "accent": "#d8b575" }
+          "palette": {
+            "from": "#0d2033",
+            "via": "#34516a",
+            "to": "#0a1320",
+            "accent": "#d8b575"
+          }
         }
       ]
     },
@@ -215,15 +295,36 @@
           "title": "Dari SD hingga SMK",
           "runtime": "2010–2026",
           "description": "Saya memiliki pengalaman mengajar dari tingkat SD, SMP, hingga SMK/sederajat, kurang lebih sejak tahun 2010 sampai 2026.",
-          "tags": ["SD–SMK", "Pengalaman", "2010–2026"],
-          "palette": { "from": "#142b34", "via": "#36616c", "to": "#0a1723", "accent": "#d8b575" }
+          "tags": [
+            "SD–SMK",
+            "Pengalaman",
+            "2010–2026"
+          ],
+          "palette": {
+            "from": "#142b34",
+            "via": "#36616c",
+            "to": "#0a1723",
+            "accent": "#d8b575"
+          },
+          "image": ""
         },
         {
           "title": "Les Privat SD & SMP",
           "runtime": "Layanan Saat Ini",
           "description": "Saya menerima les atau privat Bahasa Inggris, Matematika, dan mengaji Al-Qur'an dengan metode Ummi untuk siswa SD dan SMP. Tersedia pilihan home visit sesuai kesepakatan.",
-          "tags": ["Bahasa Inggris", "Matematika", "Metode Ummi", "Home Visit"],
-          "palette": { "from": "#142b34", "via": "#36616c", "to": "#0a1723", "accent": "#d8b575" }
+          "tags": [
+            "Bahasa Inggris",
+            "Matematika",
+            "Metode Ummi",
+            "Home Visit"
+          ],
+          "palette": {
+            "from": "#142b34",
+            "via": "#36616c",
+            "to": "#0a1723",
+            "accent": "#d8b575"
+          },
+          "image": ""
         }
       ]
     },
@@ -237,9 +338,18 @@
           "title": "Lanjutkan Percakapan",
           "runtime": "Kontak",
           "description": "Hubungi saya melalui WhatsApp 0856-9210-2468 atau 0857-111-68-118. Untuk pesan tertulis, tersedia hasanudinqiya@gmail.com dan hasan86@gmail.com.",
-          "tags": ["WhatsApp", "Email", "Silaturahmi"],
+          "tags": [
+            "WhatsApp",
+            "Email",
+            "Silaturahmi"
+          ],
           "image": "/clients/hasanudin/foto-profesional.webp",
-          "palette": { "from": "#25203b", "via": "#57436a", "to": "#101325", "accent": "#d8b575" }
+          "palette": {
+            "from": "#25203b",
+            "via": "#57436a",
+            "to": "#101325",
+            "accent": "#d8b575"
+          }
         }
       ]
     }
