@@ -178,48 +178,76 @@
       "year": "AFILIASI",
       "description": "Salah satu tautan perusahaan yang dibagikan Yudhi untuk ditampilkan di jejaring profesionalnya. Detail hubungan dan peran spesifik belum dicantumkan.",
       "category": "Jejaring & Afiliasi",
-      "tags": ["Perusahaan", "Jejaring Profesional"],
-      "website": "https://sunariepusaka.id/"
+      "tags": [
+        "Perusahaan",
+        "Jejaring Profesional"
+      ],
+      "website": "https://sunariepusaka.id/",
+      "image": ""
     },
     {
       "title": "Minelog Services Indonesia",
       "year": "AFILIASI",
       "description": "Layanan eksplorasi, geologi, geofisika, dan konsultansi pertambangan. Yudhi tercantum pada laman tim ahli Minelog sebagai Geophysics and QHSE Advisor, PPR.",
       "category": "Jejaring & Afiliasi",
-      "tags": ["Geologi", "Geofisika", "QHSE"],
-      "website": "https://minelog-services.com/"
+      "tags": [
+        "Geologi",
+        "Geofisika",
+        "QHSE"
+      ],
+      "website": "https://minelog-services.com/",
+      "image": ""
     },
     {
       "title": "Smart Resources",
       "year": "AFILIASI",
       "description": "Tautan Smart Resources yang dibagikan Yudhi sebagai bagian dari jejaring perusahaan dan inisiatifnya. Peran spesifik belum dicantumkan.",
       "category": "Jejaring & Afiliasi",
-      "tags": ["Perusahaan", "Jejaring Profesional"],
-      "website": "https://smart-resources.id/"
+      "tags": [
+        "Perusahaan",
+        "Jejaring Profesional"
+      ],
+      "website": "https://smart-resources.id/",
+      "image": ""
     },
     {
       "title": "Spatialize",
       "year": "AFILIASI",
       "description": "Pranala ke Spatialize, platform dan produk teknologi spasial. Ditampilkan sebagai tautan jejaring yang dibagikan Yudhi tanpa menyatakan posisi atau kepemilikan tertentu.",
       "category": "Jejaring & Afiliasi",
-      "tags": ["Spatial", "Software", "Teknologi"],
-      "website": "https://spatialize.dev/"
+      "tags": [
+        "Spatial",
+        "Software",
+        "Teknologi"
+      ],
+      "website": "https://spatialize.dev/",
+      "image": ""
     },
     {
       "title": "WebGIS Indonesia",
       "year": "AFILIASI",
       "description": "Pranala menuju layanan teknologi geospasial dan WebGIS Indonesia yang dibagikan Yudhi untuk profil profesionalnya.",
       "category": "Jejaring & Afiliasi",
-      "tags": ["GIS", "Geospasial", "Teknologi"],
-      "website": "https://webgis.co.id/"
+      "tags": [
+        "GIS",
+        "Geospasial",
+        "Teknologi"
+      ],
+      "website": "https://webgis.co.id/",
+      "image": ""
     },
     {
       "title": "Dapoer Andrisa",
       "year": "INISIATIF USAHA",
       "description": "Usaha kuliner rumahan yang pernah dikembangkan Yudhi. Menurut profil LinkedIn, Dapoer Andrisa melayani produk kue rumahan dan sistem pre-order pada periode 2020–2025.",
       "category": "Jejaring & Afiliasi",
-      "tags": ["Foodpreneur", "Kuliner", "Wirausaha"],
-      "website": "https://msha.ke/dapoerandrisa/"
+      "tags": [
+        "Foodpreneur",
+        "Kuliner",
+        "Wirausaha"
+      ],
+      "website": "https://msha.ke/dapoerandrisa/",
+      "image": ""
     }
   ],
   "skills": [
@@ -524,5 +552,12 @@
   "journeyAside": "Dari survei dan geologi lapangan sejak 1997, pengelolaan proyek software/GIS pada 2000–2011, hingga pekerjaan geofisika dan keselamatan di Minelog, perjalanan Yudhi tidak berjalan di satu jalur saja. Dapoer Andrisa menambah bab kewirausahaan kuliner. Foto di halaman ini merupakan dokumentasi pribadi, kecuali ilustrasi operasi tambang yang ditandai sebagai karya berbantuan AI.",
   "journeyKicker": "GEOLOGY · DIGITAL SYSTEMS · SAFETY · FOODPRENEURSHIP",
   "templateId": "original",
-  "identityMode": "photo"
+  "identityMode": "photo",
+  "visualDesign": {
+    "textStyles": {
+      "name": {
+        "fontSize": 54
+      }
+    }
+  }
 }
