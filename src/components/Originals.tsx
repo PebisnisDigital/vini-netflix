@@ -16,6 +16,7 @@ export default function Originals({ onOpen }: { onOpen: (p: Project) => void }) 
   const { profile, projects: allProjects } = usePortfolio();
   const isYudhi = profile.clientSlug === 'yudhisakkautama';
   const isDian = profile.clientSlug === 'dianrivia';
+  const isNinik = profile.clientSlug === 'ninikwardhani';
   // Entri tautan afiliasi tetap tersimpan sebagai proyek yang dapat diedit di Studio,
   // tetapi ditampilkan dalam seksi tautan tersendiri agar galeri foto tidak tercampur.
   const projects = isYudhi ? allProjects.filter((project) => project.genre !== 'Jejaring & Afiliasi') : allProjects;
@@ -110,11 +111,13 @@ export default function Originals({ onOpen }: { onOpen: (p: Project) => void }) 
       <div className="gutter mb-7 flex flex-wrap items-end justify-between gap-6 sm:mb-9">
         <div>
           <p className="mb-3 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.32em] text-crimson-2">
-            <span className="h-px w-8 bg-crimson-2" /> {projects.length} {isDian ? 'Foto & Materi Informasi' : isYudhi ? 'Foto & Dokumentasi' : profile.clientSlug === 'noahinna' ? 'Creative Formats' : profile.clientSlug === 'isa' ? 'Materi Pilihan' : profile.clientSlug === 'yantiriyantini' ? 'Buku & Penelitian' : 'Karya Orisinal'} · {isDian ? 'Al Azhar Memorial Garden' : isYudhi ? 'Arsip pilihan' : profile.clientSlug === 'yantiriyantini' ? '2010–2026' : projects[0].year}
+            <span className="h-px w-8 bg-crimson-2" /> {projects.length} {isNinik ? 'Paket & Layanan' : isDian ? 'Foto & Materi Informasi' : isYudhi ? 'Foto & Dokumentasi' : profile.clientSlug === 'noahinna' ? 'Creative Formats' : profile.clientSlug === 'isa' ? 'Materi Pilihan' : profile.clientSlug === 'yantiriyantini' ? 'Buku & Penelitian' : 'Karya Orisinal'} · {isDian ? 'Al Azhar Memorial Garden' : isYudhi ? 'Arsip pilihan' : profile.clientSlug === 'yantiriyantini' ? '2010–2026' : isNinik ? 'Samira Travel' : projects[0].year}
           </p>
-          <RevealText as="h2" text={isDian ? 'GALERI AL AZHAR' : isYudhi ? 'GALERI FOTO' : profile.clientSlug === 'noahinna' ? 'THE WORK' : profile.clientSlug === 'yantiriyantini' ? 'PUBLIKASI' : 'KARYA'} className="font-display text-[clamp(2.8rem,7vw,6rem)] leading-tight text-bone" />
+          <RevealText as="h2" text={isNinik ? 'PAKET & LAYANAN' : isDian ? 'GALERI AL AZHAR' : isYudhi ? 'GALERI FOTO' : profile.clientSlug === 'noahinna' ? 'THE WORK' : profile.clientSlug === 'yantiriyantini' ? 'PUBLIKASI' : 'KARYA'} className="font-display text-[clamp(2.8rem,7vw,6rem)] leading-tight text-bone" />
           <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-mist">
-            {isDian
+            {isNinik
+              ? 'Jelajahi 4 paket Umroh, 2 program Haji, 3 cara pembayaran, serta pendaftaran umroh DP Rp1,5 juta yang sudah mendapatkan perlengkapan umroh. Geser kartu untuk melihat rincian dan bertanya langsung kepada Bu Ninik.'
+              : isDian
               ? 'Jelajahi foto kawasan, peta zona, fasilitas, pilihan kavling, dokumentasi prosesi, dan kegiatan. Buka kartu untuk melihat gambar utuh; informasi teknis dan ketersediaan dikonfirmasi langsung kepada Dian.'
               : isYudhi
               ? 'Sembilan foto kiriman: dokumentasi geologi, pengolahan data, aktivitas digital, potret, dan kebersamaan. Klik kartu untuk membuka foto utuh beserta ceritanya. Visual operasi tambang merupakan ilustrasi AI.'
