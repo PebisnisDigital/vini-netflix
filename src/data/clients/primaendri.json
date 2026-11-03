@@ -38,31 +38,119 @@
       "year": "PERKENALAN",
       "description": "Prima Endri Rakhmayani, M.Psi., Psi. adalah ibu rumah tangga, penulis, dan lulusan S2 Magister Psikologi Pendidikan Universitas Airlangga. Ia juga mengikuti beberapa pelatihan desain grafis.",
       "category": "Profil Personal",
-      "tags": ["Prima Endri", "Ibu Rumah Tangga", "Penulis"],
+      "tags": [
+        "Prima Endri",
+        "Ibu Rumah Tangga",
+        "Penulis"
+      ],
       "image": "/clients/primaendri/foto-profesional.webp"
+    },
+    {
+      "title": "Buah Hatiku",
+      "year": "KARYA TULIS",
+      "description": "Karya tulis berjudul Buah Hatiku oleh Idazzlea87, dengan sampul bernuansa ungu dan ilustrasi anak berhijab bernyanyi.",
+      "category": "Karya Tulis",
+      "tags": [
+        "Buah Hatiku",
+        "Idazzlea87",
+        "Karya Tulis"
+      ],
+      "image": "/clients/primaendri/buah-hatiku.webp"
+    },
+    {
+      "title": "Waktu",
+      "year": "KARYA TULIS",
+      "description": "Karya tulis berjudul Waktu oleh Idazzlea87, dengan sampul bergambar jam dan ilustrasi lintas masa.",
+      "category": "Karya Tulis",
+      "tags": [
+        "Waktu",
+        "Idazzlea87",
+        "Karya Tulis"
+      ],
+      "image": "/clients/primaendri/waktu.webp"
+    },
+    {
+      "title": "Untukmu Indonesia",
+      "year": "KARYA TULIS",
+      "description": "Karya tulis berjudul Untukmu Indonesia oleh Idazzlea87, dengan sampul bergambar kepulauan Indonesia dan bendera Merah Putih.",
+      "category": "Karya Tulis",
+      "tags": [
+        "Untukmu Indonesia",
+        "Idazzlea87",
+        "Karya Tulis"
+      ],
+      "image": "/clients/primaendri/untukmu-indonesia.webp"
+    },
+    {
+      "title": "Terima Kasih Para Pahlawan",
+      "year": "KARYA TULIS",
+      "description": "Karya tulis berjudul Terima Kasih Para Pahlawan oleh Idazzlea87, dengan sampul ilustrasi para pejuang dan pesan terima kasih atas jasa serta pengorbanan mereka.",
+      "category": "Karya Tulis",
+      "tags": [
+        "Terima Kasih Para Pahlawan",
+        "Idazzlea87",
+        "Karya Tulis"
+      ],
+      "image": "/clients/primaendri/terima-kasih-para-pahlawan.webp"
+    },
+    {
+      "title": "Aku Sekarang",
+      "year": "KARYA TULIS",
+      "description": "Karya tulis berjudul Aku Sekarang oleh Idazzlea87, dengan sampul ilustrasi perempuan berhijab sedang melihat ponsel.",
+      "category": "Karya Tulis",
+      "tags": [
+        "Aku Sekarang",
+        "Idazzlea87",
+        "Karya Tulis"
+      ],
+      "image": "/clients/primaendri/aku-sekarang.webp"
+    },
+    {
+      "title": "Rintihan Sang Alam",
+      "year": "KARYA TULIS",
+      "description": "Karya tulis berjudul Rintihan Sang Alam oleh Idazzlea87, dengan sampul ilustrasi bencana alam dan lingkungan.",
+      "category": "Karya Tulis",
+      "tags": [
+        "Rintihan Sang Alam",
+        "Idazzlea87",
+        "Karya Tulis"
+      ],
+      "image": "/clients/primaendri/rintihan-sang-alam.webp"
+    },
+    {
+      "title": "Saat Kehilangan Ide",
+      "year": "KARYA TULIS",
+      "description": "Karya tulis berjudul Saat Kehilangan Ide oleh Idazzlea87, dengan sampul ilustrasi seorang perempuan di meja bersama buku catatan.",
+      "category": "Karya Tulis",
+      "tags": [
+        "Saat Kehilangan Ide",
+        "Idazzlea87",
+        "Karya Tulis"
+      ],
+      "image": "/clients/primaendri/saat-kehilangan-ide.webp"
     },
     {
       "title": "Ruang untuk Kata",
       "year": "MENULIS",
       "description": "Sebuah ruang untuk mengenalkan sisi kepenulisan Prima. Salah satu judul karya tulis yang telah dibagikan adalah Buah Hatiku, dengan nama pena Idazzlea87. Genre dan tautan publikasi belum disertakan.",
       "category": "Ruang Menulis",
-      "tags": ["Menulis", "Kata", "Gagasan"],
+      "tags": [
+        "Menulis",
+        "Kata",
+        "Gagasan"
+      ],
       "image": "/clients/primaendri/ruang-menulis.webp"
-    },
-    {
-      "title": "Buah Hatiku",
-      "year": "KARYA TULIS",
-      "description": "Karya tulis berjudul Buah Hatiku, ditulis dengan nama pena Idazzlea87. Judul dan nama pena mengikuti materi yang diberikan Prima; bentuk publikasi dan tahun terbit belum dicantumkan.",
-      "category": "Karya Tulis",
-      "tags": ["Buah Hatiku", "Idazzlea87", "Karya Tulis"],
-      "image": "/clients/primaendri/lembar-cerita.webp"
     },
     {
       "title": "Cerita di Balik Keseharian",
       "year": "KESEHARIAN",
       "description": "Dua identitas yang Prima sampaikan—ibu rumah tangga dan penulis—menjadi awal perkenalan. Cerita personal lainnya dapat ditambahkan sesuai pilihannya.",
       "category": "Peran & Cerita",
-      "tags": ["Rumah", "Keseharian", "Cerita Personal"],
+      "tags": [
+        "Rumah",
+        "Keseharian",
+        "Cerita Personal"
+      ],
       "image": "/clients/primaendri/lembar-cerita.webp"
     },
     {
@@ -70,12 +158,22 @@
       "year": "TERHUBUNG",
       "description": "Ingin menyapa Prima atau bertanya tentang tulisannya? Kirim pesan langsung melalui WhatsApp. Email juga tersedia di profil ini.",
       "category": "Kontak Personal",
-      "tags": ["WhatsApp", "Email", "Silaturahmi"],
+      "tags": [
+        "WhatsApp",
+        "Email",
+        "Silaturahmi"
+      ],
       "website": "https://wa.me/6282230567712?text=Halo%20Bu%20Prima%2C%20saya%20melihat%20profil%20Ibu%20di%20PESONAFLIX.",
       "image": "/clients/primaendri/ruang-menulis.webp"
     }
   ],
-  "skills": ["Menulis", "Desain Grafis", "Magister Psikologi Pendidikan", "Peran Ibu Rumah Tangga", "Komunikasi Personal"],
+  "skills": [
+    "Menulis",
+    "Desain Grafis",
+    "Magister Psikologi Pendidikan",
+    "Peran Ibu Rumah Tangga",
+    "Komunikasi Personal"
+  ],
   "skillCategories": [
     {
       "id": "dua-peran",
@@ -88,7 +186,7 @@
           "note": "Profesi yang diperkenalkan",
           "evidence": [
             "Prima memperkenalkan dirinya sebagai penulis",
-            "Karya tulis yang dibagikan: Buah Hatiku, oleh Idazzlea87"
+            "Terdapat tujuh judul karya tulis atas nama pena Idazzlea87 beserta sampulnya"
           ]
         },
         {
@@ -147,7 +245,7 @@
     }
   ],
   "skillsHeading": "Penulis dengan Bekal Psikologi & Desain",
-  "skillsAside": "Selain menjadi ibu rumah tangga dan penulis, Prima merupakan lulusan S2 Magister Psikologi Pendidikan Universitas Airlangga, bergelar M.Psi., Psi. Ia juga mengembangkan kemampuan desain grafis melalui beberapa pelatihan. Karya tulis yang telah disebutkan adalah Buah Hatiku dengan nama pena Idazzlea87.",
+  "skillsAside": "Prima adalah ibu rumah tangga dan penulis lulusan S2 Magister Psikologi Pendidikan Universitas Airlangga, bergelar M.Psi., Psi. Ia juga memiliki keterampilan desain grafis dari beberapa pelatihan. Kini tujuh judul karya tulisnya dengan nama pena Idazzlea87 ditampilkan bersama sampul masing-masing.",
   "skillsKicker": "PENULIS · PSIKOLOGI PENDIDIKAN · DESAIN GRAFIS",
   "highlights": [
     {
@@ -161,8 +259,8 @@
       "category": "PROFIL"
     },
     {
-      "title": "Penulis",
-      "description": "Karya tulis Buah Hatiku menggunakan nama pena Idazzlea87.",
+      "title": "7 Karya Tulis",
+      "description": "Tujuh judul dan sampul karya dengan nama pena Idazzlea87.",
       "category": "KATA"
     },
     {
@@ -185,9 +283,9 @@
     },
     {
       "target": "originals",
-      "title": "Buah Hatiku",
-      "subtitle": "Karya tulis oleh Idazzlea87",
-      "image": "/clients/primaendri/ruang-menulis.webp"
+      "title": "7 Karya Tulis",
+      "subtitle": "Koleksi cover Idazzlea87",
+      "image": "/clients/primaendri/buah-hatiku.webp"
     },
     {
       "target": "journey",
@@ -203,29 +301,111 @@
     },
     {
       "target": "picks",
-      "title": "Sapa Prima",
-      "subtitle": "Mari terhubung langsung",
-      "image": "/clients/primaendri/lembar-cerita.webp"
+      "title": "Jelajahi Karya",
+      "subtitle": "Tujuh judul dari Prima",
+      "image": "/clients/primaendri/untukmu-indonesia.webp"
     }
   ],
   "pickCards": [
     {
-      "label": "DI BALIK KATA",
+      "label": "KARYA TULIS · IDAZZLEA87",
       "title": "Buah Hatiku",
-      "detail": "Judul karya tulis Prima yang menggunakan nama pena Idazzlea87. Informasi terbit dan tautan bacanya dapat ditambahkan nanti.",
-      "image": "/clients/primaendri/ruang-menulis.webp",
-      "palette": {"from": "#291622", "via": "#946e57", "to": "#100d14", "accent": "#f0c89e"}
+      "detail": "Karya tulis berjudul Buah Hatiku oleh Idazzlea87, dengan sampul bernuansa ungu dan ilustrasi anak berhijab bernyanyi.",
+      "image": "/clients/primaendri/buah-hatiku.webp",
+      "palette": {
+        "from": "#54376a",
+        "via": "#b78ac2",
+        "to": "#24182f",
+        "accent": "#e5bce8"
+      }
+    },
+    {
+      "label": "KARYA TULIS · IDAZZLEA87",
+      "title": "Waktu",
+      "detail": "Karya tulis berjudul Waktu oleh Idazzlea87, dengan sampul bergambar jam dan ilustrasi lintas masa.",
+      "image": "/clients/primaendri/waktu.webp",
+      "palette": {
+        "from": "#51416a",
+        "via": "#b99dca",
+        "to": "#261e32",
+        "accent": "#f4d1f3"
+      }
+    },
+    {
+      "label": "KARYA TULIS · IDAZZLEA87",
+      "title": "Untukmu Indonesia",
+      "detail": "Karya tulis berjudul Untukmu Indonesia oleh Idazzlea87, dengan sampul bergambar kepulauan Indonesia dan bendera Merah Putih.",
+      "image": "/clients/primaendri/untukmu-indonesia.webp",
+      "palette": {
+        "from": "#0d314f",
+        "via": "#2a7a9f",
+        "to": "#0a1c35",
+        "accent": "#a9e4e6"
+      }
+    },
+    {
+      "label": "KARYA TULIS · IDAZZLEA87",
+      "title": "Terima Kasih Para Pahlawan",
+      "detail": "Karya tulis berjudul Terima Kasih Para Pahlawan oleh Idazzlea87, dengan sampul ilustrasi para pejuang dan pesan terima kasih atas jasa serta pengorbanan mereka.",
+      "image": "/clients/primaendri/terima-kasih-para-pahlawan.webp",
+      "palette": {
+        "from": "#275b33",
+        "via": "#b58b3f",
+        "to": "#142c1c",
+        "accent": "#edcf8b"
+      }
+    },
+    {
+      "label": "KARYA TULIS · IDAZZLEA87",
+      "title": "Aku Sekarang",
+      "detail": "Karya tulis berjudul Aku Sekarang oleh Idazzlea87, dengan sampul ilustrasi perempuan berhijab sedang melihat ponsel.",
+      "image": "/clients/primaendri/aku-sekarang.webp",
+      "palette": {
+        "from": "#214e3a",
+        "via": "#836d84",
+        "to": "#172d2d",
+        "accent": "#e9c0bd"
+      }
+    },
+    {
+      "label": "KARYA TULIS · IDAZZLEA87",
+      "title": "Rintihan Sang Alam",
+      "detail": "Karya tulis berjudul Rintihan Sang Alam oleh Idazzlea87, dengan sampul ilustrasi bencana alam dan lingkungan.",
+      "image": "/clients/primaendri/rintihan-sang-alam.webp",
+      "palette": {
+        "from": "#392323",
+        "via": "#a35a35",
+        "to": "#151414",
+        "accent": "#efac74"
+      }
+    },
+    {
+      "label": "KARYA TULIS · IDAZZLEA87",
+      "title": "Saat Kehilangan Ide",
+      "detail": "Karya tulis berjudul Saat Kehilangan Ide oleh Idazzlea87, dengan sampul ilustrasi seorang perempuan di meja bersama buku catatan.",
+      "image": "/clients/primaendri/saat-kehilangan-ide.webp",
+      "palette": {
+        "from": "#3b2935",
+        "via": "#9d746e",
+        "to": "#1d1826",
+        "accent": "#f5d2ae"
+      }
     },
     {
       "label": "PENDIDIKAN & KETERAMPILAN",
       "title": "Psikologi Bertemu Desain",
       "detail": "Prima menyelesaikan S2 Psikologi Pendidikan di Unair dan pernah mengikuti beberapa pelatihan desain grafis.",
       "image": "/clients/primaendri/lembar-cerita.webp",
-      "palette": {"from": "#28121d", "via": "#795247", "to": "#100c11", "accent": "#efc9a5"}
+      "palette": {
+        "from": "#28121d",
+        "via": "#795247",
+        "to": "#100c11",
+        "accent": "#efc9a5"
+      }
     }
   ],
-  "picksHeading": "Dari Buah Hatiku hingga Desain Grafis",
-  "picksKicker": "KARYA TULIS · PENDIDIKAN · KREATIVITAS",
+  "picksHeading": "Koleksi Karya Idazzlea87",
+  "picksKicker": "7 JUDUL · 7 COVER KARYA TULIS",
   "seasons": [
     {
       "number": 1,
@@ -237,49 +417,193 @@
           "title": "Halo, Saya Prima",
           "runtime": "Perkenalan",
           "description": "Prima memperkenalkan dirinya sebagai ibu rumah tangga dan penulis, dengan gelar M.Psi., Psi. dari pendidikan S2 Magister Psikologi Pendidikan Universitas Airlangga.",
-          "tags": ["Prima Endri", "Unair", "Psikologi Pendidikan"],
+          "tags": [
+            "Prima Endri",
+            "Unair",
+            "Psikologi Pendidikan"
+          ],
           "image": "/clients/primaendri/foto-profesional.webp",
-          "palette": {"from": "#26151e", "via": "#ab7f69", "to": "#100b13", "accent": "#f2d0af"}
+          "palette": {
+            "from": "#26151e",
+            "via": "#ab7f69",
+            "to": "#100b13",
+            "accent": "#f2d0af"
+          }
         }
       ]
     },
     {
       "number": 2,
-      "title": "Karya & Kreativitas",
+      "title": "Kumpulan Karya & Kreativitas",
       "period": "Menulis & Desain",
-      "synopsis": "Karya tulis Buah Hatiku oleh Idazzlea87 dan kemampuan desain grafis yang dipelajari melalui pelatihan.",
+      "synopsis": "Tujuh judul karya tulis Prima dengan nama pena Idazzlea87, beserta keterampilan desain grafis yang dipelajarinya.",
       "episodes": [
         {
-          "title": "Buah Hatiku — Idazzlea87",
+          "title": "Buah Hatiku",
           "runtime": "Karya Tulis",
-          "description": "Prima memperkenalkan karya tulis berjudul Buah Hatiku dengan nama pena Idazzlea87. Detail penerbitan belum disertakan.",
-          "tags": ["Buah Hatiku", "Idazzlea87", "Karya Tulis"],
-          "image": "/clients/primaendri/ruang-menulis.webp",
-          "palette": {"from": "#321a24", "via": "#b18561", "to": "#120d15", "accent": "#ffe0b6"}
+          "description": "Karya tulis berjudul Buah Hatiku oleh Idazzlea87, dengan sampul bernuansa ungu dan ilustrasi anak berhijab bernyanyi.",
+          "tags": [
+            "Buah Hatiku",
+            "Idazzlea87",
+            "Karya Tulis"
+          ],
+          "image": "/clients/primaendri/buah-hatiku.webp",
+          "palette": {
+            "from": "#54376a",
+            "via": "#b78ac2",
+            "to": "#24182f",
+            "accent": "#e5bce8"
+          }
+        },
+        {
+          "title": "Waktu",
+          "runtime": "Karya Tulis",
+          "description": "Karya tulis berjudul Waktu oleh Idazzlea87, dengan sampul bergambar jam dan ilustrasi lintas masa.",
+          "tags": [
+            "Waktu",
+            "Idazzlea87",
+            "Karya Tulis"
+          ],
+          "image": "/clients/primaendri/waktu.webp",
+          "palette": {
+            "from": "#51416a",
+            "via": "#b99dca",
+            "to": "#261e32",
+            "accent": "#f4d1f3"
+          }
+        },
+        {
+          "title": "Untukmu Indonesia",
+          "runtime": "Karya Tulis",
+          "description": "Karya tulis berjudul Untukmu Indonesia oleh Idazzlea87, dengan sampul bergambar kepulauan Indonesia dan bendera Merah Putih.",
+          "tags": [
+            "Untukmu Indonesia",
+            "Idazzlea87",
+            "Karya Tulis"
+          ],
+          "image": "/clients/primaendri/untukmu-indonesia.webp",
+          "palette": {
+            "from": "#0d314f",
+            "via": "#2a7a9f",
+            "to": "#0a1c35",
+            "accent": "#a9e4e6"
+          }
+        },
+        {
+          "title": "Terima Kasih Para Pahlawan",
+          "runtime": "Karya Tulis",
+          "description": "Karya tulis berjudul Terima Kasih Para Pahlawan oleh Idazzlea87, dengan sampul ilustrasi para pejuang dan pesan terima kasih atas jasa serta pengorbanan mereka.",
+          "tags": [
+            "Terima Kasih Para Pahlawan",
+            "Idazzlea87",
+            "Karya Tulis"
+          ],
+          "image": "/clients/primaendri/terima-kasih-para-pahlawan.webp",
+          "palette": {
+            "from": "#275b33",
+            "via": "#b58b3f",
+            "to": "#142c1c",
+            "accent": "#edcf8b"
+          }
+        },
+        {
+          "title": "Aku Sekarang",
+          "runtime": "Karya Tulis",
+          "description": "Karya tulis berjudul Aku Sekarang oleh Idazzlea87, dengan sampul ilustrasi perempuan berhijab sedang melihat ponsel.",
+          "tags": [
+            "Aku Sekarang",
+            "Idazzlea87",
+            "Karya Tulis"
+          ],
+          "image": "/clients/primaendri/aku-sekarang.webp",
+          "palette": {
+            "from": "#214e3a",
+            "via": "#836d84",
+            "to": "#172d2d",
+            "accent": "#e9c0bd"
+          }
+        },
+        {
+          "title": "Rintihan Sang Alam",
+          "runtime": "Karya Tulis",
+          "description": "Karya tulis berjudul Rintihan Sang Alam oleh Idazzlea87, dengan sampul ilustrasi bencana alam dan lingkungan.",
+          "tags": [
+            "Rintihan Sang Alam",
+            "Idazzlea87",
+            "Karya Tulis"
+          ],
+          "image": "/clients/primaendri/rintihan-sang-alam.webp",
+          "palette": {
+            "from": "#392323",
+            "via": "#a35a35",
+            "to": "#151414",
+            "accent": "#efac74"
+          }
+        },
+        {
+          "title": "Saat Kehilangan Ide",
+          "runtime": "Karya Tulis",
+          "description": "Karya tulis berjudul Saat Kehilangan Ide oleh Idazzlea87, dengan sampul ilustrasi seorang perempuan di meja bersama buku catatan.",
+          "tags": [
+            "Saat Kehilangan Ide",
+            "Idazzlea87",
+            "Karya Tulis"
+          ],
+          "image": "/clients/primaendri/saat-kehilangan-ide.webp",
+          "palette": {
+            "from": "#3b2935",
+            "via": "#9d746e",
+            "to": "#1d1826",
+            "accent": "#f5d2ae"
+          }
         },
         {
           "title": "Belajar Desain Grafis",
           "runtime": "Pelatihan",
           "description": "Prima juga menguasai keterampilan desain grafis setelah mengikuti beberapa pelatihan. Nama lembaga dan tahun pelatihan belum dicantumkan.",
-          "tags": ["Desain Grafis", "Pelatihan", "Kreativitas"],
+          "tags": [
+            "Desain Grafis",
+            "Pelatihan",
+            "Kreativitas"
+          ],
           "image": "/clients/primaendri/lembar-cerita.webp",
-          "palette": {"from": "#341d2b", "via": "#987d6e", "to": "#150f19", "accent": "#f1d4ac"}
+          "palette": {
+            "from": "#341d2b",
+            "via": "#987d6e",
+            "to": "#150f19",
+            "accent": "#f1d4ac"
+          }
         },
         {
           "title": "Percakapan Pertama",
           "runtime": "Terhubung",
           "description": "Pengunjung bisa menyapa Prima melalui WhatsApp atau email untuk membuka percakapan.",
-          "tags": ["WhatsApp", "Email", "Silaturahmi"],
+          "tags": [
+            "WhatsApp",
+            "Email",
+            "Silaturahmi"
+          ],
           "image": "/clients/primaendri/lembar-cerita.webp",
-          "palette": {"from": "#361822", "via": "#886044", "to": "#130d14", "accent": "#f1cba3"}
+          "palette": {
+            "from": "#361822",
+            "via": "#886044",
+            "to": "#130d14",
+            "accent": "#f1cba3"
+          }
         }
       ]
     }
   ],
   "journeyHeading": "Ilmu, Kata, dan Kreativitas Prima",
-  "journeyAside": "Prima Endri Rakhmayani, M.Psi., Psi. merupakan lulusan S2 Magister Psikologi Pendidikan Universitas Airlangga. Ia juga seorang ibu rumah tangga, penulis karya Buah Hatiku dengan nama pena Idazzlea87, serta memiliki keterampilan desain grafis melalui beberapa pelatihan. Untuk terhubung langsung, gunakan WhatsApp atau email yang tercantum.",
+  "journeyAside": "Prima Endri Rakhmayani, M.Psi., Psi. merupakan lulusan S2 Magister Psikologi Pendidikan Universitas Airlangga, ibu rumah tangga, dan penulis dengan nama pena Idazzlea87. Galeri ini menampilkan tujuh judul karya tulis dan cover yang diberikan klien. Ia juga memiliki keterampilan desain grafis melalui beberapa pelatihan.",
   "journeyKicker": "UNAIR · BUAH HATIKU · DESAIN GRAFIS",
   "templateId": "original",
-  "visualDesign": {"textStyles": {"name": {"fontSize": 42}}},
+  "visualDesign": {
+    "textStyles": {
+      "name": {
+        "fontSize": 42
+      }
+    }
+  },
   "identityMode": "photo"
 }
