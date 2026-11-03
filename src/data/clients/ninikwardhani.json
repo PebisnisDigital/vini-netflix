@@ -3,15 +3,17 @@
   "name": "Ninik Wardhani",
   "role": "Mitra Samira Travel · Umrah & Haji Khusus",
   "location": "Indonesia",
-  "bio": "Assalamu'alaikum, saya Ninik Wardhani, Mitra Samira Travel. Melalui halaman ini, saya membuka ruang untuk calon jamaah dan keluarga yang ingin bertanya tentang perjalanan umrah maupun haji khusus bersama Samira Travel. Mari diskusikan kebutuhan, pilihan program, persiapan, dan alur pendaftaran melalui WhatsApp. Detail paket, jadwal, ketentuan, dan biaya dikonfirmasi mengikuti informasi resmi penyelenggara.",
+  "bio": "Assalamu'alaikum, saya Ninik Wardhani, Mitra Samira Travel. Saya membantu calon jamaah mengenal 4 paket Umroh—Safara, Safawi, Sukari, dan Majol—serta 2 program Haji, yaitu ONH Plus dan Furoda. Tersedia pilihan pembayaran cash, tabungan, atau umroh dulu bayarnya belakangan. Pendaftaran umroh dengan DP Rp1.500.000 sudah mendapatkan perlengkapan umroh. Silakan hubungi saya untuk memastikan fasilitas, jadwal, syarat pembayaran, dan ketentuan terbaru sesuai informasi resmi penyelenggara.",
   "tagline": [
-    "Mitra Samira Travel · Informasi Umrah & Haji Khusus"
+    "4 Paket Umroh · 2 Program Haji",
+    "3 Cara Pembayaran",
+    "DP Umroh Rp1,5 Juta · Dapat Perlengkapan"
   ],
   "interests": [
-    "Informasi Umrah",
-    "Informasi Haji Khusus",
-    "Konsultasi Perjalanan",
-    "Persiapan Calon Jamaah"
+    "Paket Umroh Safara–Majol",
+    "Haji ONH Plus & Furoda",
+    "Cash · Tabungan · Bayar Belakangan",
+    "Pendaftaran DP Rp1,5 Juta"
   ],
   "photo": {
     "src": "/clients/ninikwardhani/foto-utama.webp",
@@ -30,29 +32,107 @@
   "education": [],
   "projects": [
     {
-      "title": "Informasi Program Umrah",
-      "year": "PERJALANAN IBADAH",
-      "description": "Ingin mengenal pilihan perjalanan umrah yang ditawarkan Samira Travel? Hubungi Ninik untuk meminta informasi awal mengenai program, keberangkatan, fasilitas, dan cara memperoleh rincian terbaru dari penyelenggara.",
-      "category": "Informasi Umrah",
+      "title": "Paket Safara (Ekonomi)",
+      "year": "PAKET UMROH",
+      "description": "Pilihan paket Umroh kategori Ekonomi. Tanyakan jadwal keberangkatan, fasilitas, harga, dan rincian terbaru kepada Bu Ninik.",
+      "category": "Paket Umroh",
       "tags": [
-        "Umrah",
-        "Pilihan Program",
-        "Konsultasi"
+        "Safara",
+        "Ekonomi",
+        "Umroh"
       ],
-      "website": "https://wa.me/6281235046528?text=Assalamu%27alaikum%20Bu%20Ninik%2C%20saya%20ingin%20bertanya%20program%20umrah%20Samira%20Travel.",
+      "website": "https://wa.me/6281235046528?text=Assalamu'alaikum%20Bu%20Ninik%2C%20saya%20ingin%20bertanya%20tentang%20Paket%20Umroh%20Safara%20(Ekonomi).",
       "image": ""
     },
     {
-      "title": "Informasi Haji Khusus",
-      "year": "PERJALANAN IBADAH",
-      "description": "Samira Travel juga memperkenalkan layanan haji khusus. Tanyakan informasi program, alur pendaftaran, persyaratan, dan ketersediaan melalui kontak Ninik; seluruh rincian perlu dipastikan sesuai ketentuan penyelenggara.",
-      "category": "Informasi Haji Khusus",
+      "title": "Paket Safawi (Premium)",
+      "year": "PAKET UMROH",
+      "description": "Pilihan paket Umroh kategori Premium. Konsultasikan fasilitas, jadwal, harga, dan persyaratan yang berlaku.",
+      "category": "Paket Umroh",
       "tags": [
-        "Haji Khusus",
-        "Informasi Program",
+        "Safawi",
+        "Premium",
+        "Umroh"
+      ],
+      "website": "https://wa.me/6281235046528?text=Assalamu'alaikum%20Bu%20Ninik%2C%20saya%20ingin%20bertanya%20tentang%20Paket%20Umroh%20Safawi%20(Premium).",
+      "image": ""
+    },
+    {
+      "title": "Paket Sukari (VIP)",
+      "year": "PAKET UMROH",
+      "description": "Pilihan paket Umroh kategori VIP. Minta rincian program, fasilitas, jadwal, dan biaya langsung kepada Bu Ninik.",
+      "category": "Paket Umroh",
+      "tags": [
+        "Sukari",
+        "VIP",
+        "Umroh"
+      ],
+      "website": "https://wa.me/6281235046528?text=Assalamu'alaikum%20Bu%20Ninik%2C%20saya%20ingin%20bertanya%20tentang%20Paket%20Umroh%20Sukari%20(VIP).",
+      "image": ""
+    },
+    {
+      "title": "Paket Majol (VVIP)",
+      "year": "PAKET UMROH",
+      "description": "Pilihan paket Umroh kategori VVIP. Hubungi Bu Ninik untuk konfirmasi fasilitas, biaya, jadwal, dan ketentuan terbaru.",
+      "category": "Paket Umroh",
+      "tags": [
+        "Majol",
+        "VVIP",
+        "Umroh"
+      ],
+      "website": "https://wa.me/6281235046528?text=Assalamu'alaikum%20Bu%20Ninik%2C%20saya%20ingin%20bertanya%20tentang%20Paket%20Umroh%20Majol%20(VVIP).",
+      "image": ""
+    },
+    {
+      "title": "Haji ONH Plus",
+      "year": "PAKET HAJI",
+      "description": "Pilihan program Haji ONH Plus. Tanyakan informasi pendaftaran, persyaratan, jadwal, kuota, dan biaya berdasarkan ketentuan resmi yang berlaku.",
+      "category": "Paket Haji",
+      "tags": [
+        "Haji",
+        "ONH Plus",
+        "Pendaftaran"
+      ],
+      "website": "https://wa.me/6281235046528?text=Assalamu'alaikum%20Bu%20Ninik%2C%20saya%20ingin%20bertanya%20tentang%20program%20Haji%20ONH%20Plus.",
+      "image": ""
+    },
+    {
+      "title": "Haji Furoda",
+      "year": "PAKET HAJI",
+      "description": "Pilihan program Haji Furoda. Pastikan ketersediaan, jenis visa, persyaratan, jadwal, dan biaya berdasarkan informasi resmi penyelenggara sebelum mendaftar.",
+      "category": "Paket Haji",
+      "tags": [
+        "Haji",
+        "Furoda",
         "Persyaratan"
       ],
-      "website": "https://wa.me/6281235046528?text=Assalamu%27alaikum%20Bu%20Ninik%2C%20saya%20ingin%20bertanya%20informasi%20haji%20khusus.",
+      "website": "https://wa.me/6281235046528?text=Assalamu'alaikum%20Bu%20Ninik%2C%20saya%20ingin%20bertanya%20tentang%20program%20Haji%20Furoda.",
+      "image": ""
+    },
+    {
+      "title": "3 Cara Pembayaran",
+      "year": "SISTEM PEMBAYARAN",
+      "description": "Tersedia 3 pilihan: (1) Cash, (2) Tabungan, dan (3) Umroh dulu, bayarnya belakangan. Tanyakan syarat, alur pembayaran, dan ketentuan setiap sistem kepada Bu Ninik.",
+      "category": "Pembayaran",
+      "tags": [
+        "Cash",
+        "Tabungan",
+        "Bayar Belakangan"
+      ],
+      "website": "https://wa.me/6281235046528?text=Assalamu'alaikum%20Bu%20Ninik%2C%20saya%20ingin%20bertanya%20tentang%203%20cara%20pembayaran%20umroh%3A%20cash%2C%20tabungan%2C%20atau%20umroh%20dulu%20bayarnya%20belakangan.",
+      "image": ""
+    },
+    {
+      "title": "Daftar Umroh DP Rp1,5 Juta",
+      "year": "PENDAFTARAN",
+      "description": "Pendaftaran umroh dengan DP Rp1.500.000 sudah mendapatkan perlengkapan umroh. Hubungi Bu Ninik untuk mengetahui isi perlengkapan, syarat DP, tahap pelunasan, dan ketentuan pendaftaran.",
+      "category": "Pendaftaran Umroh",
+      "tags": [
+        "DP Rp1.500.000",
+        "Perlengkapan Umroh",
+        "Konsultasi"
+      ],
+      "website": "https://wa.me/6281235046528?text=Assalamu'alaikum%20Bu%20Ninik%2C%20saya%20ingin%20bertanya%20tentang%20pendaftaran%20umroh%20DP%20Rp1.500.000%20dan%20perlengkapan%20yang%20didapat.",
       "image": ""
     },
     {
@@ -67,97 +147,146 @@
       ],
       "website": "https://wa.me/6281235046528?text=Assalamu%27alaikum%20Bu%20Ninik%2C%20boleh%20saya%20konsultasi%20perjalanan%20ibadah%3F",
       "image": ""
-    },
-    {
-      "title": "Persiapan & Pendaftaran",
-      "year": "LANGKAH BERIKUTNYA",
-      "description": "Untuk pertanyaan tentang dokumen, proses pendaftaran, pembayaran, jadwal, serta ketentuan keberangkatan, mintalah penjelasan dan dokumen resmi yang berlaku sebelum mengambil keputusan.",
-      "category": "Informasi Persiapan",
-      "tags": [
-        "Persyaratan",
-        "Pendaftaran",
-        "Konfirmasi Resmi"
-      ],
-      "website": "https://wa.me/6281235046528?text=Assalamu%27alaikum%20Bu%20Ninik%2C%20saya%20ingin%20bertanya%20persiapan%20dan%20pendaftaran.",
-      "image": ""
     }
   ],
   "skills": [
-    "Informasi Program Umrah",
-    "Informasi Haji Khusus",
-    "Konsultasi Calon Jamaah",
-    "Persiapan Perjalanan Ibadah"
+    "4 Paket Umroh: Safara, Safawi, Sukari, Majol",
+    "2 Program Haji: ONH Plus, Furoda",
+    "3 Cara Pembayaran",
+    "Pendaftaran Umroh DP Rp1,5 Juta"
   ],
   "skillCategories": [
     {
-      "id": "program",
-      "title": "Informasi Program Ibadah",
-      "subtitle": "Mengenal pilihan melalui Samira Travel",
+      "id": "paket-umroh",
+      "title": "4 Paket Umroh",
+      "subtitle": "Safara · Safawi · Sukari · Majol",
       "skills": [
         {
-          "name": "Program Umrah",
-          "mono": "UM",
-          "note": "Informasi",
+          "name": "Safara",
+          "mono": "SE",
+          "note": "Ekonomi",
           "evidence": [
-            "Samira Travel menawarkan perjalanan umrah",
-            "Pilihan dan jadwal dikonfirmasi melalui informasi resmi"
+            "Pilihan paket Umroh kategori Ekonomi",
+            "Fasilitas dan harga dapat dikonfirmasi ke Bu Ninik"
           ]
         },
         {
-          "name": "Haji Khusus",
-          "mono": "HK",
-          "note": "Informasi",
+          "name": "Safawi",
+          "mono": "PR",
+          "note": "Premium",
           "evidence": [
-            "Samira Travel juga memperkenalkan layanan haji khusus",
-            "Persyaratan dan proses mengikuti ketentuan yang berlaku"
+            "Pilihan paket Umroh kategori Premium",
+            "Jadwal dan rincian program mengikuti penyelenggara"
+          ]
+        },
+        {
+          "name": "Sukari",
+          "mono": "VI",
+          "note": "VIP",
+          "evidence": [
+            "Pilihan paket Umroh kategori VIP",
+            "Tanyakan fasilitas dan ketentuan terbaru"
+          ]
+        },
+        {
+          "name": "Majol",
+          "mono": "VV",
+          "note": "VVIP",
+          "evidence": [
+            "Pilihan paket Umroh kategori VVIP",
+            "Konfirmasi harga, jadwal, dan persyaratan"
           ]
         }
       ]
     },
     {
-      "id": "persiapan",
-      "title": "Komunikasi & Persiapan",
-      "subtitle": "Percakapan awal sebelum menentukan pilihan",
+      "id": "paket-haji",
+      "title": "2 Program Haji",
+      "subtitle": "Haji ONH Plus · Haji Furoda",
       "skills": [
         {
-          "name": "Konsultasi Awal",
-          "mono": "KT",
-          "note": "WhatsApp",
+          "name": "Haji ONH Plus",
+          "mono": "ON",
+          "note": "Haji",
           "evidence": [
-            "Ninik dapat dihubungi melalui nomor WA bisnis",
-            "Calon jamaah dapat menyampaikan pertanyaan awal"
+            "Program Haji ONH Plus",
+            "Persyaratan dan ketersediaan mengikuti ketentuan resmi"
           ]
         },
         {
-          "name": "Informasi Pendaftaran",
-          "mono": "DF",
-          "note": "Konfirmasi",
+          "name": "Haji Furoda",
+          "mono": "FU",
+          "note": "Haji",
           "evidence": [
-            "Dokumen dan proses pendaftaran ditanyakan sebelum memutuskan",
-            "Rincian akhir merujuk penyelenggara resmi"
+            "Program Haji Furoda",
+            "Pastikan ketentuan visa dan ketersediaan secara resmi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pembayaran",
+      "title": "Pembayaran & DP",
+      "subtitle": "3 sistem pembayaran · DP umroh Rp1,5 juta",
+      "skills": [
+        {
+          "name": "Cash",
+          "mono": "CA",
+          "note": "Bayar",
+          "evidence": [
+            "Pilihan pembayaran secara cash",
+            "Konfirmasi jumlah dan prosedur resmi"
+          ]
+        },
+        {
+          "name": "Tabungan",
+          "mono": "TA",
+          "note": "Bayar",
+          "evidence": [
+            "Pilihan pembayaran dengan sistem tabungan",
+            "Tanyakan mekanisme dan jadwal setoran"
+          ]
+        },
+        {
+          "name": "Umroh dulu, bayar belakangan",
+          "mono": "UB",
+          "note": "Bayar",
+          "evidence": [
+            "Pilihan umroh dulu, bayarnya belakangan",
+            "Syarat dan ketentuan wajib dikonfirmasi"
+          ]
+        },
+        {
+          "name": "DP Rp1.500.000",
+          "mono": "DP",
+          "note": "Daftar",
+          "evidence": [
+            "Pendaftaran umroh DP Rp1,5 juta",
+            "Sudah mendapatkan perlengkapan umroh",
+            "Konfirmasi isi perlengkapan dan ketentuan DP"
           ]
         }
       ]
     }
   ],
-  "skillsHeading": "Informasi Perjalanan bersama Ninik",
-  "skillsAside": "Sebagai Mitra Samira Travel, Ninik menjadi kontak awal untuk pertanyaan seputar umrah dan haji khusus. Pilihan program, biaya, jadwal, fasilitas, dan syarat dapat berubah sehingga perlu dicocokkan dengan keterangan resmi sebelum pendaftaran.",
-  "skillsKicker": "BAGAIMANA BISA MEMBANTU?",
+  "skillsHeading": "Paket Umroh, Haji & Pembayaran",
+  "skillsAside": "Kenali empat paket Umroh, dua program Haji, dan tiga sistem pembayaran. Pendaftaran umroh DP Rp1.500.000 sudah mendapatkan perlengkapan umroh. Hubungi Ninik untuk rincian harga, jadwal, fasilitas, dan syarat resmi.",
+  "skillsKicker": "4 PAKET UMROH · 2 HAJI · 3 CARA BAYAR",
   "highlights": [
     {
-      "title": "Mitra Samira Travel",
-      "description": "Identitas peran Ninik dalam memperkenalkan informasi perjalanan ibadah dari Samira Travel.",
-      "category": "PROFIL MITRA"
+      "title": "4 Paket Umroh",
+      "description": "Safara (Ekonomi), Safawi (Premium), Sukari (VIP), dan Majol (VVIP).",
+      "category": "PILIHAN UMROH"
     },
     {
-      "title": "Umrah & Haji Khusus",
-      "description": "Dua jenis perjalanan ibadah yang diperkenalkan melalui penyelenggara Samira Travel.",
-      "category": "LINGKUP INFORMASI"
+      "title": "2 Program Haji",
+      "description": "Haji ONH Plus dan Haji Furoda, dengan ketentuan dan ketersediaan yang perlu dikonfirmasi.",
+      "category": "PILIHAN HAJI"
     },
     {
-      "title": "WhatsApp Bisnis",
-      "description": "Jalur langsung untuk menanyakan kebutuhan, informasi program, dan langkah berikutnya.",
-      "category": "KONTAK"
+      "title": "DP Umroh Rp1,5 Juta",
+      "description": "DP pendaftaran umroh Rp1.500.000 sudah mendapatkan perlengkapan umroh.",
+      "category": "PENDAFTARAN"
     }
   ],
   "watchCards": [
@@ -169,14 +298,14 @@
     },
     {
       "target": "originals",
-      "title": "Informasi Perjalanan",
-      "subtitle": "Umrah, haji khusus, dan persiapan",
+      "title": "Paket Umroh & Haji",
+      "subtitle": "Safara hingga Majol · ONH Plus · Furoda",
       "image": ""
     },
     {
       "target": "skills",
-      "title": "Yang Bisa Ditanyakan",
-      "subtitle": "Pilihan program dan persyaratan",
+      "title": "Cara Bayar & DP",
+      "subtitle": "3 sistem · DP Rp1,5 juta + perlengkapan",
       "image": ""
     },
     {
@@ -194,9 +323,9 @@
   ],
   "pickCards": [
     {
-      "label": "UMRAH",
-      "title": "Program Umrah",
-      "detail": "Kenali pilihan program dan informasi keberangkatan yang tersedia.",
+      "label": "UMROH · EKONOMI",
+      "title": "Safara",
+      "detail": "Paket Umroh Ekonomi",
       "palette": {
         "from": "#243b34",
         "via": "#85785c",
@@ -206,9 +335,9 @@
       "image": ""
     },
     {
-      "label": "HAJI KHUSUS",
-      "title": "Informasi Haji Khusus",
-      "detail": "Tanyakan persyaratan, proses, dan ketentuan program dari penyelenggara.",
+      "label": "UMROH · PREMIUM",
+      "title": "Safawi",
+      "detail": "Paket Umroh Premium",
       "palette": {
         "from": "#3a3325",
         "via": "#a88e67",
@@ -218,21 +347,69 @@
       "image": ""
     },
     {
-      "label": "KONSULTASI",
-      "title": "Diskusi Kebutuhan",
-      "detail": "Sampaikan rencana serta pertanyaan perjalanan kepada Ninik.",
-      "image": "/clients/ninikwardhani/foto-utama.webp",
+      "label": "UMROH · VIP",
+      "title": "Sukari",
+      "detail": "Paket Umroh VIP",
       "palette": {
         "from": "#3b463d",
         "via": "#b8a489",
         "to": "#26352d",
         "accent": "#f5dba7"
-      }
+      },
+      "image": ""
     },
     {
-      "label": "PERSIAPAN",
-      "title": "Langkah Pendaftaran",
-      "detail": "Konfirmasi dokumen, informasi resmi, dan langkah selanjutnya.",
+      "label": "UMROH · VVIP",
+      "title": "Majol",
+      "detail": "Paket Umroh VVIP",
+      "palette": {
+        "from": "#2f3c38",
+        "via": "#7f9787",
+        "to": "#1b2623",
+        "accent": "#e4d4af"
+      },
+      "image": ""
+    },
+    {
+      "label": "HAJI",
+      "title": "ONH Plus",
+      "detail": "Informasi program Haji ONH Plus",
+      "palette": {
+        "from": "#3a3325",
+        "via": "#a88e67",
+        "to": "#151910",
+        "accent": "#f4dba3"
+      },
+      "image": ""
+    },
+    {
+      "label": "HAJI",
+      "title": "Furoda",
+      "detail": "Informasi program Haji Furoda",
+      "palette": {
+        "from": "#243b34",
+        "via": "#85785c",
+        "to": "#101d1a",
+        "accent": "#edcc8b"
+      },
+      "image": ""
+    },
+    {
+      "label": "PEMBAYARAN",
+      "title": "3 Sistem",
+      "detail": "Cash · Tabungan · Umroh dulu bayar belakangan",
+      "palette": {
+        "from": "#3b463d",
+        "via": "#b8a489",
+        "to": "#26352d",
+        "accent": "#f5dba7"
+      },
+      "image": ""
+    },
+    {
+      "label": "PENDAFTARAN",
+      "title": "DP Rp1,5 Juta",
+      "detail": "Sudah mendapatkan perlengkapan umroh",
       "palette": {
         "from": "#2f3c38",
         "via": "#7f9787",
@@ -242,8 +419,8 @@
       "image": ""
     }
   ],
-  "picksHeading": "Awali dengan Informasi yang Tepat",
-  "picksKicker": "PROGRAM · PERSYARATAN · KONSULTASI",
+  "picksHeading": "Pilihan Paket & Pendaftaran",
+  "picksKicker": "4 UMROH · 2 HAJI · 3 SISTEM PEMBAYARAN",
   "seasons": [
     {
       "number": 1,
@@ -271,48 +448,83 @@
     },
     {
       "number": 2,
-      "title": "Menyiapkan Perjalanan",
-      "period": "Tanya dan konfirmasi",
-      "synopsis": "Perjalanan ibadah dapat diawali dengan mengenal program yang tersedia, bertanya tentang persyaratan, dan memastikan rincian melalui pihak penyelenggara.",
+      "title": "Memilih Paket & Mendaftar",
+      "period": "Umroh · Haji · Pembayaran",
+      "synopsis": "Kenali empat paket Umroh dan dua program Haji. Ada tiga sistem pembayaran; pendaftaran umroh dengan DP Rp1.500.000 sudah mendapatkan perlengkapan umroh.",
       "episodes": [
         {
-          "title": "Mengenal Pilihan Program",
-          "runtime": "Informasi",
-          "description": "Tanyakan pilihan umrah maupun haji khusus yang tersedia melalui Samira Travel.",
+          "title": "4 Pilihan Paket Umroh",
+          "runtime": "Safara · Safawi · Sukari · Majol",
+          "description": "Safara (Ekonomi), Safawi (Premium), Sukari (VIP), dan Majol (VVIP). Konfirmasi fasilitas, harga, dan jadwal terbaru kepada Bu Ninik.",
           "tags": [
-            "Umrah",
-            "Haji Khusus"
+            "Safara",
+            "Safawi",
+            "Sukari",
+            "Majol"
           ],
           "palette": {
-            "from": "#3a3225",
-            "via": "#b39a74",
-            "to": "#1f2820",
-            "accent": "#f1d8a5"
+            "from": "#243b34",
+            "via": "#85785c",
+            "to": "#101d1a",
+            "accent": "#edcc8b"
           },
           "image": ""
         },
         {
-          "title": "Konfirmasi Persiapan",
-          "runtime": "Langkah berikutnya",
-          "description": "Diskusikan pertanyaan dan konfirmasikan persyaratan, jadwal, serta biaya melalui informasi resmi sebelum mendaftar.",
+          "title": "2 Pilihan Program Haji",
+          "runtime": "ONH Plus · Furoda",
+          "description": "Tersedia informasi Haji ONH Plus dan Haji Furoda. Pastikan syarat, kuota, visa, dan ketentuan resmi sebelum mendaftar.",
           "tags": [
-            "Persiapan",
-            "Pendaftaran"
+            "Haji ONH Plus",
+            "Haji Furoda"
           ],
           "palette": {
-            "from": "#29433a",
-            "via": "#8b9a7b",
-            "to": "#18251d",
-            "accent": "#e9d19d"
+            "from": "#3a3325",
+            "via": "#a88e67",
+            "to": "#151910",
+            "accent": "#f4dba3"
+          },
+          "image": ""
+        },
+        {
+          "title": "3 Cara Pembayaran",
+          "runtime": "Cash · Tabungan · Bayar Belakangan",
+          "description": "Pilih cash, sistem tabungan, atau umroh dulu bayarnya belakangan. Tanyakan syarat dan alur masing-masing sistem.",
+          "tags": [
+            "Cash",
+            "Tabungan",
+            "Bayar Belakangan"
+          ],
+          "palette": {
+            "from": "#3b463d",
+            "via": "#b8a489",
+            "to": "#26352d",
+            "accent": "#f5dba7"
+          },
+          "image": ""
+        },
+        {
+          "title": "Daftar DP Rp1,5 Juta",
+          "runtime": "Pendaftaran Umroh",
+          "description": "Dengan DP pendaftaran umroh Rp1.500.000, calon jamaah sudah mendapatkan perlengkapan umroh. Konfirmasi rincian perlengkapan dan ketentuan DP kepada Bu Ninik.",
+          "tags": [
+            "DP Rp1.500.000",
+            "Perlengkapan Umroh"
+          ],
+          "palette": {
+            "from": "#2f3c38",
+            "via": "#7f9787",
+            "to": "#1b2623",
+            "accent": "#e4d4af"
           },
           "image": ""
         }
       ]
     }
   ],
-  "journeyHeading": "Menyambut Perjalanan Ibadah",
-  "journeyAside": "Bersama Ninik Wardhani, mulailah dari percakapan yang tenang: sampaikan kebutuhan dan rencana, kenali informasi program Samira Travel, lalu pastikan pilihan serta ketentuannya sebelum mengambil langkah pendaftaran. Semua keputusan sebaiknya didasari informasi resmi yang dapat diperiksa.",
-  "journeyKicker": "PERKENALAN · INFORMASI · PERSIAPAN",
+  "journeyHeading": "Dari Pilih Paket hingga Pendaftaran",
+  "journeyAside": "Tentukan paket Umroh atau program Haji, pilih sistem pembayaran, lalu konsultasikan syarat pendaftaran. DP umroh Rp1,5 juta sudah mendapatkan perlengkapan umroh; rincian mengikuti ketentuan resmi.",
+  "journeyKicker": "PAKET · PEMBAYARAN · DP PENDAFTARAN",
   "theme": {
     "accent": "#ddb780",
     "background": "#0d0c0c"
