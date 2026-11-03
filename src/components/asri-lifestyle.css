@@ -1,0 +1,133 @@
+.ayu-page {
+  --ayu-ink: #302a27;
+  --ayu-cream: #eae4db;
+  --ayu-light: #f9f7f4;
+  --ayu-line: #d8d0c7;
+  background: #fff;
+  color: var(--ayu-ink);
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+.ayu-page *, .ayu-page *::before, .ayu-page *::after { box-sizing: border-box; }
+.ayu-page a { color: inherit; text-decoration: none; }
+.ayu-page button { font: inherit; }
+.ayu-container { width: min(100% - 48px, 1180px); margin-inline: auto; }
+.ayu-site-header { height: 93px; display: flex; align-items: center; justify-content: space-between; }
+.ayu-site-logo { font-weight: 900; font-size: 23px; letter-spacing: -.07em; }
+.ayu-site-logo span { color: #a87b59; }
+.ayu-desktop-nav { display: flex; gap: 35px; align-items: center; font-size: 13px; font-weight: 700; letter-spacing: .02em; }
+.ayu-desktop-nav a, .ayu-footer a { transition: color .2s; }
+.ayu-desktop-nav a:hover, .ayu-footer a:hover { color: #aa7f59; }
+.ayu-menu-toggle { display: none; align-items: center; justify-content: center; border: 1px solid #ddd7d0; background: #fff; color: var(--ayu-ink); width: 45px; height: 45px; border-radius: 50%; cursor: pointer; }
+.ayu-mobile-nav { display: none; }
+.ayu-hero { scroll-margin-top: 20px; }
+.ayu-hero-inner { background: var(--ayu-cream); padding: 26px 30px 17px; border-radius: 24px; }
+.ayu-hero-label { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 23px; line-height: 1.2; }
+.ayu-hero-label span:first-child { font-size: clamp(21px, 2.8vw, 33px); font-weight: 900; letter-spacing: -.065em; }
+.ayu-hero-label span:last-child { color: #8b8580; font-weight: 500; font-size: clamp(11px, 1.4vw, 16px); text-align: right; white-space: nowrap; }
+.ayu-hero-image-wrap { border-radius: 20px; overflow: hidden; aspect-ratio: 1.78; background: #c8c1b9; }
+.ayu-hero-image { width: 100%; height: 100%; object-fit: cover; object-position: 50% 47%; display: block; }
+.ayu-hero-content { max-width: 840px; }
+.ayu-hero-number { margin-top: 27px; font-size: 11px; font-weight: 800; letter-spacing: .16em; color: #777069; }
+.ayu-hero h1 { margin: 16px 0 22px; max-width: 920px; font-size: clamp(39px, 6.8vw, 82px); font-weight: 850; letter-spacing: -.062em; line-height: 1.12; }
+.ayu-hero-role { max-width: 760px; margin: 0 0 21px; font-size: clamp(19px, 2.4vw, 28px); font-weight: 500; line-height: 1.55; color: #57504b; letter-spacing: -.03em; }
+.ayu-hero-copy { max-width: 780px; margin: 0 0 24px; font-size: clamp(16px, 1.8vw, 20px); line-height: 1.48; color: #514a45; }
+.ayu-primary-button { display: flex; justify-content: center; align-items: center; gap: 14px; width: 100%; max-width: 650px; min-height: 76px; border-radius: 12px; background: #332d2a; color: white !important; text-align: center; font-size: clamp(16px, 2vw, 21px); font-weight: 750; letter-spacing: -.02em; transition: background .2s, transform .2s; }
+.ayu-primary-button:hover { background: #5b4a3f; transform: translateY(-2px); }
+.ayu-image-note { margin: 17px 0 0; font-size: 14px; color: #766f67; }
+.ayu-section { padding-block: 112px; scroll-margin-top: 25px; }
+.ayu-section-title { margin-bottom: 48px; }
+.ayu-section-count, .ayu-small-label { display: block; font-size: 12px; font-weight: 800; letter-spacing: .14em; color: #947f6c; margin-bottom: 12px; }
+.ayu-section-title h2 { margin: 0; font-size: clamp(34px, 5vw, 65px); line-height: 1.1; letter-spacing: -.06em; font-weight: 850; }
+.ayu-section-title em { font-style: normal; color: #8c7764; }
+.ayu-section-title > p { margin-top: 18px; color: #756e66; max-width: 580px; font-size: 18px; }
+.ayu-about-grid { display: grid; grid-template-columns: .87fr 1.13fr; align-items: start; gap: clamp(36px, 8vw, 120px); }
+.ayu-about-intro h3 { margin: 0; font-size: clamp(28px, 3.5vw, 49px); font-weight: 800; line-height: 1.14; letter-spacing: -.05em; }
+.ayu-about-intro h3 em { color: #a48770; font-style: normal; }
+.ayu-about-portrait { height: 410px; display: flex; justify-content: center; align-items: flex-end; overflow: hidden; background: #e9e5df; margin-top: 30px; border-radius: 16px; }
+.ayu-about-portrait img { height: 96%; width: auto; max-width: 100%; object-fit: contain; object-position: bottom; }
+.ayu-about-story { padding-top: 3px; }
+.ayu-about-story p { margin: 0 0 21px; font-size: clamp(16px, 1.6vw, 19px); color: #514b45; line-height: 1.77; }
+.ayu-about-story p:first-child { font-weight: 800; font-size: 22px; color: var(--ayu-ink); }
+.ayu-text-link { display: inline-flex; align-items: center; gap: 10px; font-weight: 750; font-size: 15px; margin-top: 9px; border-bottom: 1px solid currentColor; padding-bottom: 5px; }
+.ayu-work { background: #f6f3ef; }
+.ayu-work-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; }
+.ayu-work-card { border: 1px solid #ded8d1; border-radius: 18px; background: #fff; overflow: hidden; min-height: 415px; display: flex; flex-direction: column; }
+.ayu-work-card--2 { background: #e8e0d6; }
+.ayu-work-card--3 { background: #dcd4cb; }
+.ayu-work-image { height: 200px; overflow: hidden; }
+.ayu-work-image img { width: 100%; height: 100%; object-fit: cover; object-position: center 46%; }
+.ayu-work-card-content { padding: 28px; display: flex; flex-direction: column; flex: 1; }
+.ayu-work-overline { display: flex; align-items: center; justify-content: space-between; gap: 15px; font-size: 10px; font-weight: 800; letter-spacing: .09em; color: #8c7562; }
+.ayu-work-card h3 { margin: 22px 0 14px; font-size: clamp(24px, 2.6vw, 32px); letter-spacing: -.05em; line-height: 1.15; }
+.ayu-work-card p { margin: 0 0 30px; font-size: 15px; color: #62594f; line-height: 1.7; }
+.ayu-work-card a { display: flex; gap: 10px; align-items: center; width: fit-content; margin-top: auto; font-size: 13px; font-weight: 800; border-bottom: 1px solid currentColor; padding-bottom: 4px; }
+.ayu-expertise-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(40px, 10vw, 130px); }
+.ayu-expertise-grid > div:first-child { max-width: 380px; }
+.ayu-expertise-lead { margin: 0 0 19px; font-size: clamp(22px, 2.5vw, 31px); line-height: 1.35; font-weight: 750; letter-spacing: -.04em; }
+.ayu-expertise-grid > div:first-child p:last-child { color: #70665c; font-size: 17px; }
+.ayu-cert-list { border-top: 1px solid #cdc4bb; }
+.ayu-cert-title { font-size: 12px; letter-spacing: .12em; font-weight: 800; padding: 22px 0; color: #8d796a; }
+.ayu-cert-row { display: flex; gap: 20px; align-items: center; border-top: 1px solid #ded7ce; padding: 22px 0; }
+.ayu-cert-row span { font-size: 12px; font-weight: 700; color: #aa9683; }
+.ayu-cert-row strong { flex: 1; font-size: clamp(17px, 2vw, 23px); letter-spacing: -.04em; }
+.ayu-cert-row svg { color: #8f7965; }
+.ayu-contact { background: #332d2a; color: #f8f4f0; padding-block: 95px; scroll-margin-top: 10px; }
+.ayu-contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; }
+.ayu-contact .ayu-small-label { color: #c0a48b; }
+.ayu-contact h2 { font-size: clamp(42px, 5vw, 74px); line-height: 1.03; letter-spacing: -.06em; font-weight: 850; margin: 0 0 24px; }
+.ayu-contact h2 em { font-style: normal; color: #d5b99e; }
+.ayu-contact p { color: #d4cac0; font-size: 17px; max-width: 490px; }
+.ayu-contact-actions { display: flex; flex-direction: column; gap: 12px; }
+.ayu-contact-actions a { display: flex; gap: 16px; align-items: center; padding: 22px 25px; border-radius: 12px; background: #eee8df; color: #332d2a; font-size: 16px; font-weight: 750; word-break: break-word; transition: background .2s; }
+.ayu-contact-actions a:hover { background: #d9c5b1; }
+.ayu-contact-actions a svg:last-child { margin-left: auto; flex-shrink: 0; }
+.ayu-footer { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding-block: 30px; font-size: 11px; font-weight: 800; letter-spacing: .08em; color: #766c62; }
+.ayu-page a:focus-visible, .ayu-page button:focus-visible { outline: 3px solid #ad8667; outline-offset: 4px; }
+
+@media (max-width: 760px) {
+  .ayu-container { width: calc(100% - 32px); }
+  .ayu-site-header { height: 80px; }
+  .ayu-desktop-nav { display: none; }
+  .ayu-menu-toggle { display: flex; }
+  .ayu-mobile-nav { display: flex; flex-direction: column; margin-bottom: 14px; padding: 8px 18px; background: #f5f0e9; border-radius: 14px; }
+  .ayu-mobile-nav a { display: flex; align-items: center; justify-content: space-between; padding: 13px 0; border-bottom: 1px solid #e0d8cf; font-size: 14px; font-weight: 800; }
+  .ayu-mobile-nav a:last-child { border: 0; }
+  .ayu-hero-inner { padding: 18px 18px 15px; border-radius: 20px; }
+  .ayu-hero-label { margin-bottom: 18px; }
+  .ayu-hero-label span:first-child { font-size: clamp(19px, 5vw, 28px); }
+  .ayu-hero-image-wrap { border-radius: 17px; aspect-ratio: 1.66; }
+  .ayu-hero-number { display: none; }
+  .ayu-hero h1 { margin-top: 21px; margin-bottom: 21px; font-size: clamp(31px, 8.35vw, 48px); letter-spacing: -.055em; line-height: 1.15; }
+  .ayu-hero-role { font-size: clamp(18px, 4.6vw, 24px); margin-bottom: 19px; line-height: 1.53; }
+  .ayu-hero-copy { font-size: clamp(15px, 4vw, 19px); margin-bottom: 23px; }
+  .ayu-primary-button { min-height: 68px; border-radius: 11px; font-size: 16px; }
+  .ayu-image-note { font-size: 13px; margin-top: 15px; }
+  .ayu-section { padding-block: 58px; }
+  .ayu-section-title { margin-bottom: 32px; }
+  .ayu-section-title h2 { font-size: 37px; }
+  .ayu-about-grid, .ayu-expertise-grid, .ayu-contact-grid { grid-template-columns: 1fr; gap: 31px; }
+  .ayu-about-intro h3 { font-size: 30px; max-width: 510px; }
+  .ayu-about-portrait { height: 305px; margin-top: 21px; }
+  .ayu-about-story p { font-size: 16px; line-height: 1.73; }
+  .ayu-work-grid { grid-template-columns: 1fr; gap: 14px; }
+  .ayu-work-card { min-height: unset; }
+  .ayu-work-image { height: 210px; }
+  .ayu-work-card-content { padding: 24px; }
+  .ayu-work-card h3 { margin-top: 18px; }
+  .ayu-contact { padding-block: 65px; }
+  .ayu-contact h2 { font-size: 46px; }
+  .ayu-contact-actions a { padding: 19px; font-size: 15px; }
+  .ayu-footer { flex-wrap: wrap; gap: 12px; }
+  .ayu-footer span:last-child { width: 100%; }
+}
+@media (max-width: 380px) {
+  .ayu-hero-label span:first-child { font-size: 17px; }
+  .ayu-hero-label span:last-child { font-size: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ayu-page *, .ayu-page *::before, .ayu-page *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; scroll-behavior: auto !important; }
+}

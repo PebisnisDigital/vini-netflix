@@ -34,6 +34,7 @@ import Originals from './components/Originals';
 import MunasifahShowcase from './components/MunasifahShowcase';
 import ElectronicTigerStudio from './components/ElectronicTigerStudio';
 import HijamaTeamSite from './components/HijamaTeamSite';
+import AsriLifestylePage from './components/AsriLifestylePage';
 import TopPicks from './components/TopPicks';
 import Skills from './components/Skills';
 import Achievements from './components/Achievements';
@@ -69,6 +70,9 @@ export default function App({ slug, editorMode = false }: { slug: string; editor
   }
   if (profile.clientSlug === 'hijamateam') {
     return <HijamaTeamSite editorMode={editorMode} />;
+  }
+  if (profile.clientSlug === 'asriwahyuni') {
+    return <AsriLifestylePage editorMode={editorMode} />;
   }
   // Alamat publik dapat berupa alias, sedangkan kanvas dahulu memakai slug
   // sementara. Kelas tema khusus selalu mengikuti identitas sumber klien.
