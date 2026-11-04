@@ -224,7 +224,7 @@
 .ht-social{background:#f9faf7;text-align:center}
 .ht-social .ht-eyebrow{justify-content:center}
 .ht-social h2{margin-bottom:45px}
-.ht-social__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:left}
+.ht-social__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;text-align:left}
 .ht-social__grid>a{display:flex;align-items:center;gap:18px;padding:27px 24px;border:1px solid #e0e7df;background:#fff;min-height:122px;color:#b38b54!important;transition:transform .2s,box-shadow .2s}
 .ht-social__grid>a:hover{transform:translateY(-5px);box-shadow:0 15px 28px #294a3311}
 .ht-social__grid>a>span:nth-child(2){display:flex;flex-direction:column;flex:1;gap:4px}
