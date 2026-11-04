@@ -16,7 +16,7 @@ export function renderClientHtml(template, { name, bio, photo }) {
   const title = isHijamaTeam ? 'HijamaTeam — Perkhidmatan Bekam Darah di Singapura'
     : isElectronicTiger ? 'Electronic Tiger Creative Studio — Ideas Into Creations' : `${name} — THE SERIES`;
   const description = isHijamaTeam
-    ? 'HijamaTeam menyediakan perkhidmatan bekam darah di Bukit Panjang, Singapura sejak 2009. Ketahui pilihan rawatan, pusat ilmu bekam dan hubungi Nur Ain untuk janji temu.'
+    ? 'HijamaTeam menyediakan perkhidmatan bekam darah di Bukit Panjang, Singapura sejak 2009. Ketahui pilihan rawatan, pusat ilmu bekam dan hubungi Nur Ain untuk temujanji.'
     : isElectronicTiger
       ? 'Electronic Tiger Creative Studio creates original brands, meaningful stories, Islamic children’s entertainment, personal development media, and cinematic AI films.'
       : bio;
@@ -73,13 +73,13 @@ async function main() {
     await writeFile(path.join(directory, 'index.html'), renderClientHtml(template, brief));
   }
   const hijamaTitle = 'HIJAMATEAM | Bekam Darah di Bukit Panjang, Singapura Sejak 2009';
-  const hijamaDescription = 'HIJAMATEAM di Bukit Panjang, Singapura sejak 2009. Maklumat perkhidmatan bekam darah, proses, kebersihan, keselamatan, pusat ilmu dan janji temu WhatsApp.';
+  const hijamaDescription = 'HIJAMATEAM di Bukit Panjang, Singapura sejak 2009. Maklumat perkhidmatan bekam darah, proses, kebersihan, keselamatan, pusat ilmu dan temujanji WhatsApp.';
   const hijamaHtml = replaceMeta(replaceMeta(replaceMeta(
     template
       .replace(/<html lang="[^"]+">/i, '<html lang="ms">')
       .replace(/<meta name="theme-color" content="[^"]+"\s*\/>/i, '<meta name="theme-color" content="#741910" />')
       .replace(/<title>[^<]*<\/title>/i, `<title>${escapeHtml(hijamaTitle)}</title>`)
-      .replace(/<noscript>[^<]*<\/noscript>/i, `<noscript>${escapeHtml('HIJAMATEAM. Maklumat bekam darah di Bukit Panjang sejak 2009. Hubungi Nur Ain di +65 8956 7799 untuk pertanyaan dan janji temu.')}</noscript>`)
+      .replace(/<noscript>[^<]*<\/noscript>/i, `<noscript>${escapeHtml('HIJAMATEAM. Maklumat bekam darah di Bukit Panjang sejak 2009. Hubungi Nur Ain di +65 8956 7799 untuk pertanyaan dan temujanji.')}</noscript>`)
       .replace(/<link\s+rel="preload"\s+as="image"\s+href="\/assets\/teh-vini-720.webp"[^>]*>/i, '')
       .replace(/<link\s+rel="icon"\s+type="image\/svg\+xml"\s+href="\/favicon\.svg"\s*\/>/i, '<link rel="icon" type="image/png" sizes="256x256" href="/clients/hijamateam/favicon-merah.png" />'),
     'name', 'description', hijamaDescription),
