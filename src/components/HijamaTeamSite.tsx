@@ -171,7 +171,18 @@ export default function HijamaTeamSite(_props: { editorMode?: boolean } = {}) {
 
       <section className="ht-section ht-faq" id="soalan" aria-labelledby="ht-faq-title"><div className="ht-container ht-faq__grid"><div><div className="ht-eyebrow">SOALAN LAZIM</div><h2 id="ht-faq-title">Ada yang ingin<br /><em>anda tanyakan?</em></h2><p>Mulakan dengan maklumat yang anda perlukan. Kami sedia menerima pertanyaan lanjut.</p><WhatsAppButton outlined>Tanya Sekarang</WhatsAppButton></div><div className="ht-faq__list">{faq.map((item,i)=><details key={item.q}><summary><span>{String(i+1).padStart(2,'0')}</span>{item.q}<ChevronDown size={19}/></summary><p>{item.a}</p></details>)}</div></div></section>
 
-      <section className="ht-section ht-social" aria-labelledby="ht-social-title"><div className="ht-container"><div className="ht-eyebrow">BERHUBUNG & TEROKAI</div><h2 id="ht-social-title">Lebih dekat dengan <em>HIJAMATEAM.</em></h2><div className="ht-social__grid"><a href="https://www.youtube.com/@hijamateam" target="_blank" rel="noopener noreferrer"><Play size={28}/><span><strong>Saluran YouTube</strong><small>Video & perkongsian HIJAMATEAM</small></span><ExternalLink size={18}/></a><a href="https://www.facebook.com/ainhassan/" target="_blank" rel="noopener noreferrer"><span className="ht-social__letter">f</span><span><strong>Facebook Nur Ain</strong><small>Ikuti perkongsian & perkembangan</small></span><ExternalLink size={18}/></a><a href="https://sg.shp.ee/BxLda9LH" target="_blank" rel="noopener noreferrer"><ShoppingBag size={28}/><span><strong>Kedai Shopee</strong><small>Lawati kedai dalam talian</small></span><ExternalLink size={18}/></a></div></div></section>
+      <section className="ht-section ht-social" aria-labelledby="ht-social-title">
+        <div className="ht-container">
+          <div className="ht-eyebrow">BERHUBUNG & TEROKAI</div>
+          <h2 id="ht-social-title">Lebih dekat dengan <em>HIJAMATEAM.</em></h2>
+          <div className="ht-social__grid">
+            <a href="https://www.youtube.com/@hijamateam" target="_blank" rel="noopener noreferrer"><Play size={28}/><span><strong>Saluran YouTube</strong><small>Video & perkongsian HIJAMATEAM</small></span><ExternalLink size={18}/></a>
+            <a href="https://www.facebook.com/ainhassan/" target="_blank" rel="noopener noreferrer"><span className="ht-social__letter">f</span><span><strong>Facebook Nur Ain</strong><small>Ikuti perkongsian & perkembangan</small></span><ExternalLink size={18}/></a>
+            <a href="https://sg.shp.ee/BxLda9LH" target="_blank" rel="noopener noreferrer"><ShoppingBag size={28}/><span><strong>Kedai Shopee</strong><small>Lawati kedai dalam talian</small></span><ExternalLink size={18}/></a>
+            <a href="https://www.bekamsingapura.com/" target="_blank" rel="noopener noreferrer"><BookOpen size={28}/><span><strong>Blog</strong><small>Perkongsian maklumat bekam darah oleh Nur Ain</small></span><ExternalLink size={18}/></a>
+          </div>
+        </div>
+      </section>
 
       <section className="ht-contact" id="hubungi" aria-labelledby="ht-contact-title">
         <div className="ht-container ht-contact__grid">
