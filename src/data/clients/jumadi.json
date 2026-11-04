@@ -1,0 +1,211 @@
+{
+  "slug": "jumadi",
+  "name": "Jumadi GT",
+  "role": "Mentor Freelance",
+  "location": "Lokasi belum dicantumkan",
+  "bio": "Halo, saya Jumadi GT, seorang mentor freelance. Saya percaya percakapan yang tepat dapat menjadi titik awal untuk memahami kebutuhan, menata ide, dan menentukan langkah berikutnya. Melalui halaman ini, Anda dapat mengenal saya dan menghubungi saya secara langsung. Untuk mengetahui topik mentoring, bentuk pendampingan, atau peluang kolaborasi yang sesuai, mari mulai dengan sebuah percakapan.",
+  "tagline": ["MENTOR FREELANCE", "Berbagi Perspektif · Membuka Percakapan"],
+  "interests": ["Mentoring", "Freelance", "Diskusi Profesional", "Kolaborasi"],
+  "photo": {
+    "src": "/clients/jumadi/foto-profesional.webp",
+    "alt": "Foto asli Jumadi GT mengenakan setelan jas dan dasi, potret close-up persegi berlatar biru"
+  },
+  "email": "adi.grd636@gmail.com",
+  "whatsapp": "085868613131",
+  "links": {},
+  "theme": {
+    "accent": "#3289ff",
+    "background": "#070d1b"
+  },
+  "experiences": [
+    {
+      "company": "Profil Profesional",
+      "role": "Mentor Freelance",
+      "period": "Peran saat ini",
+      "description": "Jumadi GT memperkenalkan profesinya sebagai mentor freelance. Bidang mentoring, pengalaman, serta bentuk layanan spesifik dapat dijelaskan lebih lanjut melalui komunikasi langsung."
+    }
+  ],
+  "education": [],
+  "projects": [
+    {
+      "title": "Kenali Jumadi GT",
+      "year": "PROFIL",
+      "description": "Perkenalan singkat Jumadi GT dan perannya sebagai mentor freelance. Halaman ini menjadi titik awal untuk mengenal pendekatan dan membangun komunikasi.",
+      "category": "Profil Profesional",
+      "tags": ["Jumadi GT", "Mentor Freelance", "Perkenalan"],
+      "image": "/clients/jumadi/foto-profesional.webp"
+    },
+    {
+      "title": "Ruang Diskusi Mentoring",
+      "year": "MENTORING",
+      "description": "Punya pertanyaan atau sedang mencari ruang diskusi? Ceritakan topik dan tujuan Anda terlebih dahulu. Kesesuaian pendampingan dapat dibahas langsung dengan Jumadi.",
+      "category": "Diskusi Awal",
+      "tags": ["Mentoring", "Diskusi", "Tujuan"],
+      "website": "https://wa.me/6285868613131?text=Halo%20Pak%20Jumadi%2C%20saya%20ingin%20bertanya%20tentang%20mentoring.",
+      "image": ""
+    },
+    {
+      "title": "Terbuka untuk Terhubung",
+      "year": "KONTAK",
+      "description": "Mulai percakapan terkait profil, topik freelance, atau potensi kerja sama. Rincian bidang keahlian, jadwal, dan layanan dikonfirmasi langsung melalui kontak yang tersedia.",
+      "category": "Komunikasi Profesional",
+      "tags": ["WhatsApp", "Email", "Kolaborasi"],
+      "website": "https://wa.me/6285868613131?text=Halo%20Pak%20Jumadi%20GT%2C%20saya%20melihat%20profil%20Bapak%20di%20PESONAFLIX.",
+      "image": ""
+    }
+  ],
+  "skills": ["Mentor Freelance", "Ruang Diskusi", "Komunikasi Profesional", "Kolaborasi"],
+  "skillCategories": [
+    {
+      "id": "profil",
+      "title": "Peran & Pengenalan",
+      "subtitle": "Mengenal Jumadi GT",
+      "skills": [
+        {
+          "name": "Mentor Freelance",
+          "mono": "MF",
+          "note": "Profesi",
+          "evidence": [
+            "Profesi yang disampaikan: mentor freelance",
+            "Spesialisasi mentoring dapat dikonfirmasi langsung"
+          ]
+        },
+        {
+          "name": "Percakapan Awal",
+          "mono": "PA",
+          "note": "Komunikasi",
+          "evidence": [
+            "Pengunjung dapat menghubungi Jumadi melalui WhatsApp atau email",
+            "Topik dan kebutuhan dapat disampaikan sebelum diskusi lebih lanjut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kolaborasi",
+      "title": "Diskusi & Kolaborasi",
+      "subtitle": "Membuka peluang melalui komunikasi",
+      "skills": [
+        {
+          "name": "Diskusi Kebutuhan",
+          "mono": "DK",
+          "note": "Langkah awal",
+          "evidence": [
+            "Ceritakan tujuan dan kebutuhan sebelum menentukan bentuk pendampingan",
+            "Kesesuaian layanan, jadwal, dan ruang lingkup perlu dikonfirmasi langsung"
+          ]
+        }
+      ]
+    }
+  ],
+  "skillsHeading": "Awali dengan Percakapan",
+  "skillsAside": "Jumadi GT memperkenalkan diri sebagai mentor freelance. Detail spesialisasi, sertifikasi, proyek terdahulu, dan pengalaman kerja belum diberikan, sehingga tidak diklaim di sini. Halaman ini memudahkan calon rekan diskusi untuk menghubunginya secara langsung.",
+  "skillsKicker": "MENTOR FREELANCE · DISKUSI · KOLABORASI",
+  "highlights": [
+    {
+      "title": "Jumadi GT",
+      "description": "Identitas pemilik profil dan kontak profesional.",
+      "category": "PROFIL"
+    },
+    {
+      "title": "Mentor Freelance",
+      "description": "Peran profesional yang disampaikan Jumadi GT.",
+      "category": "PROFESI"
+    },
+    {
+      "title": "Mari Berdiskusi",
+      "description": "Sampaikan topik dan kebutuhan langsung melalui WhatsApp atau email.",
+      "category": "KONTAK"
+    }
+  ],
+  "watchCards": [
+    {
+      "target": "about",
+      "title": "Kenali Jumadi GT",
+      "subtitle": "Profil singkat mentor freelance",
+      "image": "/clients/jumadi/foto-profesional.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Ruang Mentoring",
+      "subtitle": "Topik, pertanyaan, dan diskusi",
+      "image": ""
+    },
+    {
+      "target": "skills",
+      "title": "Peran Profesional",
+      "subtitle": "Mengenal profil dan komunikasi",
+      "image": ""
+    },
+    {
+      "target": "journey",
+      "title": "Mulai Terhubung",
+      "subtitle": "Awal sebuah percakapan",
+      "image": ""
+    }
+  ],
+  "pickCards": [
+    {
+      "label": "PERKENALAN",
+      "title": "Halo, Saya Jumadi GT",
+      "detail": "Berkenalan dengan Jumadi GT, seorang mentor freelance.",
+      "image": "/clients/jumadi/foto-profesional.webp",
+      "palette": { "from": "#091c4c", "via": "#1466dc", "to": "#06122d", "accent": "#d4e7ff" }
+    },
+    {
+      "label": "MENTORING",
+      "title": "Bawa Pertanyaanmu",
+      "detail": "Sampaikan topik dan kebutuhan untuk membuka diskusi.",
+      "image": "",
+      "palette": { "from": "#142c48", "via": "#5185b7", "to": "#0b1628", "accent": "#d7ebff" }
+    },
+    {
+      "label": "KOLABORASI",
+      "title": "Mulai Percakapan",
+      "detail": "Terhubung langsung melalui WhatsApp atau email.",
+      "image": "",
+      "palette": { "from": "#182e40", "via": "#366c83", "to": "#0a1b2a", "accent": "#d0f0ff" }
+    }
+  ],
+  "picksHeading": "Dari Perkenalan ke Percakapan",
+  "picksKicker": "PROFIL · MENTORING · KOLABORASI",
+  "seasons": [
+    {
+      "number": 1,
+      "title": "Mengenal Jumadi GT",
+      "period": "Profil profesional",
+      "synopsis": "Perkenalan Jumadi GT sebagai mentor freelance, termasuk cara untuk menghubunginya.",
+      "episodes": [
+        {
+          "title": "Halo, Saya Jumadi",
+          "runtime": "Profil",
+          "description": "Kenali nama, profesi, dan jalur komunikasi Jumadi GT.",
+          "tags": ["Perkenalan", "Mentor Freelance"],
+          "image": "/clients/jumadi/foto-profesional.webp",
+          "palette": { "from": "#0a1c4e", "via": "#236edf", "to": "#071632", "accent": "#e4f0ff" }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Mari Mulai Diskusi",
+      "period": "Komunikasi dan kolaborasi",
+      "synopsis": "Sebuah percakapan dapat membantu menjelaskan kebutuhan, topik, dan langkah berikutnya.",
+      "episodes": [
+        {
+          "title": "Bicarakan Kebutuhan",
+          "runtime": "Diskusi",
+          "description": "Hubungi Jumadi melalui WhatsApp untuk menanyakan topik mentoring dan peluang kerja sama yang relevan.",
+          "tags": ["Diskusi", "Kontak", "Kolaborasi"],
+          "image": "",
+          "palette": { "from": "#143756", "via": "#4c8cae", "to": "#0c223a", "accent": "#cceeff" }
+        }
+      ]
+    }
+  ],
+  "journeyHeading": "Setiap Percakapan Punya Awal",
+  "journeyAside": "Jumadi GT adalah seorang mentor freelance. Profil ini menampilkan identitas yang telah dibagikan, foto asli, serta kontak langsung. Informasi tentang bidang mentoring, perjalanan karier, hasil kerja, dan materi pendampingan bisa ditambahkan setelah tersedia dari pemilik profil. Untuk pertanyaan awal, hubungi Jumadi melalui WhatsApp atau email.",
+  "journeyKicker": "KENALAN · DISKUSI · TERHUBUNG",
+  "templateId": "original",
+  "identityMode": "photo"
+}
