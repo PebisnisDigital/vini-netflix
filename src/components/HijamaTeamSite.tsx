@@ -179,7 +179,7 @@ export default function HijamaTeamSite(_props: { editorMode?: boolean } = {}) {
             <a href="https://www.youtube.com/@hijamateam" target="_blank" rel="noopener noreferrer"><Play size={28}/><span><strong>Saluran YouTube</strong><small>Video & perkongsian HIJAMATEAM</small></span><ExternalLink size={18}/></a>
             <a href="https://www.facebook.com/ainhassan/" target="_blank" rel="noopener noreferrer"><span className="ht-social__letter">f</span><span><strong>Facebook Nur Ain</strong><small>Ikuti perkongsian & perkembangan</small></span><ExternalLink size={18}/></a>
             <a href="https://sg.shp.ee/BxLda9LH" target="_blank" rel="noopener noreferrer"><ShoppingBag size={28}/><span><strong>Kedai Shopee</strong><small>Lawati kedai dalam talian</small></span><ExternalLink size={18}/></a>
-            <a href="https://www.bekamsingapura.com/" target="_blank" rel="noopener noreferrer"><BookOpen size={28}/><span><strong>Blog</strong><small>Perkongsian maklumat bekam darah oleh Nur Ain</small></span><ExternalLink size={18}/></a>
+            <a href="https://hijamateam.wordpress.com/" target="_blank" rel="noopener noreferrer"><BookOpen size={28}/><span><strong>Blog</strong><small>Perkongsian maklumat bekam darah oleh Nur Ain</small></span><ExternalLink size={18}/></a>
           </div>
         </div>
       </section>
