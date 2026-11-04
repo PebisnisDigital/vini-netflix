@@ -48,7 +48,7 @@ async function start() {
       : electronicTiger ? 'Electronic Tiger Creative Studio — Ideas Into Creations'
       : `${client.content.profile.displayName} — THE SERIES`;
     const metaDescription = hijamaTeam
-      ? 'HijamaTeam menyediakan perkhidmatan bekam darah di Bukit Panjang, Singapura sejak 2009. Ketahui jenis rawatan, pusat ilmu bekam dan hubungi Nur Ain untuk janji temu.'
+      ? 'HijamaTeam menyediakan perkhidmatan bekam darah di Bukit Panjang, Singapura sejak 2009. Ketahui jenis rawatan, pusat ilmu bekam dan hubungi Nur Ain untuk temujanji.'
       : electronicTiger
         ? 'Electronic Tiger Creative Studio creates original brands, meaningful stories, Islamic children’s entertainment, personal development media, and cinematic AI films.'
         : client.content.profile.intro;

@@ -388,3 +388,76 @@
 .ht-footer__bottom{color:#c79785}
 @media(max-width:990px){.ht-hero__veil{background:linear-gradient(90deg,#420d0b 0%,rgba(66,13,11,.97) 37%,rgba(66,13,11,.7) 67%,rgba(66,13,11,.35) 100%)}.ht-trust__grid>div:nth-child(-n+2){border-color:#efdeda}}
 @media(max-width:700px){.ht-hero__veil{background:linear-gradient(180deg,#420d0b 0%,#420d0b 21%,rgba(66,13,11,.95) 40%,rgba(66,13,11,.57) 73%,rgba(66,13,11,.72) 100%)}.ht-mobile-booking{background:#a7251b;color:#fff7f1!important;box-shadow:0 -8px 25px #420e0b55}}
+
+/* Kebolehbacaan: saiz teks lebih selesa pada komputer dan telefon. */
+.ht-topline{font-size:12px;letter-spacing:.03em}
+.ht-mark__tagline{font-size:9px}
+.ht-desktop-nav a{font-size:13px}
+.ht-header__wa{font-size:13px}
+.ht-eyebrow{font-size:12px;letter-spacing:.16em}
+.ht-button,.ht-package-card>a{font-size:14px}
+.ht-text-button,.ht-inline-link,.ht-safety a{font-size:14px}
+.ht-hero__content>p{font-size:17px}
+.ht-hero__line{font-size:11px}
+.ht-trust strong{font-size:14px}
+.ht-trust small{font-size:13px}
+.ht-about__copy>p,.ht-privacy__grid>div:last-child>p{font-size:16px}
+.ht-section-heading--split>p,.ht-section-heading--center>p{font-size:16px}
+.ht-package-card__top,.ht-service-card__top{font-size:12px}
+.ht-package-card__badge{font-size:11px}
+.ht-package-card__detail,.ht-package-card__price span{font-size:14px}
+.ht-package-card__features>div,.ht-package-notes ul{font-size:15px;line-height:1.7}
+.ht-package-notes__heading{font-size:16px}
+.ht-service-card p,.ht-process-step p,.ht-article__content p,.ht-faq details>p{font-size:15px;line-height:1.8}
+.ht-service-card>a,.ht-article__content a{font-size:14px}
+.ht-equipment__label>span{font-size:12px}
+.ht-equipment strong,.ht-equipment small{font-size:14px}
+.ht-process-photo summary small,.ht-process-photo figcaption{font-size:13px}
+.ht-safety p{font-size:16px}
+.ht-article__top,.ht-article__bottom{font-size:12px}
+.ht-faq__grid>div:first-child>p{font-size:16px}
+.ht-faq summary{font-size:16px}
+.ht-faq summary>span{font-size:12px}
+.ht-social__grid strong{font-size:16px}
+.ht-social__grid small{font-size:14px}
+.ht-contact__grid>div:first-child>p{font-size:17px}
+.ht-contact__row strong{font-size:15px}
+.ht-contact__row p{font-size:15px}
+.ht-contact__row a:not([href^=tel]){font-size:13px}
+.ht-footer__top>div:first-child>p,.ht-footer__top a:not(.ht-mark){font-size:14px}
+.ht-footer__top>div:not(:first-child)>strong{font-size:14px}
+.ht-footer__bottom{font-size:12px}
+
+/* Foto sebenar lokasi: pandangan bangunan serta papan nombor blok. */
+.ht-contact__location-photo{display:grid;grid-template-columns:62% 38%;gap:3px;height:260px}
+.ht-contact__location-photo img{min-width:0;width:100%;height:100%;object-fit:cover}
+.ht-contact__location-photo .ht-contact__building{object-position:center 21%}
+.ht-contact__location-photo .ht-contact__building-sign{object-position:center 46%}
+.ht-contact__location-photo figcaption{max-width:62%;font-size:13px;line-height:1.35;bottom:14px}
+
+@media(max-width:1190px){
+  .ht-desktop-nav a{font-size:12px}
+  .ht-desktop-nav{gap:12px}
+}
+@media(max-width:700px){
+  .ht-topline{font-size:11px}
+  .ht-mark__tagline{font-size:9px}
+  .ht-mobile-nav>a{font-size:15px}
+  .ht-eyebrow{font-size:11px;letter-spacing:.12em}
+  .ht-hero__content>p{font-size:16px;line-height:1.75}
+  .ht-hero__buttons .ht-button,.ht-button{font-size:14px}
+  .ht-text-button{font-size:13px}
+  .ht-hero__line{font-size:10px}
+  .ht-trust strong{font-size:13px}
+  .ht-trust small{font-size:12px}
+  .ht-about__copy>p,.ht-privacy__grid>div:last-child>p{font-size:16px}
+  .ht-section-heading--split>p,.ht-section-heading--center>p{font-size:16px}
+  .ht-package-notes ul,.ht-package-card__features>div{font-size:15px}
+  .ht-process-step p,.ht-service-card p,.ht-article__content p,.ht-faq details>p{font-size:15px}
+  .ht-process-step h3{font-size:17px}
+  .ht-safety p{font-size:16px}
+  .ht-faq summary{font-size:16px}
+  .ht-contact__location-photo{height:230px}
+  .ht-contact__location-photo figcaption{font-size:12px;left:12px}
+  .ht-mobile-booking{font-size:15px}
+}

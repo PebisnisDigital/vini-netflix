@@ -7,8 +7,8 @@ import {
 } from 'lucide-react';
 import './hijama-team.css';
 
-const whatsapp = 'https://wa.me/6589567799?text=' + encodeURIComponent('Assalamualaikum HIJAMATEAM. Saya ingin bertanya tentang perkhidmatan bekam darah dan janji temu.');
-const packageWhatsapp = (packageName: string) => 'https://wa.me/6589567799?text=' + encodeURIComponent(`Assalamualaikum HIJAMATEAM. Saya ingin bertanya tentang pakej ${packageName} dan jadual janji temu.`);
+const whatsapp = 'https://wa.me/6589567799?text=' + encodeURIComponent('Assalamualaikum HIJAMATEAM. Saya ingin bertanya tentang perkhidmatan bekam darah dan temujanji.');
+const packageWhatsapp = (packageName: string) => 'https://wa.me/6589567799?text=' + encodeURIComponent(`Assalamualaikum HIJAMATEAM. Saya ingin bertanya tentang pakej ${packageName} dan jadual temujanji.`);
 const mapLink = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Block 429 Bukit Panjang Ring Road #07-715 Singapore 670429');
 
 const packages = [
@@ -48,7 +48,7 @@ const articles = [
   },
   {
     number: '08', topic: 'SEBELUM SESI', title: 'Persediaan sebelum bekam', time: '3 minit bacaan',
-    text: 'Sebelum membuat janji temu, maklumkan jika anda mempunyai penyakit atau keadaan kesihatan tertentu, masalah pendarahan, keadaan kulit, sejarah pengsan, atau sedang mengambil ubat. Jangan berhenti mengambil ubat yang dipreskripsikan semata-mata untuk menjalani bekam. Dapatkan nasihat profesional kesihatan jika anda tidak pasti tentang kesesuaian prosedur.',
+    text: 'Sebelum membuat temujanji, maklumkan jika anda mempunyai penyakit atau keadaan kesihatan tertentu, masalah pendarahan, keadaan kulit, sejarah pengsan, atau sedang mengambil ubat. Jangan berhenti mengambil ubat yang dipreskripsikan semata-mata untuk menjalani bekam. Dapatkan nasihat profesional kesihatan jika anda tidak pasti tentang kesesuaian prosedur.',
   },
   {
     number: '09', topic: 'SELEPAS SESI', title: 'Penjagaan selepas bekam', time: '3 minit bacaan',
@@ -62,11 +62,11 @@ const articles = [
 
 const faq = [
   { q: 'Apakah bekam darah?', a: 'Bekam darah ialah prosedur menggunakan cawan khas untuk sedutan pada kulit serta cucukan-cucukan kecil menggunakan alat pencucuk automatik dan jarum kecil steril yang digunakan sekali sahaja.' },
-  { q: 'Adakah semua orang sesuai menjalani bekam?', a: 'Tidak. Kesesuaian bergantung pada keadaan individu. Jika anda mempunyai masalah kesihatan, mengambil ubat atau berasa ragu-ragu, dapatkan nasihat profesional kesihatan sebelum membuat janji temu.' },
+  { q: 'Adakah semua orang sesuai menjalani bekam?', a: 'Tidak. Kesesuaian bergantung pada keadaan individu. Jika anda mempunyai masalah kesihatan, mengambil ubat atau berasa ragu-ragu, dapatkan nasihat profesional kesihatan sebelum membuat temujanji.' },
   { q: 'Adakah bekam menggantikan rawatan doktor?', a: 'Tidak. Bekam bukan pengganti pemeriksaan, nasihat atau rawatan perubatan. Jangan hentikan rawatan atau ubat yang telah disarankan oleh doktor.' },
   { q: 'Bagaimana dengan kebersihan peralatan?', a: 'HIJAMATEAM menerangkan penggunaan jarum kecil steril (disposable lancet) yang digunakan sekali sahaja dan dibuang selepas penggunaan. Anda dialu-alukan bertanya lanjut tentang kebersihan dan pengendalian peralatan sebelum sesi.' },
   { q: 'Berapakah harga perkhidmatan?', a: 'Bekam Setengah Badan berharga S$60, Bekam Setengah Badan + Tangan S$70, dan Bekam Badan & Kaki S$110. Pemeriksaan darah termasuk dalam setiap pakej tanpa caj berasingan. Jumlah cawan dan tempoh sesi adalah anggaran.' },
-  { q: 'Bagaimana cara membuat janji temu?', a: 'Hubungi Nur Ain melalui WhatsApp di +65 8956 7799. Nyatakan pertanyaan anda serta tarikh dan masa yang diingini. Waktu operasi ialah setiap hari, 9.00 pagi hingga 8.00 malam, tertakluk kepada ketersediaan janji temu.' },
+  { q: 'Bagaimana cara membuat temujanji?', a: 'Hubungi Nur Ain melalui WhatsApp di +65 8956 7799. Nyatakan pertanyaan anda serta tarikh dan masa yang diingini. Waktu operasi ialah setiap hari, 9.00 pagi hingga 8.00 malam, tertakluk kepada ketersediaan temujanji.' },
 ];
 
 function Mark({ light = false }: { light?: boolean }) {
@@ -111,7 +111,7 @@ export default function HijamaTeamSite(_props: { editorMode?: boolean } = {}) {
             <div className="ht-eyebrow ht-eyebrow--light"><span className="ht-eyebrow__line" /> SELAMAT DATANG KE HIJAMATEAM</div>
             <h1 id="ht-hero-title">Mengenali Bekam,<br /><em>Menghayati Sunnah.</em></h1>
             <p>Sejak 2009, kami memperkenalkan bekam darah melalui penerangan yang jelas, proses yang teratur serta perhatian terhadap kebersihan, keselamatan dan keselesaan pelanggan.</p>
-            <div className="ht-hero__buttons"><WhatsAppButton>Tempah Janji Temu</WhatsAppButton><a className="ht-text-button" href="#ilmu">Terokai Pusat Ilmu <ArrowDown size={17} /></a></div>
+            <div className="ht-hero__buttons"><WhatsAppButton>Tempah Temujanji</WhatsAppButton><a className="ht-text-button" href="#ilmu">Terokai Pusat Ilmu <ArrowDown size={17} /></a></div>
             <div className="ht-hero__line"><span>01 / 03</span><span className="ht-hero__rule"/><span>JENAMA · PERKHIDMATAN · ILMU</span></div>
           </div>
         </div>
@@ -178,14 +178,15 @@ export default function HijamaTeamSite(_props: { editorMode?: boolean } = {}) {
           <div>
             <div className="ht-eyebrow ht-eyebrow--light">KAMI DI BUKIT PANJANG</div>
             <h2 id="ht-contact-title">Pertanyaan anda<br /><em>bermula di sini.</em></h2>
-            <p>Hubungi Nur Ain melalui WhatsApp untuk pertanyaan, pilihan sesi, harga terkini dan ketersediaan janji temu.</p>
+            <p>Hubungi Nur Ain melalui WhatsApp untuk pertanyaan, pilihan sesi, harga terkini dan ketersediaan temujanji.</p>
             <WhatsAppButton>Hubungi Nur Ain</WhatsAppButton>
           </div>
           <div className="ht-contact__card">
             <div className="ht-contact__card-top"><span>MAKLUMAT PERHUBUNGAN</span><Sparkles size={21}/></div>
             <figure className="ht-contact__location-photo">
-              <img src="/clients/hijamateam/lokasi-block-429.webp" alt="Foto bangunan Blok 429 di Bukit Panjang, Singapura" width="899" height="1599" loading="lazy" />
-              <figcaption>Bangunan Blok 429, Bukit Panjang</figcaption>
+              <img className="ht-contact__building" src="/clients/hijamateam/lokasi-blok-429-terkini.webp" alt="Bangunan sebenar Blok 429 di Bukit Panjang, Singapura" width="1536" height="2048" loading="lazy" />
+              <img className="ht-contact__building-sign" src="/clients/hijamateam/papan-alamat-blok-429.webp" alt="Papan alamat 429 Bukit Panjang Ring Road pada bangunan" width="1536" height="2048" loading="lazy" />
+              <figcaption>Blok 429 · Bukit Panjang Ring Road</figcaption>
             </figure>
             <div className="ht-contact__row"><MapPin size={22}/><div><strong>Alamat Kami</strong><p>Block 429 Bukit Panjang Ring Road<br/>#07-715<br/>Singapore 670429</p><a href={mapLink} target="_blank" rel="noopener noreferrer">Lihat dalam Google Maps <ExternalLink size={15}/></a></div></div>
             <div className="ht-contact__row"><Clock3 size={22}/><div><strong>Waktu Operasi</strong><p>Setiap hari<br/>9.00 pagi – 8.00 malam</p></div></div>
@@ -196,6 +197,6 @@ export default function HijamaTeamSite(_props: { editorMode?: boolean } = {}) {
     </main>
 
     <footer className="ht-footer"><div className="ht-container ht-footer__top"><div><Mark light/><p>Memperkenalkan bekam darah dengan penerangan yang jelas, berlandaskan kesedaran tentang kebersihan, keselamatan dan pilihan pelanggan.</p></div><div><strong>Jelajah</strong><a href="#tentang">Tentang Kami</a><a href="#perkhidmatan">Perkhidmatan</a><a href="#ilmu">Pusat Ilmu</a><a href="#soalan">Soalan Lazim</a></div><div><strong>Berhubung</strong><a href="https://www.youtube.com/@hijamateam" target="_blank" rel="noopener noreferrer">YouTube</a><a href="https://www.facebook.com/ainhassan/" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://sg.shp.ee/BxLda9LH" target="_blank" rel="noopener noreferrer">Shopee</a><a href={whatsapp} target="_blank" rel="noopener noreferrer">WhatsApp</a></div></div><div className="ht-container ht-footer__bottom"><span>© {new Date().getFullYear()} HIJAMATEAM. Hak cipta terpelihara.</span><span>Bekam bukan pengganti pemeriksaan, nasihat atau rawatan perubatan.</span></div></footer>
-    <a className="ht-mobile-booking" href={whatsapp} target="_blank" rel="noopener noreferrer"><MessageCircle size={19}/> Tempah Janji Temu <ArrowRight size={18}/></a>
+    <a className="ht-mobile-booking" href={whatsapp} target="_blank" rel="noopener noreferrer"><MessageCircle size={19}/> Tempah Temujanji <ArrowRight size={18}/></a>
   </div>;
 }
