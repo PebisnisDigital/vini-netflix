@@ -138,6 +138,13 @@ async function updateInternalLinks(directory) {
         }
         updated = updated.replace(/<\/head>/i, '<link rel="stylesheet" href="/azura/images/brand/azura-theme.css"></head>');
       }
+      // Keep the public /azura route unchanged, but use the client's final
+      // spelling everywhere the displayed brand or contact number appears.
+      updated = updated
+        .replaceAll('AZURA', 'AZZURA')
+        .replaceAll('6285222005585', '6281361377520')
+        .replace(/(?:\+62[\s-]*852[\s-]*2200[\s-]*5585|0852[\s-]*2200[\s-]*5585)/g,
+          '0813-6137-7520');
       if (updated !== current) {
         await writeFile(path, updated);
         updatedFiles++;

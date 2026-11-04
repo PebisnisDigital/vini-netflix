@@ -3,12 +3,12 @@
 This client website is mounted at `/azura` within the existing
 PESONAFLIX Vite/Vercel project. The original owner approved replication.
 The former `/payungmadinah` links permanently redirect to `/azura`.
-The public brand name, logo, favicon and color scheme are AZURA Tour & Travel;
+The public brand name, logo, favicon and color scheme are AZZURA Tour & Travel;
 the original archive names remain unchanged for checksum integrity.
 
 - Homepage plus 39 linked information, catalogue, campaign and article pages.
 - WhatsApp buttons and all detected customer-service WhatsApp numbers have
-  been changed to **+62 852-2200-5585** (`6285222005585`).
+  been changed to **0813-6137-7520** (`6281361377520`).
 - All first-party static assets are local; no hotlinking to source images.
 - Google Tag Manager, Hotjar and Facebook Pixel tracking belonging to the
   source website are intentionally excluded.
