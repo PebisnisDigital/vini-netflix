@@ -3,10 +3,10 @@
   "name": "HijamaTeam",
   "role": "Perkhidmatan Bekam Darah · Pusat Ilmu Bekam",
   "location": "Bukit Panjang, Singapura",
-  "bio": "HijamaTeam ialah jenama perkhidmatan bekam darah di Singapura yang diasaskan oleh pasukan bapa dan anak, Hassan Bin Sulaiman dan Nur Ain Binte Hassan. Kami telah menyediakan perkhidmatan sejak tahun 2009, dengan sesi untuk lelaki dan wanita di bilik berasingan. Kami juga berkongsi pengetahuan tentang amalan bekam, persediaan dan penjagaan selepas rawatan. Hubungi Nur Ain untuk pertanyaan atau membuat janji temu.",
+  "bio": "HijamaTeam ialah jenama perkhidmatan bekam darah di Singapura yang diasaskan oleh pasukan bapa dan anak, Hassan Bin Sulaiman dan Nur Ain Binte Hassan. Kami telah menyediakan perkhidmatan sejak tahun 2009, dengan sesi untuk lelaki dan wanita di bilik berasingan. Kami juga berkongsi pengetahuan tentang amalan bekam, persediaan dan penjagaan selepas rawatan. Hubungi Nur Ain untuk pertanyaan atau membuat temujanji.",
   "tagline": [
     "TRADISI BEKAM. PENDEKATAN PENUH PERHATIAN.",
-    "KENALI · FAHAMI · BUAT JANJI TEMU"
+    "KENALI · FAHAMI · BUAT TEMUJANJI"
   ],
   "interests": ["Bekam Darah", "Pendidikan Bekam", "Kebersihan Peralatan", "Perkhidmatan Lelaki & Wanita"],
   "photo": {
@@ -33,21 +33,21 @@
       "year": "RAWATAN",
       "description": "Pilihan sesi yang memfokuskan kawasan belakang badan. Sila hubungi pasukan kami untuk mengetahui prosedur, kesesuaian dan harga terkini.",
       "category": "Perkhidmatan Bekam",
-      "tags": ["Bekam", "Setengah Badan", "Janji Temu"]
+      "tags": ["Bekam", "Setengah Badan", "Temujanji"]
     },
     {
       "title": "Bekam Setengah Badan & Tangan",
       "year": "RAWATAN",
-      "description": "Pilihan sesi yang merangkumi bahagian belakang badan dan tangan. Keperluan setiap individu dibincangkan terlebih dahulu sebelum temu janji.",
+      "description": "Pilihan sesi yang merangkumi bahagian belakang badan dan tangan. Keperluan setiap individu dibincangkan terlebih dahulu sebelum temujanji.",
       "category": "Perkhidmatan Bekam",
-      "tags": ["Bekam", "Tangan", "Janji Temu"]
+      "tags": ["Bekam", "Tangan", "Temujanji"]
     },
     {
       "title": "Bekam Badan & Kaki",
       "year": "RAWATAN",
       "description": "Pilihan sesi yang lebih menyeluruh merangkumi badan dan kaki. Dapatkan maklumat tentang tempoh, harga dan persediaan secara langsung melalui WhatsApp.",
       "category": "Perkhidmatan Bekam",
-      "tags": ["Bekam", "Kaki", "Janji Temu"]
+      "tags": ["Bekam", "Kaki", "Temujanji"]
     },
     {
       "title": "Pusat Ilmu Bekam",
