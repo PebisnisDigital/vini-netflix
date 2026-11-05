@@ -1,0 +1,253 @@
+{
+  "slug": "nonny",
+  "name": "Nonny Atika Uktolseja",
+  "role": "Affiliate Marketer · Owner KOK SALAMA · Mitra PESONAFLIX",
+  "location": "Aktif secara online",
+  "bio": "Halo, saya Nonny Atika Uktolseja. Saya beraktivitas sebagai affiliate marketer, owner KOK SALAMA, sekaligus Mitra PESONAFLIX. Ini ruang untuk mengenal apa yang saya tekuni dan membuka percakapan tentang rekomendasi, brand, serta peluang kerja sama. Yuk, terhubung langsung!",
+  "tagline": [
+    "DARI KONTEN KE KONEKSI",
+    "Affiliate Marketing · KOK SALAMA · PESONAFLIX"
+  ],
+  "interests": [
+    "Affiliate Marketing",
+    "KOK SALAMA",
+    "Kemitraan PESONAFLIX",
+    "Kolaborasi Digital"
+  ],
+  "photo": {
+    "src": "/clients/nonny/chibi-faceless.webp",
+    "alt": "Ilustrasi avatar 3D chibi faceless: muslimah bercadar hitam dan berabaya longgar, membawa laptop koral dan ponsel; bukan foto asli Nonny"
+  },
+  "email": "tokosalama@gmail.com",
+  "whatsapp": "+62 821-4060-108",
+  "links": {},
+  "theme": {
+    "accent": "#ff5b93",
+    "background": "#140a24"
+  },
+  "experiences": [
+    {
+      "company": "Affiliate Marketing",
+      "role": "Affiliate Marketer",
+      "period": "Peran saat ini",
+      "description": "Nonny memperkenalkan diri sebagai affiliate marketer. Jenis produk dan kanal rekomendasi dapat ditanyakan langsung kepadanya."
+    },
+    {
+      "company": "KOK SALAMA",
+      "role": "Owner",
+      "period": "Peran saat ini",
+      "description": "KOK SALAMA adalah brand atau usaha yang dikelola Nonny. Informasi katalog dan layanannya dapat dikonfirmasi melalui kontak yang tersedia."
+    },
+    {
+      "company": "PESONAFLIX",
+      "role": "Mitra PESONAFLIX",
+      "period": "Peran saat ini",
+      "description": "Nonny terhubung sebagai Mitra PESONAFLIX, layanan website personal bergaya platform streaming. Tanyakan langsung tentang peluang memiliki halaman personal sendiri."
+    }
+  ],
+  "education": [],
+  "projects": [
+    {
+      "title": "KOK SALAMA",
+      "year": "BRAND",
+      "description": "Kenali KOK SALAMA, brand yang dikelola oleh Nonny. Untuk mengetahui produk atau kegiatan terbarunya, hubungi Nonny secara langsung.",
+      "category": "Usaha & Brand",
+      "tags": ["KOK SALAMA", "Owner", "Brand"]
+    },
+    {
+      "title": "Dunia Affiliate Marketing",
+      "year": "AFFILIATE",
+      "description": "Ruang aktivitas Nonny sebagai affiliate marketer. Ingin bertanya tentang rekomendasi atau peluang kolaborasi? Mulai percakapan lewat WhatsApp.",
+      "category": "Affiliate Marketing",
+      "tags": ["Affiliate", "Konten", "Kolaborasi"]
+    },
+    {
+      "title": "Mitra PESONAFLIX",
+      "year": "PARTNER",
+      "description": "Nonny adalah Mitra PESONAFLIX. Tanyakan cara memiliki website personal dengan nuansa katalog film langsung melalui WhatsApp Nonny.",
+      "category": "Kemitraan Digital",
+      "tags": ["PESONAFLIX", "Website Personal", "Mitra"]
+    }
+  ],
+  "skills": [
+    "Affiliate Marketing",
+    "Pengelolaan KOK SALAMA",
+    "Kemitraan PESONAFLIX",
+    "Komunikasi & Kolaborasi"
+  ],
+  "skillCategories": [
+    {
+      "id": "peran",
+      "title": "Tiga Dunia Nonny",
+      "subtitle": "Peran yang sedang dijalani",
+      "skills": [
+        {
+          "name": "Affiliate Marketing",
+          "mono": "AF",
+          "note": "Aktivitas digital",
+          "evidence": [
+            "Profesi yang disampaikan Nonny: affiliate marketer",
+            "Rincian kategori produk dan kanal dapat ditanyakan langsung"
+          ]
+        },
+        {
+          "name": "Owner KOK SALAMA",
+          "mono": "KS",
+          "note": "Brand yang dikelola",
+          "evidence": [
+            "Nonny memperkenalkan diri sebagai owner KOK SALAMA",
+            "Informasi produk dan layanan belum disertakan dalam profil"
+          ]
+        },
+        {
+          "name": "Mitra PESONAFLIX",
+          "mono": "PF",
+          "note": "Kemitraan website",
+          "evidence": [
+            "Nonny terdaftar sebagai Mitra PESONAFLIX",
+            "Pengunjung dapat bertanya tentang website personal melalui Nonny"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "terhubung",
+      "title": "Mulai dari Obrolan",
+      "subtitle": "Pertanyaan dan kerja sama dibahas langsung",
+      "skills": [
+        {
+          "name": "Komunikasi Langsung",
+          "mono": "WA",
+          "note": "WhatsApp & email",
+          "evidence": [
+            "Kontak WhatsApp dan email tersedia di halaman ini",
+            "Kesediaan, penawaran, dan detail kerja sama dikonfirmasi langsung"
+          ]
+        }
+      ]
+    }
+  ],
+  "skillsHeading": "Kenal Perannya, Buka Peluangnya",
+  "skillsAside": "Nonny bergerak di ranah affiliate marketing, mengelola KOK SALAMA, dan menjadi Mitra PESONAFLIX. Detail produk, portofolio, dan pencapaian akan ditambahkan setelah ada informasi resmi dari Nonny.",
+  "skillsKicker": "AFFILIATE · OWNER · PARTNER",
+  "highlights": [
+    {
+      "title": "Affiliate Marketer",
+      "description": "Salah satu peran profesional Nonny di dunia digital.",
+      "category": "PROFESI"
+    },
+    {
+      "title": "Owner KOK SALAMA",
+      "description": "Brand atau usaha yang diperkenalkan dan dikelola Nonny.",
+      "category": "BRAND"
+    },
+    {
+      "title": "Mitra PESONAFLIX",
+      "description": "Jalur untuk bertanya tentang website personal bergaya Netflix.",
+      "category": "KEMITRAAN"
+    }
+  ],
+  "watchCards": [
+    {
+      "target": "about",
+      "title": "Kenalan dengan Nonny",
+      "subtitle": "Tiga peran, satu cerita",
+      "image": "/clients/nonny/chibi-faceless.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Jelajahi Aktivitas",
+      "subtitle": "KOK SALAMA dan affiliate"
+    },
+    {
+      "target": "skills",
+      "title": "Lihat Fokus Nonny",
+      "subtitle": "Brand, kemitraan, dan komunikasi"
+    },
+    {
+      "target": "journey",
+      "title": "Ikuti Ceritanya",
+      "subtitle": "Perjalanan yang terus bergerak"
+    }
+  ],
+  "pickCards": [
+    {
+      "label": "AFFILIATE",
+      "title": "Rekomendasi Jadi Koneksi",
+      "detail": "Kenali aktivitas Nonny sebagai affiliate marketer dan buka percakapan tentang rekomendasi.",
+      "palette": { "from": "#48136a", "via": "#c044aa", "to": "#1b123c", "accent": "#ffe66d" }
+    },
+    {
+      "label": "OWNER",
+      "title": "Kenalan dengan KOK SALAMA",
+      "detail": "Cari tahu lebih jauh tentang brand KOK SALAMA langsung dari owner-nya.",
+      "palette": { "from": "#a42b5a", "via": "#ff8a68", "to": "#451356", "accent": "#fff3b1" }
+    },
+    {
+      "label": "PARTNER",
+      "title": "Punya Website Personal?",
+      "detail": "Nonny siap menjadi kontak awal untuk pertanyaan seputar PESONAFLIX.",
+      "palette": { "from": "#164c84", "via": "#30aeca", "to": "#25205b", "accent": "#ffde85" }
+    }
+  ],
+  "picksHeading": "Tiga Peran, Banyak Cerita",
+  "picksKicker": "KOK SALAMA · AFFILIATE · PESONAFLIX",
+  "seasons": [
+    {
+      "number": 1,
+      "title": "Kenalan dengan Nonny",
+      "period": "Profil & aktivitas",
+      "synopsis": "Nonny Atika Uktolseja memperkenalkan tiga perannya: affiliate marketer, owner KOK SALAMA, dan Mitra PESONAFLIX.",
+      "episodes": [
+        {
+          "title": "Halo, Ini Nonny",
+          "runtime": "Perkenalan",
+          "description": "Cerita singkat Nonny dan cara untuk menghubunginya secara langsung.",
+          "tags": ["Nonny", "Profil", "Kenalan"],
+          "palette": { "from": "#35146a", "via": "#a94dd0", "to": "#140a24", "accent": "#ffdf72" }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Brand & Affiliate",
+      "period": "Bidang yang ditekuni",
+      "synopsis": "Mengenal KOK SALAMA dan kegiatan affiliate marketing sebagai bagian dari aktivitas Nonny.",
+      "episodes": [
+        {
+          "title": "Di Balik KOK SALAMA",
+          "runtime": "Brand",
+          "description": "KOK SALAMA adalah brand atau usaha yang dikelola Nonny. Info terbaru dan detail produk dapat ditanyakan langsung.",
+          "tags": ["KOK SALAMA", "Owner", "Brand"],
+          "palette": { "from": "#922a71", "via": "#ff9b70", "to": "#2e1449", "accent": "#fff1b3" }
+        },
+        {
+          "title": "Ruang Affiliate",
+          "runtime": "Aktivitas",
+          "description": "Affiliate marketing menjadi salah satu bidang yang dijalani Nonny.",
+          "tags": ["Affiliate", "Pemasaran", "Digital"],
+          "palette": { "from": "#0d4b7b", "via": "#59cbd7", "to": "#23205b", "accent": "#ffdc68" }
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Terhubung melalui PESONAFLIX",
+      "period": "Mitra & kolaborasi",
+      "synopsis": "Sebagai Mitra PESONAFLIX, Nonny dapat menjadi kontak awal untuk mengenal layanan website personal.",
+      "episodes": [
+        {
+          "title": "Mulai dari Sebuah Halaman",
+          "runtime": "Kemitraan",
+          "description": "Tanyakan kepada Nonny tentang website personal bergaya platform streaming dan kemungkinan kerja sama.",
+          "tags": ["Mitra PESONAFLIX", "Website Personal"],
+          "palette": { "from": "#6a1d78", "via": "#ed609e", "to": "#20103e", "accent": "#f9de78" }
+        }
+      ]
+    }
+  ],
+  "journeyHeading": "Ceritanya Baru Dimulai",
+  "journeyAside": "Dari affiliate marketing, KOK SALAMA, hingga kemitraan PESONAFLIX, setiap peran memiliki ruangnya sendiri. Nonny terbuka untuk dihubungi melalui kontak yang ditampilkan. Detail penawaran dan kolaborasi bisa ditanyakan langsung kepada Nonny.",
+  "journeyKicker": "TIGA PERAN · SATU HALAMAN · TETAP TERHUBUNG",
+  "templateId": "chibi-3d"
+}
