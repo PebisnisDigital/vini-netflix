@@ -1,0 +1,225 @@
+{
+  "slug": "risdiyanto",
+  "name": "Muhamad Risdiyanto",
+  "role": "Appraiser",
+  "location": "Lokasi belum dicantumkan",
+  "bio": "Halo, saya Muhamad Risdiyanto. Saya berprofesi sebagai appraiser, atau penilai. Melalui halaman ini, saya ingin membuka ruang perkenalan dan komunikasi profesional. Jika Anda ingin menanyakan kebutuhan penilaian atau peluang kerja sama, silakan sampaikan gambaran kebutuhannya. Bidang penilaian, cakupan layanan, dan detail penugasan dapat dikonfirmasi melalui kontak saya.",
+  "tagline": [
+    "SETIAP NILAI PUNYA CERITA",
+    "Appraiser · Profil Profesional · Kolaborasi"
+  ],
+  "interests": [
+    "Dunia Penilaian",
+    "Appraisal",
+    "Diskusi Profesional",
+    "Kolaborasi"
+  ],
+  "photo": {
+    "src": "/clients/risdiyanto/foto-utama.webp",
+    "alt": "Foto asli Muhamad Risdiyanto mengenakan kemeja batik kuning pada suasana acara malam hari, rasio persegi"
+  },
+  "email": "muhris.14@gmail.com",
+  "whatsapp": "085227003011",
+  "links": {},
+  "theme": {
+    "accent": "#ec344d",
+    "background": "#090a10"
+  },
+  "experiences": [
+    {
+      "company": "Profil Profesional",
+      "role": "Appraiser",
+      "period": "Peran saat ini",
+      "description": "Muhamad Risdiyanto memperkenalkan profesinya sebagai appraiser. Informasi mengenai spesialisasi, pengalaman, sertifikasi, serta jenis objek yang dinilai belum dicantumkan dan dapat ditanyakan langsung."
+    }
+  ],
+  "education": [],
+  "projects": [
+    {
+      "title": "Mengenal Risdiyanto",
+      "year": "PROFIL",
+      "description": "Perkenalan Muhamad Risdiyanto sebagai appraiser, disertai jalur komunikasi untuk berdiskusi secara langsung.",
+      "category": "Profil Profesional",
+      "tags": ["Muhamad Risdiyanto", "Appraiser", "Perkenalan"],
+      "image": "/clients/risdiyanto/foto-utama.webp"
+    },
+    {
+      "title": "Diskusi Kebutuhan Penilaian",
+      "year": "APPRAISAL",
+      "description": "Ceritakan jenis objek, tujuan penilaian, dan kebutuhan Anda. Kesesuaian layanan serta ruang lingkupnya dapat dibahas sebelum melangkah lebih jauh.",
+      "category": "Diskusi Awal",
+      "tags": ["Penilaian", "Kebutuhan", "Ruang Lingkup"],
+      "website": "https://wa.me/6285227003011?text=Halo%20Pak%20Risdiyanto%2C%20saya%20ingin%20bertanya%20tentang%20kebutuhan%20penilaian."
+    },
+    {
+      "title": "Terhubung & Berkolaborasi",
+      "year": "KONTAK",
+      "description": "Ada pertanyaan profesional atau peluang kerja sama? Hubungi Risdiyanto melalui WhatsApp atau email yang tertera di halaman ini.",
+      "category": "Komunikasi Profesional",
+      "tags": ["Kolaborasi", "WhatsApp", "Email"],
+      "website": "https://wa.me/6285227003011?text=Halo%20Pak%20Risdiyanto%2C%20saya%20melihat%20profil%20Bapak%20di%20PESONAFLIX."
+    }
+  ],
+  "skills": [
+    "Appraiser",
+    "Diskusi Kebutuhan Penilaian",
+    "Komunikasi Profesional",
+    "Kolaborasi"
+  ],
+  "skillCategories": [
+    {
+      "id": "profesi",
+      "title": "Peran Profesional",
+      "subtitle": "Mengenal profesi Risdiyanto",
+      "skills": [
+        {
+          "name": "Appraiser",
+          "mono": "AP",
+          "note": "Profesi",
+          "evidence": [
+            "Profesi yang disampaikan: appraiser atau penilai",
+            "Spesialisasi dan cakupan layanan perlu dikonfirmasi langsung"
+          ]
+        },
+        {
+          "name": "Diskusi Kebutuhan Penilaian",
+          "mono": "DP",
+          "note": "Konsultasi awal",
+          "evidence": [
+            "Pengunjung dapat menjelaskan jenis objek dan tujuan penilaian",
+            "Kesesuaian kebutuhan dengan cakupan profesi dibahas secara langsung"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "terhubung",
+      "title": "Komunikasi & Kolaborasi",
+      "subtitle": "Mulai dari pesan yang jelas",
+      "skills": [
+        {
+          "name": "Komunikasi Profesional",
+          "mono": "KP",
+          "note": "Kontak langsung",
+          "evidence": [
+            "WhatsApp dan email tersedia untuk pertanyaan profesional",
+            "Jadwal, lokasi, dan bentuk penugasan dikonfirmasi secara langsung"
+          ]
+        },
+        {
+          "name": "Kolaborasi",
+          "mono": "KO",
+          "note": "Peluang kerja sama",
+          "evidence": [
+            "Pertanyaan dan peluang kerja sama dapat disampaikan melalui kontak",
+            "Detail pengalaman dan portofolio menunggu informasi dari pemilik profil"
+          ]
+        }
+      ]
+    }
+  ],
+  "skillsHeading": "Dari Pertanyaan ke Kejelasan",
+  "skillsAside": "Risdiyanto berprofesi sebagai appraiser. Halaman ini merupakan perkenalan profesional, bukan daftar sertifikasi atau klaim penugasan. Untuk memastikan jenis penilaian yang dapat ditangani, lokasi layanan, dan proses kerja, silakan hubungi langsung.",
+  "skillsKicker": "APPRAISER · DISKUSI · KOLABORASI",
+  "highlights": [
+    {
+      "title": "Muhamad Risdiyanto",
+      "description": "Identitas dan jalur kontak profesional.",
+      "category": "PROFIL"
+    },
+    {
+      "title": "Appraiser",
+      "description": "Profesi yang diperkenalkan melalui halaman ini.",
+      "category": "PROFESI"
+    },
+    {
+      "title": "Terbuka untuk Diskusi",
+      "description": "Sampaikan kebutuhan dan pertanyaan melalui kontak langsung.",
+      "category": "KONTAK"
+    }
+  ],
+  "watchCards": [
+    {
+      "target": "about",
+      "title": "Kenali Risdiyanto",
+      "subtitle": "Satu profesi, satu cerita",
+      "image": "/clients/risdiyanto/foto-utama.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Bahas Penilaian",
+      "subtitle": "Mulai dari kebutuhan Anda"
+    },
+    {
+      "target": "skills",
+      "title": "Lihat Fokus Profesional",
+      "subtitle": "Appraisal dan komunikasi"
+    },
+    {
+      "target": "journey",
+      "title": "Mulai Percakapan",
+      "subtitle": "Terhubung dengan Risdiyanto"
+    }
+  ],
+  "pickCards": [
+    {
+      "label": "KENALAN",
+      "title": "Di Balik Nama Risdiyanto",
+      "detail": "Kenali Muhamad Risdiyanto dan profesinya sebagai appraiser.",
+      "image": "/clients/risdiyanto/foto-utama.webp",
+      "palette": { "from": "#1e1731", "via": "#6f3657", "to": "#0b0b13", "accent": "#ffa3b1" }
+    },
+    {
+      "label": "APPRAISAL",
+      "title": "Apa yang Perlu Dinilai?",
+      "detail": "Ceritakan jenis objek dan tujuan Anda. Rincian layanan dikonfirmasi langsung.",
+      "palette": { "from": "#271b22", "via": "#97504c", "to": "#090b13", "accent": "#ffcf9e" }
+    },
+    {
+      "label": "KONEKSI",
+      "title": "Percakapan Pertama",
+      "detail": "Mulai komunikasi profesional melalui WhatsApp atau email.",
+      "palette": { "from": "#121c32", "via": "#435479", "to": "#080b13", "accent": "#a8ceff" }
+    }
+  ],
+  "picksHeading": "Cerita yang Layak Dikenal",
+  "picksKicker": "PROFIL · PROFESI · KONEKSI",
+  "seasons": [
+    {
+      "number": 1,
+      "title": "Kenali Sosoknya",
+      "period": "Profil profesional",
+      "synopsis": "Perkenalan Muhamad Risdiyanto sebagai appraiser dan cara untuk menghubunginya.",
+      "episodes": [
+        {
+          "title": "Halo, Saya Risdiyanto",
+          "runtime": "Profil",
+          "description": "Nama, profesi, foto asli, dan kontak Risdiyanto dalam satu halaman.",
+          "tags": ["Perkenalan", "Appraiser"],
+          "image": "/clients/risdiyanto/foto-utama.webp",
+          "palette": { "from": "#231629", "via": "#74375a", "to": "#090910", "accent": "#ffc0c6" }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Mari Bicara Penilaian",
+      "period": "Diskusi dan komunikasi",
+      "synopsis": "Awali dengan menjelaskan kebutuhan agar ruang lingkup dan kesesuaian layanan bisa dibahas.",
+      "episodes": [
+        {
+          "title": "Ceritakan Kebutuhan Anda",
+          "runtime": "Diskusi",
+          "description": "Sampaikan gambaran objek, tujuan penilaian, atau peluang kolaborasi melalui WhatsApp.",
+          "tags": ["Penilaian", "Komunikasi", "Kolaborasi"],
+          "palette": { "from": "#19213c", "via": "#525879", "to": "#0b0d15", "accent": "#b4c9f6" }
+        }
+      ]
+    }
+  ],
+  "journeyHeading": "Nilai Dimulai dari Memahami",
+  "journeyAside": "Muhamad Risdiyanto memperkenalkan diri sebagai appraiser. Foto, identitas, email, dan nomor WhatsApp telah dicantumkan sesuai data yang diberikan. Informasi lebih detail tentang jenis penilaian, pengalaman, wilayah kerja, sertifikasi, maupun portofolio dapat dilengkapi setelah tersedia dari pemilik profil.",
+  "journeyKicker": "PERKENALAN · KEBUTUHAN · KOMUNIKASI",
+  "templateId": "original",
+  "identityMode": "photo"
+}
