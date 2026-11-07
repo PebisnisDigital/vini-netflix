@@ -1,0 +1,228 @@
+{
+  "slug": "atiekirawati",
+  "name": "Atiek Irawati",
+  "role": "Bisnis Online · Affiliate",
+  "location": "Aktif secara online",
+  "bio": "Halo, saya Atiek Irawati! Saya menekuni bisnis online dan affiliate. Lewat halaman kecil penuh warna ini, kita bisa saling mengenal, berbagi cerita seputar dunia online, dan membuka percakapan tentang rekomendasi atau peluang kerja sama. Yuk, kenalan!",
+  "tagline": [
+    "SATU CERITA, BANYAK PELUANG",
+    "Bisnis Online · Affiliate · Koneksi"
+  ],
+  "interests": [
+    "Bisnis Online",
+    "Affiliate Marketing",
+    "Rekomendasi Produk",
+    "Koneksi & Kolaborasi"
+  ],
+  "photo": {
+    "src": "/clients/atiekirawati/foto-utama.webp",
+    "alt": "Ilustrasi chibi yang dikirim untuk profil Atiek Irawati, mengenakan hijab cokelat dan baju bermotif bunga, dikelilingi gambar hati"
+  },
+  "email": "kitaatik@gmail.com",
+  "whatsapp": "085281982136",
+  "links": {},
+  "theme": {
+    "accent": "#df7894",
+    "background": "#180c18"
+  },
+  "experiences": [
+    {
+      "company": "Bisnis Online",
+      "role": "Pelaku Bisnis Online",
+      "period": "Aktivitas saat ini",
+      "description": "Atiek memperkenalkan bisnis online sebagai salah satu bidang yang ia tekuni. Informasi jenis produk, toko, dan mekanisme pemesanan dapat ditanyakan langsung kepadanya."
+    },
+    {
+      "company": "Affiliate Marketing",
+      "role": "Affiliate",
+      "period": "Aktivitas saat ini",
+      "description": "Atiek juga berkegiatan di bidang affiliate. Untuk mengetahui rekomendasi produk atau kanal affiliate yang sedang digunakan, silakan hubungi Atiek melalui kontak yang tersedia."
+    }
+  ],
+  "education": [],
+  "projects": [
+    {
+      "title": "Ruang Bisnis Online",
+      "year": "BISNIS",
+      "description": "Kenali aktivitas Atiek dalam bisnis online. Produk dan informasi pemesanan terbaru bisa ditanyakan langsung melalui WhatsApp.",
+      "category": "Bisnis Online",
+      "tags": ["Bisnis Online", "Produk", "Komunikasi"],
+      "image": "/clients/atiekirawati/avatar-square.webp"
+    },
+    {
+      "title": "Pilihan Affiliate",
+      "year": "AFFILIATE",
+      "description": "Atiek menekuni affiliate marketing. Ingin tahu rekomendasi yang sedang dibagikan? Mulai obrolan langsung dengannya.",
+      "category": "Affiliate Marketing",
+      "tags": ["Affiliate", "Rekomendasi", "Digital"],
+      "image": "/clients/atiekirawati/foto-utama.webp"
+    },
+    {
+      "title": "Ngobrol dengan Atiek",
+      "year": "KONTAK",
+      "description": "Ada pertanyaan tentang bisnis online, rekomendasi affiliate, atau ajakan kolaborasi? Sampaikan lewat WhatsApp Atiek.",
+      "category": "Koneksi",
+      "tags": ["WhatsApp", "Tanya Langsung", "Kolaborasi"],
+      "website": "https://wa.me/6285281982136?text=Halo%20Bu%20Atiek%2C%20saya%20melihat%20profil%20Ibu%20di%20PESONAFLIX."
+    }
+  ],
+  "skills": [
+    "Bisnis Online",
+    "Affiliate Marketing",
+    "Rekomendasi Produk",
+    "Komunikasi & Kolaborasi"
+  ],
+  "skillCategories": [
+    {
+      "id": "aktivitas",
+      "title": "Dunia Digital Atiek",
+      "subtitle": "Dua bidang yang sedang ditekuni",
+      "skills": [
+        {
+          "name": "Bisnis Online",
+          "mono": "BO",
+          "note": "Aktivitas usaha",
+          "evidence": [
+            "Bisnis online tercantum sebagai profesi Atiek",
+            "Rincian produk dan toko bisa dikonfirmasi langsung"
+          ]
+        },
+        {
+          "name": "Affiliate Marketing",
+          "mono": "AF",
+          "note": "Rekomendasi digital",
+          "evidence": [
+            "Affiliate tercantum sebagai profesi Atiek",
+            "Kanal dan pilihan produk dapat ditanyakan melalui WhatsApp"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "koneksi",
+      "title": "Mari Terhubung",
+      "subtitle": "Awali kerja sama dengan percakapan",
+      "skills": [
+        {
+          "name": "Komunikasi Langsung",
+          "mono": "WA",
+          "note": "WhatsApp & email",
+          "evidence": [
+            "Nomor WhatsApp dan alamat email tersedia",
+            "Pertanyaan produk atau kerja sama dibahas langsung"
+          ]
+        }
+      ]
+    }
+  ],
+  "skillsHeading": "Kenali Fokusnya, Mulai Ceritanya",
+  "skillsAside": "Atiek menekuni bisnis online dan affiliate marketing. Kategori produk, katalog, pengalaman, serta hasil kerja belum dirinci dalam data profil, jadi informasi spesifik dapat ditanyakan langsung tanpa perlu menebak-nebak.",
+  "skillsKicker": "BISNIS ONLINE · AFFILIATE · KONEKSI",
+  "highlights": [
+    {
+      "title": "Bisnis Online",
+      "description": "Salah satu aktivitas utama yang diperkenalkan Atiek.",
+      "category": "BISNIS"
+    },
+    {
+      "title": "Affiliate",
+      "description": "Bidang digital lain yang sedang ia tekuni.",
+      "category": "AFFILIATE"
+    },
+    {
+      "title": "Terhubung dengan Atiek",
+      "description": "Tersedia jalur WhatsApp dan email untuk bertanya langsung.",
+      "category": "KONEKSI"
+    }
+  ],
+  "watchCards": [
+    {
+      "target": "about",
+      "title": "Halo, Saya Atiek",
+      "subtitle": "Kenalan lebih dekat",
+      "image": "/clients/atiekirawati/avatar-square.webp"
+    },
+    {
+      "target": "originals",
+      "title": "Jelajahi Aktivitas",
+      "subtitle": "Bisnis online & affiliate"
+    },
+    {
+      "target": "skills",
+      "title": "Dunia Digital Atiek",
+      "subtitle": "Dua fokus yang ditekuni"
+    },
+    {
+      "target": "journey",
+      "title": "Mari Terhubung",
+      "subtitle": "Obrolan membuka peluang"
+    }
+  ],
+  "pickCards": [
+    {
+      "label": "KENALAN",
+      "title": "Siapa Atiek Irawati?",
+      "detail": "Satu halaman untuk mengenal Atiek dan aktivitas digitalnya.",
+      "image": "/clients/atiekirawati/avatar-square.webp",
+      "palette": { "from": "#5c2944", "via": "#d987a2", "to": "#211125", "accent": "#ffe4c6" }
+    },
+    {
+      "label": "BISNIS ONLINE",
+      "title": "Dari Online Jadi Peluang",
+      "detail": "Cari tahu lebih jauh aktivitas bisnis online Atiek.",
+      "palette": { "from": "#70413c", "via": "#cc9477", "to": "#241525", "accent": "#ffe1bd" }
+    },
+    {
+      "label": "AFFILIATE",
+      "title": "Rekomendasi & Koneksi",
+      "detail": "Tanya langsung soal kegiatan affiliate yang ia jalani.",
+      "palette": { "from": "#69365c", "via": "#e190b1", "to": "#211229", "accent": "#ffe1f2" }
+    }
+  ],
+  "picksHeading": "Cerita Manis di Dunia Digital",
+  "picksKicker": "KENALAN · BISNIS ONLINE · AFFILIATE",
+  "seasons": [
+    {
+      "number": 1,
+      "title": "Kenalan dengan Atiek",
+      "period": "Profil & perkenalan",
+      "synopsis": "Mengenal Atiek Irawati dan dua aktivitas yang ia tekuni: bisnis online serta affiliate.",
+      "episodes": [
+        {
+          "title": "Halo, Ini Atiek!",
+          "runtime": "Perkenalan",
+          "description": "Sosok Atiek di balik ilustrasi chibi, dengan semangat untuk terus terhubung lewat dunia digital.",
+          "tags": ["Atiek", "Profil", "Digital"],
+          "image": "/clients/atiekirawati/avatar-square.webp",
+          "palette": { "from": "#4b2440", "via": "#c57698", "to": "#180b1a", "accent": "#ffdeca" }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Bisnis, Affiliate, dan Percakapan",
+      "period": "Aktivitas saat ini",
+      "synopsis": "Dua bidang digital dan satu pintu komunikasi untuk mengetahui informasi lebih lanjut langsung dari Atiek.",
+      "episodes": [
+        {
+          "title": "Cerita Bisnis Online",
+          "runtime": "Bisnis",
+          "description": "Atiek menjalani aktivitas bisnis online. Detail produk serta pemesanan dapat dikonfirmasi langsung.",
+          "tags": ["Bisnis Online", "Produk"],
+          "palette": { "from": "#583327", "via": "#bc806c", "to": "#1d111c", "accent": "#ffe0bd" }
+        },
+        {
+          "title": "Pilihan di Dunia Affiliate",
+          "runtime": "Affiliate",
+          "description": "Penasaran dengan rekomendasi affiliate Atiek? Kirim pertanyaan melalui WhatsApp.",
+          "tags": ["Affiliate", "Rekomendasi", "WhatsApp"],
+          "palette": { "from": "#5d2653", "via": "#d477a9", "to": "#1b1022", "accent": "#ffe2ed" }
+        }
+      ]
+    }
+  ],
+  "journeyHeading": "Setiap Koneksi Punya Cerita",
+  "journeyAside": "Lewat bisnis online dan affiliate, Atiek membuka ruang untuk saling mengenal. Ingin tahu produk, rekomendasi, atau peluang kolaborasi yang tersedia? Langsung saja kirim pesan—Atiek bisa menjelaskan sesuai aktivitas terbarunya.",
+  "journeyKicker": "KENALAN · TANYA · TERHUBUNG",
+  "templateId": "chibi-3d"
+}
