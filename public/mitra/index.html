@@ -112,15 +112,16 @@
     .rack-card[data-topic="testi"] { --a:#945463; --b:#452f45; --c:#dfa5a8; }
     .rack-card[data-topic="copywriting"] { --a:#53718a; --b:#253f53; --c:#a8c0d4; }
 
-    /* Readable detail drawer */
-    .detail-overlay { position: fixed; z-index: 100; inset: 0; display: flex; justify-content: flex-end; }
-    .shade { position: absolute; inset: 0; background: rgba(4,9,6,.73); backdrop-filter: blur(10px); }
+    /* Centered, accessible topic popup */
+    .detail-overlay { position: fixed; z-index: 100; inset: 0; display: flex; align-items: center; justify-content: center; padding: 22px; }
+    .shade { position: absolute; inset: 0; background: rgba(4,9,6,.78); backdrop-filter: blur(12px); }
     .drawer {
-      position: relative; height: 100dvh; width: min(600px, 100%); background: var(--paper); color: #172019;
-      display: flex; flex-direction: column; border-left: 1px solid #ffffff8a; box-shadow: -30px 0 90px #0007;
-      animation: drawer-in .28s cubic-bezier(.2,.8,.25,1) both;
+      position: relative; width: min(720px, 100%); height: min(790px, calc(100dvh - 44px)); background: var(--paper); color: #172019;
+      display: flex; flex-direction: column; border: 1px solid #ffffffb0; border-radius: 27px; overflow: hidden; box-shadow: 0 40px 120px #000b, 0 0 0 1px #ffffff2d;
+      animation: popup-in .32s cubic-bezier(.18,.85,.26,1) both;
     }
-    @keyframes drawer-in { from { transform: translateX(55px); opacity: .6; } to { transform: translateX(0); opacity: 1; } }
+    .drawer::before { content: ""; position: absolute; z-index: 2; left: 0; right: 0; top: 0; height: 7px; background: var(--modal-accent, #f45d50); }
+    @keyframes popup-in { from { transform: translateY(24px) scale(.94); opacity: .45; } to { transform: translateY(0) scale(1); opacity: 1; } }
     .drawer-header { flex: none; padding: 30px 38px 24px; border-bottom: 1px solid #d9ded5; }
     .drawer-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
     .drawer-kicker { font-size: 11px; color: #c54d44; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; }
@@ -219,8 +220,8 @@
       .card-face { padding: 14px; }
       .card-title { font-size: clamp(21px,5.4vw,27px); }
       .rack-grid.bottom .card-title { font-size: clamp(19px,5vw,24px); }
-      .drawer { width: 100%; height: 94dvh; margin-top: auto; border-radius: 24px 24px 0 0; border-left: 0; animation: sheet-in .26s ease-out both; }
-      @keyframes sheet-in { from { transform: translateY(35px); opacity: .75; } to { transform: translateY(0); opacity: 1; } }
+      .detail-overlay { padding: 10px; }
+      .drawer { width: 100%; height: min(780px, calc(100dvh - 20px)); border-radius: 22px; animation: popup-in .26s ease-out both; }
       .drawer-header { padding: 21px 22px 19px; }
       .drawer h2 { font-size: 35px; margin: 12px 0 0; }
       .drawer-body { padding: 22px 22px 30px; }
@@ -431,6 +432,7 @@
     (function () {
       const cards = Array.from(document.querySelectorAll(".rack-card"));
       const overlay = document.getElementById("detail-overlay");
+      const popup = overlay.querySelector(".drawer");
       const shade = document.getElementById("detail-shade");
       const closeButton = document.getElementById("close-detail");
       const title = document.getElementById("detail-title");
@@ -469,6 +471,7 @@
         const card = cards[activeIndex];
         const template = document.getElementById("topic-" + card.dataset.topic);
         const count = String(activeIndex + 1).padStart(2, "0");
+        popup.style.setProperty("--modal-accent", getComputedStyle(card).getPropertyValue("--a").trim() || "#f45d50");
         title.textContent = card.dataset.title;
         indexLabel.textContent = "MATERI " + count + " / " + totalLabel;
         progress.textContent = count + " / " + totalLabel;
