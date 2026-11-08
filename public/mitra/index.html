@@ -56,37 +56,48 @@
     .rack-zone { position: relative; min-width: 0; width: 100%; }
     .rack {
       position: relative; border: 1px solid #364238; background: rgba(20,29,23,.68); border-radius: 29px;
-      padding: 35px 32px 32px; box-shadow: inset 0 1px #ffffff0a, 0 30px 70px rgba(0,0,0,.28);
-      perspective: 1400px; overflow: hidden;
+      padding: 26px 32px 24px; box-shadow: inset 0 1px #ffffff0a, 0 30px 70px rgba(0,0,0,.28);
+      perspective: 1500px; overflow: hidden;
     }
     .rack::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 47% 0%, #ffffff10, transparent 65%); }
-    .rack-row { position: relative; margin-bottom: 35px; }
+    .rack-row { position: relative; padding-top: 31px; margin-bottom: 12px; }
     .rack-row:last-child { margin-bottom: 0; }
-    .rack-row::after { content: ""; position: absolute; z-index: 0; left: -22px; right: -22px; bottom: -11px; height: 16px; border-radius: 0 0 12px 12px; background: linear-gradient(180deg,#4b594b 0%,#243127 42%,#101710 100%); border-top: 2px solid #788977; box-shadow: 0 11px 18px #0008; }
+    .rack-row::before { content: ""; position: absolute; z-index: 3; top: 0; left: -22px; right: -22px; height: 13px; border-radius: 9px; background: linear-gradient(180deg,#a4b7a3 0%,#526552 20%,#2e4035 60%,#101d17 100%); border-top: 2px solid #d4e2ce; box-shadow: 0 7px 13px #0009, inset 0 -2px #0d170f; pointer-events: none; }
+    .rack-row::after { content: ""; position: absolute; z-index: 0; top: 9px; left: -21px; right: -21px; height: 13px; background: linear-gradient(180deg,#0008,transparent); filter: blur(7px); pointer-events: none; }
     .rack-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 22px; position: relative; z-index: 1; }
     .rack-grid.bottom { grid-template-columns: repeat(5, minmax(0,1fr)); gap: 16px; }
     .rack-card {
-      --tilt: -5deg; --a: #9d434c; --b: #2c2235; --c: #dc8370;
-      min-width: 0; height: clamp(190px, 17vw, 235px); text-align: left; position: relative; padding: 0; border: 0; border-radius: 17px;
-      background: transparent; color: white; transform-style: preserve-3d;
-      transform: rotateY(var(--tilt)) rotateX(5deg) rotateZ(var(--roll, 0deg));
+      --hang: -1.5deg; --a: #9d434c; --b: #2c2235; --c: #dc8370;
+      min-width: 0; height: clamp(185px, 16vw, 215px); text-align: left; position: relative; padding: 0; border: 0; border-radius: 17px;
+      background: transparent; color: white; transform-style: preserve-3d; transform-origin: 50% -25px;
+      transform: rotateZ(var(--hang)) rotateY(-2deg);
       filter: drop-shadow(8px 17px 12px rgba(0,0,0,.5));
-      transition: transform .25s cubic-bezier(.2,.8,.2,1), filter .25s;
+      transition: transform .4s ease-out, filter .4s ease-out;
     }
-    .rack-card:nth-child(even) { --tilt: 5deg; --roll: 1.4deg; }
-    .rack-card:nth-child(3n) { --roll: -1.5deg; }
-    .rack-card:hover, .rack-card:focus-visible { transform: translateY(-11px) rotateY(0) rotateX(0) rotateZ(0) scale(1.035); filter: drop-shadow(9px 25px 19px rgba(0,0,0,.62)); z-index: 4; }
-    .rack-card::before { content: ""; position: absolute; left: -6px; top: 7px; bottom: 5px; width: 9px; border-radius: 5px 0 0 5px; background: linear-gradient(90deg,#100d0d,#79817555 70%,#ffffff59); transform: rotateY(-25deg); z-index: -1; }
+    .rack-card:nth-child(even) { --hang: 1.6deg; }
+    .rack-card:nth-child(3n) { --hang: -.8deg; }
+    .rack-card::before { content: ""; position: absolute; z-index: 4; top: -27px; left: calc(50% - 2px); height: 30px; width: 4px; border-radius: 3px; background: linear-gradient(90deg,#bacbbc,#556958 65%,#293e2d); box-shadow: 1px 1px 5px #0009; pointer-events: none; }
+    .rack-card::after { content: ""; position: absolute; z-index: 5; top: -33px; left: calc(50% - 9px); width: 18px; height: 14px; border: 4px solid #a5b8a6; border-bottom-color: #506b55; border-radius: 50% 50% 45% 45%; box-shadow: 1px 2px 4px #000a; pointer-events: none; }
+    .card-inner { position: absolute; inset: 0; display: block; transform-style: preserve-3d; transition: transform .95s cubic-bezier(.16,.77,.22,1); }
     .card-face {
       position: absolute; inset: 0; border-radius: 17px; overflow: hidden; padding: 20px 19px 17px;
-      display: flex; flex-direction: column; justify-content: center; border: 1px solid #ffffff58;
+      display: flex; flex-direction: column; justify-content: center; border: 1px solid #ffffff58; backface-visibility: hidden; -webkit-backface-visibility: hidden;
       background: radial-gradient(circle at 80% 30%, var(--c) -20%, transparent 50%), linear-gradient(145deg,var(--a),var(--b) 88%);
       box-shadow: inset 3px 0 #ffffff38, inset 0 1px #ffffff5a;
     }
+    .card-back { transform: rotateY(180deg); background: radial-gradient(circle at 20% 25%, var(--c) -35%,transparent 55%),linear-gradient(215deg,var(--a),var(--b) 88%); }
     .card-face::before { content: ""; width: 115%; aspect-ratio: 1; border: 1px solid #ffffff5c; border-radius: 50%; position: absolute; right: -58%; top: 8%; box-shadow: 0 0 0 23px #ffffff12, 0 0 0 51px #ffffff0c; pointer-events: none; }
+    .card-back::before { right: auto; left: -58%; }
     .card-face::after { content: ""; position: absolute; width: 72%; height: 95%; right: -30%; bottom: -45%; border: 1px solid #ffffff4f; transform: rotate(-25deg); border-radius: 45%; pointer-events: none; }
     .card-title { position: relative; z-index: 1; display: block; font-size: clamp(26px,2.7vw,38px); line-height: 1.12; font-weight: 900; letter-spacing: -.055em; max-width: 100%; }
-    .rack-grid.bottom .rack-card { height: clamp(155px, 15vw, 180px); }
+    @keyframes touch-swing { 0% { transform: rotateZ(var(--hang)) rotateY(-2deg); } 16% { transform: rotateZ(7deg) rotateY(6deg); } 38% { transform: rotateZ(-5deg) rotateY(-5deg); } 58% { transform: rotateZ(3.5deg) rotateY(3deg); } 78% { transform: rotateZ(-2deg) rotateY(-2deg); } 100% { transform: rotateZ(0) rotateY(0); } }
+    @media (hover: hover) and (pointer: fine) {
+      .rack-card:hover { animation: touch-swing 1.4s cubic-bezier(.2,.7,.25,1) both; filter: drop-shadow(9px 25px 19px rgba(0,0,0,.62)); z-index: 4; }
+      .rack-card:hover .card-inner { transform: rotateY(180deg); }
+    }
+    .rack-card:focus-visible { z-index: 4; transform: rotateZ(0); }
+    .rack-card:focus-visible .card-inner { transform: rotateY(180deg); }
+    .rack-grid.bottom .rack-card { height: clamp(145px, 13vw, 165px); }
     .rack-grid.bottom .card-face { padding: 16px; }
     .rack-grid.bottom .card-title { font-size: clamp(18px, 1.95vw, 25px); }
     .rack-card[data-topic="tentang"] { --a:#ac4051; --b:#432538; --c:#e17b69; }
@@ -179,34 +190,35 @@
     .drawer-footer span { color: #7d897b; font-size: 12px; font-weight: 900; white-space: nowrap; }
 
     @media (max-width: 1180px) {
-      .rack { padding: 27px 22px 26px; }
+      .rack { padding: 22px 22px 24px; }
       .rack-grid { gap: 17px; }
-      .rack-card { height: clamp(185px,20vw,225px); }
+      .rack-card { height: clamp(170px,18vw,205px); }
       .card-face { padding: 15px; }
       .card-title { font-size: clamp(23px,2.7vw,32px); }
       .rack-grid.bottom .card-title { font-size: clamp(16px,1.9vw,22px); }
     }
     @media (max-width: 940px) {
       .shell { width: min(760px, calc(100% - 40px)); }
-      .rack-card { height: clamp(160px,23vw,200px); }
+      .rack-card { height: clamp(155px,22vw,185px); }
       .card-title { font-size: clamp(21px,3vw,26px); }
       .rack-grid.bottom .card-title { font-size: clamp(14px,1.85vw,18px); overflow-wrap: anywhere; }
     }
     @media (max-width: 580px) {
       .shell { width: min(100% - 24px,520px); padding: 24px 0; }
-      .rack { padding: 19px 14px 18px; border-radius: 22px; }
-      .rack-row { margin-bottom: 31px; }
-      .rack-row::after { left: -8px; right: -8px; bottom: -9px; }
-      .rack-grid, .rack-grid.bottom { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px 13px; }
+      .rack { padding: 22px 14px 20px; border-radius: 22px; }
+      .rack-row { --mobile-card-h: clamp(170px,49vw,215px); margin-bottom: 20px; }
+      .rack-row:last-child { --mobile-card-h: clamp(160px,45vw,195px); }
+      .rack-row::before { left: -8px; right: -8px; }
+      .rack-grid, .rack-grid.bottom { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 44px 13px; }
+      .rack-grid::before, .rack-grid.bottom::after { content: ""; position: absolute; z-index: 3; left: -8px; right: -8px; top: calc(var(--mobile-card-h) + 17px); height: 12px; border-radius: 8px; background: linear-gradient(180deg,#a4b7a3,#526552 35%,#203529); border-top: 2px solid #d4e2ce; box-shadow: 0 7px 13px #0009; pointer-events: none; }
+      .rack-grid.bottom::after { top: calc(var(--mobile-card-h) + var(--mobile-card-h) + 61px); }
       .rack-grid > .rack-card:last-child:nth-child(odd) { grid-column: 1 / -1; height: 130px; }
-      .rack-card { height: clamp(170px,49vw,215px); }
-      .rack-grid.bottom .rack-card { height: clamp(160px,45vw,195px); }
+      .rack-card { height: var(--mobile-card-h); }
+      .rack-grid.bottom .rack-card { height: var(--mobile-card-h); }
       .rack-grid.bottom > .rack-card:last-child:nth-child(odd) { height: 130px; }
       .card-face { padding: 14px; }
       .card-title { font-size: clamp(21px,5.4vw,27px); }
       .rack-grid.bottom .card-title { font-size: clamp(19px,5vw,24px); }
-      .rack-row::before { content: ""; position: absolute; z-index: 0; left: -8px; right: -8px; top: calc(57% - 12px); height: 13px; background: linear-gradient(180deg,#4b594b,#18251b); border-top: 2px solid #788977; border-radius: 0 0 10px 10px; }
-      .rack-row:last-child::before { top: calc(37% - 10px); }
       .drawer { width: 100%; height: 94dvh; margin-top: auto; border-radius: 24px 24px 0 0; border-left: 0; animation: sheet-in .26s ease-out both; }
       @keyframes sheet-in { from { transform: translateY(35px); opacity: .75; } to { transform: translateY(0); opacity: 1; } }
       .drawer-header { padding: 21px 22px 19px; }
@@ -222,6 +234,7 @@
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+      .rack-card:hover .card-inner, .rack-card:focus-visible .card-inner { transform: none !important; }
     }
   </style>
 </head>
@@ -235,25 +248,25 @@
             <div class="rack">
               <div class="rack-row" aria-label="Bagian atas: mengenal PESONAFLIX">
                 <div class="rack-grid">
-                  <button class="rack-card" data-topic="tentang" data-title="PESONAFLIX Apa?" aria-label="Buka materi 1: PESONAFLIX itu apa?"><span class="card-face"><span class="card-title">PESONAFLIX<br>Apa?</span></span></button>
-                  <button class="rack-card" data-topic="demo" data-title="Contohnya" aria-label="Buka materi 2: Contoh PESONAFLIX"><span class="card-face"><span class="card-title">Contohnya</span></span></button>
-                  <button class="rack-card" data-topic="benefit" data-title="Benefit Klien" aria-label="Buka materi 3: Benefit klien"><span class="card-face"><span class="card-title">Benefit Klien</span></span></button>
+                  <button class="rack-card" data-topic="tentang" data-title="PESONAFLIX Apa?" aria-label="Buka materi 1: PESONAFLIX itu apa?"><span class="card-inner"><span class="card-face"><span class="card-title">PESONAFLIX<br>Apa?</span></span><span class="card-face card-back" aria-hidden="true"><span class="card-title">PESONAFLIX<br>Apa?</span></span></span></button>
+                  <button class="rack-card" data-topic="demo" data-title="Contohnya" aria-label="Buka materi 2: Contoh PESONAFLIX"><span class="card-inner"><span class="card-face"><span class="card-title">Contohnya</span></span><span class="card-face card-back" aria-hidden="true"><span class="card-title">Contohnya</span></span></span></button>
+                  <button class="rack-card" data-topic="benefit" data-title="Benefit Klien" aria-label="Buka materi 3: Benefit klien"><span class="card-inner"><span class="card-face"><span class="card-title">Benefit Klien</span></span><span class="card-face card-back" aria-hidden="true"><span class="card-title">Benefit Klien</span></span></span></button>
                 </div>
               </div>
               <div class="rack-row" aria-label="Bagian tengah: program mitra">
                 <div class="rack-grid">
-                  <button class="rack-card" data-topic="mitra" data-title="Mitra PESONAFLIX Apa?" aria-label="Buka materi 4: Mitra PESONAFLIX itu apa?"><span class="card-face"><span class="card-title">Mitra PESONAFLIX<br>Apa?</span></span></button>
-                  <button class="rack-card" data-topic="komisi" data-title="Komisinya" aria-label="Buka materi 5: Komisi Mitra"><span class="card-face"><span class="card-title">Komisinya</span></span></button>
-                  <button class="rack-card" data-topic="jualan" data-title="Cara Main" aria-label="Buka materi 6: Cara Main"><span class="card-face"><span class="card-title">Cara Main</span></span></button>
+                  <button class="rack-card" data-topic="mitra" data-title="Mitra PESONAFLIX Apa?" aria-label="Buka materi 4: Mitra PESONAFLIX itu apa?"><span class="card-inner"><span class="card-face"><span class="card-title">Mitra PESONAFLIX<br>Apa?</span></span><span class="card-face card-back" aria-hidden="true"><span class="card-title">Mitra PESONAFLIX<br>Apa?</span></span></span></button>
+                  <button class="rack-card" data-topic="komisi" data-title="Komisinya" aria-label="Buka materi 5: Komisi Mitra"><span class="card-inner"><span class="card-face"><span class="card-title">Komisinya</span></span><span class="card-face card-back" aria-hidden="true"><span class="card-title">Komisinya</span></span></span></button>
+                  <button class="rack-card" data-topic="jualan" data-title="Cara Main" aria-label="Buka materi 6: Cara Main"><span class="card-inner"><span class="card-face"><span class="card-title">Cara Main</span></span><span class="card-face card-back" aria-hidden="true"><span class="card-title">Cara Main</span></span></span></button>
                 </div>
               </div>
               <div class="rack-row" aria-label="Bagian bawah: bahan promosi mitra">
                 <div class="rack-grid bottom">
-                  <button class="rack-card" data-topic="statuswa" data-title="Status WA" aria-label="Buka materi 7: Status WA"><span class="card-face"><span class="card-title">Status WA</span></span></button>
-                  <button class="rack-card" data-topic="gambar" data-title="Gambar Promosi" aria-label="Buka materi 8: Gambar Promosi"><span class="card-face"><span class="card-title">Gambar Promosi</span></span></button>
-                  <button class="rack-card" data-topic="video" data-title="Video Promosi" aria-label="Buka materi 9: Video Promosi"><span class="card-face"><span class="card-title">Video Promosi</span></span></button>
-                  <button class="rack-card" data-topic="testi" data-title="Testi" aria-label="Buka materi 10: Testimoni"><span class="card-face"><span class="card-title">Testi</span></span></button>
-                  <button class="rack-card" data-topic="copywriting" data-title="Copywriting" aria-label="Buka materi 11: Copywriting"><span class="card-face"><span class="card-title">Copywriting</span></span></button>
+                  <button class="rack-card" data-topic="statuswa" data-title="Status WA" aria-label="Buka materi 7: Status WA"><span class="card-inner"><span class="card-face"><span class="card-title">Status WA</span></span><span class="card-face card-back" aria-hidden="true"><span class="card-title">Status WA</span></span></span></button>
+                  <button class="rack-card" data-topic="gambar" data-title="Gambar Promosi" aria-label="Buka materi 8: Gambar Promosi"><span class="card-inner"><span class="card-face"><span class="card-title">Gambar Promosi</span></span><span class="card-face card-back" aria-hidden="true"><span class="card-title">Gambar Promosi</span></span></span></button>
+                  <button class="rack-card" data-topic="video" data-title="Video Promosi" aria-label="Buka materi 9: Video Promosi"><span class="card-inner"><span class="card-face"><span class="card-title">Video Promosi</span></span><span class="card-face card-back" aria-hidden="true"><span class="card-title">Video Promosi</span></span></span></button>
+                  <button class="rack-card" data-topic="testi" data-title="Testi" aria-label="Buka materi 10: Testimoni"><span class="card-inner"><span class="card-face"><span class="card-title">Testi</span></span><span class="card-face card-back" aria-hidden="true"><span class="card-title">Testi</span></span></span></button>
+                  <button class="rack-card" data-topic="copywriting" data-title="Copywriting" aria-label="Buka materi 11: Copywriting"><span class="card-inner"><span class="card-face"><span class="card-title">Copywriting</span></span><span class="card-face card-back" aria-hidden="true"><span class="card-title">Copywriting</span></span></span></button>
                 </div>
               </div>
             </div>
