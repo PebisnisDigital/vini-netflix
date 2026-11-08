@@ -60,14 +60,14 @@
       perspective: 1400px; overflow: hidden;
     }
     .rack::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 47% 0%, #ffffff10, transparent 65%); }
-    .rack-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); column-gap: 24px; row-gap: 43px; position: relative; z-index: 1; }
-    .shelf { position: absolute; z-index: 0; left: 8px; right: 8px; height: 16px; border-radius: 0 0 12px 12px; background: linear-gradient(180deg,#4b594b 0%,#243127 42%,#101710 100%); border-top: 2px solid #788977; box-shadow: 0 11px 18px #0008; }
-    .shelf.first { top: calc(50% - 14px); }
-    .shelf.second { bottom: 15px; }
-    .shelf.third, .shelf.fourth { display: none; }
+    .rack-row { position: relative; margin-bottom: 35px; }
+    .rack-row:last-child { margin-bottom: 0; }
+    .rack-row::after { content: ""; position: absolute; z-index: 0; left: -22px; right: -22px; bottom: -11px; height: 16px; border-radius: 0 0 12px 12px; background: linear-gradient(180deg,#4b594b 0%,#243127 42%,#101710 100%); border-top: 2px solid #788977; box-shadow: 0 11px 18px #0008; }
+    .rack-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 22px; position: relative; z-index: 1; }
+    .rack-grid.bottom { grid-template-columns: repeat(5, minmax(0,1fr)); gap: 16px; }
     .rack-card {
       --tilt: -5deg; --a: #9d434c; --b: #2c2235; --c: #dc8370;
-      min-width: 0; height: clamp(220px, 20vw, 285px); text-align: left; position: relative; padding: 0; border: 0; border-radius: 17px;
+      min-width: 0; height: clamp(190px, 17vw, 235px); text-align: left; position: relative; padding: 0; border: 0; border-radius: 17px;
       background: transparent; color: white; transform-style: preserve-3d;
       transform: rotateY(var(--tilt)) rotateX(5deg) rotateZ(var(--roll, 0deg));
       filter: drop-shadow(8px 17px 12px rgba(0,0,0,.5));
@@ -86,14 +86,20 @@
     .card-face::before { content: ""; width: 115%; aspect-ratio: 1; border: 1px solid #ffffff5c; border-radius: 50%; position: absolute; right: -58%; top: 8%; box-shadow: 0 0 0 23px #ffffff12, 0 0 0 51px #ffffff0c; pointer-events: none; }
     .card-face::after { content: ""; position: absolute; width: 72%; height: 95%; right: -30%; bottom: -45%; border: 1px solid #ffffff4f; transform: rotate(-25deg); border-radius: 45%; pointer-events: none; }
     .card-title { position: relative; z-index: 1; display: block; font-size: clamp(26px,2.7vw,38px); line-height: 1.12; font-weight: 900; letter-spacing: -.055em; max-width: 100%; }
-    .rack-card:nth-child(1) { --a:#ac4051; --b:#432538; --c:#e17b69; }
-    .rack-card:nth-child(2) { --a:#7566ad; --b:#35305e; --c:#a9a8e5; }
-    .rack-card:nth-child(3) { --a:#607c5f; --b:#243d35; --c:#acc48d; }
-    .rack-card:nth-child(4) { --a:#a86943; --b:#543a39; --c:#e3ab6d; }
-    .rack-card:nth-child(5) { --a:#346a76; --b:#203e4a; --c:#75bfc2; }
-    .rack-card:nth-child(6) { --a:#8a4969; --b:#3d2c50; --c:#dd91a4; }
-    .rack-card:nth-child(7) { --a:#9f7742; --b:#4b4533; --c:#edc477; }
-    .rack-card:nth-child(8) { --a:#4b6e64; --b:#253b42; --c:#a4b9ae; }
+    .rack-grid.bottom .rack-card { height: clamp(155px, 15vw, 180px); }
+    .rack-grid.bottom .card-face { padding: 16px; }
+    .rack-grid.bottom .card-title { font-size: clamp(18px, 1.95vw, 25px); }
+    .rack-card[data-topic="tentang"] { --a:#ac4051; --b:#432538; --c:#e17b69; }
+    .rack-card[data-topic="demo"] { --a:#7566ad; --b:#35305e; --c:#a9a8e5; }
+    .rack-card[data-topic="benefit"] { --a:#607c5f; --b:#243d35; --c:#acc48d; }
+    .rack-card[data-topic="mitra"] { --a:#a86943; --b:#543a39; --c:#e3ab6d; }
+    .rack-card[data-topic="komisi"] { --a:#346a76; --b:#203e4a; --c:#75bfc2; }
+    .rack-card[data-topic="jualan"] { --a:#8a4969; --b:#3d2c50; --c:#dd91a4; }
+    .rack-card[data-topic="statuswa"] { --a:#9f7742; --b:#4b4533; --c:#edc477; }
+    .rack-card[data-topic="gambar"] { --a:#4b6e64; --b:#253b42; --c:#a4b9ae; }
+    .rack-card[data-topic="video"] { --a:#555f9b; --b:#2a3155; --c:#9cb5d6; }
+    .rack-card[data-topic="testi"] { --a:#945463; --b:#452f45; --c:#dfa5a8; }
+    .rack-card[data-topic="copywriting"] { --a:#53718a; --b:#253f53; --c:#a8c0d4; }
 
     /* Readable detail drawer */
     .detail-overlay { position: fixed; z-index: 100; inset: 0; display: flex; justify-content: flex-end; }
@@ -174,27 +180,33 @@
 
     @media (max-width: 1180px) {
       .rack { padding: 27px 22px 26px; }
-      .rack-grid { gap: 34px 17px; }
-      .rack-card { height: clamp(190px,23vw,265px); }
+      .rack-grid { gap: 17px; }
+      .rack-card { height: clamp(185px,20vw,225px); }
       .card-face { padding: 15px; }
       .card-title { font-size: clamp(23px,2.7vw,32px); }
+      .rack-grid.bottom .card-title { font-size: clamp(16px,1.9vw,22px); }
     }
     @media (max-width: 940px) {
       .shell { width: min(760px, calc(100% - 40px)); }
-      .rack-card { height: clamp(160px,24vw,225px); }
-      .card-title { font-size: clamp(18px,2.5vw,23px); }
+      .rack-card { height: clamp(160px,23vw,200px); }
+      .card-title { font-size: clamp(21px,3vw,26px); }
+      .rack-grid.bottom .card-title { font-size: clamp(14px,1.85vw,18px); overflow-wrap: anywhere; }
     }
     @media (max-width: 580px) {
       .shell { width: min(100% - 24px,520px); padding: 24px 0; }
       .rack { padding: 19px 14px 18px; border-radius: 22px; }
-      .rack-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px 15px; }
-      .rack-card { height: clamp(175px,56vw,234px); }
+      .rack-row { margin-bottom: 31px; }
+      .rack-row::after { left: -8px; right: -8px; bottom: -9px; }
+      .rack-grid, .rack-grid.bottom { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px 13px; }
+      .rack-grid > .rack-card:last-child:nth-child(odd) { grid-column: 1 / -1; height: 130px; }
+      .rack-card { height: clamp(170px,49vw,215px); }
+      .rack-grid.bottom .rack-card { height: clamp(160px,45vw,195px); }
+      .rack-grid.bottom > .rack-card:last-child:nth-child(odd) { height: 130px; }
       .card-face { padding: 14px; }
       .card-title { font-size: clamp(21px,5.4vw,27px); }
-      .shelf.first { top: calc(25% - 8px); }
-      .shelf.second { top: calc(50% - 8px); bottom: auto; }
-      .shelf.third { display: block; top: calc(75% - 8px); }
-      .shelf.fourth { display: block; bottom: 15px; }
+      .rack-grid.bottom .card-title { font-size: clamp(19px,5vw,24px); }
+      .rack-row::before { content: ""; position: absolute; z-index: 0; left: -8px; right: -8px; top: calc(57% - 12px); height: 13px; background: linear-gradient(180deg,#4b594b,#18251b); border-top: 2px solid #788977; border-radius: 0 0 10px 10px; }
+      .rack-row:last-child::before { top: calc(37% - 10px); }
       .drawer { width: 100%; height: 94dvh; margin-top: auto; border-radius: 24px 24px 0 0; border-left: 0; animation: sheet-in .26s ease-out both; }
       @keyframes sheet-in { from { transform: translateY(35px); opacity: .75; } to { transform: translateY(0); opacity: 1; } }
       .drawer-header { padding: 21px 22px 19px; }
@@ -221,16 +233,28 @@
         <h1 class="sr-only" id="hero-title">Panduan Mitra PESONAFLIX — Pilih kartu untuk melihat materi</h1>
         <div class="rack-zone" aria-label="Rak materi panduan Mitra PESONAFLIX">
             <div class="rack">
-              <div class="shelf first" aria-hidden="true"></div><div class="shelf second" aria-hidden="true"></div><div class="shelf third" aria-hidden="true"></div><div class="shelf fourth" aria-hidden="true"></div>
-              <div class="rack-grid">
-                <button class="rack-card" data-topic="tentang" data-title="PESONAFLIX itu apa?" aria-label="Buka materi 1: PESONAFLIX itu apa?"><span class="card-face"><span class="card-title">PESONAFLIX<br>itu apa?</span></span></button>
-                <button class="rack-card" data-topic="demo" data-title="Lihat 10 contoh web" aria-label="Buka materi 2: Contoh demo PESONAFLIX"><span class="card-face"><span class="card-title">Lihat 10<br>contoh web</span></span></button>
-                <button class="rack-card" data-topic="benefit" data-title="Benefit untuk klien" aria-label="Buka materi 3: Benefit yang didapatkan klien"><span class="card-face"><span class="card-title">Benefit<br>untuk klien</span></span></button>
-                <button class="rack-card" data-topic="mitra" data-title="Apa itu Mitra PESONAFLIX?" aria-label="Buka materi 4: Apa itu Mitra PESONAFLIX?"><span class="card-face"><span class="card-title">Apa itu Mitra<br>PESONAFLIX?</span></span></button>
-                <button class="rack-card" data-topic="komisi" data-title="Komisi Mitra" aria-label="Buka materi 5: Komisi mitra dan simulasi"><span class="card-face"><span class="card-title">Hitung<br>komisimu</span></span></button>
-                <button class="rack-card" data-topic="jualan" data-title="Cara jualan dalam 6 langkah" aria-label="Buka materi 6: Cara jualan PESONAFLIX"><span class="card-face"><span class="card-title">Cara jualan<br>6 langkah</span></span></button>
-                <button class="rack-card" data-topic="setoran" data-title="Alur uang dan setoran" aria-label="Buka materi 7: Alur pembayaran dan setoran ke tim"><span class="card-face"><span class="card-title">Alur uang<br>& setoran</span></span></button>
-                <button class="rack-card" data-topic="faq" data-title="Pertanyaan yang sering muncul" aria-label="Buka materi 8: Tanya jawab program mitra"><span class="card-face"><span class="card-title">Masih ada<br>pertanyaan?</span></span></button>
+              <div class="rack-row" aria-label="Bagian atas: mengenal PESONAFLIX">
+                <div class="rack-grid">
+                  <button class="rack-card" data-topic="tentang" data-title="PESONAFLIX Apa?" aria-label="Buka materi 1: PESONAFLIX itu apa?"><span class="card-face"><span class="card-title">PESONAFLIX<br>Apa?</span></span></button>
+                  <button class="rack-card" data-topic="demo" data-title="Contohnya" aria-label="Buka materi 2: Contoh PESONAFLIX"><span class="card-face"><span class="card-title">Contohnya</span></span></button>
+                  <button class="rack-card" data-topic="benefit" data-title="Benefit Klien" aria-label="Buka materi 3: Benefit klien"><span class="card-face"><span class="card-title">Benefit Klien</span></span></button>
+                </div>
+              </div>
+              <div class="rack-row" aria-label="Bagian tengah: program mitra">
+                <div class="rack-grid">
+                  <button class="rack-card" data-topic="mitra" data-title="Mitra PESONAFLIX Apa?" aria-label="Buka materi 4: Mitra PESONAFLIX itu apa?"><span class="card-face"><span class="card-title">Mitra PESONAFLIX<br>Apa?</span></span></button>
+                  <button class="rack-card" data-topic="komisi" data-title="Komisinya" aria-label="Buka materi 5: Komisi Mitra"><span class="card-face"><span class="card-title">Komisinya</span></span></button>
+                  <button class="rack-card" data-topic="jualan" data-title="Cara Main" aria-label="Buka materi 6: Cara Main"><span class="card-face"><span class="card-title">Cara Main</span></span></button>
+                </div>
+              </div>
+              <div class="rack-row" aria-label="Bagian bawah: bahan promosi mitra">
+                <div class="rack-grid bottom">
+                  <button class="rack-card" data-topic="statuswa" data-title="Status WA" aria-label="Buka materi 7: Status WA"><span class="card-face"><span class="card-title">Status WA</span></span></button>
+                  <button class="rack-card" data-topic="gambar" data-title="Gambar Promosi" aria-label="Buka materi 8: Gambar Promosi"><span class="card-face"><span class="card-title">Gambar Promosi</span></span></button>
+                  <button class="rack-card" data-topic="video" data-title="Video Promosi" aria-label="Buka materi 9: Video Promosi"><span class="card-face"><span class="card-title">Video Promosi</span></span></button>
+                  <button class="rack-card" data-topic="testi" data-title="Testi" aria-label="Buka materi 10: Testimoni"><span class="card-face"><span class="card-title">Testi</span></span></button>
+                  <button class="rack-card" data-topic="copywriting" data-title="Copywriting" aria-label="Buka materi 11: Copywriting"><span class="card-face"><span class="card-title">Copywriting</span></span></button>
+                </div>
               </div>
             </div>
         </div>
@@ -240,14 +264,14 @@
         <div class="shade" id="detail-shade" aria-hidden="true"></div>
         <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="detail-title" aria-describedby="detail-instruction">
           <div class="drawer-header">
-            <div class="drawer-row"><span class="drawer-kicker" id="detail-index">MATERI 01 / 08</span><button class="close-btn" id="close-detail" type="button" aria-label="Tutup penjelasan">×</button></div>
+            <div class="drawer-row"><span class="drawer-kicker" id="detail-index">MATERI 01 / 11</span><button class="close-btn" id="close-detail" type="button" aria-label="Tutup penjelasan">×</button></div>
             <h2 id="detail-title">PESONAFLIX itu apa?</h2>
             <span class="sr-only" id="detail-instruction">Tekan Escape untuk menutup panel. Gunakan tombol Berikutnya dan Sebelumnya untuk menjelajahi materi lain.</span>
           </div>
           <div class="drawer-body" id="detail-body" tabindex="-1"></div>
           <div class="drawer-footer">
             <button type="button" id="prev-topic">← Sebelumnya</button>
-            <span id="detail-progress">01 / 08</span>
+            <span id="detail-progress">01 / 11</span>
             <button type="button" id="next-topic">Berikutnya →</button>
           </div>
         </aside>
@@ -341,6 +365,10 @@
       <li><span class="num">06</span><div><h3>Setorkan sisa ke tim</h3><p>Kirimkan sisa pembayaran kepada tim PESONAFLIX. Tim kami membuat web personal klien.</p></div></li>
     </ol>
     <p class="hint">Pastikan data klien dan instruksi pembayaran sudah jelas sebelum meneruskan pesanan ke tim.</p>
+    <div class="info-card soft"><h3>Alur setoran ke tim</h3><p>Klien membayar Rp199.000 ke mitra. Mitra yang sudah daftar mengambil komisi Rp100.000 dan menyetor Rp99.000. Mitra yang belum daftar mengambil Rp30.000 dan menyetor Rp169.000. Konfirmasi rekening resmi kepada tim sebelum transfer.</p></div>
+    <details class="faq-item"><summary>Harus sudah punya web PESONAFLIX?</summary><p>Tidak. Mitra yang belum daftar tetap bisa menjual dengan komisi Rp30.000 per klien.</p></details>
+    <details class="faq-item"><summary>Siapa yang membuat website klien?</summary><p>Tim PESONAFLIX. Mitra membantu promosi, menerima pendaftaran, dan menyetorkan bagian pembayaran ke tim.</p></details>
+    <details class="faq-item"><summary>Bagaimana jika klien minta revisi?</summary><p>Klien dapat mengajukan revisi. Tim PESONAFLIX yang mengerjakannya.</p></details>
   </template>
 
   <template id="topic-setoran">
@@ -365,6 +393,27 @@
     <details class="faq-item"><summary>Ke mana sisa uang ditransfer?</summary><p>Ke tim PESONAFLIX. Minta detail pembayaran resmi kepada tim karena nomor rekening belum tercantum di halaman ini.</p></details>
   </template>
 
+  <template id="topic-statuswa">
+    <p class="lead">Tempat kumpulan bahan <strong>Status WhatsApp</strong> untuk mitra PESONAFLIX.</p>
+    <div class="info-card soft"><h3>Materi akan ditambahkan</h3><p>Teks status dan rangkaian promosi WhatsApp belum diunggah ke kartu ini. Nantinya mitra bisa membaca dan menyalin konten dari sini.</p></div>
+  </template>
+  <template id="topic-gambar">
+    <p class="lead">Tempat kumpulan <strong>gambar promosi</strong> PESONAFLIX untuk dibagikan mitra.</p>
+    <div class="info-card soft"><h3>Gambar belum diunggah</h3><p>Setelah aset promosi disediakan, gambar akan ditampilkan di sini. Belum ada gambar yang dapat diunduh dari kartu ini.</p></div>
+  </template>
+  <template id="topic-video">
+    <p class="lead">Tempat kumpulan <strong>video promosi</strong> untuk membantu mitra mengenalkan PESONAFLIX.</p>
+    <div class="info-card soft"><h3>Video belum diunggah</h3><p>Kartu ini disiapkan untuk video promosi resmi ketika filenya sudah tersedia.</p></div>
+  </template>
+  <template id="topic-testi">
+    <p class="lead">Tempat menampilkan <strong>testimoni nyata</strong> pelanggan PESONAFLIX.</p>
+    <div class="info-card soft"><h3>Testimoni belum diunggah</h3><p>Testimoni akan ditambahkan setelah materi asli tersedia dan mendapat izin untuk ditampilkan.</p></div>
+  </template>
+  <template id="topic-copywriting">
+    <p class="lead">Tempat kumpulan <strong>copywriting</strong> untuk caption, chat penawaran, dan tindak lanjut calon klien.</p>
+    <div class="info-card soft"><h3>Naskah sedang disiapkan</h3><p>Materi copywriting belum diunggah ke kartu ini. Nantinya tiap naskah bisa ditampilkan secara lengkap agar mudah disalin oleh mitra.</p></div>
+  </template>
+
   <script>
     (function () {
       const cards = Array.from(document.querySelectorAll(".rack-card"));
@@ -377,6 +426,7 @@
       const body = document.getElementById("detail-body");
       const prev = document.getElementById("prev-topic");
       const next = document.getElementById("next-topic");
+      const totalLabel = String(cards.length).padStart(2, "0");
       let activeIndex = 0;
       let returnFocus = null;
 
@@ -407,8 +457,8 @@
         const template = document.getElementById("topic-" + card.dataset.topic);
         const count = String(activeIndex + 1).padStart(2, "0");
         title.textContent = card.dataset.title;
-        indexLabel.textContent = "MATERI " + count + " / 08";
-        progress.textContent = count + " / 08";
+        indexLabel.textContent = "MATERI " + count + " / " + totalLabel;
+        progress.textContent = count + " / " + totalLabel;
         body.replaceChildren(template.content.cloneNode(true));
         body.scrollTop = 0;
         bindCommission();
