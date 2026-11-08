@@ -79,20 +79,13 @@
     .rack-card::before { content: ""; position: absolute; left: -6px; top: 7px; bottom: 5px; width: 9px; border-radius: 5px 0 0 5px; background: linear-gradient(90deg,#100d0d,#79817555 70%,#ffffff59); transform: rotateY(-25deg); z-index: -1; }
     .card-face {
       position: absolute; inset: 0; border-radius: 17px; overflow: hidden; padding: 20px 19px 17px;
-      display: flex; flex-direction: column; border: 1px solid #ffffff58;
+      display: flex; flex-direction: column; justify-content: center; border: 1px solid #ffffff58;
       background: radial-gradient(circle at 80% 30%, var(--c) -20%, transparent 50%), linear-gradient(145deg,var(--a),var(--b) 88%);
       box-shadow: inset 3px 0 #ffffff38, inset 0 1px #ffffff5a;
     }
     .card-face::before { content: ""; width: 115%; aspect-ratio: 1; border: 1px solid #ffffff5c; border-radius: 50%; position: absolute; right: -58%; top: 8%; box-shadow: 0 0 0 23px #ffffff12, 0 0 0 51px #ffffff0c; pointer-events: none; }
     .card-face::after { content: ""; position: absolute; width: 72%; height: 95%; right: -30%; bottom: -45%; border: 1px solid #ffffff4f; transform: rotate(-25deg); border-radius: 45%; pointer-events: none; }
-    .card-top { display: flex; justify-content: space-between; gap: 6px; align-items: center; z-index: 1; font-size: 9px; font-weight: 900; letter-spacing: .09em; color: #ffffffde; }
-    .card-top i { width: 18px; height: 18px; border: 1px solid #ffffff8a; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-size: 10px; }
-    .card-symbol { font-size: clamp(59px,6vw,85px); font-weight: 800; letter-spacing: -.13em; line-height: 1; margin: auto 0 7px; opacity: .83; text-shadow: 0 5px 17px #0003; }
-    .card-symbol-svg { display: block; width: clamp(59px,6vw,85px); height: clamp(59px,6vw,85px); color: #fff; }
-    .card-symbol-svg svg { display: block; width: 100%; height: 100%; filter: drop-shadow(0 5px 17px #0003); }
-    .card-title { position: relative; z-index: 1; display: block; font-size: clamp(19px,2vw,28px); line-height: 1.08; font-weight: 900; letter-spacing: -.055em; max-width: 98%; }
-    .card-bottom { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; margin-top: 9px; font-size: 9px; font-weight: 850; letter-spacing: .12em; opacity: .85; }
-    .card-bottom .circle-arrow { width: 23px; height: 23px; border: 1px solid #ffffff91; border-radius: 50%; display: grid; place-items: center; font-size: 15px; letter-spacing: 0; }
+    .card-title { position: relative; z-index: 1; display: block; font-size: clamp(26px,2.7vw,38px); line-height: 1.12; font-weight: 900; letter-spacing: -.055em; max-width: 100%; }
     .rack-card:nth-child(1) { --a:#ac4051; --b:#432538; --c:#e17b69; }
     .rack-card:nth-child(2) { --a:#7566ad; --b:#35305e; --c:#a9a8e5; }
     .rack-card:nth-child(3) { --a:#607c5f; --b:#243d35; --c:#acc48d; }
@@ -184,13 +177,12 @@
       .rack-grid { gap: 34px 17px; }
       .rack-card { height: clamp(190px,23vw,265px); }
       .card-face { padding: 15px; }
-      .card-title { font-size: clamp(18px,2.3vw,25px); }
+      .card-title { font-size: clamp(23px,2.7vw,32px); }
     }
     @media (max-width: 940px) {
       .shell { width: min(760px, calc(100% - 40px)); }
       .rack-card { height: clamp(160px,24vw,225px); }
-      .card-title { font-size: clamp(15px,2.5vw,22px); }
-      .card-symbol { font-size: 61px; }
+      .card-title { font-size: clamp(18px,2.5vw,23px); }
     }
     @media (max-width: 580px) {
       .shell { width: min(100% - 24px,520px); padding: 24px 0; }
@@ -198,9 +190,7 @@
       .rack-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px 15px; }
       .rack-card { height: clamp(175px,56vw,234px); }
       .card-face { padding: 14px; }
-      .card-title { font-size: clamp(18px,5vw,24px); }
-      .card-symbol { font-size: 58px; }
-      .card-symbol-svg { width: 58px; height: 58px; }
+      .card-title { font-size: clamp(21px,5.4vw,27px); }
       .shelf.first { top: calc(25% - 8px); }
       .shelf.second { top: calc(50% - 8px); bottom: auto; }
       .shelf.third { display: block; top: calc(75% - 8px); }
@@ -233,14 +223,14 @@
             <div class="rack">
               <div class="shelf first" aria-hidden="true"></div><div class="shelf second" aria-hidden="true"></div><div class="shelf third" aria-hidden="true"></div><div class="shelf fourth" aria-hidden="true"></div>
               <div class="rack-grid">
-                <button class="rack-card" data-topic="tentang" data-title="PESONAFLIX itu apa?" aria-label="Buka materi 1: PESONAFLIX itu apa?"><span class="card-face"><span class="card-top">01 / KENALAN <i>✦</i></span><span class="card-symbol">P.</span><span class="card-title">PESONAFLIX<br>itu apa?</span><span class="card-bottom">BUKA MATERI <span class="circle-arrow">→</span></span></span></button>
-                <button class="rack-card" data-topic="demo" data-title="Lihat 10 contoh web" aria-label="Buka materi 2: Contoh demo PESONAFLIX"><span class="card-face"><span class="card-top">02 / SHOWCASE <i>✦</i></span><span class="card-symbol card-symbol-svg" aria-hidden="true"><svg viewBox="0 0 80 80" focusable="false"><path d="M18 8 69 40 18 72Z" fill="currentColor"/></svg></span><span class="card-title">Lihat 10<br>contoh web</span><span class="card-bottom">BUKA MATERI <span class="circle-arrow">→</span></span></span></button>
-                <button class="rack-card" data-topic="benefit" data-title="Benefit untuk klien" aria-label="Buka materi 3: Benefit yang didapatkan klien"><span class="card-face"><span class="card-top">03 / BENEFIT <i>✦</i></span><span class="card-symbol card-symbol-svg" aria-hidden="true"><svg viewBox="0 0 80 80" focusable="false"><path d="M40 7V73M7 40H73M16.7 16.7 63.3 63.3M63.3 16.7 16.7 63.3" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/></svg></span><span class="card-title">Benefit<br>untuk klien</span><span class="card-bottom">BUKA MATERI <span class="circle-arrow">→</span></span></span></button>
-                <button class="rack-card" data-topic="mitra" data-title="Apa itu Mitra PESONAFLIX?" aria-label="Buka materi 4: Apa itu Mitra PESONAFLIX?"><span class="card-face"><span class="card-top">04 / PARTNER <i>✦</i></span><span class="card-symbol">◎</span><span class="card-title">Apa itu Mitra<br>PESONAFLIX?</span><span class="card-bottom">BUKA MATERI <span class="circle-arrow">→</span></span></span></button>
-                <button class="rack-card" data-topic="komisi" data-title="Komisi Mitra" aria-label="Buka materi 5: Komisi mitra dan simulasi"><span class="card-face"><span class="card-top">05 / KOMISI <i>✦</i></span><span class="card-symbol">100K</span><span class="card-title">Hitung<br>komisimu</span><span class="card-bottom">BUKA MATERI <span class="circle-arrow">→</span></span></span></button>
-                <button class="rack-card" data-topic="jualan" data-title="Cara jualan dalam 6 langkah" aria-label="Buka materi 6: Cara jualan PESONAFLIX"><span class="card-face"><span class="card-top">06 / PRAKTIK <i>✦</i></span><span class="card-symbol">06</span><span class="card-title">Cara jualan<br>6 langkah</span><span class="card-bottom">BUKA MATERI <span class="circle-arrow">→</span></span></span></button>
-                <button class="rack-card" data-topic="setoran" data-title="Alur uang dan setoran" aria-label="Buka materi 7: Alur pembayaran dan setoran ke tim"><span class="card-face"><span class="card-top">07 / PEMBAYARAN <i>✦</i></span><span class="card-symbol">→</span><span class="card-title">Alur uang<br>& setoran</span><span class="card-bottom">BUKA MATERI <span class="circle-arrow">→</span></span></span></button>
-                <button class="rack-card" data-topic="faq" data-title="Pertanyaan yang sering muncul" aria-label="Buka materi 8: Tanya jawab program mitra"><span class="card-face"><span class="card-top">08 / TANYA JAWAB <i>✦</i></span><span class="card-symbol">?</span><span class="card-title">Masih ada<br>pertanyaan?</span><span class="card-bottom">BUKA MATERI <span class="circle-arrow">→</span></span></span></button>
+                <button class="rack-card" data-topic="tentang" data-title="PESONAFLIX itu apa?" aria-label="Buka materi 1: PESONAFLIX itu apa?"><span class="card-face"><span class="card-title">PESONAFLIX<br>itu apa?</span></span></button>
+                <button class="rack-card" data-topic="demo" data-title="Lihat 10 contoh web" aria-label="Buka materi 2: Contoh demo PESONAFLIX"><span class="card-face"><span class="card-title">Lihat 10<br>contoh web</span></span></button>
+                <button class="rack-card" data-topic="benefit" data-title="Benefit untuk klien" aria-label="Buka materi 3: Benefit yang didapatkan klien"><span class="card-face"><span class="card-title">Benefit<br>untuk klien</span></span></button>
+                <button class="rack-card" data-topic="mitra" data-title="Apa itu Mitra PESONAFLIX?" aria-label="Buka materi 4: Apa itu Mitra PESONAFLIX?"><span class="card-face"><span class="card-title">Apa itu Mitra<br>PESONAFLIX?</span></span></button>
+                <button class="rack-card" data-topic="komisi" data-title="Komisi Mitra" aria-label="Buka materi 5: Komisi mitra dan simulasi"><span class="card-face"><span class="card-title">Hitung<br>komisimu</span></span></button>
+                <button class="rack-card" data-topic="jualan" data-title="Cara jualan dalam 6 langkah" aria-label="Buka materi 6: Cara jualan PESONAFLIX"><span class="card-face"><span class="card-title">Cara jualan<br>6 langkah</span></span></button>
+                <button class="rack-card" data-topic="setoran" data-title="Alur uang dan setoran" aria-label="Buka materi 7: Alur pembayaran dan setoran ke tim"><span class="card-face"><span class="card-title">Alur uang<br>& setoran</span></span></button>
+                <button class="rack-card" data-topic="faq" data-title="Pertanyaan yang sering muncul" aria-label="Buka materi 8: Tanya jawab program mitra"><span class="card-face"><span class="card-title">Masih ada<br>pertanyaan?</span></span></button>
               </div>
             </div>
         </div>
