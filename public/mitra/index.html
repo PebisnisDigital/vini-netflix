@@ -120,6 +120,7 @@
       display: flex; flex-direction: column; border: 1px solid #ffffffb0; border-radius: 27px; overflow: hidden; box-shadow: 0 40px 120px #000b, 0 0 0 1px #ffffff2d;
       animation: popup-in .32s cubic-bezier(.18,.85,.26,1) both;
     }
+    .drawer.demo-mode { width: min(1040px, 100%); height: min(875px, calc(100dvh - 44px)); }
     .drawer::before { content: ""; position: absolute; z-index: 2; left: 0; right: 0; top: 0; height: 7px; background: var(--modal-accent, #f45d50); }
     @keyframes popup-in { from { transform: translateY(24px) scale(.94); opacity: .45; } to { transform: translateY(0) scale(1); opacity: 1; } }
     .drawer-header { flex: none; padding: 30px 38px 24px; border-bottom: 1px solid #d9ded5; }
@@ -147,18 +148,18 @@
     .bullet-list { list-style: none; padding: 0; margin: 18px 0; display: grid; gap: 11px; }
     .bullet-list li { display: flex; gap: 13px; color: #465447; line-height: 1.65; }
     .bullet-list li::before { content: "✓"; flex: none; width: 24px; height: 24px; display: grid; place-items: center; border-radius: 50%; background: #d7e6d4; color: #1d4b28; font-weight: 900; font-size: 13px; margin-top: 2px; }
-    .demo-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .demo-list { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
     .demo-link { min-width: 0; background: #fff; border: 1px solid #dce2d8; border-radius: 14px; padding: 9px; display: flex; flex-direction: column; gap: 10px; transition: transform .2s, border-color .2s; }
     .demo-link:hover { transform: translateY(-2px); border-color: #ce7669; }
     .demo-link small { color: #8d978b; font-size: 10px; font-weight: 900; letter-spacing: .1em; }
     .demo-link strong { color: #202c22; font-size: 17px; letter-spacing: -.04em; }
     .demo-meta span { color: #bb4b41; font-size: 12px; font-weight: 850; display: flex; justify-content: space-between; align-items: center; gap: 5px; }
-    .demo-link .demo-screen { position: relative; display: block; width: 100%; aspect-ratio: 430 / 740; overflow: hidden; border-radius: 9px; background: linear-gradient(145deg,#17271c,#304139 48%,#18261c); isolation: isolate; }
+    .demo-link .demo-screen { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 9px; background: linear-gradient(145deg,#17271c,#304139 48%,#18261c); isolation: isolate; }
     .demo-screen::after { content: ""; position: absolute; z-index: 2; inset: 0; border: 1px solid #ffffff38; border-radius: 9px; box-shadow: inset 0 0 45px #0005; pointer-events: none; }
     .demo-loading { position: absolute; z-index: 1; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 8px; padding: 16px; color: #dcece1; font-size: 12px; font-weight: 750; line-height: 1.5; transition: opacity .3s; }
     .demo-loading::before { content: "↻"; font-size: 30px; font-weight: 400; }
     .demo-screen.is-ready .demo-loading { opacity: 0; }
-    .demo-frame { position: absolute; left: 0; top: 0; width: 430px; height: 740px; border: 0; opacity: 0; transform-origin: 0 0; pointer-events: none; transition: opacity .4s; }
+    .demo-frame { position: absolute; left: 0; top: 0; width: 1280px; height: 720px; border: 0; opacity: 0; transform-origin: 0 0; pointer-events: none; transition: opacity .4s; }
     .demo-screen.is-ready .demo-frame { opacity: 1; }
     .demo-link .demo-meta { display: flex; flex-direction: column; gap: 5px; padding: 0 5px 4px; }
     .demo-link:focus-visible .demo-screen, .demo-link:hover .demo-screen { outline: 2px solid #df8f7b; outline-offset: -2px; }
@@ -231,6 +232,7 @@
       .rack-grid.bottom .card-title { font-size: clamp(19px,5vw,24px); }
       .detail-overlay { padding: 10px; }
       .drawer { width: 100%; height: min(780px, calc(100dvh - 20px)); border-radius: 22px; animation: popup-in .26s ease-out both; }
+      .drawer.demo-mode { width: 100%; height: min(780px, calc(100dvh - 20px)); }
       .drawer-header { padding: 21px 22px 19px; }
       .drawer h2 { font-size: 35px; margin: 12px 0 0; }
       .drawer-body { padding: 22px 22px 30px; }
@@ -316,7 +318,7 @@
   </template>
 
   <template id="topic-demo">
-    <p class="lead"><strong>Lihat tampilan aslinya bergerak!</strong> Setiap layar otomatis memperlihatkan website dari atas ke bawah. Ketuk pratinjau untuk membuka demo lengkap.</p>
+    <p class="lead"><strong>Lihat versi desktop-nya!</strong> Setiap pratinjau lebar menampilkan website asli yang otomatis bergerak dari atas ke bawah. Ketuk untuk membuka demo lengkap.</p>
     <div class="demo-list">
       <a class="demo-link" href="https://pesonaflix.vercel.app/vini" target="_blank" rel="noopener noreferrer" aria-label="Buka demo 01 Original"><span class="demo-screen" data-demo-src="/vini"><span class="demo-loading">Memuat tampilan website asli…</span></span><span class="demo-meta"><small>DEMO 01</small><strong>Original</strong><span>/vini <b>↗</b></span></span></a>
       <a class="demo-link" href="https://pesonaflix.vercel.app/vini2" target="_blank" rel="noopener noreferrer" aria-label="Buka demo 02 Chibi"><span class="demo-screen" data-demo-src="/vini2"><span class="demo-loading">Memuat tampilan website asli…</span></span><span class="demo-meta"><small>DEMO 02</small><strong>Chibi</strong><span>/vini2 <b>↗</b></span></span></a>
@@ -457,11 +459,12 @@
       let demoTicker = null;
       let demoRefreshFrame = null;
       const activeDemos = new Map();
+      const demoViewportWidth = 1280;
       const previewMotionReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
       function sizeDemoFrames() {
         activeDemos.forEach(function (data, screen) {
-          data.frame.style.transform = "scale(" + (screen.clientWidth / 430) + ")";
+          data.frame.style.transform = "scale(" + (screen.clientWidth / demoViewportWidth) + ")";
         });
       }
       function unmountDemo(screen) {
@@ -480,9 +483,9 @@
         frame.setAttribute("aria-hidden", "true");
         frame.tabIndex = -1;
         frame.loading = "eager";
-        frame.width = "430";
-        frame.height = "740";
-        frame.style.transform = "scale(" + (screen.clientWidth / 430) + ")";
+        frame.width = "1280";
+        frame.height = "720";
+        frame.style.transform = "scale(" + (screen.clientWidth / demoViewportWidth) + ")";
         const data = { frame: frame, startedAt: 0 };
         activeDemos.set(screen, data);
         frame.addEventListener("load", function () {
@@ -576,6 +579,7 @@
         activeIndex = (i + cards.length) % cards.length;
         const card = cards[activeIndex];
         const template = document.getElementById("topic-" + card.dataset.topic);
+        popup.classList.toggle("demo-mode", card.dataset.topic === "demo");
         const count = String(activeIndex + 1).padStart(2, "0");
         popup.style.setProperty("--modal-accent", getComputedStyle(card).getPropertyValue("--a").trim() || "#f45d50");
         title.textContent = card.dataset.title;
