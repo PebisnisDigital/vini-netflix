@@ -148,11 +148,20 @@
     .bullet-list li { display: flex; gap: 13px; color: #465447; line-height: 1.65; }
     .bullet-list li::before { content: "✓"; flex: none; width: 24px; height: 24px; display: grid; place-items: center; border-radius: 50%; background: #d7e6d4; color: #1d4b28; font-weight: 900; font-size: 13px; margin-top: 2px; }
     .demo-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .demo-link { min-width: 0; background: #fff; border: 1px solid #dce2d8; border-radius: 14px; padding: 15px; display: flex; flex-direction: column; gap: 9px; transition: transform .2s, border-color .2s; }
+    .demo-link { min-width: 0; background: #fff; border: 1px solid #dce2d8; border-radius: 14px; padding: 9px; display: flex; flex-direction: column; gap: 10px; transition: transform .2s, border-color .2s; }
     .demo-link:hover { transform: translateY(-2px); border-color: #ce7669; }
     .demo-link small { color: #8d978b; font-size: 10px; font-weight: 900; letter-spacing: .1em; }
     .demo-link strong { color: #202c22; font-size: 17px; letter-spacing: -.04em; }
-    .demo-link span { color: #bb4b41; font-size: 12px; font-weight: 850; display: flex; justify-content: space-between; align-items: center; gap: 5px; }
+    .demo-meta span { color: #bb4b41; font-size: 12px; font-weight: 850; display: flex; justify-content: space-between; align-items: center; gap: 5px; }
+    .demo-link .demo-screen { position: relative; display: block; width: 100%; aspect-ratio: 430 / 740; overflow: hidden; border-radius: 9px; background: linear-gradient(145deg,#17271c,#304139 48%,#18261c); isolation: isolate; }
+    .demo-screen::after { content: ""; position: absolute; z-index: 2; inset: 0; border: 1px solid #ffffff38; border-radius: 9px; box-shadow: inset 0 0 45px #0005; pointer-events: none; }
+    .demo-loading { position: absolute; z-index: 1; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 8px; padding: 16px; color: #dcece1; font-size: 12px; font-weight: 750; line-height: 1.5; transition: opacity .3s; }
+    .demo-loading::before { content: "↻"; font-size: 30px; font-weight: 400; }
+    .demo-screen.is-ready .demo-loading { opacity: 0; }
+    .demo-frame { position: absolute; left: 0; top: 0; width: 430px; height: 740px; border: 0; opacity: 0; transform-origin: 0 0; pointer-events: none; transition: opacity .4s; }
+    .demo-screen.is-ready .demo-frame { opacity: 1; }
+    .demo-link .demo-meta { display: flex; flex-direction: column; gap: 5px; padding: 0 5px 4px; }
+    .demo-link:focus-visible .demo-screen, .demo-link:hover .demo-screen { outline: 2px solid #df8f7b; outline-offset: -2px; }
     .benefit-list { display: grid; gap: 11px; }
     .benefit-item { display: grid; grid-template-columns: 39px 1fr; align-items: start; gap: 13px; border-bottom: 1px solid #dce2d9; padding: 12px 0 15px; }
     .benefit-item:last-child { border: 0; }
@@ -307,20 +316,20 @@
   </template>
 
   <template id="topic-demo">
-    <p class="lead">Biar calon klien langsung kebayang, <strong>tunjukkan contoh website aslinya.</strong> Ketuk salah satu demo berikut untuk membukanya di tab baru.</p>
+    <p class="lead"><strong>Lihat tampilan aslinya bergerak!</strong> Setiap layar otomatis memperlihatkan website dari atas ke bawah. Ketuk pratinjau untuk membuka demo lengkap.</p>
     <div class="demo-list">
-      <a class="demo-link" href="https://pesonaflix.vercel.app/vini" target="_blank" rel="noopener noreferrer"><small>DEMO 01</small><strong>Original</strong><span>/vini <b>→</b></span></a>
-      <a class="demo-link" href="https://pesonaflix.vercel.app/vini2" target="_blank" rel="noopener noreferrer"><small>DEMO 02</small><strong>Chibi</strong><span>/vini2 <b>→</b></span></a>
-      <a class="demo-link" href="https://pesonaflix.vercel.app/vini3" target="_blank" rel="noopener noreferrer"><small>DEMO 03</small><strong>Chibi Variasi</strong><span>/vini3 <b>→</b></span></a>
-      <a class="demo-link" href="https://pesonaflix.vercel.app/vini4" target="_blank" rel="noopener noreferrer"><small>DEMO 04</small><strong>Anime</strong><span>/vini4 <b>→</b></span></a>
-      <a class="demo-link" href="https://pesonaflix.vercel.app/vini5" target="_blank" rel="noopener noreferrer"><small>DEMO 05</small><strong>Variasi 05</strong><span>/vini5 <b>→</b></span></a>
-      <a class="demo-link" href="https://pesonaflix.vercel.app/vini6" target="_blank" rel="noopener noreferrer"><small>DEMO 06</small><strong>Variasi 06</strong><span>/vini6 <b>→</b></span></a>
-      <a class="demo-link" href="https://pesonaflix.vercel.app/vini7" target="_blank" rel="noopener noreferrer"><small>DEMO 07</small><strong>Variasi 07</strong><span>/vini7 <b>→</b></span></a>
-      <a class="demo-link" href="https://pesonaflix.vercel.app/vini8" target="_blank" rel="noopener noreferrer"><small>DEMO 08</small><strong>Variasi 08</strong><span>/vini8 <b>→</b></span></a>
-      <a class="demo-link" href="https://pesonaflix.vercel.app/vini9" target="_blank" rel="noopener noreferrer"><small>DEMO 09</small><strong>Variasi 09</strong><span>/vini9 <b>→</b></span></a>
-      <a class="demo-link" href="https://pesonaflix.vercel.app/vini10" target="_blank" rel="noopener noreferrer"><small>DEMO 10</small><strong>Variasi 10</strong><span>/vini10 <b>→</b></span></a>
+      <a class="demo-link" href="https://pesonaflix.vercel.app/vini" target="_blank" rel="noopener noreferrer" aria-label="Buka demo 01 Original"><span class="demo-screen" data-demo-src="/vini"><span class="demo-loading">Memuat tampilan website asli…</span></span><span class="demo-meta"><small>DEMO 01</small><strong>Original</strong><span>/vini <b>↗</b></span></span></a>
+      <a class="demo-link" href="https://pesonaflix.vercel.app/vini2" target="_blank" rel="noopener noreferrer" aria-label="Buka demo 02 Chibi"><span class="demo-screen" data-demo-src="/vini2"><span class="demo-loading">Memuat tampilan website asli…</span></span><span class="demo-meta"><small>DEMO 02</small><strong>Chibi</strong><span>/vini2 <b>↗</b></span></span></a>
+      <a class="demo-link" href="https://pesonaflix.vercel.app/vini3" target="_blank" rel="noopener noreferrer" aria-label="Buka demo 03 Chibi Variasi"><span class="demo-screen" data-demo-src="/vini3"><span class="demo-loading">Memuat tampilan website asli…</span></span><span class="demo-meta"><small>DEMO 03</small><strong>Chibi Variasi</strong><span>/vini3 <b>↗</b></span></span></a>
+      <a class="demo-link" href="https://pesonaflix.vercel.app/vini4" target="_blank" rel="noopener noreferrer" aria-label="Buka demo 04 Anime"><span class="demo-screen" data-demo-src="/vini4"><span class="demo-loading">Memuat tampilan website asli…</span></span><span class="demo-meta"><small>DEMO 04</small><strong>Anime</strong><span>/vini4 <b>↗</b></span></span></a>
+      <a class="demo-link" href="https://pesonaflix.vercel.app/vini5" target="_blank" rel="noopener noreferrer" aria-label="Buka demo 05"><span class="demo-screen" data-demo-src="/vini5"><span class="demo-loading">Memuat tampilan website asli…</span></span><span class="demo-meta"><small>DEMO 05</small><strong>Variasi 05</strong><span>/vini5 <b>↗</b></span></span></a>
+      <a class="demo-link" href="https://pesonaflix.vercel.app/vini6" target="_blank" rel="noopener noreferrer" aria-label="Buka demo 06"><span class="demo-screen" data-demo-src="/vini6"><span class="demo-loading">Memuat tampilan website asli…</span></span><span class="demo-meta"><small>DEMO 06</small><strong>Variasi 06</strong><span>/vini6 <b>↗</b></span></span></a>
+      <a class="demo-link" href="https://pesonaflix.vercel.app/vini7" target="_blank" rel="noopener noreferrer" aria-label="Buka demo 07"><span class="demo-screen" data-demo-src="/vini7"><span class="demo-loading">Memuat tampilan website asli…</span></span><span class="demo-meta"><small>DEMO 07</small><strong>Variasi 07</strong><span>/vini7 <b>↗</b></span></span></a>
+      <a class="demo-link" href="https://pesonaflix.vercel.app/vini8" target="_blank" rel="noopener noreferrer" aria-label="Buka demo 08"><span class="demo-screen" data-demo-src="/vini8"><span class="demo-loading">Memuat tampilan website asli…</span></span><span class="demo-meta"><small>DEMO 08</small><strong>Variasi 08</strong><span>/vini8 <b>↗</b></span></span></a>
+      <a class="demo-link" href="https://pesonaflix.vercel.app/vini9" target="_blank" rel="noopener noreferrer" aria-label="Buka demo 09"><span class="demo-screen" data-demo-src="/vini9"><span class="demo-loading">Memuat tampilan website asli…</span></span><span class="demo-meta"><small>DEMO 09</small><strong>Variasi 09</strong><span>/vini9 <b>↗</b></span></span></a>
+      <a class="demo-link" href="https://pesonaflix.vercel.app/vini10" target="_blank" rel="noopener noreferrer" aria-label="Buka demo 10"><span class="demo-screen" data-demo-src="/vini10"><span class="demo-loading">Memuat tampilan website asli…</span></span><span class="demo-meta"><small>DEMO 10</small><strong>Variasi 10</strong><span>/vini10 <b>↗</b></span></span></a>
     </div>
-    <p class="hint">Tips mitra: tanya dulu gaya mana yang disukai calon klien, baru jelaskan benefit dan cara daftarnya.</p>
+    <p class="hint">Pratinjau ini memakai halaman asli, bukan gambar buatan. Tips mitra: tanya gaya yang disukai calon klien, lalu jelaskan benefit dan cara daftarnya.</p>
   </template>
 
   <template id="topic-benefit">
@@ -444,6 +453,102 @@
       const totalLabel = String(cards.length).padStart(2, "0");
       let activeIndex = 0;
       let returnFocus = null;
+      let demoObserver = null;
+      let demoTicker = null;
+      let demoRefreshFrame = null;
+      const activeDemos = new Map();
+      const previewMotionReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      function sizeDemoFrames() {
+        activeDemos.forEach(function (data, screen) {
+          data.frame.style.transform = "scale(" + (screen.clientWidth / 430) + ")";
+        });
+      }
+      function unmountDemo(screen) {
+        const data = activeDemos.get(screen);
+        if (!data) return;
+        activeDemos.delete(screen);
+        screen.classList.remove("is-ready");
+        data.frame.remove();
+      }
+      function mountDemo(screen) {
+        if (activeDemos.has(screen)) return;
+        const frame = document.createElement("iframe");
+        const link = screen.closest(".demo-link");
+        frame.className = "demo-frame";
+        frame.title = "Pratinjau otomatis " + (link ? link.getAttribute("aria-label") : "website PESONAFLIX");
+        frame.setAttribute("aria-hidden", "true");
+        frame.tabIndex = -1;
+        frame.loading = "eager";
+        frame.width = "430";
+        frame.height = "740";
+        frame.style.transform = "scale(" + (screen.clientWidth / 430) + ")";
+        const data = { frame: frame, startedAt: 0 };
+        activeDemos.set(screen, data);
+        frame.addEventListener("load", function () {
+          if (activeDemos.get(screen) !== data) return;
+          data.startedAt = performance.now();
+          screen.classList.add("is-ready");
+        });
+        frame.src = screen.dataset.demoSrc;
+        screen.appendChild(frame);
+      }
+      function refreshVisibleDemos() {
+        demoRefreshFrame = null;
+        if (overlay.hidden || !body.querySelector(".demo-list")) return;
+        const bounds = body.getBoundingClientRect();
+        const near = Array.from(body.querySelectorAll(".demo-screen")).map(function (screen) {
+          const rect = screen.getBoundingClientRect();
+          const overlap = Math.max(0, Math.min(rect.bottom, bounds.bottom + 100) - Math.max(rect.top, bounds.top - 100));
+          return { screen: screen, overlap: overlap };
+        }).filter(function (item) { return item.overlap > 0; });
+        near.sort(function (a, b) { return b.overlap - a.overlap; });
+        const selected = new Set(near.slice(0, 4).map(function (item) { return item.screen; }));
+        Array.from(activeDemos.keys()).forEach(function (screen) {
+          if (!selected.has(screen)) unmountDemo(screen);
+        });
+        selected.forEach(mountDemo);
+      }
+      function scheduleDemoRefresh() {
+        if (demoRefreshFrame !== null) return;
+        demoRefreshFrame = requestAnimationFrame(refreshVisibleDemos);
+      }
+      function advanceLiveDemos() {
+        if (previewMotionReduced || document.hidden) return;
+        const now = performance.now();
+        activeDemos.forEach(function (data) {
+          if (!data.startedAt) return;
+          try {
+            const scroller = data.frame.contentDocument.scrollingElement;
+            if (!scroller) return;
+            const maxScroll = Math.max(0, scroller.scrollHeight - scroller.clientHeight);
+            const seconds = ((now - data.startedAt) / 1000) % 21;
+            const progress = Math.min(1, Math.max(0, (seconds - 2) / 15));
+            scroller.scrollTop = Math.round(maxScroll * progress);
+          } catch (error) {
+            // The preview remains clickable even if the browser limits iframe scrolling.
+          }
+        });
+      }
+      function bindLiveDemos() {
+        if (!body.querySelector(".demo-list")) return;
+        if ("IntersectionObserver" in window) {
+          demoObserver = new IntersectionObserver(scheduleDemoRefresh, { root: body, rootMargin: "100px 0px" });
+          body.querySelectorAll(".demo-screen").forEach(function (screen) { demoObserver.observe(screen); });
+        }
+        body.addEventListener("scroll", scheduleDemoRefresh, { passive: true });
+        window.addEventListener("resize", sizeDemoFrames);
+        demoTicker = window.setInterval(advanceLiveDemos, 65);
+        scheduleDemoRefresh();
+      }
+      function cleanupLiveDemos() {
+        if (demoObserver) { demoObserver.disconnect(); demoObserver = null; }
+        if (demoTicker !== null) { clearInterval(demoTicker); demoTicker = null; }
+        if (demoRefreshFrame !== null) { cancelAnimationFrame(demoRefreshFrame); demoRefreshFrame = null; }
+        body.removeEventListener("scroll", scheduleDemoRefresh);
+        window.removeEventListener("resize", sizeDemoFrames);
+        Array.from(activeDemos.keys()).forEach(unmountDemo);
+      }
 
       function rupiah(n) { return "Rp" + new Intl.NumberFormat("id-ID").format(n); }
       function bindCommission() {
@@ -467,6 +572,7 @@
         });
       }
       function showIndex(i, initial) {
+        cleanupLiveDemos();
         activeIndex = (i + cards.length) % cards.length;
         const card = cards[activeIndex];
         const template = document.getElementById("topic-" + card.dataset.topic);
@@ -478,6 +584,7 @@
         body.replaceChildren(template.content.cloneNode(true));
         body.scrollTop = 0;
         bindCommission();
+        if (card.dataset.topic === "demo") bindLiveDemos();
         if (initial) closeButton.focus();
       }
       function openIndex(i) {
@@ -487,6 +594,7 @@
         showIndex(i, true);
       }
       function close() {
+        cleanupLiveDemos();
         overlay.hidden = true;
         document.body.classList.remove("modal-open");
         if (returnFocus && typeof returnFocus.focus === "function") returnFocus.focus();
