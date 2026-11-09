@@ -27,6 +27,7 @@ import VintageHeritageHero from './components/VintageHeritageHero';
 import TniProfessionHero from './components/TniProfessionHero';
 import CinematicHeroMotion from './components/CinematicHeroMotion';
 import ContinueWatching from './components/ContinueWatching';
+import NinikFocusSections from './components/NinikFocusSections';
 import Scene from './components/Scene';
 import About from './components/About';
 import Seasons from './components/Seasons';
@@ -281,6 +282,7 @@ function Series({ slug, editorMode }: { slug: string; editorMode: boolean }) {
               <Hero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onResume={() => setResumeOpen(true)} profileId={profileId} editorMode={editorMode} />
             )}
             <VisualWidgets section="top" />
+            {profile.clientSlug === 'ninikwardhani' && <NinikFocusSections />}
             <ContinueWatching order={order} />
             <VisualWidgets section="continue" />
             {profile.clientSlug === 'yudhisakkautama' && <YudhiAffiliations />}

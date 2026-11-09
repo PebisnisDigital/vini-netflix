@@ -1,17 +1,19 @@
 {
   "slug": "ninikwardhani",
   "name": "Ninik Wardhani",
-  "role": "Mitra Samira Travel · Umrah & Haji Khusus",
+  "role": "Personal Profile | Business | Inspiration",
   "location": "Indonesia",
-  "bio": "Assalamu'alaikum, saya Ninik Wardhani, Mitra Samira Travel. Melalui halaman ini, saya membuka ruang untuk calon jamaah dan keluarga yang ingin bertanya tentang perjalanan umrah maupun haji khusus bersama Samira Travel. Mari diskusikan kebutuhan, pilihan program, persiapan, dan alur pendaftaran melalui WhatsApp. Detail paket, jadwal, ketentuan, dan biaya dikonfirmasi mengikuti informasi resmi penyelenggara.",
+  "bio": "Assalamu'alaikum, saya Ninik Wardhani. Selamat datang di ruang personal, bisnis, dan inspirasi saya. Di sini Anda dapat mengenal perjalanan hidup serta nilai-nilai yang saya pegang, sekaligus menjelajahi aktivitas saya dalam travel Umroh & Haji, bisnis properti, serta digital marketing dan teknologi.",
   "tagline": [
-    "Mitra Samira Travel · Informasi Umrah & Haji Khusus"
+    "Personal Profile",
+    "Business",
+    "Inspiration"
   ],
   "interests": [
-    "Informasi Umrah",
-    "Informasi Haji Khusus",
-    "Konsultasi Perjalanan",
-    "Persiapan Calon Jamaah"
+    "Cerita & Inspirasi Kehidupan",
+    "Travel Umroh & Haji",
+    "Bisnis Property",
+    "Digital Marketing & Technology"
   ],
   "photo": {
     "src": "/clients/ninikwardhani/foto-utama.webp",
@@ -151,7 +153,9 @@
     "4 Paket Umroh: Safara, Safawi, Sukari, Majol",
     "2 Program Haji: ONH Plus, Furoda",
     "3 Cara Pembayaran",
-    "Pendaftaran Umroh DP Rp1,5 Juta"
+    "Pendaftaran Umroh DP Rp1,5 Juta",
+    "Bisnis Property: Hunian, Investasi & Kemitraan",
+    "Digital Marketing & Technology: Website, AI, Desain, SEO & Konten"
   ],
   "skillCategories": [
     {
@@ -272,26 +276,26 @@
   "skillsKicker": "4 PAKET UMROH · 2 HAJI · 3 CARA BAYAR",
   "highlights": [
     {
-      "title": "Mitra Samira Travel",
-      "description": "Identitas peran Ninik dalam memperkenalkan informasi perjalanan ibadah dari Samira Travel.",
-      "category": "PROFIL MITRA"
+      "title": "Cerita & Inspirasi Kehidupan",
+      "category": "PERSONAL PROFILE",
+      "description": "Perjalanan hidup, keluarga, pengalaman, aktivitas, dan nilai-nilai yang menjadi prinsip Ninik Wardhani untuk terus berkarya dan bertumbuh."
     },
     {
-      "title": "Umrah & Haji Khusus",
-      "description": "Dua jenis perjalanan ibadah yang diperkenalkan melalui penyelenggara Samira Travel.",
-      "category": "LINGKUP INFORMASI"
+      "title": "Travel Umroh, Haji & Property",
+      "category": "BUSINESS",
+      "description": "Dua bidang bisnis yang diperkenalkan Ninik: pendampingan perjalanan ibadah dan informasi hunian, investasi, serta peluang kemitraan properti."
     },
     {
-      "title": "WhatsApp Bisnis",
-      "description": "Jalur langsung untuk menanyakan kebutuhan, informasi program, dan langkah berikutnya.",
-      "category": "KONTAK"
+      "title": "Digital Marketing & Technology",
+      "category": "DIGITAL & INSPIRATION",
+      "description": "Pengembangan bisnis melalui website, Artificial Intelligence (AI), desain kreatif, SEO, strategi konten, edukasi digital, dan konsultasi."
     }
   ],
   "watchCards": [
     {
       "target": "about",
       "title": "Kenali Ninik Wardhani",
-      "subtitle": "Sosok Mitra Samira Travel",
+      "subtitle": "Cerita, perjalanan & inspirasi kehidupan",
       "image": "/clients/ninikwardhani/foto-utama.webp"
     },
     {
