@@ -26,10 +26,10 @@ const topics: FocusTopic[] = [
   },
   {
     number: '02',
-    eyebrow: 'TRAVEL UMROH & HAJI',
-    title: 'BISNIS TRAVEL UMROH & HAJI',
+    eyebrow: 'MITRA SAMIRA JAKARTA SELATAN',
+    title: 'BISNIS TRAVEL UMROH & HAJI — SAMIRA TRAVEL',
     subtitle: 'Mengantarkan Niat Menuju Baitullah',
-    description: 'Melayani dan mendampingi perjalanan ibadah ke Tanah Suci dengan informasi yang jelas dan pelayanan terpercaya. Temukan pilihan paket umroh dan haji, konsultasi perjalanan ibadah, peluang menjadi agen, serta kemitraan bisnis travel.',
+    description: 'Ninik Wardhani hadir sebagai Mitra Samira Jakarta Selatan untuk membantu Anda memperoleh informasi paket Umroh dan Haji, berkonsultasi mengenai perjalanan ibadah, serta mengenal peluang menjadi agen dan mitra bisnis travel. Rincian jadwal, harga, dan fasilitas dikonfirmasi sesuai program resmi yang tersedia.',
     cta: 'Lihat Paket',
     target: 'skills',
   },
@@ -45,7 +45,7 @@ const topics: FocusTopic[] = [
   {
     number: '04',
     eyebrow: 'DIGITAL & TECHNOLOGY',
-    title: 'DIGITAL MARKETING & TECHNOLOGY',
+    title: 'DIGITAL MARKETING',
     subtitle: 'Berkarya dan Bertumbuh di Era Digital',
     description: 'Mengembangkan peluang bisnis melalui pemanfaatan teknologi dan strategi pemasaran digital. Jelajahi layanan website, Artificial Intelligence (AI), desain kreatif, SEO, strategi konten, edukasi digital, serta konsultasi pengembangan bisnis.',
     cta: 'Tanya Digital',
@@ -67,10 +67,10 @@ export default function NinikFocusSections() {
           NINIK WARDHANI · PERSONAL PROFILE | BUSINESS | INSPIRATION
         </p>
         <h2 id="ninik-bidang-title" className="mt-4 font-display text-[clamp(2.25rem,5.5vw,5.25rem)] leading-[1.08] tracking-wide text-bone">
-          Empat Bidang, Satu Perjalanan
+          Empat Layanan, Satu Kepercayaan
         </h2>
         <p className="mt-5 max-w-3xl text-base leading-relaxed text-mist sm:text-lg">
-          Cerita kehidupan, perjalanan ibadah, peluang properti, dan karya digital dalam satu ruang untuk berkenalan dan terhubung.
+          Mengenal Ninik, berkonsultasi tentang ibadah ke Tanah Suci, menjajaki properti, dan tumbuh lewat teknologi digital.
         </p>
       </div>
 
@@ -79,12 +79,12 @@ export default function NinikFocusSections() {
           const href = topic.message && contactNumber
             ? 'https://wa.me/' + contactNumber + '?text=' + encodeURIComponent(topic.message)
             : '';
-          const actionClass = 'inline-flex min-h-11 items-center gap-2 rounded-full bg-[#0b64bd] px-5 py-2.5 text-sm font-bold text-white transition hover:bg-[#084a93] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0b64bd]';
+          const actionClass = 'inline-flex min-h-11 items-center gap-2 rounded-full bg-[#0c3b74] px-5 py-2.5 text-sm font-bold text-white transition hover:bg-[#0a2d59] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c29a4c]';
           return (
             <motion.article
               key={topic.number}
               id={'ninik-bidang-' + topic.number}
-              className="group relative flex min-h-[340px] flex-col overflow-hidden rounded-[24px] border border-[#c4def5] bg-[linear-gradient(145deg,#ffffff_0%,#edf7ff_68%,#dceeff_100%)] p-6 shadow-[0_20px_60px_rgba(17,82,147,0.09)] sm:p-8"
+              className="group relative flex min-h-[340px] scroll-mt-28 flex-col overflow-hidden rounded-[24px] border border-[#c4d8ea] bg-[linear-gradient(145deg,#ffffff_0%,#edf7ff_68%,#dceeff_100%)] p-6 shadow-[0_20px_60px_rgba(17,82,147,0.09)] sm:p-8"
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-70px' }}
@@ -93,14 +93,14 @@ export default function NinikFocusSections() {
             >
               <div className="flex items-start justify-between gap-4">
                 <span className="font-display text-6xl leading-none text-[#beddf7] sm:text-7xl" aria-hidden="true">{topic.number}</span>
-                <span className="rounded-full border border-[#c1d8ed] bg-white/80 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-[#115a9d] sm:text-xs">{topic.eyebrow}</span>
+                <span className="max-w-[60%] rounded-full border border-[#e9c77a] bg-[#fff9e8] px-3 py-1.5 text-right text-[10px] font-bold uppercase tracking-[0.12em] text-[#8c6423] sm:text-xs">{topic.eyebrow}</span>
               </div>
               <div className="relative mt-5 flex-1">
                 <h3 className="font-display text-[clamp(1.8rem,2.8vw,2.7rem)] leading-[1.12] tracking-wide text-[#103461]">{topic.title}</h3>
                 <p className="mt-3 text-[15px] font-semibold leading-snug text-[#0a63b4] sm:text-base">{topic.subtitle}</p>
                 <p className="mt-4 max-w-2xl text-sm leading-[1.8] text-[#496b8e] sm:text-[15px]">{topic.description}</p>
               </div>
-              <div className="relative mt-7 flex items-center">
+              <div className="relative mt-7 flex flex-wrap items-center gap-2">
                 {topic.target ? (
                   <button type="button" onClick={() => scrollTo('#' + topic.target)} className={actionClass}>
                     {topic.cta} <span aria-hidden="true">↗</span>
@@ -110,6 +110,12 @@ export default function NinikFocusSections() {
                     {topic.cta} <span aria-hidden="true">↗</span>
                   </a>
                 ) : null}
+                {topic.number === '02' && contactNumber && (
+                  <div className="flex flex-wrap items-center gap-2">
+                    <a href={'https://wa.me/' + contactNumber + '?text=' + encodeURIComponent('Assalamu’alaikum Bu Ninik, saya ingin konsultasi paket Umroh atau Haji bersama Samira Travel.')} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center rounded-full border border-[#b7cde4] px-4 text-xs font-bold text-[#0c3b74] transition hover:bg-white">Konsultasi</a>
+                    <a href={'https://wa.me/' + contactNumber + '?text=' + encodeURIComponent('Assalamu’alaikum Bu Ninik, saya tertarik menjadi agen atau mitra Samira Travel Jakarta Selatan.')} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center rounded-full border border-[#e2bf6b] px-4 text-xs font-bold text-[#89611c] transition hover:bg-[#fff8e6]">Jadi Mitra</a>
+                  </div>
+                )}
               </div>
             </motion.article>
           );

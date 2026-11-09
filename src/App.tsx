@@ -28,6 +28,7 @@ import TniProfessionHero from './components/TniProfessionHero';
 import CinematicHeroMotion from './components/CinematicHeroMotion';
 import ContinueWatching from './components/ContinueWatching';
 import NinikFocusSections from './components/NinikFocusSections';
+import { NinikNavigation, NinikHero } from './components/NinikProfessional';
 import Scene from './components/Scene';
 import About from './components/About';
 import Seasons from './components/Seasons';
@@ -166,7 +167,7 @@ function Series({ slug, editorMode }: { slug: string; editorMode: boolean }) {
   const tniCinema = profile.templateId === 'tni-nusantara';
   const storageKey = `personal-netflix-profile-${slug}`;
   const stored = readStoredProfile(storageKey, viewerProfiles);
-  const [stage, setStage] = useState<Stage>(slug === 'vini3' || animeCinema || clayCinema || comicCinema || editorialCinema || doodleCinema || storybookCinema || scrapbookCinema || papercutCinema || pixelCinema || miniatureCinema || documentaryCinema || minimalistCinema || futuristicNeonCinema || vintageHeritageCinema || tniCinema || editorMode || stored || chibiCinema ? 'home' : 'opening');
+  const [stage, setStage] = useState<Stage>(slug === 'vini3' || profile.clientSlug === 'ninikwardhani' || animeCinema || clayCinema || comicCinema || editorialCinema || doodleCinema || storybookCinema || scrapbookCinema || papercutCinema || pixelCinema || miniatureCinema || documentaryCinema || minimalistCinema || futuristicNeonCinema || vintageHeritageCinema || tniCinema || editorMode || stored || chibiCinema ? 'home' : 'opening');
   const [profileId, setProfileId] = useState<ProfileId>(stored ?? 'vini');
   const [playing, setPlaying] = useState(false);
   const [project, setProject] = useState<Project | null>(null);
@@ -274,9 +275,13 @@ function Series({ slug, editorMode }: { slug: string; editorMode: boolean }) {
 
       {stage === 'home' && (
         <motion.div initial={{ opacity: 0, scale: 1.03, filter: 'blur(10px)' }} animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }} transition={{ duration: 1, ease: EASE }}>
-          <Navbar order={order} profileId={profileId} onSwitch={pickProfile} variant={chibiCinema ? 'chibi' : undefined} />
+          {profile.clientSlug === 'ninikwardhani'
+            ? <NinikNavigation />
+            : <Navbar order={order} profileId={profileId} onSwitch={pickProfile} variant={chibiCinema ? 'chibi' : undefined} />}
           <main>
-            {customCinema ? (
+            {profile.clientSlug === 'ninikwardhani' ? (
+              <NinikHero />
+            ) : customCinema ? (
               <CinematicHeroMotion>{customHero}</CinematicHeroMotion>
             ) : (
               <Hero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onResume={() => setResumeOpen(true)} profileId={profileId} editorMode={editorMode} />

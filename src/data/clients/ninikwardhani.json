@@ -3,7 +3,7 @@
   "name": "Ninik Wardhani",
   "role": "Personal Profile | Business | Inspiration",
   "location": "Indonesia",
-  "bio": "Assalamu'alaikum, saya Ninik Wardhani. Selamat datang di ruang personal, bisnis, dan inspirasi saya. Di sini Anda dapat mengenal perjalanan hidup serta nilai-nilai yang saya pegang, sekaligus menjelajahi aktivitas saya dalam travel Umroh & Haji, bisnis properti, serta digital marketing dan teknologi.",
+  "bio": "Assalamu'alaikum, saya Ninik Wardhani. Selamat datang di ruang personal, bisnis, dan inspirasi saya. Di sini Anda dapat mengenal perjalanan hidup dan nilai-nilai yang saya pegang, sekaligus menjelajahi aktivitas saya sebagai Mitra Samira Jakarta Selatan dalam bidang Umroh dan Haji, bisnis properti, serta digital marketing dan teknologi.",
   "tagline": [
     "Personal Profile",
     "Business",
@@ -16,17 +16,17 @@
     "Digital Marketing & Technology"
   ],
   "photo": {
-    "src": "/clients/ninikwardhani/foto-utama.webp",
-    "alt": "Foto Ninik Wardhani mengenakan hijab hitam, kacamata bening, serta abaya hitam berbordir; latar transparan"
+    "src": "/clients/ninikwardhani/foto-ninik-baru-2026.webp",
+    "alt": "Potret terbaru Ninik Wardhani dengan hijab hitam, kacamata, dan busana hitam elegan berlatar transparan"
   },
   "whatsapp": "0812 3504 6528",
   "links": {},
   "experiences": [
     {
       "company": "Samira Travel",
-      "role": "Mitra Travel",
+      "role": "Mitra Samira Jakarta Selatan",
       "period": "Peran saat ini",
-      "description": "Ninik Wardhani memperkenalkan dirinya sebagai Mitra Samira Travel. Halaman ini menjadi jalur perkenalan dan komunikasi awal mengenai informasi perjalanan umrah serta haji khusus."
+      "description": "Sebagai Mitra Samira Jakarta Selatan, Ninik Wardhani menjadi kontak konsultasi awal untuk pilihan paket Umroh dan Haji, syarat keberangkatan, serta informasi peluang agen dan kemitraan bisnis travel."
     }
   ],
   "education": [],
@@ -296,7 +296,7 @@
       "target": "about",
       "title": "Kenali Ninik Wardhani",
       "subtitle": "Cerita, perjalanan & inspirasi kehidupan",
-      "image": "/clients/ninikwardhani/foto-utama.webp"
+      "image": "/clients/ninikwardhani/foto-ninik-baru-2026.webp"
     },
     {
       "target": "originals",
@@ -427,18 +427,18 @@
     {
       "number": 1,
       "title": "Mengenal Bu Ninik",
-      "period": "Mitra Samira Travel",
-      "synopsis": "Ninik Wardhani memperkenalkan dirinya sebagai Mitra Samira Travel yang dapat dihubungi untuk pertanyaan awal perjalanan ibadah.",
+      "period": "Mitra Samira Jakarta Selatan",
+      "synopsis": "Ninik Wardhani adalah Mitra Samira Jakarta Selatan yang dapat dihubungi untuk konsultasi paket Umroh dan Haji serta peluang kemitraan.",
       "episodes": [
         {
           "title": "Assalamu'alaikum, Saya Ninik",
           "runtime": "Perkenalan",
-          "description": "Kenali Ninik Wardhani dan perannya sebagai Mitra Samira Travel untuk komunikasi awal calon jamaah.",
+          "description": "Kenali Ninik Wardhani dan perannya sebagai Mitra Samira Jakarta Selatan, mendampingi konsultasi awal calon jamaah serta informasi kemitraan.",
           "tags": [
             "Profil Mitra",
             "Samira Travel"
           ],
-          "image": "/clients/ninikwardhani/foto-utama.webp",
+          "image": "/clients/ninikwardhani/foto-ninik-baru-2026.webp",
           "palette": {
             "from": "#0b3d83",
             "via": "#1e78ca",
