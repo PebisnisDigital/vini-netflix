@@ -1,0 +1,277 @@
+{
+  "slug": "erni",
+  "name": "Erni Marutiningrum",
+  "role": "Certified Hypnotherapist & Mindset Coach · S.I.P., MCH, C.Ht.",
+  "location": "Jakarta, Indonesia",
+  "bio": "Mendampingi anak, remaja, perempuan, dan individu dewasa untuk memahami pola emosi, mengelola stres, serta membangun kebiasaan yang lebih sehat melalui hipnoterapi dan pengembangan pola pikir.",
+  "aboutMe": "Halo, saya Erni Marutiningrum, S.I.P., MCH, C.Ht., seorang Certified Hypnotherapist & Mindset Coach yang berbasis di Jakarta.\n\nSaya memadukan pendekatan hipnoterapi, subconscious reprogramming, pelatihan pengembangan diri, dan teknik regulasi emosi. Fokus pendampingan saya meliputi anak dan remaja, kebutuhan emosional perempuan, kecemasan, pengalaman traumatis, pola pengasuhan, hingga perubahan kebiasaan.\n\nDi samping sesi privat, saya memfasilitasi mini-course, workshop praktisi hipnoterapi, dan pelatihan motivasi serta wellness untuk organisasi. Saya juga menyusun materi terapi mandiri berupa audio berpanduan, naskah relaksasi, dan e-book refleksi.\n\nDalam setiap proses, saya mengutamakan kerahasiaan, empati tanpa penghakiman, serta pendekatan yang disesuaikan dengan kebutuhan tiap klien. Konsultasi awal membantu menentukan apakah suatu program sesuai dengan kondisi dan tujuan Anda.",
+  "tagline": [
+    "RUANG AMAN UNTUK BERPROSES",
+    "Hypnotherapy · Mindset · Self-Healing"
+  ],
+  "interests": [
+    "Hipnoterapi",
+    "Inner Child Work",
+    "Mindful Parenting",
+    "Mental Wellness",
+    "Mindset Coaching",
+    "Edukasi & Pelatihan"
+  ],
+  "photo": {
+    "src": "/clients/erni/portrait_3.webp",
+    "alt": "Foto asli Erni Marutiningrum memakai hijab abu-abu muda, potret wajah dari koleksi pribadi klien"
+  },
+  "email": "erningrum@gmail.com",
+  "whatsapp": "+62 856-9315-6377",
+  "links": {},
+  "theme": {
+    "accent": "#e5132b",
+    "background": "#07070a"
+  },
+  "experiences": [
+    {
+      "company": "Private Practice & Mind Center",
+      "role": "Lead Hypnotherapist & Founder",
+      "period": "Pengalaman profesional",
+      "description": "Memfasilitasi sesi terapi individual, menyesuaikan intervensi dengan kebutuhan klien, dan mengembangkan materi relaksasi serta penguatan keterampilan self-help."
+    },
+    {
+      "company": "Mastering Hipnoterapi Course",
+      "role": "Perancang Program & Fasilitator",
+      "period": "Program pelatihan",
+      "description": "Menyusun empat modul utama, memfasilitasi praktik hipnoterapi, dan mendampingi kelas dari tingkat dasar hingga lanjutan."
+    },
+    {
+      "company": "Zero Mind Experiences (ZME)",
+      "role": "Fasilitator Pengembangan Diri",
+      "period": "Program intensif",
+      "description": "Menyelenggarakan pengalaman pembelajaran di alam terbuka selama dua hari tiga malam sebagai bagian dari rangkaian program pengembangan diri."
+    },
+    {
+      "company": "Corporate Training & Wellness",
+      "role": "Trainer & Workshop Facilitator",
+      "period": "Workshop dan kelas",
+      "description": "Memfasilitasi pelatihan motivasi, manajemen stres, dan relaksasi kelompok untuk tim operasional maupun manajerial."
+    }
+  ],
+  "education": [
+    {
+      "school": "Universitas Gadjah Mada",
+      "degree": "Sarjana Ilmu Politik (S.I.P.)",
+      "place": "Yogyakarta, Indonesia",
+      "period": "Pendidikan tinggi"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Sesi Hipnoterapi Privat",
+      "year": "LAYANAN PRIVAT",
+      "description": "Pendampingan individual yang diawali wawancara kebutuhan, dilanjutkan eksplorasi pola respons emosional dan penyusunan langkah intervensi terarah. Program intensif dapat dirancang dalam 3–4 sesi sesuai hasil konsultasi awal.",
+      "category": "Hipnoterapi & Konsultasi",
+      "tags": ["Intake Interview", "Pendekatan Personal", "Privasi Klien"],
+      "website": "https://wa.me/6285693156377?text=Halo%20Bu%20Erni%2C%20saya%20ingin%20bertanya%20tentang%20sesi%20hipnoterapi%20privat.",
+      "image": "/clients/erni/portrait_3.webp"
+    },
+    {
+      "title": "Terapi Anak & Remaja",
+      "year": "SPESIALISASI",
+      "description": "Pendampingan untuk tantangan emosi dan perilaku, kecemasan akademik, konsentrasi belajar, pengalaman perundungan, serta relasi anak dan orang tua. Kesesuaian layanan ditentukan melalui konsultasi awal.",
+      "category": "Anak, Remaja & Keluarga",
+      "tags": ["Emosi Anak", "Fokus Belajar", "Relasi Keluarga"],
+      "image": "/clients/erni/activity_16.webp"
+    },
+    {
+      "title": "Self-Healing Mastery",
+      "year": "MINI-COURSE",
+      "description": "Kelas interaktif tentang teknik regulasi emosi, relaksasi, refleksi diri, dan keterampilan perawatan diri yang dapat dipraktikkan secara mandiri.",
+      "category": "Edukasi Pengembangan Diri",
+      "tags": ["Self-Healing", "Regulasi Emosi", "Relaksasi"],
+      "image": "/clients/erni/activity_05.webp"
+    },
+    {
+      "title": "Mindful & Hypno-Parenting",
+      "year": "KELAS KELUARGA",
+      "description": "Edukasi pola komunikasi sugestif positif, kesadaran emosional orang tua, dan pendekatan pengasuhan yang mendukung hubungan aman dan hangat dengan anak.",
+      "category": "Parenting & Keluarga",
+      "tags": ["Mindful Parenting", "Komunikasi", "Koneksi Anak-Orang Tua"],
+      "image": "/clients/erni/activity_15.webp"
+    },
+    {
+      "title": "Stress Release & Mental Detox",
+      "year": "MINI-COURSE",
+      "description": "Latihan pengelolaan stres yang menggabungkan edukasi pernapasan, relaksasi, dan kesadaran terhadap respons pikiran serta tubuh.",
+      "category": "Stress Management",
+      "tags": ["Manajemen Stres", "Mindfulness", "Relaksasi"],
+      "image": "/clients/erni/activity_06.webp"
+    },
+    {
+      "title": "Hypno-Slimming & Mindful Eating",
+      "year": "TRANSFORMASI KEBIASAAN",
+      "description": "Program edukasi pengenalan pola makan sadar, kebiasaan, dan cara merespons dorongan makan dengan lebih reflektif. Bukan pengganti konsultasi gizi atau layanan medis.",
+      "category": "Mindset & Habit Building",
+      "tags": ["Mindful Eating", "Habit Change", "Self-Awareness"],
+      "image": "/clients/erni/portrait_1.webp"
+    },
+    {
+      "title": "Mastering Hipnoterapi Course",
+      "year": "PELATIHAN PRAKTISI",
+      "description": "Rangkaian pembelajaran hipnoterapi yang disusun dalam empat modul utama dengan porsi teori, demonstrasi, dan praktik langsung secara terarah.",
+      "category": "Pelatihan Hipnoterapi",
+      "tags": ["Empat Modul", "Praktik Terarah", "Pengembangan Kompetensi"],
+      "image": "/clients/erni/activity_03.webp"
+    },
+    {
+      "title": "Corporate Motivation & Wellness",
+      "year": "CORPORATE WORKSHOP",
+      "description": "Workshop untuk perusahaan dan organisasi tentang motivasi kerja, resiliensi, pengelolaan stres, serta relaksasi kelompok. Materi disesuaikan dengan tujuan tim.",
+      "category": "Corporate Learning",
+      "tags": ["Motivasi Kerja", "Team Wellness", "Stress Audit"],
+      "image": "/clients/erni/activity_08.webp"
+    },
+    {
+      "title": "Zero Mind Experiences",
+      "year": "EXPERIENTIAL LEARNING",
+      "description": "Program intensif pengembangan diri di alam terbuka dengan format kegiatan dua hari tiga malam, menggabungkan pembelajaran, refleksi, dan pengalaman kelompok.",
+      "category": "Pengembangan Diri",
+      "tags": ["ZME", "Kegiatan Kelompok", "Refleksi"],
+      "image": "/clients/erni/activity_17.webp"
+    },
+    {
+      "title": "Digital Mind-Tools",
+      "year": "PRODUK DIGITAL",
+      "description": "Koleksi materi pendamping berupa audio relaksasi dan afirmasi berpanduan, e-book swaterapi, jurnal refleksi, serta lembar kerja pengembangan kebiasaan.",
+      "category": "Audio & E-Book Edukasi",
+      "tags": ["Guided Audio", "E-Book", "Jurnal Refleksi"],
+      "image": "/clients/erni/portrait_7.webp"
+    }
+  ],
+  "skills": [
+    "Hipnoterapi Klinis",
+    "Inner Child Work",
+    "Regulasi Emosi",
+    "Pediatric Hypnotherapy",
+    "Mindful Parenting",
+    "NLP",
+    "Stress Management",
+    "Mindset Coaching",
+    "Corporate Facilitation",
+    "Guided Hypnosis Scripting"
+  ],
+  "skillCategories": [
+    {
+      "id": "terapi",
+      "title": "Hipnoterapi & Emosi",
+      "subtitle": "Pendekatan yang disesuaikan dengan kebutuhan setiap individu",
+      "skills": [
+        {
+          "name": "Inner Child & Regresi",
+          "mono": "IC",
+          "note": "Eksplorasi pola emosional",
+          "evidence": ["Inner Child Work dan pendekatan regresi merupakan bagian dari spesialisasi Erni", "Rancangan sesi disesuaikan melalui wawancara kebutuhan"]
+        },
+        {
+          "name": "Anxiety & Stress Support",
+          "mono": "AS",
+          "note": "Regulasi respons stres",
+          "evidence": ["Edukasi relaksasi, kecemasan, dan penguatan keterampilan regulasi emosi", "Pendampingan tidak menggantikan penanganan medis atau psikologis darurat"]
+        },
+        {
+          "name": "Terapi Anak & Remaja",
+          "mono": "AR",
+          "note": "Keluarga dan usia tumbuh kembang",
+          "evidence": ["Fokus pada tantangan belajar, emosi, dan relasi anak-orang tua", "Perlu konsultasi awal untuk menilai kebutuhan dan kesesuaian"]
+        },
+        {
+          "name": "Pendampingan Perempuan",
+          "mono": "PW",
+          "note": "Kebutuhan emosional wanita",
+          "evidence": ["Mencakup stres peran ganda, body image, dan pengalaman emosional", "Mengutamakan privasi serta ruang konsultasi non-judgmental"]
+        }
+      ]
+    },
+    {
+      "id": "edukasi",
+      "title": "Edukasi & Fasilitasi",
+      "subtitle": "Dari kelas publik hingga pengembangan tim",
+      "skills": [
+        {
+          "name": "Mindful & Hypno-Parenting",
+          "mono": "HP",
+          "note": "Komunikasi keluarga",
+          "evidence": ["Materi komunikasi sugestif positif dan kesadaran emosi", "Berfokus pada koneksi anak dan orang tua"]
+        },
+        {
+          "name": "Corporate Training",
+          "mono": "CT",
+          "note": "Kelas untuk organisasi",
+          "evidence": ["Motivasi kerja, resiliensi, dan manajemen stres", "Workshop serta fasilitasi pembelajaran untuk tim"]
+        },
+        {
+          "name": "NLP & Mindset Coaching",
+          "mono": "NLP",
+          "note": "Eksplorasi belief system",
+          "evidence": ["Memiliki riwayat pelatihan Neuro-Linguistic Programming", "Pendekatan coaching digunakan untuk menelaah kebiasaan dan pola pikir"]
+        },
+        {
+          "name": "Digital Mind-Tools",
+          "mono": "DM",
+          "note": "Materi mandiri",
+          "evidence": ["Penyusunan audio berpanduan, jurnal, dan e-book edukatif", "Materi dapat digunakan sebagai pendamping keterampilan self-help"]
+        }
+      ]
+    }
+  ],
+  "skillsHeading": "Mengenal Pendekatan Erni",
+  "skillsAside": "Setiap klien membawa cerita berbeda. Erni memulai dari mendengarkan kebutuhan, menjaga kerahasiaan, dan memilih teknik yang relevan. Untuk kondisi yang membutuhkan diagnosis atau penanganan klinis, konsultasi dengan tenaga kesehatan terkait tetap penting.",
+  "skillsKicker": "HIPNOTERAPI · PARENTING · WELLNESS · PELATIHAN",
+  "highlights": [
+    {
+      "title": "Certified Hypnotherapist (C.Ht.)",
+      "description": "Kualifikasi Certified Hypnotherapist yang disampaikan Erni. Informasi lembaga penerbit dan sertifikat dapat dikonfirmasi langsung.",
+      "category": "SERTIFIKASI"
+    },
+    {
+      "title": "Master Practitioner of NLP",
+      "description": "Riwayat sertifikasi Master Practitioner of Neuro-Linguistic Programming dalam profil profesional Erni.",
+      "category": "SERTIFIKASI"
+    },
+    {
+      "title": "Hypno-Parenting & Pediatric Hypnotherapy",
+      "description": "Bidang spesialisasi yang berfokus pada pendekatan kepada anak, remaja, serta pola komunikasi dalam keluarga.",
+      "category": "SPESIALISASI"
+    },
+    {
+      "title": "Stress Management & Mindfulness",
+      "description": "Pelatihan fasilitasi manajemen stres dan mindfulness untuk mendukung program edukasi dan relaksasi.",
+      "category": "PELATIHAN"
+    },
+    {
+      "title": "Sarjana Ilmu Politik · UGM",
+      "description": "Latar pendidikan formal Sarjana Ilmu Politik dari Universitas Gadjah Mada.",
+      "category": "PENDIDIKAN"
+    }
+  ],
+  "watchCards": [
+    {"target": "about", "title": "Kenali Erni", "subtitle": "Profil & pendekatan profesional", "image": "/clients/erni/portrait_3.webp"},
+    {"target": "originals", "title": "Layanan Hipnoterapi", "subtitle": "Privat, keluarga, dan kebiasaan", "image": "/clients/erni/activity_05.webp"},
+    {"target": "skills", "title": "Bidang Keahlian", "subtitle": "Hipnoterapi & mindset coaching", "image": "/clients/erni/activity_04.webp"},
+    {"target": "picks", "title": "Program Unggulan", "subtitle": "Kelas dan corporate workshop", "image": "/clients/erni/activity_08.webp"},
+    {"target": "journey", "title": "Jejak Perjalanan", "subtitle": "Belajar, praktik, dan berbagi", "image": "/clients/erni/activity_07.webp"},
+    {"target": "moments", "title": "Sertifikasi & Sorotan", "subtitle": "Pendidikan dan kompetensi", "image": "/clients/erni/activity_15.webp"}
+  ],
+  "pickCards": [
+    {"label": "PRIVAT", "title": "Ruang Aman untuk Berproses", "detail": "Sesi terarah yang dimulai dengan mendengarkan cerita dan kebutuhan Anda.", "image": "/clients/erni/portrait_3.webp", "palette": {"from": "#210b14", "via": "#6a2238", "to": "#09080d", "accent": "#ff667f"}},
+    {"label": "SELF-HEALING", "title": "Kenali Emosi, Kenali Diri", "detail": "Latihan regulasi emosi dan relaksasi melalui kelas interaktif.", "image": "/clients/erni/activity_05.webp", "palette": {"from": "#192b34", "via": "#35717b", "to": "#0a141c", "accent": "#a8ecdf"}},
+    {"label": "PARENTING", "title": "Koneksi yang Bertumbuh", "detail": "Komunikasi sugestif positif dan pengasuhan dengan kesadaran emosi.", "image": "/clients/erni/activity_15.webp", "palette": {"from": "#321719", "via": "#926351", "to": "#150d11", "accent": "#ffccae"}},
+    {"label": "TRAINING", "title": "Belajar Lewat Praktik", "detail": "Kelas hipnoterapi dengan empat modul pembelajaran inti.", "image": "/clients/erni/activity_04.webp", "palette": {"from": "#171d2d", "via": "#454f8f", "to": "#090d19", "accent": "#c6c9ff"}},
+    {"label": "CORPORATE", "title": "Wellness untuk Tim", "detail": "Motivasi, resiliensi, dan manajemen stres di lingkungan organisasi.", "image": "/clients/erni/activity_08.webp", "palette": {"from": "#231921", "via": "#735269", "to": "#100a13", "accent": "#f5b6d5"}},
+    {"label": "EXPERIENCE", "title": "Zero Mind Experiences", "detail": "Program refleksi dan pembelajaran intensif di alam terbuka.", "image": "/clients/erni/activity_17.webp", "palette": {"from": "#19261b", "via": "#476b46", "to": "#0a120c", "accent": "#c5e9ab"}}
+  ],
+  "picksHeading": "Program & Cerita Pilihan",
+  "picksKicker": "TERAPI PRIVAT · MINI-COURSE · WORKSHOP · SELF-HELP",
+  "journeyHeading": "Perjalanan yang Terus Bertumbuh",
+  "journeyAside": "Dari studi di UGM hingga praktik hipnoterapi, kelas pengembangan diri, dan program organisasi, perjalanan Erni mempertemukan pembelajaran, pengalaman, dan pelayanan. Dokumentasi workshop yang ditampilkan berasal dari koleksi foto kegiatan yang dibagikan untuk profil ini.",
+  "journeyKicker": "PENDIDIKAN · TERAPI · PELATIHAN · PENGABDIAN",
+  "templateId": "original",
+  "identityMode": "photo"
+}
