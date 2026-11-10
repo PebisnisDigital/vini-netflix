@@ -18,8 +18,8 @@
     "Edukasi & Pelatihan"
   ],
   "photo": {
-    "src": "/clients/erni/portrait_3.webp",
-    "alt": "Foto asli Erni Marutiningrum memakai hijab abu-abu muda, potret wajah dari koleksi pribadi klien"
+    "src": "/clients/erni/portrait_transparent.webp",
+    "alt": "Foto asli Erni Marutiningrum memakai hijab abu-abu muda dengan bros kupu-kupu, latar belakang transparan"
   },
   "email": "erningrum@gmail.com",
   "whatsapp": "+62 856-9315-6377",
@@ -70,7 +70,7 @@
       "category": "Hipnoterapi & Konsultasi",
       "tags": ["Intake Interview", "Pendekatan Personal", "Privasi Klien"],
       "website": "https://wa.me/6285693156377?text=Halo%20Bu%20Erni%2C%20saya%20ingin%20bertanya%20tentang%20sesi%20hipnoterapi%20privat.",
-      "image": "/clients/erni/portrait_3.webp"
+      "image": "/clients/erni/portrait_transparent.webp"
     },
     {
       "title": "Terapi Anak & Remaja",
@@ -252,7 +252,7 @@
     }
   ],
   "watchCards": [
-    {"target": "about", "title": "Kenali Erni", "subtitle": "Profil & pendekatan profesional", "image": "/clients/erni/portrait_3.webp"},
+    {"target": "about", "title": "Kenali Erni", "subtitle": "Profil & pendekatan profesional", "image": "/clients/erni/portrait_transparent.webp"},
     {"target": "originals", "title": "Layanan Hipnoterapi", "subtitle": "Privat, keluarga, dan kebiasaan", "image": "/clients/erni/activity_05.webp"},
     {"target": "skills", "title": "Bidang Keahlian", "subtitle": "Hipnoterapi & mindset coaching", "image": "/clients/erni/activity_04.webp"},
     {"target": "picks", "title": "Program Unggulan", "subtitle": "Kelas dan corporate workshop", "image": "/clients/erni/activity_08.webp"},
@@ -260,7 +260,7 @@
     {"target": "moments", "title": "Sertifikasi & Sorotan", "subtitle": "Pendidikan dan kompetensi", "image": "/clients/erni/activity_15.webp"}
   ],
   "pickCards": [
-    {"label": "PRIVAT", "title": "Ruang Aman untuk Berproses", "detail": "Sesi terarah yang dimulai dengan mendengarkan cerita dan kebutuhan Anda.", "image": "/clients/erni/portrait_3.webp", "palette": {"from": "#210b14", "via": "#6a2238", "to": "#09080d", "accent": "#ff667f"}},
+    {"label": "PRIVAT", "title": "Ruang Aman untuk Berproses", "detail": "Sesi terarah yang dimulai dengan mendengarkan cerita dan kebutuhan Anda.", "image": "/clients/erni/portrait_transparent.webp", "palette": {"from": "#210b14", "via": "#6a2238", "to": "#09080d", "accent": "#ff667f"}},
     {"label": "SELF-HEALING", "title": "Kenali Emosi, Kenali Diri", "detail": "Latihan regulasi emosi dan relaksasi melalui kelas interaktif.", "image": "/clients/erni/activity_05.webp", "palette": {"from": "#192b34", "via": "#35717b", "to": "#0a141c", "accent": "#a8ecdf"}},
     {"label": "PARENTING", "title": "Koneksi yang Bertumbuh", "detail": "Komunikasi sugestif positif dan pengasuhan dengan kesadaran emosi.", "image": "/clients/erni/activity_15.webp", "palette": {"from": "#321719", "via": "#926351", "to": "#150d11", "accent": "#ffccae"}},
     {"label": "TRAINING", "title": "Belajar Lewat Praktik", "detail": "Kelas hipnoterapi dengan empat modul pembelajaran inti.", "image": "/clients/erni/activity_04.webp", "palette": {"from": "#171d2d", "via": "#454f8f", "to": "#090d19", "accent": "#c6c9ff"}},
