@@ -20,3 +20,18 @@ export function updateDomainConfig(config, previous, next) {
   const remaining = (config.rewrites || []).filter(r => !oldKeys.has(JSON.stringify(r)));
   return { ...config, rewrites: [...domainRules(next), ...remaining] };
 }
+
+export function domainHosts(value, includeWww = true) {
+  const host = normalizeCustomDomain(value);
+  if (!includeWww) return [host];
+  const bare = host.startsWith('www.') ? normalizeCustomDomain(host.slice(4)) : host;
+  return [bare, normalizeCustomDomain('www.' + bare)];
+}
+export function extendDomains(registry, hosts, slug) {
+  const next = {...registry};
+  for (const host of hosts) {
+    if (Object.hasOwn(next, host) && next[host] !== slug) throw new Error('Domain sudah dipakai klien lain: ' + host);
+    next[host] = slug;
+  }
+  return next;
+}

@@ -1,6 +1,7 @@
 import { json, requirePostSession } from '../server/auth.mjs';
 import { createClientAliasPullRequest } from '../server/client-aliases.mjs';
 import { createDomainRequest } from '../server/domain-publishing.mjs';
+import { advanceDomain } from '../server/domain-status.mjs';
 
 export async function POST(request) {
   let access;
@@ -11,6 +12,7 @@ export async function POST(request) {
     const raw = await request.text();
     if (raw.length > 2000) return json({ error: 'Permintaan terlalu besar.' }, 413);
     const input = JSON.parse(raw);
+    if (input?.action === 'custom-domain-status') return json(await advanceDomain(access.session.token, input));
     if (input?.action === 'custom-domain') return json(await createDomainRequest(access.session.token, input), 201);
     return json(await createClientAliasPullRequest(access.session.token, input), 201);
   } catch (cause) {
