@@ -5,6 +5,7 @@ import App from './App';
 import { PortfolioProvider } from './data/PortfolioContext';
 import { loadClient } from './data/clientRegistry';
 import './index.css';
+import customDomains from './data/customDomains.json';
 
 async function start() {
   const root = createRoot(document.getElementById('root')!);
@@ -22,6 +23,10 @@ async function start() {
       document.title = 'Formulir Klien — PESONAFLIX Studio';
       const { default: ClientIntakeForm } = await import('./components/ClientIntakeForm');
       root.render(<StrictMode><StudioAccessGate><ClientIntakeForm /></StudioAccessGate></StrictMode>);
+    } else if (new URLSearchParams(location.search).get('tab') === 'domains') {
+      document.title = 'Custom Domain — PESONAFLIX Studio';
+      const { default: CustomDomainManager } = await import('./components/CustomDomainManager');
+      root.render(<StrictMode><StudioAccessGate><CustomDomainManager /></StudioAccessGate></StrictMode>);
     } else {
       document.title = 'PESONAFLIX Studio — Kelola Website Klien';
       const { default: StudioEditor } = await import('./components/StudioEditor');
@@ -36,7 +41,9 @@ async function start() {
     return;
   }
   try {
-    const client = await loadClient(location.pathname);
+    const host = location.hostname.toLowerCase();
+    const mapped = Object.prototype.hasOwnProperty.call(customDomains, host) ? (customDomains as Record<string, string>)[host] : undefined;
+    const client = await loadClient(mapped && /^\/?$/.test(location.pathname) ? '/' + mapped : location.pathname);
     if (!client) {
       document.title = 'Halaman Tidak Ditemukan — PESONAFLIX';
       root.render(<div className="flex min-h-screen flex-col items-center justify-center gap-5 bg-[#07070a] p-6 text-center text-white"><h1 className="text-4xl font-bold">Halaman belum tersedia</h1><p>Portofolio belum diterbitkan atau nama URL keliru.</p><a className="rounded-lg bg-white px-6 py-3 font-bold text-black" href="/">Kembali ke Beranda</a></div>);
