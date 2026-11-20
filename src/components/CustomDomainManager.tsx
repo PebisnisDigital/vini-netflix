@@ -22,7 +22,7 @@ export default function CustomDomainManager() {
     if (busy) return;
     setBusy(true); setError(''); setPending(null);
     try {
-      const response = await fetch('/api/custom-domain', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', 'x-personalflix-action': '1' }, body: JSON.stringify({ sourceSlug: slug, domain }) });
+      const response = await fetch('/api/alias', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', 'x-personalflix-action': '1' }, body: JSON.stringify({ action: 'custom-domain', sourceSlug: slug, domain }) });
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || 'Gagal menyiapkan domain.');
       setPending(result as DomainRequest);
