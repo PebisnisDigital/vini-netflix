@@ -54,6 +54,8 @@ export function renderClientHtml(template, { name, bio, photo }) {
 async function main() {
   const root = process.cwd();
   const dist = path.join(root, 'dist');
+  const domainRegistry = await readFile(path.join(root, 'src/data/customDomains.json'), 'utf8');
+  await writeFile(path.join(dist, 'domain-registry.json'), domainRegistry);
   const template = await readFile(path.join(dist, 'vini/index.html'), 'utf8');
   const files = (await readdir(path.join(root, 'src/data/clients'))).filter((f) => f.endsWith('.json'));
   const registry = JSON.parse(await readFile(path.join(root, 'src/data/clientAliases.json'), 'utf8'));
