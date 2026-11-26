@@ -42,11 +42,28 @@
   "education": [],
   "projects": [
     {
+      "title": "British Propolis",
+      "year": "PRODUK PILIHAN",
+      "description": "British Propolis merupakan suplemen herbal berbentuk tetes dari ekstrak propolis lebah. Menurut informasi produk yang disampaikan, komposisinya sekitar 75% liquid propolis dan 25% propolis trigona, disebut bebas alkohol, dan dipasarkan oleh PT Maisya Makmur. Untuk harga, stok, nomor izin BPOM, sertifikasi halal, dan aturan pakai, silakan konfirmasi langsung kepada Atiek. Suplemen bukan pengganti obat.",
+      "category": "Produk Herbal • Suplemen",
+      "tags": [
+        "British Propolis",
+        "Propolis Lebah",
+        "Suplemen Tetes"
+      ],
+      "image": "/clients/atiekirawati/british-propolis.jpeg",
+      "website": "https://wa.me/6285281982136?text=Halo%20Bu%20Atiek%2C%20saya%20melihat%20British%20Propolis%20di%20PESONAFLIX.%20Boleh%20info%20harga%2C%20stok%2C%20nomor%20BPOM%2Fsertifikat%20halal%2C%20dan%20cara%20pesan%3F"
+    },
+    {
       "title": "Ruang Bisnis Online",
       "year": "BISNIS",
       "description": "Kenali aktivitas Atiek dalam bisnis online. Produk dan informasi pemesanan terbaru bisa ditanyakan langsung melalui WhatsApp.",
       "category": "Bisnis Online",
-      "tags": ["Bisnis Online", "Produk", "Komunikasi"],
+      "tags": [
+        "Bisnis Online",
+        "Produk",
+        "Komunikasi"
+      ],
       "image": "/clients/atiekirawati/avatar-square.webp"
     },
     {
@@ -54,7 +71,11 @@
       "year": "AFFILIATE",
       "description": "Atiek menekuni affiliate marketing. Ingin tahu rekomendasi yang sedang dibagikan? Mulai obrolan langsung dengannya.",
       "category": "Affiliate Marketing",
-      "tags": ["Affiliate", "Rekomendasi", "Digital"],
+      "tags": [
+        "Affiliate",
+        "Rekomendasi",
+        "Digital"
+      ],
       "image": "/clients/atiekirawati/foto-utama.webp"
     },
     {
@@ -62,7 +83,11 @@
       "year": "KONTAK",
       "description": "Ada pertanyaan tentang bisnis online, rekomendasi affiliate, atau ajakan kolaborasi? Sampaikan lewat WhatsApp Atiek.",
       "category": "Koneksi",
-      "tags": ["WhatsApp", "Tanya Langsung", "Kolaborasi"],
+      "tags": [
+        "WhatsApp",
+        "Tanya Langsung",
+        "Kolaborasi"
+      ],
       "website": "https://wa.me/6285281982136?text=Halo%20Bu%20Atiek%2C%20saya%20melihat%20profil%20Ibu%20di%20PESONAFLIX."
     }
   ],
@@ -116,9 +141,14 @@
     }
   ],
   "skillsHeading": "Kenali Fokusnya, Mulai Ceritanya",
-  "skillsAside": "Atiek menekuni bisnis online dan affiliate marketing. Kategori produk, katalog, pengalaman, serta hasil kerja belum dirinci dalam data profil, jadi informasi spesifik dapat ditanyakan langsung tanpa perlu menebak-nebak.",
+  "skillsAside": "Atiek menekuni bisnis online dan affiliate marketing. Salah satu produk yang kini ditampilkan adalah British Propolis. Untuk harga, ketersediaan, dan rincian produk, hubungi Atiek secara langsung melalui WhatsApp.",
   "skillsKicker": "BISNIS ONLINE · AFFILIATE · KONEKSI",
   "highlights": [
+    {
+      "title": "British Propolis",
+      "description": "Produk suplemen herbal tetes yang diperkenalkan Atiek; informasi detail dan pemesanan melalui WhatsApp.",
+      "category": "PRODUK PILIHAN"
+    },
     {
       "title": "Bisnis Online",
       "description": "Salah satu aktivitas utama yang diperkenalkan Atiek.",
@@ -144,8 +174,9 @@
     },
     {
       "target": "originals",
-      "title": "Jelajahi Aktivitas",
-      "subtitle": "Bisnis online & affiliate"
+      "title": "Produk British Propolis",
+      "subtitle": "Lihat foto & info produk",
+      "image": "/clients/atiekirawati/british-propolis.jpeg"
     },
     {
       "target": "skills",
@@ -160,27 +191,54 @@
   ],
   "pickCards": [
     {
+      "label": "PRODUK PILIHAN",
+      "title": "British Propolis",
+      "detail": "Suplemen propolis cair. Tanyakan harga, stok, dan informasi produk langsung kepada Atiek.",
+      "image": "/clients/atiekirawati/british-propolis.jpeg",
+      "palette": {
+        "from": "#582b32",
+        "via": "#d48c87",
+        "to": "#1f111a",
+        "accent": "#ffe5b1"
+      }
+    },
+    {
       "label": "KENALAN",
       "title": "Siapa Atiek Irawati?",
       "detail": "Satu halaman untuk mengenal Atiek dan aktivitas digitalnya.",
       "image": "/clients/atiekirawati/avatar-square.webp",
-      "palette": { "from": "#5c2944", "via": "#d987a2", "to": "#211125", "accent": "#ffe4c6" }
+      "palette": {
+        "from": "#5c2944",
+        "via": "#d987a2",
+        "to": "#211125",
+        "accent": "#ffe4c6"
+      }
     },
     {
       "label": "BISNIS ONLINE",
       "title": "Dari Online Jadi Peluang",
       "detail": "Cari tahu lebih jauh aktivitas bisnis online Atiek.",
-      "palette": { "from": "#70413c", "via": "#cc9477", "to": "#241525", "accent": "#ffe1bd" }
+      "palette": {
+        "from": "#70413c",
+        "via": "#cc9477",
+        "to": "#241525",
+        "accent": "#ffe1bd"
+      }
     },
     {
       "label": "AFFILIATE",
       "title": "Rekomendasi & Koneksi",
       "detail": "Tanya langsung soal kegiatan affiliate yang ia jalani.",
-      "palette": { "from": "#69365c", "via": "#e190b1", "to": "#211229", "accent": "#ffe1f2" }
+      "palette": {
+        "from": "#69365c",
+        "via": "#e190b1",
+        "to": "#211229",
+        "accent": "#ffe1f2"
+      }
     }
   ],
-  "picksHeading": "Cerita Manis di Dunia Digital",
-  "picksKicker": "KENALAN · BISNIS ONLINE · AFFILIATE",
+  "picksHeading": "Produk Pilihan & Cerita Atiek",
+  "picksKicker": "BRITISH PROPOLIS · BISNIS ONLINE · AFFILIATE",
   "seasons": [
     {
       "number": 1,
@@ -192,9 +250,18 @@
           "title": "Halo, Ini Atiek!",
           "runtime": "Perkenalan",
           "description": "Sosok Atiek di balik ilustrasi chibi, dengan semangat untuk terus terhubung lewat dunia digital.",
-          "tags": ["Atiek", "Profil", "Digital"],
+          "tags": [
+            "Atiek",
+            "Profil",
+            "Digital"
+          ],
           "image": "/clients/atiekirawati/avatar-square.webp",
-          "palette": { "from": "#4b2440", "via": "#c57698", "to": "#180b1a", "accent": "#ffdeca" }
+          "palette": {
+            "from": "#4b2440",
+            "via": "#c57698",
+            "to": "#180b1a",
+            "accent": "#ffdeca"
+          }
         }
       ]
     },
@@ -205,24 +272,58 @@
       "synopsis": "Dua bidang digital dan satu pintu komunikasi untuk mengetahui informasi lebih lanjut langsung dari Atiek.",
       "episodes": [
         {
+          "title": "Mengenal British Propolis",
+          "runtime": "Produk Pilihan",
+          "description": "Suplemen herbal tetes berbahan propolis lebah. Komposisi dan informasi administratif produk mengikuti keterangan pemasok; tanyakan detail label dan pemesanan kepada Atiek.",
+          "tags": [
+            "British Propolis",
+            "Produk Herbal",
+            "Tanya Produk"
+          ],
+          "image": "/clients/atiekirawati/british-propolis.jpeg",
+          "palette": {
+            "from": "#4e2529",
+            "via": "#c37873",
+            "to": "#210f17",
+            "accent": "#ffe3b1"
+          }
+        },
+        {
           "title": "Cerita Bisnis Online",
           "runtime": "Bisnis",
           "description": "Atiek menjalani aktivitas bisnis online. Detail produk serta pemesanan dapat dikonfirmasi langsung.",
-          "tags": ["Bisnis Online", "Produk"],
-          "palette": { "from": "#583327", "via": "#bc806c", "to": "#1d111c", "accent": "#ffe0bd" }
+          "tags": [
+            "Bisnis Online",
+            "Produk"
+          ],
+          "palette": {
+            "from": "#583327",
+            "via": "#bc806c",
+            "to": "#1d111c",
+            "accent": "#ffe0bd"
+          }
         },
         {
           "title": "Pilihan di Dunia Affiliate",
           "runtime": "Affiliate",
           "description": "Penasaran dengan rekomendasi affiliate Atiek? Kirim pertanyaan melalui WhatsApp.",
-          "tags": ["Affiliate", "Rekomendasi", "WhatsApp"],
-          "palette": { "from": "#5d2653", "via": "#d477a9", "to": "#1b1022", "accent": "#ffe2ed" }
+          "tags": [
+            "Affiliate",
+            "Rekomendasi",
+            "WhatsApp"
+          ],
+          "palette": {
+            "from": "#5d2653",
+            "via": "#d477a9",
+            "to": "#1b1022",
+            "accent": "#ffe2ed"
+          }
         }
       ]
     }
   ],
   "journeyHeading": "Setiap Koneksi Punya Cerita",
-  "journeyAside": "Lewat bisnis online dan affiliate, Atiek membuka ruang untuk saling mengenal. Ingin tahu produk, rekomendasi, atau peluang kolaborasi yang tersedia? Langsung saja kirim pesan—Atiek bisa menjelaskan sesuai aktivitas terbarunya.",
+  "journeyAside": "Mau kenalan dengan Atiek atau bertanya soal British Propolis? Foto dan informasi singkat produknya ada di galeri. Untuk harga, stok, aturan pakai, dan pemesanan, silakan chat Atiek melalui WhatsApp.",
   "journeyKicker": "KENALAN · TANYA · TERHUBUNG",
   "templateId": "chibi-3d"
 }
