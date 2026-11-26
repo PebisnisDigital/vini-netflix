@@ -1,0 +1,35 @@
+name: Temporary Atiek product image import
+on:
+  push:
+    branches:
+      - cms/atiekirawati-propolis-20261126
+    paths:
+      - .github/workflows/import-atiekirawati-propolis.yml
+permissions:
+  contents: write
+jobs:
+  fetch-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Store supplied product photo in client assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          image="public/clients/atiekirawati/british-propolis.jpeg"
+          mkdir -p "$(dirname "$image")"
+          curl --fail --location --silent --show-error --retry 3 \
+            'https://www.dropbox.com/scl/fi/n6sv3sz4gvgpwtn4u9jwv/WhatsApp-Image-2026-11-26-at-09.43.01.jpeg?rlkey=ijl7cq79kcm8vdncgim5afprq&dl=1' \
+            -o "$image"
+          file --mime-type "$image" | grep -q 'image/jpeg'
+          test "$(wc -c < "$image")" -ge 5000
+          test "$(wc -c < "$image")" -le 1000000
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$image"
+          if ! git diff --cached --quiet; then
+            git commit -m "asset(atiekirawati): add original British Propolis product photo"
+            git push origin HEAD:cms/atiekirawati-propolis-20261126
+          fi
