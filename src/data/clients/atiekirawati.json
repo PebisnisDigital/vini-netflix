@@ -55,6 +55,33 @@
       "website": "https://wa.me/6285281982136?text=Halo%20Bu%20Atiek%2C%20saya%20melihat%20British%20Propolis%20di%20PESONAFLIX.%20Boleh%20info%20harga%2C%20stok%2C%20nomor%20BPOM%2Fsertifikat%20halal%2C%20dan%20cara%20pesan%3F"
     },
     {
+      "title": "Steffi Pro",
+      "year": "PRODUK PILIHAN",
+      "category": "Pemanis Stevia • Produk Dapur",
+      "tags": [
+        "Steffi Pro",
+        "Pemanis Stevia",
+        "Masak & Minuman"
+      ],
+      "image": "/clients/atiekirawati/steffi.jpeg",
+      "website": "https://wa.me/6285281982136?text=Halo%20Bu%20Atiek%2C%20saya%20melihat%20Steffi%20Pro%20(pemanis%20stevia)%20di%20PESONAFLIX.%20Boleh%20info%20komposisi%2C%20cara%20pakai%2C%20harga%2C%20stok%2C%20dan%20cara%20pesan%3F",
+      "description": "Steffi Pro adalah produk pemanis berbasis stevia yang ditampilkan Atiek sebagai alternatif pemanis untuk makanan atau minuman, sesuai informasi pada poster produknya. Bunda bisa menanyakan komposisi lengkap, takaran saji, cara pemakaian, harga, stok, serta detail izin edar dan sertifikasi halal langsung kepada Atiek. Produk ini tidak dimaksudkan untuk mengobati kondisi kesehatan."
+    },
+    {
+      "title": "BP Norway",
+      "year": "PRODUK PILIHAN",
+      "category": "Suplemen Nutrisi Anak",
+      "tags": [
+        "BP Norway",
+        "Atlantic Salmon Oil",
+        "Omega-3",
+        "DHA & EPA"
+      ],
+      "image": "/clients/atiekirawati/bp-norway.jpeg",
+      "website": "https://wa.me/6285281982136?text=Halo%20Bu%20Atiek%2C%20saya%20melihat%20produk%20BP%20Norway%20di%20website%20PESONAFLIX.%20Boleh%20info%20fungsi%2C%20harga%2C%20stok%2C%20dan%20cara%20pesan%3F",
+      "description": "BP Norway diperkenalkan sebagai produk nutrisi anak berbahan Atlantic salmon oil yang menurut informasi produk mengandung omega-3, DHA, dan EPA. Untuk komposisi lengkap, kecocokan usia, aturan pakai, informasi alergi ikan, izin edar, harga, dan ketersediaan, silakan konsultasikan detail produk dengan Atiek. Suplemen bukan pengganti pola makan seimbang atau saran tenaga kesehatan."
+    },
+    {
       "title": "Ruang Bisnis Online",
       "year": "BISNIS",
       "description": "Kenali aktivitas Atiek dalam bisnis online. Produk dan informasi pemesanan terbaru bisa ditanyakan langsung melalui WhatsApp.",
@@ -141,12 +168,22 @@
     }
   ],
   "skillsHeading": "Kenali Fokusnya, Mulai Ceritanya",
-  "skillsAside": "Atiek menekuni bisnis online dan affiliate marketing. Salah satu produk yang kini ditampilkan adalah British Propolis. Untuk harga, ketersediaan, dan rincian produk, hubungi Atiek secara langsung melalui WhatsApp.",
+  "skillsAside": "Atiek aktif dalam bisnis online dan affiliate marketing. Produk yang kini ditampilkan adalah British Propolis, Steffi Pro (pemanis stevia), dan BP Norway. Harga, stok, legalitas, serta rincian penggunaan bisa ditanyakan langsung melalui WhatsApp.",
   "skillsKicker": "BISNIS ONLINE · AFFILIATE · KONEKSI",
   "highlights": [
     {
       "title": "British Propolis",
       "description": "Produk suplemen herbal tetes yang diperkenalkan Atiek; informasi detail dan pemesanan melalui WhatsApp.",
+      "category": "PRODUK PILIHAN"
+    },
+    {
+      "title": "Steffi Pro",
+      "description": "Pemanis berbasis stevia yang diperkenalkan Atiek untuk makanan dan minuman.",
+      "category": "PRODUK PILIHAN"
+    },
+    {
+      "title": "BP Norway",
+      "description": "Produk nutrisi anak berbahan Atlantic salmon oil menurut informasi produk. Cek label dan aturan pakai.",
       "category": "PRODUK PILIHAN"
     },
     {
@@ -174,9 +211,21 @@
     },
     {
       "target": "originals",
-      "title": "Produk British Propolis",
-      "subtitle": "Lihat foto & info produk",
+      "title": "Jelajahi 3 Produk",
+      "subtitle": "British Propolis · Steffi Pro · BP Norway",
       "image": "/clients/atiekirawati/british-propolis.jpeg"
+    },
+    {
+      "target": "originals",
+      "title": "Steffi Pro",
+      "subtitle": "Alternatif pemanis stevia",
+      "image": "/clients/atiekirawati/steffi.jpeg"
+    },
+    {
+      "target": "originals",
+      "title": "BP Norway",
+      "subtitle": "Kenali nutrisi anak",
+      "image": "/clients/atiekirawati/bp-norway.jpeg"
     },
     {
       "target": "skills",
@@ -200,6 +249,30 @@
         "via": "#d48c87",
         "to": "#1f111a",
         "accent": "#ffe5b1"
+      }
+    },
+    {
+      "label": "PRODUK PILIHAN",
+      "title": "Steffi Pro",
+      "detail": "Pemanis berbasis stevia untuk makanan dan minuman. Tanyakan komposisi, takaran, serta harga kepada Atiek.",
+      "image": "/clients/atiekirawati/steffi.jpeg",
+      "palette": {
+        "from": "#512a33",
+        "via": "#d89b94",
+        "to": "#1c121b",
+        "accent": "#ffe5cd"
+      }
+    },
+    {
+      "label": "NUTRISI ANAK",
+      "title": "BP Norway",
+      "detail": "Produk dengan Atlantic salmon oil, omega-3, DHA, dan EPA menurut keterangan produk. Cek info lengkap ke Atiek.",
+      "image": "/clients/atiekirawati/bp-norway.jpeg",
+      "palette": {
+        "from": "#15324e",
+        "via": "#7192b1",
+        "to": "#101827",
+        "accent": "#f9e5bf"
       }
     },
     {
@@ -237,8 +310,8 @@
       }
     }
   ],
-  "picksHeading": "Produk Pilihan & Cerita Atiek",
-  "picksKicker": "BRITISH PROPOLIS · BISNIS ONLINE · AFFILIATE",
+  "picksHeading": "Pilihan Produk Atiek",
+  "picksKicker": "BRITISH PROPOLIS · STEFFI PRO · BP NORWAY",
   "seasons": [
     {
       "number": 1,
@@ -267,9 +340,9 @@
     },
     {
       "number": 2,
-      "title": "Bisnis, Affiliate, dan Percakapan",
+      "title": "Produk, Bisnis & Affiliate",
       "period": "Aktivitas saat ini",
-      "synopsis": "Dua bidang digital dan satu pintu komunikasi untuk mengetahui informasi lebih lanjut langsung dari Atiek.",
+      "synopsis": "Kenali British Propolis, Steffi Pro, dan BP Norway, lalu terhubung dengan Atiek untuk informasi dan pemesanan.",
       "episodes": [
         {
           "title": "Mengenal British Propolis",
@@ -286,6 +359,40 @@
             "via": "#c37873",
             "to": "#210f17",
             "accent": "#ffe3b1"
+          }
+        },
+        {
+          "title": "Kenalan dengan Steffi Pro",
+          "runtime": "Produk Pilihan",
+          "description": "Steffi Pro merupakan produk pemanis stevia. Cek informasi kandungan, takaran pakai, dan harga langsung melalui Atiek.",
+          "tags": [
+            "Steffi Pro",
+            "Pemanis Stevia",
+            "Dapur Keluarga"
+          ],
+          "image": "/clients/atiekirawati/steffi.jpeg",
+          "palette": {
+            "from": "#512a33",
+            "via": "#d89b94",
+            "to": "#1c121b",
+            "accent": "#ffe5cd"
+          }
+        },
+        {
+          "title": "Kenali BP Norway",
+          "runtime": "Nutrisi Anak",
+          "description": "BP Norway diperkenalkan sebagai nutrisi anak berbahan Atlantic salmon oil. Konfirmasi kandungan, aturan pakai, dan informasi produk melalui Atiek.",
+          "tags": [
+            "BP Norway",
+            "Atlantic Salmon Oil",
+            "Omega-3"
+          ],
+          "image": "/clients/atiekirawati/bp-norway.jpeg",
+          "palette": {
+            "from": "#15324e",
+            "via": "#7192b1",
+            "to": "#101827",
+            "accent": "#f9e5bf"
           }
         },
         {
@@ -323,7 +430,7 @@
     }
   ],
   "journeyHeading": "Setiap Koneksi Punya Cerita",
-  "journeyAside": "Mau kenalan dengan Atiek atau bertanya soal British Propolis? Foto dan informasi singkat produknya ada di galeri. Untuk harga, stok, aturan pakai, dan pemesanan, silakan chat Atiek melalui WhatsApp.",
+  "journeyAside": "Lihat tiga produk pilihan Atiek: British Propolis, Steffi Pro, dan BP Norway. Pilih produk yang ingin diketahui lebih lanjut, lalu hubungi Atiek via WhatsApp untuk menanyakan komposisi, penggunaan, harga, dan ketersediaan.",
   "journeyKicker": "KENALAN · TANYA · TERHUBUNG",
   "templateId": "chibi-3d"
 }
